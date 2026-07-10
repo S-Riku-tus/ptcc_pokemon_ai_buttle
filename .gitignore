@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+kaggle.json
+**/kaggle.json
+
+# Official engine files and binaries
+/cg/
+/vendor/cg/
+*.so
+*.dll
+*.dylib
+
+# Build artifacts
+/artifacts/*
+!/artifacts/.gitkeep
+submission.tar.gz
+*.tar.gz
+benchmark_result.json
+
+# Raw Kaggle data
+/data/replays/*
+!/data/replays/.gitkeep
+/data/logs/*
+!/data/logs/.gitkeep
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
