@@ -1,148 +1,105 @@
-# PTCG AI Battle Challenge Agent
+# PTCG AI Battle Agent
 
-ポケモンカードゲーム AI Battle Challenge用のGit管理リポジトリです。
+Repository for Pokemon TCG AI Battle Challenge agents.
 
-> **2026-07-10更新**: Mega Lucario exはメタから絶滅したため、現メタ最強格の
-> `agents/cynthia_garchomp_v1`（主力候補）と `agents/alakazam741_v1`（ヘッジ）を追加。
-> 詳細は各`STRATEGY.md`と`docs/PUBLIC_STRATEGY_RESEARCH.md`の§6を参照。
-> ローカル対戦は依存なしで `python scripts/local_arena.py cynthia_garchomp_v1 alakazam741_v1 --games 40`。
+The current development focus is the Alakazam line:
 
-この構成では、提出中の安定版を直接上書きせず、`agents/`配下に戦略・バージョンごとの
-エージェントを保存します。Kaggleへ提出する`submission.tar.gz`、取得したReplay JSON、
-実験途中のログはGit管理対象から分離します。
+- `agents/alakazam741_v1`: strong baseline from the first Alakazam ladder run.
+- `agents/alakazam741_v2`: current candidate. It fixes several v1 ladder issues, but should still be compared against v1 before becoming the only active line.
 
-## ディレクトリ構成
+Other deck lines are kept locally under `archive/agents/` for reference and regression checks. The archive directory is intentionally ignored by Git.
+
+## Layout
 
 ```text
-ptcg-ai-battle/
-├── agents/
-│   └── mega_lucario_v1/       # 現在の改善版エージェント
-│       ├── main.py
-│       ├── deck.csv
-│       ├── metadata.json
-│       └── STRATEGY.md
-├── archive/
-│   └── legacy_v0/             # 初期の20連敗版。比較用で提出非推奨
-├── scripts/
-│   ├── build_submission.py    # submission.tar.gz生成
-│   ├── validate_agent.py      # 静的検証
-│   ├── benchmark.py           # ローカル対戦
-│   ├── fetch_replays.py       # Kaggle Episode取得
-│   └── new_agent.py           # 新バージョン複製
-├── kaggle/
-│   └── create_submission_from_git.py
-├── data/
-│   ├── replays/               # Replay JSON。原則Gitに入れない
-│   ├── logs/                  # Agent logs。原則Gitに入れない
-│   └── summaries/             # 集計CSVなどはGit管理可能
-├── experiments/
-│   └── results.csv            # 実験結果一覧
-├── docs/
-├── tests/
-└── artifacts/                 # submission.tar.gz等。Gitに入れない
+agents/
+  alakazam741_v1/
+  alakazam741_v2/
+  _base/
+  _opponents/
+archive/
+  agents/                  # local-only retired deck lines
+  legacy_v0/               # local-only older baseline
+data/
+  logs/                    # local-only generated logs
+  replays/                 # local-only replay downloads
+  runs/                    # local-only experiment runs
+  submissions/             # local-only submission logs
+  summaries/               # local-only generated analysis
+docs/
+experiments/
+kaggle/
+scripts/
+tests/
 ```
 
-## 最初のGit登録
+Only source code, strategies, small experiment records, docs, and directory keepers should be tracked. Generated Kaggle logs, replays, ZIP files, and archived agents stay local.
 
-```bash
-git init
-git add .
-git commit -m "chore: initialize PTCG agent repository"
-git branch -M main
-git remote add origin <作成したGitHubリポジトリURL>
-git push -u origin main
+## Setup
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install pytest kaggle
 ```
 
-`main`ブランチには、提出可能で検証済みの状態だけを置く運用を推奨します。
-改善作業は次のようなブランチで行います。
+The full `requirements-dev.txt` may require extra native build tools on Windows because `kaggle-environments` can pull heavier dependencies.
 
-```bash
-git switch -c feature/lucario-energy-policy
+## Validate
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\validate_agent.py --agent alakazam741_v2
+.\.venv\Scripts\python.exe -m pytest
 ```
 
-## 現在版の検証
+## Local Battles
 
-```bash
-python scripts/validate_agent.py --agent mega_lucario_v1
+Use the lightweight local arena when `vendor/cg` is available:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\local_arena.py alakazam741_v2 alakazam741_v1 --games 40
+.\.venv\Scripts\python.exe .\scripts\local_arena.py alakazam741_v2 generic:grimmsnarl --games 80
 ```
 
-## Kaggle提出物の生成
+Archived agents can still be used by path or by name because `local_arena.py` checks `archive/agents/` after `agents/`.
 
-Kaggle NotebookでSimulation Competition DataをInputに追加した状態なら、次で生成できます。
+## Build a Submission
 
-```bash
-python scripts/build_submission.py \
-  --agent mega_lucario_v1 \
-  --output /kaggle/working/submission.tar.gz
+```powershell
+.\.venv\Scripts\python.exe .\scripts\build_submission.py --agent alakazam741_v2
 ```
 
-公式`cg/`を自動検出できない場合：
+On Kaggle, use:
 
-```bash
-python scripts/build_submission.py \
-  --agent mega_lucario_v1 \
-  --cg-source /kaggle/input/.../sample_submission/cg \
-  --output /kaggle/working/submission.tar.gz
+```powershell
+python kaggle/create_submission_from_git.py
 ```
 
-## 新しいエージェント版を作る
+That helper currently builds submissions for:
 
-既存版を直接上書きせず、複製してから変更します。
+- `alakazam741_v1`
+- `alakazam741_v2`
 
-```bash
-python scripts/new_agent.py mega_lucario_v1 mega_lucario_v2
+## Fetch Ladder Logs
+
+Always fetch logs into `data/runs/` with a run name and deck snapshot:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\fetch_submission_logs.py `
+  --submission 54523210 `
+  --run-name alakazam741_v2 `
+  --deck-name "Alakazam v2" `
+  --deck-dir .\agents\alakazam741_v2 `
+  --sleep 0 `
+  --zip
 ```
 
-生成後：
+Each run writes:
 
-```text
-agents/mega_lucario_v2/
-```
+- `run_meta.json`
+- `episodes.csv`
+- `manifest.csv`
+- `deck_snapshot/`
+- per-episode replay JSON and extracted observation logs
+- optional ZIP archive
 
-の`main.py`、`deck.csv`、`STRATEGY.md`を変更してください。
-
-## 対戦履歴の取得
-
-Kaggle API認証済みの環境では、Submission IDからEpisode一覧とReplayを取得できます。
-
-```bash
-python scripts/fetch_replays.py \
-  --submission 12345678 \
-  --output data/replays/submission_12345678
-```
-
-Episode IDが分かっている場合は認証なしの公開CDN取得も可能です。
-
-```bash
-python scripts/fetch_replays.py \
-  --episode 80411394 80408508 \
-  --output data/replays/manual
-```
-
-## 実験の記録
-
-`experiments/results.csv`に最低限、次を残します。
-
-- エージェント名
-- Git commit SHA
-- 対戦相手
-- 試合数
-- 勝敗
-- エラー数
-- 変更内容
-- 備考
-
-勝率だけでなく、先攻・後攻、相手デッキ別、エラー数も分けて記録します。
-
-## Gitに入れないもの
-
-次は`.gitignore`で除外しています。
-
-- `submission.tar.gz`
-- `cg/`と`vendor/cg/`
-- Replay JSON
-- Agent logs
-- Kaggle APIキー
-- 一時ファイル、キャッシュ
-
-学習済みモデルを将来保存する場合、容量が大きければGit LFSを利用してください。
+These outputs are ignored by Git.

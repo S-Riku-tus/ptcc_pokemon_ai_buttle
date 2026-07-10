@@ -124,7 +124,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--agent",
-        default="mega_lucario_v1",
+        default="alakazam741_v2",
         help="Directory name under agents/",
     )
     parser.add_argument("--cg-source")

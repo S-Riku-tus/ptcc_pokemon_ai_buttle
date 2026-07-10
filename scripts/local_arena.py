@@ -8,11 +8,11 @@ Agent specs:
   generic:<dir-name>    a deck.csv under agents/_opponents/<dir-name>/ piloted by
                         the shared GenericPolicy (fair, non-crashing opponent)
   random | first        the official baseline agents (need a 60-card deck via
-                        --random-deck; defaults to the garchomp deck)
+                        --random-deck; defaults to the active Alakazam deck)
 
 Examples:
-  python scripts/local_arena.py cynthia_garchomp_v1 mega_lucario_v1 --games 40
-  python scripts/local_arena.py cynthia_garchomp_v1 generic:grimmsnarl --games 80
+  python scripts/local_arena.py alakazam741_v2 alakazam741_v1 --games 40
+  python scripts/local_arena.py alakazam741_v2 generic:grimmsnarl --games 80
 """
 from __future__ import annotations
 
@@ -75,7 +75,17 @@ def resolve(spec: str, fallback_deck: list[int]):
         return load_baseline(spec, fallback_deck)
     if spec.startswith("generic:"):
         return load_generic_agent(ROOT / "agents" / "_opponents" / spec.split(":", 1)[1])
-    return load_dir_agent(ROOT / "agents" / spec)
+
+    direct = Path(spec)
+    if direct.is_dir():
+        return load_dir_agent(direct.resolve())
+
+    for base in (ROOT / "agents", ROOT / "archive" / "agents"):
+        candidate = base / spec
+        if candidate.is_dir():
+            return load_dir_agent(candidate)
+
+    raise FileNotFoundError(spec)
 
 
 def play_game(agents, decks, stats, max_steps=8000):
@@ -117,13 +127,13 @@ def main():
 
     random.seed(args.seed)
 
-    garchomp_deck = [
+    fallback_deck = [
         int(x) for x in
-        (ROOT / "agents" / "cynthia_garchomp_v1" / "deck.csv")
+        (ROOT / "agents" / "alakazam741_v2" / "deck.csv")
         .read_text(encoding="utf-8-sig").split()
     ]
-    agent_a, diag_a = resolve(args.agent_a, garchomp_deck)
-    agent_b, diag_b = resolve(args.agent_b, garchomp_deck)
+    agent_a, diag_a = resolve(args.agent_a, fallback_deck)
+    agent_b, diag_b = resolve(args.agent_b, fallback_deck)
 
     deck_a = agent_a({"select": None})
     deck_b = agent_b({"select": None})

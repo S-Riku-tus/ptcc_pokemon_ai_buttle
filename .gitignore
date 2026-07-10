@@ -30,11 +30,18 @@ submission.tar.gz
 *.tar.gz
 benchmark_result.json
 
+# Archived experiments
+/archive/
+
 # Raw Kaggle data
 /data/replays/*
 !/data/replays/.gitkeep
 /data/logs/*
 !/data/logs/.gitkeep
+/data/runs/
+/data/submissions/
+/data/summaries/*
+!/data/summaries/.gitkeep
 
 # OS / editors
 .DS_Store

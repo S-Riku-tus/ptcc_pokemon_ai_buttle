@@ -7,6 +7,7 @@ import ast
 import collections
 import json
 import py_compile
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,7 +26,9 @@ def read_deck(path: Path) -> list[int]:
 
 
 def validate_main(path: Path) -> None:
-    py_compile.compile(str(path), doraise=True)
+    with tempfile.TemporaryDirectory(prefix="ptcg_validate_") as tmp:
+        cfile = Path(tmp) / f"{path.stem}.pyc"
+        py_compile.compile(str(path), cfile=str(cfile), doraise=True)
     tree = ast.parse(path.read_text(encoding="utf-8"))
     names = {
         node.name
@@ -72,7 +75,7 @@ def validate_agent(agent_dir: Path) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--agent", default="mega_lucario_v1")
+    parser.add_argument("--agent", default="alakazam741_v2")
     args = parser.parse_args()
 
     agent_dir = (ROOT / "agents" / args.agent).resolve()

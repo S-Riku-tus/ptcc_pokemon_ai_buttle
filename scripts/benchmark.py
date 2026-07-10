@@ -96,7 +96,7 @@ def resolve_agent(value: str) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--agent", default="mega_lucario_v1")
+    parser.add_argument("--agent", default="alakazam741_v2")
     parser.add_argument("--opponent", required=True)
     parser.add_argument("--games", type=int, default=100)
     parser.add_argument(

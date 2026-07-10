@@ -13,7 +13,7 @@ def test_build_with_fake_cg(tmp_path):
 
     output = tmp_path / "submission.tar.gz"
     build(
-        ROOT / "agents" / "mega_lucario_v1",
+        ROOT / "agents" / "alakazam741_v2",
         output,
         fake_cg,
     )

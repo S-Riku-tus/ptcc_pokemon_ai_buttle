@@ -3,7 +3,7 @@
 Before use, replace REPO_URL with your GitHub repository URL.
 Add the Pokemon TCG AI Battle Simulation competition data to Notebook Inputs.
 
-Builds one submission_<agent>.tar.gz per agent in AGENTS.
+Builds one submission_<agent>.tar.gz per active agent in AGENTS.
 """
 
 from __future__ import annotations
@@ -15,7 +15,7 @@ from pathlib import Path
 
 REPO_URL = "https://github.com/S-Riku-tus/ptcc_pokemon_ai_buttle.git"
 BRANCH = "main"
-AGENTS = ["cynthia_garchomp_v2", "alakazam741_v2"]
+AGENTS = ["alakazam741_v1", "alakazam741_v2"]
 
 WORKING = Path("/kaggle/working")
 REPO_DIR = WORKING / "ptcc_pokemon_ai_buttle"
