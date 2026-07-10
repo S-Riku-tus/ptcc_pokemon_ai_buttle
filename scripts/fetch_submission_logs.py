@@ -18,12 +18,16 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import re
 import shutil
+import subprocess
 import time
 import urllib.error
 import urllib.request
 from dataclasses import asdict, dataclass
+from datetime import datetime
 from pathlib import Path
 from typing import Iterable
 
@@ -37,6 +41,8 @@ HTTP_HEADERS = {
     "Content-Type": "application/json",
     "User-Agent": "Mozilla/5.0 PTCG-research",
 }
+IGNORED_SNAPSHOT_NAMES = {"__pycache__", ".pytest_cache", ".mypy_cache"}
+IGNORED_SNAPSHOT_SUFFIXES = {".pyc", ".pyo"}
 
 
 @dataclass
@@ -100,6 +106,110 @@ def read_json_url(url: str) -> object:
             f"Kaggle download failed with HTTP {exc.code} for {url}:\n"
             f"{message}"
         ) from exc
+
+
+def slugify(value: str) -> str:
+    slug = re.sub(r"[^A-Za-z0-9._-]+", "_", value.strip())
+    slug = re.sub(r"_+", "_", slug).strip("._-")
+    return slug or "run"
+
+
+def now_stamp() -> str:
+    return datetime.now().strftime("%Y%m%d_%H%M%S")
+
+
+def get_git_commit() -> str:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=Path(__file__).resolve().parent.parent,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except Exception:
+        return ""
+    return result.stdout.strip()
+
+
+def snapshot_ignore(
+    directory: str,
+    names: list[str],
+) -> set[str]:
+    del directory
+    ignored: set[str] = set()
+    for name in names:
+        path = Path(name)
+        if name in IGNORED_SNAPSHOT_NAMES:
+            ignored.add(name)
+        elif path.suffix.lower() in IGNORED_SNAPSHOT_SUFFIXES:
+            ignored.add(name)
+    return ignored
+
+
+def hash_directory(path: Path) -> str:
+    digest = hashlib.sha256()
+    if not path.exists():
+        return ""
+
+    files = [
+        item
+        for item in path.rglob("*")
+        if item.is_file()
+        and not any(part in IGNORED_SNAPSHOT_NAMES for part in item.parts)
+        and item.suffix.lower() not in IGNORED_SNAPSHOT_SUFFIXES
+    ]
+    for file_path in sorted(files, key=lambda item: item.relative_to(path).as_posix()):
+        relative = file_path.relative_to(path).as_posix()
+        digest.update(relative.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(file_path.read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def write_run_metadata(
+    output_root: Path,
+    *,
+    submission_id: int,
+    run_name: str,
+    deck_name: str,
+    deck_dir: Path | None,
+    notes: str,
+) -> None:
+    deck_hash = hash_directory(deck_dir) if deck_dir is not None else ""
+    deck_snapshot_dir = output_root / "deck_snapshot"
+
+    if deck_dir is not None:
+        if not deck_dir.exists():
+            raise FileNotFoundError(f"Deck directory does not exist: {deck_dir}")
+        if deck_snapshot_dir.exists():
+            shutil.rmtree(deck_snapshot_dir)
+        shutil.copytree(
+            deck_dir,
+            deck_snapshot_dir,
+            ignore=snapshot_ignore,
+        )
+
+    metadata = {
+        "submission_id": submission_id,
+        "run_name": run_name,
+        "deck_name": deck_name,
+        "deck_dir": str(deck_dir.resolve()) if deck_dir is not None else "",
+        "deck_hash_sha256": deck_hash,
+        "deck_snapshot_dir": str(deck_snapshot_dir.resolve())
+        if deck_dir is not None
+        else "",
+        "fetched_at_local": datetime.now().astimezone().isoformat(),
+        "git_commit": get_git_commit(),
+        "output_dir": str(output_root),
+        "notes": notes,
+        "log_source": "Kaggle EpisodeService + replay.observation.logs",
+    }
+    (output_root / "run_meta.json").write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
 
 def get_agent_submission_ids(episode: dict[str, object]) -> dict[int, str]:
@@ -432,6 +542,31 @@ def main() -> None:
         ),
     )
     parser.add_argument(
+        "--run-name",
+        help=(
+            "Experiment/run name. If --output is omitted, logs are saved "
+            "under data/runs/<timestamp>_<run-name>_sub<ID>."
+        ),
+    )
+    parser.add_argument(
+        "--deck-name",
+        default="",
+        help="Human-readable deck name stored in run_meta.json.",
+    )
+    parser.add_argument(
+        "--deck-dir",
+        type=Path,
+        help=(
+            "Directory containing the deck/agent files to snapshot into "
+            "the run output."
+        ),
+    )
+    parser.add_argument(
+        "--notes",
+        default="",
+        help="Optional run notes stored in run_meta.json.",
+    )
+    parser.add_argument(
         "--sleep",
         type=float,
         default=1.0,
@@ -460,15 +595,32 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    output_root = (
-        args.output
-        if args.output is not None
-        else Path("data")
-        / "submissions"
-        / f"submission_{args.submission}"
-    )
+    if args.output is not None:
+        output_root = args.output
+    elif args.run_name:
+        output_root = (
+            Path("data")
+            / "runs"
+            / f"{now_stamp()}_{slugify(args.run_name)}_sub{args.submission}"
+        )
+    else:
+        output_root = (
+            Path("data")
+            / "submissions"
+            / f"submission_{args.submission}"
+        )
     output_root = output_root.resolve()
     output_root.mkdir(parents=True, exist_ok=True)
+
+    if args.run_name or args.deck_name or args.deck_dir or args.notes:
+        write_run_metadata(
+            output_root,
+            submission_id=args.submission,
+            run_name=args.run_name or output_root.name,
+            deck_name=args.deck_name,
+            deck_dir=args.deck_dir.resolve() if args.deck_dir is not None else None,
+            notes=args.notes,
+        )
 
     print(f"Submission ID: {args.submission}")
     print(f"Output directory: {output_root}")

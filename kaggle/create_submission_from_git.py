@@ -13,12 +13,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-REPO_URL = "https://github.com/YOUR_GITHUB_USERNAME/ptcg-ai-battle.git"
+REPO_URL = "https://github.com/S-Riku-tus/ptcc_pokemon_ai_buttle.git"
 BRANCH = "main"
 AGENTS = ["cynthia_garchomp_v1", "alakazam741_v1"]
 
 WORKING = Path("/kaggle/working")
-REPO_DIR = WORKING / "ptcg-ai-battle"
+REPO_DIR = WORKING / "ptcc_pokemon_ai_buttle"
 
 
 def locate_cg() -> Path:
@@ -56,11 +56,6 @@ def clone_url() -> str:
 
 
 def main() -> None:
-    if "YOUR_GITHUB_USERNAME" in REPO_URL:
-        raise ValueError(
-            "Edit REPO_URL at the top of this file before running it."
-        )
-
     if REPO_DIR.exists():
         shutil.rmtree(REPO_DIR)
 
