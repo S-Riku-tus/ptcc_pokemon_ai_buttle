@@ -1,15 +1,16 @@
 {
-  "name": "cynthia_garchomp_v1",
-  "version": "1.0.0",
+  "name": "cynthia_garchomp_v2",
+  "version": "2.0.0",
   "status": "candidate",
   "archetype": "Cynthia's Garchomp ex / Roserade / Spiritomb",
   "entrypoint": "main.py",
   "deck": "deck.csv",
   "requires_cg": true,
-  "extra_files": ["policy_base.py"],
+  "extra_files": [
+    "policy_base.py"
+  ],
   "notes": [
-    "2026-07-05メタで最高勝率(60.1%)・Grimmsnarl/Kangaskhan両有利のアーキタイプ",
-    "公開リポジトリ wmh/ptcg-abc のGarchompPolicy(top-100パイロットのdivergence mining済み)を移植",
-    "ローカル対戦: vs mega_lucario_v1 72.5% / grimmsnarl 100% / kangaskhan 95% / alakazam741 85% / megastarmie 62.5% (各40戦, エラー0)"
+    "v1+ex耐性(Crustle等)対応: 耐性持ちへのダメージ0計画/ボスで耐性持ちを呼ばない/スピリトム条件付き主軸化",
+    "vs crustle 77%(v1は70%) / ミラー50%(挙動保存) / grimmsnarl 85% / kangaskhan 100%"
   ]
 }

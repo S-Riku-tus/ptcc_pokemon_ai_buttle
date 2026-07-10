@@ -1,60 +1,29 @@
-# cynthia_garchomp_v1
+# cynthia_garchomp_v2（v1 + ex耐性対応）
 
-## なぜデッキを乗り換えたのか
+v1との差分のみ記載。基本戦略は `agents/cynthia_garchomp_v1/STRATEGY.md` を参照。
 
-2026-07時点のラダーメタでは、Mega Lucario exは絶滅済みです（6-21時点で使用率0.4%・勝率46%、
-その後消滅）。現在のトップメタ（Elo≥1000, 7-05 episodeデータ）は次のとおりです。
+## 背景
 
-| アーキタイプ | 使用率 | 勝率 |
-| --- | --- | --- |
-| Grimmsnarl ex | 38.6% | 50.6% |
-| Alakazam(非ex, 741ライン) | 17.5% | 52.3% |
-| Kangaskhan ex | 11.6% | 56.9% |
-| Cynthia's Garchomp ex | 10.4% | **60.1%（全体最高）** |
+実ラダーep85178595でCrustle（「相手のex/Mega exポケモンのワザのダメージを受けない」）に敗北。
+v1はこの耐性を知らず、Garchomp exで0ダメージのワザを計画し続けてデッキ残4まで消耗した。
 
-Cynthia's Garchomp exは二大勢力の両方（Grimmsnarl 68% / Kangaskhan 60%）に有利で、
-現メタで最も立ち位置が良いデッキです。
+## 変更点
 
-## デッキの役割
+- `EX_IMMUNE = {158, 207, 330, 345}`（Crustle等、wmh/ptcg-abcの実測リスト）
+- `_atk_dmg`: Garchomp exのワザ（Corkscrew/Buster）は耐性持ちに**ダメージ0として計画**
+  → 無駄なBuster（全エネ破棄）やボスの誤射がなくなる。スピリトムのRaging Curseは非exなので通る
+- `gust_value`: ボスで耐性持ちを前に呼ぶ選択に-5000
+- スピリトム主軸化は**条件付き**（相手の前が耐性持ち かつ ベンチのダメカン≥6〜8個）。
+  無条件の主軸化・強制リトリートは実測で逆効果（45%まで悪化）だったため撤去済み
 
-- Gible(379)→Gabite(380)→**Garchomp ex(381, 330HP, 逃げ0)**：主軸
-- Gabite特性 **Champion's Call**：毎ターン無料でCynthia'sポケモンをサーチ（進化を急がず維持する）
-- **Corkscrew Dive [F]=100＋手札6枚まで補充**：エネ1個で打てる主力ワザ
-- **Draconic Buster [FF]=260（全エネ破棄）**：Corkscrewで倒せない相手への必殺用のみ
-- Roselia(341)→Roserade(342)：特性で自分のワザ+30（常時パンプ）
-- Spiritomb(387) Raging Curse：自ベンチのダメージ×10をばら撒く第2アタッカー
-- Rock Fighting Energy(20)：{F}＋ワザ効果を防ぐ。前のGarchompに優先貼り
-- Power Weight(1173)：Garchomp 330→400HP
+## 教訓（wmhの知見の再確認）
 
-## パイロットの要点（トップ100パイロットの実対局からマイニング済み）
+「大きな行動ゲートは逐点指標を悪化させる。局所的なスコア修正に留めよ」——
+初版のスピリトム偏重（カウンター0でも前出し）は、テンポ損失＋70HPのサイド献上で
+Crustle戦をむしろ悪化させた。条件を付けて局所化したら改善した。
 
-1. **Garchompへの進化は急がない**。GabiteのChampion's Callが毎ターンのサーチ源。
-   エネが付いたGabiteだけを、攻撃するターンに進化させる。
-2. ベンチは広く展開（全員1プライズ＋ベンチの被ダメがSpiritombの火力になる）。
-3. エネルギーは過剰に貼らない（policy_baseの汎用エネ規律で構造的に過貼り不可）。
-4. Boss's Ordersは「多プライズをgust-KOできる時だけ」。
-5. 先攻を取る。
+## ベンチマーク（scripts/local_arena.py, エラー0）
 
-## ローカルベンチ（scripts/local_arena.py, 各40戦, エラー0）
-
-- vs mega_lucario_v1（旧エージェント）: **72.5%**
-- vs Grimmsnarl(GenericPolicy): **100%**
-- vs Kangaskhan(GenericPolicy): **95%**
-- vs Alakazam-741(GenericPolicy): **85%**
-- vs Mega Starmie(GenericPolicy): **62.5%**
-
-注意: ローカルsimはラダー順位を正確には予測しない（相手パイロットが本物のtop-100より弱い）。
-最終判断は実ラダーのA/Bで行うこと。
-
-## 出典・注意
-
-実装は公開リポジトリ [wmh/ptcg-abc](https://github.com/wmh/ptcg-abc)（GarchompPolicy、
-nasuo445の12,693 MAIN決定をdivergence miningした成果）をベースに移植したもの。
-デッキリストはラダー上位nasuo445の公開episodeと同一。コンペのコード共有ルールに
-抵触しないか、提出前にルールを確認すること。
-
-## 次の改善候補
-
-1. 毎日episodeデータでメタを再確認（メタは数日で反転する。Slowkingツールボックスが新#1）
-2. 実ラダーでのA/B（最新2提出が採点対象、5回/日）
-3. 負け対局のreplayからSelectContext別のdivergence分析
+- **vs Crustle: 77%（30戦。v1は70%）**
+- vs cynthia_garchomp_v1ミラー: 50%（60戦）— 非耐性対面では挙動保存を確認
+- vs Grimmsnarl: 85% / vs Kangaskhan: 100%（回帰なし）

@@ -346,9 +346,9 @@ class GarchompPolicy(BasePolicy):
             return 5500 + concentrate   # carries through evolution
         if p.id == C.SPIRITOMB:
             # nasuo fuels Spiritomb (236x): 1 {F} arms Raging Curse (10 x bench counters)
-            if self._opp_active_immune():
-                return 9500 + concentrate   # v2: ex耐性相手ではスピリトムが唯一の火力
             counters = sum((p2.maxHp - p2.hp) // 10 for p2 in self.me.bench if p2 is not None)
+            if self._opp_active_immune() and counters >= 6:
+                return 9500 + concentrate   # v2: ex耐性相手＋弾あり=スピリトムが唯一の火力
             return 4500 + concentrate if counters >= 6 else 2500
         return -1   # Roserade's attack needs {G} we don't run — support only
 
@@ -392,12 +392,6 @@ class GarchompPolicy(BasePolicy):
         active = self.me.active[0] if self.me.active else None
         if active is None:
             return -1
-        # v2: 相手の前がex耐性持ちでこちらの前がGarchomp(ダメージ0)なら、
-        # エネ付きスピリトムに交代して殴る(Garchompは逃げ0なのでノーコスト)
-        if (self._opp_active_immune() and active.id == C.GARCHOMP
-                and any(p is not None and p.id == C.SPIRITOMB and self.can_attack(p)
-                        for p in self.me.bench)):
-            return 6200
         if active.id != C.GARCHOMP:
             for p in self.me.bench:
                 if p is not None and p.id == C.GARCHOMP and self.can_attack(p):
@@ -461,8 +455,9 @@ class GarchompPolicy(BasePolicy):
             score += 100
         elif card.id == C.SPIRITOMB:
             counters = sum((p.maxHp - p.hp) // 10 for p in self.me.bench if p is not None)
-            if self._opp_active_immune() and self.energy_count(card) >= 1:
-                score += 500   # v2: 相手の前がex耐性持ちなら非exのスピリトムが主軸
+            if (self._opp_active_immune() and self.energy_count(card) >= 1
+                    and counters >= 8):
+                score += 500   # v2: ex耐性相手＋カウンター十分ならスピリトムが主軸
             elif self.energy_count(card) >= 1 and counters >= 8:
                 score += 250
             else:
