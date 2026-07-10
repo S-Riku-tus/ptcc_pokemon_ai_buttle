@@ -2,6 +2,11 @@
 
 ポケモンカードゲーム AI Battle Challenge用のGit管理リポジトリです。
 
+> **2026-07-10更新**: Mega Lucario exはメタから絶滅したため、現メタ最強格の
+> `agents/cynthia_garchomp_v1`（主力候補）と `agents/alakazam741_v1`（ヘッジ）を追加。
+> 詳細は各`STRATEGY.md`と`docs/PUBLIC_STRATEGY_RESEARCH.md`の§6を参照。
+> ローカル対戦は依存なしで `python scripts/local_arena.py cynthia_garchomp_v1 alakazam741_v1 --games 40`。
+
 この構成では、提出中の安定版を直接上書きせず、`agents/`配下に戦略・バージョンごとの
 エージェントを保存します。Kaggleへ提出する`submission.tar.gz`、取得したReplay JSON、
 実験途中のログはGit管理対象から分離します。

@@ -1,7 +1,9 @@
-"""Kaggle-importable script that builds a submission directly from GitHub.
+"""Kaggle-importable script that builds submissions directly from GitHub.
 
 Before use, replace REPO_URL with your GitHub repository URL.
 Add the Pokemon TCG AI Battle Simulation competition data to Notebook Inputs.
+
+Builds one submission_<agent>.tar.gz per agent in AGENTS.
 """
 
 from __future__ import annotations
@@ -13,11 +15,10 @@ from pathlib import Path
 
 REPO_URL = "https://github.com/YOUR_GITHUB_USERNAME/ptcg-ai-battle.git"
 BRANCH = "main"
-AGENT = "mega_lucario_v1"
+AGENTS = ["cynthia_garchomp_v1", "alakazam741_v1"]
 
 WORKING = Path("/kaggle/working")
 REPO_DIR = WORKING / "ptcg-ai-battle"
-OUTPUT = WORKING / "submission.tar.gz"
 
 
 def locate_cg() -> Path:
@@ -40,6 +41,20 @@ def locate_cg() -> Path:
     return candidates[0]
 
 
+def clone_url() -> str:
+    """Private repos: store a GitHub token as a Kaggle Secret named GITHUB_TOKEN
+    (Notebook: Add-ons -> Secrets -> Attach), and it is injected here."""
+    try:
+        from kaggle_secrets import UserSecretsClient
+
+        token = UserSecretsClient().get_secret("GITHUB_TOKEN")
+        if token:
+            return REPO_URL.replace("https://", f"https://{token}@", 1)
+    except Exception:
+        pass
+    return REPO_URL
+
+
 def main() -> None:
     if "YOUR_GITHUB_USERNAME" in REPO_URL:
         raise ValueError(
@@ -57,30 +72,29 @@ def main() -> None:
             "1",
             "--branch",
             BRANCH,
-            REPO_URL,
+            clone_url(),
             str(REPO_DIR),
         ],
         check=True,
     )
 
     cg_source = locate_cg()
-    subprocess.run(
-        [
-            sys.executable,
-            str(REPO_DIR / "scripts" / "build_submission.py"),
-            "--agent",
-            AGENT,
-            "--cg-source",
-            str(cg_source),
-            "--output",
-            str(OUTPUT),
-        ],
-        check=True,
-    )
-
-    print("\nSubmission ready:")
-    print(OUTPUT)
-    print("Size:", OUTPUT.stat().st_size, "bytes")
+    for agent in AGENTS:
+        output = WORKING / f"submission_{agent}.tar.gz"
+        subprocess.run(
+            [
+                sys.executable,
+                str(REPO_DIR / "scripts" / "build_submission.py"),
+                "--agent",
+                agent,
+                "--cg-source",
+                str(cg_source),
+                "--output",
+                str(output),
+            ],
+            check=True,
+        )
+        print(f"\nSubmission ready: {output} ({output.stat().st_size} bytes)")
 
 
 main()

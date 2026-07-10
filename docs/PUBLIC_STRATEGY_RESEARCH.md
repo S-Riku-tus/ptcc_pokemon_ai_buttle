@@ -83,3 +83,43 @@ Dreepy→Drakloak→Dragapult exの進化ラインと、妨害・展開札を組
 - CrustleにMega Lucario exで0ダメージ攻撃した回数
 
 評価結果をCSVで残し、勝率だけでなく失敗タイプ別に修正するのが重要です。
+
+---
+
+## 6. 2026-07-10 メタ更新（重要：上記1〜5の前提は崩壊済み）
+
+公開リポジトリ [wmh/ptcg-abc](https://github.com/wmh/ptcg-abc)（実ラダーepisodeの
+日次分析＋top-100パイロットのdivergence miningを継続している参加者）の調査より。
+
+### 現メタ（Elo≥1000, 2026-07-05 episode、使用率/勝率）
+
+1. Grimmsnarl ex: 38.6% / 50.6%（新覇者）
+2. Alakazam 非ex 741ライン: 17.5% / 52.3%
+3. Kangaskhan ex: 11.6% / 56.9%（Grimmsnarlに82%有利）
+4. Cynthia's Garchomp ex: 10.4% / 60.1%（全体最高勝率。二大勢力の両方に有利）
+5. 新#1プレイヤー(vibechu, Elo 1195)はSlowkingツールボックス型（要監視）
+
+### 旧前提の失効
+
+- **Mega Lucario ex は絶滅**（6-21で使用率0.4%/勝率46%→消滅）。mega_lucario_v1の
+  デッキ選択自体が敗因になっており、パイロット改善では回復不能。
+- Crustleも激減。Hariyama対策の価値は消失。
+- メタは数日で反転する。提出前に必ず最新episodeデータセット
+  （kaggle/pokemon-tcg-ai-battle-episodes-YYYY-MM-DD）で分布を再確認すること。
+
+### 得られた知見（wmh/ptcg-abcのlessons learned）
+
+1. デッキ選択がエージェント品質より支配的（ただし単純なデッキ×ルールベースが最良）
+2. ローカルsim（cabt含む）はラダー順位を正確に予測しない。回帰検知用と割り切り、
+   最終判断は実ラダーA/B（最新2提出が採点対象、5回/日）
+3. 40戦のA/Bは±10pt級のノイズ。80戦以上で判断
+4. スコアの当てずっぽう調整は禁物。top披露のreplayとのdivergence分析で修正する
+5. エネルギー過剰貼りは共有基盤（policy_base.pyのshould_fuel）で構造的に防止
+
+### 本リポジトリの対応（2026-07-10）
+
+- `agents/cynthia_garchomp_v1/`: 現メタ最高勝率アーキタイプ＋mined pilot（主力候補）
+- `agents/alakazam741_v1/`: 非ex 1プライズ型（ヘッジ。直接対決ではGarchompに67%勝）
+- `agents/_base/policy_base.py` + `generic_policy.py`: 共有基盤（wmh/ptcg-abc由来）
+- `vendor/cg/`: ローカル対戦環境（公式wheelのエンジン＋自作互換API。Git管理外）
+- `scripts/local_arena.py`: 依存なしのローカルベンチ（Windows/Linux両対応）

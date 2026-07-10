@@ -54,6 +54,10 @@ def locate_cg(explicit: str | None) -> Path:
             continue
         seen.add(resolved)
         if resolved.is_dir() and (resolved / "api.py").exists():
+            api_text = (resolved / "api.py").read_text(encoding="utf-8", errors="ignore")
+            if "compatibility shim" in api_text:
+                # vendor/cg is the local-testing shim, never the official cg.
+                continue
             return resolved
 
     checked = "\n".join(f"  - {path}" for path in list(seen)[:30])
