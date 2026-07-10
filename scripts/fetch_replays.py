@@ -7,49 +7,53 @@ Submission-ID discovery uses the authenticated Kaggle CLI.
 from __future__ import annotations
 
 import argparse
-import csv
 import json
-import subprocess
-import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
-COMPETITION = "pokemon-tcg-ai-battle"
 CDN = "https://www.kaggleusercontent.com/episodes/{}.json"
+LIST_EPISODES_URL = (
+    "https://www.kaggle.com/api/i/"
+    "competitions.EpisodeService/ListEpisodes"
+)
+HTTP_HEADERS = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "User-Agent": "Mozilla/5.0 PTCG-research",
+}
 
 
 def discover_submission_episodes(submission_id: int) -> list[int]:
-    command = [
-        sys.executable,
-        "-m",
-        "kaggle",
-        "competitions",
-        "episodes",
-        str(submission_id),
-        "-v",
-    ]
-    result = subprocess.run(command, capture_output=True, text=True)
-    if result.returncode != 0:
-        raise RuntimeError((result.stderr or result.stdout).strip())
-
-    lines = [
-        line
-        for line in result.stdout.splitlines()
-        if line.strip() and not line.startswith("Warning:")
-    ]
-    header_index = next(
-        (
-            index
-            for index, line in enumerate(lines)
-            if line.lower().split(",")[0].strip() == "id"
-        ),
-        0,
+    payload = json.dumps({"submissionId": submission_id}).encode("utf-8")
+    request = urllib.request.Request(
+        LIST_EPISODES_URL,
+        data=payload,
+        headers=HTTP_HEADERS,
+        method="POST",
     )
+    try:
+        with urllib.request.urlopen(request, timeout=60) as response:
+            data = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        message = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(
+            f"Kaggle API failed with HTTP {exc.code}:\n{message}"
+        ) from exc
+
+    episodes = data.get("episodes")
+    if not isinstance(episodes, list):
+        raise ValueError(
+            "Kaggle API response did not contain an episodes list:\n"
+            + json.dumps(data, ensure_ascii=False)[:1000]
+        )
 
     ids: list[int] = []
-    for row in csv.DictReader(lines[header_index:]):
-        value = str(row.get("id", "")).strip()
+    for episode in episodes:
+        if not isinstance(episode, dict):
+            continue
+        value = str(episode.get("id", "")).strip()
         if value.isdigit():
             ids.append(int(value))
     return ids
