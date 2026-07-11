@@ -5,7 +5,9 @@ Repository for Pokemon TCG AI Battle Challenge agents.
 The current development focus is the Alakazam line:
 
 - `agents/alakazam741_v1`: strong baseline from the first Alakazam ladder run.
-- `agents/alakazam741_v2`: current candidate. It fixes several v1 ladder issues, but should still be compared against v1 before becoming the only active line.
+- `agents/alakazam741_v2`: earlier Alakazam candidate with saved ladder logs.
+- `agents/alakazam741_v3`: ladder-tested Alakazam candidate.
+- `agents/alakazam741_v4`: current Alakazam candidate.
 
 Other deck lines are kept locally under `archive/agents/` for reference and regression checks. The archive directory is intentionally ignored by Git.
 
@@ -61,6 +63,15 @@ Use the lightweight local arena when `vendor/cg` is available:
 ```
 
 Archived agents can still be used by path or by name because `local_arena.py` checks `archive/agents/` after `agents/`.
+
+For automated self-play across your own agent candidates, use:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\self_play.py alakazam741_v4 alakazam741_v3 alakazam741_v2 --games 40
+.\.venv\Scripts\python.exe .\scripts\self_play.py --games 20
+```
+
+`self_play.py` writes `summary.csv`, `games.csv`, and `summary.json` under `data/runs/local_self_play/<timestamp>/`.
 
 ## Build a Submission
 

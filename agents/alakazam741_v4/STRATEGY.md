@@ -1,6 +1,6 @@
 # alakazam741_v4（v3 + 51戦実ラダーログ全数分析による改善）
 
-v3との差分のみ記載。基本戦略は `agents/alakazam741_v3/STRATEGY.md`（v2/v1）を参照。
+v3との差分のみ記載。基本戦略は `agents/alakazam741_v3/STRATEGY.md`（v2→v3差分）および v2/v1 の同名ファイルを参照。
 分析元: `data/runs/20260711_222717_alakazam741_v3_latest_sub54557078`（30勝21敗, 58.8%）
 
 ## 分析手法の重要な訂正
