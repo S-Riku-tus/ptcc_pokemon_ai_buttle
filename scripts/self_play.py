@@ -49,6 +49,8 @@ class GameResult:
     elapsed_ms: float = 0.0
     moves_seat0: int = 0
     moves_seat1: int = 0
+    time_seat0_ms: float = 0.0
+    time_seat1_ms: float = 0.0
 
 
 @dataclass
@@ -144,6 +146,7 @@ def play_one(
 
     moves = [0, 0]
     try:
+        time_by_seat = [0.0, 0.0]
         for _ in range(max_steps):
             cur = obs["current"]
             if cur["result"] >= 0:
@@ -164,11 +167,15 @@ def play_one(
                     elapsed_ms=(time.perf_counter() - started) * 1000,
                     moves_seat0=moves[0],
                     moves_seat1=moves[1],
+                    time_seat0_ms=time_by_seat[0],
+                    time_seat1_ms=time_by_seat[1],
                 )
 
             seat = cur["yourIndex"]
             try:
+                decision_started = time.perf_counter()
                 action = seat_agents[seat](obs)
+                time_by_seat[seat] += (time.perf_counter() - decision_started) * 1000
                 moves[seat] += 1
             except Exception as exc:  # noqa: BLE001 - benchmark should record crashes
                 return GameResult(
@@ -183,6 +190,8 @@ def play_one(
                     elapsed_ms=(time.perf_counter() - started) * 1000,
                     moves_seat0=moves[0],
                     moves_seat1=moves[1],
+                    time_seat0_ms=time_by_seat[0],
+                    time_seat1_ms=time_by_seat[1],
                 )
 
             try:
@@ -200,6 +209,8 @@ def play_one(
                     elapsed_ms=(time.perf_counter() - started) * 1000,
                     moves_seat0=moves[0],
                     moves_seat1=moves[1],
+                    time_seat0_ms=time_by_seat[0],
+                    time_seat1_ms=time_by_seat[1],
                 )
 
         return GameResult(
@@ -212,6 +223,8 @@ def play_one(
             elapsed_ms=(time.perf_counter() - started) * 1000,
             moves_seat0=moves[0],
             moves_seat1=moves[1],
+            time_seat0_ms=time_by_seat[0],
+            time_seat1_ms=time_by_seat[1],
         )
     finally:
         battle_finish()
@@ -270,12 +283,13 @@ def run_matchup(
         if result.seat0 == agent_a.spec:
             summary.moves_a += result.moves_seat0
             summary.moves_b += result.moves_seat1
+            summary.time_a_ms += result.time_seat0_ms
+            summary.time_b_ms += result.time_seat1_ms
         else:
             summary.moves_a += result.moves_seat1
             summary.moves_b += result.moves_seat0
-        half_elapsed = result.elapsed_ms / 2
-        summary.time_a_ms += half_elapsed
-        summary.time_b_ms += half_elapsed
+            summary.time_a_ms += result.time_seat1_ms
+            summary.time_b_ms += result.time_seat0_ms
 
         if not quiet:
             print(
