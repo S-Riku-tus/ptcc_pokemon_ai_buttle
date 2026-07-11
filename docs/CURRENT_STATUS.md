@@ -1,6 +1,6 @@
 # Current Repository Status
 
-Last updated: 2026-07-11 JST
+Last updated: 2026-07-11 JST (v3作成後)
 
 ## Overview
 
@@ -14,8 +14,9 @@ Last updated: 2026-07-11 JST
 
 | Path | Status | Notes |
 | --- | --- | --- |
-| `agents/alakazam741_v1` | active | フーディン v1。v2との比較・退行確認用に保持。 |
-| `agents/alakazam741_v2` | active | 現在の最新候補。submission `54523210` の検証対象。 |
+| `agents/alakazam741_v1` | active | フーディン v1。比較・退行確認用に保持。 |
+| `agents/alakazam741_v2` | active | 直近のsubmission `54523210`。67戦 41勝26敗 (61.2%)。 |
+| `agents/alakazam741_v3` | active | **最新候補 (次のsubmit対象)**。v2の67戦全数分析+アリーナA/Bで作成。vs v2 64.2% (500戦)。詳細は `docs/alakazam741_v3_analysis.md`。 |
 | `agents/_base` | active | 共通処理。 |
 | `agents/_opponents` | active | 対戦相手・参考用。 |
 
@@ -103,17 +104,15 @@ Last updated: 2026-07-11 JST
 
 ## Recommended Next Steps
 
-次は、いきなりデッキを大きく変えるより、まず `alakazam741_v2` の判断ロジックを直して `v3` として検証するのがよいです。
+`alakazam741_v3` を作成済み (2026-07-11)。上記の推奨修正はローカルアリーナA/Bで検証の上、次の形で実装した。
 
-優先度の高い修正は次の順です。
+1. 致死維持ゲート: 「即攻撃強制」はA/Bで悪化(41.5% vs v2)したため、「手札消費プレイで致死圏を割ることを禁止し、ギリギリではKO攻撃で〆る」形で実装 (Powerful Handは手札非消費のため、伸ばしてから終端攻撃が最適)。
+2. 山札フロア max(8,サイド+3) + Run Away Draw高手札ガード + 低山札時ACTIVATE辞退 + 聖なる灰の山札回復昇格。
+3. `_item_locked()` MAIN限定化。
+4. デッキ: +2クセロシキ(3) +1バトルケージ(2) / -1夜のタンカ -1ヒカリ -1ポケパッド。
+5. Alakazam245/Shaymin343のテック投入はA/Bで悪化のため見送り (同名4枚制限で743が3枚になるのが主因。ハンマー4枚維持の方がcrustle 99%と強い)。コードの対策ロジックは温存。
 
-1. `_lethal_now()` を実際の攻撃優先判定に組み込む。
-2. 現在の相手アクティブを倒せるなら、原則として攻撃を展開行動より優先する。
-3. 山札残り 10 枚以下では、即勝利につながらない任意ドロー・サーチをかなり強く抑制する。
-4. Powerful Hand の火力を、行動前の固定評価ではなく、行動後の手札枚数変化込みで評価する。
-5. `_item_locked()` を MAIN コンテキスト限定にする。
-6. コードで参照している tech カードと `deck.csv` の不一致をチェックし、入っていないカード前提のロジックを無効化する。
-7. Stadium 枚数と Xerosic 系の手札干渉を小さく A/B テストする。
+次のアクション: v3をsubmitして実ラダーで山札切れ負け0とミラー勝率改善を確認する。分析の全文は `docs/alakazam741_v3_analysis.md`。
 
 ## Validation
 
