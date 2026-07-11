@@ -1,6 +1,6 @@
 # Current Repository Status
 
-Last updated: 2026-07-11 JST (v3作成後)
+Last updated: 2026-07-11 JST (v4作成後)
 
 ## Overview
 
@@ -16,7 +16,8 @@ Last updated: 2026-07-11 JST (v3作成後)
 | --- | --- | --- |
 | `agents/alakazam741_v1` | active | フーディン v1。比較・退行確認用に保持。 |
 | `agents/alakazam741_v2` | active | 直近のsubmission `54523210`。67戦 41勝26敗 (61.2%)。 |
-| `agents/alakazam741_v3` | active | **最新候補 (次のsubmit対象)**。v2の67戦全数分析+アリーナA/Bで作成。vs v2 64.2% (500戦)。詳細は `docs/alakazam741_v3_analysis.md`。 |
+| `agents/alakazam741_v3` | active | submission `54557078`。51戦 30勝21敗 (58.8%)。山札切れ負け0を確認。 |
+| `agents/alakazam741_v4` | active | **最新候補 (次のsubmit対象)**。v3の51戦全数分析で作成 (ACE SPEC=ハイパーアロマ、アタッカー連続性、ベンチ切れガード)。vs v3 52.7% (700戦)。詳細は `docs/alakazam741_v4_analysis.md`。 |
 | `agents/_base` | active | 共通処理。 |
 | `agents/_opponents` | active | 対戦相手・参考用。 |
 
@@ -114,6 +115,25 @@ Last updated: 2026-07-11 JST (v3作成後)
 
 次のアクション: v3をsubmitして実ラダーで山札切れ負け0とミラー勝率改善を確認する。分析の全文は `docs/alakazam741_v3_analysis.md`。
 
+## v3 Ladder Result And v4 (2026-07-11)
+
+v3のsubmission `54557078` の結果 (51戦 30勝21敗 58.8%) を全数分析し、`alakazam741_v4` を作成済み。
+
+- v3の狙いは実ラダーで確認: 山札切れ負け0 / ミラー9勝3敗(75%) / 致死放置END 0件。
+- 重要な方法論の発見: リプレイの観測step iへの応答は **step i+1のaction** に記録される。
+  誤対応で集計すると「致死放置」「ボス無駄撃ち」を大量に誤検出するため、今後は
+  `experiments/v3_run_analysis/` の方式 (i+1対応+ポリシー再実行照合) を使う。
+- 真の敗因は「アタッカー連続性の崩壊」(負け21戦の非攻撃39ターン中34が場にフーディン不在、
+  vs Mega Lucario 5-7 / Cinderace 8-7) と「序盤ベンチ切れ即負け4-5戦」。
+- v4の修正: ACE SPECをリッチエネ→ハイパーアロマ / ベンチ2体目フーディン常時育成+後続先貼り /
+  壁昇格 (手札にフーディン無しはノココッチ140HP>ユンゲラー80HP) / 詰み解消 (エネ貼り→逃げ) /
+  ベンチ切れガード / ミスト対面ハンマー回収。
+- アリーナ: vs v3 52.7%(700戦)、kangaskhan/grimmsnarl微増、crustle同等、megastarmie-4.5pp
+  (アブレーションでACE SPEC交換コストと特定、ラダー構成比から許容)。クラッシュ0。
+
+次のアクション: v4をsubmit (`kaggle/create_submission_from_git.py` はv4に変更済み) し、
+Lucario/Cinderace対面の改善を同方式で再分析する。分析の全文は `docs/alakazam741_v4_analysis.md`。
+
 ## Validation
 
 直近で確認した検証結果です。
@@ -146,4 +166,3 @@ warnings: 0
 3. 取得結果は `data/runs/` に残すが、git には載せない。
 4. 弱かった試行は `archive/` に移動する。
 5. 強い候補だけを `agents/` に残す。
-
