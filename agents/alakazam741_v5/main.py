@@ -939,6 +939,8 @@ class AlakazamPolicy:
             # 山札フロア/_deck_preserve/_no_damage_path の上のハードガードは
             # 実績ある山札切れ敗因(v3:5敗/v4:2敗)対策なので維持する。
             bench_bodies = sum(1 for p in self.me.bench if p is not None)
+            if self.me.deckCount - 3 <= self._deck_floor():
+                return -1
             if bench_bodies < 2 and self.me.handCount >= 12 and self.me.deckCount <= 14:
                 return -1
             return 15000
