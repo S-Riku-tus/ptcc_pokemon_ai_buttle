@@ -8,7 +8,8 @@ The current development focus is the Alakazam line:
 - `agents/alakazam741_v2`: earlier Alakazam candidate with saved ladder logs.
 - `agents/alakazam741_v3`: ladder-tested Alakazam candidate.
 - `agents/alakazam741_v4`: ladder-tested Alakazam candidate.
-- `agents/alakazam741_v5`: current Alakazam candidate.
+- `agents/alakazam741_v5`: ladder-tested Alakazam candidate (sub54600504).
+- `agents/alakazam741_v6`: current Alakazam candidate (v5 + user ladder-feedback: Enhanced Hammer/Xerosic/attack-vs-retreat/deck-out fixes, +Mega Diancie ex).
 
 Other deck lines are kept locally under `archive/agents/` for reference and regression checks. The archive directory is intentionally ignored by Git.
 
