@@ -33,15 +33,8 @@ benchmark_result.json
 # Archived experiments
 /archive/
 
-# Raw Kaggle data
-/data/replays/*
-!/data/replays/.gitkeep
-/data/logs/*
-!/data/logs/.gitkeep
-/data/runs/
-/data/submissions/
-/data/summaries/*
-!/data/summaries/.gitkeep
+# Kaggle result logs and analysis outputs are kept in Git.
+# Large replay archives are routed through Git LFS by .gitattributes.
 
 # OS / editors
 .DS_Store
