@@ -1,12 +1,14 @@
 # Current Repository Status
 
-Last updated: 2026-07-11 JST (v4作成後)
+Last updated: 2026-07-12 JST (v4最終レート確認後)
 
 ## Overview
 
 このリポジトリは、Kaggle `pokemon-tcg-ai-battle` 向けのエージェント、提出ログ、対戦リプレイ分析を管理する作業場です。
 
 現状の主軸は `Alakazam / フーディン` 系デッキです。特に `alakazam741_v2` が最新の自分のデッキで、直近の検証対象になっています。以前試した Cynthia/Garchomp 系や Mega Lucario 系は、現状の勝率・方向性から外れているため archive 側に退避済みです。
+
+最終レートのメモは `docs/ALAKAZAM_RATING_LOG.md` に分離して残しています。v1=845.7、v2=855.4、v3=850.3、v4=719.5 で、v4は実ラダー上では明確な退行として扱います。v5はv2またはv3をベースにし、v4ログで確認できたP0バグ修正だけを移植する方針です。
 
 ## Active Agents
 
