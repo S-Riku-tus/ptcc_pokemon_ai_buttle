@@ -7,7 +7,8 @@ The current development focus is the Alakazam line:
 - `agents/alakazam741_v1`: strong baseline from the first Alakazam ladder run.
 - `agents/alakazam741_v2`: earlier Alakazam candidate with saved ladder logs.
 - `agents/alakazam741_v3`: ladder-tested Alakazam candidate.
-- `agents/alakazam741_v4`: current Alakazam candidate.
+- `agents/alakazam741_v4`: ladder-tested Alakazam candidate.
+- `agents/alakazam741_v5`: current Alakazam candidate.
 
 Other deck lines are kept locally under `archive/agents/` for reference and regression checks. The archive directory is intentionally ignored by Git.
 
