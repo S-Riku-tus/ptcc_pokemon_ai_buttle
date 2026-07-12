@@ -1,3 +1,23 @@
+# alakazam741_v5 (rev 5.1) - v5 + ユーザーによるv5対戦ログ確認に基づく改善。
+#   [R1] ふしぎなアメ: 「ユンゲラー橋(+ドロー)優先」が、エネ付きケーシィが前にいて
+#        アメ→フーディンで今ターン攻撃(特にKO)できる局面まで遅延させていた。
+#        _candy_now_beats_bridge() が立つ時はアメ(21000) > ユンゲラー進化(20000)。
+#   [R2] デッキ: ボスの指令 2→0 / ノココッチex(306) 0→1 / ポケパッド 2→3。
+#        306は既存ノコッチ(305)から進化でき、Destructive Drill({C}{C}{C}, 150,
+#        「相手Activeにかかる効果の影響を受けない」)でミスト/ロケット団のフリーザー等の
+#        効果無効を正面から貫通する。270HPの壁も兼ねる。ボスのコードは温存(再投入可)。
+#   [R3] フーディンライン退避: 前のライン(ケーシィ/ユンゲラー/フーディン)が次の相手
+#        ターンにKOされる見込み(_active_in_danger: 相手Activeの支払える攻撃の概算
+#        最大打点)で、こちらに致死が無いなら、ライン外の盾(ノコッチ系最優先、
+#        「倒されると負ける」ex盾は除外)と交代して延命(5600)。致死がある時は従来
+#        どおり攻撃(30000/6000+)がスコア序列で必ず勝つ = ユーザー例外a/bを内包。
+#        SWITCH側(_score_active_choice)も退避モード中はライン外の盾を+500で押し上げ。
+#   [R4] 逃げ足ドロー: ベンチ2体以上なら高手札×低山札(12/14)ガードを外して原則使用。
+#        山札フロア/_deck_preserve/_no_damage_path のハードガード(v3実5敗・v4実2敗の
+#        山札切れ対策)は維持 — 「確定使用」はそれらに反しない範囲で。
+#   [R5] _no_damage_path: 306が場/手札にあれば勝ち筋ありとして通常運転。未発見でも
+#        山札フロアに余裕がある間は掘って探しに行く(受け身の完全停止を回避)。
+# ---- v5ヘッダ(経緯として保持) ----
 # alakazam741_v5 - v4 + 53戦の実ラダーログ全数分析(sub54576108)に基づく改善。
 #   v4結果: 26勝27敗(49.1%)。先攻33戦54.5% / 後攻20戦40.0%。ミラー10-2(83%)は強いが、
 #   効果無効系(ミスト/ロックエネ/ロケット団のフリーザー/Crustle)とライン枯渇で負け越し。
@@ -94,6 +114,11 @@ class C:
                           # list — 70HP + Trading Places free switch; the attack-id constants
                           # 423/424 below always belonged to THIS printing, not id65)
     DUDUNSPARCE = 66      # Stage1 draw engine (Run Away Draw)
+    DUDUNSPARCE_EX = 306  # rev5.1 [R2] Stage1 TECH (1x): Destructive Drill {C}{C}{C} 150,
+                          # "damage isn't affected by any effects on your opponent's
+                          # Active Pokémon" -> pierces Mist Energy / board-wide effect
+                          # protection (our Powerful Hand does 0 there). 270HP wall.
+                          # Evolves from the SAME Dunsparce 305 line we already run 4x.
     PSYDUCK = 858         # Damp (ability lock tech)
     SHAYMIN = 343         # Flower Curtain (protect non-Rule-Box bench)
     GENESECT = 142        # ACE Nullifier (with tool)
@@ -110,7 +135,7 @@ class C:
                           # draw 6 (8 if we have exactly 6 prizes left)
     DAWN = 1231           # Supporter: search Basic+Stage1+Stage2
     RARE_CANDY = 1079
-    BOSS_ORDERS = 1182
+    BOSS_ORDERS = 1182    # rev5.1 [R2]: デッキから撤去(2→0)。ロジックは温存(再投入で即動く)
     XEROSIC = 1197        # v2: 相手は手札が3枚になるまで捨てる(ミラーのPowerful Hand潰し)
     BATTLE_CAGE = 1264    # Stadium: block bench damage counters
     ENHANCED_HAMMER = 1081  # Item: discard a Special Energy from opp (e.g. Mist Energy)
@@ -130,6 +155,8 @@ ABRA_TELEPORT = 1070   # Abra: 10 + switch
 DUDUN_LAND_CRUSH = 76  # Dudunsparce: 90 (rarely; engine instead)
 DUNSPARCE_TRADE = 423  # Dunsparce: switch
 DUNSPARCE_RAM = 424
+TENACIOUS_TAIL = 425     # Dudunsparce ex: 60 dmg x each opponent Pokémon-ex in play ({C})
+DESTRUCTIVE_DRILL = 426  # Dudunsparce ex: 150, unaffected by effects on opp Active ({C}{C}{C})
 
 ENERGY_TYPES = {C.PSYCHIC_ENERGY, C.TELEPATH_ENERGY, C.ENRICHING_ENERGY}
 ATTACKER_IDS = {C.ALAKAZAM, C.KADABRA}
@@ -241,10 +268,12 @@ for _c in all_card:
 # is handled automatically: it drops the count back below the need, so we just refill.
 ATTACK_COST = {}                 # attackId -> number of energies in its cost
 ATTACK_COST_ENERGIES = {}        # attackId -> list of required EnergyType (0=Colorless, 5=Psychic…)
+ATTACK_DAMAGE = {}               # attackId -> printed base damage (text bonuses NOT included)
 SELF_SCALING_ATTACKS = set()     # attacks whose damage grows with energy on the attacker
 for _a in all_attack():
     ATTACK_COST[_a.attackId] = len(_a.energies or [])
     ATTACK_COST_ENERGIES[_a.attackId] = list(_a.energies or [])
+    ATTACK_DAMAGE[_a.attackId] = getattr(_a, 'damage', 0) or 0
     _t = (_a.text or '').lower()
     if 'for each' in _t and 'energy attached to this' in _t:
         SELF_SCALING_ATTACKS.add(_a.attackId)
@@ -534,6 +563,16 @@ class AlakazamPolicy:
             return False
         if any(p is not None and p.id == C.ALAKAZAM_PSY for p in self._my_board()):
             return False
+        # rev5.1 [R5]: ノココッチex(306)=効果無効を正面から貫通する150ダメ。
+        # 場/手札にあるならそれが勝ち筋なので通常運転。まだ見えていない(=山札か
+        # サイドに眠っている)間も、山札フロアに余裕がある限り掘って探しに行く
+        # (完全停止して受け身になるより、突破札への到達を優先)。
+        if self.field[C.DUDUNSPARCE_EX] or self.hand[C.DUDUNSPARCE_EX]:
+            return False
+        seen_306 = (self.hand[C.DUDUNSPARCE_EX] + self.field[C.DUDUNSPARCE_EX]
+                    + self.discard.get(C.DUDUNSPARCE_EX, 0))
+        if seen_306 == 0 and self.me.deckCount > self._deck_floor():
+            return False
         if self._opp_active_has_prevent_energy():
             # 貼られたミスト/ロックはハンマーで剥がせる。今手札にあるなら通常運転、
             # 無くても山札にハンマーが残っていて掘る余裕があるうちは掘って良い
@@ -553,6 +592,84 @@ class AlakazamPolicy:
             return False
         return any(getattr(e, 'id', None) in EFFECT_PREVENT_ENERGY
                    for e in (getattr(opp, 'energyCards', None) or []))
+
+    def _effect_lock_matchup(self):
+        """rev5.1 [R2] 効果無効系対面(Powerful Handが0になる/なりやすい)か。
+        ノココッチex(306)への進化・給エネ・確保の引き金。貼りミスト系で手札に
+        改造ハンマーがあるなら、剥がして通常運転できるのでFalse。"""
+        if any(p is not None and p.id in GLOBAL_EFFECT_PROTECTORS
+               for p in (self.opponent.active + self.opponent.bench)):
+            return True     # 全体保護特性(ロケット団のフリーザー等)はハンマーで消せない
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if opp is not None and self._effect_prevented(opp):
+            return not (self._opp_active_has_prevent_energy()
+                        and self.hand[C.ENHANCED_HAMMER])
+        return False
+
+    def _opp_ex_count(self):
+        """相手の場のex/メガの数(Tenacious Tail = 60×この数)。"""
+        return sum(1 for p in (self.opponent.active + self.opponent.bench)
+                   if p is not None and (d := card_table.get(p.id)) is not None
+                   and (d.ex or d.megaEx))
+
+    def _opp_max_damage_next_turn(self, target):
+        """rev5.1 [R3] 相手Activeが次の相手ターンに`target`へ出しうる概算最大ダメージ。
+        公開情報のみで見積もる:
+        - コスト: 現在の付きエネ+1枚(相手も毎ターン1枚貼れる)で枚数的に届く攻撃のみ
+        - テキスト依存の加算(+30×カウンター等)は拾えない → 過小評価側の近似
+        - ミラーのPowerful Handだけは相手手札枚数から正確に計算できる
+        - 弱点: 攻撃のタイプはAPIから取れないため「相手Activeに付いているエネの
+          タイプにこちらの弱点タイプが含まれるか」で近似(コメント参照)"""
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if opp is None or target is None:
+            return 0
+        oc = card_table.get(opp.id)
+        if oc is None:
+            return 0
+        attached = list(opp.energies or [])
+        td = card_table.get(target.id)
+        best = 0
+        for aid in (oc.attacks or []):
+            cost = ATTACK_COST_ENERGIES.get(aid, [])
+            if len(cost) > len(attached) + 1:
+                continue                      # 1枚貼っても届かないコストは脅威でない
+            if aid == POWERFUL_HAND:
+                dmg = 20 * (getattr(self.opponent, 'handCount', 0) or 0)
+            else:
+                dmg = ATTACK_DAMAGE.get(aid, 0)
+            if dmg <= 0:
+                continue
+            if td is not None and td.weakness and td.weakness in attached:
+                dmg *= 2                      # 弱点タイプのエネで殴ってくる想定
+            best = max(best, dmg)
+        return best
+
+    def _active_in_danger(self):
+        """自分のActiveが次の相手ターンにKOされる見込みか(概算)。"""
+        a = self.me.active[0] if self.me.active else None
+        return a is not None and self._opp_max_damage_next_turn(a) >= a.hp
+
+    def _shield_candidates(self):
+        """rev5.1 [R3] 退避先の盾: フーディンライン以外で、それを倒されても
+        負けない体のみ(ex盾=2サイド献上で相手が勝ち切れる状況では出さない)。"""
+        opp_prizes_left = len(self.opponent.prize)
+        out = []
+        for p in self.me.bench:
+            if p is None or p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY):
+                continue
+            if prize_count(p) >= opp_prizes_left:
+                continue
+            out.append(p)
+        return out
+
+    def _saving_active_line(self):
+        """rev5.1 [R3] 「前のフーディンラインを盾交代で守るべき」状態か。
+        致死がある時はFalse(攻撃優先 = ユーザー例外a/b: 今KOを取り、後続で継続)。"""
+        a = self.me.active[0] if self.me.active else None
+        return (a is not None
+                and a.id in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY)
+                and not self._lethal_now()
+                and self._active_in_danger())
 
     # — damage —
     def _alakazam_damage(self, attack_id, target):
@@ -574,6 +691,14 @@ class AlakazamPolicy:
             dmg = 20
         elif attack_id == DUDUN_LAND_CRUSH:
             dmg = 90
+        elif attack_id == DESTRUCTIVE_DRILL:
+            # rev5.1 [R2] 「相手Activeにかかる効果の影響を受けない」明記 → ミスト/
+            # 全体保護を貫通する確定150。攻撃側は{C}タイプ(弱点対象が事実上無い)
+            # なので弱点/抵抗補正は適用しない(下の超弱点ブロックを通さず即返す)。
+            return 150
+        elif attack_id == TENACIOUS_TAIL:
+            # 60×相手の場のex/メガ。ダメージ(効果ではない)なのでミストも貫通する。
+            return 60 * self._opp_ex_count()
         else:
             dmg = 0
         od = card_table.get(target.id)
@@ -595,6 +720,13 @@ class AlakazamPolicy:
                 return self._alakazam_damage(PSYCHIC_ATK, target)
             if a.id == C.KADABRA:
                 return self._alakazam_damage(SUPER_PSY_BOLT, target)
+            if a.id == C.DUDUNSPARCE_EX:
+                # rev5.1 [R2]: 3エネでDrill(貫通150)、1エネならTail(60×相手ex)
+                att = list(a.energies or [])
+                if self._can_pay(att, ATTACK_COST_ENERGIES.get(DESTRUCTIVE_DRILL, [0, 0, 0])):
+                    return self._alakazam_damage(DESTRUCTIVE_DRILL, target)
+                if self._can_pay(att, ATTACK_COST_ENERGIES.get(TENACIOUS_TAIL, [0])):
+                    return self._alakazam_damage(TENACIOUS_TAIL, target)
         return 0
 
     def _gust_ko_targets(self):
@@ -802,7 +934,12 @@ class AlakazamPolicy:
             # and leave "draw less" as a separate real-ladder A/B. Only the high-hand floor stays.
             # v3 P0-2: 高手札×低山札ガードを強化(14/12→12/14)。手札12枚=240ダメは
             # 既にワンパン圏。これ以上の圧縮はデッキ切れリスクだけが増える。
-            if self.me.handCount >= 12 and self.me.deckCount <= 14:
+            # rev5.1 [R4]: ベンチ2体以上(=使用後も前+ベンチ1体以上が残り、場切れ
+            # リスクなし)なら原則使用(ユーザー要求「ベンチ2体以上は確定で使う」)。
+            # 山札フロア/_deck_preserve/_no_damage_path の上のハードガードは
+            # 実績ある山札切れ敗因(v3:5敗/v4:2敗)対策なので維持する。
+            bench_bodies = sum(1 for p in self.me.bench if p is not None)
+            if bench_bodies < 2 and self.me.handCount >= 12 and self.me.deckCount <= 14:
                 return -1
             return 15000
         return 9000
@@ -939,6 +1076,27 @@ class AlakazamPolicy:
                 and not self._effect_prevented(opp)        # Mist Energy etc. → 0, don't chase it
                 and 20 * self._achievable_hand() >= opp.hp)
 
+    def _candy_now_beats_bridge(self):
+        """rev5.1 [R1] エネ付きケーシィが前にいて、アメ→フーディンでこのターン
+        攻撃できる(効果無効で0にならない)なら、ユンゲラー橋(+ドロー)より
+        「今進化して今殴る」を優先すべきか。
+        - KOが立つ(20×[手札-アメ-フーディン] ≥ 相手HP)なら常にTrue
+        - KOに届かなくても、他に攻撃手段が無い(=攻撃可能化がこのプレイだけ)ならTrue
+          (ユーザー知見: 進化せず殴れないまま返すより、進化して殴る方が良い)"""
+        a = self.me.active[0] if self.me.active else None
+        if a is None or a.id != C.ABRA:
+            return False
+        if not self._can_pay(list(a.energies or []),
+                             ATTACK_COST_ENERGIES.get(POWERFUL_HAND, [EnergyType.PSYCHIC])):
+            return False               # エネが無ければ進化しても今ターンは殴れない
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if opp is None or self._effect_prevented(opp):
+            return False
+        hand_after = self.me.handCount - 2       # アメ+フーディンの2枚を消費
+        if 20 * hand_after >= opp.hp:
+            return True
+        return not self._have_attacker()
+
     def _score_play_trainer(self, card):
         cid = card.id
         ready = self._alakazam_ready()
@@ -948,6 +1106,10 @@ class AlakazamPolicy:
                 # cards) beats the Candy skip (we over-played Candy 341x). Candy is for
                 # when the Kadabra bridge is missing.
                 if self.hand[C.KADABRA] >= 1:
+                    # rev5.1 [R1]: ただし「今ターン攻撃(特にKO)が立つ」ならアメ優先
+                    # (ユンゲラー進化20000より上、致死攻撃30000/90000よりは下)。
+                    if self._candy_now_beats_bridge():
+                        return 21000
                     return 8000   # prefer the Kadabra bridge, but Candy is still fine tempo
                 return 20500
             return -1
@@ -1027,6 +1189,8 @@ class AlakazamPolicy:
                 return 8600       # 純増ドロー: ポケパッド(8500)の直上、展開消化後
             return -1             # 手札が太い時はPowerful Handの火力を失うだけ
         if cid == C.BOSS_ORDERS:
+            # rev5.1 [R2]: デッキから撤去済み(2→0)。ロジックは再投入に備えて温存
+            # (デッキに無ければこの分岐は実行されないだけで無害)。
             if self.state.supporterPlayed:
                 return -1
             ko = self._gust_ko_targets()
@@ -1167,6 +1331,15 @@ class AlakazamPolicy:
             return 6000
         if cid == C.DUDUNSPARCE:
             return 19000
+        if cid == C.DUDUNSPARCE_EX:
+            # rev5.1 [R2] 唯一(1枚)の効果無効貫通アタッカー。効果ロック対面では
+            # ノココッチ66(19000)より優先して進化させる。それ以外の対面では温存し、
+            # 66のドローエンジンを優先(ただし他に択が無ければ270HP壁として許容)。
+            if self._effect_lock_matchup():
+                return 21200
+            if self._opp_ex_count() >= 2:
+                return 5200   # Tenacious Tail 120+圏: 66が手札に無い時の次善
+            return 900
         return 18000
 
     # ── v2: エンリッチ vs 超エネルギーの貼り分け ──────────────────────────────
@@ -1208,6 +1381,10 @@ class AlakazamPolicy:
         # v2: エンリッチは「攻撃を可能にするか」の汎用ゲートを通さず専用ロジックで判断
         if src is not None and src.id == C.ENRICHING_ENERGY:
             return self._enriching_attach_score(p)
+        # rev5.1 [R2]: 306はTail({C}1個)が払えた時点で_can_attackが立ってしまい
+        # 汎用ゲートがDrill(3エネ)への増強を止める → 専用ロジックで判断
+        if p.id == C.DUDUNSPARCE_EX:
+            return self._dudun_ex_attach_score(p)
         # GENERAL RULE (type-aware): attach only while the body still can't pay an attack;
         # once it CAN attack, hold the rest (fuels a backup AND +20 Powerful Hand per card).
         if not self._should_fuel(p):
@@ -1241,6 +1418,18 @@ class AlakazamPolicy:
                 base -= 150
         return base
 
+    def _dudun_ex_attach_score(self, p):
+        """rev5.1 [R2] ノココッチex(306)へのエネ供給。Destructive Drill({C}{C}{C})が
+        撃てるまで貼る。効果ロック対面では唯一のダメージ源なのでフーディンへの
+        供給(8000)よりわずかに優先(その対面ではPowerful Handは0ダメで無価値)。"""
+        if self._can_pay(list(p.energies or []),
+                         ATTACK_COST_ENERGIES.get(DESTRUCTIVE_DRILL, [0, 0, 0])):
+            return -1                 # 3エネ到達済み — 以降は過剰供給
+        if self._effect_lock_matchup():
+            return 8100
+        # 進化済みで場に居るなら細く育てておく価値はあるが、フーディンより下
+        return 2000 if self._opp_has_rulebox() else 900
+
     # — retreat —
     def _score_retreat(self):
         active = self.me.active[0] if self.me.active else None
@@ -1251,6 +1440,21 @@ class AlakazamPolicy:
             for p in self.me.bench:
                 if p is not None and p.id in ALAKAZAM_IDS and self._energy_count(p) >= 1:
                     return 6000
+            # rev5.1 [R2]: 効果ロック対面ではベンチの攻撃可能ノココッチexが実質エース
+            for p in self.me.bench:
+                if (p is not None and p.id == C.DUDUNSPARCE_EX and self._can_attack(p)
+                        and self._effect_lock_matchup()):
+                    return 6000
+        # rev5.1 [R3]: 前のフーディンライン(ケーシィ/ユンゲラー/フーディン)が次の
+        # 相手ターンにKOされる見込みで、今こちらに致死が無いなら、ライン外の盾と
+        # 交代して延命する(フーディンが命のデッキ — ラインを餌にしない)。
+        #  - 致死がある時は _saving_active_line がFalse → 攻撃30000/6000+が必ず勝つ
+        #    (ユーザー例外a: ユンゲラー等が進化せず倒せる場合 / b: 後続で継続する場合)
+        #  - 盾は _shield_candidates: ライン外 かつ 倒されても負けない体のみ
+        #    (のこっち系優先はSWITCH側 _score_active_choice の+500で保証)
+        #  - スコア5600: 非KO攻撃(≤1320)より上、KO攻撃(6000+)・エネ貼り(8000)より下
+        if self._saving_active_line() and self._shield_candidates():
+            return 5600
         return -1
 
     # — attack —
@@ -1350,6 +1554,8 @@ class AlakazamPolicy:
         cc = getattr(self.select, "contextCard", None)
         if cc is not None and getattr(cc, "id", None) == C.ENRICHING_ENERGY:
             return self._enriching_attach_score(p)
+        if p.id == C.DUDUNSPARCE_EX:
+            return self._dudun_ex_attach_score(p)   # rev5.1 [R2]: Drill 3エネまで貼る
         if not self._should_fuel(p):
             return -1             # already CAN attack (type-aware) -> don't over-fill
         if p.id in ALAKAZAM_IDS:
@@ -1409,10 +1615,33 @@ class AlakazamPolicy:
                 score += 120
             else:
                 score += 40      # 140 HP wall but a dead end — don't strand the win-con
+        elif card.id == C.DUDUNSPARCE_EX:
+            # rev5.1 [R2/R3]: 270HPの壁+効果ロック対面の実質エース。ただしex=2サイド:
+            # 倒されると相手が勝ち切れる状況では前に出さない(ユーザー要件)。
+            if prize_count(card) >= len(self.opponent.prize):
+                score -= 150
+            elif self._can_attack(card) and self._effect_lock_matchup():
+                score += 320
+            else:
+                score += 90
         elif card.id == C.DUNSPARCE:
             score += 30          # 70HP + Trading Places(自由交代)持ち — 裸ケーシィより上
         elif card.id in (C.PSYDUCK, C.SHAYMIN, C.GENESECT):
             score -= 20          # tech bodies: don't promote into the attacker slot
+        # rev5.1 [R3]: 退避モード(前のラインが次ターンKO見込み&致死なし)中は、
+        # ライン外の盾をフーディンの+300より上へ押し上げる。序列(ユーザー要件):
+        # 1サイドののこっち系 > 効果ロック対面で殴れる306 > その他ex盾。
+        # 「倒されると相手が勝つ」ex盾は押し上げない(_shield_candidates と同基準)。
+        if self._saving_active_line() \
+                and card.id not in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY) \
+                and prize_count(card) < len(self.opponent.prize):
+            if prize_count(card) == 1:
+                score += 500
+            elif (card.id == C.DUDUNSPARCE_EX and self._can_attack(card)
+                    and self._effect_lock_matchup()):
+                score += 550   # 盾兼アタッカー: この対面の実質エース
+            else:
+                score += 150   # 2サイド献上リスクのあるex盾は1サイド盾より下
         score += getattr(card, 'hp', 0) // 30   # mild "promote the survivor" tiebreak
         return score + 1
 
@@ -1480,6 +1709,10 @@ class AlakazamPolicy:
             # v5: 効果無効(ミスト/全体保護)が見えている対面では、通常ダメージで
             # 貫通する245が唯一の勝ち筋 — 最優先で確保する。
             score += 400 if self._no_damage_path() else 60
+        elif cid == C.DUDUNSPARCE_EX:
+            # rev5.1 [R2]: 効果ロック対面の貫通アタッカー(1枚) — 最優先で確保。
+            # ハイパーアロマ(進化1サーチ)でも取れる。通常対面では66/ラインを優先。
+            score += 380 if self._effect_lock_matchup() else 25
         elif cid == C.HYPER_AROMA:
             score += 70   # ACE SPEC — ライン供給(v4)
         elif cid == C.ENHANCED_HAMMER:
@@ -1507,7 +1740,8 @@ class AlakazamPolicy:
             return 20 if self.hand[cid] >= 3 else -40
         if self.hand[cid] >= 2:
             return 60
-        if cid in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.DUNSPARCE, C.DUDUNSPARCE):
+        if cid in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.DUNSPARCE, C.DUDUNSPARCE,
+                   C.DUDUNSPARCE_EX):   # rev5.1: 306は1枚しか無い — 捨てない
             return -50 if self.field[cid] == 0 else 5
         if cid in (C.HILDA, C.DAWN) and self.state.supporterPlayed:
             return 30
@@ -1521,7 +1755,8 @@ class AlakazamPolicy:
         cid = card.id
         if self.hand[cid] >= 2:
             return 70
-        if cid in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.DUNSPARCE, C.DUDUNSPARCE):
+        if cid in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.DUNSPARCE, C.DUDUNSPARCE,
+                   C.DUDUNSPARCE_EX):   # rev5.1: 306(1枚)は場に無い限り手放さない
             return -40 if self.field[cid] == 0 else 60
         return 10
 
@@ -1552,3 +1787,4 @@ def agent(obs_dict):
     except Exception as exc:
         _diag_record_error(exc); _DIAG["obs_fallback"] += 1
         return _legal_fallback_from_dict(obs_dict if isinstance(obs_dict, dict) else {})
+# rev5.1 end
