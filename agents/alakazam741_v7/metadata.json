@@ -1,23 +1,18 @@
 {
   "name": "alakazam741_v7",
-  "version": "7.2.0",
+  "version": "7.0.0",
   "status": "candidate",
-  "archetype": "Alakazam 741 pressure core + Dudunsparce + bench protection/recovery",
+  "archetype": "Alakazam 741 pressure core + Dudunsparce, Hyper Aroma, Lillie's Determination",
   "entrypoint": "main.py",
   "deck": "deck.csv",
   "requires_cg": true,
-  "summary": "v3 pressure core with active Phase/Tier priorities, lethal/deck safety gates, three Battle Cage, three Night Stretcher, route-aware recovery, Hyper Aroma set selection, and no Boss's Orders or Crushing Hammer.",
+  "summary": "v3 deck/attack pressure rebuilt as v7 with Hyper Aroma, one Lillie's Determination, phase classification, tiered action priority, and only confirmed safety guards retained.",
   "strategy_notes": "STRATEGY_V7.md",
   "notes": [
-    "Boss's Orders remains at 0 and all gust-specific logic remains removed.",
-    "Crushing Hammer 2 -> 0; Battle Cage 2 -> 3 and Night Stretcher 2 -> 3 after matchup review.",
-    "Battle Cage is played only to replace an opposing Stadium or answer a detected bench-attack threat.",
-    "Night Stretcher is used only when it completes an evolution, backup, engine, or basic-Psychic-energy route; target selection uses the same route-aware scoring.",
-    "The first missing Abra-line backup may be established before a non-winning attack, while the lethal-preservation gate still protects exact KOs.",
-    "Run Away Draw hard invariant: the last Pokemon in play can never shuffle itself away; Active Dudunsparce only cycles to a ready benched Alakazam.",
-    "Low-deck ACTIVATE refusal and lethal-preservation run on the real score dispatch path.",
-    "Enhanced Hammer is limited to removing effect-prevention energy when the post-play Powerful Hand immediately KOs.",
-    "BasePolicy owns selection/fallback, energy discipline, board-wide effect protection, PrizeTracker, make_agent, and whole-set custom selection support.",
-    "Golden-state tests cover 60-card composition, safety gates, Phase/Tier ordering, Lillie ordering, Battle Cage timing, route-aware Night Stretcher use, global protection, and three-card Hyper Aroma selection."
+    "v2の67戦ログ全数分析(sub54523210)+ローカルアリーナA/Bによる改善",
+    "P0: 致死維持ゲート(手札消費で致死圏を割るプレイを禁止, ギリギリではKO攻撃30000で〆る) / 山札フロアmax(8,サイド+3)+ACTIVATE辞退 / 聖なる灰=山札回復昇格 / _item_locked MAIN限定",
+    "P1デッキ: +2クセロシキ(3) +1バトルケージ(2) / -1夜のタンカ(2) -1ヒカリ(3) -1ポケパッド(3)。245/343テックはA/B悪化のため見送り",
+    "A/B: vs v2 64.2%(500戦) / crustle 92% / kangaskhan 96% / grimmsnarl 81% / megastarmie 66% / gen-alakazam 94% / vs v1 76%",
+    "即攻撃強制はA/Bで41.5%に悪化 → PHは手札非消費なので展開後の終端攻撃が最適と確認"
   ]
 }

@@ -26,7 +26,7 @@ from abc import ABC, abstractmethod
 from collections import Counter, defaultdict
 
 from cg.api import (
-    AreaType, Card, CardType, EnergyType, Observation, OptionType, Pokemon,
+    AreaType, CardType, EnergyType, Observation, OptionType, Pokemon,
     SelectContext, all_card_data, all_attack, to_observation_class,
 )
 
@@ -73,6 +73,44 @@ for _c in all_card:
         _t = (_s.text or '')
         if 'Item' in _t and 'Active Spot' in _t and 'play' in _t and ('opponent' in _t or 'neither' in _t):
             ITEM_LOCK_IDS.add(_c.cardId)
+
+
+def _norm_text(value):
+    return (value or '').replace('’', "'").lower()
+
+
+# Some abilities protect OTHER Pokémon from attack effects while the protector sits
+# anywhere in play.  Powerful Hand places damage counters, so these protections must
+# be checked in addition to the target's own ability and attached energy.
+GLOBAL_EFFECT_PROTECTORS = {}  # protector cardId -> predicate(target card data)
+for _c in all_card:
+    if _c.cardType != CardType.POKEMON:
+        continue
+    for _s in (_c.skills or []):
+        _t = _norm_text(_s.text)
+        if ('prevent all effects of attacks' not in _t or 'done to your' not in _t
+                or 'to this pok' in _t):
+            continue
+        _scope = _t.split('done to your', 1)[1]
+
+        def _make_protection_predicate(scope):
+            def predicate(target_data):
+                # Bench-only protection does not protect the opposing Active targeted by
+                # Powerful Hand.  Unknown targets are treated conservatively.
+                if 'benched' in scope:
+                    return False
+                if target_data is None:
+                    return True
+                if 'basic' in scope and (getattr(target_data, 'stage1', 0)
+                                         or getattr(target_data, 'stage2', 0)):
+                    return False
+                if "team rocket" in scope and "team rocket" not in _norm_text(
+                        getattr(target_data, 'name', '')):
+                    return False
+                return True
+            return predicate
+
+        GLOBAL_EFFECT_PROTECTORS[_c.cardId] = _make_protection_predicate(_scope)
 
 
 # ── generic module helpers ───────────────────────────────────────────────────
@@ -359,7 +397,6 @@ class BasePolicy(ABC):
     # —— prize knowledge (None = unknown; never act on None) ——
     def is_prized(self, card_id):
         return self.tracker.is_prized(card_id) if self.tracker else None
-
     def prized_count(self, card_id):
         return self.tracker.prized_count(card_id) if self.tracker else None
 
@@ -375,12 +412,24 @@ class BasePolicy(ABC):
         return max(0, self.tracker.deck_total(card_id) - seen - pc)
 
     def effect_prevented(self, target):
+        """Whether attack effects on ``target`` are prevented.
+
+        Covers protection granted by the target itself, attached energy, and a
+        different Pokémon protecting the board (for example Team Rocket's Articuno).
+        """
         if target is None:
             return False
         if target.id in EFFECT_PREVENT_SELF:
             return True
         for e in (getattr(target, 'energyCards', None) or []):
             if getattr(e, 'id', None) in EFFECT_PREVENT_ENERGY:
+                return True
+        target_data = card_table.get(target.id)
+        for protector in (self.opponent.active + self.opponent.bench):
+            if protector is None:
+                continue
+            predicate = GLOBAL_EFFECT_PROTECTORS.get(protector.id)
+            if predicate is not None and predicate(target_data):
                 return True
         return False
 
@@ -392,6 +441,13 @@ class BasePolicy(ABC):
         return any(p is not None and p.id in self.ATTACKER_IDS and self.can_attack(p)
                    for p in self.me.bench)
 
+    def opponent_threatens_bench(self):
+        for pokemon in (self.opponent.active + self.opponent.bench):
+            data = card_table.get(pokemon.id) if pokemon is not None else None
+            if data and any(attack_id in BENCH_DAMAGE_ATTACKS for attack_id in (data.attacks or [])):
+                return True
+        return False
+
     # —— dispatch ——
     def rank(self):
         if not self.select.option or self.select.maxCount == 0:
@@ -401,8 +457,21 @@ class BasePolicy(ABC):
         return ranked, scores
 
     def choose(self):
+        custom = self.custom_selection()
+        if custom is not None:
+            return custom
         ranked, scores = self.rank()
         return normalize_selection(ranked, scores, self.select)
+
+    def custom_selection(self):
+        """Optional whole-selection hook for effects that choose a set of cards.
+
+        Per-option scores cannot express diminishing returns such as "take one
+        Kadabra and one Dudunsparce, not three copies of the same card".  Deck
+        policies may return a complete list of option indices here; ``None`` keeps
+        the normal score-and-normalize path.
+        """
+        return None
 
     def score(self, o):
         t = o.type

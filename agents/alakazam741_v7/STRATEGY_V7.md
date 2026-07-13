@@ -1,159 +1,92 @@
-# alakazam741_v7.2
+# alakazam741_v7
 
-## 目的
+## Base
 
-v7.2は、v3の攻撃テンポとv7.1の安全条件を維持しながら、ボスの指令を削除して空いた2枠を対戦ログの苦手要因へ合わせて再構成した版です。
+v7 is a reset from the v3 attack-first Alakazam 741 plan, not an incremental
+v6 branch expansion. It keeps the v3 pressure core and ports only confirmed
+safety guards:
 
-クラッシュハンマーによる不確定なエネルギー妨害ではなく、次の2点を直接補強します。
+- prevent last-board Dudunsparce from using Run Away Draw into an empty board
+- recognize Mist/Rock-style effect prevention before Powerful Hand
+- avoid 0-damage Powerful Hand loops and optional draw while locked
+- preserve deck floors and winning low-deck states
+- preserve current KO math when a hand-spending action would lose the KO
+- keep type-aware energy checks and over-attachment prevention
+- keep legal fallback behavior on malformed observations
 
-- ドラパルト系や不利スタジアムに対するベンチ保護・張り替え
-- 高速サイドレースで途切れやすい後続フーディンと基本超エネルギーの回収
+## Deck Change From v3
 
-## デッキ変更
+- Rich Energy 13: 1 -> 0
+- Hyper Aroma 1082: 0 -> 1
+- Dunsparce 305: 4 -> 3
+- Lillie's Determination 1227: 0 -> 1
 
-v7.1からの変更は次のとおりです。
+The deck remains 60 cards. No Mega Diancie ex, Dudunsparce ex, Alakazam 245,
+Shaymin 343, or other v5/v6 technology package is included in this initial
+version.
 
-- クラッシュハンマー 2 → 0
-- バトルケージ 2 → 3
-- 夜のタンカ 2 → 3
+## Action Model
 
-ボスの指令は引き続き0枚で、専用ロジックも復活させません。ACE SPECはハイパーアロマ、リーリエの決心は1枚を維持します。
+Each MAIN decision is classified into exactly one phase:
 
-## Phase
+- SETUP: no ready Alakazam attacker exists
+- PRESSURE: a ready Alakazam attacker exists
+- RECOVER: the line was disrupted and must be rebuilt
+- LOCKED: Powerful Hand is blanked by effect prevention
+- ENDGAME: deck or prize state makes closing the game more important
 
-MAINでは必ず一つのPhaseを選びます。
+Scores are wrapped in priority tiers:
 
-- `SETUP`: 攻撃可能なフーディンがまだいない
-- `PRESSURE`: 攻撃可能なフーディンがいる
-- `RECOVER`: フーディンラインを失い、再建が必要
-- `LOCKED`: Powerful Handが効果防止で0になる
-- `ENDGAME`: 山札または残サイドが少なく、勝ち切りを優先
+- Tier 0: block illegal/self-destructive/deck-out actions
+- Tier 1: win now or prevent a forced loss
+- Tier 2: take a KO or make a meaningful attack
+- Tier 3: create the attacking Alakazam
+- Tier 4: prepare the next Alakazam
+- Tier 5: search or refill needed cards
+- Tier 6: disruption and extra development
+- Tier 7: end the turn
 
-## Tier
+The tier wrapper makes a meaningful attack beat routine draw or development in
+PRESSURE. It still allows confirmed unlock actions, such as Enhanced Hammer on
+Mist Energy, before attacking.
 
-異なる目的の行動を同じ平坦な点数だけで比較しません。
+## Lillie's Determination
 
-1. `WIN_OR_SURVIVE`: 最後のサイドを取るKO、効果防止を剥がして即KO
-2. `PRE_ATTACK`: 安全なRun Away Draw、最初の後続確保、必要なスタジアム張り替え
-3. `ATTACK`: Powerful Handによる攻撃
-4. `BUILD_ATTACKER`: 今ターンの攻撃役を作る進化・給エネ
-5. `BUILD_BACKUP`: 後続の準備
-6. `SEARCH`: 必要札のサーチ・立て直し
-7. `DISRUPT`: クセロシキ、改造ハンマー、通常時のスタジアム
-8. `END`: ターン終了
+Lillie is a recovery card, not a generic high-score supporter. v7 uses it only
+when the hand is thin and the board cannot yet make an attacker, or after a
+small-hand disruption state. It is blocked when the current hand already has a
+complete Abra-to-Alakazam route, when the current attack wins, or when spending
+the hand would lower Powerful Hand below the needed KO math.
 
-違法・自滅・山札切れ・0ダメージ行動はTier以前にブロックします。
+## Hyper Aroma
 
-## 攻撃と致死維持
+Hyper Aroma is the ACE SPEC. Search selection prioritizes Kadabra when the
+Alakazam line is not online, then Dudunsparce when the draw engine is missing.
+It is also gated by the same deck-floor checks used for other optional searches.
 
-- 最後のサイドを取るKOは即攻撃
-- 手札を1枚使うと現在のKO圏を失う場合、その行動を禁止
-- 夜のタンカは有効な対象を1枚回収するため、解決後の手札枚数を0変化として扱う
-- バトルケージやケーシィ展開が現在のKOを崩す場合は攻撃を優先
-- 攻撃可能な状態ではENDを禁止し、行動列を攻撃で終える
+## Responsibility Split
 
-## 最初の後続ライン
+v7 inherits BasePolicy for selection normalization, fallback, common dispatch,
+board counters, card access, attackability, type-aware energy checks,
+over-attachment prevention, and prize helpers. The Alakazam file keeps only the
+deck-specific work: Powerful Hand damage, hand-size preservation, evolution
+route scoring, Run Away Draw safety, mirror Xerosic timing, effect-lock handling,
+and Alakazam-specific search order.
 
-v3の主要課題だったアタッカー連続性を、盤面5体強制ではなく「最初の後続1体」に限定して補います。
+## Tests
 
-攻撃可能なフーディンがいて、ベンチにケーシィ・ユンゲラー・フーディンが1体もいない場合だけ、次を攻撃前の行動へ昇格します。
+`tests/test_alakazam741_v7.py` fixes the following golden states:
 
-- 手札のケーシィをベンチへ出す
-- なかよしポフィンでケーシィを用意する
-- 夜のタンカで必要なケーシィラインを回収する
-
-現在のKOを失う場合は致死維持ゲートが優先されます。すでに後続ラインがあれば、追加展開は攻撃より下へ戻ります。
-
-## バトルケージ
-
-バトルケージは次の場合だけ使用します。
-
-- 相手のスタジアムが場にある
-- 自分のベンチが存在し、相手盤面にベンチ攻撃の脅威がある
-
-`PRESSURE`または`ENDGAME`では、上記条件を満たす時だけ`PRE_ATTACK`へ昇格します。脅威も相手スタジアムもない場合は温存し、Powerful Handの手札を無駄に減らしません。
-
-## 夜のタンカ
-
-夜のタンカは「トラッシュに対象がある」だけでは使いません。次のように、実際の進化・給エネルートを補える対象がある時だけ使用します。
-
-- ベンチに後続がいない時のケーシィ
-- 場または手札のケーシィに対応するユンゲラー
-- 場のユンゲラー、またはふしぎなアメ付きケーシィに対応するフーディン
-- エネルギー不足時の基本超エネルギー
-- ノコッチが場にいる時のノココッチ
-- ドローエンジンが完全に切れた時のノコッチ
-
-選択時も同じ基準で優先順位を付けます。進化ルートを完成させない単独フーディンなどは低評価にし、無意味な回収を避けます。
-
-## ノココッチ
-
-- 場の最後の1体であるActiveノココッチは、理由に関係なくRun Away Draw禁止
-- ActiveノココッチのRun Away Drawは、ベンチに今すぐ攻撃できるフーディンがいる場合だけ許可
-- ベンチのノココッチは山札フロア、LOCKED、高手札・低山札条件に従う
-
-## 山札管理
-
-- 任意ドロー停止フロアは `max(8, 残サイド+3)`
-- フロア以下のACTIVATE確認はNOを選択
-- LOCKED中に解除手段がない場合、任意ドロー・サーチを停止
-- 聖なる灰は低山札時の回復札として優先
-
-## 効果防止
-
-Powerful Handはダメージカウンターを置く効果なので、次を共通判定します。
-
-- ミスト系特殊エネルギー
-- 対象自身の効果防止能力
-- Team Rocket's Articunoなど、別のポケモンによる盤面全体保護
-
-改造ハンマーは、相手Activeの防止エネルギーを剥がすことで、そのターンにKOできる場合だけ使用します。
-
-## リーリエの決心
-
-リーリエは事故回復専用です。
-
-- 完成済み進化ルート、現在のKO、十分な手札を壊さない
-- ポフィン、たね展開、進化、有効なエネルギー付与を先に行う
-- 残サイド6枚なら8枚、それ以外は6枚を目標に、実質2枚以上増える細い手札で使用
-- 攻撃役不足またはエネルギー不足の立て直しに限定
-
-## ハイパーアロマ
-
-カード単体の固定点ではなく、3枚の選択集合を評価します。
-
-- 場のケーシィに対応するユンゲラー
-- 場のノコッチに対応するノココッチ
-- 既存の手札・場の枚数
-- 同じカードを3枚取ることによる過剰重複
-
-基本的に役割の異なる2種類を含み、同一カード3枚を避けます。
-
-## policy_base.pyとの分離
-
-`main.py`は`BasePolicy`を継承し、次を共通実装へ移行しています。
-
-- 選択肢の正規化と合法フォールバック
-- カード取得、盤面・手札・トラッシュ集計
-- エネルギー型、技コスト、過剰付与防止
-- 効果防止の共通判定
-- PrizeTracker
-- `make_agent()`による永続状態と例外処理
-- 複数カード選択用`custom_selection()`フック
-
-フーディン固有側には、Powerful Hand、進化ルート、致死維持、Phase/Tier、ノココッチ、リーリエ、バトルケージ、夜のタンカ、改造ハンマーの条件だけを残します。
-
-## 次ログで確認する指標
-
-- 平均初攻撃ターン
-- T2までの攻撃率
-- 全自ターン攻撃率
-- 攻撃可能なのにENDした回数
-- Run Away Draw後の同ターン攻撃率
-- 最後の1体Run Away Draw回数
-- 0ダメージPowerful Hand回数
-- 山札切れ敗北
-- 改造ハンマー使用後の同ターンKO率
-- バトルケージ使用対面、張り替え対象、守れたベンチ数
-- 夜のタンカの回収対象と、その後に完成した攻撃ライン
-- 後続ラインがない状態で攻撃した回数
+- deck composition and static validation
+- PRESSURE attacks over optional draw and END
+- last-active Dudunsparce does not Run Away Draw
+- effect-prevented Powerful Hand is not selected
+- locked boards do not take optional draw
+- Enhanced Hammer unlocks Mist Energy before attack
+- current KO is not lost by hand-spending actions
+- attackable Alakazam does not retreat
+- unready active retreats to a ready benched Alakazam
+- Lillie does not break a complete route
+- Lillie is used with a thin no-attacker hand
+- Hyper Aroma selects Kadabra or Dudunsparce according to board need
+- malformed observations still return a legal fallback

@@ -1,0 +1,23 @@
+{
+  "name": "alakazam741_v7",
+  "version": "7.2.0",
+  "status": "candidate",
+  "archetype": "Alakazam 741 pressure core + Dudunsparce + bench protection/recovery",
+  "entrypoint": "main.py",
+  "deck": "deck.csv",
+  "requires_cg": true,
+  "summary": "v3 pressure core with active Phase/Tier priorities, lethal/deck safety gates, three Battle Cage, three Night Stretcher, route-aware recovery, Hyper Aroma set selection, and no Boss's Orders or Crushing Hammer.",
+  "strategy_notes": "STRATEGY_V7.md",
+  "notes": [
+    "Boss's Orders remains at 0 and all gust-specific logic remains removed.",
+    "Crushing Hammer 2 -> 0; Battle Cage 2 -> 3 and Night Stretcher 2 -> 3 after matchup review.",
+    "Battle Cage is played only to replace an opposing Stadium or answer a detected bench-attack threat.",
+    "Night Stretcher is used only when it completes an evolution, backup, engine, or basic-Psychic-energy route; target selection uses the same route-aware scoring.",
+    "The first missing Abra-line backup may be established before a non-winning attack, while the lethal-preservation gate still protects exact KOs.",
+    "Run Away Draw hard invariant: the last Pokemon in play can never shuffle itself away; Active Dudunsparce only cycles to a ready benched Alakazam.",
+    "Low-deck ACTIVATE refusal and lethal-preservation run on the real score dispatch path.",
+    "Enhanced Hammer is limited to removing effect-prevention energy when the post-play Powerful Hand immediately KOs.",
+    "BasePolicy owns selection/fallback, energy discipline, board-wide effect protection, PrizeTracker, make_agent, and whole-set custom selection support.",
+    "Golden-state tests cover 60-card composition, safety gates, Phase/Tier ordering, Lillie ordering, Battle Cage timing, route-aware Night Stretcher use, global protection, and three-card Hyper Aroma selection."
+  ]
+}

@@ -1,28 +1,36 @@
-# alakazam741_v7.2 - v3 pressure core with targeted bench protection and recovery.
-#
-# Key changes:
-# - Boss's Orders and all gust-specific logic removed.
-# - Crushing Hammer removed; +1 Battle Cage and +1 Night Stretcher improve
-#   bench protection, stadium control, and attacker continuity without coin flips.
-# - Run Away Draw can never remove the last Pokemon in play.
-# - Low-deck ACTIVATE refusal and lethal-preservation execute on the real score path.
-# - Winning KO is immediate; safe positive-hand setup may precede other attacks.
-# - Enhanced Hammer is used only when it removes effect prevention for an immediate KO.
-# - MAIN actions are classified by one Phase and one priority Tier.
-# - Lillie ordering and three-card Hyper Aroma set selection are explicit.
-# - BasePolicy/make_agent own common dispatch, selection, fallback, energy, prize,
-#   and board-wide effect-prevention logic.
+# alakazam741_v3 - v2 + 67戦の実ラダーログ全数分析(sub54523210) + ローカルアリーナA/Bに基づく改善:
+#   [P0-1] 致死維持ゲート: 実ログで「致死圏なのに手札消費プレイで圏外に落ちる/攻撃せず
+#          ターンを終える」パターンを多数検出。ただし即攻撃の強制はA/Bで悪化(41.5% vs v2)。
+#          Powerful Handは手札を消費しない → 「ドロー/展開で手札を伸ばしてから終端で攻撃」
+#          が正解。→ 手札を減らす行動は実行後も致死維持できる時のみ許可(_hand_delta)。
+#          致死ギリギリではKO攻撃30000で必ず〆る。勝利KOは常に90000。マージン有はKO=6000
+#          (夜のタンカ等に割り込まれてKOを逃す事故だけ防ぐ)。
+#   [P0-2] 山札予算: デッキ切れ負け5件。フロア max(5,サイド+2)→max(8,サイド+3)、
+#          Run Away Draw高手札ガード強化(手札12+&山札14-)、低山札時はACTIVATE(任意ドロー)辞退。
+#   [P0-3] 聖なる灰を山札回復札として昇格(山札14枚以下+トラッシュにライン3枚以上→12000)。
+#   [P0-4] _item_locked() をMAINコンテキスト限定に(サブ選択での常時誤検知を修正)。
+#   [P1-1] デッキ: +2クセロシキ(→3, ミラー対策=一位デッキ準拠), +1バトルケージ(→2, 敵スタジアム
+#          張り替え用) / -1夜のタンカ(→2), -1ヒカリ(→3), -1ポケパッド(→3)。
+#          ※フーディン245/シェイミ343の投入はA/Bで悪化したため見送り(コードの対応ロジックは
+#            温存: crustle 83%→99%はハンマー4枚維持の方が効いた)。同名カードは合計4枚まで
+#            (743+245で5枚は不可)という制約も確認済み。
+#   [P1-2] 敵スタジアム(ロケット団の監視塔=無色特性無効でノコッチ停止, Full Metal Lab等)を
+#          バトルケージで即張り替え(12500)。
+#   [P1-3] ミラー対策: 相手フーディンライン(ケーシィ/ユンゲラー/フーディン)のKO価値+300、
+#          クセロシキ発動閾値緩和(ミラーは相手手札6+で最優先)。
+#   [A/B結果] vs v2: 64.2%(500戦) / gen-alakazam 94% / crustle 92% / kangaskhan 96% /
+#          grimmsnarl 81% / megastarmie 66% / vs v1 76%。ラダーメタはミラー31%が最大勢力。
+# Base: alakazam741_v2 (wmh/ptcg-abc alakazam v3 divergence-mined). Self-contained.
 from __future__ import annotations
 
 import os
+from collections import defaultdict
 
 from cg.api import (
-    AreaType, CardType, EnergyType, Observation, OptionType, Pokemon, SelectContext,
+    AreaType, Card, CardType, EnergyType, Observation, OptionType, Pokemon,
+    SelectContext, all_card_data, all_attack, to_observation_class,
 )
-from policy_base import (
-    BasePolicy, EFFECT_PREVENT_ENERGY, ENERGY_PROVIDES, ITEM_LOCK_IDS, card_table,
-    get_card, make_agent, new_diag, prize_count,
-)
+from policy_base import BasePolicy, make_agent
 
 
 # ── Card IDs (胡地小人 / Alakazam + Dudunsparce single-prize) ─────────────────
@@ -30,14 +38,19 @@ class C:
     ABRA = 741            # Basic -> Kadabra
     KADABRA = 742         # Stage1 (Psychic Draw on evolve) -> Alakazam
     ALAKAZAM = 743        # Stage2 attacker: Powerful Hand = 20 dmg x cards in hand
+    ALAKAZAM_PSY = 245    # Legacy tech id kept for replay compatibility; not in v7 deck.
     DUNSPARCE = 305       # Basic -> Dudunsparce (7-06: switched to id305 per ladder-#1 Majkel1337's
                           # list — 70HP + Trading Places free switch; the attack-id constants
                           # 423/424 below always belonged to THIS printing, not id65)
     DUDUNSPARCE = 66      # Stage1 draw engine (Run Away Draw)
+    PSYDUCK = 858         # Damp (ability lock tech)
+    SHAYMIN = 343         # Flower Curtain (protect non-Rule-Box bench)
+    GENESECT = 142        # ACE Nullifier (with tool)
 
     PSYCHIC_ENERGY = 5
     TELEPATH_ENERGY = 19  # special, provides {P}
     HYPER_AROMA = 1082    # ACE SPEC Item: search 3 Stage-1 cards.
+    ENRICHING_ENERGY = 13 # Legacy ACE SPEC energy; not in v7 deck.
 
     BUDDY_POFFIN = 1086
     POKE_PAD = 1152
@@ -45,17 +58,22 @@ class C:
     LILLIE = 1227         # Lillie's Determination: reset a thin hand, draw 6/8.
     DAWN = 1231           # Supporter: search Basic+Stage1+Stage2
     RARE_CANDY = 1079
+    BOSS_ORDERS = 1182
     XEROSIC = 1197        # v2: 相手は手札が3枚になるまで捨てる(ミラーのPowerful Hand潰し)
     BATTLE_CAGE = 1264    # Stadium: block bench damage counters
     ENHANCED_HAMMER = 1081  # Item: discard a Special Energy from opp (e.g. Mist Energy)
+    LUCKY_HELMET = 1156   # Tool: draw 2 when damaged
+    WONDROUS_PATCH = 1146
     NIGHT_STRETCHER = 1097
     SACRED_ASH = 1129
     LANA_AID = 1184
 
 
 POWERFUL_HAND = 1072   # Alakazam 743: place 2 counters (20 dmg) per card in hand, on opp Active
+PSYCHIC_ATK = 339      # Alakazam 245: 10 + 50 per energy on opp Active (DAMAGE; bypasses Mist)
+STRANGE_HACKING = 338  # Alakazam 245: confuse + move opp's damage counters around
 SUPER_PSY_BOLT = 1071  # Kadabra: 30
-ALAKAZAM_IDS = {C.ALAKAZAM}
+ALAKAZAM_IDS = {743}
 ABRA_TELEPORT = 1070   # Abra: 10 + switch
 DUDUN_LAND_CRUSH = 76  # Dudunsparce: 90 (rarely; engine instead)
 DUNSPARCE_TRADE = 423  # Dunsparce: switch
@@ -64,6 +82,7 @@ DUNSPARCE_RAM = 424
 ENERGY_TYPES = {C.PSYCHIC_ENERGY, C.TELEPATH_ENERGY}
 ATTACKER_IDS = {C.ALAKAZAM, C.KADABRA}
 LOW_DECK_COUNT = 6
+pre_turn = -1
 
 
 class Phase:
@@ -77,19 +96,17 @@ class Phase:
 class Tier:
     BLOCK = 0
     WIN_OR_SURVIVE = 1
-    PRE_ATTACK = 2
-    ATTACK = 3
-    BUILD_ATTACKER = 4
-    BUILD_BACKUP = 5
-    SEARCH = 6
-    DISRUPT = 7
-    END = 8
+    ATTACK = 2
+    BUILD_ATTACKER = 3
+    BUILD_BACKUP = 4
+    SEARCH = 5
+    DISRUPT = 6
+    END = 7
 
 
 TIER_BASE = {
     Tier.BLOCK: -1_000_000,
-    Tier.WIN_OR_SURVIVE: 800_000,
-    Tier.PRE_ATTACK: 700_000,
+    Tier.WIN_OR_SURVIVE: 700_000,
     Tier.ATTACK: 600_000,
     Tier.BUILD_ATTACKER: 500_000,
     Tier.BUILD_BACKUP: 400_000,
@@ -99,18 +116,24 @@ TIER_BASE = {
 }
 TIER_SPAN = 100_000
 
-_DIAG = new_diag()
+_DIAG = {"decisions": 0, "policy_ok": 0, "policy_fallback": 0,
+         "obs_fallback": 0, "deck_returns": 0, "errors": {}}
+
+
+def _diag_record_error(exc):
+    k = type(exc).__name__ + ": " + str(exc)[:160]
+    _DIAG["errors"][k] = _DIAG["errors"].get(k, 0) + 1
 
 
 def diag_reset():
-    _DIAG.clear()
-    _DIAG.update(new_diag())
+    _DIAG.update({"decisions": 0, "policy_ok": 0, "policy_fallback": 0,
+                  "obs_fallback": 0, "deck_returns": 0, "errors": {}})
 
 
 def diag_snapshot():
-    snapshot = {k: (dict(v) if isinstance(v, dict) else v) for k, v in _DIAG.items()}
-    snapshot['fallback_rate'] = (snapshot.get('policy_fallback', 0) + snapshot.get('obs_fallback', 0)) / max(1, snapshot.get('decisions', 0))
-    return snapshot
+    s = {k: (dict(v) if isinstance(v, dict) else v) for k, v in _DIAG.items()}
+    s["fallback_rate"] = (s.get("policy_fallback", 0) + s.get("obs_fallback", 0)) / max(1, s["decisions"])
+    return s
 
 
 def _resolve_deck_path():
@@ -131,6 +154,143 @@ with open(DECK_PATH) as f:
     my_deck = [int(x) for x in f.read().splitlines() if x.strip()]
 if len(my_deck) != 60:
     raise ValueError(f"deck.csv must have 60 ids, got {len(my_deck)}")
+
+all_card = all_card_data()
+card_table = {c.cardId: c for c in all_card}
+
+# Active-ability Item-lock cards (Tyranitar / Jellicent ex …). Some lock cards
+# (e.g. Budew) carry the effect without an exposed skill, so we ALSO detect lock
+# from game state (hold Items but none playable) — see AlakazamPolicy._item_locked.
+ITEM_LOCK_IDS = set()
+for _c in all_card:
+    for _s in (_c.skills or []):
+        _t = (_s.text or '')
+        if 'Item' in _t and 'Active Spot' in _t and 'play' in _t and ('opponent' in _t or 'neither' in _t):
+            ITEM_LOCK_IDS.add(_c.cardId)
+
+# CRITICAL for Alakazam: Powerful Hand "places damage counters" = an EFFECT, so a
+# target that "prevents all effects of attacks done to it" takes 0 from it.
+#   - special energies that grant this (Mist Energy 11, Rock Fighting Energy 20)
+#   - Pokémon/Tools whose own ability prevents effects of attacks done to itself
+EFFECT_PREVENT_ENERGY = set()
+EFFECT_PREVENT_SELF = set()
+for _c in all_card:
+    _ct = _c.cardType
+    for _s in (_c.skills or []):
+        _t = (_s.text or '')
+        if 'effects of attacks' in _t and 'prevent' in _t.lower():
+            if _ct in (CardType.SPECIAL_ENERGY, CardType.BASIC_ENERGY):
+                EFFECT_PREVENT_ENERGY.add(_c.cardId)
+            elif 'to this Pokémon' in _t or 'to this Pok' in _t:
+                EFFECT_PREVENT_SELF.add(_c.cardId)
+
+# GENERAL energy rule: attach only what an attack costs — never over-fill — UNLESS the attack
+# scales with energy attached to ITSELF (then more = more damage). Disruption (energy removal)
+# is handled automatically: it drops the count back below the need, so we just refill.
+ATTACK_COST = {}                 # attackId -> number of energies in its cost
+ATTACK_COST_ENERGIES = {}        # attackId -> list of required EnergyType (0=Colorless, 5=Psychic…)
+SELF_SCALING_ATTACKS = set()     # attacks whose damage grows with energy on the attacker
+for _a in all_attack():
+    ATTACK_COST[_a.attackId] = len(_a.energies or [])
+    ATTACK_COST_ENERGIES[_a.attackId] = list(_a.energies or [])
+    _t = (_a.text or '').lower()
+    if 'for each' in _t and 'energy attached to this' in _t:
+        SELF_SCALING_ATTACKS.add(_a.attackId)
+
+# What TYPE each energy card provides (Enriching -> Colorless 0; Telepath/Basic {P} -> Psychic 5).
+# Critical: attaching energy must satisfy the attack's TYPE requirement, not just its count.
+ENERGY_PROVIDES = {}
+for _c in all_card:
+    if _c.cardType in (CardType.BASIC_ENERGY, CardType.SPECIAL_ENERGY):
+        ENERGY_PROVIDES[_c.cardId] = getattr(_c, 'energyType', 0)
+
+# Situational-tech triggers (only bench the tech when the opponent's board warrants it):
+#   Shaymin (Flower Curtain) matters ONLY vs bench-damage (spread/snipe) attacks;
+#   Psyduck (Damp) matters ONLY vs abilities that require KO-ing the user itself.
+BENCH_DAMAGE_ATTACKS = set()
+for _a in all_attack():
+    _t = (_a.text or '').lower()
+    if ('benched' in _t and 'damage' in _t) or ('to each of your opponent' in _t and 'damage' in _t):
+        BENCH_DAMAGE_ATTACKS.add(_a.attackId)
+SELF_KO_ABILITY_IDS = set()
+for _c in all_card:
+    for _s in (_c.skills or []):
+        _t = (_s.text or '').lower()
+        if 'knock out' in _t and ('this pokémon' in _t or 'this pokemon' in _t or 'itself' in _t):
+            SELF_KO_ABILITY_IDS.add(_c.cardId)
+
+
+# ── generic helpers (proven scaffolding) ─────────────────────────────────────
+def normalize_selection(ranked, scores, select):
+    n = len(select.option)
+    minc = max(0, min(select.minCount, n)); maxc = max(minc, min(select.maxCount, n))
+    out, seen = [], set()
+    for i in ranked:
+        if not (0 <= i < n) or i in seen:
+            continue
+        s = scores[i] if i < len(scores) else 0
+        if s > 0 or len(out) < minc:
+            out.append(i); seen.add(i)
+        if len(out) >= maxc:
+            break
+    for i in range(n):
+        if len(out) >= minc:
+            break
+        if i not in seen:
+            out.append(i); seen.add(i)
+    return out
+
+
+def _legal_fallback(select):
+    try:
+        n = len(select.option); return list(range(min(max(0, select.minCount), n)))
+    except Exception:
+        return []
+
+
+def _legal_fallback_from_dict(obs_dict):
+    try:
+        sel = obs_dict.get("select") or {}
+        return list(range(min(max(0, sel.get("minCount", 0)), len(sel.get("option") or []))))
+    except Exception:
+        return []
+
+
+def _safe_get(seq, i):
+    try:
+        if seq is None or i is None or i < 0 or i >= len(seq):
+            return None
+        return seq[i]
+    except Exception:
+        return None
+
+
+def get_card(obs, area, index, pi):
+    try:
+        player = obs.current.players[pi]
+        match area:
+            case AreaType.DECK: return _safe_get(getattr(obs.select, "deck", None), index)
+            case AreaType.HAND: return _safe_get(getattr(player, "hand", None), index)
+            case AreaType.DISCARD: return _safe_get(getattr(player, "discard", None), index)
+            case AreaType.ACTIVE: return _safe_get(getattr(player, "active", None), index)
+            case AreaType.BENCH: return _safe_get(getattr(player, "bench", None), index)
+            case AreaType.PRIZE: return _safe_get(getattr(player, "prize", None), index)
+            case AreaType.STADIUM: return _safe_get(getattr(obs.current, "stadium", None), index)
+            case AreaType.LOOKING: return _safe_get(getattr(obs.current, "looking", None), index)
+            case _: return None
+    except Exception:
+        return None
+
+
+def prize_count(p):
+    d = card_table.get(p.id)
+    return (3 if d.megaEx else 2 if d.ex else 1) if d else 1
+
+
+def is_energy(cid):
+    d = card_table.get(cid)
+    return cid in ENERGY_TYPES or (d is not None and d.cardType in (CardType.BASIC_ENERGY, CardType.SPECIAL_ENERGY))
+
 
 # ── Alakazam policy ──────────────────────────────────────────────────────────
 class AlakazamPolicy(BasePolicy):
@@ -166,6 +326,9 @@ class AlakazamPolicy(BasePolicy):
 
     def score_retreat(self):
         return self._score_retreat()
+
+    def _my_board(self):
+        return self.my_board()
 
     def _low_deck(self):
         return self.me.deckCount <= LOW_DECK_COUNT
@@ -211,6 +374,77 @@ class AlakazamPolicy(BasePolicy):
             return True
         return False
 
+    def _hand_size(self):
+        return self.me.handCount
+
+    def _energy_count(self, p):
+        return len(p.energies) if p is not None else 0
+
+    @staticmethod
+    def _can_pay(attached, cost):
+        """Can `attached` (list of EnergyType) pay `cost` (list of EnergyType, 0=Colorless)?
+        Specific-type requirements must be met by that exact type; Colorless by anything left."""
+        from collections import Counter
+        have = Counter(attached)
+        colorless = 0
+        for req in cost:
+            if req == EnergyType.COLORLESS:
+                colorless += 1
+            elif have.get(req, 0) > 0:
+                have[req] -= 1
+            else:
+                return False            # e.g. a Psychic requirement with only Colorless attached
+        return sum(have.values()) >= colorless
+
+    def _can_attack(self, p):
+        """TYPE-AWARE: can p actually pay one of its attacks with its currently attached
+        energy? (1 Enriching = Colorless does NOT pay Powerful Hand's Psychic cost.)"""
+        c = card_table.get(p.id)
+        if c is None:
+            return False
+        attached = list(p.energies or [])
+        return any(aid in ATTACK_COST_ENERGIES and self._can_pay(attached, ATTACK_COST_ENERGIES[aid])
+                   for aid in (c.attacks or []))
+
+    def _should_fuel(self, p):
+        """Attach more energy ONLY while p still can't pay an attack (type-aware), so we never
+        over-fill — UNLESS an attack scales with its own energy (then keep attaching)."""
+        c = card_table.get(p.id)
+        if c is None or not (c.attacks or []):
+            return False
+        if any(aid in SELF_SCALING_ATTACKS for aid in c.attacks):
+            return True
+        return not self._can_attack(p)
+
+    def _attach_helps(self, p, src):
+        """Would attaching energy `src` actually let p pay an attack it currently can't?
+        (A Colorless Enriching onto a Psychic-needing Alakazam does NOT help -> don't waste it.)"""
+        if src is None:
+            return True
+        prov = ENERGY_PROVIDES.get(src.id)
+        if prov is None:
+            return True
+        new = list(p.energies or []) + [prov]
+        c = card_table.get(p.id)
+        return any(aid in ATTACK_COST_ENERGIES and self._can_pay(new, ATTACK_COST_ENERGIES[aid])
+                   for aid in (c.attacks or []))
+
+    def _opp_threatens_bench(self):
+        """Opponent has a bench-damaging (spread/snipe) attacker in play -> Shaymin matters."""
+        for p in (self.opponent.active + self.opponent.bench):
+            c = card_table.get(p.id) if p is not None else None
+            if c and any(aid in BENCH_DAMAGE_ATTACKS for aid in (c.attacks or [])):
+                return True
+        return False
+
+    def _opp_has_self_ko_ability(self):
+        """Opponent has an ability that KOs the user itself -> Psyduck (Damp) matters."""
+        return any(p is not None and p.id in SELF_KO_ABILITY_IDS
+                   for p in (self.opponent.active + self.opponent.bench))
+
+    def _energy_in_hand(self):
+        return any(is_energy(c.id) for c in self.me.hand)
+
     def _psychic_in_hand(self):
         """A {P}-providing energy in hand (the ONLY kind that fuels our attacks — Enriching's
         Colorless does not). 'Energy in hand' that is just Enriching still leaves us starved."""
@@ -225,15 +459,26 @@ class AlakazamPolicy(BasePolicy):
         coming = any(p.id == C.KADABRA for p in bodies) and self.hand[C.ALAKAZAM] > 0
         if not (has_alakazam or coming):
             return False
-        if any(p.id in ALAKAZAM_IDS and self.can_attack(p) for p in bodies):
+        if any(p.id in ALAKAZAM_IDS and self._can_attack(p) for p in bodies):
             return False                       # already have an attacker that can actually attack
         return not self._psychic_in_hand()
 
     def _effect_prevented(self, target):
-        """Deck-facing alias for the shared target/energy/board protection check."""
-        return self.effect_prevented(target)
+        """True if attack EFFECTS done to `target` are prevented (Mist Energy / Rock
+        Fighting Energy attached, or a self-prevention ability). Powerful Hand places
+        damage counters = an effect, so it does 0 to such a target."""
+        if target is None:
+            return False
+        if target.id in EFFECT_PREVENT_SELF:
+            return True
+        for e in (getattr(target, 'energyCards', None) or []):
+            if getattr(e, 'id', None) in EFFECT_PREVENT_ENERGY:
+                return True
+        return False
 
     def _opp_active_has_prevent_energy(self):
+        """Opponent's Active has Mist/Rock-Fighting special energy blocking Powerful
+        Hand — Enhanced Hammer should strip it before we attack."""
         opp = self.opponent.active[0] if self.opponent.active else None
         if opp is None:
             return False
@@ -246,9 +491,13 @@ class AlakazamPolicy(BasePolicy):
             return 0
         if attack_id == POWERFUL_HAND:
             if self._effect_prevented(target):
-                return 0
-            return 20 * self.me.handCount
-        if attack_id == SUPER_PSY_BOLT:
+                return 0                     # Mist Energy etc. negates "place counters"
+            return 20 * self._hand_size()    # counter placement -> no weakness
+        if attack_id == PSYCHIC_ATK:
+            # 245 Alakazam: 10 + 50 per energy on opp Active. This is DAMAGE, so it goes
+            # THROUGH Mist Energy and applies Weakness — our answer to Mist/energy decks.
+            dmg = 10 + 50 * len(target.energies)
+        elif attack_id == SUPER_PSY_BOLT:
             dmg = 30
         elif attack_id == ABRA_TELEPORT:
             dmg = 10
@@ -257,120 +506,101 @@ class AlakazamPolicy(BasePolicy):
         elif attack_id == DUDUN_LAND_CRUSH:
             dmg = 90
         else:
-            return 0
-        data = card_table.get(target.id)
-        if data is not None:
-            if data.weakness == EnergyType.PSYCHIC:
+            dmg = 0
+        od = card_table.get(target.id)
+        if od is not None:
+            if od.weakness == EnergyType.PSYCHIC:
                 dmg *= 2
-            elif data.resistance == EnergyType.PSYCHIC:
+            elif od.resistance == EnergyType.PSYCHIC:
                 dmg = max(0, dmg - 30)
         return dmg
 
     def _active_best_dmg(self, target):
-        active = self.me.active[0] if self.me.active else None
-        if active is None or target is None or not self.can_attack(active):
+        a = self.me.active[0] if self.me.active else None
+        if a is None or target is None:
             return 0
-        if active.id == C.ALAKAZAM:
-            return self._alakazam_damage(POWERFUL_HAND, target)
-        if active.id == C.KADABRA:
-            return self._alakazam_damage(SUPER_PSY_BOLT, target)
+        if self._energy_count(a) >= 1:
+            if a.id == C.ALAKAZAM:
+                return self._alakazam_damage(POWERFUL_HAND, target)
+            if a.id == C.ALAKAZAM_PSY:
+                return self._alakazam_damage(PSYCHIC_ATK, target)
+            if a.id == C.KADABRA:
+                return self._alakazam_damage(SUPER_PSY_BOLT, target)
         return 0
 
-    def _hand_delta(self, option_type, option):
-        """Conservative net hand change used only by the lethal-preservation gate."""
-        if option_type == OptionType.ABILITY:
-            card = get_card(self.obs, option.area, option.index, self.my_index)
-            if card is not None and card.id == C.DUDUNSPARCE and option.area == AreaType.BENCH:
-                return 3
-            return 0
-        if option_type in (OptionType.EVOLVE, OptionType.ATTACH, OptionType.ENERGY):
+    def _gust_ko_targets(self):
+        return [p for p in self.opponent.bench if p is not None and self._active_best_dmg(p) >= p.hp]
+
+    def _target_value(self, p):
+        """Tactical worth of removing opponent Pokémon p (ported from the official
+        sample agents): prizes + invested energy/tools + evolution stage; avoid
+        wasting a KO on a disposable draw-support basic."""
+        d = card_table.get(p.id)
+        s = prize_count(p) * 1000
+        s += len(p.energies) * 150
+        s += len(getattr(p, 'tools', []) or []) * 100
+        if d is not None:
+            if getattr(d, 'stage2', 0):
+                s += 250
+            elif getattr(d, 'stage1', 0):
+                s += 350   # Morgrem/Gabite: deny the stage-2 boss it becomes (Majkel's picks)
+        if p.id in (144, 322, 323, 337):     # Squawkabilly ex / Noctowl / Fan Rotom / Archaludon ex
+            s -= 200
+        if p.id == 112 and len(p.energies) >= 1:   # Munkidori — Majkel rarely gusts it
+            s += 100
+        # v3 P1-3: ミラーは「先にユンゲラー(→フーディン)が死んだ方が負け」。
+        # 相手のフーディンラインを優先的に狩ってドロー/火力エンジンごと折る。
+        if p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY):
+            s += 300
+        s += getattr(p, 'hp', 0)
+        return s
+
+    def _gust_value(self, p):
+        d = self._active_best_dmg(p)
+        # Majkel gusts what the ACHIEVABLE Powerful Hand can KO (he pulls 210HP Ogerpon/Fez
+        # ex up and draws to 11+), not just what the current hand kills.
+        if self._have_attacker() and not self._effect_prevented(p):
+            d = max(d, 20 * self._achievable_hand())
+        if d >= p.hp:
+            if prize_count(p) >= len(self.me.prize):
+                return 90000        # KO-ing this wins the game — gust it
+            return 8000 + self._target_value(p)
+        return max(1, d)
+
+    def _hand_delta(self, t, o):
+        """この行動で手札が何枚増減するか(概算)。PLAYのドロー系サポは正、
+        グッズ/進化/エネ貼りは-1。Run Away Draw(ベンチ)は+3。"""
+        if t == OptionType.ABILITY:
+            return 3 if getattr(o, 'area', None) == AreaType.BENCH else 0
+        if t in (OptionType.EVOLVE, OptionType.ATTACH, OptionType.ENERGY):
             return -1
-        if option_type == OptionType.PLAY:
-            card = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
+        if t == OptionType.PLAY:
+            card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
             if card is not None and card.id in (C.HILDA, C.DAWN, C.LANA_AID):
-                return 1
-            # Night Stretcher replaces itself with a Pokémon/basic Energy from discard.
-            # Treat it as hand-neutral only when a useful legal target is confirmed.
-            if (card is not None and card.id == C.NIGHT_STRETCHER
-                    and self._night_stretcher_worthwhile()):
-                return 0
+                return 1           # 手札に加える系サポ(プレイ-1+獲得2〜3)
             return -1
         return 0
 
-    def custom_selection(self):
-        """Choose a balanced three-card Hyper Aroma package.
+    # — entry —
+    def rank(self):
+        if not self.select.option or self.select.maxCount == 0:
+            return [], []
+        scores = [self._score(o) for o in self.select.option]
+        ranked = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
+        return ranked, scores
 
-        Fixed per-card scores can select three Kadabra for one Abra.  This set-level
-        selector fills current evolution roles first, then uses remaining slots as
-        low-duplication backups.
-        """
-        context_card = getattr(self.select, 'contextCard', None)
-        if (self.context != SelectContext.TO_HAND
-                or getattr(context_card, 'id', None) != C.HYPER_AROMA):
-            return None
-        options = list(self.select.option or [])
-        if not options:
-            return []
-        min_count = max(0, min(self.select.minCount, len(options)))
-        max_count = max(min_count, min(self.select.maxCount, len(options)))
-        candidates = []
-        for idx, option in enumerate(options):
-            card = get_card(self.obs, option.area, option.index, option.playerIndex)
-            if card is not None:
-                candidates.append((idx, card.id))
-        if not candidates:
-            return list(range(min_count))
+    def choose(self):
+        ranked, scores = self.rank()
+        return normalize_selection(ranked, scores, self.select)
 
-        abra_waiting = max(0, self.field[C.ABRA] - self.field[C.KADABRA]
-                           - self.hand[C.KADABRA])
-        dunsparce_waiting = max(0, self.field[C.DUNSPARCE] - self.field[C.DUDUNSPARCE]
-                               - self.hand[C.DUDUNSPARCE])
-        desired = {
-            C.KADABRA: min(2, abra_waiting if abra_waiting else int(self.field[C.ALAKAZAM] == 0)),
-            C.DUDUNSPARCE: min(2, dunsparce_waiting if dunsparce_waiting else int(self.field[C.DUDUNSPARCE] == 0 and self.field[C.DUNSPARCE] > 0)),
-        }
-        picked = []
-        picked_by_id = {C.KADABRA: 0, C.DUDUNSPARCE: 0}
-        remaining = list(candidates)
-        while remaining and len(picked) < max_count:
-            def value(item):
-                _, cid = item
-                current = picked_by_id.get(cid, 0)
-                need = desired.get(cid, 0)
-                if current < need:
-                    return 1000 - current * 60 + (30 if cid == C.KADABRA else 20)
-                # Strongly prefer role diversity; a third identical copy is a fallback.
-                return 200 - current * 120 + (20 if cid == C.KADABRA else 10)
-            best = max(remaining, key=value)
-            remaining.remove(best)
-            picked.append(best[0])
-            if best[1] in picked_by_id:
-                picked_by_id[best[1]] += 1
-        if len(picked) < min_count:
-            used = set(picked)
-            for idx in range(len(options)):
-                if idx not in used:
-                    picked.append(idx)
-                    used.add(idx)
-                if len(picked) >= min_count:
-                    break
-        return picked
-
-    def score(self, option):
-        # v3 P0-2 must live on the actual dispatch path, not in a dead helper.
-        if self.context == SelectContext.ACTIVATE and self.me.deckCount <= self._deck_floor():
-            if option.type == OptionType.YES:
-                return 0
-            if option.type == OptionType.NO:
-                return 1
-        raw = super().score(option)
-        if self.context != SelectContext.MAIN:
-            return raw
-        return self._score_main(option, raw)
+    def score(self, o):
+        return self._score(o)
 
     def _ready_alakazam_attacker(self):
-        return any(p is not None and p.id == C.ALAKAZAM and self.can_attack(p)
-                   for p in self.my_board())
+        return any(
+            p is not None and p.id == C.ALAKAZAM and self._can_attack(p)
+            for p in self._my_board()
+        )
 
     def _phase(self):
         opp = self.opponent.active[0] if self.opponent.active else None
@@ -389,207 +619,166 @@ class AlakazamPolicy(BasePolicy):
         local = max(0, min(int(score or 0), TIER_SPAN - 1))
         return TIER_BASE[tier] + local
 
-    def _attack_damage_for_option(self, option):
-        if option.type != OptionType.ATTACK:
+    def _attack_damage_for_option(self, o):
+        if o.type != OptionType.ATTACK:
             return 0
         opp = self.opponent.active[0] if self.opponent.active else None
-        return self._alakazam_damage(option.attackId, opp) if opp is not None else 0
+        if opp is None:
+            return 0
+        return self._alakazam_damage(o.attackId, opp)
 
     def _has_meaningful_attack_option(self):
-        return any(option.type == OptionType.ATTACK
-                   and self._attack_damage_for_option(option) > 0
-                   for option in (self.select.option or []))
+        for opt in self.select.option or []:
+            if opt.type == OptionType.ATTACK and self._attack_damage_for_option(opt) > 0:
+                return True
+        return False
 
-    def _play_card_id(self, option):
-        card = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
-        return getattr(card, 'id', None)
-
-    def _optional_deck_spend(self, option):
-        if option.type == OptionType.ABILITY:
-            card = get_card(self.obs, option.area, option.index, self.my_index)
-            return card is not None and card.id == C.DUDUNSPARCE and option.area == AreaType.BENCH
-        if option.type != OptionType.PLAY:
+    def _optional_deck_spend(self, o):
+        if o.type == OptionType.ABILITY:
+            card = get_card(self.obs, o.area, o.index, self.my_index)
+            return card is not None and card.id == C.DUDUNSPARCE and o.area == AreaType.BENCH
+        if o.type != OptionType.PLAY:
             return False
-        return self._play_card_id(option) in (
+        card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
+        return card is not None and card.id in (
             C.BUDDY_POFFIN, C.POKE_PAD, C.HILDA, C.DAWN, C.LILLIE, C.HYPER_AROMA
         )
 
-    def _pre_attack_ko_setup(self, option):
+    def _play_card_id(self, o):
+        card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
+        return getattr(card, "id", None)
+
+    def _pre_attack_ko_setup(self, o):
         opp = self.opponent.active[0] if self.opponent.active else None
-        if opp is None or not self._ko_active_reachable() or self._active_best_dmg(opp) >= opp.hp:
+        if opp is None or not self._ko_active_reachable():
             return False
-        if option.type == OptionType.ABILITY:
-            card = get_card(self.obs, option.area, option.index, self.my_index)
-            return (card is not None and card.id == C.DUDUNSPARCE
-                    and option.area == AreaType.BENCH and self._deck_spend_ok(cost=3))
-        if option.type == OptionType.PLAY:
-            return self._play_card_id(option) in (C.HILDA, C.DAWN, C.POKE_PAD, C.HYPER_AROMA)
+        if 20 * self.me.handCount >= opp.hp:
+            return False
+        if o.type == OptionType.ABILITY:
+            card = get_card(self.obs, o.area, o.index, self.my_index)
+            return card is not None and card.id == C.DUDUNSPARCE and o.area == AreaType.BENCH
+        if o.type == OptionType.PLAY:
+            return self._play_card_id(o) in (C.HILDA, C.DAWN, C.POKE_PAD, C.HYPER_AROMA)
         return False
 
-    def _breaks_current_lethal(self, option):
-        if not self._lethal_attack_offered() or self._hand_delta(option.type, option) >= 0:
-            return False
-        active = self.me.active[0] if self.me.active else None
-        opp = self.opponent.active[0] if self.opponent.active else None
-        return (active is not None and active.id == C.ALAKAZAM and opp is not None
-                and 20 * (self.me.handCount - 1) < opp.hp)
-
-    def _hammer_unlocks_attack(self):
-        opp = self.opponent.active[0] if self.opponent.active else None
-        return (opp is not None and self._opp_active_has_prevent_energy()
-                and 20 * max(0, self.me.handCount - 1) > 0)
-
-    def _has_backup_line(self):
-        """A benched Abra-line body that can become the next attacker."""
-        return any(p is not None and p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM)
-                   for p in self.me.bench)
-
-    def _needs_first_backup(self):
-        return self._ready_alakazam_attacker() and not self._has_backup_line()
-
-    def _battle_cage_worthwhile(self):
-        if self.state.stadiumPlayed or self.stadium_id == C.BATTLE_CAGE:
-            return False
-        if self.stadium_id and self.stadium_id != C.BATTLE_CAGE:
-            return True
-        has_bench = any(p is not None for p in self.me.bench)
-        return has_bench and self.opponent_threatens_bench()
-
-    def _night_stretcher_target_score(self, cid):
-        """Value a legal Night Stretcher target by the route it completes."""
-        line_in_play = self.field[C.ABRA] + self.field[C.KADABRA] + self.field[C.ALAKAZAM]
-        line_in_hand = self.hand[C.ABRA] + self.hand[C.KADABRA] + self.hand[C.ALAKAZAM]
-        engine_in_play = self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE]
-
-        if cid == C.PSYCHIC_ENERGY:
-            return 1100 if self._energy_starved() else 180
-        if cid == C.ALAKAZAM:
-            if self.field[C.KADABRA] > 0:
-                return 1050
-            if self.field[C.ABRA] > 0 and self.hand[C.RARE_CANDY] > 0:
-                return 1000
-            if self.hand[C.KADABRA] > 0 and (self.field[C.ABRA] or self.hand[C.ABRA]):
-                return 750
-            return 240
-        if cid == C.KADABRA:
-            if self.field[C.ABRA] > 0 or self.hand[C.ABRA] > 0:
-                return 980
-            return 280
-        if cid == C.ABRA:
-            if self._needs_first_backup() and self._open_bench():
-                return 1150
-            if line_in_play + line_in_hand == 0 and self._open_bench():
-                return 900
-            return 360
-        if cid == C.DUDUNSPARCE:
-            if self.field[C.DUNSPARCE] > 0 and self.field[C.DUDUNSPARCE] == 0:
-                return 700
-            return 260
-        if cid == C.DUNSPARCE:
-            if engine_in_play == 0 and self._open_bench():
-                return 650
-            return 220
-        return -1
-
-    def _night_stretcher_worthwhile(self):
-        recoverable = (C.ABRA, C.KADABRA, C.ALAKAZAM,
-                       C.DUNSPARCE, C.DUDUNSPARCE, C.PSYCHIC_ENERGY)
-        return max((self._night_stretcher_target_score(cid)
-                    for cid in recoverable if self.discard.get(cid, 0)),
-                   default=-1) >= 600
-
-    def _action_tier(self, option, phase):
-        t = option.type
-        if t == OptionType.END:
-            return Tier.END
-        if t == OptionType.RETREAT:
-            return Tier.PRE_ATTACK if self.bench_attacker_ready() else Tier.BLOCK
-        if t == OptionType.ATTACK:
-            active = self.me.active[0] if self.me.active else None
-            return Tier.ATTACK if active is not None and active.id == C.ALAKAZAM else Tier.DISRUPT
-        if t == OptionType.EVOLVE:
-            return Tier.BUILD_ATTACKER if not self._ready_alakazam_attacker() else Tier.BUILD_BACKUP
-        if t in (OptionType.ATTACH, OptionType.ENERGY):
-            return Tier.BUILD_ATTACKER if not self._ready_alakazam_attacker() else Tier.BUILD_BACKUP
-        if t == OptionType.ABILITY:
-            card = get_card(self.obs, option.area, option.index, self.my_index)
-            if card is not None and card.id == C.DUDUNSPARCE:
-                return Tier.PRE_ATTACK if phase in (Phase.PRESSURE, Phase.ENDGAME) else Tier.SEARCH
-            return Tier.DISRUPT
-        if t == OptionType.PLAY:
-            cid = self._play_card_id(option)
-            if cid in (C.RARE_CANDY,):
-                return Tier.BUILD_ATTACKER
-            if cid in (C.BUDDY_POFFIN, C.POKE_PAD, C.HILDA, C.DAWN, C.LILLIE, C.HYPER_AROMA):
-                if (cid == C.BUDDY_POFFIN and phase in (Phase.PRESSURE, Phase.ENDGAME)
-                        and self._needs_first_backup() and self._open_bench()):
-                    return Tier.PRE_ATTACK
-                return Tier.SEARCH
-            if cid == C.NIGHT_STRETCHER and self._night_stretcher_worthwhile():
-                if phase in (Phase.PRESSURE, Phase.ENDGAME) and self._needs_first_backup():
-                    return Tier.PRE_ATTACK
-                return Tier.BUILD_ATTACKER if not self._ready_alakazam_attacker() else Tier.BUILD_BACKUP
-            if cid == C.BATTLE_CAGE and self._battle_cage_worthwhile():
-                return Tier.PRE_ATTACK if phase in (Phase.PRESSURE, Phase.ENDGAME) else Tier.DISRUPT
-            if cid in (C.ENHANCED_HAMMER, C.XEROSIC, C.BATTLE_CAGE):
-                return Tier.DISRUPT
-            data = card_table.get(cid)
-            if data is not None and data.cardType == CardType.POKEMON:
-                if (cid == C.ABRA and phase in (Phase.PRESSURE, Phase.ENDGAME)
-                        and self._needs_first_backup()):
-                    return Tier.PRE_ATTACK
-                return Tier.BUILD_ATTACKER if cid == C.ABRA else Tier.BUILD_BACKUP
-            return Tier.BUILD_BACKUP
-        return Tier.DISRUPT
-
-    def _score_main(self, option, raw):
+    def _score(self, o):
+        raw = super().score(o)
+        if self.context != SelectContext.MAIN:
+            return raw
         if raw < 0:
-            return self._tier(Tier.BLOCK)
-        if self._breaks_current_lethal(option):
-            return self._tier(Tier.BLOCK)
+            return raw
 
         phase = self._phase()
-        if option.type == OptionType.ATTACK:
-            dmg = self._attack_damage_for_option(option)
-            if dmg <= 0:
-                return self._tier(Tier.BLOCK)
-            opp = self.opponent.active[0] if self.opponent.active else None
-            if opp is not None and dmg >= opp.hp and prize_count(opp) >= len(self.me.prize):
-                return self._tier(Tier.WIN_OR_SURVIVE, raw)
-            return self._tier(self._action_tier(option, phase), raw)
+        t = o.type
 
-        if option.type == OptionType.END:
+        if t == OptionType.ATTACK:
+            dmg = self._attack_damage_for_option(o)
+            if dmg <= 0:
+                return -1
+            opp = self.opponent.active[0] if self.opponent.active else None
+            active = self.me.active[0] if self.me.active else None
+            if active is not None and active.id == C.ALAKAZAM and opp is not None and dmg >= opp.hp:
+                return self._tier(Tier.ATTACK, raw)
+            return raw
+
+        if t == OptionType.END:
             if phase in (Phase.PRESSURE, Phase.ENDGAME) and self._has_meaningful_attack_option():
-                return self._tier(Tier.BLOCK)
-            return self._tier(Tier.END, raw)
+                return -1
+            return raw
 
         if phase == Phase.LOCKED:
-            cid = self._play_card_id(option) if option.type == OptionType.PLAY else None
-            if cid == C.ENHANCED_HAMMER and self._hammer_unlocks_attack():
-                return self._tier(Tier.WIN_OR_SURVIVE, raw)
-            if self._optional_deck_spend(option):
-                return self._tier(Tier.BLOCK)
+            cid = self._play_card_id(o) if t == OptionType.PLAY else None
+            if cid not in (C.ENHANCED_HAMMER, C.BOSS_ORDERS) and self._optional_deck_spend(o):
+                return -1
 
-        if self._pre_attack_ko_setup(option):
-            return self._tier(Tier.PRE_ATTACK, raw)
+        return raw
 
-        # While pressuring, a safe positive-hand Dudunsparce activation may happen before
-        # a margin KO, but routine development and disruption stay below the attack tier.
-        if (phase in (Phase.PRESSURE, Phase.ENDGAME)
-                and option.type == OptionType.ABILITY
-                and self._hand_delta(option.type, option) > 0
-                and self._deck_spend_ok(cost=3)):
-            return self._tier(Tier.PRE_ATTACK, raw)
-
-        return self._tier(self._action_tier(option, phase), raw)
+    def _raw_score(self, o):
+        t = o.type
+        # First-or-second: GO FIRST. The Elo≥1150 Alakazam pool goes first 35/35 (unanimous) —
+        # a setup/evolution deck wants the extra turn to build the Abra→Kadabra→Alakazam line and
+        # get the Dudunsparce draw engine online before it has to attack. (Was hardcoded second.)
+        if self.context == SelectContext.IS_FIRST:
+            return 100 if t == OptionType.YES else 0
+        if t == OptionType.NUMBER:
+            return o.number if o.number is not None else 0
+        # v3 P0-2: 山札がフロア以下の時、「発動しますか?」系の任意効果(ユンゲラーの
+        # Psychic Draw等、多くがデッキ消費ドロー)は辞退して山札を守る。
+        if self.context == SelectContext.ACTIVATE and self.me.deckCount <= self._deck_floor():
+            if t == OptionType.YES:
+                return 0
+            if t == OptionType.NO:
+                return 1
+        if t == OptionType.YES:
+            return 1
+        if t == OptionType.NO:
+            return 0
+        # ── v3 P0-1: 致死維持ゲート ──────────────────────────────────────────
+        # A/B検証の学び: Powerful Handは手札を消費しないので「先に展開/ドローして
+        # 手札を伸ばし、ターン終端で攻撃」が最適(即攻撃強制は勝率を下げた: 41.5%)。
+        # 本当のバグは「手札消費プレイで致死圏を割る」「ターンを攻撃せず終える」の2つ。
+        # → 手札を減らす行動は、実行後も致死が維持できる時だけ許可。
+        #   致死ギリギリでは展開を止めて攻撃(30000)。勝利KOは常に即攻撃(90000)。
+        if (self.context == SelectContext.MAIN
+                and t in (OptionType.PLAY, OptionType.EVOLVE, OptionType.ATTACH,
+                          OptionType.ENERGY, OptionType.ABILITY, OptionType.RETREAT)
+                and self._lethal_attack_offered()):
+            if t == OptionType.PLAY and not self.state.supporterPlayed:
+                card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
+                if card is not None and card.id == C.BOSS_ORDERS and self._winning_gust_ready():
+                    return 35000
+            opp = self.opponent.active[0] if self.opponent.active else None
+            a = self.me.active[0] if self.me.active else None
+            # 手札枚数=火力なのは743のPowerful Handだけ。245/ユンゲラーの致死は手札非依存。
+            if (opp is not None and a is not None and a.id == C.ALAKAZAM
+                    and self._hand_delta(t, o) < 0
+                    and 20 * (self.me.handCount - 1) < opp.hp):
+                return 10          # このプレイで致死を失う → 攻撃を選ばせる
+        if t == OptionType.CARD:
+            return self._score_card(o)
+        if t == OptionType.PLAY:
+            return self._score_play(o)
+        if t in (OptionType.ENERGY, OptionType.ATTACH):
+            return self._score_attach(o)
+        if t == OptionType.EVOLVE:
+            return self._score_evolve(o)
+        if t == OptionType.ABILITY:
+            return self._score_ability(o)
+        if t == OptionType.RETREAT:
+            return self._score_retreat()
+        if t == OptionType.ATTACK:
+            return self._score_attack(o)
+        if t == OptionType.END:
+            return 0
+        return 0
 
     def _item_locked(self):
-        """Use only explicit opponent lock abilities; state inference caused self-KOs."""
+        """Are we Item-locked (can't play Item cards)? Detect from a known lock
+        ability on the opponent's Active, OR from game state: we hold Item card(s)
+        but the engine offers no way to play any of them."""
         opp = self.opponent.active[0] if self.opponent.active else None
-        return opp is not None and opp.id in ITEM_LOCK_IDS
+        if opp is not None and opp.id in ITEM_LOCK_IDS:
+            return True
+        # v3 P0-4: 状態ベースの検知は「PLAYオプションが並ぶMAIN」でだけ意味を持つ。
+        # サブ選択(TO_HAND等)ではItemのPLAYが提示されないため常に誤検知していた。
+        if self.context != SelectContext.MAIN:
+            return False
+        items = [c for c in self.me.hand
+                 if card_table.get(c.id) is not None and card_table[c.id].cardType == CardType.ITEM]
+        if not items:
+            return False
+        for o in self.select.option:
+            if o.type == OptionType.PLAY:
+                c = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
+                if c is not None and card_table.get(c.id) is not None and card_table[c.id].cardType == CardType.ITEM:
+                    return False   # an Item is playable → not locked
+        return True
 
     def _bench_attacker_ready(self):
-        return self.bench_attacker_ready()
+        """A benched Alakazam that already has the energy to attack (Powerful Hand
+        needs 1 {P}). If one exists, we want IT active, not a Dunsparce/Dudunsparce."""
+        return any(p is not None and p.id in ALAKAZAM_IDS and self._energy_count(p) >= 1
+                   for p in self.me.bench)
 
     # — abilities —
     def _score_ability(self, o):
@@ -597,12 +786,8 @@ class AlakazamPolicy(BasePolicy):
         if card is None:
             return 0
         if card.id == C.DUDUNSPARCE:
-            # Hard invariant: never shuffle away the last Pokémon in play.  This is
-            # checked before Item-lock or deck-budget heuristics so no inference can
-            # re-enable the historical instant-loss line.
-            board_count = sum(p is not None for p in self.my_board())
-            if o.area != AreaType.BENCH and board_count <= 1:
-                return -1
+            # Run Away Draw: draw 3 + shuffle this Pokémon back into the deck.
+            # v2: 固定フロア(7)→動的フロア(残サイド連動)。致死に届くドローだけ例外。
             if not self._deck_spend_ok(cost=3):
                 return -1
             if o.area != AreaType.BENCH:
@@ -613,7 +798,7 @@ class AlakazamPolicy(BasePolicy):
                 # whole point). Bug fixed: gating this on _deck_preserve stranded a powered
                 # Alakazam on the bench (Dudunsparce active, 0 energy, can't retreat) -> no
                 # attacks -> no_offense loss.
-                if self.bench_attacker_ready():
+                if self._item_locked() or self._bench_attacker_ready():
                     return 14000
                 return -1
             # BENCHED copy = the draw engine (pure filtering). Draw-engine decks WIN by
@@ -634,7 +819,7 @@ class AlakazamPolicy(BasePolicy):
         return 9000
 
     # — play —
-    def score_play(self, o):
+    def _score_play(self, o):
         card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
         if card is None:
             return 0
@@ -647,7 +832,7 @@ class AlakazamPolicy(BasePolicy):
         # v2: グッズ優先シーケンス — サポート(1回/ターン)を残したまま先にグッズを消化する。
         if (base > 0 and d.cardType == CardType.ITEM
                 and not self.state.supporterPlayed
-                and any(self.hand[s] for s in (C.HILDA, C.DAWN, C.LILLIE, C.XEROSIC))):
+                and any(self.hand[s] for s in (C.HILDA, C.DAWN, C.BOSS_ORDERS, C.XEROSIC))):
             base += 900
         return base
 
@@ -656,7 +841,8 @@ class AlakazamPolicy(BasePolicy):
         if cid == C.ABRA:
             # Majkel (7-05, 7275 MAIN decisions): moderate bench — our #1 over-pick was
             # flooding bodies (PLAY:Dunsparce 548x / Abra 152x). 3 line bodies is plenty.
-            line = self.field[C.ABRA] + self.field[C.KADABRA] + self.field[C.ALAKAZAM]
+            line = (self.field[C.ABRA] + self.field[C.KADABRA]
+                    + self.field[C.ALAKAZAM] + self.field[C.ALAKAZAM_PSY])
             if line >= 3:
                 return 1500
             return 20000 - 250 * n
@@ -664,11 +850,21 @@ class AlakazamPolicy(BasePolicy):
             if self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] >= 2:
                 return 1200   # cap at 2 engine bodies
             return 18500 - 250 * n
+        if cid == C.SHAYMIN:
+            # Flower Curtain protects the bench from attack damage -> bench it ONLY vs a
+            # bench-damage (spread/snipe) opponent; otherwise it just clogs a bench slot.
+            return 17000 if (n == 0 and self._opp_threatens_bench()) else -1
+        if cid == C.PSYDUCK:
+            # Damp only locks self-KO abilities (almost nothing in this meta) -> bench it
+            # ONLY when the opponent actually has such an ability in play.
+            return 9000 if (n == 0 and self._opp_has_self_ko_ability()) else -1
+        if cid == C.GENESECT:
+            return 9000 if n == 0 else -1
         return 14000 - 200 * n
 
     def _alakazam_ready(self):
         a = self.me.active[0] if self.me.active else None
-        return a is not None and a.id in ALAKAZAM_IDS and self.energy_count(a) >= 1
+        return a is not None and a.id in ALAKAZAM_IDS and self._energy_count(a) >= 1
 
     def _need_pieces(self):
         return self.field[C.ALAKAZAM] < 1
@@ -688,7 +884,7 @@ class AlakazamPolicy(BasePolicy):
 
     def _have_attacker(self):
         a = self.me.active[0] if self.me.active else None
-        return (a is not None and a.id in ALAKAZAM_IDS and self.energy_count(a) >= 1) or self.bench_attacker_ready()
+        return (a is not None and a.id in ALAKAZAM_IDS and self._energy_count(a) >= 1) or self._bench_attacker_ready()
 
     def _lethal_now(self):
         """今の自分Activeの攻撃(Powerful Hand / Psychic / Super Psy Bolt)で相手Activeを
@@ -705,8 +901,18 @@ class AlakazamPolicy(BasePolicy):
         if not self._lethal_now():
             return False
         return any(o.type == OptionType.ATTACK
-                   and o.attackId in (POWERFUL_HAND, SUPER_PSY_BOLT)
+                   and o.attackId in (POWERFUL_HAND, PSYCHIC_ATK, SUPER_PSY_BOLT)
                    for o in (self.select.option or []))
+
+    def _winning_gust_ready(self):
+        """ベンチに「呼べば今の攻撃でKOでき、そのサイドで勝ち切れる」対象がいて、
+        今のActiveのKOでは勝ち切れない場合のみTrue(致死中に許す唯一の展開行動)。"""
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if opp is not None and prize_count(opp) >= len(self.me.prize):
+            return False       # 今のActiveを倒せば勝ち — 呼ぶ必要なし
+        return any(p is not None and self._active_best_dmg(p) >= p.hp
+                   and prize_count(p) >= len(self.me.prize)
+                   for p in self.opponent.bench)
 
     def _ko_active_reachable(self):
         """Can Powerful Hand KO the opponent's ACTIVE this turn — now, or after the
@@ -724,48 +930,14 @@ class AlakazamPolicy(BasePolicy):
             self.hand[C.ALAKAZAM] > 0 or self.field[C.ALAKAZAM] == 0
         )
         has_fuel = self._psychic_in_hand() or any(
-            p is not None and p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM) and self.can_attack(p)
-            for p in self.my_board()
+            p is not None and p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM) and self._can_attack(p)
+            for p in self._my_board()
         )
         return (candy_route or kadabra_route) and has_fuel
 
-    def _has_pre_lillie_action(self):
-        """Whether a deterministic board-improving action should happen before Lillie."""
-        for option in (self.select.option or []):
-            if option.type == OptionType.PLAY:
-                cid = self._play_card_id(option)
-                if cid == C.LILLIE:
-                    continue
-                if cid == C.BUDDY_POFFIN:
-                    bodies = (self.field[C.ABRA] + self.field[C.KADABRA]
-                              + self.field[C.ALAKAZAM] + self.field[C.DUNSPARCE]
-                              + self.field[C.DUDUNSPARCE])
-                    if bodies < 4 and self._open_bench():
-                        return True
-                data = card_table.get(cid)
-                if data is not None and data.cardType == CardType.POKEMON:
-                    if cid in (C.ABRA, C.DUNSPARCE) and self._open_bench():
-                        return True
-                if cid == C.RARE_CANDY and self.field[C.ABRA] and self.hand[C.ALAKAZAM]:
-                    return True
-                if cid == C.ENHANCED_HAMMER and self._enhanced_hammer_worthwhile():
-                    return True
-            elif option.type == OptionType.EVOLVE and self._score_evolve(option) > 0:
-                return True
-            elif option.type in (OptionType.ATTACH, OptionType.ENERGY) and self._score_attach(option) > 0:
-                return True
-        return False
-
-    def _enhanced_hammer_worthwhile(self):
-        """Use Enhanced Hammer only when it immediately unlocks a KO."""
-        opp = self.opponent.active[0] if self.opponent.active else None
-        if opp is None or not self._opp_active_has_prevent_energy():
-            return False
-        # Playing the Item costs one hand card, so evaluate the post-play Powerful Hand.
-        return 20 * max(0, self.me.handCount - 1) >= opp.hp
-
     def _score_play_trainer(self, card):
         cid = card.id
+        ready = self._alakazam_ready()
         if cid == C.RARE_CANDY:
             if self.field[C.ABRA] >= 1 and self.hand[C.ALAKAZAM] >= 1:
                 # Majkel: step-evolve through Kadabra when possible — its Psychic Draw (+3
@@ -780,7 +952,8 @@ class AlakazamPolicy(BasePolicy):
         # Powerful Hand, DRAW toward it (a draw Supporter beats gusting a weaker target).
         draw_for_ko = (opp_active is not None and self._ko_active_reachable()
                        and 20 * self.me.handCount < opp_active.hp)
-        # Winning + deck low: stop spending the deck on optional search supporters.
+        # Winning + deck low: stop spending the deck on draw/search supporters — preserve it
+        # so we can draw 1/turn to the finish (Boss's Orders gust is still allowed below).
         if cid in (C.HILDA, C.DAWN, C.POKE_PAD) and self._deck_preserve():
             return -1
         # v2: 負けている時もデッキ切れは即負け。フロアを割るデッキ消費は致死直結時のみ。
@@ -798,18 +971,16 @@ class AlakazamPolicy(BasePolicy):
                 return 11500
             return 5000 if self._need_pieces() else 1200
         if cid == C.LILLIE:
-            if self.state.supporterPlayed or self._lethal_now() or self._holds_complete_route():
+            if self.state.supporterPlayed:
                 return -1
-            if self._has_pre_lillie_action():
+            if self._lethal_now() or self._holds_complete_route():
                 return -1
-            target_hand = 8 if len(self.me.prize) == 6 else 6
-            net_gain = target_hand - max(0, self.me.handCount - 1)
+            thin_hand = self.me.handCount <= 4
             missing_attack = not self._have_attacker() or self._energy_starved() or self._need_pieces()
-            if self.me.handCount <= 4 and missing_attack and net_gain >= 2:
-                return 13200 + net_gain * 100
-            disrupted = getattr(self.opponent, "handCount", 0) <= 2 and self.me.handCount <= 5
-            if disrupted and missing_attack and net_gain >= 2:
-                return 9000 + net_gain * 100
+            if thin_hand and missing_attack:
+                return 13200
+            if getattr(self.opponent, "handCount", 0) <= 2 and self.me.handCount <= 5:
+                return 9000
             return -1
         if cid == C.HILDA:
             if self.state.supporterPlayed:
@@ -826,7 +997,7 @@ class AlakazamPolicy(BasePolicy):
             return 12000 if self._need_pieces() else 7500
         if cid == C.BUDDY_POFFIN:
             bodies = (self.field[C.ABRA] + self.field[C.KADABRA] + self.field[C.ALAKAZAM]
-                      + self.field[C.DUNSPARCE]
+                      + self.field[C.ALAKAZAM_PSY] + self.field[C.DUNSPARCE]
                       + self.field[C.DUDUNSPARCE])
             if bodies >= 4 or not self._open_bench():
                 return 600   # board is set — a Poffin now is -20 Powerful Hand for nothing
@@ -835,6 +1006,23 @@ class AlakazamPolicy(BasePolicy):
             # Majkel keeps digging with it after setup too — every deck→hand card
             # is +20 Powerful Hand (but below Poffin/supporters)
             return 8500 if self._need_pieces() else 3500
+        if cid == C.BOSS_ORDERS:
+            if self.state.supporterPlayed:
+                return -1
+            ko = self._gust_ko_targets()
+            # If we can KO the Active threat this turn and it's worth at least as much as
+            # any benched target, KO IT — don't gust a weaker Pokémon and leave the threat.
+            if opp_active is not None and self._ko_active_reachable():
+                best_gust = max((self._target_value(p) for p in ko), default=-1)
+                if self._target_value(opp_active) >= best_gust:
+                    return -1
+            if not ko:
+                return -1
+            best = max(ko, key=self._gust_value)
+            if opp_active is not None and self._active_best_dmg(opp_active) >= opp_active.hp \
+                    and prize_count(opp_active) >= prize_count(best):
+                return -1
+            return 13500
         if cid == C.XEROSIC:
             # v2: 相手の手札を3枚に。ミラー(相手もPowerful Hand)では手札=火力なので
             # 相手の手札が肥えた時に最優先で撃つ。他デッキ相手でも大量ハンドには妨害価値。
@@ -843,7 +1031,7 @@ class AlakazamPolicy(BasePolicy):
             opp_hand = getattr(self.opponent, "handCount", 0) or 0
             opp_board = [p for p in (self.opponent.active + self.opponent.bench)
                          if p is not None]
-            mirror = any(p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM)
+            mirror = any(p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY)
                          for p in opp_board)
             # v3 P1-3: 3枚体制になったので発動閾値を緩和。ミラー(相手もPowerful Hand)
             # では手札=火力なので、手札6+で最優先。一位デッキもクセロシキ3枚採用。
@@ -855,25 +1043,34 @@ class AlakazamPolicy(BasePolicy):
                 return 9000
             return 400              # 手札が細い相手には温存
         if cid == C.ENHANCED_HAMMER:
-            return 16000 if self._enhanced_hammer_worthwhile() else -1
+            # Strip Mist/effect-prevention Special Energy off the opponent's Active so
+            # Powerful Hand stops doing 0. Do it BEFORE drawing/attacking.
+            if self._opp_active_has_prevent_energy():
+                return 16000
+            # otherwise only worth it if the opponent has any Special Energy to remove
+            if any(card_table.get(getattr(e, 'id', None)) is not None
+                   and card_table[e.id].cardType == CardType.SPECIAL_ENERGY
+                   for p in (self.opponent.active + self.opponent.bench) if p is not None
+                   for e in (getattr(p, 'energyCards', None) or [])):
+                return 9500   # Majkel hammers special energy on sight (248x on 7-06)
+            return -1
         if cid == C.BATTLE_CAGE:
-            if not self._battle_cage_worthwhile():
+            if self.state.stadiumPlayed or self.stadium_id == C.BATTLE_CAGE:
                 return -1
             # v3 P1-2: 敵スタジアムが出ている(監視塔=無色特性無効でノコッチ停止、
             # Full Metal Lab=火力-30、Spikemuth Gym等)なら即座に張り替える。
-            # 実ログ: 敵スタジアム下の試合が多数(Full Metal Lab 14試合など)。3枚体制。
+            # 実ログ: 敵スタジアム下の試合が多数(Full Metal Lab 14試合など)。2枚体制。
             if self.stadium_id:
                 return 12500
             # 場が空なら従来通り: ベンチ攻撃対面で先張り、それ以外は温存気味
-            return 6500 if self.opponent_threatens_bench() else 1800
+            return 6500 if self._opp_threatens_bench() else 1800
+        if cid == C.LUCKY_HELMET:
+            return 7000 if not ready else 1000
         if cid == C.NIGHT_STRETCHER:
-            if not self._night_stretcher_worthwhile():
-                return -1
-            best = max(self._night_stretcher_target_score(cid2)
-                       for cid2 in (C.ABRA, C.KADABRA, C.ALAKAZAM,
-                                    C.DUNSPARCE, C.DUDUNSPARCE, C.PSYCHIC_ENERGY)
-                       if self.discard.get(cid2, 0))
-            return 7800 + best
+            recoverable = (self.discard.get(C.ALAKAZAM, 0) or self.discard.get(C.ABRA, 0)
+                           or self.discard.get(C.KADABRA, 0) or self.discard.get(C.DUNSPARCE, 0)
+                           or self.discard.get(C.PSYCHIC_ENERGY, 0))
+            return 7500 if recoverable else 300
         if cid == C.LANA_AID:
             if self.state.supporterPlayed:
                 return -1
@@ -882,11 +1079,13 @@ class AlakazamPolicy(BasePolicy):
             # v3 P0-3: 山札にポケモン5枚を戻す=唯一の「山札回復」札。デッキ切れ負け5件
             # への直接対策として、山札14枚以下+トラッシュにライン3枚以上で最優先級に昇格。
             line_in_discard = sum(self.discard.get(x, 0) for x in
-                                  (C.ABRA, C.KADABRA, C.ALAKAZAM,
+                                  (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY,
                                    C.DUNSPARCE, C.DUDUNSPARCE))
             if self.me.deckCount <= 14 and line_in_discard >= 3:
                 return 12000
             return 6000 if self._low_deck() and self.me.discard else 200
+        if cid == C.WONDROUS_PATCH:
+            return 7000 if self.discard.get(C.PSYCHIC_ENERGY, 0) and self._open_bench() else 300
         return 9000
 
     # — evolve —
@@ -896,11 +1095,21 @@ class AlakazamPolicy(BasePolicy):
             return 0
         card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
         cid = card.id if card is not None else None
+        if cid == C.ALAKAZAM_PSY:
+            # The Psychic tech (bypasses Mist, punishes energy). Make THIS Alakazam only
+            # when (a) the opp Active is Mist-protected AND we can't strip it (no Enhanced
+            # Hammer in hand), or (b) it's heavily energy-loaded. Otherwise the 743 Powerful
+            # Hand (after Enhanced Hammer if needed) is our higher-ceiling main attacker.
+            opp = self.opponent.active[0] if self.opponent.active else None
+            if opp is not None and ((self._effect_prevented(opp) and self.hand[C.ENHANCED_HAMMER] == 0)
+                                    or len(opp.energies) >= 4):
+                return 21500
+            return 20400
         if cid == C.ALAKAZAM:
             # One attacking Alakazam at a time — each extra evolve burns a hand card
             # (-20 Powerful Hand). Majkel does evolve the ACTIVE Kadabra (fresh attacker)
             # even with one Alakazam up, but doesn't stack bench Alakazams.
-            have = self.field[C.ALAKAZAM]
+            have = self.field[C.ALAKAZAM] + self.field[C.ALAKAZAM_PSY]
             if have == 0 or o.inPlayArea == AreaType.ACTIVE:
                 return 21000
             return 4000
@@ -908,12 +1117,42 @@ class AlakazamPolicy(BasePolicy):
             # JIT (Majkel 7-06: his 237 vs our 1120): evolve when BRIDGING to Alakazam or
             # when the hand needs the +3 draw — otherwise the piece is safer in hand
             # (on board it's Grimmsnarl-snipe/Froslass-chip bait, in hand it's +20 dmg).
-            if self.hand[C.ALAKAZAM] >= 1 or self.me.handCount <= 4                     or self.field[C.ALAKAZAM] == 0:
+            if self.hand[C.ALAKAZAM] >= 1 or self.me.handCount <= 4                     or self.field[C.ALAKAZAM] + self.field[C.ALAKAZAM_PSY] == 0:
                 return 20000
             return 6000
         if cid == C.DUDUNSPARCE:
             return 19000
         return 18000
+
+    # ── v2: エンリッチ vs 超エネルギーの貼り分け ──────────────────────────────
+    def _need_p_fuel(self):
+        """{P}を貼りたいアタッカーがいて、手札に{P}系エネルギーを持っているか。"""
+        holds_p = self.hand[C.PSYCHIC_ENERGY] or self.hand[C.TELEPATH_ENERGY]
+        needs = any(p is not None and p.id in (*ALAKAZAM_IDS, C.ABRA, C.KADABRA)
+                    and self._should_fuel(p) for p in self._my_board())
+        return bool(holds_p and needs)
+
+    def _enriching_attach_score(self, p):
+        """エンリッチエネルギー(貼ると4ドロー, 提供は{C}=攻撃コストは払えない)。
+        ドローソースが潤沢なら不要。手札が細くて展開できない時に貼る。
+        デッキ消費4なのでデッキ切れフロアにも従う。"""
+        if not self._deck_spend_ok(cost=4, allow_lethal=False):
+            return -1
+        draw_rich = (self.field[C.DUDUNSPARCE] >= 1 and self.me.handCount >= 8)
+        if draw_rich:
+            return -1               # ドロー源が回っている時は温存(手札に持つ=+20ダメ)
+        starving = self.me.handCount <= 5
+        need_fuel = self._need_p_fuel()
+        if starving:
+            base = 7800 if need_fuel else 8300   # 攻撃準備(8000)との前後関係を明示
+        elif not need_fuel:
+            base = 6500                          # 貼り得(+4ドロー)だが急がない
+        else:
+            return -1                            # {P}が要る時はそちらを先に
+        # 貼り先は行き止まりボディ(ダンスパ系)を優先
+        if p.id in (C.DUNSPARCE, C.DUDUNSPARCE):
+            base += 150
+        return base
 
     # — attach energy —
     def _score_attach(self, o):
@@ -921,11 +1160,14 @@ class AlakazamPolicy(BasePolicy):
         if not isinstance(p, Pokemon):
             return 0
         src = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
+        # v2: エンリッチは「攻撃を可能にするか」の汎用ゲートを通さず専用ロジックで判断
+        if src is not None and src.id == C.ENRICHING_ENERGY:
+            return self._enriching_attach_score(p)
         # GENERAL RULE (type-aware): attach only while the body still can't pay an attack;
         # once it CAN attack, hold the rest (fuels a backup AND +20 Powerful Hand per card).
-        if not self.should_fuel(p):
+        if not self._should_fuel(p):
             return -1
-        if not self.attach_helps(p, src):
+        if not self._attach_helps(p, src):
             return -1
         base = 0
         if p.id in ALAKAZAM_IDS:
@@ -951,7 +1193,7 @@ class AlakazamPolicy(BasePolicy):
             return -1
         if active.id not in ALAKAZAM_IDS:
             for p in self.me.bench:
-                if p is not None and p.id in ALAKAZAM_IDS and self.energy_count(p) >= 1:
+                if p is not None and p.id in ALAKAZAM_IDS and self._energy_count(p) >= 1:
                     return 6000
         return -1
 
@@ -966,11 +1208,19 @@ class AlakazamPolicy(BasePolicy):
             # These switch the Active with a benched Pokémon (ends the turn). Only worth
             # it to bring up a ready attacker when the current Active isn't one and we
             # can't otherwise swap (Issue 1) — otherwise it's just a wasted reposition.
-            if active.id not in ALAKAZAM_IDS and active.id != C.KADABRA and self.bench_attacker_ready():
+            if active.id not in ALAKAZAM_IDS and active.id != C.KADABRA and self._bench_attacker_ready():
                 return 5000
             return 700
-        # Score this specific attack by its own damage.
+        # Score THIS specific attack by its own damage — not the best available attack.
+        # (Strange Hacking 338 does 0 damage, just confuses; scoring it like Psychic made
+        # the agent spam it: opponent can't attack, but we deal 0 → stall → we deck out.)
         dmg = self._alakazam_damage(aid, opp)
+        if aid == STRANGE_HACKING:
+            # Utility only: worth a little to Confuse a threatening Active we can't yet KO,
+            # but never over a real attack and never as a stall. Stays below END-beating
+            # real attacks; above END so it's a last resort if nothing else can act.
+            opp_dangerous = prize_count(opp) >= 2 and self._achievable_hand() * 20 < opp.hp
+            return 600 if opp_dangerous else 200
         if dmg <= 0:
             return 500
         # Lethal: if this KO takes our last remaining prize(s), it wins the game now.
@@ -998,23 +1248,12 @@ class AlakazamPolicy(BasePolicy):
         # Opponent card targeting (e.g. Enhanced Hammer: discard a Special Energy from
         # opp) — strip the Mist/Rock that's blocking Powerful Hand, prefer the Active.
         if o.playerIndex == self.op_index and not isinstance(card, Pokemon):
-            context_card = getattr(self.select, 'contextCard', None)
-            data = card_table.get(card.id)
-            is_energy_card = data is not None and data.cardType in (
-                CardType.BASIC_ENERGY, CardType.SPECIAL_ENERGY
-            )
-            active_bonus = 500 if getattr(o, 'inPlayArea', None) == AreaType.ACTIVE else 0
-            if getattr(context_card, 'id', None) == C.ENHANCED_HAMMER:
-                if card.id in EFFECT_PREVENT_ENERGY:
-                    return 2000 + active_bonus
-                return 200 if data is not None and data.cardType == CardType.SPECIAL_ENERGY else -1
             if card.id in EFFECT_PREVENT_ENERGY:
-                return 2000 + active_bonus
-            return 300 + active_bonus if is_energy_card else 50
-        if (ctx == SelectContext.TO_HAND
-                and getattr(getattr(self.select, 'contextCard', None), 'id', None) == C.NIGHT_STRETCHER
-                and getattr(o, 'area', None) == AreaType.DISCARD):
-            return self._night_stretcher_target_score(card.id)
+                return 2000 + (500 if getattr(o, 'inPlayArea', None) == AreaType.ACTIVE else 0)
+            d = card_table.get(card.id)
+            if d is not None and d.cardType == CardType.SPECIAL_ENERGY:
+                return 300
+            return 50
         if ctx in (SelectContext.SWITCH, SelectContext.TO_ACTIVE):
             return self._score_active_choice(o, card)
         if ctx == SelectContext.SETUP_ACTIVE_POKEMON:
@@ -1026,7 +1265,7 @@ class AlakazamPolicy(BasePolicy):
         if ctx == SelectContext.ATTACH_TO and isinstance(card, Pokemon):
             return self._score_attach_target(card, o.inPlayArea == AreaType.ACTIVE)
         if ctx in (SelectContext.ATTACH_FROM, SelectContext.TO_HAND_ENERGY):
-            return 100 if self.is_energy(card.id) else 10
+            return 100 if is_energy(card.id) else 10
         if ctx in (SelectContext.DISCARD, SelectContext.DISCARD_CARD_OR_ATTACHED_CARD,
                    SelectContext.DISCARD_ENERGY, SelectContext.DISCARD_ENERGY_CARD):
             return self._score_discard(card)
@@ -1039,7 +1278,7 @@ class AlakazamPolicy(BasePolicy):
             # pokemon — Majkel fills it (his 5-card picks vs our 3; TO_DECK agree 12%).
             if getattr(o, 'area', None) == AreaType.DISCARD:
                 cid = card.id
-                if cid in (C.ABRA, C.KADABRA, C.ALAKAZAM):
+                if cid in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY):
                     return 90
                 if cid in (C.DUNSPARCE, C.DUDUNSPARCE):
                     return 70
@@ -1051,7 +1290,11 @@ class AlakazamPolicy(BasePolicy):
         return 0
 
     def _score_attach_target(self, p, is_active):
-        if not self.should_fuel(p):
+        # v2: ATTACH_TO(貼り先選択)でも、貼るのがエンリッチなら専用ロジック
+        cc = getattr(self.select, "contextCard", None)
+        if cc is not None and getattr(cc, "id", None) == C.ENRICHING_ENERGY:
+            return self._enriching_attach_score(p)
+        if not self._should_fuel(p):
             return -1             # already CAN attack (type-aware) -> don't over-fill
         if p.id in ALAKAZAM_IDS:
             return 8000 + (200 if is_active else 0)
@@ -1063,7 +1306,7 @@ class AlakazamPolicy(BasePolicy):
         if not isinstance(card, Pokemon):
             return 0
         if o.playerIndex == self.op_index:
-            return prize_count(card) * 1000 - getattr(card, "hp", 0) // 10
+            return self._gust_value(card)
         if o.playerIndex != self.my_index:
             return 0
         # Promote (after a KO) the body that best keeps us in the game:
@@ -1088,6 +1331,8 @@ class AlakazamPolicy(BasePolicy):
                 score += 25      # 進化できない裸のケーシィはダンスパ系の後ろ          # continues the line to Alakazam (top pilots promote it)
         elif card.id == C.DUDUNSPARCE:
             score += 40          # 140 HP wall but a dead end — don't strand the win-con
+        elif card.id in (C.PSYDUCK, C.SHAYMIN, C.GENESECT):
+            score -= 20          # tech bodies: don't promote into the attacker slot
         score += getattr(card, 'hp', 0) // 30   # mild "promote the survivor" tiebreak
         return score + 1
 
@@ -1095,13 +1340,18 @@ class AlakazamPolicy(BasePolicy):
         # Opening-active choice. MEASURED (in-process cabt, 60 games vs Lucario):
         # opening Abra      -> 26% loss, 0 no-offense (evolves in place -> Alakazam fast)
         # opening Dunsparce -> 57% loss, 5 no-offense (70HP body, no attacker path)
+        # opening Psyduck/Genesect (pure tech) -> ~60% loss (fragile, can't ever attack).
         # So: Abra >> Dunsparce > (anything that can become an attacker) >> tech basics.
+        # Tech basics (Psyduck 858 / Shaymin 343 / Genesect 142) have NO offensive line
+        # and must be the last resort — opening them strands us with a dead active.
         if card is None:
             return 0
         if card.id == C.ABRA:
             return 50          # the evolution line -> Alakazam: always preferred
         if card.id == C.DUNSPARCE:
             return 30          # draw engine; digs into Abra but slow to pressure
+        if card.id in (C.PSYDUCK, C.SHAYMIN, C.GENESECT):
+            return 1           # pure tech, fragile, no attack -> last resort only
         return 5
 
     def _score_to_bench(self, card):
@@ -1115,6 +1365,10 @@ class AlakazamPolicy(BasePolicy):
             return 200 - 30 * n   # Majkel benches Abra over Dunsparce ~3:1
         if cid == C.DUNSPARCE:
             return 140 - 30 * n
+        if cid == C.SHAYMIN:
+            return 150 if (n == 0 and self._opp_threatens_bench()) else -1
+        if cid == C.PSYDUCK:
+            return 90 if (n == 0 and self._opp_has_self_ko_ability()) else -1
         return 100 - 20 * n
 
     def _score_to_hand(self, card):
@@ -1146,7 +1400,9 @@ class AlakazamPolicy(BasePolicy):
         elif cid == C.ALAKAZAM:
             # his #1 grab (336x): spares feed Sacred Ash recycling & the 2nd attacker
             score += 85 if self.hand[C.ALAKAZAM] == 0 else 40
-        elif self.is_energy(cid):
+        elif cid == C.ENRICHING_ENERGY:
+            score += 65   # ACE SPEC — Majkel grabs it 54x vs our 1x
+        elif is_energy(cid):
             # When starved, fetch a {P} energy (the only kind that fuels our attacks) — an
             # Enriching (Colorless) doesn't help, so don't prioritise it.
             if self._energy_starved() and ENERGY_PROVIDES.get(cid) == EnergyType.PSYCHIC:
@@ -1159,7 +1415,7 @@ class AlakazamPolicy(BasePolicy):
         if card is None:
             return 0
         cid = card.id
-        if self.is_energy(cid):
+        if is_energy(cid):
             return 20 if self.hand[cid] >= 3 else -40
         if self.hand[cid] >= 2:
             return 60
@@ -1182,5 +1438,29 @@ class AlakazamPolicy(BasePolicy):
         return 10
 
 
-
-agent = make_agent(AlakazamPolicy, my_deck, _DIAG)
+def agent(obs_dict):
+    global pre_turn
+    try:
+        if isinstance(obs_dict, dict) and obs_dict.get("select") is None:
+            _DIAG["deck_returns"] += 1
+            return my_deck
+    except Exception:
+        pass
+    _DIAG["decisions"] += 1
+    try:
+        obs = to_observation_class(obs_dict)
+        if obs.select is None:
+            _DIAG["deck_returns"] += 1; _DIAG["decisions"] -= 1
+            return my_deck
+        if obs.current is not None and pre_turn != obs.current.turn:
+            pre_turn = obs.current.turn
+        try:
+            sel = AlakazamPolicy(obs).choose()
+            _DIAG["policy_ok"] += 1
+            return sel
+        except Exception as exc:
+            _diag_record_error(exc); _DIAG["policy_fallback"] += 1
+            return _legal_fallback(obs.select)
+    except Exception as exc:
+        _diag_record_error(exc); _DIAG["obs_fallback"] += 1
+        return _legal_fallback_from_dict(obs_dict if isinstance(obs_dict, dict) else {})
