@@ -84,6 +84,38 @@ ATTACKER_IDS = {C.ALAKAZAM, C.KADABRA}
 LOW_DECK_COUNT = 6
 pre_turn = -1
 
+
+class Phase:
+    SETUP = "SETUP"
+    PRESSURE = "PRESSURE"
+    RECOVER = "RECOVER"
+    LOCKED = "LOCKED"
+    ENDGAME = "ENDGAME"
+
+
+class Tier:
+    BLOCK = 0
+    WIN_OR_SURVIVE = 1
+    ATTACK = 2
+    BUILD_ATTACKER = 3
+    BUILD_BACKUP = 4
+    SEARCH = 5
+    DISRUPT = 6
+    END = 7
+
+
+TIER_BASE = {
+    Tier.BLOCK: -1_000_000,
+    Tier.WIN_OR_SURVIVE: 700_000,
+    Tier.ATTACK: 600_000,
+    Tier.BUILD_ATTACKER: 500_000,
+    Tier.BUILD_BACKUP: 400_000,
+    Tier.SEARCH: 300_000,
+    Tier.DISRUPT: 200_000,
+    Tier.END: 0,
+}
+TIER_SPAN = 100_000
+
 _DIAG = {"decisions": 0, "policy_ok": 0, "policy_fallback": 0,
          "obs_fallback": 0, "deck_returns": 0, "errors": {}}
 
@@ -282,6 +314,18 @@ class AlakazamPolicy(BasePolicy):
 
     def score_attack(self, o):
         return self._score_attack(o)
+
+    def score_ability(self, o):
+        return self._score_ability(o)
+
+    def score_card(self, o):
+        return self._score_card(o)
+
+    def score_attach(self, o):
+        return self._score_attach(o)
+
+    def score_retreat(self):
+        return self._score_retreat()
 
     def _my_board(self):
         return self.my_board()
@@ -549,7 +593,107 @@ class AlakazamPolicy(BasePolicy):
         ranked, scores = self.rank()
         return normalize_selection(ranked, scores, self.select)
 
+    def score(self, o):
+        return self._score(o)
+
+    def _ready_alakazam_attacker(self):
+        return any(
+            p is not None and p.id == C.ALAKAZAM and self._can_attack(p)
+            for p in self._my_board()
+        )
+
+    def _phase(self):
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if self._ready_alakazam_attacker():
+            if opp is not None and self._effect_prevented(opp) and self._active_best_dmg(opp) <= 0:
+                return Phase.LOCKED
+            if self.me.deckCount <= self._deck_floor() + 1 or len(self.me.prize) <= 1:
+                return Phase.ENDGAME
+            return Phase.PRESSURE
+        if (self.field[C.ALAKAZAM] or self.field[C.KADABRA]
+                or self.discard.get(C.ALAKAZAM, 0) or self.discard.get(C.KADABRA, 0)):
+            return Phase.RECOVER
+        return Phase.SETUP
+
+    def _tier(self, tier, score=0):
+        local = max(0, min(int(score or 0), TIER_SPAN - 1))
+        return TIER_BASE[tier] + local
+
+    def _attack_damage_for_option(self, o):
+        if o.type != OptionType.ATTACK:
+            return 0
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if opp is None:
+            return 0
+        return self._alakazam_damage(o.attackId, opp)
+
+    def _has_meaningful_attack_option(self):
+        for opt in self.select.option or []:
+            if opt.type == OptionType.ATTACK and self._attack_damage_for_option(opt) > 0:
+                return True
+        return False
+
+    def _optional_deck_spend(self, o):
+        if o.type == OptionType.ABILITY:
+            card = get_card(self.obs, o.area, o.index, self.my_index)
+            return card is not None and card.id == C.DUDUNSPARCE and o.area == AreaType.BENCH
+        if o.type != OptionType.PLAY:
+            return False
+        card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
+        return card is not None and card.id in (
+            C.BUDDY_POFFIN, C.POKE_PAD, C.HILDA, C.DAWN, C.LILLIE, C.HYPER_AROMA
+        )
+
+    def _play_card_id(self, o):
+        card = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
+        return getattr(card, "id", None)
+
+    def _pre_attack_ko_setup(self, o):
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if opp is None or not self._ko_active_reachable():
+            return False
+        if 20 * self.me.handCount >= opp.hp:
+            return False
+        if o.type == OptionType.ABILITY:
+            card = get_card(self.obs, o.area, o.index, self.my_index)
+            return card is not None and card.id == C.DUDUNSPARCE and o.area == AreaType.BENCH
+        if o.type == OptionType.PLAY:
+            return self._play_card_id(o) in (C.HILDA, C.DAWN, C.POKE_PAD, C.HYPER_AROMA)
+        return False
+
     def _score(self, o):
+        raw = super().score(o)
+        if self.context != SelectContext.MAIN:
+            return raw
+        if raw < 0:
+            return raw
+
+        phase = self._phase()
+        t = o.type
+
+        if t == OptionType.ATTACK:
+            dmg = self._attack_damage_for_option(o)
+            if dmg <= 0:
+                return -1
+            opp = self.opponent.active[0] if self.opponent.active else None
+            active = self.me.active[0] if self.me.active else None
+            if active is not None and active.id == C.ALAKAZAM and opp is not None and dmg >= opp.hp:
+                return self._tier(Tier.ATTACK, raw)
+            return raw
+
+        if t == OptionType.END:
+            if phase in (Phase.PRESSURE, Phase.ENDGAME) and self._has_meaningful_attack_option():
+                return -1
+            return raw
+
+        if phase == Phase.LOCKED:
+            cid = self._play_card_id(o) if t == OptionType.PLAY else None
+            if cid not in (C.ENHANCED_HAMMER, C.BOSS_ORDERS) and self._optional_deck_spend(o):
+                return -1
+
+        return raw
+
+    def _raw_score(self, o):
         t = o.type
         # First-or-second: GO FIRST. The Elo≥1150 Alakazam pool goes first 35/35 (unanimous) —
         # a setup/evolution deck wants the extra turn to build the Abra→Kadabra→Alakazam line and
@@ -779,6 +923,18 @@ class AlakazamPolicy(BasePolicy):
                 and not self._effect_prevented(opp)        # Mist Energy etc. → 0, don't chase it
                 and 20 * self._achievable_hand() >= opp.hp)
 
+    def _holds_complete_route(self):
+        has_abra = self.field[C.ABRA] > 0 or self.hand[C.ABRA] > 0
+        candy_route = has_abra and self.hand[C.RARE_CANDY] > 0 and self.hand[C.ALAKAZAM] > 0
+        kadabra_route = has_abra and self.hand[C.KADABRA] > 0 and (
+            self.hand[C.ALAKAZAM] > 0 or self.field[C.ALAKAZAM] == 0
+        )
+        has_fuel = self._psychic_in_hand() or any(
+            p is not None and p.id in (C.ABRA, C.KADABRA, C.ALAKAZAM) and self._can_attack(p)
+            for p in self._my_board()
+        )
+        return (candy_route or kadabra_route) and has_fuel
+
     def _score_play_trainer(self, card):
         cid = card.id
         ready = self._alakazam_ready()
@@ -803,6 +959,28 @@ class AlakazamPolicy(BasePolicy):
         # v2: 負けている時もデッキ切れは即負け。フロアを割るデッキ消費は致死直結時のみ。
         if cid in (C.HILDA, C.DAWN, C.POKE_PAD, C.BUDDY_POFFIN) \
                 and not self._deck_spend_ok(cost=2):
+            return -1
+        if cid == C.HYPER_AROMA:
+            if self._item_locked():
+                return -1
+            if not self._deck_spend_ok(cost=3):
+                return -1
+            if self.field[C.KADABRA] + self.field[C.ALAKAZAM] == 0:
+                return 14500
+            if self.field[C.DUDUNSPARCE] == 0 and self.field[C.DUNSPARCE] > 0:
+                return 11500
+            return 5000 if self._need_pieces() else 1200
+        if cid == C.LILLIE:
+            if self.state.supporterPlayed:
+                return -1
+            if self._lethal_now() or self._holds_complete_route():
+                return -1
+            thin_hand = self.me.handCount <= 4
+            missing_attack = not self._have_attacker() or self._energy_starved() or self._need_pieces()
+            if thin_hand and missing_attack:
+                return 13200
+            if getattr(self.opponent, "handCount", 0) <= 2 and self.me.handCount <= 5:
+                return 9000
             return -1
         if cid == C.HILDA:
             if self.state.supporterPlayed:
@@ -1197,6 +1375,13 @@ class AlakazamPolicy(BasePolicy):
         if card is None:
             return 0
         cid = card.id
+        cc = getattr(self.select, "contextCard", None)
+        if getattr(cc, "id", None) == C.HYPER_AROMA:
+            if cid == C.KADABRA:
+                return 400 if self.field[C.KADABRA] + self.field[C.ALAKAZAM] == 0 else 250
+            if cid == C.DUDUNSPARCE:
+                return 360 if self.field[C.DUDUNSPARCE] == 0 else 180
+            return 20
         score = 200 - self.hand[cid] * 40
         # Majkel (7-05, TO_HAND 1503 decisions): grab the ALAKAZAM LINE (Abra/Kadabra/
         # Alakazam, his 634 picks) — do NOT hoard Dudunsparce (our 379x over-grab; the
