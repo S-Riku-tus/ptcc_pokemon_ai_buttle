@@ -11,7 +11,7 @@ Last updated: 2026-07-13 JST
 | `alakazam741_v3` | 850.3 | Close to v2, broadly same strength band. |
 | `alakazam741_v4` | 724.8 | Large regression in real ladder. |
 | `alakazam741_v5` | 763.5 | Partial recovery from v4, but still clearly below v1-v3. |
-| `alakazam741_v6` | 700.2 | Regression from v5 and below v4 in the final ladder result. |
+| `alakazam741_v6` | 700.1 | Regression from v5 and below v4 in the final ladder result. |
 
 ## Interpretation
 
