@@ -1197,4 +1197,8 @@ class AlakazamPolicy(BasePolicy):
 
 
 
-agent = make_agent(AlakazamPolicy, my_deck, _DIAG)
+_agent = make_agent(AlakazamPolicy, my_deck, _DIAG)
+
+
+def agent(obs_dict):
+    return _agent(obs_dict)
