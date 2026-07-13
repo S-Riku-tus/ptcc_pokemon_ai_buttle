@@ -1,0 +1,29 @@
+{
+  "name": "kashiwashira_spidops_reconstruction_v1",
+  "version": "1.0.1",
+  "created_at": "2026-07-14",
+  "deck_source_submission_id": 54603674,
+  "comparison_submission_id": 54613990,
+  "deck_source_rating": 1255.2,
+  "available_source_replays": 100,
+  "method": "clean-room behavioral reconstruction from public replay logs",
+  "required_files": [
+    "main.py",
+    "policy_base.py",
+    "deck.csv"
+  ],
+  "notes": [
+    "The exact 60-card list is reproduced from submission 54603674.",
+    "The original policy source code was not present in the logs and is not claimed to be reproduced.",
+    "Submission 54613990 differs only by replacing two Basic Grass Energy with two Basic Psychic Energy.",
+    "Mewtwo ex bonus damage is modeled as 160 + 60 per selected Benched Energy (up to two), using the minimum Basic Grass needed for a KO."
+  ],
+  "analysis_metrics": {
+    "wins": 64,
+    "losses": 36,
+    "attacks_per_game": 5.67,
+    "spidops_accelerations_per_game": 2.5,
+    "mewtwo_bonus_uses": 21,
+    "mewtwo_bonus_energy_discards": 23
+  }
+}
