@@ -1,22 +1,23 @@
 # Alakazam Rating Log
 
-Last updated: 2026-07-12 JST
+Last updated: 2026-07-13 JST
 
 ## Final Ratings
 
 | Agent | Final rating | Notes |
 | --- | ---: | --- |
 | `alakazam741_v1` | 845.7 | Strong baseline. |
-| `alakazam741_v2` | 855.4 | Highest final rating among v1-v5. |
+| `alakazam741_v2` | 855.4 | Highest final rating among v1-v6. |
 | `alakazam741_v3` | 850.3 | Close to v2, broadly same strength band. |
 | `alakazam741_v4` | 724.8 | Large regression in real ladder. |
-| `alakazam741_v5` | 750.5 | Partial recovery from v4, but still clearly below v1-v3. |
+| `alakazam741_v5` | 763.5 | Partial recovery from v4, but still clearly below v1-v3. |
+| `alakazam741_v6` | 700.2 | Regression from v5 and below v4 in the final ladder result. |
 
 ## Interpretation
 
-v1-v3 are in the same practical strength band, while v4 and v5 remain clearly below that tier.
-Compared with v2, v4 is lower by 130.6 rating points and v5 is lower by 104.9.
-Compared with v3, v4 is lower by 125.5 rating points and v5 is lower by 99.8.
+v1-v3 are in the same practical strength band, while v4-v6 remain clearly below that tier.
+Compared with v2, v4 is lower by 130.6 rating points, v5 is lower by 91.9, and v6 is lower by 155.2.
+Compared with v3, v4 is lower by 125.5 rating points, v5 is lower by 86.8, and v6 is lower by 150.1.
 
 This changes the v5 direction:
 
@@ -37,7 +38,8 @@ The safest v5 direction is:
 
 The v4 local self-play results should be treated as overfit to older Alakazam variants, not as reliable evidence of real ladder strength.
 
-## Takeaway After v5 Result
+## Takeaway After v5/v6 Results
 
 v5 recovered some rating versus v4, but not enough to rejoin the v1-v3 band.
-That supports treating the v4-derived fixes as selective lessons rather than as a broad new base direction.
+v6 then regressed to 700.2, which is 63.3 below v5 and 24.6 below v4.
+That supports treating the v4/v5-derived fixes as selective lessons rather than as a broad new base direction.
