@@ -9,9 +9,9 @@ import tempfile
 from pathlib import Path
 
 try:
-    from scripts.validate_agent import validate_agent
+    from scripts.validate_agent import resolve_agent_dir, validate_agent
 except ModuleNotFoundError:
-    from validate_agent import validate_agent
+    from validate_agent import resolve_agent_dir, validate_agent
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -125,7 +125,7 @@ def main() -> None:
     parser.add_argument(
         "--agent",
         default="alakazam741_v2",
-        help="Directory name under agents/",
+        help="Agent dir name or path. Checks direct path, agents/, archive/agents/, and data/runs/.",
     )
     parser.add_argument("--cg-source")
     parser.add_argument(
@@ -134,9 +134,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    agent_dir = (ROOT / "agents" / args.agent).resolve()
-    if not agent_dir.is_dir():
-        raise FileNotFoundError(agent_dir)
+    agent_dir = resolve_agent_dir(args.agent)
 
     cg_source = locate_cg(args.cg_source)
     build(agent_dir, Path(args.output).resolve(), cg_source)

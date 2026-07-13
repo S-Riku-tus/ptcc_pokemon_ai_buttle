@@ -15,7 +15,7 @@ from pathlib import Path
 
 REPO_URL = "https://github.com/S-Riku-tus/ptcc_pokemon_ai_buttle.git"
 BRANCH = "main"
-AGENTS = ["alakazam741_v8"]
+AGENTS = ["kashiwashira_spidops_reconstruction_v1"]
 
 WORKING = Path("/kaggle/working")
 REPO_DIR = WORKING / "ptcc_pokemon_ai_buttle"
