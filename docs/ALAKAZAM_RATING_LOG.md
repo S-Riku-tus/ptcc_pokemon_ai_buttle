@@ -7,17 +7,18 @@ Last updated: 2026-07-13 JST
 | Agent | Final rating | Notes |
 | --- | ---: | --- |
 | `alakazam741_v1` | 845.7 | Strong baseline. |
-| `alakazam741_v2` | 855.4 | Highest final rating among v1-v6. |
+| `alakazam741_v2` | 855.4 | Highest final rating among the recorded versions. |
 | `alakazam741_v3` | 850.3 | Close to v2, broadly same strength band. |
 | `alakazam741_v4` | 724.8 | Large regression in real ladder. |
 | `alakazam741_v5` | 763.5 | Partial recovery from v4, but still clearly below v1-v3. |
-| `alakazam741_v6` | 700.1 | Regression from v5 and below v4 in the final ladder result. |
+| `alakazam741_v6` | 700.2 | Regression from v5 and below v4 in the final ladder result. |
+| `alakazam741_v8` | 675.7 | Further regression versus v6 and the lowest recorded ladder result so far. |
 
 ## Interpretation
 
-v1-v3 are in the same practical strength band, while v4-v6 remain clearly below that tier.
-Compared with v2, v4 is lower by 130.6 rating points, v5 is lower by 91.9, and v6 is lower by 155.2.
-Compared with v3, v4 is lower by 125.5 rating points, v5 is lower by 86.8, and v6 is lower by 150.1.
+v1-v3 are in the same practical strength band, while v4, v5, v6, and v8 remain clearly below that tier.
+Compared with v2, v4 is lower by 130.6 rating points, v5 is lower by 91.9, v6 is lower by 155.2, and v8 is lower by 179.7.
+Compared with v3, v4 is lower by 125.5 rating points, v5 is lower by 86.8, v6 is lower by 150.1, and v8 is lower by 174.6.
 
 This changes the v5 direction:
 
@@ -43,3 +44,8 @@ The v4 local self-play results should be treated as overfit to older Alakazam va
 v5 recovered some rating versus v4, but not enough to rejoin the v1-v3 band.
 v6 then regressed to 700.2, which is 63.3 below v5 and 24.6 below v4.
 That supports treating the v4/v5-derived fixes as selective lessons rather than as a broad new base direction.
+
+## Takeaway After v8 Result
+
+v8 finished at 675.7, which is 24.5 below v6, 48.1 below v4, and 179.7 below v2.
+That keeps the current conclusion unchanged: use v2 or v3 as the base, and treat later low-rated variants mainly as bug-fix and failure-analysis inputs rather than new foundations.
