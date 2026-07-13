@@ -3,5 +3,7 @@ data/runs/**/replay/*.json filter=lfs diff=lfs merge=lfs -text
 data/submissions/**/replay/*.json filter=lfs diff=lfs merge=lfs -text
 data/replays/**/*.json filter=lfs diff=lfs merge=lfs -text
 data/logs/**/*.json filter=lfs diff=lfs merge=lfs -text
+data/kaggle_top100/replays/**/*.json filter=lfs diff=lfs merge=lfs -text
+data/kaggle_top100/logs/**/*.json filter=lfs diff=lfs merge=lfs -text
 data/submissions/*.zip filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
