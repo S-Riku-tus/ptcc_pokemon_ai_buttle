@@ -22,6 +22,7 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any, Callable
 
+from agent_loader import diag_delta, diag_snapshot
 import local_arena
 
 ROOT = local_arena.ROOT
@@ -72,6 +73,20 @@ class MatchupSummary:
     moves_b: int = 0
     time_a_ms: float = 0.0
     time_b_ms: float = 0.0
+    decisions_a: int = 0
+    decisions_b: int = 0
+    policy_ok_a: int = 0
+    policy_ok_b: int = 0
+    policy_fallback_a: int = 0
+    policy_fallback_b: int = 0
+    obs_fallback_a: int = 0
+    obs_fallback_b: int = 0
+    deck_returns_a: int = 0
+    deck_returns_b: int = 0
+    fallback_rate_a: float = 0.0
+    fallback_rate_b: float = 0.0
+    errors_a_detail: dict[str, int] = field(default_factory=dict)
+    errors_b_detail: dict[str, int] = field(default_factory=dict)
     games_detail: list[GameResult] = field(default_factory=list)
 
     @property
@@ -237,6 +252,8 @@ def run_matchup(
     max_steps: int,
     quiet: bool,
 ) -> MatchupSummary:
+    diag_before_a = diag_snapshot(agent_a.diag)
+    diag_before_b = diag_snapshot(agent_b.diag)
     summary = MatchupSummary(
         matchup=f"{agent_a.spec}__vs__{agent_b.spec}",
         agent_a=agent_a.spec,
@@ -298,6 +315,26 @@ def run_matchup(
                 f"result={result.result}"
             )
 
+    diag_after_a = diag_snapshot(agent_a.diag)
+    diag_after_b = diag_snapshot(agent_b.diag)
+    diag_used_a = diag_delta(diag_before_a, diag_after_a)
+    diag_used_b = diag_delta(diag_before_b, diag_after_b)
+    if diag_used_a:
+        summary.decisions_a = diag_used_a["decisions"]
+        summary.policy_ok_a = diag_used_a["policy_ok"]
+        summary.policy_fallback_a = diag_used_a["policy_fallback"]
+        summary.obs_fallback_a = diag_used_a["obs_fallback"]
+        summary.deck_returns_a = diag_used_a["deck_returns"]
+        summary.fallback_rate_a = diag_used_a["fallback_rate"]
+        summary.errors_a_detail = diag_used_a["errors"]
+    if diag_used_b:
+        summary.decisions_b = diag_used_b["decisions"]
+        summary.policy_ok_b = diag_used_b["policy_ok"]
+        summary.policy_fallback_b = diag_used_b["policy_fallback"]
+        summary.obs_fallback_b = diag_used_b["obs_fallback"]
+        summary.deck_returns_b = diag_used_b["deck_returns"]
+        summary.fallback_rate_b = diag_used_b["fallback_rate"]
+        summary.errors_b_detail = diag_used_b["errors"]
     return summary
 
 
@@ -413,7 +450,9 @@ def main() -> None:
             f"{summary.wins_a}-{summary.wins_b}-{summary.draws} "
             f"A win rate={row['win_rate_a_ex_draws']:.1%} "
             f"errors A/B={summary.errors_a}/{summary.errors_b} "
-            f"illegal A/B={summary.illegal_a}/{summary.illegal_b}"
+            f"illegal A/B={summary.illegal_a}/{summary.illegal_b} "
+            f"policy_fallback A/B={summary.policy_fallback_a}/{summary.policy_fallback_b} "
+            f"obs_fallback A/B={summary.obs_fallback_a}/{summary.obs_fallback_b}"
         )
     print(f"Saved: {output_dir}")
 

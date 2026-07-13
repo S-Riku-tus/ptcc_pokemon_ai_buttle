@@ -17,8 +17,6 @@ Examples:
 from __future__ import annotations
 
 import argparse
-import importlib.util
-import os
 import random
 import sys
 import time
@@ -26,24 +24,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "vendor"))          # -> import cg.api / cg.game
-sys.path.insert(0, str(ROOT / "agents" / "_base"))  # -> import policy_base first
+sys.path.insert(0, str(ROOT / "agents" / "_base"))  # -> shared generic_policy imports
 
-import policy_base  # noqa: E402  (shared; agents' sibling copies resolve to this)
+from agent_loader import diag_snapshot, load_dir_agent as load_agent_dir  # noqa: E402
 from cg.game import battle_start, battle_select, battle_finish  # noqa: E402
 
 
 def load_dir_agent(agent_dir: Path):
-    main_path = agent_dir / "main.py"
-    if not main_path.exists():
-        raise FileNotFoundError(main_path)
-    if str(agent_dir) not in sys.path:
-        sys.path.insert(0, str(agent_dir))
-    name = "agent_" + agent_dir.name
-    spec = importlib.util.spec_from_file_location(name, main_path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[name] = module
-    spec.loader.exec_module(module)
-    return module.agent, getattr(module, "DIAG", None)
+    agent, diag, _module = load_agent_dir(agent_dir)
+    return agent, diag
 
 
 def load_generic_agent(deck_dir: Path):
@@ -172,10 +161,17 @@ def main():
             print(f"{name}: {stats['moves'][i]} moves, "
                   f"avg {stats['time'][i] / stats['moves'][i] * 1000:.2f} ms/move")
     for tag, diag in (("A", diag_a), ("B", diag_b)):
-        if diag:
-            print(f"diag {tag}: ok={diag['policy_ok']} "
-                  f"policy_fallback={diag['policy_fallback']} "
-                  f"obs_fallback={diag['obs_fallback']} errors={diag['errors']}")
+        snap = diag_snapshot(diag)
+        if snap:
+            print(
+                f"diag {tag}: decisions={snap['decisions']} "
+                f"policy_ok={snap['policy_ok']} "
+                f"policy_fallback={snap['policy_fallback']} "
+                f"obs_fallback={snap['obs_fallback']} "
+                f"deck_returns={snap['deck_returns']} "
+                f"errors={snap['errors']} "
+                f"fallback_rate={snap['fallback_rate']:.1%}"
+            )
 
 
 if __name__ == "__main__":
