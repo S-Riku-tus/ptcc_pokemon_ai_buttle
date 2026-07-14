@@ -1,0 +1,23 @@
+{
+  "name": "alakazam741_v9_top8_core",
+  "version": "9.0.0",
+  "status": "candidate",
+  "archetype": "Alakazam 741 top-8 general core — explicit turn state machine + attack reservation",
+  "entrypoint": "main.py",
+  "deck": "deck.csv",
+  "requires_cg": true,
+  "summary": "Reproduces the shared top-8 core from the 793-game analysis: one turn state (SETUP/PRESSURE/RECOVER/LOCKED/ENDGAME) per MAIN decision, an explicit attack reservation with a pre-attack gate, and a dynamic turns_to_deckout vs turns_to_win deck model that also counts Dudunsparce/Sacred Ash returns. Same 60 cards as v8; no Boss's Orders and no opponent-card/deck-name matchup branches.",
+  "strategy_notes": "STRATEGY.md",
+  "deck_identical_to": "alakazam741_v8",
+  "notes": [
+    "Deck is byte-identical to alakazam741_v8 — this version isolates the LOGIC change only.",
+    "One turn state is selected per MAIN decision; no simultaneous boolean modes.",
+    "Attack reservation: the best >0-damage attack is reserved, only gated pre-attack actions that preserve it and improve the plan run above it, END is blocked while an attack is reserved.",
+    "Dynamic deck model replaces v8's fixed max(8, prizes+3) floor and the hand>=12/deck<=14 cap; optional draw is allowed only when it makes the current KO, secures the first backup, or keeps turns_to_deckout > turns_to_win.",
+    "Dudunsparce Run Away Draw never empties the board; the benched engine draws only when the dynamic model is safe and it improves the current damage or the next attacker.",
+    "Retreat only to reach a benched attacker; never retreat away from an attack-capable Alakazam.",
+    "Enhanced Hammer / Xerosic / Battle Cage / stadiums are gated on board state and on preserving the reserved attack, never on card-name matchup.",
+    "No Boss's Orders is present in the deck and no gust logic exists.",
+    "_DIAG is extended with per-decision state, attack-reservation, retreat, Dudunsparce, 0-damage-attack and attackable-END counters for post-hoc metric aggregation."
+  ]
+}

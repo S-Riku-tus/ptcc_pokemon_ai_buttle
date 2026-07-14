@@ -1,0 +1,47 @@
+{
+  "primary": "alakazam741_v8",
+  "opponent": "alakazam741_v9_top8_core",
+  "games": 200,
+  "seed": 0,
+  "win_rate": 0.475,
+  "first_player_win_rate": 0.52,
+  "second_player_win_rate": 0.43,
+  "behavior": {
+    "games": 200,
+    "win_rate": 0.475,
+    "avg_first_attack_turn": 2.057894736842105,
+    "games_with_attack_rate": 0.95,
+    "attack_by_2nd_own_turn_rate": 0.705,
+    "overall_own_turn_attack_rate": 0.7378277153558053,
+    "attacks_per_game": 4.925,
+    "alakazam_attacks_per_game": 3.125,
+    "dudun_abilities_per_game": 1.23,
+    "dudun_same_turn_attack_rate": 0.8699186991869918,
+    "retreats_per_game": 0.145,
+    "retreat_same_turn_attack_rate": 1.0,
+    "attackable_ends_total": 0,
+    "zero_damage_attacks_total": 0,
+    "deckout_suspected_total": 0,
+    "recorder_exceptions_total": 350
+  },
+  "crashes": 0,
+  "illegal_selects": 0,
+  "diag_before": {
+    "decisions": 0,
+    "policy_ok": 0,
+    "policy_fallback": 0,
+    "obs_fallback": 0,
+    "deck_returns": 1,
+    "errors": {},
+    "fallback_rate": 0.0
+  },
+  "diag_after": {
+    "decisions": 10561,
+    "policy_ok": 10561,
+    "policy_fallback": 0,
+    "obs_fallback": 0,
+    "deck_returns": 1,
+    "errors": {},
+    "fallback_rate": 0.0
+  }
+}
