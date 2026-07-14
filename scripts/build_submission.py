@@ -18,6 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED_NAMES = {
     "__pycache__",
     "STRATEGY.md",
+    "STRATEGY_V7.md",
+    "CHANGELOG.md",
     "metadata.json",
     "README.md",
 }
