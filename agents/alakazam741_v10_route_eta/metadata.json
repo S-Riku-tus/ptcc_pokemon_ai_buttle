@@ -1,0 +1,24 @@
+{
+  "name": "alakazam741_v10_route_eta",
+  "version": "10.0.0",
+  "status": "candidate",
+  "archetype": "Alakazam 741 top-8 core — v9 state machine + route/backup-ETA refinements",
+  "entrypoint": "main.py",
+  "deck": "deck.csv",
+  "requires_cg": true,
+  "summary": "v9 top-8 core (turn state machine + attack reservation + dynamic deck model) with seven targeted decision fixes: reachable-Alakazam complete-route test, energy-aware backup_eta, route-deficit Poké Pad, board-deficit Dawn/Hilda selection, mirror-only pre-attack Xerosic, one-per-turn Night Stretcher, and need-gated Battle Cage. Same 60 cards as v8/v9; no Boss's Orders and no opponent-card/deck-name matchup branches.",
+  "strategy_notes": "STRATEGY.md",
+  "based_on": "alakazam741_v9_top8_core",
+  "deck_identical_to": "alakazam741_v8",
+  "notes": [
+    "Deck is byte-identical to alakazam741_v9_top8_core / alakazam741_v8 — v10 isolates the LOGIC change only.",
+    "_holds_complete_route requires a reachable attacking Alakazam (Abra + Kadabra/Candy + Alakazam card + fuel), so Lillie is no longer suppressed by an incomplete hand.",
+    "_has_backup_line replaced by energy-aware _backup_eta; only backup_eta<=1 is a sufficient follow-up; _backup_energy_short prioritises energy over extra development.",
+    "Poké Pad fetches by route deficit and never fetches Alakazam while no Abra exists to build under it.",
+    "Dawn vs Hilda chosen from the board deficit, not a fixed point gap.",
+    "Xerosic is mirror-only and only as a pre-attack disruption; never in LOCKED and never as the sole turn-ending action.",
+    "Night Stretcher capped at one use per turn unless a second directly makes a KO now or secures the next attacker.",
+    "Battle Cage gated on a genuine bench-protection need; the pre-attack gate prevents it from costing the current KO.",
+    "Unchanged from v9: PRESSURE attack priority, Dudunsparce base Tier + deck model, attack-instead-of-END, minimal manual retreat, last-body Dudunsparce safety, 0-damage Powerful Hand guard, 60-card deck."
+  ]
+}
