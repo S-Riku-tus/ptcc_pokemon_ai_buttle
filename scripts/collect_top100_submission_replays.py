@@ -159,6 +159,28 @@ def parse_int(value: Any) -> int | None:
     return int(text)
 
 
+def parse_iso_datetime(value: str) -> datetime | None:
+    text = (value or "").strip()
+    if not text:
+        return None
+    try:
+        return datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def sort_episodes_oldest_first(episodes: list[Any]) -> list[Any]:
+    def sort_key(episode: Any) -> tuple[datetime, datetime, int]:
+        created_at = parse_iso_datetime(getattr(episode, "create_time", "")) or datetime.min.replace(
+            tzinfo=timezone.utc
+        )
+        ended_at = parse_iso_datetime(getattr(episode, "end_time", "")) or created_at
+        episode_id = parse_int(getattr(episode, "episode_id", None)) or -1
+        return (created_at, ended_at, episode_id)
+
+    return sorted(episodes, key=sort_key)
+
+
 def extract_replay_episode_id(payload: Any) -> int | None:
     if not isinstance(payload, dict):
         return None
@@ -470,6 +492,7 @@ def process_submission(
         thread_print(f"  FAILED: {error_text}")
         return result
 
+    episodes = sort_episodes_oldest_first(episodes)
     if max_episodes_per_submission > 0:
         episodes = episodes[:max_episodes_per_submission]
 
@@ -712,7 +735,7 @@ def main() -> None:
         "--max-episodes-per-submission",
         type=int,
         default=0,
-        help="Process only the first N episodes per submission. 0 means all.",
+        help="Process only the oldest N episodes per submission by create_time. 0 means all.",
     )
     parser.add_argument(
         "--sleep",
