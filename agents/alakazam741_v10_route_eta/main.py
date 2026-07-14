@@ -1,4 +1,4 @@
-# alakazam741_v10_route_eta — v9 top-8 core with route/backup-ETA refinements.
+# alakazam741_v10_1_fixed — audited route/backup-ETA refinements.
 #
 # Same 60-card deck and same explicit turn state machine + attack reservation as v9. v10 keeps
 # every behaviour that already works (attack tempo, Dudunsparce operation, retreat discipline)
@@ -27,13 +27,14 @@
 from __future__ import annotations
 
 import os
+import re
 
 from cg.api import (
     AreaType, CardType, EnergyType, Observation, OptionType, Pokemon, SelectContext,
 )
 from policy_base import (
-    BasePolicy, EFFECT_PREVENT_ENERGY, ENERGY_PROVIDES, ITEM_LOCK_IDS, card_table,
-    get_card, make_agent, new_diag, prize_count,
+    BasePolicy, BENCH_DAMAGE_ATTACKS, EFFECT_PREVENT_ENERGY, ENERGY_PROVIDES,
+    ITEM_LOCK_IDS, attack_table, card_table, get_card, make_agent, new_diag, prize_count,
 )
 
 
@@ -377,50 +378,46 @@ class AlakazamPolicy(BasePolicy):
         return (a is not None and a.id in ALAKAZAM_IDS and self.energy_count(a) >= 1) \
             or self.bench_attacker_ready()
 
-    def _can_attach_energy_this_turn(self):
-        """A psychic energy is in hand AND we have not yet attached this turn."""
-        return (not getattr(self.state, "energyAttached", False)) and self._psychic_in_hand()
+    def _backup_eta(self, recovered_cid=None):
+        """Turns until a FOLLOW-UP attacker can attack.
 
-    def _backup_eta(self):
-        """Turns until a FOLLOW-UP attacker (a benched Alakazam beyond whatever is attacking now)
-        can attack. ENERGY-aware — a bare evolution line with no fuel is NOT a ready backup.
-
-          0  : a ready benched Alakazam attacker exists now.
-          1  : one enabling step with the pieces in hand — a benched Alakazam that only needs an
-               energy we can still attach this turn, or Kadabra(+Alakazam) / Abra(+Candy+Alakazam)
-               on the bench with a fuel path.
-          2  : an evolution body (Kadabra/Alakazam) is on the bench but energy is missing.
-          3  : only Abra bodies, or a fresh line startable from hand onto an open bench.
-          99 : no route to a second attacker at all.
-
-        backup_eta<=1 is treated as a sufficient backup."""
+        ``recovered_cid`` is a one-card hypothetical used by Night Stretcher.  This makes the
+        second-use exception a real before/after test instead of a broad "we need a backup"
+        predicate.  Only ETA <= 1 counts as a secured follow-up.
+        """
         bench = [p for p in self.me.bench if p is not None]
         if any(p.id in ALAKAZAM_IDS and self.can_attack(p) for p in bench):
             return 0
-        can_energy = self._can_attach_energy_this_turn()
+
+        def h(cid):
+            return self.hand[cid] + (1 if recovered_cid == cid else 0)
+
+        psychic_available = self._psychic_in_hand() or recovered_cid == C.PSYCHIC_ENERGY
+        can_energy = (not getattr(self.state, "energyAttached", False)) and psychic_available
 
         def fueled(p):
             return self.energy_count(p) >= 1
 
-        # One step away with the cards already in hand/play.
+        # One legal enabling step from a body already on the bench.
         for p in bench:
             if p.id in ALAKAZAM_IDS and can_energy:
                 return 1
         for p in bench:
-            if p.id == C.KADABRA and self.hand[C.ALAKAZAM] > 0 and (fueled(p) or can_energy):
+            if p.id == C.KADABRA and h(C.ALAKAZAM) > 0 and (fueled(p) or can_energy):
                 return 1
         for p in bench:
-            if (p.id == C.ABRA and self.hand[C.RARE_CANDY] > 0 and self.hand[C.ALAKAZAM] > 0
+            if (p.id == C.ABRA and h(C.RARE_CANDY) > 0 and h(C.ALAKAZAM) > 0
                     and (fueled(p) or can_energy)):
                 return 1
-        # Evolution body present but no fuel path this turn.
+
+        # A body exists, but more than one enabling step or a future energy is still needed.
         if any(p.id in (C.KADABRA, C.ALAKAZAM) for p in bench):
             return 2
         if any(p.id == C.ABRA for p in bench):
-            if self.hand[C.KADABRA] > 0 or (self.hand[C.RARE_CANDY] > 0 and self.hand[C.ALAKAZAM] > 0):
+            if h(C.KADABRA) > 0 or (h(C.RARE_CANDY) > 0 and h(C.ALAKAZAM) > 0):
                 return 2
             return 3
-        if self._open_bench() and self.hand[C.ABRA] > 0:
+        if self._open_bench() and h(C.ABRA) > 0:
             return 3
         return 99
 
@@ -481,25 +478,47 @@ class AlakazamPolicy(BasePolicy):
         return self._active_best_dmg(opp) >= max(1, opp.hp)
 
     def _holds_complete_route(self):
-        """A route is 'complete' only if it can actually REACH an attacking Alakazam this/next
-        turn with fuel: an Abra (ケーシィ), a bridge to Alakazam (ユンゲラー or ふしぎなアメ),
-        the フーディン card itself, the 超エネルギー to power it, and a currently usable
-        evolution condition. Merely holding Abra + Kadabra with no Alakazam / no fuel is NOT
-        complete, so Lillie stays free to rebuild a genuinely broken hand."""
-        alakazam_in_play = self.field[C.ALAKAZAM] > 0
-        alakazam_card = alakazam_in_play or self.hand[C.ALAKAZAM] > 0
-        has_abra = self.field[C.ABRA] > 0 or self.hand[C.ABRA] > 0
-        # Bridge to put the Alakazam into play, respecting the current evolution condition.
-        candy_route = (self.field[C.ABRA] > 0 and self.hand[C.RARE_CANDY] > 0
-                       and self.hand[C.ALAKAZAM] > 0)
-        kadabra_route = self.hand[C.ALAKAZAM] > 0 and (
-            self.field[C.KADABRA] > 0 or (self.hand[C.KADABRA] > 0 and has_abra))
-        reachable = alakazam_in_play or candy_route or kadabra_route
-        if not (alakazam_card and reachable):
+        """Whether preserving the current hand is better than rebuilding it with Lillie.
+
+        A hand-only Abra is never a complete route.  The route must start from a body already in
+        play and produce an energy-ready Alakazam no later than next turn.  Fuel is checked on the
+        actual target body; energy attached to an unrelated Abra/Kadabra no longer validates an
+        unfuelled Alakazam elsewhere.
+        """
+        board = [p for p in self.my_board() if p is not None]
+        psychic = self._psychic_in_hand()
+
+        # Already attacking, or an Alakazam that only needs the held energy.
+        for p in board:
+            if p.id == C.ALAKAZAM and (self.can_attack(p) or psychic):
+                return True
+
+        if self.hand[C.ALAKAZAM] <= 0:
             return False
-        has_fuel = self._psychic_in_hand() or any(
-            p is not None and p.id in ALAKAZAM_LINE and self.can_attack(p) for p in self.my_board())
-        return has_fuel
+
+        # Kadabra in play -> Alakazam this/next turn, with energy on that line or in hand.
+        for p in board:
+            if p.id == C.KADABRA and (self.energy_count(p) >= 1 or psychic):
+                return True
+
+        # Abra in play + Candy + Alakazam is a one-step route next turn at latest.
+        for p in board:
+            if (p.id == C.ABRA and self.hand[C.RARE_CANDY] > 0
+                    and (self.energy_count(p) >= 1 or psychic)):
+                return True
+
+        # Abra -> Kadabra now, then Alakazam next turn.  Require an actually offered evolution;
+        # merely holding all three stages in hand does not count, and a full bench cannot fake it.
+        if self.hand[C.KADABRA] > 0 and psychic:
+            for option in (self.select.option or []):
+                if option.type != OptionType.EVOLVE:
+                    continue
+                target = get_card(self.obs, option.inPlayArea, option.inPlayIndex, self.my_index)
+                evo = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
+                if (target is not None and target.id == C.ABRA
+                        and evo is not None and evo.id == C.KADABRA):
+                    return True
+        return False
 
     # ── state classification ────────────────────────────────────────────────
     def _classify_state(self):
@@ -536,9 +555,12 @@ class AlakazamPolicy(BasePolicy):
         return 0
 
     def _preserves_attack(self, option):
-        """Would executing `option` keep the reserved attack legal and its KO intact?
-        Only the hand-consuming case can break Powerful Hand's damage, so that is what we check;
-        energy/attacker-Active are unaffected by pre-attack development in this deck."""
+        """Keep the reserved attack both legal and meaningful after a hand spend.
+
+        v10 only protected an existing KO.  With one card in hand, Battle Cage could therefore
+        reduce Powerful Hand from 20 to 0 and still pass the gate.  We now protect the existence
+        of the attack first, and the KO second.
+        """
         if not self._attack_reserved:
             return True
         delta = self._hand_delta(option)
@@ -548,15 +570,55 @@ class AlakazamPolicy(BasePolicy):
         opp = self.opponent.active[0] if self.opponent.active else None
         if active is None or active.id != C.ALAKAZAM or opp is None:
             return True
-        # Losing the CURRENT KO to a hand spend is forbidden.
-        if self._plan["kos"] and 20 * (self.me.handCount + delta) < opp.hp:
+        post_damage = 20 * max(0, self.me.handCount + delta)
+        if self._plan["damage"] > 0 and post_damage <= 0:
+            return False
+        if self._plan["kos"] and post_damage < opp.hp:
             return False
         return True
 
+    def _direct_backup_energy_action(self, option):
+        """A deterministic action that fixes the *only* missing backup piece: Psychic energy."""
+        if option.type in (OptionType.ATTACH, OptionType.ENERGY):
+            target = get_card(self.obs, option.inPlayArea, option.inPlayIndex, self.my_index)
+            src = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
+            return (target is not None and option.inPlayArea == AreaType.BENCH
+                    and target.id in ALAKAZAM_LINE and src is not None
+                    and ENERGY_PROVIDES.get(src.id) == EnergyType.PSYCHIC
+                    and self._score_attach(option) > 0)
+        if option.type != OptionType.PLAY:
+            return False
+        cid = self._play_card_id(option)
+        if cid == C.HILDA and not self.state.supporterPlayed:
+            return True
+        if cid == C.NIGHT_STRETCHER and self.discard.get(C.PSYCHIC_ENERGY, 0):
+            return self._night_stretcher_secures_backup(C.PSYCHIC_ENERGY)
+        return False
+
+    def _direct_backup_energy_fix_available(self):
+        return any(self._direct_backup_energy_action(o) for o in (self.select.option or []))
+
     def _improves_plan(self, option):
-        """Is `option` one of the four allowed pre-attack actions? (raise the KO/damage, secure
-        the next attacker, grow the hand safely, or apply a maintained high-value disruption)."""
+        """Whether an action may precede an already-reserved attack.
+
+        When a backup line is complete except for energy, deterministic energy fixes exclusively
+        outrank extra bodies/evolutions/disruption.  If no deterministic fix exists, only a safe
+        draw/reset may dig for it; Poké Pad, Dawn and extra Abra cannot masquerade as energy help.
+        """
         t = option.type
+        if self._backup_energy_short():
+            if self._direct_backup_energy_action(option):
+                return True
+            if self._direct_backup_energy_fix_available():
+                return False
+            if t == OptionType.ABILITY:
+                card = get_card(self.obs, option.area, option.index, self.my_index)
+                return (card is not None and card.id == C.DUDUNSPARCE
+                        and self._optional_deck_spend(option))
+            if t == OptionType.PLAY and self._play_card_id(option) == C.LILLIE:
+                return self._optional_deck_spend(option)
+            return False
+
         # Draw/search that raises Powerful Hand or reaches a KO.
         if self._optional_deck_spend(option):
             return True
@@ -814,15 +876,52 @@ class AlakazamPolicy(BasePolicy):
         mirror = any(p.id in ALAKAZAM_LINE for p in opp_board)
         return mirror and opp_hand >= 6
 
+    @staticmethod
+    def _bench_damage_amount(attack_id):
+        """Best-effort amount an attack can put on one Benched Pokémon.
+
+        Card text is the source of truth available to the policy.  Values in a sentence mentioning
+        the bench are treated as damage; "damage counters" are converted at 10 damage each.
+        Unknown bench attacks use a conservative 10-damage floor rather than triggering Cage for
+        every merely potential bench attacker.
+        """
+        attack = attack_table.get(attack_id)
+        text = (getattr(attack, "text", "") or "").replace("’", "'")
+        best = 0
+        for sentence in re.split(r"[.;]", text):
+            low = sentence.lower()
+            if "bench" not in low:
+                continue
+            nums = [int(x) for x in re.findall(r"\d+", sentence)]
+            if not nums:
+                continue
+            amount = max(nums)
+            if "damage counter" in low:
+                amount *= 10
+            best = max(best, amount)
+        return best or (10 if attack_id in BENCH_DAMAGE_ATTACKS else 0)
+
+    def _opponent_ready_bench_damage(self):
+        """Immediate next-attack bench damage from the opponent's current Active only."""
+        active = self.opponent.active[0] if self.opponent.active else None
+        if active is None or not self.can_attack(active):
+            return 0
+        return max((self._bench_damage_amount(aid) for aid in self.payable_attacks(active)
+                    if aid in BENCH_DAMAGE_ATTACKS), default=0)
+
     def _battle_cage_worthwhile(self):
-        """Only when bench protection is GENUINELY needed — a benched body plus an opponent that
-        can place damage counters on the bench. Never merely because the opponent has a stadium.
-        (Losing the current KO/attack to the -1 hand of playing it is separately prevented by the
-        pre-attack gate in _score_main via _preserves_attack.)"""
+        """Play Cage only against an immediate, energy-ready bench KO threat.
+
+        A bench-damage attack somewhere on the opponent's board is no longer enough.  The current
+        Active must be able to pay that attack now, and at least one of our benched Pokémon must
+        actually be knocked out by the estimated bench damage.  `_preserves_attack` separately
+        guarantees that playing the Stadium cannot erase the reserved Powerful Hand attack/KO.
+        """
         if self.state.stadiumPlayed or self.stadium_id == C.BATTLE_CAGE:
             return False
-        has_bench = any(p is not None for p in self.me.bench)
-        return has_bench and self.opponent_threatens_bench()
+        bench = [p for p in self.me.bench if p is not None]
+        damage = self._opponent_ready_bench_damage()
+        return damage > 0 and any(getattr(p, "hp", 0) <= damage for p in bench)
 
     def _night_stretcher_target_score(self, cid):
         line_in_play = self.field[C.ABRA] + self.field[C.KADABRA] + self.field[C.ALAKAZAM]
@@ -852,9 +951,45 @@ class AlakazamPolicy(BasePolicy):
             return 650 if (engine_in_play == 0 and self._open_bench()) else 220
         return -1
 
+    def _night_stretcher_direct_ko(self, cid):
+        """Whether recovering exactly `cid` creates an immediate KO by itself."""
+        if cid != C.PSYCHIC_ENERGY or getattr(self.state, "energyAttached", False):
+            return False
+        active = self.me.active[0] if self.me.active else None
+        opp = self.opponent.active[0] if self.opponent.active else None
+        return (active is not None and active.id == C.ALAKAZAM and not self.can_attack(active)
+                and opp is not None and not self._effect_prevented(opp)
+                and 20 * self.me.handCount >= opp.hp)
+
+    def _night_stretcher_secures_backup(self, cid):
+        before = self._backup_eta()
+        after = self._backup_eta(recovered_cid=cid)
+        return before > 1 and after <= 1
+
+    def _night_stretcher_allowed_targets(self):
+        used = _turn_ns_used(self._turn)
+        # The play is recorded before its TO_HAND resolution.  During that sub-select, subtract
+        # the current play so the first Stretcher still receives first-use target rules, while a
+        # resolving second Stretcher correctly remains subject to the direct-improvement gate.
+        resolving = (self.context == SelectContext.TO_HAND
+                     and getattr(getattr(self.select, "contextCard", None), "id", None)
+                     == C.NIGHT_STRETCHER)
+        prior_uses = max(0, used - 1) if resolving else used
+        second = prior_uses >= 1
+        allowed = []
+        for cid in RECOVERABLE:
+            if not self.discard.get(cid, 0):
+                continue
+            if self._night_stretcher_target_score(cid) < 600:
+                continue
+            if second and not (self._night_stretcher_direct_ko(cid)
+                               or self._night_stretcher_secures_backup(cid)):
+                continue
+            allowed.append(cid)
+        return allowed
+
     def _night_stretcher_worthwhile(self):
-        return max((self._night_stretcher_target_score(cid)
-                    for cid in RECOVERABLE if self.discard.get(cid, 0)), default=-1) >= 600
+        return bool(self._night_stretcher_allowed_targets())
 
     # ── abilities ─────────────────────────────────────────────────────────────
     def _score_ability(self, o):
@@ -1014,18 +1149,10 @@ class AlakazamPolicy(BasePolicy):
             return 6500
 
         if cid == C.NIGHT_STRETCHER:
-            if not self._night_stretcher_worthwhile():
+            targets = self._night_stretcher_allowed_targets()
+            if not targets:
                 return -1
-            # Item 6: at most one Night Stretcher per turn. A second is allowed only when it
-            # directly makes a KO this turn or secures the next attacker.
-            if _turn_ns_used(self._turn) >= 1:
-                opp = self.opponent.active[0] if self.opponent.active else None
-                makes_lethal = (opp is not None and self._ko_active_reachable()
-                                and 20 * self.me.handCount < opp.hp)
-                if not (makes_lethal or self._needs_first_backup()):
-                    return -1
-            best = max(self._night_stretcher_target_score(x) for x in RECOVERABLE
-                       if self.discard.get(x, 0))
+            best = max(self._night_stretcher_target_score(x) for x in targets)
             return 7800 + best
 
         if cid == C.LANA_AID:
@@ -1182,6 +1309,8 @@ class AlakazamPolicy(BasePolicy):
         if (ctx == SelectContext.TO_HAND
                 and getattr(getattr(self.select, "contextCard", None), "id", None) == C.NIGHT_STRETCHER
                 and getattr(o, "area", None) == AreaType.DISCARD):
+            if card.id not in self._night_stretcher_allowed_targets():
+                return -1
             return self._night_stretcher_target_score(card.id)
         if ctx in (SelectContext.SWITCH, SelectContext.TO_ACTIVE):
             return self._score_active_choice(o, card)
