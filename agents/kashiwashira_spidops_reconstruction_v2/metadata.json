@@ -1,0 +1,32 @@
+{
+  "name": "kashiwashira_spidops_reconstruction_v2",
+  "version": "2.0.0",
+  "created_at": "2026-07-14",
+  "deck_source_submission_id": 54603674,
+  "failed_reconstruction_submission_id": 54655021,
+  "comparison_submission_id": 54613990,
+  "deck_source_rating": 1255.2,
+  "failed_reconstruction_rating_approx": 530,
+  "available_source_replays": 100,
+  "failed_reconstruction_public_games": 43,
+  "leader_comparison_public_games": 99,
+  "method": "clean-room behavioral reconstruction corrected by direct replay comparison",
+  "required_files": [
+    "main.py",
+    "policy_base.py",
+    "deck.csv"
+  ],
+  "notes": [
+    "The exact 60-card list remains identical to submission 54603674.",
+    "The original policy source code was not present in the logs and is not claimed to be reproduced.",
+    "v2 fixes the Poké Pad empty-selection bug and reorders safe engine actions before non-KO attacks.",
+    "Factory, Transceiver, Supporter selection, Giovanni, retreat/pivot and major matchup handling were reworked from the 54655021 versus 54603674 replay comparison.",
+    "Mewtwo ex bonus damage remains 160 + 60 per selected Benched Energy, using the minimum recyclable Energy needed for a KO."
+  ],
+  "validation": {
+    "syntax_check": "passed",
+    "stub_unit_tests": 26,
+    "real_vendor_cg_tested": false,
+    "real_battle_harness_tested": false
+  }
+}

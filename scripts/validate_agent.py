@@ -7,6 +7,7 @@ import ast
 import collections
 import json
 import py_compile
+import sys
 import tempfile
 from pathlib import Path
 
@@ -119,6 +120,9 @@ def validate_agent(agent_dir: Path) -> dict:
 
 
 def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--agent", default="alakazam741_v2")
     args = parser.parse_args()
