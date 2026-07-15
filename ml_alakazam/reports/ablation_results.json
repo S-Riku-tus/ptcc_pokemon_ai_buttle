@@ -1,0 +1,72 @@
+[
+  {
+    "name": "unweighted",
+    "status": "evaluated",
+    "semantic_top1": 0.71251899842615,
+    "top3": 0.8922046604931045,
+    "mrr": 0.8122717257495518,
+    "weighted_log_loss": 1.1972969268307985
+  },
+  {
+    "name": "wins_only",
+    "status": "evaluated",
+    "semantic_top1": 0.6877167080373162,
+    "top3": 0.8877971918659824,
+    "mrr": 0.7992323465576296,
+    "weighted_log_loss": 1.2027757888930757
+  },
+  {
+    "name": "exclude_unique_legal",
+    "status": "evaluated",
+    "semantic_top1": 0.7051202898961992,
+    "top3": 0.8900185856233532,
+    "mrr": 0.8084413897430873,
+    "weighted_log_loss": 1.2037799309668227
+  },
+  {
+    "name": "no_post_action_quality",
+    "status": "evaluated",
+    "semantic_top1": 0.7111625147310693,
+    "top3": 0.8880404404373432,
+    "mrr": 0.8105055600431001,
+    "weighted_log_loss": 1.2057653175147514
+  },
+  {
+    "name": "no_agreement",
+    "status": "evaluated",
+    "semantic_top1": 0.7080471168310584,
+    "top3": 0.8946925065096327,
+    "mrr": 0.8112391241430735,
+    "weighted_log_loss": 1.1993103228765034
+  },
+  {
+    "name": "rank_weight_on_off",
+    "status": "not_identifiable",
+    "reason": "all trainable episodes are rank-1"
+  },
+  {
+    "name": "majkel_vs_multiple_top",
+    "status": "not_available",
+    "reason": "other bundles lack observations/actions/legal candidates"
+  },
+  {
+    "name": "deck_type_input_on_off",
+    "status": "not_identifiable",
+    "reason": "all trainable episodes use one exact deck"
+  },
+  {
+    "name": "value_head_on_off",
+    "status": "reported_separately",
+    "rmse": 0.387521898086293,
+    "brier": 0.15017322149640325,
+    "accuracy_at_0_5": 0.7806970509383379
+  },
+  {
+    "name": "safety_rules_on_off",
+    "status": "deferred_to_golden_and_battle_evaluation"
+  },
+  {
+    "name": "fallback_on_off",
+    "status": "deferred_to_hybrid_evaluation"
+  }
+]

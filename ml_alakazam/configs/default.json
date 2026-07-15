@@ -1,0 +1,11 @@
+{
+  "replay_glob": "data/runs/kaggle_top50/*.zip",
+  "deck_evidence": "data/summaries/top_alakazam_8teams_evidence/deck_comparison.csv",
+  "team_evidence": "data/summaries/top_alakazam_8teams_evidence/team_summary.csv",
+  "seed": 741,
+  "time_train_fraction": 0.70,
+  "time_validation_fraction": 0.15,
+  "confidence_threshold": 0.65,
+  "teacher_weight_min": 0.05,
+  "teacher_weight_max": 2.0
+}

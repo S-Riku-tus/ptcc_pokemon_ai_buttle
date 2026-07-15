@@ -1,0 +1,1337 @@
+{
+  "seed": 741,
+  "features": [
+    "turn",
+    "go_first",
+    "your_prizes",
+    "opp_prizes",
+    "your_deck",
+    "opp_deck",
+    "your_hand",
+    "opp_hand",
+    "your_bench",
+    "opp_bench",
+    "supporter_played",
+    "energy_attached",
+    "retreated",
+    "stadium_played",
+    "stadium_id",
+    "your_active_id",
+    "your_active_hp",
+    "your_active_max_hp",
+    "your_active_damage",
+    "your_active_energy",
+    "opp_active_id",
+    "opp_active_hp",
+    "opp_active_max_hp",
+    "opp_active_damage",
+    "opp_active_energy",
+    "your_alakazam",
+    "your_kadabra",
+    "your_abra",
+    "your_dudunsparce",
+    "your_dunsparce",
+    "opp_board_signature",
+    "your_board_signature",
+    "low_deck",
+    "hand_alakazam",
+    "hand_kadabra",
+    "hand_abra",
+    "hand_candy",
+    "hand_boss",
+    "hand_hammer",
+    "hand_xerosic",
+    "hand_energy",
+    "select_type_code",
+    "context_code",
+    "option_count",
+    "min_count",
+    "max_count",
+    "candidate_index",
+    "option_type_code",
+    "card_id",
+    "attack_id",
+    "skill_id",
+    "target_card_id",
+    "player_index",
+    "source_area",
+    "target_area",
+    "source_index",
+    "target_index",
+    "candidate_hp",
+    "candidate_energy",
+    "hand_delta",
+    "board_delta",
+    "attack_damage",
+    "ko_possible",
+    "is_end",
+    "is_attack",
+    "is_ability",
+    "is_retreat",
+    "is_evolve",
+    "is_energy",
+    "is_boss",
+    "is_hammer",
+    "is_xerosic",
+    "is_candy",
+    "is_dudunsparce",
+    "high_importance",
+    "context_option_code"
+  ],
+  "train_rows": 63104,
+  "validation_rows": 11680,
+  "test_rows": 14945,
+  "models": {
+    "first_legal": {
+      "decisions": 1865,
+      "exact_top1": 0.36007973710792684,
+      "semantic_top1": 0.3725912477047655,
+      "top3": 0.612108257428187,
+      "top5": 0.704433208392909,
+      "mrr": 0.5302734517076167,
+      "weighted_log_loss": 4.36964229701361,
+      "mean_confidence": 0.6598294478041137,
+      "low_confidence_rate": 0.7204172018744108,
+      "semantic_top1_without_unique": 0.36314514042628143,
+      "ece": 0.29248259524535586,
+      "calibration_bins": [
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 1411,
+          "accuracy": 0.2771088259453876,
+          "confidence": 0.6375300106599289
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 339,
+          "accuracy": 0.745550605451893,
+          "confidence": 0.7310585786300049
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 115,
+          "accuracy": 1.0,
+          "confidence": 1.0
+        }
+      ],
+      "by_action_type": {
+        "ability": {
+          "count": 111,
+          "semantic_top1": 0.010469665521738331,
+          "top3": 0.048812519515823875
+        },
+        "attack": {
+          "count": 139,
+          "semantic_top1": 0.08124194563490876,
+          "top3": 0.2635538106512423
+        },
+        "boss": {
+          "count": 22,
+          "semantic_top1": 0.36557296056264343,
+          "top3": 0.6024877212357233
+        },
+        "card": {
+          "count": 889,
+          "semantic_top1": 0.5262411866776827,
+          "top3": 0.7851865275010573
+        },
+        "end": {
+          "count": 52,
+          "semantic_top1": 0.11591199947091134,
+          "top3": 0.6946695002907939
+        },
+        "energy": {
+          "count": 119,
+          "semantic_top1": 0.09792581060688435,
+          "top3": 0.3860990821972266
+        },
+        "evolve": {
+          "count": 227,
+          "semantic_top1": 0.22773028024327152,
+          "top3": 0.40686574267153486
+        },
+        "hammer": {
+          "count": 27,
+          "semantic_top1": 0.17629474024400096,
+          "top3": 0.40009695402763196
+        },
+        "no": {
+          "count": 17,
+          "semantic_top1": 0.0,
+          "top3": 1.0
+        },
+        "none": {
+          "count": 56,
+          "semantic_top1": 0.0,
+          "top3": 1.0
+        },
+        "number": {
+          "count": 6,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "retreat": {
+          "count": 15,
+          "semantic_top1": 0.03927472671335995,
+          "top3": 0.19310073967401975
+        },
+        "xerosic": {
+          "count": 35,
+          "semantic_top1": 0.23407914076835137,
+          "top3": 0.41563793915056724
+        },
+        "yes": {
+          "count": 150,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        }
+      },
+      "by_matchup": {
+        "Alakazam": {
+          "count": 1048,
+          "semantic_top1": 0.3830016238455636,
+          "top3": 0.6188490015611976
+        },
+        "Cinderace": {
+          "count": 60,
+          "semantic_top1": 0.31767304433776117,
+          "top3": 0.5586813349796845
+        },
+        "Team Rocket Spidops": {
+          "count": 430,
+          "semantic_top1": 0.32223531925253074,
+          "top3": 0.5809112657033391
+        },
+        "deck_1eda048ea3": {
+          "count": 46,
+          "semantic_top1": 0.45053459196335155,
+          "top3": 0.7549215111814804
+        },
+        "deck_21c3f20980": {
+          "count": 163,
+          "semantic_top1": 0.3926207224432249,
+          "top3": 0.5874330954271366
+        },
+        "deck_2609551e9f": {
+          "count": 62,
+          "semantic_top1": 0.39190631313883584,
+          "top3": 0.5854547648378379
+        },
+        "deck_7e7bca6783": {
+          "count": 34,
+          "semantic_top1": 0.49745517611245704,
+          "top3": 0.8529053562105058
+        },
+        "deck_8699caf3aa": {
+          "count": 22,
+          "semantic_top1": 0.5513634642871182,
+          "top3": 0.7291764059379571
+        }
+      },
+      "by_go_first": {
+        "False": {
+          "count": 1059,
+          "semantic_top1": 0.3788180405046252,
+          "top3": 0.6232091361226026
+        },
+        "True": {
+          "count": 806,
+          "semantic_top1": 0.36338736791426673,
+          "top3": 0.5956999463832573
+        }
+      },
+      "by_outcome": {
+        "loss": {
+          "count": 341,
+          "semantic_top1": 0.3830538655799922,
+          "top3": 0.6402676170949679
+        },
+        "win": {
+          "count": 1524,
+          "semantic_top1": 0.37125878232152654,
+          "top3": 0.6085220257204268
+        }
+      },
+      "by_rank": {
+        "1": {
+          "count": 1865,
+          "semantic_top1": 0.37259124770477164,
+          "top3": 0.6121082574281902
+        }
+      },
+      "by_importance": {
+        "False": {
+          "count": 1271,
+          "semantic_top1": 0.4995802694471856,
+          "top3": 0.7583203956333061
+        },
+        "True": {
+          "count": 594,
+          "semantic_top1": 0.1705784462260178,
+          "top3": 0.3795155242632176
+        }
+      }
+    },
+    "action_frequency": {
+      "decisions": 1865,
+      "exact_top1": 0.4838285615283129,
+      "semantic_top1": 0.5018119769284874,
+      "top3": 0.7197447411442808,
+      "top5": 0.8148811224989136,
+      "mrr": 0.6395281559995908,
+      "weighted_log_loss": 1.7137968804394257,
+      "mean_confidence": 0.4050805589262899,
+      "low_confidence_rate": 0.8182794495751641,
+      "semantic_top1_without_unique": 0.4943113842230579,
+      "ece": 0.12571070850201904,
+      "calibration_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 9,
+          "accuracy": 0.19783445948502204,
+          "confidence": 0.09128815043471722
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 351,
+          "accuracy": 0.3457846532117797,
+          "confidence": 0.15475352823815705
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 443,
+          "accuracy": 0.3887427773255802,
+          "confidence": 0.24867397282476836
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 332,
+          "accuracy": 0.4787952114198095,
+          "confidence": 0.34106802409901266
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 136,
+          "accuracy": 0.46377927218590403,
+          "confidence": 0.43957817158557816
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 133,
+          "accuracy": 0.6363026338079845,
+          "confidence": 0.5262042844924394
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 58,
+          "accuracy": 0.5498519251710996,
+          "confidence": 0.6429266402753054
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 39,
+          "accuracy": 0.7444923788264364,
+          "confidence": 0.7660866018270358
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 39,
+          "accuracy": 0.618001720739154,
+          "confidence": 0.8395047351196077
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 325,
+          "accuracy": 0.9032499233738215,
+          "confidence": 0.9564599723755587
+        }
+      ],
+      "by_action_type": {
+        "ability": {
+          "count": 111,
+          "semantic_top1": 0.2496280513564645,
+          "top3": 0.6203552339143692
+        },
+        "attack": {
+          "count": 139,
+          "semantic_top1": 0.6348308208709205,
+          "top3": 0.7334192465609733
+        },
+        "boss": {
+          "count": 22,
+          "semantic_top1": 0.12868726205353248,
+          "top3": 0.28004301200267373
+        },
+        "card": {
+          "count": 889,
+          "semantic_top1": 0.5333225279797473,
+          "top3": 0.8104227924795712
+        },
+        "end": {
+          "count": 52,
+          "semantic_top1": 0.9310002979532588,
+          "top3": 1.0
+        },
+        "energy": {
+          "count": 119,
+          "semantic_top1": 0.0,
+          "top3": 0.12863909403724486
+        },
+        "evolve": {
+          "count": 227,
+          "semantic_top1": 0.443255087133065,
+          "top3": 0.7121273081754892
+        },
+        "hammer": {
+          "count": 27,
+          "semantic_top1": 0.14943039508766262,
+          "top3": 0.439282540195524
+        },
+        "no": {
+          "count": 17,
+          "semantic_top1": 0.0,
+          "top3": 1.0
+        },
+        "none": {
+          "count": 56,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "number": {
+          "count": 6,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "retreat": {
+          "count": 15,
+          "semantic_top1": 0.0,
+          "top3": 0.155920665052039
+        },
+        "xerosic": {
+          "count": 35,
+          "semantic_top1": 0.0,
+          "top3": 0.16756169963398115
+        },
+        "yes": {
+          "count": 150,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        }
+      },
+      "by_matchup": {
+        "Alakazam": {
+          "count": 1048,
+          "semantic_top1": 0.5149059671990587,
+          "top3": 0.74770351582103
+        },
+        "Cinderace": {
+          "count": 60,
+          "semantic_top1": 0.4785139224471819,
+          "top3": 0.770777251606461
+        },
+        "Team Rocket Spidops": {
+          "count": 430,
+          "semantic_top1": 0.4757769224423293,
+          "top3": 0.6466279031161916
+        },
+        "deck_1eda048ea3": {
+          "count": 46,
+          "semantic_top1": 0.45874423207739146,
+          "top3": 0.7870137407181816
+        },
+        "deck_21c3f20980": {
+          "count": 163,
+          "semantic_top1": 0.48205071996685683,
+          "top3": 0.6803122557478816
+        },
+        "deck_2609551e9f": {
+          "count": 62,
+          "semantic_top1": 0.5205232273312259,
+          "top3": 0.7214502628377973
+        },
+        "deck_7e7bca6783": {
+          "count": 34,
+          "semantic_top1": 0.5715211827114065,
+          "top3": 0.8982157598778053
+        },
+        "deck_8699caf3aa": {
+          "count": 22,
+          "semantic_top1": 0.6138850491221194,
+          "top3": 0.7575672111495659
+        }
+      },
+      "by_go_first": {
+        "False": {
+          "count": 1059,
+          "semantic_top1": 0.5148140227772225,
+          "top3": 0.7215246611382117
+        },
+        "True": {
+          "count": 806,
+          "semantic_top1": 0.4825935332017105,
+          "top3": 0.717113825006969
+        }
+      },
+      "by_outcome": {
+        "loss": {
+          "count": 341,
+          "semantic_top1": 0.49979755497948763,
+          "top3": 0.7801924453059842
+        },
+        "win": {
+          "count": 1524,
+          "semantic_top1": 0.5020685233823847,
+          "top3": 0.7120464313854153
+        }
+      },
+      "by_rank": {
+        "1": {
+          "count": 1865,
+          "semantic_top1": 0.5018119769284941,
+          "top3": 0.7197447411442823
+        }
+      },
+      "by_importance": {
+        "False": {
+          "count": 1271,
+          "semantic_top1": 0.5938882077983978,
+          "top3": 0.8359400934300321
+        },
+        "True": {
+          "count": 594,
+          "semantic_top1": 0.35533807633129605,
+          "top3": 0.534902395625094
+        }
+      }
+    },
+    "handwritten": {
+      "decisions": 1865,
+      "exact_top1": 0.47242614702812485,
+      "semantic_top1": 0.48635451997714113,
+      "top3": 0.7485170940022996,
+      "top5": 0.8275717121765243,
+      "mrr": 0.6397071821056393,
+      "weighted_log_loss": 6.212399040721801,
+      "mean_confidence": 0.6037432216514669,
+      "low_confidence_rate": 0.5898925819037553,
+      "semantic_top1_without_unique": 0.4786212037145719,
+      "ece": 0.38477180197604754,
+      "calibration_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 46,
+          "accuracy": 0.17802602162882988,
+          "confidence": 0.07737383657687524
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 152,
+          "accuracy": 0.43563441974327144,
+          "confidence": 0.1487322882334536
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 266,
+          "accuracy": 0.5669550682716133,
+          "confidence": 0.22769267577827954
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 181,
+          "accuracy": 0.5074964861888612,
+          "confidence": 0.3328006835072806
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 85,
+          "accuracy": 0.35680085562036323,
+          "confidence": 0.47872181395760943
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 352,
+          "accuracy": 0.7174730632857654,
+          "confidence": 0.5004894166076326
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 9,
+          "accuracy": 0.1439299123904881,
+          "confidence": 0.6518892069566458
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 17,
+          "accuracy": 0.040562127397446204,
+          "confidence": 0.7291046857287242
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 19,
+          "accuracy": 0.14801657785671998,
+          "confidence": 0.853734092891328
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 738,
+          "accuracy": 0.4057157701905834,
+          "confidence": 0.9958524175398568
+        }
+      ],
+      "by_action_type": {
+        "ability": {
+          "count": 111,
+          "semantic_top1": 0.043531767169333054,
+          "top3": 0.2109729441801516
+        },
+        "attack": {
+          "count": 139,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "boss": {
+          "count": 22,
+          "semantic_top1": 0.34127699148478596,
+          "top3": 0.7945305007410851
+        },
+        "card": {
+          "count": 889,
+          "semantic_top1": 0.48202057223257505,
+          "top3": 0.7319752087270895
+        },
+        "end": {
+          "count": 52,
+          "semantic_top1": 0.11591199947091134,
+          "top3": 0.6946695002907939
+        },
+        "energy": {
+          "count": 119,
+          "semantic_top1": 0.17365129938159202,
+          "top3": 0.4393066743068728
+        },
+        "evolve": {
+          "count": 227,
+          "semantic_top1": 0.4884242616524963,
+          "top3": 0.9326576928095713
+        },
+        "hammer": {
+          "count": 27,
+          "semantic_top1": 0.18821200614042174,
+          "top3": 0.38918962591904344
+        },
+        "no": {
+          "count": 17,
+          "semantic_top1": 0.0,
+          "top3": 1.0
+        },
+        "none": {
+          "count": 56,
+          "semantic_top1": 0.0,
+          "top3": 1.0
+        },
+        "number": {
+          "count": 6,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "retreat": {
+          "count": 15,
+          "semantic_top1": 0.03927472671335995,
+          "top3": 0.19310073967401975
+        },
+        "xerosic": {
+          "count": 35,
+          "semantic_top1": 0.0,
+          "top3": 0.21060974321039838
+        },
+        "yes": {
+          "count": 150,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        }
+      },
+      "by_matchup": {
+        "Alakazam": {
+          "count": 1048,
+          "semantic_top1": 0.4959588236969169,
+          "top3": 0.745632968464718
+        },
+        "Cinderace": {
+          "count": 60,
+          "semantic_top1": 0.44569178683679433,
+          "top3": 0.7358315948702384
+        },
+        "Team Rocket Spidops": {
+          "count": 430,
+          "semantic_top1": 0.45605025439172214,
+          "top3": 0.7345897389209903
+        },
+        "deck_1eda048ea3": {
+          "count": 46,
+          "semantic_top1": 0.5915911357409457,
+          "top3": 0.8447299984896136
+        },
+        "deck_21c3f20980": {
+          "count": 163,
+          "semantic_top1": 0.4386879498016363,
+          "top3": 0.7279472843777081
+        },
+        "deck_2609551e9f": {
+          "count": 62,
+          "semantic_top1": 0.5347229019475709,
+          "top3": 0.7886117723395858
+        },
+        "deck_7e7bca6783": {
+          "count": 34,
+          "semantic_top1": 0.614999556640669,
+          "top3": 0.8982157598778053
+        },
+        "deck_8699caf3aa": {
+          "count": 22,
+          "semantic_top1": 0.6195013967949795,
+          "top3": 0.8049675120245999
+        }
+      },
+      "by_go_first": {
+        "False": {
+          "count": 1059,
+          "semantic_top1": 0.4825002488501535,
+          "top3": 0.7626421216697672
+        },
+        "True": {
+          "count": 806,
+          "semantic_top1": 0.4920515536304453,
+          "top3": 0.7276387605058092
+        }
+      },
+      "by_outcome": {
+        "loss": {
+          "count": 341,
+          "semantic_top1": 0.4810300377910684,
+          "top3": 0.7310980233982467
+        },
+        "win": {
+          "count": 1524,
+          "semantic_top1": 0.4870326187361081,
+          "top3": 0.7507354975476687
+        }
+      },
+      "by_rank": {
+        "1": {
+          "count": 1865,
+          "semantic_top1": 0.48635451997714835,
+          "top3": 0.7485170940023022
+        }
+      },
+      "by_importance": {
+        "False": {
+          "count": 1271,
+          "semantic_top1": 0.46915716394193696,
+          "top3": 0.7354433574128288
+        },
+        "True": {
+          "count": 594,
+          "semantic_top1": 0.513711893260545,
+          "top3": 0.7693146567994382
+        }
+      }
+    },
+    "lightgbm_ranker": {
+      "decisions": 1865,
+      "exact_top1": 0.724004515071844,
+      "semantic_top1": 0.7417107182726798,
+      "top3": 0.9059137277910883,
+      "top5": 0.9613741556505144,
+      "mrr": 0.8330954286173897,
+      "weighted_log_loss": 1.0937141581980987,
+      "mean_confidence": 0.5210636090490526,
+      "low_confidence_rate": 0.6742837327328153,
+      "semantic_top1_without_unique": 0.7378219802607322,
+      "ece": 0.22157549196428852,
+      "calibration_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 5,
+          "accuracy": 0.0,
+          "confidence": 0.09147605122360158
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 161,
+          "accuracy": 0.455722484283998,
+          "confidence": 0.16637445780172086
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 290,
+          "accuracy": 0.5259557129920452,
+          "confidence": 0.25068997630053275
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 274,
+          "accuracy": 0.6606188421195432,
+          "confidence": 0.3456588372381604
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 212,
+          "accuracy": 0.6900716888861975,
+          "confidence": 0.4501656556954385
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 180,
+          "accuracy": 0.8134813590019483,
+          "confidence": 0.5481547151483773
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 137,
+          "accuracy": 0.9200410962386664,
+          "confidence": 0.6457991954443013
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 128,
+          "accuracy": 0.9620537155450949,
+          "confidence": 0.7487998507509197
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 93,
+          "accuracy": 0.9826669880718104,
+          "confidence": 0.8481270956763982
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 385,
+          "accuracy": 0.9388324795451815,
+          "confidence": 0.9401727459773147
+        }
+      ],
+      "by_action_type": {
+        "ability": {
+          "count": 111,
+          "semantic_top1": 0.9261613063203716,
+          "top3": 0.9889792994508017
+        },
+        "attack": {
+          "count": 139,
+          "semantic_top1": 0.8825546198339677,
+          "top3": 0.984535619024785
+        },
+        "boss": {
+          "count": 22,
+          "semantic_top1": 0.2426109448109506,
+          "top3": 0.6411403993141329
+        },
+        "card": {
+          "count": 889,
+          "semantic_top1": 0.7109506305946384,
+          "top3": 0.9025784827747113
+        },
+        "end": {
+          "count": 52,
+          "semantic_top1": 0.48439222648811264,
+          "top3": 0.6946695002907939
+        },
+        "energy": {
+          "count": 119,
+          "semantic_top1": 0.447127529883389,
+          "top3": 0.6913540827063819
+        },
+        "evolve": {
+          "count": 227,
+          "semantic_top1": 0.855975222534087,
+          "top3": 0.9955224529793598
+        },
+        "hammer": {
+          "count": 27,
+          "semantic_top1": 0.5725943281893836,
+          "top3": 0.962632301850206
+        },
+        "no": {
+          "count": 17,
+          "semantic_top1": 0.0,
+          "top3": 1.0
+        },
+        "none": {
+          "count": 56,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "number": {
+          "count": 6,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "retreat": {
+          "count": 15,
+          "semantic_top1": 0.0773712116253191,
+          "top3": 0.3032008902271388
+        },
+        "xerosic": {
+          "count": 35,
+          "semantic_top1": 0.4856522532735151,
+          "top3": 0.6277847693889118
+        },
+        "yes": {
+          "count": 150,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        }
+      },
+      "by_matchup": {
+        "Alakazam": {
+          "count": 1048,
+          "semantic_top1": 0.755987733088915,
+          "top3": 0.9147078030332325
+        },
+        "Cinderace": {
+          "count": 60,
+          "semantic_top1": 0.7944088194785799,
+          "top3": 0.896893012798076
+        },
+        "Team Rocket Spidops": {
+          "count": 430,
+          "semantic_top1": 0.7061945639252655,
+          "top3": 0.8895106040135117
+        },
+        "deck_1eda048ea3": {
+          "count": 46,
+          "semantic_top1": 0.6900902319778806,
+          "top3": 0.9474251330070577
+        },
+        "deck_21c3f20980": {
+          "count": 163,
+          "semantic_top1": 0.7162802299162612,
+          "top3": 0.8885685246341772
+        },
+        "deck_2609551e9f": {
+          "count": 62,
+          "semantic_top1": 0.7699849474386992,
+          "top3": 0.9169663368854841
+        },
+        "deck_7e7bca6783": {
+          "count": 34,
+          "semantic_top1": 0.8266384555338104,
+          "top3": 0.8831122919887054
+        },
+        "deck_8699caf3aa": {
+          "count": 22,
+          "semantic_top1": 0.7858468276783015,
+          "top3": 0.9407496239062075
+        }
+      },
+      "by_go_first": {
+        "False": {
+          "count": 1059,
+          "semantic_top1": 0.7480078264005087,
+          "top3": 0.8981541782322761
+        },
+        "True": {
+          "count": 806,
+          "semantic_top1": 0.7324029047482475,
+          "top3": 0.9173831894647557
+        }
+      },
+      "by_outcome": {
+        "loss": {
+          "count": 341,
+          "semantic_top1": 0.771313570375372,
+          "top3": 0.9614115553495597
+        },
+        "win": {
+          "count": 1524,
+          "semantic_top1": 0.737940650767342,
+          "top3": 0.8988458089443059
+        }
+      },
+      "by_rank": {
+        "1": {
+          "count": 1865,
+          "semantic_top1": 0.741710718272682,
+          "top3": 0.9059137277910896
+        }
+      },
+      "by_importance": {
+        "False": {
+          "count": 1271,
+          "semantic_top1": 0.7637528338041095,
+          "top3": 0.9222205046601585
+        },
+        "True": {
+          "count": 594,
+          "semantic_top1": 0.706646352487944,
+          "top3": 0.8799730784876281
+        }
+      },
+      "train_and_test_seconds": 1.9132239999962621
+    },
+    "small_neural_ranker": {
+      "decisions": 1865,
+      "exact_top1": 0.6429979240850524,
+      "semantic_top1": 0.6688722947442565,
+      "top3": 0.8711194429912323,
+      "top5": 0.935714285630888,
+      "mrr": 0.7822022182162227,
+      "weighted_log_loss": 1.1995533530564162,
+      "mean_confidence": 0.6174843136323385,
+      "low_confidence_rate": 0.5915283530007172,
+      "semantic_top1_without_unique": 0.6638869198745538,
+      "ece": 0.09185815944908364,
+      "calibration_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 5,
+          "accuracy": 0.8683776215995698,
+          "confidence": 0.08905864561125941
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 55,
+          "accuracy": 0.35987845666045015,
+          "confidence": 0.1662256134130665
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 144,
+          "accuracy": 0.3686920543251072,
+          "confidence": 0.2516639620002888
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 190,
+          "accuracy": 0.4506041797467801,
+          "confidence": 0.35453288707944064
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 271,
+          "accuracy": 0.5273727824019779,
+          "confidence": 0.4491699427578365
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 276,
+          "accuracy": 0.7039715513370522,
+          "confidence": 0.5481148980614285
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 156,
+          "accuracy": 0.7188145731205685,
+          "confidence": 0.6429617125758922
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 133,
+          "accuracy": 0.7429338528890937,
+          "confidence": 0.7476825584903039
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 107,
+          "accuracy": 0.7766136475796577,
+          "confidence": 0.8525953234210643
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 528,
+          "accuracy": 0.9099689330797343,
+          "confidence": 0.974858897447233
+        }
+      ],
+      "by_action_type": {
+        "ability": {
+          "count": 111,
+          "semantic_top1": 0.9255184321216684,
+          "top3": 0.9666164612530536
+        },
+        "attack": {
+          "count": 139,
+          "semantic_top1": 0.7510893997062966,
+          "top3": 0.904264692660413
+        },
+        "boss": {
+          "count": 22,
+          "semantic_top1": 0.36629951466186167,
+          "top3": 0.6840652154959458
+        },
+        "card": {
+          "count": 889,
+          "semantic_top1": 0.6520625266408882,
+          "top3": 0.8864050381294726
+        },
+        "end": {
+          "count": 52,
+          "semantic_top1": 0.2946839547738315,
+          "top3": 0.766601007859284
+        },
+        "energy": {
+          "count": 119,
+          "semantic_top1": 0.33103091579491795,
+          "top3": 0.5411066677482621
+        },
+        "evolve": {
+          "count": 227,
+          "semantic_top1": 0.672563382876325,
+          "top3": 0.9053734402145128
+        },
+        "hammer": {
+          "count": 27,
+          "semantic_top1": 0.570978427728852,
+          "top3": 0.9222347903369152
+        },
+        "no": {
+          "count": 17,
+          "semantic_top1": 0.0,
+          "top3": 1.0
+        },
+        "none": {
+          "count": 56,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "number": {
+          "count": 6,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        },
+        "retreat": {
+          "count": 15,
+          "semantic_top1": 0.22137854290763892,
+          "top3": 0.6052889965307324
+        },
+        "xerosic": {
+          "count": 35,
+          "semantic_top1": 0.4959987703303777,
+          "top3": 0.6880193672965521
+        },
+        "yes": {
+          "count": 150,
+          "semantic_top1": 1.0,
+          "top3": 1.0
+        }
+      },
+      "by_matchup": {
+        "Alakazam": {
+          "count": 1048,
+          "semantic_top1": 0.6783641698516213,
+          "top3": 0.8864126981064379
+        },
+        "Cinderace": {
+          "count": 60,
+          "semantic_top1": 0.6048502234572138,
+          "top3": 0.8079718862514503
+        },
+        "Team Rocket Spidops": {
+          "count": 430,
+          "semantic_top1": 0.6635898528328755,
+          "top3": 0.8638353237061626
+        },
+        "deck_1eda048ea3": {
+          "count": 46,
+          "semantic_top1": 0.7026451765563215,
+          "top3": 0.8742847029001571
+        },
+        "deck_21c3f20980": {
+          "count": 163,
+          "semantic_top1": 0.6507461367711131,
+          "top3": 0.8404762206335213
+        },
+        "deck_2609551e9f": {
+          "count": 62,
+          "semantic_top1": 0.6192322818236006,
+          "top3": 0.7982531218481435
+        },
+        "deck_7e7bca6783": {
+          "count": 34,
+          "semantic_top1": 0.6985462100430216,
+          "top3": 0.9093791926654008
+        },
+        "deck_8699caf3aa": {
+          "count": 22,
+          "semantic_top1": 0.732768365760946,
+          "top3": 0.9407496239062075
+        }
+      },
+      "by_go_first": {
+        "False": {
+          "count": 1059,
+          "semantic_top1": 0.6753874914002514,
+          "top3": 0.8761426804575696
+        },
+        "True": {
+          "count": 806,
+          "semantic_top1": 0.6592421225575987,
+          "top3": 0.8636945494247731
+        }
+      },
+      "by_outcome": {
+        "loss": {
+          "count": 341,
+          "semantic_top1": 0.6913371206245282,
+          "top3": 0.9241743933547608
+        },
+        "win": {
+          "count": 1524,
+          "semantic_top1": 0.6660112896704738,
+          "top3": 0.8643626364622851
+        }
+      },
+      "by_rank": {
+        "1": {
+          "count": 1865,
+          "semantic_top1": 0.6688722947442596,
+          "top3": 0.8711194429912338
+        }
+      },
+      "by_importance": {
+        "False": {
+          "count": 1271,
+          "semantic_top1": 0.7209537793532195,
+          "top3": 0.9120752334490823
+        },
+        "True": {
+          "count": 594,
+          "semantic_top1": 0.5860216162630141,
+          "top3": 0.805967401864804
+        }
+      },
+      "epoch_losses": [
+        1.5782008670088967,
+        1.311686110636478,
+        1.2081618376765098,
+        1.1531701370175858,
+        1.111058706881253,
+        1.0812762014017647,
+        1.0504949735802094
+      ],
+      "parameter_count": 4897
+    }
+  },
+  "value_head": {
+    "rmse": 0.387521898086293,
+    "brier": 0.15017322149640325,
+    "accuracy_at_0_5": 0.7806970509383379
+  },
+  "ablations": [
+    {
+      "name": "unweighted",
+      "status": "evaluated",
+      "semantic_top1": 0.71251899842615,
+      "top3": 0.8922046604931045,
+      "mrr": 0.8122717257495518,
+      "weighted_log_loss": 1.1972969268307985
+    },
+    {
+      "name": "wins_only",
+      "status": "evaluated",
+      "semantic_top1": 0.6877167080373162,
+      "top3": 0.8877971918659824,
+      "mrr": 0.7992323465576296,
+      "weighted_log_loss": 1.2027757888930757
+    },
+    {
+      "name": "exclude_unique_legal",
+      "status": "evaluated",
+      "semantic_top1": 0.7051202898961992,
+      "top3": 0.8900185856233532,
+      "mrr": 0.8084413897430873,
+      "weighted_log_loss": 1.2037799309668227
+    },
+    {
+      "name": "no_post_action_quality",
+      "status": "evaluated",
+      "semantic_top1": 0.7111625147310693,
+      "top3": 0.8880404404373432,
+      "mrr": 0.8105055600431001,
+      "weighted_log_loss": 1.2057653175147514
+    },
+    {
+      "name": "no_agreement",
+      "status": "evaluated",
+      "semantic_top1": 0.7080471168310584,
+      "top3": 0.8946925065096327,
+      "mrr": 0.8112391241430735,
+      "weighted_log_loss": 1.1993103228765034
+    },
+    {
+      "name": "rank_weight_on_off",
+      "status": "not_identifiable",
+      "reason": "all trainable episodes are rank-1"
+    },
+    {
+      "name": "majkel_vs_multiple_top",
+      "status": "not_available",
+      "reason": "other bundles lack observations/actions/legal candidates"
+    },
+    {
+      "name": "deck_type_input_on_off",
+      "status": "not_identifiable",
+      "reason": "all trainable episodes use one exact deck"
+    },
+    {
+      "name": "value_head_on_off",
+      "status": "reported_separately",
+      "rmse": 0.387521898086293,
+      "brier": 0.15017322149640325,
+      "accuracy_at_0_5": 0.7806970509383379
+    },
+    {
+      "name": "safety_rules_on_off",
+      "status": "deferred_to_golden_and_battle_evaluation"
+    },
+    {
+      "name": "fallback_on_off",
+      "status": "deferred_to_hybrid_evaluation"
+    }
+  ],
+  "distillation_max_abs_error": 0.0,
+  "confidence_threshold": 0.65
+}
