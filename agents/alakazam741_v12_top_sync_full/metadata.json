@@ -1,0 +1,22 @@
+{
+  "name": "alakazam741_v12_top_sync",
+  "version": "12.0.0",
+  "status": "candidate",
+  "archetype": "Alakazam 741 + Dudunsparce top-log tempo sync",
+  "entrypoint": "main.py",
+  "deck": "deck.csv",
+  "requires_cg": true,
+  "based_on": "alakazam741_v11_board_depth",
+  "summary": "Keeps the v11 safety core while separating opening bodies from completed routes, accelerating the first Alakazam, stopping purposeless search, and integrating Enriching Energy, Boss's Orders, Nighttime Mine, strict Fezandipiti modes, and Dudunsparce recycling.",
+  "strategy_notes": "STRATEGY.md",
+  "validation": "VALIDATION.md",
+  "notes": [
+    "The 60-card list matches the current rank-one replay deck and has Enriching Energy as its sole ACE SPEC.",
+    "Opening setup targets three Abra bodies plus one Dunsparce without treating them as three complete attack routes.",
+    "The first same-turn attack uses Rare Candy when it saves a turn; later lines prefer Kadabra draw when time permits.",
+    "Search and draw stop after an Active KO and backup ETA at most one.",
+    "Fezandipiti ex uses explicit DRAW_ONLY and ALTERNATE_ATTACKER modes and receives no speculative partial funding.",
+    "Boss, Enhanced Hammer, Xerosic, Shaymin, and Nighttime Mine have same-turn attack and role gates.",
+    "The shared policy base remains byte-identical to v11; all deck-specific behavior stays in main.py."
+  ]
+}
