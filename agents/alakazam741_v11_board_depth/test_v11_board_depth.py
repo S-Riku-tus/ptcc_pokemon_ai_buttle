@@ -153,6 +153,7 @@ POKEMON_DATA = {
 
 OTHER_DATA = {
     5: CardData(5, CardType.BASIC_ENERGY, energy_type=EnergyType.PSYCHIC),
+    # Known ACE SPEC used only by the rejection test; it is not in the submitted deck.
     13: CardData(13, CardType.SPECIAL_ENERGY, energy_type=EnergyType.COLORLESS),
     19: CardData(19, CardType.SPECIAL_ENERGY, energy_type=EnergyType.PSYCHIC),
     1079: CardData(1079, CardType.ITEM),
@@ -243,9 +244,37 @@ class V11Tests(unittest.TestCase):
         self.assertEqual(c[1231], 4)
         self.assertEqual(c[1264], 1)
         self.assertEqual(c[1097], 2)
-        self.assertEqual(c[13], 1)
-        self.assertEqual(c[5], 2)
+        self.assertEqual(c[13], 0)
+        self.assertEqual(c[5], 3)
+        self.assertEqual(c[1082], 1)
         self.assertEqual(c[1227], 0)
+
+    def test_current_deck_passes_runtime_validation(self):
+        main._validate_deck(main.my_deck)
+
+    def test_multiple_ace_specs_are_rejected(self):
+        invalid = list(main.my_deck)
+        invalid[invalid.index(5)] = 13
+        with self.assertRaisesRegex(ValueError, "multiple ACE SPEC"):
+            main._validate_deck(invalid)
+
+    def test_main_has_no_enriching_energy_dependency(self):
+        source = (ROOT / "main.py").read_text()
+        self.assertNotIn("ENRICHING_ENERGY", source)
+        self.assertEqual(main.ENERGY_TYPES, {5, 19})
+
+    def test_unknown_card_id_is_rejected(self):
+        invalid = list(main.my_deck)
+        invalid[0] = 999999
+        with self.assertRaisesRegex(ValueError, "unknown card ids"):
+            main._validate_deck(invalid)
+
+    def test_five_copy_non_basic_is_rejected(self):
+        invalid = list(main.my_deck)
+        # Turn one basic Psychic into a fifth Poké Pad while preserving 60 cards.
+        invalid[invalid.index(5)] = 1152
+        with self.assertRaisesRegex(ValueError, "four-copy limit"):
+            main._validate_deck(invalid)
 
     def test_second_player_asks_for_three_routes(self):
         ala = Pokemon(743, energies=[EnergyType.PSYCHIC])
@@ -306,7 +335,7 @@ class V11Tests(unittest.TestCase):
     def test_partial_fez_funding_is_supported_but_not_before_primary(self):
         ala = Pokemon(743, energies=[EnergyType.PSYCHIC])
         fez = Pokemon(140, hp=210, energies=[EnergyType.PSYCHIC, EnergyType.COLORLESS])
-        energy = Card(13)
+        energy = Card(5)
         attach = opt(OptionType.ATTACH, index=0, in_area=AreaType.BENCH, in_index=0)
         mine = make_player(active=ala, bench=[fez, Pokemon(742, energies=[EnergyType.PSYCHIC])],
                            hand=[energy, Card(743)])
@@ -416,7 +445,7 @@ class V11Tests(unittest.TestCase):
 
     def test_fez_funding_waits_for_primary_route(self):
         fez = Pokemon(140, energies=[EnergyType.PSYCHIC, EnergyType.COLORLESS])
-        energy = Card(13)
+        energy = Card(5)
         attach = opt(OptionType.ATTACH, index=0, in_area=AreaType.BENCH, in_index=0)
         mine = make_player(active=Pokemon(741), bench=[fez], hand=[energy])
         opp = make_player(active=Pokemon(741))

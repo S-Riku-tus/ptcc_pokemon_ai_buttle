@@ -3,8 +3,8 @@
 # v10 already restored attack discipline. v11 therefore does NOT chase a faster first attack.
 # It targets the observed rating gap: mulligans, second-player board depth, board-wipe losses, and
 # the missing attack turn after the first Alakazam falls. The deck adds Fezandipiti ex and Shaymin,
-# raises Poké Pad/Dawn to four, trims low-use Battle Cage/Night Stretcher/Lillie, and swaps one
-# basic Psychic for Enriching Energy to support the three-energy Fezandipiti route.
+# raises Poké Pad/Dawn to four and trims low-use Battle Cage/Night Stretcher/Lillie. Hyper Aroma
+# remains the sole ACE SPEC; the energy line stays at three basic Psychic plus four Telepath Energy.
 #
 # Core invariants retained: meaningful attacks beat optional actions, no attackable END, minimal
 # retreat, last-body Dudunsparce safety, mirror-only Xerosic, effect-lock recognition, and the
@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import os
 import re
+from collections import Counter
 
 from cg.api import (
     AreaType, CardType, EnergyType, Observation, OptionType, Pokemon, SelectContext,
@@ -38,7 +39,6 @@ class C:
     SHAYMIN = 343          # Basic bench-protection role Pokémon
 
     PSYCHIC_ENERGY = 5
-    ENRICHING_ENERGY = 13
     TELEPATH_ENERGY = 19  # special, provides {P}; on attach searches 2 basic {P} bodies to bench
     HYPER_AROMA = 1082    # ACE SPEC Item: search up to 3 Stage-1 cards to hand
 
@@ -65,7 +65,7 @@ FEZANDIPITI_ATTACK = 183  # 100 damage; may target an opposing Pokémon
 
 ALAKAZAM_IDS = {C.ALAKAZAM}
 ATTACKER_IDS = {C.ALAKAZAM, C.KADABRA, C.FEZANDIPITI_EX}
-ENERGY_TYPES = {C.PSYCHIC_ENERGY, C.ENRICHING_ENERGY, C.TELEPATH_ENERGY}
+ENERGY_TYPES = {C.PSYCHIC_ENERGY, C.TELEPATH_ENERGY}
 
 ALAKAZAM_LINE = (C.ABRA, C.KADABRA, C.ALAKAZAM)
 ENGINE_LINE = (C.DUNSPARCE, C.DUDUNSPARCE)
@@ -180,8 +180,44 @@ def _resolve_deck_path():
 DECK_PATH = _resolve_deck_path()
 with open(DECK_PATH) as f:
     my_deck = [int(x) for x in f.read().splitlines() if x.strip()]
-if len(my_deck) != 60:
-    raise ValueError(f"deck.csv must have 60 ids, got {len(my_deck)}")
+
+# Known ACE SPEC ids used by this archetype.  Engine card-data versions expose the ACE flag under
+# different attribute names, so combine those flags with the known ids instead of depending on one
+# schema.  This catches the exact Hyper Aroma + Enriching Energy validation failure before an
+# episode is submitted.
+KNOWN_ACE_SPEC_IDS = {13, C.HYPER_AROMA}
+
+def _is_ace_spec(card_id):
+    data = card_table.get(card_id)
+    if card_id in KNOWN_ACE_SPEC_IDS:
+        return True
+    if data is None:
+        return False
+    return bool(
+        getattr(data, "aceSpec", False)
+        or getattr(data, "isAceSpec", False)
+        or getattr(data, "isAce", False)
+    )
+
+def _validate_deck(deck):
+    if len(deck) != 60:
+        raise ValueError(f"deck.csv must have 60 ids, got {len(deck)}")
+    counts = Counter(deck)
+    unknown = sorted(cid for cid in counts if cid not in card_table)
+    if unknown:
+        raise ValueError(f"deck.csv contains unknown card ids: {unknown}")
+    over_limit = []
+    for cid, count in counts.items():
+        data = card_table[cid]
+        if data.cardType != CardType.BASIC_ENERGY and count > 4:
+            over_limit.append((cid, count))
+    if over_limit:
+        raise ValueError(f"deck.csv exceeds the four-copy limit: {over_limit}")
+    ace_cards = [cid for cid in deck if _is_ace_spec(cid)]
+    if len(ace_cards) > 1:
+        raise ValueError(f"deck.csv contains multiple ACE SPEC cards: {ace_cards}")
+
+_validate_deck(my_deck)
 
 
 # ── Alakazam policy ──────────────────────────────────────────────────────────
