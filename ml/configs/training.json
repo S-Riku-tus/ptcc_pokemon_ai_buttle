@@ -1,0 +1,23 @@
+{
+  "policy_model": "LightGBM LambdaRank",
+  "objective": "lambdarank",
+  "n_estimators": 50,
+  "learning_rate": 0.05,
+  "num_leaves": 31,
+  "min_child_samples": 40,
+  "subsample": 0.85,
+  "colsample_bytree": 0.85,
+  "reg_alpha": 0.1,
+  "reg_lambda": 0.5,
+  "seed": 741,
+  "calibration": "held-out 10% of each training split",
+  "holdouts": [
+    "time",
+    "team",
+    "submission",
+    "deck"
+  ],
+  "hybrid_confidence_threshold": 0.55,
+  "hybrid_margin_threshold": 0.12,
+  "energy_threshold": 0.85
+}

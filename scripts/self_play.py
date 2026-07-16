@@ -95,6 +95,42 @@ class MatchupSummary:
         return self.wins_a / decided if decided else 0.0
 
 
+TRAJECTORY_SCHEMA = {
+    "game_id": "stable matchup/game identifier",
+    "agent_version": "agent spec that made the decision",
+    "deck_hash": "hash of the acting agent initial deck",
+    "seat": "0 or 1 in the current battle",
+    "step": "decision index within the battle loop",
+    "observation": "raw public observation passed to the agent",
+    "legal_options": "select.option candidates from the observation",
+    "selected_action": "action returned by the agent",
+    "fallback_action": "reserved for agents exposing per-decision fallback traces",
+    "ml_selected_action": "reserved for agents exposing per-decision ML traces",
+    "ml_probability": "reserved for agents exposing per-decision ML confidence",
+    "ml_margin": "reserved for agents exposing per-decision ML margin",
+    "ml_adopted": "reserved for agents exposing whether the ML action was used",
+    "final_result": "filled after the game completes",
+    "termination_reason": "battle result or error type",
+    "execution_time_ms": "agent decision time for this step",
+    "exception": "agent exception type, when any",
+    "illegal_action": "battle_select exception type, when any",
+}
+
+
+def _json_safe(value: Any) -> Any:
+    try:
+        return json.loads(json.dumps(value, ensure_ascii=False))
+    except TypeError:
+        return json.loads(json.dumps(value, ensure_ascii=False, default=str))
+
+
+def _deck_hash(deck: list[int]) -> str:
+    import hashlib
+
+    text = ",".join(str(card_id) for card_id in sorted(deck))
+    return hashlib.sha256(text.encode("ascii")).hexdigest()[:16]
+
+
 def read_deck(path: Path) -> list[int]:
     deck = [int(x) for x in path.read_text(encoding="utf-8-sig").split()]
     if len(deck) != 60:
@@ -140,6 +176,8 @@ def play_one(
     seat_agents: list[Callable[[dict[str, Any]], list[int]]],
     seat_decks: list[list[int]],
     max_steps: int,
+    trajectory_records: list[dict[str, Any]] | None = None,
+    game_id: str = "",
 ) -> GameResult:
     from cg.game import battle_finish, battle_select, battle_start
 
@@ -162,7 +200,7 @@ def play_one(
     moves = [0, 0]
     try:
         time_by_seat = [0.0, 0.0]
-        for _ in range(max_steps):
+        for step in range(max_steps):
             cur = obs["current"]
             if cur["result"] >= 0:
                 winner = (
@@ -187,12 +225,42 @@ def play_one(
                 )
 
             seat = cur["yourIndex"]
+            record: dict[str, Any] | None = None
+            select = obs.get("select") or {}
+            if trajectory_records is not None:
+                record = {
+                    "game_id": game_id,
+                    "agent_version": seat_specs[seat],
+                    "deck_hash": _deck_hash(seat_decks[seat]),
+                    "seat": seat,
+                    "step": step,
+                    "observation": _json_safe(obs),
+                    "legal_options": _json_safe(select.get("option") or []),
+                    "selected_action": None,
+                    "fallback_action": None,
+                    "ml_selected_action": None,
+                    "ml_probability": None,
+                    "ml_margin": None,
+                    "ml_adopted": None,
+                    "final_result": None,
+                    "termination_reason": None,
+                    "execution_time_ms": None,
+                    "exception": None,
+                    "illegal_action": None,
+                }
             try:
                 decision_started = time.perf_counter()
                 action = seat_agents[seat](obs)
-                time_by_seat[seat] += (time.perf_counter() - decision_started) * 1000
+                decision_ms = (time.perf_counter() - decision_started) * 1000
+                time_by_seat[seat] += decision_ms
                 moves[seat] += 1
+                if record is not None:
+                    record["selected_action"] = _json_safe(list(action))
+                    record["execution_time_ms"] = decision_ms
             except Exception as exc:  # noqa: BLE001 - benchmark should record crashes
+                if record is not None:
+                    record["exception"] = type(exc).__name__
+                    trajectory_records.append(record)
                 return GameResult(
                     matchup=f"{seat_specs[0]}__vs__{seat_specs[1]}",
                     game=0,
@@ -212,6 +280,9 @@ def play_one(
             try:
                 obs = battle_select(list(action))
             except Exception as exc:  # noqa: BLE001 - benchmark should record illegal actions
+                if record is not None:
+                    record["illegal_action"] = type(exc).__name__
+                    trajectory_records.append(record)
                 return GameResult(
                     matchup=f"{seat_specs[0]}__vs__{seat_specs[1]}",
                     game=0,
@@ -227,6 +298,8 @@ def play_one(
                     time_seat0_ms=time_by_seat[0],
                     time_seat1_ms=time_by_seat[1],
                 )
+            if record is not None:
+                trajectory_records.append(record)
 
         return GameResult(
             matchup=f"{seat_specs[0]}__vs__{seat_specs[1]}",
@@ -251,6 +324,7 @@ def run_matchup(
     games: int,
     max_steps: int,
     quiet: bool,
+    trajectory_records: list[dict[str, Any]] | None = None,
 ) -> MatchupSummary:
     diag_before_a = diag_snapshot(agent_a.diag)
     diag_before_b = diag_snapshot(agent_b.diag)
@@ -261,6 +335,7 @@ def run_matchup(
     )
 
     for game in range(1, games + 1):
+        game_id = f"{summary.matchup}:{game}"
         a_first = game % 2 == 1
         if a_first:
             seat_specs = [agent_a.spec, agent_b.spec]
@@ -271,7 +346,19 @@ def run_matchup(
             seat_agents = [agent_b.agent, agent_a.agent]
             seat_decks = [agent_b.deck, agent_a.deck]
 
-        result = play_one(seat_specs, seat_agents, seat_decks, max_steps)
+        trajectory_start = len(trajectory_records) if trajectory_records is not None else 0
+        result = play_one(
+            seat_specs,
+            seat_agents,
+            seat_decks,
+            max_steps,
+            trajectory_records=trajectory_records,
+            game_id=game_id,
+        )
+        if trajectory_records is not None:
+            for record in trajectory_records[trajectory_start:]:
+                record["final_result"] = result.result
+                record["termination_reason"] = result.error_type or result.result
         result.matchup = summary.matchup
         result.game = game
         summary.games += 1
@@ -347,7 +434,12 @@ def flatten_summary(summary: MatchupSummary) -> dict[str, Any]:
     return row
 
 
-def write_outputs(output_dir: Path, summaries: list[MatchupSummary], args: argparse.Namespace) -> None:
+def write_outputs(
+    output_dir: Path,
+    summaries: list[MatchupSummary],
+    args: argparse.Namespace,
+    trajectory_records: list[dict[str, Any]] | None = None,
+) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     args_dict = {
@@ -381,6 +473,14 @@ def write_outputs(output_dir: Path, summaries: list[MatchupSummary], args: argpa
             writer = csv.DictWriter(f, fieldnames=list(game_rows[0].keys()))
             writer.writeheader()
             writer.writerows(game_rows)
+    if trajectory_records is not None:
+        (output_dir / "trajectory_schema.json").write_text(
+            json.dumps(TRAJECTORY_SCHEMA, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        with (output_dir / "trajectories.jsonl").open("w", encoding="utf-8") as handle:
+            for record in trajectory_records:
+                handle.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
 
 
 def main() -> None:
@@ -402,6 +502,11 @@ def main() -> None:
         help="Default: data/runs/local_self_play/<timestamp>",
     )
     parser.add_argument("--quiet", action="store_true")
+    parser.add_argument(
+        "--save-trajectories",
+        action="store_true",
+        help="Write full per-decision trajectory JSONL for later human-reviewed training candidates.",
+    )
     args = parser.parse_args()
 
     random.seed(args.seed)
@@ -426,6 +531,7 @@ def main() -> None:
     output_dir = args.output_dir or ROOT / "data" / "runs" / "local_self_play" / started
 
     summaries: list[MatchupSummary] = []
+    trajectory_records: list[dict[str, Any]] | None = [] if args.save_trajectories else None
     for a, b in pairs:
         print(f"\n== {a} vs {b} ({args.games} games) ==")
         agent_a = runtime(a)
@@ -437,10 +543,11 @@ def main() -> None:
                 games=args.games,
                 max_steps=args.max_steps,
                 quiet=args.quiet,
+                trajectory_records=trajectory_records,
             )
         )
 
-    write_outputs(output_dir, summaries, args)
+    write_outputs(output_dir, summaries, args, trajectory_records)
 
     print("\n== SUMMARY ==")
     for summary in summaries:

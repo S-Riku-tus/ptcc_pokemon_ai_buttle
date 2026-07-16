@@ -18,3 +18,11 @@ def test_current_agent_static_validation():
     )
     assert result["deck_size"] == 60
     assert result["metadata"]["name"] == "alakazam741_v2"
+
+
+def test_ml_agent_static_validation():
+    result = validate_agent(
+        ROOT / "agents" / "alakazam_ml_v2_expanded"
+    )
+    assert result["deck_size"] == 60
+    assert result["metadata"]["name"] == "alakazam_ml_v2_expanded"

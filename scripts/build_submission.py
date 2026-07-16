@@ -23,6 +23,20 @@ EXCLUDED_NAMES = {
     "metadata.json",
     "README.md",
 }
+FORBIDDEN_ARCHIVE_PARTS = {
+    "data_processed",
+    "processed",
+    "reports",
+    "models",
+    "tests",
+}
+FORBIDDEN_ARCHIVE_SUFFIXES = {
+    ".joblib",
+    ".parquet",
+    ".csv",
+    ".gz",
+    ".zip",
+}
 
 
 def locate_cg(explicit: str | None) -> Path:
@@ -106,7 +120,7 @@ def build(agent_dir: Path, output: Path, cg_source: Path) -> None:
 
         with tarfile.open(output, "w:gz") as archive:
             for source in sorted(stage.rglob("*")):
-                archive.add(source, arcname=source.relative_to(stage))
+                archive.add(source, arcname=source.relative_to(stage), recursive=False)
 
     with tarfile.open(output, "r:gz") as archive:
         names = set(archive.getnames())
@@ -115,6 +129,17 @@ def build(agent_dir: Path, output: Path, cg_source: Path) -> None:
     missing = required.difference(names)
     if missing:
         raise RuntimeError(f"Archive validation failed; missing {sorted(missing)}")
+    forbidden = sorted(
+        name for name in names
+        if name != "deck.csv"
+        and (
+            any(part in FORBIDDEN_ARCHIVE_PARTS for part in Path(name).parts)
+            or Path(name).suffix.lower() in FORBIDDEN_ARCHIVE_SUFFIXES
+        )
+    )
+    if forbidden:
+        preview = forbidden[:20]
+        raise RuntimeError(f"Archive validation failed; forbidden training artifacts: {preview}")
 
     print(f"Created: {output}")
     print(f"Agent: {agent_dir.name}")
@@ -126,7 +151,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--agent",
-        default="alakazam741_v2",
+        default="alakazam_ml_v2_expanded",
         help="Agent dir name or path. Checks direct path, agents/, archive/agents/, and data/runs/.",
     )
     parser.add_argument("--cg-source")

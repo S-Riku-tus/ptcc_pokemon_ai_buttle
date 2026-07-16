@@ -24,3 +24,23 @@ def test_build_with_fake_cg(tmp_path):
     assert "main.py" in names
     assert "deck.csv" in names
     assert "cg/api.py" in names
+
+
+def test_ml_agent_submission_excludes_training_artifacts(tmp_path):
+    fake_cg = tmp_path / "cg"
+    fake_cg.mkdir()
+    (fake_cg / "api.py").write_text("# fake cg api\n", encoding="utf-8")
+
+    output = tmp_path / "submission_ml.tar.gz"
+    build(
+        ROOT / "agents" / "alakazam_ml_v2_expanded",
+        output,
+        fake_cg,
+    )
+
+    with tarfile.open(output, "r:gz") as archive:
+        names = set(archive.getnames())
+
+    assert {"main.py", "deck.csv", "cg/api.py", "ranker_model.json"} <= names
+    forbidden_fragments = ("dataset", "joblib", "reports/", "data_processed", "README.md")
+    assert not any(any(fragment in name for fragment in forbidden_fragments) for name in names)

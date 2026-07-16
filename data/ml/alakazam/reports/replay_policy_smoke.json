@@ -1,0 +1,114 @@
+{
+  "sampled_trajectories": 20,
+  "sampled_zip_count": 20,
+  "sampled_deck_count": 8,
+  "decisions": 40,
+  "source_fallback": 18,
+  "source_ml": 20,
+  "source_forced": 2,
+  "exceptions": [],
+  "examples": [
+    {
+      "zip": "latest_rank01_Majkel1337_54662660_top_54662660.zip",
+      "episode": 85928280,
+      "options": 3,
+      "chosen": 0,
+      "source": "fallback",
+      "confidence": 0.45715292528465906,
+      "margin": 0.0,
+      "predicted_action_type": "trainer"
+    },
+    {
+      "zip": "latest_rank01_Majkel1337_54662660_top_54662660.zip",
+      "episode": 85928280,
+      "options": 3,
+      "chosen": 0,
+      "source": "ml",
+      "confidence": 0.7492102742915626,
+      "margin": 0.6087694422435876,
+      "predicted_action_type": "trainer"
+    },
+    {
+      "zip": "rank02_Majkel1337_sub54618168.zip",
+      "episode": 85613394,
+      "options": 4,
+      "chosen": 0,
+      "source": "fallback",
+      "confidence": 0.3272689528837849,
+      "margin": 0.019727986764795313,
+      "predicted_action_type": "trainer"
+    },
+    {
+      "zip": "rank02_Majkel1337_sub54618168.zip",
+      "episode": 85613394,
+      "options": 3,
+      "chosen": 0,
+      "source": "fallback",
+      "confidence": 0.45715292528465906,
+      "margin": 0.0,
+      "predicted_action_type": "trainer"
+    },
+    {
+      "zip": "rank03_Yushin_Ito_sub54486275.zip",
+      "episode": 85505329,
+      "options": 5,
+      "chosen": 0,
+      "source": "fallback",
+      "confidence": 0.41634738281923206,
+      "margin": 0.0,
+      "predicted_action_type": "trainer"
+    },
+    {
+      "zip": "rank03_Yushin_Ito_sub54486275.zip",
+      "episode": 85505329,
+      "options": 5,
+      "chosen": 3,
+      "source": "ml",
+      "confidence": 0.8470773701513111,
+      "margin": 0.7379903296118933,
+      "predicted_action_type": "bench"
+    },
+    {
+      "zip": "rank04_bono_sub54589656.zip",
+      "episode": 85487649,
+      "options": 4,
+      "chosen": 2,
+      "source": "ml",
+      "confidence": 0.8507992431639732,
+      "margin": 0.7342044899185584,
+      "predicted_action_type": "bench"
+    },
+    {
+      "zip": "rank04_bono_sub54589656.zip",
+      "episode": 85487649,
+      "options": 4,
+      "chosen": 0,
+      "source": "ml",
+      "confidence": 0.5555701784630184,
+      "margin": 0.26650689555297635,
+      "predicted_action_type": "trainer"
+    },
+    {
+      "zip": "rank07_LiamK_sub54634530.zip",
+      "episode": 85694952,
+      "options": 3,
+      "chosen": 1,
+      "source": "ml",
+      "confidence": 0.5856613636536353,
+      "margin": 0.2333781558406775,
+      "predicted_action_type": "trainer"
+    },
+    {
+      "zip": "rank07_LiamK_sub54634530.zip",
+      "episode": 85694952,
+      "options": 2,
+      "chosen": 0,
+      "source": "ml",
+      "confidence": 0.9031451017778122,
+      "margin": 0.8062902035556243,
+      "predicted_action_type": "trainer"
+    }
+  ],
+  "battle_engine_available": false,
+  "battle_engine_note": "kaggle_environments and vendor/cg were not present; this is a replay-observation legal-action smoke test, not a simulated battle."
+}

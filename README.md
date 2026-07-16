@@ -2,117 +2,126 @@
 
 Repository for Pokemon TCG AI Battle Challenge agents.
 
-The current development focus is the Alakazam line:
+## Current Agents
 
-- `agents/alakazam741_v1`: strong baseline from the first Alakazam ladder run.
-- `agents/alakazam741_v2`: earlier Alakazam candidate with saved ladder logs.
-- `agents/alakazam741_v3`: ladder-tested Alakazam candidate.
-- `agents/alakazam741_v4`: ladder-tested Alakazam candidate.
-- `agents/alakazam741_v5`: ladder-tested Alakazam candidate (sub54600504).
-- `agents/alakazam741_v6`: current Alakazam candidate (v5 + user ladder-feedback: Enhanced Hammer/Xerosic/attack-vs-retreat/deck-out fixes, +Mega Diancie ex).
+- `agents/alakazam741_v12_top_sync_full`: current deterministic Alakazam fallback policy.
+- `agents/alakazam_ml_v2_expanded`: ML hybrid agent. It keeps the v12 fallback and uses a distilled LightGBM candidate ranker only for high-confidence ACTIVE MAIN decisions.
 
-Other deck lines are kept locally under `archive/agents/` for reference and regression checks. The archive directory is intentionally ignored by Git.
+Older Alakazam versions remain under `agents/` as history and regression references. Non-Alakazam reconstruction work is kept in its own agent directory or under local archives.
 
 ## Layout
 
 ```text
 agents/
-  alakazam741_v1/
-  alakazam741_v2/
-  _base/
-  _opponents/
-archive/
-  agents/                  # local-only retired deck lines
-  legacy_v0/               # local-only older baseline
-data/
-  logs/                    # local-only generated logs
-  replays/                 # local-only replay downloads
-  runs/                    # local-only experiment runs
-  submissions/             # local-only submission logs
-  summaries/               # local-only generated analysis
-docs/
-experiments/
+  alakazam741_v12_top_sync_full/
+  alakazam_ml_v2_expanded/
+ml/
+  core/                    # replay, dataset, feature, split, train, evaluation helpers
+  archetypes/              # deck-specific plugins such as Alakazam
+  pipelines/               # one-command training entry points
+  configs/
+data/ml/alakazam/
+  processed/
+  models/
+  reports/
 kaggle/
 scripts/
 tests/
 ```
 
-Only source code, strategies, small experiment records, docs, and directory keepers should be tracked. Generated Kaggle logs, replays, ZIP files, and archived agents stay local.
+`agents/` contains Kaggle runtime files only. Training datasets, reports, joblib models, and notebooks do not belong inside agent directories.
 
 ## Setup
 
+Runtime submissions use only the Python standard library plus the official competition `cg/`.
+
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install pytest kaggle
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements-ml.txt
 ```
 
-The full `requirements-dev.txt` may require extra native build tools on Windows because `kaggle-environments` can pull heavier dependencies.
+Use `requirements-ml.txt` only for retraining/evaluation. It is not needed for Kaggle submission runtime.
 
 ## Validate
 
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\validate_agent.py --agent alakazam741_v2
 .\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe .\scripts\validate_agent.py --agent alakazam_ml_v2_expanded
 ```
 
-## Local Battles
+## Retrain Or Re-Export
 
-Use the lightweight local arena when `vendor/cg` is available:
+Full pipeline from replay ZIPs, when available:
 
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\local_arena.py alakazam741_v2 alakazam741_v1 --games 40
-.\.venv\Scripts\python.exe .\scripts\local_arena.py alakazam741_v2 generic:grimmsnarl --games 80
+.\.venv\Scripts\python.exe -m ml.pipelines.train_archetype --archetype alakazam
 ```
 
-Archived agents can still be used by path or by name because `local_arena.py` checks `archive/agents/` after `agents/`.
-
-For automated self-play across your own agent candidates, use:
+Reuse existing processed data:
 
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\self_play.py alakazam741_v4 alakazam741_v3 alakazam741_v2 --games 40
-.\.venv\Scripts\python.exe .\scripts\self_play.py --games 20
+.\.venv\Scripts\python.exe -m ml.pipelines.train_archetype --archetype alakazam --reuse-processed
 ```
 
-`self_play.py` writes `summary.csv`, `games.csv`, and `summary.json` under `data/runs/local_self_play/<timestamp>/`.
+Raw replay ZIPs are expected under `data/runs/kaggle_top50/` by default. Paths are configurable in `ml/configs/alakazam.json`.
 
-## Build a Submission
+## Build Kaggle Submission
+
+Official submission archives are tar.gz files built only by `scripts/build_submission.py`.
 
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\build_submission.py --agent alakazam741_v2
+.\.venv\Scripts\python.exe .\scripts\build_submission.py `
+  --agent alakazam_ml_v2_expanded `
+  --cg-source <official cg path> `
+  --output submission_alakazam_ml_v2_expanded.tar.gz
 ```
 
-On Kaggle, use:
+The builder validates `main.py`, `deck.csv`, `cg/api.py`, and rejects training artifacts such as datasets, reports, and joblib files.
+
+On Kaggle Notebook:
 
 ```powershell
 python kaggle/create_submission_from_git.py
 ```
 
-That helper currently builds submissions for:
+This builds both `alakazam741_v12_top_sync_full` and `alakazam_ml_v2_expanded`.
 
-- `alakazam741_v1`
-- `alakazam741_v2`
-
-## Fetch Ladder Logs
-
-Always fetch logs into `data/runs/` with a run name and deck snapshot:
+## Local Self-Play
 
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\fetch_submission_logs.py `
-  --submission 54523210 `
-  --run-name alakazam741_v2 `
-  --deck-name "Alakazam v2" `
-  --deck-dir .\agents\alakazam741_v2 `
-  --sleep 0 `
-  --zip
+.\.venv\Scripts\python.exe .\scripts\self_play.py `
+  alakazam_ml_v2_expanded `
+  alakazam741_v12_top_sync_full `
+  --games 20
 ```
 
-Each run writes:
+Trajectory logging is opt-in:
 
-- `run_meta.json`
-- `episodes.csv`
-- `manifest.csv`
-- `deck_snapshot/`
-- per-episode replay JSON and extracted observation logs
-- optional ZIP archive
+```powershell
+.\.venv\Scripts\python.exe .\scripts\self_play.py `
+  alakazam_ml_v2_expanded `
+  alakazam741_v12_top_sync_full `
+  --games 100 `
+  --save-trajectories
+```
 
-These outputs are ignored by Git.
+Trajectory rows are candidates for later human-reviewed learning data, not automatic teachers.
+
+## Champion-Challenger
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\champion_challenger.py `
+  --champion alakazam741_v12_top_sync_full `
+  --challenger alakazam_ml_v2_expanded
+```
+
+The script writes promotion reports and never promotes automatically.
+
+## More Docs
+
+- `docs/ML_ARCHITECTURE.md`
+- `docs/ML_REPRODUCTION.md`
+- `docs/ML_MULTI_ARCHETYPE_ROADMAP.md`
+- `docs/ML_MIGRATION_REPORT.md`
+

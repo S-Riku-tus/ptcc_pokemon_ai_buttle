@@ -11,11 +11,15 @@ from __future__ import annotations
 import shutil
 import subprocess
 import sys
+import tarfile
 from pathlib import Path
 
 REPO_URL = "https://github.com/S-Riku-tus/ptcc_pokemon_ai_buttle.git"
 BRANCH = "main"
-AGENTS = ["alakazam741_v11_board_depth"]
+AGENTS = [
+    "alakazam741_v12_top_sync_full",
+    "alakazam_ml_v2_expanded",
+]
 
 WORKING = Path("/kaggle/working")
 REPO_DIR = WORKING / "ptcc_pokemon_ai_buttle"
@@ -75,21 +79,37 @@ def main() -> None:
 
     cg_source = locate_cg()
     for agent in AGENTS:
+        agent_dir = REPO_DIR / "agents" / agent
+        if not agent_dir.is_dir():
+            raise FileNotFoundError(f"Configured agent does not exist in cloned repository: {agent}")
         output = WORKING / f"submission_{agent}.tar.gz"
-        subprocess.run(
-            [
-                sys.executable,
-                str(REPO_DIR / "scripts" / "build_submission.py"),
-                "--agent",
-                agent,
-                "--cg-source",
-                str(cg_source),
-                "--output",
-                str(output),
-            ],
-            check=True,
+        try:
+            subprocess.run(
+                [
+                    sys.executable,
+                    str(REPO_DIR / "scripts" / "build_submission.py"),
+                    "--agent",
+                    agent,
+                    "--cg-source",
+                    str(cg_source),
+                    "--output",
+                    str(output),
+                ],
+                check=True,
+            )
+        except subprocess.CalledProcessError as exc:
+            raise RuntimeError(f"Submission build failed for agent {agent}") from exc
+        with tarfile.open(output, "r:gz") as archive:
+            names = set(archive.getnames())
+        required = {"main.py", "deck.csv", "cg/api.py"}
+        missing = sorted(required - names)
+        if missing:
+            raise RuntimeError(f"Submission archive for {agent} is missing {missing}")
+        print(
+            f"\nSubmission ready: {output} ({output.stat().st_size} bytes, "
+            f"{len(names)} archive entries)"
         )
-        print(f"\nSubmission ready: {output} ({output.stat().st_size} bytes)")
+        print("Required files:", ", ".join(sorted(required)))
 
 
 main()

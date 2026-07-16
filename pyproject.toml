@@ -5,6 +5,6 @@ description = "Pokémon TCG AI Battle Challenge agent repository"
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "ml/tests"]
 python_files = ["test_*.py"]
 addopts = "-q"

@@ -1,0 +1,37 @@
+{
+  "promote": false,
+  "checks": {
+    "minimum_games": false,
+    "minimum_win_rate": false,
+    "maximum_illegal_actions": true,
+    "maximum_crashes": true,
+    "maximum_timeouts": true
+  },
+  "metrics": {
+    "champion": "alakazam741_v12_top_sync_full",
+    "challenger": "alakazam_ml_v2_expanded",
+    "games": 20,
+    "wins": 10,
+    "losses": 10,
+    "draws": 0,
+    "win_rate_ex_draws": 0.5,
+    "crashes": 0,
+    "illegal_actions": 0,
+    "timeouts": 0,
+    "fallback_rate": 0.0,
+    "ml_override_rate": null,
+    "first_attack_turn": null,
+    "attack_count": null,
+    "deck_outs": null,
+    "board_wipes": null,
+    "average_decision_time_ms": 2.948197716986335
+  },
+  "gates": {
+    "minimum_games": 200,
+    "minimum_win_rate": 0.53,
+    "maximum_illegal_actions": 0,
+    "maximum_crashes": 0,
+    "maximum_timeouts": 0
+  },
+  "note": "This script never promotes automatically; review the report before copying any challenger model."
+}

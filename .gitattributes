@@ -6,4 +6,13 @@ data/logs/**/*.json filter=lfs diff=lfs merge=lfs -text
 data/kaggle_top100/replays/**/*.json filter=lfs diff=lfs merge=lfs -text
 data/kaggle_top100/logs/**/*.json filter=lfs diff=lfs merge=lfs -text
 data/submissions/*.zip filter=lfs diff=lfs merge=lfs -text
+data/runs/**/*.zip filter=lfs diff=lfs merge=lfs -text
+data/ml/**/processed/*.csv filter=lfs diff=lfs merge=lfs -text
+data/ml/**/processed/*.csv.gz filter=lfs diff=lfs merge=lfs -text
+data/ml/**/processed/*.parquet filter=lfs diff=lfs merge=lfs -text
+data/ml/**/processed/matrix/** filter=lfs diff=lfs merge=lfs -text
+data/ml/**/models/*.joblib filter=lfs diff=lfs merge=lfs -text
+data/ml/**/models/*.txt filter=lfs diff=lfs merge=lfs -text
+data/ml/**/self_play/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
+data/runs/local_self_play/**/*.jsonl filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff

@@ -1,0 +1,138 @@
+{
+  "time_holdout": {
+    "decision_count": 18592,
+    "fallback_rate": 0.6975580895008606,
+    "accepted_count": 5623,
+    "accepted_top1": 0.7250577983282945,
+    "illegal_action_count": 0,
+    "focus_actions": {
+      "boss": {
+        "predicted_count": 41,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "energy": {
+        "predicted_count": 1346,
+        "accepted_count": 25,
+        "accepted_top1": 0.96
+      },
+      "retreat": {
+        "predicted_count": 27,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "xerosic": {
+        "predicted_count": 284,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "hammer": {
+        "predicted_count": 536,
+        "accepted_count": 0,
+        "accepted_top1": null
+      }
+    }
+  },
+  "team_holdout": {
+    "decision_count": 12519,
+    "fallback_rate": 0.6769710040738078,
+    "accepted_count": 4044,
+    "accepted_top1": 0.5588526211671613,
+    "illegal_action_count": 0,
+    "focus_actions": {
+      "boss": {
+        "predicted_count": 40,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "energy": {
+        "predicted_count": 975,
+        "accepted_count": 23,
+        "accepted_top1": 0.782608695652174
+      },
+      "retreat": {
+        "predicted_count": 18,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "xerosic": {
+        "predicted_count": 114,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "hammer": {
+        "predicted_count": 360,
+        "accepted_count": 0,
+        "accepted_top1": null
+      }
+    }
+  },
+  "submission_holdout": {
+    "decision_count": 10275,
+    "fallback_rate": 0.7293430656934307,
+    "accepted_count": 2781,
+    "accepted_top1": 0.9241280115066522,
+    "illegal_action_count": 0,
+    "focus_actions": {
+      "boss": {
+        "predicted_count": 8,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "energy": {
+        "predicted_count": 620,
+        "accepted_count": 8,
+        "accepted_top1": 0.875
+      },
+      "retreat": {
+        "predicted_count": 8,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "xerosic": {
+        "predicted_count": 157,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "hammer": {
+        "predicted_count": 295,
+        "accepted_count": 0,
+        "accepted_top1": null
+      }
+    }
+  },
+  "deck_holdout": {
+    "decision_count": 35421,
+    "fallback_rate": 0.6919059315095565,
+    "accepted_count": 10913,
+    "accepted_top1": 0.6834051131677815,
+    "illegal_action_count": 0,
+    "focus_actions": {
+      "boss": {
+        "predicted_count": 122,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "energy": {
+        "predicted_count": 2532,
+        "accepted_count": 32,
+        "accepted_top1": 0.875
+      },
+      "retreat": {
+        "predicted_count": 44,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "xerosic": {
+        "predicted_count": 321,
+        "accepted_count": 0,
+        "accepted_top1": null
+      },
+      "hammer": {
+        "predicted_count": 768,
+        "accepted_count": 0,
+        "accepted_top1": null
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "alakazam_ml_v2_expanded",
+  "base": "alakazam741_v12_top_sync_full",
+  "model": "LightGBM candidate ranker distilled to pure Python trees",
+  "confidence_threshold": 0.55,
+  "model_scope": "ACTIVE MAIN single-option decisions; nested target/search and multi-select remain fallback",
+  "deck_policy": "exact Majkel 60, unchanged",
+  "model_training_decisions": 95254,
+  "model_candidate_rows": 1097481,
+  "training_teams": 19,
+  "training_submissions": 20,
+  "training_decks": 8,
+  "replay_layouts": [
+    "replay",
+    "replays"
+  ],
+  "hard_fallback_actions": [
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer"
+  ],
+  "energy_probability_threshold": 0.85,
+  "distilled_model_format": "lightgbm_tree_v2",
+  "compatibility_directory": "agents/alakazam_ml_v1 retained to preserve original project paths"
+}
