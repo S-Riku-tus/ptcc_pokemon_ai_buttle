@@ -133,6 +133,18 @@ def zip_metadata(zip_path: str | Path) -> dict[str, Any]:
     path = Path(zip_path)
     meta: dict[str, Any] = {}
     with ZipFile(path) as zf:
+        members = zf.namelist()
+
+        def load_json_member(suffix: str) -> dict[str, Any] | None:
+            member = next((name for name in members if name.endswith(suffix)), None)
+            if member is None:
+                return None
+            try:
+                value = orjson.loads(zf.read(member))
+            except (orjson.JSONDecodeError, UnicodeDecodeError):
+                return None
+            return value if isinstance(value, dict) else None
+
         for member in zf.namelist():
             if member.endswith("bundle_summary.json"):
                 try:
@@ -140,15 +152,67 @@ def zip_metadata(zip_path: str | Path) -> dict[str, Any]:
                 except orjson.JSONDecodeError:
                     pass
                 break
-        for member in zf.namelist():
+
+        # The full top-submission bundles use submission.json rather than the
+        # older bundle_summary.json.  Read it before episodes.json so the
+        # target submission can identify the exact replay seat without relying
+        # on a display-name match.
+        submission = load_json_member("submission.json") or {}
+        if submission:
+            for source_key, target_key in (
+                ("submission_id", "submission_id"),
+                ("team_name", "team_name"),
+                ("team_id", "team_id"),
+                ("leaderboard_score", "leaderboard_score"),
+            ):
+                if not meta.get(target_key) and submission.get(source_key) not in (None, ""):
+                    meta[target_key] = submission[source_key]
+            if not meta.get("rank") and submission.get("leaderboard_rank") not in (None, ""):
+                meta["rank"] = int(submission["leaderboard_rank"])
+
+        source_manifest: dict[int, dict[str, Any]] = {}
+        episodes = load_json_member("episodes.json") or {}
+        target_submission = str(meta.get("submission_id") or "")
+        for episode in episodes.get("episodes", []):
+            if not isinstance(episode, dict) or not str(episode.get("episode_id", "")).isdigit():
+                continue
+            matches = [
+                seat for seat in (0, 1)
+                if target_submission
+                and str(episode.get(f"agent_{seat}_submission_id") or "") == target_submission
+            ]
+            if len(matches) == 1:
+                source_manifest[int(episode["episode_id"])] = {
+                    "episode_id": str(episode["episode_id"]),
+                    "detected_submission_agent_index": str(matches[0]),
+                    "seat_source": "episodes_submission_id",
+                }
+
+        for member in members:
             if member.endswith("manifest.csv"):
                 text = zf.read(member).decode("utf-8-sig", "replace")
-                meta["source_manifest"] = {
-                    int(row["episode_id"]): row
-                    for row in csv.DictReader(io.StringIO(text))
-                    if row.get("episode_id", "").isdigit()
-                }
+                # A collector-produced manifest may include richer diagnostics;
+                # prefer those rows while retaining seats recovered from
+                # episodes.json for any missing episode.
+                for row in csv.DictReader(io.StringIO(text)):
+                    if not row.get("episode_id", "").isdigit():
+                        continue
+                    episode_id = int(row["episode_id"])
+                    recovered = source_manifest.get(episode_id, {})
+                    merged = {**recovered, **row}
+                    if not row.get("detected_submission_agent_index") and recovered.get(
+                        "detected_submission_agent_index"
+                    ):
+                        merged["detected_submission_agent_index"] = recovered[
+                            "detected_submission_agent_index"
+                        ]
+                        merged["seat_source"] = recovered.get(
+                            "seat_source", "episodes_submission_id"
+                        )
+                    source_manifest[episode_id] = merged
                 break
+        if source_manifest:
+            meta["source_manifest"] = source_manifest
     if not meta.get("rank"):
         match = _RANK_RE.search(path.name)
         if match:

@@ -489,6 +489,20 @@ class AlakazamPolicy(BasePolicy):
     def _effective_deck(self):
         return self.me.deckCount + self._deck_returns_available()
 
+    @staticmethod
+    def _prize_turn_budget(prizes):
+        """Conservative own-turn budget for a remaining prize count."""
+        prizes = max(1, int(prizes))
+        return max(1, (prizes * 10 + 6) // 7)   # ceil(prizes / 0.7)
+
+    def _turns_to_win_conservative(self):
+        """Prize clock without crediting a hypothetical same-turn KO.
+
+        Draw/search safety predicates call this version to avoid a dependency
+        cycle through reachable-hand estimation.
+        """
+        return self._prize_turn_budget(len(self.me.prize))
+
     def _turns_to_win(self):
         """Our own turns still needed to take the remaining prizes. Top-8 games run ~1.4 own
         turns per prize (attack rate < 100% and a KO is not always available), so a RAW prize
@@ -498,8 +512,7 @@ class AlakazamPolicy(BasePolicy):
         opp = self.opponent.active[0] if self.opponent.active else None
         if opp is not None and self._ko_active_reachable():
             prizes -= max(0, prize_count(opp) - 1)
-        prizes = max(1, prizes)
-        return max(1, (prizes * 10 + 6) // 7)   # ceil(prizes / 0.7)
+        return self._prize_turn_budget(prizes)
 
     def _turns_to_deckout(self, extra_spend=0):
         """Turns we survive drawing 1/turn, counting returnable cards, after an optional spend."""
@@ -767,8 +780,9 @@ class AlakazamPolicy(BasePolicy):
         )
         if not needs_cards:
             return False
-        return (self.me.deckCount >= max(3, self._turns_to_win() + 1)
-                and self._turns_to_deckout(extra_spend=3) > self._turns_to_win())
+        turns_to_win = self._turns_to_win_conservative()
+        return (self.me.deckCount >= max(3, turns_to_win + 1)
+                and self._turns_to_deckout(extra_spend=3) > turns_to_win)
 
     def _fezandipiti_worthwhile(self):
         """Bench a naturally drawn Fezandipiti early, without consuming the last essential slot."""

@@ -335,6 +335,19 @@ def test_fezandipiti_draw_stops_when_hand_attack_and_backup_are_already_secure()
     assert not current._fez_draw_needed()
 
 
+def test_post_ko_fezandipiti_clock_has_no_recursive_dependency():
+    mine = player(
+        active=pokemon(policy.C.ALAKAZAM, hp=140, energies=[EnergyType.PSYCHIC]),
+        bench=[pokemon(policy.C.FEZANDIPITI_EX, hp=210)],
+        hand=[card(1081), card(1082), card(1083), card(1084)],
+        deck_count=30,
+    )
+    current = make_policy(mine, ordinary_opponent())
+    policy._TURN_STATE["ko_last_opponent_turn"] = True
+    assert current._turns_to_win() >= 1
+    assert isinstance(current._fez_draw_needed(), bool)
+
+
 def test_nighttime_mine_requires_immediate_active_tax_effect():
     mine = player(active=pokemon(policy.C.ALAKAZAM, hp=140, energies=[EnergyType.PSYCHIC]))
     current = make_policy(mine, ordinary_opponent())

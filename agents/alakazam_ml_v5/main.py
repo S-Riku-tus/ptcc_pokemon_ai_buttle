@@ -2,14 +2,10 @@ from __future__ import annotations
 
 import os
 
-from fallback_v12 import agent as _fallback_agent
-from fallback_v12 import diag_reset as _fallback_reset
-from fallback_v12 import diag_snapshot as _fallback_snapshot
-from fallback_v12 import (
-    AlakazamPolicy, EFFECT_PREVENT_ENERGY, ENERGY_TYPES,
-    GLOBAL_EFFECT_PROTECTORS, TurnState, _is_ace_spec, _turn_boss_mark,
-    _TURN_STATE, _validate_deck, card_table, get_card, my_deck,
-)
+import fallback_v3
+from fallback_v3 import agent as _fallback_agent
+from fallback_v3 import diag_reset as _fallback_reset
+from fallback_v3 import diag_snapshot as _fallback_snapshot
 from ml_runtime import HybridRanker
 from policy_base import attack_table
 
@@ -22,7 +18,7 @@ _RUNTIME = HybridRanker(
     attacks=_ATTACKS,
     threshold=float(os.environ.get("ALAKAZAM_ML_THRESHOLD", "0.55")),
 )
-_DIAG = __import__("fallback_v12")._DIAG
+_DIAG = fallback_v3._DIAG
 
 
 def _choose(observation):

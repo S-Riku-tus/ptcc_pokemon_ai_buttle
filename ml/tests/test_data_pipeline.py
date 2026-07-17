@@ -10,7 +10,8 @@ import pytest
 pd = pytest.importorskip("pandas")
 
 from ml.core.features import LEAKAGE_DENYLIST, state_features
-from ml.core.replay_io import replay_refs
+from ml.core.manifest import _deduplicate_usable_trajectories
+from ml.core.replay_io import replay_refs, zip_metadata
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -34,6 +35,51 @@ def test_replay_refs_accepts_both_layouts(tmp_path):
     assert {(ref.episode_id, ref.path_variant) for ref in refs} == {
         (12345678, "replay"), (87654321, "replays")
     }
+
+
+def test_full_bundle_metadata_recovers_team_rank_and_submission_seat(tmp_path):
+    path = tmp_path / "rank03_example_sub54762014_full.zip"
+    with zipfile.ZipFile(path, "w") as archive:
+        archive.writestr("bundle/submission.json", json.dumps({
+            "submission_id": 54762014,
+            "leaderboard_rank": "3",
+            "team_name": "Expert Team",
+        }))
+        archive.writestr("bundle/episodes.json", json.dumps({
+            "episodes": [{
+                "episode_id": 86306463,
+                "agent_0_submission_id": "11111111",
+                "agent_1_submission_id": "54762014",
+            }]
+        }))
+        archive.writestr(
+            "bundle/manifest.csv",
+            "episode_id,detected_submission_agent_index\n86306463,\n",
+        )
+    meta = zip_metadata(path)
+    assert meta["submission_id"] == 54762014
+    assert meta["rank"] == 3
+    assert meta["team_name"] == "Expert Team"
+    assert meta["source_manifest"][86306463]["detected_submission_agent_index"] == "1"
+
+
+def test_duplicate_trajectory_rows_prefer_stronger_seat_evidence():
+    frame = pd.DataFrame([
+        {
+            "trajectory_id": "54762014:86306463:1", "usable_manifest": True,
+            "seat_confidence": 0.995, "zip_name": "older.zip",
+            "episode_id": 86306463, "target_seat": 1,
+        },
+        {
+            "trajectory_id": "54762014:86306463:1", "usable_manifest": True,
+            "seat_confidence": 1.0, "zip_name": "full.zip",
+            "episode_id": 86306463, "target_seat": 1,
+        },
+    ])
+    deduplicated, removed = _deduplicate_usable_trajectories(frame)
+    assert removed == 1
+    assert len(deduplicated) == 1
+    assert deduplicated.iloc[0]["zip_name"] == "full.zip"
 
 
 def test_manifest_seats_and_decks_are_auditable():

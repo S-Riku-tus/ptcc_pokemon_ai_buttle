@@ -1,47 +1,60 @@
-# alakazam_ml_v4_candidate — logic-audited build 0.3.0
+# alakazam_ml_v5 - top20-trained shadow build 0.5.0
 
-This build keeps the user-requested 60-card revision and the existing distilled model, while correcting deterministic fallback and ML-boundary problems found during a second full logic audit.
+This build combines the v5 60-card deck with the stable, self-contained v3
+decision policy.  The top-20 imitation model is loaded and scored at runtime,
+but remains in shadow mode because live overrides did not pass the promotion
+gate.
+
+## Runtime policy
+
+- `fallback_v3.py` is the authoritative policy and uses this directory's
+  `deck.csv`.
+- `ranker_model.json` was retrained from all five full replay bundles under
+  `data/runs/20260717_kaggle_top20`.
+- ML scores only guarded ACTIVE/MAIN bench, evolution, and attack candidates.
+- In the default mode, ML records confidence and disagreement diagnostics but
+  returns the fallback action.
+- `ALAKAZAM_ML_ENABLE_OVERRIDE=1` enables live override only for controlled
+  experiments.  It is intentionally off in production.
+
+## Training corpus
+
+- 5 submissions / 5 teams / 2 deck clusters
+- 3,158 full replay files
+- 3,161 usable expert trajectories
+- 168,239 aligned decisions
+- 1,923,948 legal candidate rows
+- 5 unresolved decisions; alignment rate 99.997%
+
+The replay loader recovers expert seats from each bundle's `submission.json`
+and `episodes.json`, including nested episode layouts.  Duplicate trajectory
+IDs are removed before training.
+
+## Promotion evidence against alakazam741_v3
+
+The final comparison used 200 games, alternating seats, and independent
+per-game seeds starting at 741 so that shadow and override modes saw matching
+RNG conditions.
+
+- Old v5 logic, ML disabled: 58-142 (29.0%)
+- Recursion-fixed old v5 logic, ML disabled: 67-133 (33.5%)
+- Final v3-based v5, ML shadow mode: 113-87 (56.5%)
+- Same build with all guarded ML overrides: 109-91 (54.5%)
+- Final larger shadow evaluation: 567-433 over 1,000 games (56.7%)
+
+The model therefore remains a measured shadow advisor.  A future model should
+be promoted only after it beats the deterministic shadow baseline on a fresh,
+paired 200-game set and does not regress against non-Alakazam opponents.
 
 ## Deck
 
 - Dunsparce 3 / Dudunsparce 3
-- Psyduck 0
-- Basic Psychic Energy 3
+- Psychic Energy 3
 - Fezandipiti ex 1
 - Genesect 1 + Lucky Helmet 1
 - Maximum Rod is the only ACE SPEC
-- Total 60
+- 60 cards total
 
-## Fezandipiti ex role
-
-Fezandipiti ex is persistent Bench draw support, not an attacker.
-
-- Bench it early when naturally drawn.
-- Keep the last Bench slots needed for the first Abra line, the Dunsparce engine, and a real backup attacker.
-- Do not fetch it proactively with Telepath Energy.
-- Do not attach discretionary Energy or voluntarily promote it.
-- Use Flip the Script only after an opposing-turn KO and only when the draw is still useful and deck-safe.
-- Delay the optional Bench play when losing one hand card would erase a current KO or worsen the practical hit-count clock.
-
-## Other deterministic corrections
-
-- Evolution hand deltas now include Kadabra/Alakazam draw effects and Rare Candy's full resolution.
-- Search cards bypass deckout safety only when that exact search creates an ETA <= 1 backup.
-- Search deck costs and net hand changes are card-specific.
-- Dawn/Hilda contribute to reachable damage only when their search has a concrete legal goal.
-- Survival Bench priority is Abra, Dunsparce, Fezandipiti ex, then Genesect.
-- Genesect requires Lucky Helmet already in hand and may not consume required core Bench slots.
-- Nighttime Mine is used only when its tax immediately stops the opposing Active Tera attack.
-
-## ML boundary
-
-The model file and confidence thresholds are unchanged. ML is now intent-preserving:
-
-- If fallback selects Abra, ML cannot replace it with Dunsparce.
-- If fallback selects a particular evolution stage, ML cannot replace it with another evolution card.
-- If fallback selects an attack, ML cannot spend the turn on development.
-- Role Pokémon, abilities, trainers, energy, disruption, retreat, and END remain rule-only.
-
-## Validation
-
-See `VALIDATION_REPORT.md` and `LOGIC_AUDIT_V4_1.md`.
+`fallback_v12.py` is retained as an audited alternative and regression-test
+fixture.  Its Fezandipiti KO-clock recursion was removed, but it is not the
+active production fallback in this build.

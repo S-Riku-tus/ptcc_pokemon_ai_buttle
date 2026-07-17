@@ -325,6 +325,7 @@ def run_matchup(
     max_steps: int,
     quiet: bool,
     trajectory_records: list[dict[str, Any]] | None = None,
+    game_seed_base: int | None = None,
 ) -> MatchupSummary:
     diag_before_a = diag_snapshot(agent_a.diag)
     diag_before_b = diag_snapshot(agent_b.diag)
@@ -335,6 +336,12 @@ def run_matchup(
     )
 
     for game in range(1, games + 1):
+        # Optional paired-evaluation mode: make every game independent of how
+        # many random effects the previous game's policies happened to invoke.
+        # Separate variants can then be compared on identical starting RNG
+        # streams by using the same base seed.
+        if game_seed_base is not None:
+            random.seed(game_seed_base + game - 1)
         game_id = f"{summary.matchup}:{game}"
         a_first = game % 2 == 1
         if a_first:
@@ -492,6 +499,11 @@ def main() -> None:
     )
     parser.add_argument("--games", type=int, default=20, help="Games per matchup.")
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument(
+        "--reseed-each-game",
+        action="store_true",
+        help="Reset RNG to seed + game index before every game for paired A/B evaluation.",
+    )
     parser.add_argument("--max-steps", type=int, default=8000)
     parser.add_argument("--include-archive", action="store_true")
     parser.add_argument("--include-mirror", action="store_true")
@@ -544,6 +556,7 @@ def main() -> None:
                 max_steps=args.max_steps,
                 quiet=args.quiet,
                 trajectory_records=trajectory_records,
+                game_seed_base=args.seed if args.reseed_each_game else None,
             )
         )
 

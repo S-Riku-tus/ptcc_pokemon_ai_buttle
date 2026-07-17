@@ -45,6 +45,32 @@ def _reference_deck(all_headers: list[tuple[ReplayRef, dict[str, Any], dict[str,
     return next(deck for deck in candidates if deck_hash(deck) == modal_hash)
 
 
+def _deduplicate_usable_trajectories(frame: pd.DataFrame) -> tuple[pd.DataFrame, int]:
+    """Remove repeated copies of the same submission/episode/seat trajectory.
+
+    A leaderboard episode can be present in both an older top-N snapshot and a
+    newer full-submission bundle.  Keeping both would silently overweight that
+    expert action sequence and leak identical trajectories across holdouts.
+    Prefer the copy with the strongest seat evidence and retain excluded audit
+    rows separately.
+    """
+    usable = frame[frame["usable_manifest"] == True].copy()
+    excluded = frame[frame["usable_manifest"] != True].copy()
+    before = len(usable)
+    usable = (
+        usable.sort_values(
+            ["trajectory_id", "seat_confidence", "zip_name"],
+            ascending=[True, False, True],
+        )
+        .drop_duplicates(subset=["trajectory_id"], keep="first")
+    )
+    combined = pd.concat([usable, excluded], ignore_index=True, sort=False)
+    combined = combined.sort_values(
+        ["zip_name", "episode_id", "target_seat"], na_position="last"
+    ).reset_index(drop=True)
+    return combined, before - len(usable)
+
+
 def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> tuple[pd.DataFrame, dict[str, Any], list[int]]:
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
@@ -152,11 +178,12 @@ def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> t
                 })
 
     frame = pd.DataFrame(rows).sort_values(["zip_name", "episode_id", "target_seat"], na_position="last").reset_index(drop=True)
+    frame, duplicate_trajectory_rows_removed = _deduplicate_usable_trajectories(frame)
     frame.to_csv(output / "manifest.csv", index=False)
     usable = frame[frame["usable_manifest"] == True]
     zip_variants = frame.groupby("zip_name")["path_variant"].agg(lambda x: sorted(set(x))).to_dict()
     stats = {
-        "zip_count": int(frame["zip_name"].nunique()),
+        "zip_count": int(len(by_zip)),
         "replay_file_count": int(len(all_headers)),
         "full_replay_count": int(len(all_headers)),
         "usable_episode_count": int(usable["episode_id"].nunique()),
@@ -166,6 +193,7 @@ def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> t
         "usable_trajectory_count": int(len(usable)),
         "top50_plural_zip_count": int(sum(any(ref.path_variant == "replays" for ref, _, _ in items) for items in by_zip.values())),
         "excluded_trajectory_rows": int((frame["usable_manifest"] == False).sum()),
+        "duplicate_trajectory_rows_removed": int(duplicate_trajectory_rows_removed),
         "unique_teams": int(usable["target_team"].nunique()),
         "unique_submissions": int(usable["submission_id"].nunique()),
         "unique_decks": int(usable["deck_hash"].nunique()),

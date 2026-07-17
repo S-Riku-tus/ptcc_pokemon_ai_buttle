@@ -13,9 +13,9 @@ from ml_features import (
     option_features,
 )
 
-# Strategic and irreversible choices remain with fallback_v12.  The current
-# distilled model was trained before the latest ladder evidence and must not
-# bypass the fallback's deck-out, role, disruption, or end-turn gates.
+# Strategic and irreversible choices remain with the deterministic fallback.
+# The distilled model is evaluated in shadow mode by default because every
+# tested live-override scope failed the 200-game promotion gate.
 RULE_ONLY_ACTIONS = {
     "ability",
     "end",
@@ -162,16 +162,19 @@ def _candidate_scope_reason(
 
 
 class HybridRanker:
-    """Guarded legal-option ranker layered over the proven v12 fallback.
+    """Guarded legal-option ranker layered over the deterministic fallback.
 
-    The runtime deliberately lets fallback_v12 decide all strategic actions.
-    ML only ranks low-risk Abra/Dunsparce benching, evolution, and attack choices
-    after the fallback has already selected an action from the same safe scope.
+    ML scores low-risk candidate scopes and records counterfactual disagreements,
+    but does not replace the fallback unless ``ALAKAZAM_ML_ENABLE_OVERRIDE=1`` is
+    explicitly set for an experiment.  This keeps a trained model and useful
+    runtime diagnostics without silently promoting a model that lost the live
+    battle ablation.
     """
 
     def __init__(self, attacks: dict[int, dict[str, Any]] | None = None, threshold: float = 0.55):
         del attacks
         self.threshold_override = float(threshold)
+        self.enable_override = os.environ.get("ALAKAZAM_ML_ENABLE_OVERRIDE", "0") == "1"
         self.model_error = ""
         self.model: dict[str, Any] | None = None
         self.diag = Counter()
@@ -193,7 +196,8 @@ class HybridRanker:
         decisions = max(1, self.diag["decisions"])
         return {
             **dict(self.diag),
-            "runtime_scope": "guarded_intent_preserving_v2",
+            "runtime_scope": "shadow_guarded_v3_base",
+            "override_enabled": self.enable_override,
             "model_loaded": self.model is not None,
             "model_error": self.model_error,
             "model_rate": self.diag["model_selected"] / decisions,
@@ -296,8 +300,22 @@ class HybridRanker:
             self.diag["inference_us"] += int((time.perf_counter() - started) * 1_000_000)
             self.diag["model_selected"] += 1
             self.diag[f"model_{predicted_action}"] += 1
+            if not self.enable_override:
+                self.diag["shadow_evaluated"] += 1
+                if action != list(fallback_action):
+                    self.diag["shadow_disagreement"] += 1
+                    self.diag[f"shadow_disagreement_{predicted_action}"] += 1
+                    if fallback_context and predicted_action != fallback_context["action_type"]:
+                        self.diag["shadow_disagreement_action_type"] += 1
+                return self._fallback(fallback_action, "shadow_only")
             if action != list(fallback_action):
                 self.diag["model_override"] += 1
+                self.diag[f"model_override_{predicted_action}"] += 1
+                if fallback_context and predicted_action != fallback_context["action_type"]:
+                    self.diag["model_override_action_type"] += 1
+                    self.diag[
+                        f"model_override_{fallback_context['action_type']}_to_{predicted_action}"
+                    ] += 1
             return action
         except Exception as exc:
             self.diag["runtime_error"] += 1
