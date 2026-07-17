@@ -38,10 +38,12 @@ from scripts.fetch_submission_logs import (
     download_replay,
     list_submission_episodes,
 )
+from ml.core.replay_io import deck_hash, extract_fast_header_from_file
 
 
 ROOT = Path("data") / "kaggle_top100"
 PRINT_LOCK = threading.Lock()
+ALAKAZAM_DECK_CARD_IDS = {741, 742, 743, 245}
 
 
 class EpisodeLockRegistry:
@@ -103,12 +105,20 @@ def discover_input_csv(explicit: Path | None) -> Path:
     if preferred.exists():
         return preferred
 
+    latest_candidates = sorted((ROOT / "latest").glob("public_submissions_top*.csv"))
+    if latest_candidates:
+        return latest_candidates[-1]
+
     candidates = sorted(ROOT.glob("*/public_submissions_top100.csv"))
     if candidates:
         return candidates[-1]
 
+    top_n_candidates = sorted(ROOT.glob("*/public_submissions_top*.csv"))
+    if top_n_candidates:
+        return top_n_candidates[-1]
+
     raise FileNotFoundError(
-        "Could not find public_submissions_top100.csv under data/kaggle_top100."
+        "Could not find public_submissions_top*.csv under data/kaggle_top100."
     )
 
 
@@ -123,6 +133,7 @@ def dedupe_submission_rows(rows: list[dict[str, str]]) -> list[dict[str, Any]]:
     for row in rows:
         raw_submission_id = (
             row.get("public_submission_id")
+            or row.get("representative_submission_id")
             or row.get("submission_id")
             or row.get("leaderboard_submission_id")
             or ""
@@ -287,6 +298,56 @@ def detect_opponent_name(payload: Any, self_index: int | None) -> str:
     return str(value) if value is not None else ""
 
 
+def detect_deck_match(
+    replay_path: Path,
+    seat_index: int | None,
+    required_card_ids: set[int],
+) -> dict[str, Any]:
+    if not required_card_ids:
+        return {
+            "deck_filter_match": True,
+            "deck_filter_reason": "",
+            "deck_hash": "",
+            "deck_cards": [],
+        }
+    if seat_index is None:
+        return {
+            "deck_filter_match": False,
+            "deck_filter_reason": "seat_index_unknown",
+            "deck_hash": "",
+            "deck_cards": [],
+        }
+
+    try:
+        header = extract_fast_header_from_file(replay_path)
+    except Exception as exc:  # noqa: BLE001
+        return {
+            "deck_filter_match": False,
+            "deck_filter_reason": f"deck_header_error: {type(exc).__name__}: {exc}",
+            "deck_hash": "",
+            "deck_cards": [],
+        }
+
+    decks = header.get("decks")
+    deck = decks[seat_index] if isinstance(decks, list) and seat_index < len(decks) else []
+    if not isinstance(deck, list) or len(deck) != 60:
+        return {
+            "deck_filter_match": False,
+            "deck_filter_reason": "deck_not_found",
+            "deck_hash": "",
+            "deck_cards": [],
+        }
+
+    cards = [int(card_id) for card_id in deck]
+    matched_cards = sorted(required_card_ids & set(cards))
+    return {
+        "deck_filter_match": bool(matched_cards),
+        "deck_filter_reason": "" if matched_cards else "required_cards_absent",
+        "deck_hash": deck_hash(cards),
+        "deck_cards": matched_cards,
+    }
+
+
 def aggregate_download_status(
     replay_status: str,
     log_statuses: list[str],
@@ -406,6 +467,7 @@ def process_submission(
     download_retries: int,
     retry_delay: float,
     episode_locks: EpisodeLockRegistry,
+    required_deck_card_ids: set[int],
 ) -> dict[str, Any]:
     submission_id = int(submission["submission_id"])
     submission_dir = ensure_dir(submissions_dir / str(submission_id))
@@ -450,6 +512,7 @@ def process_submission(
             "log_downloaded": 0,
             "log_skipped_existing": 0,
             "log_failures": 0,
+            "episode_filtered_by_deck": 0,
         },
     }
 
@@ -528,10 +591,17 @@ def process_submission(
 
     per_submission_replay_refs: list[dict[str, Any]] = []
     per_submission_log_refs: list[dict[str, Any]] = []
+    matched_episode_count = 0
+    submission_deck_matches: bool | None = None
+    submission_deck_hash = ""
+    submission_matched_deck_cards: list[int] = []
 
     for episode in episodes:
         episode_id = episode.episode_id
-        result["unique_episode_ids"].add(episode_id)
+        if required_deck_card_ids and submission_deck_matches is False:
+            result["counts"]["episode_filtered_by_deck"] += 1
+            continue
+
         canonical_log_dir = ensure_dir(logs_dir / str(episode_id))
         log_paths = [
             canonical_log_dir / "agent_0_observation_logs.json",
@@ -546,6 +616,13 @@ def process_submission(
         replay_ok = False
         canonical_replay_path = replays_dir / f"episode_{episode_id}.json"
         log_statuses: list[str] = []
+        detected_index: int | None = None
+        deck_filter = {
+            "deck_filter_match": not required_deck_card_ids,
+            "deck_filter_reason": "",
+            "deck_hash": "",
+            "deck_cards": [],
+        }
 
         with episode_locks.get(episode_id):
             try:
@@ -577,6 +654,39 @@ def process_submission(
             if replay_error:
                 errors.append(f"replay: {replay_error}")
 
+            detected_index = (
+                choose_submission_agent_index(episode, submission_id, canonical_replay_path)
+                if replay_ok
+                else None
+            )
+            if replay_ok:
+                if required_deck_card_ids and submission_deck_matches is True:
+                    deck_filter = {
+                        "deck_filter_match": True,
+                        "deck_filter_reason": "",
+                        "deck_hash": submission_deck_hash,
+                        "deck_cards": submission_matched_deck_cards,
+                    }
+                else:
+                    deck_filter = detect_deck_match(
+                        canonical_replay_path,
+                        detected_index,
+                        required_deck_card_ids,
+                    )
+                    if required_deck_card_ids:
+                        if deck_filter["deck_filter_match"]:
+                            submission_deck_matches = True
+                        elif deck_filter.get("deck_hash"):
+                            submission_deck_matches = False
+                        submission_deck_hash = str(deck_filter.get("deck_hash", ""))
+                        submission_matched_deck_cards = list(deck_filter.get("deck_cards", []))
+
+            if required_deck_card_ids and not deck_filter["deck_filter_match"]:
+                result["counts"]["episode_filtered_by_deck"] += 1
+                if sleep_seconds > 0:
+                    time.sleep(sleep_seconds)
+                continue
+
             for agent_index, _log_path in enumerate(log_paths):
                 try:
                     log_status, log_error = ensure_log_for_episode(
@@ -603,11 +713,8 @@ def process_submission(
                     errors.append(f"agent_{agent_index}: {log_error}")
                 log_statuses.append(log_status)
 
-        detected_index = (
-            choose_submission_agent_index(episode, submission_id, canonical_replay_path)
-            if replay_ok
-            else None
-        )
+        matched_episode_count += 1
+        result["unique_episode_ids"].add(episode_id)
         opponent_submission_id = (
             episode.agent_1_submission_id
             if detected_index == 0
@@ -663,6 +770,8 @@ def process_submission(
             "opponent_team_name": opponent_team_name,
             "agent_0_submission_id": episode.agent_0_submission_id,
             "agent_1_submission_id": episode.agent_1_submission_id,
+            "deck_hash": deck_filter.get("deck_hash", ""),
+            "matched_deck_card_ids": " ".join(map(str, deck_filter.get("deck_cards", []))),
             "replay_path": str(canonical_replay_path.relative_to(output_root)),
             "log_paths": ";".join(
                 str(path.relative_to(output_root)) for path in log_paths
@@ -691,6 +800,9 @@ def process_submission(
     write_json(submission_dir / "logs" / "index.json", per_submission_log_refs)
 
     result["counts"]["submission_success"] += 1
+    submission_status = "success"
+    if required_deck_card_ids and matched_episode_count == 0:
+        submission_status = "no_matching_deck"
     result["submission_rows"].append(
         {
             "leaderboard_rank": submission.get("rank", ""),
@@ -701,8 +813,8 @@ def process_submission(
             "leaderboard_submission_id": submission.get("leaderboard_submission_id", ""),
             "submitted_at_utc": submission.get("submitted_at_utc", ""),
             "submitted_at_jst": submission.get("submitted_at_jst", ""),
-            "status": "success",
-            "episode_count": len(episodes),
+            "status": submission_status,
+            "episode_count": matched_episode_count,
             "error": "",
             "downloaded_at": utc_now(),
         }
@@ -767,7 +879,23 @@ def main() -> None:
         default=min(8, max(2, (os.cpu_count() or 4))),
         help="Number of submission workers. Default: min(8, max(2, cpu_count)).",
     )
+    parser.add_argument(
+        "--alakazam-only",
+        action="store_true",
+        help="Keep only episodes where the target submission's deck contains Alakazam-line cards.",
+    )
+    parser.add_argument(
+        "--require-deck-card-id",
+        type=int,
+        action="append",
+        default=[],
+        help="Require at least one of these card IDs in the target submission deck. Repeatable.",
+    )
     args = parser.parse_args()
+
+    required_deck_card_ids = set(args.require_deck_card_id)
+    if args.alakazam_only:
+        required_deck_card_ids.update(ALAKAZAM_DECK_CARD_IDS)
 
     input_csv = discover_input_csv(args.input)
     source_rows = load_submission_rows(input_csv)
@@ -805,6 +933,7 @@ def main() -> None:
         "log_downloaded": 0,
         "log_skipped_existing": 0,
         "log_failures": 0,
+        "episode_filtered_by_deck": 0,
     }
 
     episode_locks = EpisodeLockRegistry()
@@ -828,6 +957,7 @@ def main() -> None:
                 download_retries=args.download_retries,
                 retry_delay=args.retry_delay,
                 episode_locks=episode_locks,
+                required_deck_card_ids=required_deck_card_ids,
             )
             for index, submission in enumerate(submissions, start=1)
         ]
@@ -906,6 +1036,8 @@ def main() -> None:
         "opponent_team_name",
         "agent_0_submission_id",
         "agent_1_submission_id",
+        "deck_hash",
+        "matched_deck_card_ids",
         "replay_path",
         "log_paths",
         "download_status",
@@ -920,6 +1052,23 @@ def main() -> None:
     write_csv(indexes_dir / "failures.csv", failures_rows, failures_fieldnames)
 
     unique_episode_count = len(unique_episode_to_submission_ids)
+    if required_deck_card_ids:
+        kept_episode_ids = set(unique_episode_to_submission_ids)
+        for path in replays_dir.glob("episode_*.json"):
+            episode_id = parse_int(path.stem.split("_")[-1])
+            if episode_id is not None and episode_id not in kept_episode_ids:
+                safe_unlink(path)
+        for path in logs_dir.glob("*"):
+            if path.is_dir():
+                episode_id = parse_int(path.name)
+                if episode_id is not None and episode_id not in kept_episode_ids:
+                    for child in path.glob("*.json"):
+                        safe_unlink(child)
+                    try:
+                        path.rmdir()
+                    except OSError:
+                        pass
+
     unique_replay_count = len(
         [
             path
@@ -952,7 +1101,11 @@ def main() -> None:
             "log_downloaded": counts["log_downloaded"],
             "log_skipped_existing": counts["log_skipped_existing"],
             "log_failures": counts["log_failures"],
+            "episode_filtered_by_deck": counts["episode_filtered_by_deck"],
             "failure_rows": len(failures_rows),
+        },
+        "deck_filter": {
+            "required_deck_card_ids": sorted(required_deck_card_ids),
         },
         "missing_submission_ids": missing_submission_ids,
         "indexes": {

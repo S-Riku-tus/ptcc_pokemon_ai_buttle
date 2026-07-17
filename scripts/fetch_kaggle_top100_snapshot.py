@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import shutil
@@ -195,8 +196,8 @@ def build_api_headers(xsrf_token: str) -> dict[str, str]:
     }
 
 
-def prepare_directories(timestamp_label: str) -> dict[str, Path]:
-    root = repo_root() / "data" / "kaggle_top100"
+def prepare_directories(root: Path, timestamp_label: str) -> dict[str, Path]:
+    root = root.resolve()
     snapshot = root / timestamp_label
     latest = root / "latest"
     raw_cli = snapshot / "raw" / "cli"
@@ -326,10 +327,36 @@ def choose_representative_submission(
     return ranked[0], "highest_public_score_fallback", False
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Fetch a current Kaggle leaderboard snapshot and the public "
+            "submissions for the top N teams."
+        )
+    )
+    parser.add_argument(
+        "--top-n",
+        type=int,
+        default=TOP_N,
+        help="Number of public leaderboard teams to fetch. Default: 100.",
+    )
+    parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=repo_root() / "data" / "kaggle_top100",
+        help="Snapshot root. Default: data/kaggle_top100.",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
+    if args.top_n <= 0:
+        raise ValueError("--top-n must be greater than 0")
+
     started_at = now_jst()
     timestamp_label = started_at.strftime("%Y%m%d_%H%M%S_JST")
-    dirs = prepare_directories(timestamp_label)
+    dirs = prepare_directories(args.output_root, timestamp_label)
 
     cli_diagnostics = fetch_cli_diagnostics(dirs["raw_cli"])
 
@@ -342,7 +369,7 @@ def main() -> int:
     public_leaderboard = list(leaderboard.get("publicLeaderboard") or [])
     teams = list(leaderboard.get("teams") or [])
     teams_by_id = {team.get("teamId"): team for team in teams}
-    top100 = public_leaderboard[:TOP_N]
+    top_entries = public_leaderboard[: args.top_n]
 
     leaderboard_rows: list[dict[str, Any]] = []
     public_submission_rows: list[dict[str, Any]] = []
@@ -351,7 +378,7 @@ def main() -> int:
     failures: list[dict[str, Any]] = []
     total_public_submission_rows = 0
 
-    for entry in top100:
+    for entry in top_entries:
         rank = int(entry["rank"])
         team_id = int(entry["teamId"])
         leaderboard_submission_id = int(entry["submissionId"])
@@ -486,10 +513,10 @@ def main() -> int:
         "retrievedAtUtc": isoformat_z(completed_at),
         "snapshotDirectory": str(dirs["snapshot"].relative_to(repo_root())),
         "latestDirectory": str(dirs["latest"].relative_to(repo_root())),
-        "topN": TOP_N,
+        "topN": args.top_n,
         "counts": {
             "leaderboardRowsFetched": len(public_leaderboard),
-            "teamsRequested": len(top100),
+            "teamsRequested": len(top_entries),
             "teamsSucceeded": len(team_results),
             "teamsFailed": len(failures),
             "publicSubmissionRows": total_public_submission_rows,
@@ -508,7 +535,7 @@ def main() -> int:
 
     write_json(dirs["snapshot"] / "manifest.json", manifest)
     write_json(
-        dirs["snapshot"] / "top100_results.json",
+        dirs["snapshot"] / f"top{args.top_n}_results.json",
         {
             "metadata": manifest,
             "teams": team_results,
@@ -522,7 +549,7 @@ def main() -> int:
         ["rank", "teamId", "teamName", "reason"],
     )
     write_csv(
-        dirs["snapshot"] / "leaderboard_top100.csv",
+        dirs["snapshot"] / f"leaderboard_top{args.top_n}.csv",
         leaderboard_rows,
         [
             "rank",
@@ -534,7 +561,7 @@ def main() -> int:
         ],
     )
     write_csv(
-        dirs["snapshot"] / "public_submissions_top100.csv",
+        dirs["snapshot"] / f"public_submissions_top{args.top_n}.csv",
         public_submission_rows,
         [
             "rank",
@@ -552,7 +579,7 @@ def main() -> int:
         ],
     )
     write_csv(
-        dirs["snapshot"] / "representative_submissions_top100.csv",
+        dirs["snapshot"] / f"representative_submissions_top{args.top_n}.csv",
         representative_rows,
         [
             "rank",

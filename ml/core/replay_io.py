@@ -91,9 +91,8 @@ def deck_hash(card_ids: Iterable[int]) -> str:
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:16]
 
 
-def extract_fast_header(ref: ReplayRef) -> dict[str, Any]:
-    """Extract team names, rewards and both initial 60-card lists without parsing all steps."""
-    raw = read_replay_prefix(ref)
+def extract_fast_header_from_bytes(raw: bytes) -> dict[str, Any]:
+    """Extract team names, rewards and both initial 60-card lists from replay bytes."""
     teams: list[Any] = [None, None]
     rewards: list[Any] = [None, None]
     decks: list[list[int]] = [[], []]
@@ -118,6 +117,16 @@ def extract_fast_header(ref: ReplayRef) -> dict[str, Any]:
         "decks": decks,
         "deck_hashes": [deck_hash(deck) if deck else "" for deck in decks],
     }
+
+
+def extract_fast_header(ref: ReplayRef) -> dict[str, Any]:
+    """Extract team names, rewards and both initial 60-card lists without parsing all steps."""
+    return extract_fast_header_from_bytes(read_replay_prefix(ref))
+
+
+def extract_fast_header_from_file(path: str | Path, limit: int = 240_000) -> dict[str, Any]:
+    with Path(path).open("rb") as handle:
+        return extract_fast_header_from_bytes(handle.read(limit))
 
 
 def zip_metadata(zip_path: str | Path) -> dict[str, Any]:
