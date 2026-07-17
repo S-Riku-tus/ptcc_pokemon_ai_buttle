@@ -5,7 +5,8 @@
   "replay_glob": "data/runs/kaggle_top50/*.zip",
   "replay_roots": [
     "data/runs/20260717_153527_alakazam_ml_v2_sub54644578.zip",
-    "data/runs/20260717_154036_alakazam_ml_v3_sub54681320.zip"
+    "data/runs/20260717_154036_alakazam_ml_v3_sub54681320.zip",
+    "data/runs/20260717_kaggle_top20/ml_training/rank02_Majkel1337_sub54662660.zip"
   ],
   "processed_dir": "data/ml/alakazam_v4_candidate/processed",
   "models_dir": "data/ml/alakazam_v4_candidate/models",
@@ -17,6 +18,9 @@
   "teacher_weight_min": 0.65,
   "teacher_weight_max": 1.35,
   "dataset_workers": 4,
+  "archive_processed_after_training": {
+    "remove_original": true
+  },
   "policy_scope": "ACTIVE MAIN decisions with exactly one selected legal option",
   "hard_fallback_action_types": [
     "boss",

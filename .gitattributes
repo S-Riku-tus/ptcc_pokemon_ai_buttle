@@ -11,6 +11,7 @@ data/ml/**/processed/*.csv filter=lfs diff=lfs merge=lfs -text
 data/ml/**/processed/*.csv.gz filter=lfs diff=lfs merge=lfs -text
 data/ml/**/processed/*.parquet filter=lfs diff=lfs merge=lfs -text
 data/ml/**/processed/matrix/** filter=lfs diff=lfs merge=lfs -text
+data/ml/**/processed.zip filter=lfs diff=lfs merge=lfs -text
 data/ml/**/models/*.joblib filter=lfs diff=lfs merge=lfs -text
 data/ml/**/models/*.txt filter=lfs diff=lfs merge=lfs -text
 data/ml/**/self_play/**/*.jsonl filter=lfs diff=lfs merge=lfs -text

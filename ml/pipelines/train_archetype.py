@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import zipfile
 import hashlib
 import json
 import shutil
@@ -87,10 +88,32 @@ def _required_processed_files(processed: Path) -> list[Path]:
 
 
 def _assert_processed_ready(processed: Path) -> None:
+    archive = processed.with_suffix(".zip")
+    if not processed.exists() and archive.exists():
+        with zipfile.ZipFile(archive) as zf:
+            zf.extractall(processed.parent)
     missing = [path for path in _required_processed_files(processed) if not path.exists()]
     if missing:
         formatted = "\n".join(f"  - {path}" for path in missing)
         raise FileNotFoundError(f"Processed ML data is incomplete:\n{formatted}")
+
+
+def _archive_processed(processed: Path, *, remove_original: bool) -> dict[str, Any] | None:
+    if not processed.exists():
+        return None
+    archive = processed.with_suffix(".zip")
+    if archive.exists():
+        archive.unlink()
+    file_count = sum(1 for path in processed.rglob("*") if path.is_file())
+    shutil.make_archive(str(archive.with_suffix("")), "zip", root_dir=processed.parent, base_dir=processed.name)
+    if remove_original:
+        shutil.rmtree(processed)
+    return {
+        "archive": str(archive),
+        "file_count": file_count,
+        "archive_bytes": archive.stat().st_size,
+        "removed_original": remove_original,
+    }
 
 
 def _validate_runtime(agent_dir: Path) -> dict[str, Any]:
@@ -265,6 +288,12 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "notes": notes,
         "submission_generation": "Use scripts/build_submission.py; the ML pipeline does not create Kaggle archives.",
     }
+    archive_cfg = config.get("archive_processed_after_training", {})
+    if archive_cfg and training_ran:
+        payload["processed_archive"] = _archive_processed(
+            processed,
+            remove_original=bool(archive_cfg.get("remove_original", False)),
+        )
     _write_report(reports / "pipeline_report.json", payload)
     return payload
 
