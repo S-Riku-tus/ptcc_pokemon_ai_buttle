@@ -1,0 +1,59 @@
+{
+  "name": "alakazam_ml_v2_expanded",
+  "base": "alakazam741_v12_top_sync_full",
+  "model": "LightGBM candidate ranker distilled to pure Python trees",
+  "confidence_threshold": 0.55,
+  "model_scope": "Guarded ACTIVE MAIN ranking: Abra/Dunsparce bench, evolution, and attack only when fallback is in safe scope",
+  "deck_policy": "exact Majkel 60, unchanged",
+  "model_training_decisions": 100075,
+  "model_candidate_rows": 1155913,
+  "training_teams": 20,
+  "training_submissions": 21,
+  "training_decks": 8,
+  "training_replay_files": 5122,
+  "training_trajectories": 2174,
+  "replay_layouts": [
+    "replay",
+    "replays"
+  ],
+  "hard_fallback_actions": [
+    "ability",
+    "end",
+    "trainer",
+    "energy",
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer",
+    "other"
+  ],
+  "distilled_model_format": "lightgbm_tree_v2",
+  "runtime_directory": "agents/alakazam_ml_v2_expanded",
+  "legacy_directory": "ml/legacy/agents/alakazam_ml_v1",
+  "last_training_mode": "raw_replay",
+  "last_replay_zip_count": 51,
+  "ranker_model_sha256": "2f494b027174388877fce9fb615e7a4cd077ad2279bc5511693a494bca526809",
+  "runtime_revision": "guarded_board_construction_v1",
+  "model_unchanged": true,
+  "rule_only_actions": [
+    "ability",
+    "end",
+    "trainer",
+    "energy",
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer",
+    "other"
+  ],
+  "ml_safe_bench_card_ids": [
+    305,
+    741
+  ],
+  "ladder_fix_basis": {
+    "games": 45,
+    "rating": 691.7,
+    "all_ability_uses_were_ml": 92,
+    "low_deck_dudunsparce_issue": "Observed high-confidence uses at deck 4-6 and hand 25-30"
+  }
+}
