@@ -1,0 +1,38 @@
+{
+  "archetype": "alakazam",
+  "champion_agent": "alakazam_ml_v3",
+  "challenger_agent": null,
+  "baseline_agent": "alakazam741_v12_top_sync_full",
+
+  "games": 200,
+  "seat_swap": true,
+  "seed": 7412026,
+  "max_steps": 8000,
+
+  "parallel_workers": 1,
+  "timeout_seconds_per_decision": 5.0,
+
+  "save_replays": false,
+  "save_trajectories": false,
+
+  "run_baseline_comparison": true,
+  "baseline_games": 100,
+
+  "minimum_games": 200,
+  "require_confidence_interval_above": 0.50,
+  "alakazam_card_id": 743,
+
+  "promotion_thresholds": {
+    "minimum_head_to_head_win_rate": 0.53,
+    "minimum_attack_turn_rate": 0.70,
+    "minimum_alakazam_attacks_per_game": 3.8,
+    "maximum_deckout_rate": 0.05,
+    "maximum_boardout_rate": 0.05,
+    "maximum_post_first_attack_idle_turns_in_losses": 0.8,
+    "maximum_crashes": 0,
+    "maximum_illegal_actions": 0,
+    "maximum_timeouts": 0
+  },
+
+  "output_root": "artifacts/champion_challenger"
+}

@@ -1,0 +1,216 @@
+{
+  "legacy_singular_only": {
+    "decision_count": 1729,
+    "top1": 0.6171197223828803,
+    "top3": 0.8594563331405437,
+    "mrr": 0.7522641368769698,
+    "ece": 0.1375916362907479,
+    "temperature": 0.5542567596335081,
+    "fallback_probability": 0.55,
+    "fallback_margin": 0.12,
+    "fallback_rate": 0.5529207634470792,
+    "accepted_top1": 0.7697283311772316,
+    "accepted_count": 773,
+    "illegal_action_count": 0,
+    "action_type_metrics": {
+      "ability": {
+        "count": 272,
+        "top1": 0.9485294117647058,
+        "top3": 0.9963235294117647,
+        "mrr": 0.9733455882352942,
+        "fallback_rate": 0.05514705882352941,
+        "accepted_top1": 0.9766536964980544
+      },
+      "attack": {
+        "count": 180,
+        "top1": 0.8388888888888889,
+        "top3": 0.9722222222222222,
+        "mrr": 0.9086640211640211,
+        "fallback_rate": 0.4722222222222222,
+        "accepted_top1": 0.9473684210526315
+      },
+      "bench": {
+        "count": 257,
+        "top1": 0.6498054474708171,
+        "top3": 0.9844357976653697,
+        "mrr": 0.8145590142671855,
+        "fallback_rate": 0.5097276264591439,
+        "accepted_top1": 0.9365079365079365
+      },
+      "boss": {
+        "count": 24,
+        "top1": 0.08333333333333333,
+        "top3": 0.4166666666666667,
+        "mrr": 0.29975198412698406,
+        "fallback_rate": 0.6666666666666666,
+        "accepted_top1": 0.125
+      },
+      "end": {
+        "count": 97,
+        "top1": 0.23711340206185566,
+        "top3": 0.9381443298969072,
+        "mrr": 0.590089592538046,
+        "fallback_rate": 0.17525773195876287,
+        "accepted_top1": 0.1875
+      },
+      "energy": {
+        "count": 160,
+        "top1": 0.46875,
+        "top3": 0.675,
+        "mrr": 0.6075698953823954,
+        "fallback_rate": 0.81875,
+        "accepted_top1": 0.5862068965517241
+      },
+      "evolve": {
+        "count": 387,
+        "top1": 0.7416020671834626,
+        "top3": 0.9147286821705426,
+        "mrr": 0.8365775886979717,
+        "fallback_rate": 0.7441860465116279,
+        "accepted_top1": 0.8181818181818182
+      },
+      "hammer": {
+        "count": 32,
+        "top1": 0.25,
+        "top3": 0.78125,
+        "mrr": 0.5104166666666666,
+        "fallback_rate": 0.90625,
+        "accepted_top1": 0.0
+      },
+      "retreat": {
+        "count": 19,
+        "top1": 0.0,
+        "top3": 0.42105263157894735,
+        "mrr": 0.2809732664995823,
+        "fallback_rate": 0.42105263157894735,
+        "accepted_top1": 0.0
+      },
+      "trainer": {
+        "count": 251,
+        "top1": 0.3784860557768924,
+        "top3": 0.6454183266932271,
+        "mrr": 0.5549600410656187,
+        "fallback_rate": 0.7649402390438247,
+        "accepted_top1": 0.3728813559322034
+      },
+      "xerosic": {
+        "count": 50,
+        "top1": 0.02,
+        "top3": 0.58,
+        "mrr": 0.33294516594516593,
+        "fallback_rate": 0.88,
+        "accepted_top1": 0.0
+      }
+    },
+    "train_decisions": 8546,
+    "test_decisions": 1729,
+    "test_episode_cutoff": 85990020
+  },
+  "expanded_all_teams": {
+    "decision_count": 1729,
+    "top1": 0.6402544823597455,
+    "top3": 0.8525159051474841,
+    "mrr": 0.7603960631342956,
+    "ece": 0.13715649409870773,
+    "temperature": 0.5542567596335081,
+    "fallback_probability": 0.55,
+    "fallback_margin": 0.12,
+    "fallback_rate": 0.6437246963562753,
+    "accepted_top1": 0.8896103896103896,
+    "accepted_count": 616,
+    "illegal_action_count": 0,
+    "action_type_metrics": {
+      "ability": {
+        "count": 272,
+        "top1": 0.9558823529411765,
+        "top3": 0.9963235294117647,
+        "mrr": 0.9751838235294118,
+        "fallback_rate": 0.08088235294117647,
+        "accepted_top1": 0.988
+      },
+      "attack": {
+        "count": 180,
+        "top1": 0.6777777777777778,
+        "top3": 0.9166666666666666,
+        "mrr": 0.7970436507936509,
+        "fallback_rate": 0.6222222222222222,
+        "accepted_top1": 0.9117647058823529
+      },
+      "bench": {
+        "count": 257,
+        "top1": 0.5992217898832685,
+        "top3": 0.9455252918287937,
+        "mrr": 0.7758401131941988,
+        "fallback_rate": 0.5797665369649806,
+        "accepted_top1": 0.9537037037037037
+      },
+      "boss": {
+        "count": 24,
+        "top1": 0.041666666666666664,
+        "top3": 0.16666666666666666,
+        "mrr": 0.21873242498242496,
+        "fallback_rate": 0.875,
+        "accepted_top1": 0.0
+      },
+      "end": {
+        "count": 97,
+        "top1": 0.7938144329896907,
+        "top3": 0.9587628865979382,
+        "mrr": 0.8721281296023564,
+        "fallback_rate": 0.7010309278350515,
+        "accepted_top1": 0.4827586206896552
+      },
+      "energy": {
+        "count": 160,
+        "top1": 0.475,
+        "top3": 0.625,
+        "mrr": 0.5914275709670447,
+        "fallback_rate": 0.875,
+        "accepted_top1": 0.75
+      },
+      "evolve": {
+        "count": 387,
+        "top1": 0.7338501291989664,
+        "top3": 0.9224806201550387,
+        "mrr": 0.8345771297321685,
+        "fallback_rate": 0.7855297157622739,
+        "accepted_top1": 0.9036144578313253
+      },
+      "hammer": {
+        "count": 32,
+        "top1": 0.5,
+        "top3": 0.8125,
+        "mrr": 0.670610119047619,
+        "fallback_rate": 0.90625,
+        "accepted_top1": 0.6666666666666666
+      },
+      "retreat": {
+        "count": 19,
+        "top1": 0.10526315789473684,
+        "top3": 0.42105263157894735,
+        "mrr": 0.322859231411863,
+        "fallback_rate": 0.5789473684210527,
+        "accepted_top1": 0.25
+      },
+      "trainer": {
+        "count": 251,
+        "top1": 0.398406374501992,
+        "top3": 0.6772908366533864,
+        "mrr": 0.5756424368798402,
+        "fallback_rate": 0.8366533864541833,
+        "accepted_top1": 0.6829268292682927
+      },
+      "xerosic": {
+        "count": 50,
+        "top1": 0.3,
+        "top3": 0.74,
+        "mrr": 0.5416031746031745,
+        "fallback_rate": 0.94,
+        "accepted_top1": 0.0
+      }
+    },
+    "train_decisions": 102226,
+    "test_decisions": 1729,
+    "test_episode_cutoff": 85990020
+  }
+}

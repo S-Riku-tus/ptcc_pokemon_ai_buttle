@@ -1,0 +1,73 @@
+{
+  "name": "alakazam_ml_v4_candidate",
+  "role": "challenger",
+  "archetype": "alakazam",
+  "parent_agent": "alakazam_ml_v3",
+  "model_version": "v4-candidate",
+  "created_at": "2026-07-17T00:00:00+09:00",
+  "base": "alakazam741_v12_top_sync_full",
+  "model": "LightGBM candidate ranker distilled to pure Python trees",
+  "confidence_threshold": 0.55,
+  "model_scope": "Guarded ACTIVE MAIN ranking: Abra/Dunsparce bench, evolution, and attack only when fallback is in safe scope",
+  "deck_policy": "60-card user revision: Max Rod ACE, no Boss/Shaymin, 4 Dunsparce, Genesect, Psyduck, Lucky Helmet",
+  "model_training_decisions": 103955,
+  "model_candidate_rows": 1203919,
+  "training_teams": 21,
+  "training_submissions": 23,
+  "training_decks": 8,
+  "training_replay_files": 5203,
+  "training_trajectories": 2255,
+  "replay_layouts": [
+    "replay",
+    "replays"
+  ],
+  "hard_fallback_actions": [
+    "ability",
+    "end",
+    "trainer",
+    "energy",
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer",
+    "other"
+  ],
+  "distilled_model_format": "lightgbm_tree_v2",
+  "runtime_directory": "agents/alakazam_ml_v4_candidate",
+  "legacy_directory": "ml/legacy/agents/alakazam_ml_v1",
+  "last_training_mode": "raw_replay",
+  "last_replay_zip_count": 53,
+  "ranker_model_sha256": "63e68716c9a3dcfbb638dd994255135c1f95cc65a370c651ac56ecfbcc42f231",
+  "runtime_revision": "guarded_user_ladder_fixes_v4_candidate",
+  "model_unchanged": false,
+  "rule_only_actions": [
+    "ability",
+    "end",
+    "trainer",
+    "energy",
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer",
+    "other"
+  ],
+  "ml_safe_bench_card_ids": [
+    305,
+    741
+  ],
+  "ladder_fix_basis": {
+    "source": "user review of alakazam_ml_v3 ladder games",
+    "rules": [
+      "active Alakazam Psychic attachment must lead to attack",
+      "establish and retain Fezandipiti ex on the Bench from midgame",
+      "bench a Basic instead of exposing the last in-play Pokemon",
+      "do not play a search card when no goal target remains",
+      "use Genesect plus Lucky Helmet before the opposing ACE SPEC",
+      "use Psyduck only into visible self-KO Ability threats",
+      "use Max Rod for critical or multi-card recovery"
+    ]
+  },
+  "version": "0.1.0",
+  "status": "development",
+  "training_dataset_version": "top50-plus-v2-sub54644578-latest40-plus-v3-sub54681320-latest40"
+}
