@@ -1,6 +1,6 @@
 # Alakazam Rating Log
 
-Last updated: 2026-07-13 JST
+Last updated: 2026-07-17 JST
 
 ## Final Ratings
 
@@ -13,6 +13,13 @@ Last updated: 2026-07-13 JST
 | `alakazam741_v5` | 763.5 | Partial recovery from v4, but still clearly below v1-v3. |
 | `alakazam741_v6` | 700.2 | Regression from v5 and below v4 in the final ladder result. |
 | `alakazam741_v8` | 675.7 | Further regression versus v6 and the lowest recorded ladder result so far. |
+
+## ML Final Ratings
+
+| Agent | Final rating | Notes |
+| --- | ---: | --- |
+| `alakazam_ml_v1` | N/A | Not submitted / no final ladder rating recorded. |
+| `alakazam_ml_v2_expanded` | 691.7 | ML-series ladder result. Keep separate from the deterministic `alakazam741_v*` rating line. |
 
 ## Interpretation
 
@@ -49,3 +56,8 @@ That supports treating the v4/v5-derived fixes as selective lessons rather than 
 
 v8 finished at 675.7, which is 24.5 below v6, 48.1 below v4, and 179.7 below v2.
 That keeps the current conclusion unchanged: use v2 or v3 as the base, and treat later low-rated variants mainly as bug-fix and failure-analysis inputs rather than new foundations.
+
+## Takeaway After ML v2 Result
+
+`alakazam_ml_v2_expanded` finished at 691.7. Since `alakazam_ml_v1` was not submitted, there is no v1-to-v2 ladder comparison inside the ML series.
+The result should be interpreted separately from the deterministic `alakazam741_v*` line: the current ML runtime needs failure analysis and guarded/retrained follow-up before it can replace the stronger deterministic baselines.

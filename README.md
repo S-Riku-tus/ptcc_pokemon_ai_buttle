@@ -4,8 +4,9 @@ Repository for Pokemon TCG AI Battle Challenge agents.
 
 ## Current Agents
 
-- `agents/alakazam741_v12_top_sync_full`: current deterministic Alakazam fallback policy.
-- `agents/alakazam_ml_v2_expanded`: ML hybrid agent. It keeps the v12 fallback and uses a distilled LightGBM candidate ranker only for high-confidence ACTIVE MAIN decisions.
+- `agents/alakazam_ml_v3`: **current Champion**. Guarded ML hybrid over the v12 fallback (adds safety gates to the ML runtime).
+- `agents/alakazam741_v12_top_sync_full`: deterministic Alakazam fallback policy (used as the Champion-Challenger Baseline).
+- `agents/alakazam_ml_v2_expanded`: earlier ML hybrid agent. Keeps the v12 fallback and uses a distilled LightGBM candidate ranker only for high-confidence ACTIVE MAIN decisions.
 
 Older Alakazam versions remain under `agents/` as history and regression references. Non-Alakazam reconstruction work is kept in its own agent directory or under local archives.
 
@@ -110,13 +111,43 @@ Trajectory rows are candidates for later human-reviewed learning data, not autom
 
 ## Champion-Challenger
 
+Compare the current Champion (`alakazam_ml_v3`) against a new Challenger with
+one command. It runs seat-swapped matches, aggregates result / safety / tactical
+/ ML metrics with a 95% confidence interval, and writes a promotion report. It
+**never** overwrites the Champion or runs git/Kaggle actions.
+
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\champion_challenger.py `
-  --champion alakazam741_v12_top_sync_full `
-  --challenger alakazam_ml_v2_expanded
+.\.venv\Scripts\python.exe .\scripts\run_champion_challenger.py `
+  --champion alakazam_ml_v3 `
+  --challenger alakazam_ml_v4_candidate `
+  --config configs\champion_challenger\alakazam.json
 ```
 
-The script writes promotion reports and never promotes automatically.
+Short form / auto-detect the Challenger (`*_candidate` / `*_challenger`, or
+metadata `role: challenger`):
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\run_champion_challenger.py --champion alakazam_ml_v3 --challenger alakazam_ml_v4_candidate --games 200
+.\.venv\Scripts\python.exe .\scripts\run_champion_challenger.py --config configs\champion_challenger\alakazam.json --list-challengers
+```
+
+Quick smoke check (mechanism, not performance):
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\run_champion_challenger.py --champion alakazam_ml_v3 --challenger alakazam_ml_v2_expanded --games 4 --save-replays
+```
+
+The report ends in `PROMOTE_RECOMMENDED` / `HOLD` / `REJECT` /
+`INVALID_EVALUATION`. Formal promotion is a separate, human-only, dry-run-by-default step:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\promote_challenger.py `
+  --report artifacts\champion_challenger\<run>\promotion_report.json `
+  --new-agent-name alakazam_ml_v4 --dry-run   # add --apply to copy into a NEW agent dir
+```
+
+Full guide: `docs/CHAMPION_CHALLENGER.md`. The older thin
+`scripts/champion_challenger.py` remains for backward compatibility.
 
 ## More Docs
 

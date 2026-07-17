@@ -8,3 +8,6 @@ requires-python = ">=3.10"
 testpaths = ["tests", "ml/tests"]
 python_files = ["test_*.py"]
 addopts = "-q"
+markers = [
+    "smoke: end-to-end checks that load real agents and the cg engine (slower). Deselect with -m 'not smoke'.",
+]
