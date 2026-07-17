@@ -32,13 +32,12 @@ def test_role_pokemon_benching_is_rule_only():
     assert _candidate_scope_reason(ctx("bench", 140), fallback) == "role_fezandipiti"
     assert _candidate_scope_reason(ctx("bench", 343), fallback) == "role_shaymin"
     assert _candidate_scope_reason(ctx("bench", 142), fallback) == "role_genesect"
-    assert _candidate_scope_reason(ctx("bench", 858), fallback) == "role_psyduck"
 
 
 def test_only_abra_and_dunsparce_are_ml_safe_bench_choices():
     fallback = ctx("bench", 741)
     assert _candidate_scope_reason(ctx("bench", 741), fallback) is None
-    assert _candidate_scope_reason(ctx("bench", 305), fallback) is None
+    assert _candidate_scope_reason(ctx("bench", 305), fallback) == "preserve_fallback_bench_role"
     assert _candidate_scope_reason(ctx("bench", 66), fallback) == "bench_not_allowlisted"
 
 
@@ -52,3 +51,9 @@ def test_fallback_attack_cannot_be_spent_on_development():
 def test_candidate_that_breaks_ko_is_blocked():
     fallback = ctx("evolve", 743)
     assert _candidate_scope_reason(ctx("evolve", 743, breaks=True), fallback) == "breaks_current_ko"
+
+
+def test_evolution_stage_intent_is_preserved():
+    fallback = ctx("evolve", 743)
+    assert _candidate_scope_reason(ctx("evolve", 743), fallback) is None
+    assert _candidate_scope_reason(ctx("evolve", 66), fallback) == "preserve_fallback_evolution_stage"

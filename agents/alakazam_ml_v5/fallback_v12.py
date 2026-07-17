@@ -3,8 +3,8 @@
 # The policy keeps v11's attack reservation, legal fallback, PrizeTracker, deck validation,
 # last-body Dudunsparce protection and energy-aware backup ETA.  The v12 layer separates the
 # opening Abra-body target from completed attack routes, accelerates the first Alakazam with Rare
-# Candy, stops optional search after a secured KO/backup, and gives Enriching Energy, Boss's
-# Orders, Nighttime Mine, Fezandipiti ex and the Dudunsparce loop explicit role gates.
+# Candy, stops optional search after a concrete KO/backup improvement, and gives
+# Nighttime Mine, Fezandipiti ex, Genesect and the Dudunsparce loop explicit role gates.
 from __future__ import annotations
 
 import os
@@ -28,10 +28,9 @@ class C:
     ALAKAZAM = 743        # Stage2 attacker: Powerful Hand = 20 dmg x cards in hand
     DUNSPARCE = 305       # Basic -> Dudunsparce
     DUDUNSPARCE = 66      # Stage1 draw engine (Run Away Draw: draw 3, then shuffle self+attached into deck)
-    FEZANDIPITI_EX = 140   # Basic ex: conditional draw ability + 100-damage flexible fallback attack
+    FEZANDIPITI_EX = 140   # Basic ex: persistent Bench draw engine after an opposing-turn KO
     SHAYMIN = 343          # Basic bench-protection role Pokémon
     GENESECT = 142         # Basic bench tech: blocks opposing ACE SPEC while a Tool is attached
-    PSYDUCK = 858          # Basic bench tech: Damp blocks self-KO Abilities
 
     PSYCHIC_ENERGY = 5
     ENRICHING_ENERGY = 13  # ACE SPEC: provides {C}; hand attachment draws 4
@@ -62,23 +61,15 @@ DUNSPARCE_RAM = 424    # Dunsparce: 20
 FEZANDIPITI_ATTACK = 183  # 100 damage; may target an opposing Pokémon
 
 ALAKAZAM_IDS = {C.ALAKAZAM}
-ATTACKER_IDS = {C.ALAKAZAM, C.KADABRA, C.FEZANDIPITI_EX}
+ATTACKER_IDS = {C.ALAKAZAM, C.KADABRA}
 ENERGY_TYPES = {C.PSYCHIC_ENERGY, C.TELEPATH_ENERGY}
 
 ALAKAZAM_LINE = (C.ABRA, C.KADABRA, C.ALAKAZAM)
 ENGINE_LINE = (C.DUNSPARCE, C.DUDUNSPARCE)
 RECOVERABLE = (C.ABRA, C.KADABRA, C.ALAKAZAM, C.DUNSPARCE, C.DUDUNSPARCE,
-               C.FEZANDIPITI_EX, C.GENESECT, C.PSYDUCK, C.PSYCHIC_ENERGY)
+               C.FEZANDIPITI_EX, C.GENESECT, C.PSYCHIC_ENERGY)
 DRAW_SUPPORTERS = (C.HILDA, C.DAWN, C.XEROSIC)
 
-
-SELF_KO_ABILITY_IDS = set()
-for _card in card_table.values():
-    for _skill in (getattr(_card, "skills", None) or []):
-        _text = (getattr(_skill, "text", "") or "").lower()
-        if "knock out" in _text and (
-                "this pokémon" in _text or "this pokemon" in _text or "itself" in _text):
-            SELF_KO_ABILITY_IDS.add(_card.cardId)
 
 
 class TurnState:
@@ -88,11 +79,6 @@ class TurnState:
     LOCKED = "LOCKED"
     ENDGAME = "ENDGAME"
 
-
-class FezMode:
-    NONE = "NONE"
-    DRAW_ONLY = "DRAW_ONLY"
-    ALTERNATE_ATTACKER = "ALTERNATE_ATTACKER"
 
 
 class Tier:
@@ -525,7 +511,7 @@ class AlakazamPolicy(BasePolicy):
         leaves us winning before we deck out (turns_to_deckout > turns_to_win)."""
         if makes_lethal and self.me.deckCount - cost >= 2:
             return True
-        if secures_backup and self.me.deckCount - cost >= self._turns_to_win():
+        if secures_backup and self.me.deckCount - cost > self._turns_to_win():
             return True
         return self._turns_to_deckout(cost) > self._turns_to_win()
 
@@ -540,39 +526,47 @@ class AlakazamPolicy(BasePolicy):
         return any(p is not None and p.id == C.ALAKAZAM and self.can_attack(p)
                    for p in self.my_board())
 
-    def _backup_eta(self, recovered_cid=None):
+    def _backup_eta(self, recovered_cid=None, additions=None):
         """Turns until a FOLLOW-UP attacker can attack.
 
-        ``recovered_cid`` is a one-card hypothetical used by Night Stretcher.  This makes the
-        recovery choice a real before/after test instead of a broad "we need a backup" predicate.
-        Only ETA <= 1 counts as a secured follow-up.
+        ``recovered_cid`` remains for Night Stretcher compatibility. ``additions`` is a
+        hypothetical hand Counter used by search-card evaluation. Only ETA <= 1 counts as a
+        secured follow-up; merely adding another Basic is not treated as a completed backup.
         """
         bench = [p for p in self.me.bench if p is not None]
         if any(p.id in ALAKAZAM_IDS and self.can_attack(p) for p in bench):
             return 0
 
-        def h(cid):
-            return self.hand[cid] + (1 if recovered_cid == cid else 0)
+        extra = Counter(additions or {})
+        if recovered_cid is not None:
+            extra[recovered_cid] += 1
 
-        psychic_available = self._psychic_in_hand() or recovered_cid == C.PSYCHIC_ENERGY
+        def h(cid):
+            return self.hand[cid] + extra[cid]
+
+        psychic_available = self._psychic_in_hand() or any(
+            extra[cid] > 0 and ENERGY_PROVIDES.get(cid) == EnergyType.PSYCHIC
+            for cid in ENERGY_TYPES
+        )
         can_energy = (not getattr(self.state, "energyAttached", False)) and psychic_available
 
-        def fueled(p):
-            return self.energy_count(p) >= 1
+        def fueled(pokemon):
+            return self.energy_count(pokemon) >= 1
 
         # One legal enabling step from a body already on the bench.
-        for p in bench:
-            if p.id in ALAKAZAM_IDS and can_energy:
+        for pokemon in bench:
+            if pokemon.id in ALAKAZAM_IDS and can_energy:
                 return 1
-        for p in bench:
-            if p.id == C.KADABRA and h(C.ALAKAZAM) > 0 and (fueled(p) or can_energy):
+        for pokemon in bench:
+            if (pokemon.id == C.KADABRA and h(C.ALAKAZAM) > 0
+                    and (fueled(pokemon) or can_energy)):
                 return 1
-        for p in bench:
-            if (p.id == C.ABRA and h(C.RARE_CANDY) > 0 and h(C.ALAKAZAM) > 0
-                    and (fueled(p) or can_energy)):
+        for pokemon in bench:
+            if (pokemon.id == C.ABRA and h(C.RARE_CANDY) > 0 and h(C.ALAKAZAM) > 0
+                    and (fueled(pokemon) or can_energy)):
                 return 1
 
-        # A body exists, but more than one enabling step or a future energy is still needed.
+        # A body exists, but more than one enabling step or a future Energy is still needed.
         if any(p.id in (C.KADABRA, C.ALAKAZAM) for p in bench):
             return 2
         if any(p.id == C.ABRA for p in bench):
@@ -598,6 +592,89 @@ class AlakazamPolicy(BasePolicy):
             return False
         fueled = any(p.id in ALAKAZAM_LINE and self.energy_count(p) >= 1 for p in bench)
         return not (self._psychic_in_hand() or fueled)
+
+    @staticmethod
+    def _search_deck_cost(cid):
+        """Maximum number of cards a search removes from the deck when it resolves."""
+        return {
+            C.BUDDY_POFFIN: 2,
+            C.POKE_PAD: 1,
+            C.HILDA: 2,
+            C.DAWN: 3,
+        }.get(cid, 0)
+
+    @staticmethod
+    def _search_hand_delta(cid):
+        """Net hand-size change after the complete search effect resolves."""
+        return {
+            C.BUDDY_POFFIN: -1,  # searched Basics go directly to the Bench
+            C.POKE_PAD: 0,       # spend the Item, take one Pokémon to hand
+            C.HILDA: 1,          # spend Supporter, take Evolution + Energy
+            C.DAWN: 2,           # spend Supporter, take Basic + Stage1 + Stage2
+        }.get(cid, -1)
+
+    def _search_secures_backup(self, cid):
+        """Whether the actual cards a search can add reduce backup ETA to <= 1.
+
+        The previous implementation passed ``secures_backup=True`` merely because a backup was
+        missing. That let any vaguely relevant search bypass deckout safety even when it only
+        fetched an Abra that was still two or three turns from attacking.
+        """
+        if self._backup_eta() <= 1:
+            return False
+
+        def available(card_id):
+            return self._maybe_in_deck(card_id)
+
+        additions = []
+        if cid == C.POKE_PAD:
+            additions = [Counter({card_id: 1}) for card_id in self._legal_search_targets(cid)
+                         if available(card_id)]
+        elif cid == C.HILDA:
+            evolutions = [card_id for card_id in (C.KADABRA, C.ALAKAZAM, C.DUDUNSPARCE)
+                          if available(card_id)]
+            energies = [card_id for card_id in ENERGY_TYPES if available(card_id)]
+            additions = [Counter({evo: 1, energy: 1})
+                         for evo in evolutions for energy in energies]
+        elif cid == C.DAWN:
+            basics = [card_id for card_id in (C.ABRA, C.DUNSPARCE, C.GENESECT)
+                      if available(card_id)] or [None]
+            stage1 = [card_id for card_id in (C.KADABRA, C.DUDUNSPARCE)
+                      if available(card_id)] or [None]
+            stage2 = [C.ALAKAZAM] if available(C.ALAKAZAM) else [None]
+            for basic in basics:
+                for middle in stage1:
+                    for final in stage2:
+                        cards = [card_id for card_id in (basic, middle, final)
+                                 if card_id is not None]
+                        additions.append(Counter(cards))
+        # Buddy-Buddy Poffin creates bodies, but never an eta<=1 attacker by itself.
+        return any(self._backup_eta(additions=extra) <= 1 for extra in additions)
+
+    def _search_makes_lethal(self, cid):
+        opp = self.opponent.active[0] if self.opponent.active else None
+        if (opp is None or not self._ready_alakazam_attacker()
+                or self._effect_prevented(opp)):
+            return False
+        before = 20 * self.me.handCount
+        after = 20 * max(0, self.me.handCount + self._search_hand_delta(cid))
+        return before < opp.hp <= after
+
+    def _open_bench_slots(self):
+        return max(0, getattr(self.me, "benchMax", 5)
+                   - sum(1 for pokemon in self.me.bench if pokemon is not None))
+
+    def _essential_bench_reserve(self):
+        """Slots that must remain for the first attack line and one draw-engine body."""
+        reserve = 0
+        if self._abra_body_count() == 0:
+            reserve += 1
+        if self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] == 0:
+            reserve += 1
+        if self._ready_alakazam_attacker():
+            bench_line = any(p is not None and p.id in ALAKAZAM_LINE for p in self.me.bench)
+            reserve += int(not bench_line)
+        return reserve
 
     def _early_game(self):
         turn = getattr(self.state, "turn", 0) or 0
@@ -679,88 +756,27 @@ class AlakazamPolicy(BasePolicy):
         return bool(_TURN_STATE.get("ko_last_opponent_turn", False))
 
     def _fez_draw_needed(self):
-        # Flip the Script is the reason to keep Fezandipiti on the Bench.  Use it after every
-        # opposing-turn KO unless the remaining deck is too thin to finish the prize race.
-        return (self._ko_during_previous_opponent_turn()
-                and self.me.deckCount >= max(3, self._turns_to_win() + 1)
+        """Use Flip the Script as recovery, not as automatic overdraw after every KO."""
+        if not self._ko_during_previous_opponent_turn() or self._stop_optional_draw():
+            return False
+        needs_cards = (
+            self.me.handCount <= 12
+            or not self._ready_alakazam_attacker()
+            or self._backup_eta() > 1
+            or self._draw_needed_for_ko()
+        )
+        if not needs_cards:
+            return False
+        return (self.me.deckCount >= max(3, self._turns_to_win() + 1)
                 and self._turns_to_deckout(extra_spend=3) > self._turns_to_win())
 
-    def _fez_attack_goal(self):
-        """Cruel Arrow needs a concrete 100-damage prize/denial target, not merely legality."""
-        for pokemon in self.opponent.active + self.opponent.bench:
-            if pokemon is None or getattr(pokemon, "hp", 0) > 100:
-                continue
-            data = card_table.get(pokemon.id)
-            winning = prize_count(pokemon) >= len(self.me.prize)
-            protector = pokemon.id in GLOBAL_EFFECT_PROTECTORS
-            main_attacker = bool(self.can_attack(pokemon) or (data and (data.attacks or [])
-                                 and (getattr(data, "ex", False)
-                                      or getattr(data, "stage2", False))))
-            scarce_line = bool(data and (getattr(data, "stage1", False)
-                                         or getattr(data, "stage2", False)))
-            if winning or prize_count(pokemon) >= 2 or protector or main_attacker or scarce_line:
-                return True
-        return False
-
-    def _fez_body(self):
-        return next((p for p in self.my_board()
-                     if p is not None and p.id == C.FEZANDIPITI_EX), None)
-
-    def _fez_completion_eta(self, post_attach=False):
-        fez = self._fez_body()
-        current = self.energy_count(fez) if fez is not None else 0
-        if post_attach:
-            current += 1
-        return max(0, 3 - current)
-
-    def _fez_energy_path(self, post_attach=False):
-        missing = self._fez_completion_eta(post_attach=post_attach)
-        held = sum(self.hand[cid] for cid in ENERGY_TYPES)
-        if post_attach:
-            held = max(0, held - 1)
-        # Cards merely known to be somewhere in the deck are not a completion plan. Count only
-        # held energy and deterministic recovery/search already in hand; natural top-decks are
-        # intentionally excluded so a one-energy Fez is never abandoned on wishful probability.
-        hilda_searches = (0 if self.state.supporterPlayed else self.hand[C.HILDA])
-        stretcher_search = int(
-            self.hand[C.NIGHT_STRETCHER] > 0 and self.discard.get(C.PSYCHIC_ENERGY, 0) > 0)
-        accessible = held + min(missing, hilda_searches) + stretcher_search
-        return missing <= 3 and accessible >= missing
-
-    def _fez_alternate_needed(self):
-        opp = self.opponent.active[0] if self.opponent.active else None
-        powerful_hand_blocked = bool(
-            opp is not None and self._effect_prevented(opp)
-            and (self._ready_alakazam_attacker() or self.field[C.ALAKAZAM] > 0
-                 or self._independent_route_count() > 0)
-        )
-        hammer_faster = (self.hand[C.ENHANCED_HAMMER] > 0
-                         and self._opp_active_has_prevent_energy()
-                         and self._ready_alakazam_attacker())
-        return (powerful_hand_blocked and not hammer_faster and self._fez_attack_goal())
-
-    def _fez_mode(self):
-        if self._fez_alternate_needed() and self._fez_energy_path():
-            return FezMode.ALTERNATE_ATTACKER
-        if self._ko_during_previous_opponent_turn():
-            return FezMode.DRAW_ONLY
-        return FezMode.NONE
-
     def _fezandipiti_worthwhile(self):
+        """Bench a naturally drawn Fezandipiti early, without consuming the last essential slot."""
         if self.field[C.FEZANDIPITI_EX] > 0 or not self._open_bench():
             return False
-        mode = self._fez_mode()
-        if mode in (FezMode.DRAW_ONLY, FezMode.ALTERNATE_ATTACKER):
+        if self._survival_bench_needed():
             return True
-        # From the midgame onward, establish the draw engine before the next KO instead of
-        # waiting until the one turn on which its Ability is already live.
-        if not self._midgame() or self.me.deckCount < 4:
-            return False
-        open_slots = getattr(self.me, "benchMax", 5) - sum(
-            1 for pokemon in self.me.bench if pokemon is not None)
-        reserved = int(self._abra_body_count() == 0) + int(
-            self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] == 0)
-        return open_slots > reserved
+        return self._open_bench_slots() > self._essential_bench_reserve()
 
     def _need_pieces(self):
         return self.field[C.ALAKAZAM] < 1 and not self._holds_complete_route()
@@ -822,27 +838,19 @@ class AlakazamPolicy(BasePolicy):
                        if getattr(card, "playerIndex", None) == self.op_index)
         return any(_is_ace_spec(getattr(card, "id", None)) for card in visible)
 
-    def _opp_has_self_ko_ability(self):
-        return any(pokemon is not None and pokemon.id in SELF_KO_ABILITY_IDS
-                   for pokemon in self.opponent.active + self.opponent.bench)
-
     def _genesect_worthwhile(self):
         if (self.field[C.GENESECT] > 0 or not self._open_bench()
                 or self._opponent_ace_seen()):
             return False
-        helmet_available = (self.hand[C.LUCKY_HELMET] > 0
-                            or self._maybe_in_deck(C.LUCKY_HELMET))
-        if not helmet_available:
+        # Complete the ACE lock immediately; a Tool merely remaining in deck is not a plan.
+        if self.hand[C.LUCKY_HELMET] <= 0:
             return False
-        open_slots = getattr(self.me, "benchMax", 5) - sum(
-            1 for pokemon in self.me.bench if pokemon is not None)
-        reserved = int(self._abra_body_count() == 0) + int(
-            self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] == 0)
-        return open_slots > reserved
-
-    def _psyduck_worthwhile(self):
-        return (self.field[C.PSYDUCK] == 0 and self._open_bench()
-                and self._opp_has_self_ko_ability())
+        # Fezandipiti is the always-on recovery role requested for this build, so Genesect may not
+        # consume its last possible Bench slot when both are naturally held.
+        reserve = self._essential_bench_reserve()
+        if self.hand[C.FEZANDIPITI_EX] > 0 and self.field[C.FEZANDIPITI_EX] == 0:
+            reserve += 1
+        return self._open_bench_slots() > reserve
 
     def _genesect_needs_helmet(self):
         return any(pokemon is not None and pokemon.id == C.GENESECT
@@ -870,15 +878,26 @@ class AlakazamPolicy(BasePolicy):
         return not self._psychic_in_hand()
 
     def _achievable_hand(self):
+        """Upper bound on hand size from actions that are *actually useful and legal now*.
+
+        The old estimate counted Dawn/Hilda merely because they were in hand.  That made the
+        deckout clock and KO reachability optimistic even when the relevant search targets were
+        already exhausted.  Count at most one Supporter, and only when its search has a concrete
+        goal in the current state.
+        """
         extra = 0
         if (self.me.deckCount > 3
                 and any(p is not None and p.id == C.DUDUNSPARCE for p in self.me.bench)):
             extra += 3
-        if not self.state.supporterPlayed and (self.hand[C.HILDA] or self.hand[C.DAWN]):
-            extra += 1
-        if any(o.type == OptionType.ABILITY
-               and getattr(get_card(self.obs, o.area, o.index, self.my_index), "id", None)
-               == C.FEZANDIPITI_EX for o in (self.select.option or [])):
+        if not self.state.supporterPlayed:
+            if self.hand[C.DAWN] and self._search_card_has_goal(C.DAWN):
+                extra += 2
+            elif self.hand[C.HILDA] and self._search_card_has_goal(C.HILDA):
+                extra += 1
+        if (self._fez_draw_needed() and any(
+                o.type == OptionType.ABILITY
+                and getattr(get_card(self.obs, o.area, o.index, self.my_index), "id", None)
+                == C.FEZANDIPITI_EX for o in (self.select.option or []))):
             extra += 3
         return self.me.handCount + extra
 
@@ -950,7 +969,12 @@ class AlakazamPolicy(BasePolicy):
 
     # ── pre-attack gate ────────────────────────────────────────────────────
     def _hand_delta(self, option):
-        """Conservative net hand-size change of an option (for the lethal-preservation gate)."""
+        """Net hand-size change after the complete action/effect resolves.
+
+        Evolution draw was previously ignored, so Kadabra, Alakazam and Rare Candy could be
+        falsely blocked as if they reduced Powerful Hand damage. The values below include their
+        actual evolution draw effects.
+        """
         t = option.type
         if t == OptionType.ABILITY:
             card = get_card(self.obs, option.area, option.index, self.my_index)
@@ -959,31 +983,53 @@ class AlakazamPolicy(BasePolicy):
             if card is not None and card.id == C.FEZANDIPITI_EX:
                 return 3
             return 0
-        if t in (OptionType.EVOLVE, OptionType.ATTACH, OptionType.ENERGY):
-            if t in (OptionType.ATTACH, OptionType.ENERGY):
-                src = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
-                if src is not None and src.id == C.ENRICHING_ENERGY:
-                    return 3              # spend 1, then the card effect draws 4
+        if t == OptionType.EVOLVE:
+            evolution = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
+            evolution_draw = {
+                C.KADABRA: 2,
+                C.ALAKAZAM: 3,
+            }.get(getattr(evolution, "id", None), 0)
+            return evolution_draw - 1
+        if t in (OptionType.ATTACH, OptionType.ENERGY):
+            src = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
+            if src is not None and src.id == C.ENRICHING_ENERGY:
+                return 3
             return -1
         if t == OptionType.PLAY:
             cid = self._play_card_id(option)
-            if cid in (C.HILDA, C.DAWN, C.LANA_AID):
+            if cid in (C.HILDA, C.DAWN, C.BUDDY_POFFIN, C.POKE_PAD):
+                return self._search_hand_delta(cid)
+            if cid == C.LANA_AID:
                 return 1
             if cid == C.MAX_ROD and self._max_rod_worthwhile():
                 return max(0, len(self._max_rod_ranked_targets()) - 1)
             if cid == C.RARE_CANDY:
-                return -2                 # Candy and the Stage-2 card both leave the hand
+                # Candy + Alakazam leave the hand, then Alakazam draws 3: net +1.
+                return 1
             if cid == C.NIGHT_STRETCHER and self._night_stretcher_worthwhile():
                 return 0
             return -1
         return 0
 
-    def _preserves_attack(self, option):
-        """Keep the reserved attack both legal and meaningful after a hand spend.
+    def _optional_role_spend(self, option):
+        """Purely optional board/Tool/Stadium spends with no immediate attack conversion."""
+        if option.type != OptionType.PLAY:
+            return False
+        return self._play_card_id(option) in {
+            C.FEZANDIPITI_EX,
+            C.GENESECT,
+            C.LUCKY_HELMET,
+            C.NIGHTTIME_MINE,
+            C.BUDDY_POFFIN,
+        }
 
-        v10 only protected an existing KO.  With one card in hand, Battle Cage could therefore
-        reduce Powerful Hand from 20 to 0 and still pass the gate.  We now protect the existence
-        of the attack first, and the KO second.
+    def _preserves_attack(self, option):
+        """Keep the reserved attack legal, lethal, and on the same practical KO clock.
+
+        Besides preventing a current KO from disappearing, optional role cards must not turn a
+        two-hit Powerful Hand line into a three-hit line.  This retains the requested early
+        Fezandipiti policy in ordinary states while restoring v3-like attack conversion when the
+        single-card hand spend materially changes the prize race.
         """
         if not self._attack_reserved:
             return True
@@ -994,11 +1040,17 @@ class AlakazamPolicy(BasePolicy):
         opp = self.opponent.active[0] if self.opponent.active else None
         if active is None or active.id != C.ALAKAZAM or opp is None:
             return True
+        current_damage = max(0, self._plan["damage"])
         post_damage = 20 * max(0, self.me.handCount + delta)
-        if self._plan["damage"] > 0 and post_damage <= 0:
+        if current_damage > 0 and post_damage <= 0:
             return False
         if self._plan["kos"] and post_damage < opp.hp:
             return False
+        if self._optional_role_spend(option) and current_damage > 0 and post_damage > 0:
+            current_hits = (opp.hp + current_damage - 1) // current_damage
+            post_hits = (opp.hp + post_damage - 1) // post_damage
+            if post_hits > current_hits:
+                return False
         return True
 
     def _direct_backup_energy_action(self, option):
@@ -1121,15 +1173,15 @@ class AlakazamPolicy(BasePolicy):
     @staticmethod
     def _legal_search_targets(cid):
         if cid == C.BUDDY_POFFIN:
-            return (C.ABRA, C.DUNSPARCE, C.PSYDUCK)
+            return (C.ABRA, C.DUNSPARCE)
         if cid == C.POKE_PAD:
             return (C.ABRA, C.KADABRA, C.ALAKAZAM, C.DUNSPARCE, C.DUDUNSPARCE,
-                    C.GENESECT, C.PSYDUCK)
+                    C.GENESECT)
         if cid == C.HILDA:
             return (C.KADABRA, C.ALAKAZAM, C.DUDUNSPARCE,
                     C.PSYCHIC_ENERGY, C.TELEPATH_ENERGY)
         if cid == C.DAWN:
-            return (C.ABRA, C.DUNSPARCE, C.GENESECT, C.PSYDUCK,
+            return (C.ABRA, C.DUNSPARCE, C.GENESECT,
                     C.KADABRA, C.DUDUNSPARCE, C.ALAKAZAM)
         return ()
 
@@ -1149,10 +1201,8 @@ class AlakazamPolicy(BasePolicy):
                 add(C.ABRA)
             if missing_engine:
                 add(C.DUNSPARCE)
-            if self._psyduck_worthwhile():
-                add(C.PSYDUCK)
             if self._survival_bench_needed():
-                add(C.ABRA, C.DUNSPARCE, C.PSYDUCK)
+                add(C.ABRA, C.DUNSPARCE)
         elif cid == C.POKE_PAD:
             if missing_abra or self._need_pieces() or not self._ready_alakazam_attacker():
                 add(C.ABRA, C.KADABRA, C.ALAKAZAM)
@@ -1160,8 +1210,6 @@ class AlakazamPolicy(BasePolicy):
                 add(C.DUNSPARCE, C.DUDUNSPARCE)
             if self._genesect_worthwhile():
                 add(C.GENESECT)
-            if self._psyduck_worthwhile():
-                add(C.PSYDUCK)
         elif cid == C.HILDA:
             if self._energy_starved() or self._backup_energy_short():
                 add(C.PSYCHIC_ENERGY, C.TELEPATH_ENERGY)
@@ -1191,8 +1239,8 @@ class AlakazamPolicy(BasePolicy):
         return False
 
     def _optional_deck_spend(self, option):
-        """A draw/search action that both spends deck and improves the current KO / next
-        attacker while keeping us on the safe side of the deckout race."""
+        """A draw/search action that improves damage or a concrete next attacker and remains
+        safe in the deckout race."""
         if self._stop_optional_draw():
             return False
         if option.type == OptionType.ABILITY:
@@ -1206,13 +1254,13 @@ class AlakazamPolicy(BasePolicy):
                     return False
                 return self._optional_spend_ok(
                     cost=1, makes_lethal=self._lethal_after_draw(),
-                    secures_backup=self._backup_eta() > 1)
+                    secures_backup=False)
             if card.id == C.FEZANDIPITI_EX:
                 if not self._fez_draw_needed():
                     return False
                 return self._optional_spend_ok(
                     cost=3, makes_lethal=self._lethal_after_draw(),
-                    secures_backup=self._backup_eta() > 1)
+                    secures_backup=False)
             return False
         if option.type != OptionType.PLAY:
             return False
@@ -1221,11 +1269,11 @@ class AlakazamPolicy(BasePolicy):
             return False
         if not self._search_card_has_goal(cid):
             return False
-        opp = self.opponent.active[0] if self.opponent.active else None
-        makes_lethal = (opp is not None and self._ko_active_reachable()
-                        and 20 * self.me.handCount < opp.hp)
-        return self._optional_spend_ok(cost=2, makes_lethal=makes_lethal,
-                                       secures_backup=self._backup_eta() > 1)
+        return self._optional_spend_ok(
+            cost=self._search_deck_cost(cid),
+            makes_lethal=self._search_makes_lethal(cid),
+            secures_backup=self._search_secures_backup(cid),
+        )
 
     def _score_main(self, option, raw):
         if raw < 0:
@@ -1338,7 +1386,7 @@ class AlakazamPolicy(BasePolicy):
                 return Tier.DISRUPT
             data = card_table.get(cid)
             if data is not None and data.cardType == CardType.POKEMON:
-                return Tier.BUILD_ATTACKER if cid in (C.ABRA, C.FEZANDIPITI_EX) else Tier.BUILD_BACKUP
+                return Tier.BUILD_ATTACKER if cid == C.ABRA else Tier.BUILD_BACKUP
             return Tier.BUILD_BACKUP
         return Tier.DISRUPT
 
@@ -1418,8 +1466,6 @@ class AlakazamPolicy(BasePolicy):
             return 950 if self._fezandipiti_worthwhile() else 30
         if cid == C.GENESECT:
             return 900 if self._genesect_worthwhile() else 20
-        if cid == C.PSYDUCK:
-            return 1100 if self._psyduck_worthwhile() else 20
         return 50
 
     @staticmethod
@@ -1670,8 +1716,11 @@ class AlakazamPolicy(BasePolicy):
     def _nighttime_mine_worthwhile(self):
         if self.state.stadiumPlayed or self.stadium_id == C.NIGHTTIME_MINE:
             return False
-        # Do not spend a hand card before a victory/current KO, and do not pretend a Stadium
-        # extends a nearly empty deck—it returns no cards by itself.
+        # The Stadium is worth a hand card only when the opposing Active is a Tera Pokémon whose
+        # currently payable attack becomes unpayable from the +{C} tax. A Tera merely sitting on
+        # the Bench is not an immediate effect and no longer triggers a speculative replacement.
+        if not self._nighttime_mine_tax_stops_active():
+            return False
         opp = self.opponent.active[0] if self.opponent.active else None
         if self._plan.get("kos"):
             if opp is not None and prize_count(opp) >= len(self.me.prize):
@@ -1680,16 +1729,7 @@ class AlakazamPolicy(BasePolicy):
             if (active is not None and active.id == C.ALAKAZAM and opp is not None
                     and 20 * max(0, self.me.handCount - 1) < opp.hp):
                 return False
-        if self._turns_to_deckout() <= 1:
-            return False
-        if self._opp_has_tera():
-            return True
-        # Overwrite an opposing Stadium only when the opponent already has a developed attacker;
-        # otherwise keep the card as Powerful Hand damage.
-        return bool(self.stadium_id and any(
-            p is not None and self.can_attack(p)
-            for p in self.opponent.active + self.opponent.bench
-        ))
+        return self._turns_to_deckout() > 1
 
     def _night_stretcher_target_score(self, cid):
         line_in_play = self.field[C.ABRA] + self.field[C.KADABRA] + self.field[C.ALAKAZAM]
@@ -1772,11 +1812,11 @@ class AlakazamPolicy(BasePolicy):
         if cid == C.DUNSPARCE:
             return 900 if self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] == 0 else 470
         if cid == C.FEZANDIPITI_EX:
-            return 780 if self.field[C.FEZANDIPITI_EX] == 0 and self._midgame() else 360
+            return 820 if (self.field[C.FEZANDIPITI_EX] == 0
+                           and self._ko_during_previous_opponent_turn()
+                           and self.me.handCount <= 12) else 250
         if cid == C.GENESECT:
             return 760 if self._genesect_worthwhile() else 300
-        if cid == C.PSYDUCK:
-            return 820 if self._psyduck_worthwhile() else 300
         return -1
 
     def _max_rod_ranked_targets(self):
@@ -1806,7 +1846,7 @@ class AlakazamPolicy(BasePolicy):
             # requires a real hand deficit, deck room, and no already-secured Active KO.
             if not self._fez_draw_needed() or not self._optional_spend_ok(
                     cost=3, makes_lethal=self._lethal_after_draw(),
-                    secures_backup=self._backup_eta() > 1):
+                    secures_backup=False):
                 return -1
             return 15200
         if card.id == C.DUDUNSPARCE:
@@ -1852,7 +1892,16 @@ class AlakazamPolicy(BasePolicy):
         cid = card.id
         n = self.field[cid]
         if self._survival_bench_needed():
-            return 30000 - 100 * n
+            # Survival is mandatory, but the body is not interchangeable.  Prefer the attacker
+            # line, then the reusable draw engine, then the persistent recovery role.  Genesect
+            # remains a last-resort body unless its Helmet lock can be completed immediately.
+            survival_priority = {
+                C.ABRA: 34000,
+                C.DUNSPARCE: 33000,
+                C.FEZANDIPITI_EX: 32000,
+                C.GENESECT: 31000 if self.hand[C.LUCKY_HELMET] > 0 else 30000,
+            }
+            return survival_priority.get(cid, 29500) - 100 * n
         if cid == C.ABRA:
             if not self._needs_more_abra_body():
                 return -1
@@ -1868,15 +1917,11 @@ class AlakazamPolicy(BasePolicy):
             return 21800 if self._fezandipiti_worthwhile() else -1
         if cid == C.GENESECT:
             return 21200 if self._genesect_worthwhile() else -1
-        if cid == C.PSYDUCK:
-            return 22500 if self._psyduck_worthwhile() else -1
         return 14000 - 200 * n
 
     def _score_play_trainer(self, card):
         cid = card.id
         opp = self.opponent.active[0] if self.opponent.active else None
-        draw_for_ko = (opp is not None and self._ko_active_reachable()
-                       and 20 * self.me.handCount < opp.hp)
         need_backup = self._needs_first_backup()
 
         if cid == C.RARE_CANDY:
@@ -1891,17 +1936,19 @@ class AlakazamPolicy(BasePolicy):
             return -1
 
         if cid in (C.HILDA, C.DAWN, C.POKE_PAD, C.BUDDY_POFFIN):
-            makes_lethal = draw_for_ko
+            makes_lethal = self._search_makes_lethal(cid)
             if not makes_lethal and not self._search_card_has_goal(cid):
                 return -1
-            if not self._optional_spend_ok(cost=2, makes_lethal=makes_lethal,
-                                           secures_backup=need_backup):
+            if not self._optional_spend_ok(
+                    cost=self._search_deck_cost(cid),
+                    makes_lethal=self._search_makes_lethal(cid),
+                    secures_backup=self._search_secures_backup(cid)):
                 return -1
 
         if cid in (C.HILDA, C.DAWN):
             if self.state.supporterPlayed:
                 return -1
-            if draw_for_ko:
+            if self._search_makes_lethal(cid):
                 return 14000 if cid == C.HILDA else 13800
             dawn_score, hilda_score = self._dawn_hilda_scores()
             return hilda_score if cid == C.HILDA else dawn_score
@@ -2027,22 +2074,8 @@ class AlakazamPolicy(BasePolicy):
                 return 12500 + (500 if o.inPlayArea == AreaType.ACTIVE else 0)
 
         if p.id == C.FEZANDIPITI_EX:
-            # DRAW_ONLY never receives partial fuel.  ALTERNATE_ATTACKER is funded only when the
-            # post-attachment completion ETA is <=2 and enough future energy remains reachable.
-            if self._fez_mode() != FezMode.ALTERNATE_ATTACKER:
-                return -1
-            current = self.energy_count(p)
-            if current >= 3 or self._fez_completion_eta(post_attach=True) > 2:
-                return -1
-            if not self._fez_energy_path(post_attach=True):
-                return -1
-            if self._backup_energy_short():
-                return -1
-            base = 11200 if current == 2 else 7800 if current == 1 else 5200
-            if self._state == TurnState.LOCKED:
-                base += 3500
-            if enriching:
-                base += 2200
+            # Bench draw support only: never divert Energy from the Alakazam line.
+            return -1
         else:
             if (enriching and o.inPlayArea == AreaType.ACTIVE and self.bench_attacker_ready()
                     and not self.can_attack(p)):
@@ -2217,10 +2250,6 @@ class AlakazamPolicy(BasePolicy):
         if enriching and p.id == C.DUNSPARCE:
             return 12500 + (500 if is_active else 0)
         if p.id == C.FEZANDIPITI_EX:
-            if (self._fez_mode() == FezMode.ALTERNATE_ATTACKER
-                    and self._fez_completion_eta(post_attach=True) <= 2
-                    and self._fez_energy_path(post_attach=True)):
-                return 9000 + 800 * self.energy_count(p)
             return -1
         if enriching and is_active and self.bench_attacker_ready() and not self.can_attack(p):
             return 9800
@@ -2241,7 +2270,7 @@ class AlakazamPolicy(BasePolicy):
             return prize_count(card) * 1000 - getattr(card, "hp", 0) // 10
         if o.playerIndex != self.my_index:
             return 0
-        if card.id in (C.FEZANDIPITI_EX, C.GENESECT, C.PSYDUCK):
+        if card.id in (C.FEZANDIPITI_EX, C.GENESECT):
             # These Pokémon do their jobs from the Bench. Promote only when every other body is
             # unavailable and the selection is forced.
             return -500 + getattr(card, "hp", 0) // 100
@@ -2269,7 +2298,7 @@ class AlakazamPolicy(BasePolicy):
             return 50
         if card.id == C.DUNSPARCE:
             return 30
-        if card.id in (C.FEZANDIPITI_EX, C.GENESECT, C.PSYDUCK):
+        if card.id in (C.FEZANDIPITI_EX, C.GENESECT):
             return 1
         if card.id == C.SHAYMIN:
             return 15
@@ -2295,8 +2324,6 @@ class AlakazamPolicy(BasePolicy):
             return 380 if self._fezandipiti_worthwhile() else -1
         if cid == C.GENESECT:
             return 360 if self._genesect_worthwhile() else -1
-        if cid == C.PSYDUCK:
-            return 440 if self._psyduck_worthwhile() else -1
         return 100 - 20 * n
 
     def _score_to_hand(self, card):
@@ -2326,12 +2353,10 @@ class AlakazamPolicy(BasePolicy):
             score += 140 if self._fezandipiti_worthwhile() else -20
         elif cid == C.GENESECT:
             score += 150 if self._genesect_worthwhile() else -40
-        elif cid == C.PSYDUCK:
-            score += 180 if self._psyduck_worthwhile() else -50
         elif cid == C.ENRICHING_ENERGY:
             if self._stop_optional_draw():
                 score -= 80
-            elif self.field[C.DUNSPARCE] > 0 or self._fez_mode() == FezMode.ALTERNATE_ATTACKER:
+            elif self.field[C.DUNSPARCE] > 0:
                 score += 180
             else:
                 score += 60
@@ -2351,7 +2376,7 @@ class AlakazamPolicy(BasePolicy):
         if self.hand[cid] >= 2:
             return 60
         if cid in ALAKAZAM_LINE or cid in ENGINE_LINE or cid in (
-                C.FEZANDIPITI_EX, C.SHAYMIN, C.GENESECT, C.PSYDUCK):
+                C.FEZANDIPITI_EX, C.SHAYMIN, C.GENESECT):
             return -50 if self.field[cid] == 0 else 5
         if cid in (C.HILDA, C.DAWN) and self.state.supporterPlayed:
             return 30
@@ -2364,7 +2389,7 @@ class AlakazamPolicy(BasePolicy):
         if self.hand[cid] >= 2:
             return 70
         if cid in ALAKAZAM_LINE or cid in ENGINE_LINE or cid in (
-                C.FEZANDIPITI_EX, C.SHAYMIN, C.GENESECT, C.PSYDUCK):
+                C.FEZANDIPITI_EX, C.SHAYMIN, C.GENESECT):
             return -40 if self.field[cid] == 0 else 60
         return 10
 
@@ -2404,15 +2429,11 @@ class AlakazamPolicy(BasePolicy):
                 candidates.append((idx, card.id))
         missing_abra = max(0, self._desired_abra_bodies() - self._abra_body_count())
         wanted = [C.ABRA] if missing_abra else []
-        if self._psyduck_worthwhile():
-            wanted.append(C.PSYDUCK)
         wanted.extend([C.ABRA] * max(0, missing_abra - 1))
         if self._needs_dunsparce_body():
             wanted.append(C.DUNSPARCE)
         if self._shaymin_worthwhile():
             wanted.append(C.SHAYMIN)
-        if self._fezandipiti_worthwhile():
-            wanted.append(C.FEZANDIPITI_EX)
         picked = []
         remaining = list(candidates)
         for wanted_id in wanted:

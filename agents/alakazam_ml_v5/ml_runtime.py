@@ -34,7 +34,6 @@ ML_SAFE_BENCH_IDS = {305, 741}  # Dunsparce, Abra
 FEZANDIPITI_EX = 140
 SHAYMIN = 343
 GENESECT = 142
-PSYDUCK = 858
 
 
 def _model_path() -> str:
@@ -145,9 +144,17 @@ def _candidate_scope_reason(
             return "role_shaymin"
         if context["card_id"] == GENESECT:
             return "role_genesect"
-        if context["card_id"] == PSYDUCK:
-            return "role_psyduck"
         return "bench_not_allowlisted"
+
+    # ML may rank alternatives inside the fallback's strategic intent, but may not replace the
+    # first Abra body with Dunsparce or an Alakazam-line evolution with Dudunsparce. This keeps the
+    # deterministic route/engine priority while still allowing target choice within the same card.
+    if fallback_context["action_type"] == "bench" and action == "bench":
+        if context["card_id"] != fallback_context["card_id"]:
+            return "preserve_fallback_bench_role"
+    if fallback_context["action_type"] == "evolve" and action == "evolve":
+        if context["card_id"] != fallback_context["card_id"]:
+            return "preserve_fallback_evolution_stage"
 
     if context["breaks_current_ko"]:
         return "breaks_current_ko"
@@ -186,7 +193,7 @@ class HybridRanker:
         decisions = max(1, self.diag["decisions"])
         return {
             **dict(self.diag),
-            "runtime_scope": "guarded_board_construction_v1",
+            "runtime_scope": "guarded_intent_preserving_v2",
             "model_loaded": self.model is not None,
             "model_error": self.model_error,
             "model_rate": self.diag["model_selected"] / decisions,

@@ -6,7 +6,7 @@ from fallback_v12 import agent as _fallback_agent
 from fallback_v12 import diag_reset as _fallback_reset
 from fallback_v12 import diag_snapshot as _fallback_snapshot
 from fallback_v12 import (
-    AlakazamPolicy, EFFECT_PREVENT_ENERGY, ENERGY_TYPES, FezMode,
+    AlakazamPolicy, EFFECT_PREVENT_ENERGY, ENERGY_TYPES,
     GLOBAL_EFFECT_PROTECTORS, TurnState, _is_ace_spec, _turn_boss_mark,
     _TURN_STATE, _validate_deck, card_table, get_card, my_deck,
 )
