@@ -24,6 +24,7 @@ EXCLUDED_NAMES = {
     "README.md",
 }
 FORBIDDEN_ARCHIVE_PARTS = {
+    "analysis",
     "data_processed",
     "processed",
     "reports",
@@ -37,6 +38,16 @@ FORBIDDEN_ARCHIVE_SUFFIXES = {
     ".gz",
     ".zip",
 }
+
+
+def is_forbidden_archive_member(path: Path) -> bool:
+    return (
+        path.name != "deck.csv"
+        and (
+            any(part in FORBIDDEN_ARCHIVE_PARTS for part in path.parts)
+            or path.suffix.lower() in FORBIDDEN_ARCHIVE_SUFFIXES
+        )
+    )
 
 
 def locate_cg(explicit: str | None) -> Path:
@@ -87,6 +98,8 @@ def locate_cg(explicit: str | None) -> Path:
 def should_copy(path: Path) -> bool:
     if any(part in EXCLUDED_NAMES for part in path.parts):
         return False
+    if is_forbidden_archive_member(path):
+        return False
     if path.name.startswith("."):
         return False
     if path.suffix in {".pyc", ".pyo"}:
@@ -131,11 +144,7 @@ def build(agent_dir: Path, output: Path, cg_source: Path) -> None:
         raise RuntimeError(f"Archive validation failed; missing {sorted(missing)}")
     forbidden = sorted(
         name for name in names
-        if name != "deck.csv"
-        and (
-            any(part in FORBIDDEN_ARCHIVE_PARTS for part in Path(name).parts)
-            or Path(name).suffix.lower() in FORBIDDEN_ARCHIVE_SUFFIXES
-        )
+        if is_forbidden_archive_member(Path(name))
     )
     if forbidden:
         preview = forbidden[:20]
