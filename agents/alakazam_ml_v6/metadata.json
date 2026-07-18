@@ -1,0 +1,122 @@
+{
+  "name": "alakazam_ml_v6",
+  "role": "challenger",
+  "archetype": "alakazam",
+  "parent_agent": "alakazam_ml_v5",
+  "model_version": "v6-v5model-shadow",
+  "created_at": "2026-07-18T00:00:00+09:00",
+  "base": "alakazam741_v3",
+  "model": "LightGBM candidate ranker distilled to pure Python trees",
+  "confidence_threshold": 0.55,
+  "model_scope": "Shadow-scored ACTIVE MAIN ranking over guarded bench, evolution, and attack candidates. Deterministic fallback remains authoritative unless ALAKAZAM_ML_ENABLE_OVERRIDE=1 is explicitly set for an experiment.",
+  "deck_policy": "60-card v6 revision: 3 Dunsparce / 3 Dudunsparce, 2 basic Psychic, 4 Telepath Psychic, Fezandipiti ex, Max Rod ACE, Boss's Orders 3, no Genesect/Lucky Helmet/Shaymin/Psyduck",
+  "model_training_decisions": 168239,
+  "model_candidate_rows": 1923948,
+  "training_teams": 5,
+  "training_submissions": 5,
+  "training_decks": 2,
+  "training_replay_files": 3158,
+  "training_trajectories": 3161,
+  "replay_layouts": [
+    "replay",
+    "replays"
+  ],
+  "hard_fallback_actions": [
+    "ability",
+    "end",
+    "trainer",
+    "energy",
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer",
+    "other"
+  ],
+  "distilled_model_format": "lightgbm_tree_v2",
+  "runtime_directory": "agents/alakazam_ml_v6",
+  "legacy_directory": "ml/legacy/agents/alakazam_ml_v1",
+  "last_training_mode": "raw_replay",
+  "last_replay_zip_count": 5,
+  "ranker_model_sha256": "7b149ebd5ee3fd08ff9d8d692c76934a655c59081ab2be25ddcf2ca2132e5364",
+  "runtime_revision": "v6_v3base_boss_value_gate_last_body_guard_20260718",
+  "model_unchanged": true,
+  "rule_only_actions": [
+    "ability",
+    "end",
+    "trainer",
+    "energy",
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer",
+    "other"
+  ],
+  "ml_safe_bench_card_ids": [
+    305,
+    741
+  ],
+  "ladder_fix_basis": {
+    "source": "92 v5 Kaggle ladder replays from submissions 54788067 and 54795292",
+    "rules": [
+      "never activate Dudunsparce when it is the only Pokemon in play",
+      "replace Genesect, Lucky Helmet, and one basic Psychic Energy with three Boss's Orders",
+      "play Boss only when it creates a same-turn KO on a strategically superior Bench target",
+      "prioritize Team Rocket's Articuno and effect-protection engines when they are KO-able",
+      "never replace an equal or better Active KO with a lower-value Bench KO",
+      "preserve the v5 distilled model and keep Boss/Ability decisions rule-only"
+    ],
+    "observed_games": 92,
+    "observed_wins": 52,
+    "observed_losses": 40,
+    "observed_unsafe_last_body_dudunsparce_losses": 3
+  },
+  "ml_promotion_gate": {
+    "seed": 741,
+    "games": 200,
+    "reseed_each_game": true,
+    "shadow_wins": 113,
+    "shadow_losses": 87,
+    "guarded_override_wins": 109,
+    "guarded_override_losses": 91,
+    "decision": "shadow_only"
+  },
+  "final_v3_evaluation": {
+    "seed": 741,
+    "games": 1000,
+    "reseed_each_game": true,
+    "wins": 567,
+    "losses": 433,
+    "win_rate": 0.567,
+    "wilson_95_low": 0.5361,
+    "wilson_95_high": 0.5974,
+    "agent_errors": 0,
+    "illegal_actions": 0
+  },
+  "paired_generic_evaluation": {
+    "opponents": 5,
+    "games_per_opponent": 60,
+    "v5_wins": 253,
+    "v5_losses": 47,
+    "v3_wins": 246,
+    "v3_losses": 54
+  },
+  "version": "0.6.0",
+  "status": "development",
+  "training_dataset_version": "20260717-kaggle-top20-full-5-submissions-3158-replays",
+  "v5_ladder_analysis": {
+    "submissions": [
+      "54788067",
+      "54795292"
+    ],
+    "games": 92,
+    "wins": 52,
+    "losses": 40,
+    "win_rate": 0.5652,
+    "deckout_losses": 10,
+    "last_body_dudunsparce_losses": 3,
+    "genesect_play_games": 60,
+    "lucky_helmet_attach_games": 41,
+    "genesect_helmet_both_games": 30,
+    "genesect_helmet_both_wins": 12
+  }
+}
