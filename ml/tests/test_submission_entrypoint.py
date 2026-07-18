@@ -9,7 +9,7 @@ def _base() -> Path:
 
 
 def test_main_agent_is_final_top_level_statement() -> None:
-    path = _base() / "agents" / "alakazam_ml_v2_expanded" / "main.py"
+    path = _base() / "agents" / "alakazam_ml_v8" / "main.py"
     tree = ast.parse(path.read_text(encoding="utf-8"))
     statements = [node for node in tree.body if not (
         isinstance(node, ast.Expr)
@@ -21,7 +21,7 @@ def test_main_agent_is_final_top_level_statement() -> None:
 
 
 def test_submission_runtime_files_exist() -> None:
-    agent = _base() / "agents" / "alakazam_ml_v2_expanded"
+    agent = _base() / "agents" / "alakazam_ml_v8"
     required = {
         "main.py", "fallback_v12.py", "policy_base.py", "ml_runtime.py",
         "ml_features.py", "common_runtime.py", "ranker_model.json", "deck.csv",

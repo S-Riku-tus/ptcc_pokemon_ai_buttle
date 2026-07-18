@@ -17,7 +17,7 @@ from ml.core.distill import tree_score
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_ROOT = ROOT / "data" / "ml" / "alakazam"
-AGENT = ROOT / "agents" / "alakazam_ml_v2_expanded"
+AGENT = ROOT / "agents" / "alakazam_ml_v8"
 
 
 def _runtime_module():
@@ -95,7 +95,7 @@ def test_timeout_and_nested_selection_use_fallback():
     assert runtime.choose(observation, [0]) == [0]
 
 
-def test_focus_actions_are_hard_fallback(monkeypatch):
+def test_rule_only_fallback_action_blocks_model_override(monkeypatch):
     runtime_module = _runtime_module()
     runtime = runtime_module.HybridRanker(threshold=0.0)
     runtime.model = {
@@ -109,7 +109,8 @@ def test_focus_actions_are_hard_fallback(monkeypatch):
     monkeypatch.setattr(runtime_module, "_tree_score", lambda row, model: next(scores))
     observation = _observation([{"type": 7, "index": 0}, {"type": 13, "attackId": 1}])
     assert runtime.choose(observation, [1]) == [1]
-    assert runtime.snapshot()["fallback_hard_hammer"] == 1
+    assert runtime.snapshot()["fallback"] == 1
+    assert runtime.snapshot().get("model_selected", 0) == 0
 
 
 def test_energy_requires_high_probability(monkeypatch):
