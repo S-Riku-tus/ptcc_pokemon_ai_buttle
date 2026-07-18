@@ -11,7 +11,14 @@ from typing import Any, Iterable
 import pandas as pd
 
 from .deck import classify, has_alakazam_line, major_differences
-from .replay_io import ReplayRef, deck_hash, extract_fast_header, replay_refs, zip_metadata
+from .replay_io import (
+    ReplayRef,
+    deck_hash,
+    extract_fast_header,
+    replay_bundle_scope,
+    replay_refs,
+    zip_metadata,
+)
 
 
 def normalize_team_name(value: Any) -> str:
@@ -23,6 +30,14 @@ def normalize_team_name(value: Any) -> str:
 def _exact_team_seats(team_names: list[Any], target_name: str) -> list[int]:
     target = normalize_team_name(target_name)
     return [i for i, name in enumerate(team_names[:2]) if normalize_team_name(name) == target]
+
+
+def _resolved_target_team(target_name: str, team_names: list[Any], seat: int) -> str:
+    if target_name:
+        return target_name
+    if 0 <= seat < len(team_names):
+        return str(team_names[seat] or "")
+    return ""
 
 
 def _reference_deck(all_headers: list[tuple[ReplayRef, dict[str, Any], dict[str, Any]]]) -> list[int]:
@@ -76,18 +91,27 @@ def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> t
     output.mkdir(parents=True, exist_ok=True)
     all_headers: list[tuple[ReplayRef, dict[str, Any], dict[str, Any]]] = []
     for zip_path in zip_paths:
-        meta = zip_metadata(zip_path)
-        for ref in replay_refs(zip_path):
-            all_headers.append((ref, extract_fast_header(ref), meta))
+        refs = replay_refs(zip_path)
+        metadata_by_scope = {
+            scope: zip_metadata(zip_path, next(ref.member for ref in refs if replay_bundle_scope(ref.member) == scope))
+            for scope in {replay_bundle_scope(ref.member) for ref in refs}
+        }
+        for ref in refs:
+            all_headers.append(
+                (ref, extract_fast_header(ref), metadata_by_scope[replay_bundle_scope(ref.member)])
+            )
     reference = _reference_deck(all_headers)
     reference_hash = deck_hash(reference)
 
-    by_zip: dict[Path, list[tuple[ReplayRef, dict[str, Any], dict[str, Any]]]] = defaultdict(list)
+    by_bundle: dict[tuple[Path, str], list[tuple[ReplayRef, dict[str, Any], dict[str, Any]]]] = defaultdict(list)
     for item in all_headers:
-        by_zip[item[0].zip_path].append(item)
+        ref = item[0]
+        by_bundle[(ref.zip_path, replay_bundle_scope(ref.member))].append(item)
 
     rows: list[dict[str, Any]] = []
-    for zip_path, items in sorted(by_zip.items(), key=lambda kv: kv[0].name):
+    for (zip_path, _bundle_scope), items in sorted(
+        by_bundle.items(), key=lambda kv: (kv[0][0].name, kv[0][1])
+    ):
         meta = items[0][2]
         target_name = str(meta.get("team_name") or "")
         source_manifest = meta.get("source_manifest", {})
@@ -156,6 +180,7 @@ def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> t
             for seat in candidate_seats:
                 deck = decks[seat]
                 opponent = 1 - seat
+                resolved_target_team = _resolved_target_team(target_name, teams, seat)
                 deck_type, distance = classify(deck, reference)
                 line = has_alakazam_line(deck)
                 exclusion = "" if line and len(deck) == 60 else ("not_alakazam" if not line else f"initial_deck_size_{len(deck)}")
@@ -166,7 +191,7 @@ def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> t
                     "path_variant": ref.path_variant, "rank": int(meta.get("rank") or 99),
                     "submission_id": meta.get("submission_id"), "episode_id": ref.episode_id,
                     "target_seat": seat, "seat_method": method, "seat_confidence": confidence,
-                    "exclusion_reason": exclusion, "target_team": target_name, "observed_target_team": teams[seat],
+                    "exclusion_reason": exclusion, "target_team": resolved_target_team, "observed_target_team": teams[seat],
                     "opponent_team": teams[opponent], "team_names_json": json.dumps(teams, ensure_ascii=False), "target_reward": reward,
                     "target_win": bool(reward is not None and float(reward) > 0),
                     "target_loss": bool(reward is not None and float(reward) < 0),
@@ -183,7 +208,7 @@ def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> t
     usable = frame[frame["usable_manifest"] == True]
     zip_variants = frame.groupby("zip_name")["path_variant"].agg(lambda x: sorted(set(x))).to_dict()
     stats = {
-        "zip_count": int(len(by_zip)),
+        "zip_count": int(len({ref.zip_path for ref, _, _ in all_headers})),
         "replay_file_count": int(len(all_headers)),
         "full_replay_count": int(len(all_headers)),
         "usable_episode_count": int(usable["episode_id"].nunique()),
@@ -191,7 +216,9 @@ def build_manifest(zip_paths: Iterable[str | Path], output_dir: str | Path) -> t
         "plural_replays_recovered": int(sum(ref.path_variant == "replays" for ref, _, _ in all_headers)),
         "manifest_trajectory_count": int(len(frame)),
         "usable_trajectory_count": int(len(usable)),
-        "top50_plural_zip_count": int(sum(any(ref.path_variant == "replays" for ref, _, _ in items) for items in by_zip.values())),
+        "top50_plural_zip_count": int(len({
+            ref.zip_path for ref, _, _ in all_headers if ref.path_variant == "replays"
+        })),
         "excluded_trajectory_rows": int((frame["usable_manifest"] == False).sum()),
         "duplicate_trajectory_rows_removed": int(duplicate_trajectory_rows_removed),
         "unique_teams": int(usable["target_team"].nunique()),

@@ -1,0 +1,29 @@
+{
+  "archetype": "alakazam",
+  "runtime_agent_dir": "agents/alakazam_ml_v6",
+  "fallback_agent_dir": "agents/alakazam741_v3",
+  "replay_glob": "data/runs/20260717_kaggle_top20/*_full.zip",
+  "replay_roots": [
+    "data/runs/20260718_115226_alakazam_ml_v5_sub54788067.zip",
+    "data/runs/20260718_115226_alakazam_ml_v5_sub54795292.zip"
+  ],
+  "processed_dir": "data/ml/alakazam_ml_v6_candidate/processed",
+  "models_dir": "data/ml/alakazam_ml_v6_candidate/models",
+  "reports_dir": "data/ml/alakazam_ml_v6_candidate/reports",
+  "card_metadata_dir": "vendor/cg",
+  "seed": 741,
+  "time_train_fraction": 0.8,
+  "confidence_threshold": 0.55,
+  "teacher_weight_min": 0.65,
+  "teacher_weight_max": 1.35,
+  "dataset_workers": 4,
+  "policy_scope": "ACTIVE MAIN decisions with exactly one selected legal option",
+  "hard_fallback_action_types": [
+    "boss",
+    "retreat",
+    "xerosic",
+    "hammer"
+  ],
+  "energy_probability_threshold": 0.85,
+  "submission_builder": "scripts/build_submission.py"
+}

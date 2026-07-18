@@ -16,6 +16,7 @@ SHARED_POLICY_BASE_PATH = SHARED_BASE_DIR / "policy_base.py"
 
 _LOAD_COUNTER = count()
 _SHARED_POLICY_MODULE_NAME = "_shared_policy_base"
+_LOCAL_MODULE_EXCLUSIONS = {"__init__", "main", "policy_base"}
 
 
 def _load_module(module_name: str, path: Path):
@@ -67,12 +68,20 @@ def load_shared_policy_base():
         return _load_module(_SHARED_POLICY_MODULE_NAME, SHARED_POLICY_BASE_PATH)
 
 
+def _purge_agent_local_modules(agent_dir: Path) -> None:
+    """Prevent bare local imports from leaking between loaded agents."""
+    for path in agent_dir.glob("*.py"):
+        if path.stem not in _LOCAL_MODULE_EXCLUSIONS:
+            sys.modules.pop(path.stem, None)
+
+
 def load_dir_agent_module(agent_dir: Path):
     agent_dir = agent_dir.resolve()
     main_path = agent_dir / "main.py"
     if not main_path.exists():
         raise FileNotFoundError(main_path)
 
+    _purge_agent_local_modules(agent_dir)
     load_id = next(_LOAD_COUNTER)
     main_module_name = f"agent_{agent_dir.name}_{load_id}"
     local_policy_path = agent_dir / "policy_base.py"

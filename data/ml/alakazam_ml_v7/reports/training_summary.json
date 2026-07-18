@@ -1,0 +1,1371 @@
+{
+  "splits": {
+    "time_holdout": {
+      "decision_count": 71142,
+      "top1": 0.5937280368839786,
+      "top3": 0.844086474937449,
+      "mrr": 0.7310158314018504,
+      "ece": 0.14302862130361865,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6401422507098479,
+      "accepted_top1": 0.7622749111362838,
+      "accepted_count": 25601,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 10905,
+          "top1": 0.9253553415864283,
+          "top3": 0.9781751490142137,
+          "mrr": 0.9534918120750308,
+          "fallback_rate": 0.12838147638697844,
+          "accepted_top1": 0.9894792214623882
+        },
+        "attack": {
+          "count": 7245,
+          "top1": 0.5849551414768807,
+          "top3": 0.9129054520358868,
+          "mrr": 0.7472355782397191,
+          "fallback_rate": 0.5763975155279503,
+          "accepted_top1": 0.7885304659498208
+        },
+        "bench": {
+          "count": 10949,
+          "top1": 0.7259110421043018,
+          "top3": 0.9616403324504521,
+          "mrr": 0.8454405883892757,
+          "fallback_rate": 0.5260754406795141,
+          "accepted_top1": 0.6766236269030642
+        },
+        "boss": {
+          "count": 1037,
+          "top1": 0.02892960462873674,
+          "top3": 0.24879459980713597,
+          "mrr": 0.25039777269767627,
+          "fallback_rate": 0.8833172613307618,
+          "accepted_top1": 0.024793388429752067
+        },
+        "end": {
+          "count": 3882,
+          "top1": 0.28773827923750644,
+          "top3": 0.788768675940237,
+          "mrr": 0.5209853458694261,
+          "fallback_rate": 0.5855229263266357,
+          "accepted_top1": 0.44126786824114356
+        },
+        "energy": {
+          "count": 6123,
+          "top1": 0.4164625183733464,
+          "top3": 0.6629103380695738,
+          "mrr": 0.5770344710381469,
+          "fallback_rate": 0.819369590070227,
+          "accepted_top1": 0.6003616636528029
+        },
+        "evolve": {
+          "count": 15644,
+          "top1": 0.7228969572999233,
+          "top3": 0.9114676553311174,
+          "mrr": 0.8229854448278566,
+          "fallback_rate": 0.8693428790590642,
+          "accepted_top1": 0.7778864970645792
+        },
+        "hammer": {
+          "count": 1416,
+          "top1": 0.4498587570621469,
+          "top3": 0.844632768361582,
+          "mrr": 0.6551615149602438,
+          "fallback_rate": 0.8919491525423728,
+          "accepted_top1": 0.5555555555555556
+        },
+        "retreat": {
+          "count": 866,
+          "top1": 0.04849884526558892,
+          "top3": 0.4618937644341801,
+          "mrr": 0.2943317955665562,
+          "fallback_rate": 0.5854503464203233,
+          "accepted_top1": 0.0584958217270195
+        },
+        "trainer": {
+          "count": 11472,
+          "top1": 0.3424860529986053,
+          "top3": 0.6907252440725244,
+          "mrr": 0.5488030565619904,
+          "fallback_rate": 0.8008193863319386,
+          "accepted_top1": 0.4739606126914661
+        },
+        "xerosic": {
+          "count": 1603,
+          "top1": 0.21709295071740486,
+          "top3": 0.6749844042420462,
+          "mrr": 0.47977955537219413,
+          "fallback_rate": 0.8995633187772926,
+          "accepted_top1": 0.14285714285714285
+        }
+      },
+      "description": "last 20% episodes within each submission (54634530:197/981, 54662660:200/999, 54681320:88/440, 54720484:74/368, 54750312:129/641, 54762014:72/357, 54772251:34/169, 54773249:36/176, 54775722:69/342, 54777244:40/200, 54777250:89/444, 54777485:43/214, 54781617:19/91, 54782833:20/100, 54785748:37/185, 54787361:39/191, 54788067:12/57, 54788803:14/68, 54789086:27/134, 54789088:31/155, 54794194:16/76, 54794326:15/71, 54795292:7/35)",
+      "fit_decisions": 224436,
+      "calibration_decisions": 24941,
+      "test_decisions": 71142,
+      "fit_rows": 2615036,
+      "test_rows": 794078,
+      "best_iteration": 50
+    },
+    "team_holdout": {
+      "decision_count": 28158,
+      "top1": 0.5785567156758292,
+      "top3": 0.8410043326940834,
+      "mrr": 0.7226061731327325,
+      "ece": 0.16997164249051455,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.671958235670147,
+      "accepted_top1": 0.7010934286023601,
+      "accepted_count": 9237,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 3586,
+          "top1": 0.8873396542108198,
+          "top3": 0.971834913552705,
+          "mrr": 0.9306447472091643,
+          "fallback_rate": 0.18460680423870607,
+          "accepted_top1": 0.9798221614227086
+        },
+        "attack": {
+          "count": 3253,
+          "top1": 0.5942207193359975,
+          "top3": 0.9243774976944359,
+          "mrr": 0.7575183381362294,
+          "fallback_rate": 0.5899169996925915,
+          "accepted_top1": 0.7023988005997002
+        },
+        "bench": {
+          "count": 3720,
+          "top1": 0.7620967741935484,
+          "top3": 0.960752688172043,
+          "mrr": 0.8620920612543107,
+          "fallback_rate": 0.6379032258064516,
+          "accepted_top1": 0.8114328136599851
+        },
+        "boss": {
+          "count": 362,
+          "top1": 0.024861878453038673,
+          "top3": 0.2541436464088398,
+          "mrr": 0.23928783769943993,
+          "fallback_rate": 0.8232044198895028,
+          "accepted_top1": 0.0
+        },
+        "end": {
+          "count": 1123,
+          "top1": 0.40516473731077474,
+          "top3": 0.8993766696349065,
+          "mrr": 0.6206854835082795,
+          "fallback_rate": 0.21994657168299198,
+          "accepted_top1": 0.4246575342465753
+        },
+        "energy": {
+          "count": 2895,
+          "top1": 0.4449050086355786,
+          "top3": 0.6974093264248704,
+          "mrr": 0.6036991504795115,
+          "fallback_rate": 0.8276338514680484,
+          "accepted_top1": 0.5210420841683366
+        },
+        "evolve": {
+          "count": 6034,
+          "top1": 0.7122969837587007,
+          "top3": 0.9063639376864435,
+          "mrr": 0.817549573602041,
+          "fallback_rate": 0.8992376532979781,
+          "accepted_top1": 0.6101973684210527
+        },
+        "hammer": {
+          "count": 616,
+          "top1": 0.387987012987013,
+          "top3": 0.8246753246753247,
+          "mrr": 0.6170068027210884,
+          "fallback_rate": 0.8831168831168831,
+          "accepted_top1": 0.5555555555555556
+        },
+        "retreat": {
+          "count": 328,
+          "top1": 0.08536585365853659,
+          "top3": 0.4817073170731707,
+          "mrr": 0.3132867919184275,
+          "fallback_rate": 0.5426829268292683,
+          "accepted_top1": 0.07333333333333333
+        },
+        "trainer": {
+          "count": 5460,
+          "top1": 0.3371794871794872,
+          "top3": 0.7042124542124543,
+          "mrr": 0.5521842897763011,
+          "fallback_rate": 0.7655677655677655,
+          "accepted_top1": 0.40703125
+        },
+        "xerosic": {
+          "count": 781,
+          "top1": 0.23431498079385404,
+          "top3": 0.6581306017925737,
+          "mrr": 0.48200677896580585,
+          "fallback_rate": 0.8937259923175416,
+          "accepted_top1": 0.07228915662650602
+        }
+      },
+      "description": "held teams: NorthStar, SQUIRTLE (prime), THIRD PTCG Club, Yushin Ito",
+      "fit_decisions": 263107,
+      "calibration_decisions": 29254,
+      "test_decisions": 28158,
+      "fit_rows": 3061982,
+      "test_rows": 296569,
+      "best_iteration": 50
+    },
+    "submission_holdout": {
+      "decision_count": 53782,
+      "top1": 0.6010189282659626,
+      "top3": 0.8291807667993009,
+      "mrr": 0.7302230865323148,
+      "ece": 0.1307028094791156,
+      "temperature": 0.5848035476425733,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6651110036815291,
+      "accepted_top1": 0.8266614846482705,
+      "accepted_count": 18011,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 8275,
+          "top1": 0.9533534743202416,
+          "top3": 0.9822356495468278,
+          "mrr": 0.9692371840982112,
+          "fallback_rate": 0.07637462235649548,
+          "accepted_top1": 0.9959440010467094
+        },
+        "attack": {
+          "count": 5666,
+          "top1": 0.6201906106600776,
+          "top3": 0.8946346629015178,
+          "mrr": 0.7612853353455189,
+          "fallback_rate": 0.6558418637486764,
+          "accepted_top1": 0.9184615384615384
+        },
+        "bench": {
+          "count": 8239,
+          "top1": 0.6563903386333293,
+          "top3": 0.9461099648015536,
+          "mrr": 0.8051069076362158,
+          "fallback_rate": 0.6418254642553708,
+          "accepted_top1": 0.780413419179939
+        },
+        "boss": {
+          "count": 936,
+          "top1": 0.0202991452991453,
+          "top3": 0.13782051282051283,
+          "mrr": 0.19556537407217758,
+          "fallback_rate": 0.8985042735042735,
+          "accepted_top1": 0.010526315789473684
+        },
+        "end": {
+          "count": 3626,
+          "top1": 0.2597904026475455,
+          "top3": 0.6960838389409818,
+          "mrr": 0.4875363237608136,
+          "fallback_rate": 0.5816326530612245,
+          "accepted_top1": 0.47396176664469347
+        },
+        "energy": {
+          "count": 4736,
+          "top1": 0.41173986486486486,
+          "top3": 0.581081081081081,
+          "mrr": 0.540256185377134,
+          "fallback_rate": 0.8612753378378378,
+          "accepted_top1": 0.6012176560121766
+        },
+        "evolve": {
+          "count": 11642,
+          "top1": 0.7673939185706923,
+          "top3": 0.9439958769970795,
+          "mrr": 0.8582967669153463,
+          "fallback_rate": 0.8814636660367634,
+          "accepted_top1": 0.8311594202898551
+        },
+        "hammer": {
+          "count": 1116,
+          "top1": 0.4838709677419355,
+          "top3": 0.8709677419354839,
+          "mrr": 0.6814964480959105,
+          "fallback_rate": 0.9345878136200717,
+          "accepted_top1": 0.5753424657534246
+        },
+        "retreat": {
+          "count": 749,
+          "top1": 0.09612817089452604,
+          "top3": 0.3311081441922563,
+          "mrr": 0.2815624325859537,
+          "fallback_rate": 0.6942590120160214,
+          "accepted_top1": 0.1703056768558952
+        },
+        "trainer": {
+          "count": 7685,
+          "top1": 0.3596616785946649,
+          "top3": 0.6761223162003903,
+          "mrr": 0.5547022027184227,
+          "fallback_rate": 0.8114508783344176,
+          "accepted_top1": 0.5638371290545203
+        },
+        "xerosic": {
+          "count": 1112,
+          "top1": 0.26258992805755393,
+          "top3": 0.7122302158273381,
+          "mrr": 0.5122076789118155,
+          "fallback_rate": 0.939748201438849,
+          "accepted_top1": 0.34328358208955223
+        }
+      },
+      "description": "submission 54662660",
+      "fit_decisions": 240186,
+      "calibration_decisions": 26551,
+      "test_decisions": 53782,
+      "fit_rows": 2748018,
+      "test_rows": 647502,
+      "best_iteration": 50
+    },
+    "deck_holdout": {
+      "decision_count": 85430,
+      "top1": 0.5773732880721059,
+      "top3": 0.8330563034062975,
+      "mrr": 0.7184677184210433,
+      "ece": 0.12798441393697596,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6838464239728432,
+      "accepted_top1": 0.7722610981524677,
+      "accepted_count": 27009,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 10883,
+          "top1": 0.9286961315813654,
+          "top3": 0.9785904621887347,
+          "mrr": 0.9553817768395549,
+          "fallback_rate": 0.12919231829458788,
+          "accepted_top1": 0.9881819141078401
+        },
+        "attack": {
+          "count": 10430,
+          "top1": 0.5999041227229147,
+          "top3": 0.915340364333653,
+          "mrr": 0.7587512306591885,
+          "fallback_rate": 0.6119846596356664,
+          "accepted_top1": 0.8050407709414381
+        },
+        "bench": {
+          "count": 11254,
+          "top1": 0.7342278301048516,
+          "top3": 0.9451750488715124,
+          "mrr": 0.8387616606985255,
+          "fallback_rate": 0.7256975297671939,
+          "accepted_top1": 0.8176222870100421
+        },
+        "boss": {
+          "count": 1346,
+          "top1": 0.01263001485884101,
+          "top3": 0.3298662704309064,
+          "mrr": 0.26334834783014577,
+          "fallback_rate": 0.8684992570579495,
+          "accepted_top1": 0.011299435028248588
+        },
+        "end": {
+          "count": 3569,
+          "top1": 0.4553096105351639,
+          "top3": 0.9114597926590081,
+          "mrr": 0.6569447931664237,
+          "fallback_rate": 0.39759036144578314,
+          "accepted_top1": 0.6395348837209303
+        },
+        "energy": {
+          "count": 8491,
+          "top1": 0.4198563184548345,
+          "top3": 0.6817807089859852,
+          "mrr": 0.5823595486904871,
+          "fallback_rate": 0.8203980685431633,
+          "accepted_top1": 0.5822950819672131
+        },
+        "evolve": {
+          "count": 18026,
+          "top1": 0.709863530456008,
+          "top3": 0.8893265283479419,
+          "mrr": 0.8099643340354299,
+          "fallback_rate": 0.8754021968268058,
+          "accepted_top1": 0.7845057880676759
+        },
+        "hammer": {
+          "count": 1823,
+          "top1": 0.42841470104223806,
+          "top3": 0.8672517827756445,
+          "mrr": 0.6511741701950149,
+          "fallback_rate": 0.8848052660449808,
+          "accepted_top1": 0.6952380952380952
+        },
+        "retreat": {
+          "count": 1239,
+          "top1": 0.03954802259887006,
+          "top3": 0.45601291364003227,
+          "mrr": 0.27986636673604537,
+          "fallback_rate": 0.5326876513317191,
+          "accepted_top1": 0.03454231433506045
+        },
+        "trainer": {
+          "count": 15809,
+          "top1": 0.34530963375292556,
+          "top3": 0.7042191156935923,
+          "mrr": 0.5543378159518949,
+          "fallback_rate": 0.7950534505661332,
+          "accepted_top1": 0.45987654320987653
+        },
+        "xerosic": {
+          "count": 2560,
+          "top1": 0.15859375,
+          "top3": 0.60078125,
+          "mrr": 0.4243640284411769,
+          "fallback_rate": 0.894140625,
+          "accepted_top1": 0.1033210332103321
+        }
+      },
+      "description": "deck hash a665414222aea434",
+      "fit_decisions": 211565,
+      "calibration_decisions": 23524,
+      "test_decisions": 85430,
+      "fit_rows": 2416820,
+      "test_rows": 1013432,
+      "best_iteration": 50
+    }
+  },
+  "ablations": {
+    "full": {
+      "decision_count": 71142,
+      "top1": 0.598240139439431,
+      "top3": 0.845196930083495,
+      "mrr": 0.7336797161698274,
+      "ece": 0.14858574657733747,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6433330522054482,
+      "accepted_top1": 0.7639709939307953,
+      "accepted_count": 25374,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 10905,
+          "top1": 0.9270976616231087,
+          "top3": 0.977716643741403,
+          "mrr": 0.9541151576020902,
+          "fallback_rate": 0.1315910132966529,
+          "accepted_top1": 0.9891235480464625
+        },
+        "attack": {
+          "count": 7245,
+          "top1": 0.5943409247757074,
+          "top3": 0.9182884748102139,
+          "mrr": 0.753973512110158,
+          "fallback_rate": 0.577087646652864,
+          "accepted_top1": 0.7881853785900783
+        },
+        "bench": {
+          "count": 10949,
+          "top1": 0.7189697689286693,
+          "top3": 0.9610010046579597,
+          "mrr": 0.8412229585607394,
+          "fallback_rate": 0.5314640606448078,
+          "accepted_top1": 0.6814814814814815
+        },
+        "boss": {
+          "count": 1037,
+          "top1": 0.022179363548698167,
+          "top3": 0.26133076181292186,
+          "mrr": 0.24931755670665987,
+          "fallback_rate": 0.8813886210221794,
+          "accepted_top1": 0.024390243902439025
+        },
+        "end": {
+          "count": 3882,
+          "top1": 0.2985574446161772,
+          "top3": 0.7900566718186501,
+          "mrr": 0.5278965774908587,
+          "fallback_rate": 0.5790829469345699,
+          "accepted_top1": 0.4455324357405141
+        },
+        "energy": {
+          "count": 6123,
+          "top1": 0.41548260656540914,
+          "top3": 0.663890249877511,
+          "mrr": 0.577423845097778,
+          "fallback_rate": 0.8195329087048833,
+          "accepted_top1": 0.5927601809954751
+        },
+        "evolve": {
+          "count": 15644,
+          "top1": 0.7454615187931475,
+          "top3": 0.9150473024801841,
+          "mrr": 0.8358080106674869,
+          "fallback_rate": 0.8772692406034263,
+          "accepted_top1": 0.7895833333333333
+        },
+        "hammer": {
+          "count": 1416,
+          "top1": 0.4562146892655367,
+          "top3": 0.8418079096045198,
+          "mrr": 0.6581352263555653,
+          "fallback_rate": 0.8968926553672316,
+          "accepted_top1": 0.5753424657534246
+        },
+        "retreat": {
+          "count": 866,
+          "top1": 0.04041570438799076,
+          "top3": 0.45381062355658197,
+          "mrr": 0.2824205659503523,
+          "fallback_rate": 0.5750577367205543,
+          "accepted_top1": 0.05434782608695652
+        },
+        "trainer": {
+          "count": 11472,
+          "top1": 0.33769177126917715,
+          "top3": 0.6892433751743375,
+          "mrr": 0.5459490865881821,
+          "fallback_rate": 0.8036087866108786,
+          "accepted_top1": 0.4780292942743009
+        },
+        "xerosic": {
+          "count": 1603,
+          "top1": 0.2052401746724891,
+          "top3": 0.6749844042420462,
+          "mrr": 0.47368755525336936,
+          "fallback_rate": 0.8995633187772926,
+          "accepted_top1": 0.14906832298136646
+        }
+      }
+    },
+    "uniform": {
+      "decision_count": 71142,
+      "top1": 0.5921677771218127,
+      "top3": 0.8534058643276826,
+      "mrr": 0.7318634997891234,
+      "ece": 0.1371654233990819,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.63294537685193,
+      "accepted_top1": 0.7557155439819248,
+      "accepted_count": 26113,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 10905,
+          "top1": 0.9319578175149015,
+          "top3": 0.9808344795965154,
+          "mrr": 0.9579088553710285,
+          "fallback_rate": 0.12434662998624484,
+          "accepted_top1": 0.9890040841972981
+        },
+        "attack": {
+          "count": 7245,
+          "top1": 0.5964113181504486,
+          "top3": 0.917184265010352,
+          "mrr": 0.7548697514432503,
+          "fallback_rate": 0.5610766045548654,
+          "accepted_top1": 0.789308176100629
+        },
+        "bench": {
+          "count": 10949,
+          "top1": 0.7035345693670655,
+          "top3": 0.9597223490729747,
+          "mrr": 0.8333239816821216,
+          "fallback_rate": 0.5252534478034524,
+          "accepted_top1": 0.6833397460561754
+        },
+        "boss": {
+          "count": 1037,
+          "top1": 0.029893924783027964,
+          "top3": 0.24493731918997108,
+          "mrr": 0.2474383085038823,
+          "fallback_rate": 0.8784956605593057,
+          "accepted_top1": 0.023809523809523808
+        },
+        "end": {
+          "count": 3882,
+          "top1": 0.22436888201957753,
+          "top3": 0.9283874291602267,
+          "mrr": 0.5088171681486983,
+          "fallback_rate": 0.5211231324059763,
+          "accepted_top1": 0.3808499193114578
+        },
+        "energy": {
+          "count": 6123,
+          "top1": 0.4063367630246611,
+          "top3": 0.652457945451576,
+          "mrr": 0.5679931048889045,
+          "fallback_rate": 0.8236158745712886,
+          "accepted_top1": 0.5527777777777778
+        },
+        "evolve": {
+          "count": 15644,
+          "top1": 0.7439913065712094,
+          "top3": 0.9161339810790079,
+          "mrr": 0.8356825683258128,
+          "fallback_rate": 0.8666581436972641,
+          "accepted_top1": 0.788111217641419
+        },
+        "hammer": {
+          "count": 1416,
+          "top1": 0.4194915254237288,
+          "top3": 0.826271186440678,
+          "mrr": 0.6324852975806365,
+          "fallback_rate": 0.8919491525423728,
+          "accepted_top1": 0.5359477124183006
+        },
+        "retreat": {
+          "count": 866,
+          "top1": 0.04041570438799076,
+          "top3": 0.45265588914549654,
+          "mrr": 0.28260678184301186,
+          "fallback_rate": 0.5600461893764435,
+          "accepted_top1": 0.05774278215223097
+        },
+        "trainer": {
+          "count": 11472,
+          "top1": 0.3471059972105997,
+          "top3": 0.7031903765690377,
+          "mrr": 0.5549789099644376,
+          "fallback_rate": 0.7968096234309623,
+          "accepted_top1": 0.49377949377949376
+        },
+        "xerosic": {
+          "count": 1603,
+          "top1": 0.18777292576419213,
+          "top3": 0.6550218340611353,
+          "mrr": 0.45977856966628017,
+          "fallback_rate": 0.8939488459139114,
+          "accepted_top1": 0.12352941176470589
+        }
+      }
+    },
+    "no_deck_distance": {
+      "decision_count": 71142,
+      "top1": 0.593643698518456,
+      "top3": 0.8384639172359506,
+      "mrr": 0.7305593173472993,
+      "ece": 0.14743037081384408,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6425177813387309,
+      "accepted_top1": 0.7646272412708399,
+      "accepted_count": 25432,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 10905,
+          "top1": 0.9273727647867951,
+          "top3": 0.9786336542870243,
+          "mrr": 0.9547061960404463,
+          "fallback_rate": 0.13204951856946354,
+          "accepted_top1": 0.989540412044374
+        },
+        "attack": {
+          "count": 7245,
+          "top1": 0.58743961352657,
+          "top3": 0.9163561076604555,
+          "mrr": 0.7494352426961123,
+          "fallback_rate": 0.5744651483781918,
+          "accepted_top1": 0.7868958806357444
+        },
+        "bench": {
+          "count": 10949,
+          "top1": 0.7269157000639328,
+          "top3": 0.9611836697415289,
+          "mrr": 0.8458604488023407,
+          "fallback_rate": 0.5310073979358846,
+          "accepted_top1": 0.6810126582278481
+        },
+        "boss": {
+          "count": 1037,
+          "top1": 0.037608486017357765,
+          "top3": 0.26422372227579555,
+          "mrr": 0.2574204550940327,
+          "fallback_rate": 0.8833172613307618,
+          "accepted_top1": 0.03305785123966942
+        },
+        "end": {
+          "count": 3882,
+          "top1": 0.223338485316847,
+          "top3": 0.6602266872746008,
+          "mrr": 0.4712376442658741,
+          "fallback_rate": 0.5857805255023184,
+          "accepted_top1": 0.4427860696517413
+        },
+        "energy": {
+          "count": 6123,
+          "top1": 0.4162991997386902,
+          "top3": 0.6671566225706353,
+          "mrr": 0.5787896893635729,
+          "fallback_rate": 0.8244324677445697,
+          "accepted_top1": 0.5813953488372093
+        },
+        "evolve": {
+          "count": 15644,
+          "top1": 0.7334441319355663,
+          "top3": 0.9138967016108412,
+          "mrr": 0.8294575448798783,
+          "fallback_rate": 0.8750958834057786,
+          "accepted_top1": 0.7917093142272262
+        },
+        "hammer": {
+          "count": 1416,
+          "top1": 0.4625706214689266,
+          "top3": 0.8439265536723164,
+          "mrr": 0.6627373920806124,
+          "fallback_rate": 0.8912429378531074,
+          "accepted_top1": 0.5584415584415584
+        },
+        "retreat": {
+          "count": 866,
+          "top1": 0.04503464203233257,
+          "top3": 0.45842956120092376,
+          "mrr": 0.28935825906669715,
+          "fallback_rate": 0.5796766743648961,
+          "accepted_top1": 0.057692307692307696
+        },
+        "trainer": {
+          "count": 11472,
+          "top1": 0.34117852161785217,
+          "top3": 0.68889470013947,
+          "mrr": 0.5474788263271848,
+          "fallback_rate": 0.7981171548117155,
+          "accepted_top1": 0.49179620034542315
+        },
+        "xerosic": {
+          "count": 1603,
+          "top1": 0.2295695570804741,
+          "top3": 0.686837180286962,
+          "mrr": 0.48998462721170144,
+          "fallback_rate": 0.9020586400499064,
+          "accepted_top1": 0.1464968152866242
+        }
+      }
+    },
+    "no_rank_outcome": {
+      "decision_count": 71142,
+      "top1": 0.594979055972562,
+      "top3": 0.8448876894099125,
+      "mrr": 0.7327060461669939,
+      "ece": 0.14541136652001432,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6420539203283574,
+      "accepted_top1": 0.7627331631651286,
+      "accepted_count": 25465,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 10905,
+          "top1": 0.9235213204951856,
+          "top3": 0.9752407152682255,
+          "mrr": 0.9516108487772861,
+          "fallback_rate": 0.13003209536909674,
+          "accepted_top1": 0.9887214082428587
+        },
+        "attack": {
+          "count": 7245,
+          "top1": 0.5889579020013802,
+          "top3": 0.9126293995859214,
+          "mrr": 0.7496037138997802,
+          "fallback_rate": 0.5660455486542443,
+          "accepted_top1": 0.7926208651399491
+        },
+        "bench": {
+          "count": 10949,
+          "top1": 0.7277376929399946,
+          "top3": 0.9600876792401133,
+          "mrr": 0.845791604359821,
+          "fallback_rate": 0.5298200748926842,
+          "accepted_top1": 0.6827894327894328
+        },
+        "boss": {
+          "count": 1037,
+          "top1": 0.01639344262295082,
+          "top3": 0.26036644165863065,
+          "mrr": 0.24609335002295465,
+          "fallback_rate": 0.8765670202507232,
+          "accepted_top1": 0.015625
+        },
+        "end": {
+          "count": 3882,
+          "top1": 0.23415765069551778,
+          "top3": 0.7890262751159196,
+          "mrr": 0.5059449430585443,
+          "fallback_rate": 0.5857805255023184,
+          "accepted_top1": 0.4496268656716418
+        },
+        "energy": {
+          "count": 6123,
+          "top1": 0.4177690674505961,
+          "top3": 0.6560509554140127,
+          "mrr": 0.5763136876337452,
+          "fallback_rate": 0.8257390168218194,
+          "accepted_top1": 0.5613870665417057
+        },
+        "evolve": {
+          "count": 15644,
+          "top1": 0.7367041677320378,
+          "top3": 0.9149833802096651,
+          "mrr": 0.8316498642160738,
+          "fallback_rate": 0.8803375095883406,
+          "accepted_top1": 0.7777777777777778
+        },
+        "hammer": {
+          "count": 1416,
+          "top1": 0.4717514124293785,
+          "top3": 0.8467514124293786,
+          "mrr": 0.6680062581015971,
+          "fallback_rate": 0.894774011299435,
+          "accepted_top1": 0.5838926174496645
+        },
+        "retreat": {
+          "count": 866,
+          "top1": 0.04041570438799076,
+          "top3": 0.45496535796766746,
+          "mrr": 0.2852113669808362,
+          "fallback_rate": 0.5623556581986143,
+          "accepted_top1": 0.05804749340369393
+        },
+        "trainer": {
+          "count": 11472,
+          "top1": 0.3439679218967922,
+          "top3": 0.6975244072524407,
+          "mrr": 0.5516143964504739,
+          "fallback_rate": 0.7981171548117155,
+          "accepted_top1": 0.4844559585492228
+        },
+        "xerosic": {
+          "count": 1603,
+          "top1": 0.22707423580786026,
+          "top3": 0.6793512164691204,
+          "mrr": 0.4853521694912837,
+          "fallback_rate": 0.8958203368683718,
+          "accepted_top1": 0.1497005988023952
+        }
+      }
+    }
+  },
+  "legacy_comparison": {
+    "legacy_singular_only": {
+      "decision_count": 8060,
+      "top1": 0.5514888337468983,
+      "top3": 0.8066997518610421,
+      "mrr": 0.6976260277061456,
+      "ece": 0.07544548397691152,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6133995037220844,
+      "accepted_top1": 0.7426187419768935,
+      "accepted_count": 3116,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 1058,
+          "top1": 0.8865784499054821,
+          "top3": 0.9744801512287334,
+          "mrr": 0.9322621298046628,
+          "fallback_rate": 0.1937618147448015,
+          "accepted_top1": 0.9859320046893317
+        },
+        "attack": {
+          "count": 944,
+          "top1": 0.8050847457627118,
+          "top3": 0.9639830508474576,
+          "mrr": 0.8854343220338984,
+          "fallback_rate": 0.4046610169491525,
+          "accepted_top1": 0.9270462633451957
+        },
+        "bench": {
+          "count": 954,
+          "top1": 0.8197064989517819,
+          "top3": 0.9412997903563941,
+          "mrr": 0.885096730868096,
+          "fallback_rate": 0.4748427672955975,
+          "accepted_top1": 0.8682634730538922
+        },
+        "boss": {
+          "count": 197,
+          "top1": 0.08121827411167512,
+          "top3": 0.5126903553299492,
+          "mrr": 0.358265211945415,
+          "fallback_rate": 0.8274111675126904,
+          "accepted_top1": 0.0
+        },
+        "end": {
+          "count": 241,
+          "top1": 0.6099585062240664,
+          "top3": 0.9336099585062241,
+          "mrr": 0.7715767634854771,
+          "fallback_rate": 0.3278008298755187,
+          "accepted_top1": 0.7839506172839507
+        },
+        "energy": {
+          "count": 931,
+          "top1": 0.40064446831364126,
+          "top3": 0.6885069817400644,
+          "mrr": 0.5780418902700364,
+          "fallback_rate": 0.7948442534908701,
+          "accepted_top1": 0.5130890052356021
+        },
+        "evolve": {
+          "count": 1570,
+          "top1": 0.5547770700636943,
+          "top3": 0.8547770700636943,
+          "mrr": 0.7133826161356283,
+          "fallback_rate": 0.8203821656050956,
+          "accepted_top1": 0.5177304964539007
+        },
+        "hammer": {
+          "count": 147,
+          "top1": 0.3197278911564626,
+          "top3": 0.8027210884353742,
+          "mrr": 0.5774669208342679,
+          "fallback_rate": 0.8435374149659864,
+          "accepted_top1": 0.17391304347826086
+        },
+        "retreat": {
+          "count": 155,
+          "top1": 0.07096774193548387,
+          "top3": 0.49032258064516127,
+          "mrr": 0.3188211609179351,
+          "fallback_rate": 0.5096774193548387,
+          "accepted_top1": 0.07894736842105263
+        },
+        "trainer": {
+          "count": 1658,
+          "top1": 0.26839565741857657,
+          "top3": 0.617611580217129,
+          "mrr": 0.48424834086669727,
+          "fallback_rate": 0.7611580217129071,
+          "accepted_top1": 0.3409090909090909
+        },
+        "xerosic": {
+          "count": 205,
+          "top1": 0.2682926829268293,
+          "top3": 0.6634146341463415,
+          "mrr": 0.5093441382465773,
+          "fallback_rate": 0.824390243902439,
+          "accepted_top1": 0.027777777777777776
+        }
+      },
+      "train_decisions": 45722,
+      "test_decisions": 8060,
+      "test_episode_cutoff": 86356241
+    },
+    "expanded_all_teams": {
+      "decision_count": 8060,
+      "top1": 0.5503722084367245,
+      "top3": 0.8016129032258065,
+      "mrr": 0.695163649397758,
+      "ece": 0.08498309253696841,
+      "temperature": 0.5542567596335081,
+      "fallback_probability": 0.55,
+      "fallback_margin": 0.12,
+      "fallback_rate": 0.6767990074441688,
+      "accepted_top1": 0.7750479846449136,
+      "accepted_count": 2605,
+      "illegal_action_count": 0,
+      "action_type_metrics": {
+        "ability": {
+          "count": 1058,
+          "top1": 0.8298676748582231,
+          "top3": 0.947069943289225,
+          "mrr": 0.8911276892609595,
+          "fallback_rate": 0.21739130434782608,
+          "accepted_top1": 0.9830917874396136
+        },
+        "attack": {
+          "count": 944,
+          "top1": 0.652542372881356,
+          "top3": 0.9226694915254238,
+          "mrr": 0.7868328793381759,
+          "fallback_rate": 0.510593220338983,
+          "accepted_top1": 0.9372294372294372
+        },
+        "bench": {
+          "count": 954,
+          "top1": 0.6918238993710691,
+          "top3": 0.889937106918239,
+          "mrr": 0.7990723607006441,
+          "fallback_rate": 0.6876310272536688,
+          "accepted_top1": 0.7583892617449665
+        },
+        "boss": {
+          "count": 197,
+          "top1": 0.03553299492385787,
+          "top3": 0.18781725888324874,
+          "mrr": 0.2314699260130732,
+          "fallback_rate": 0.868020304568528,
+          "accepted_top1": 0.0
+        },
+        "end": {
+          "count": 241,
+          "top1": 0.5062240663900415,
+          "top3": 0.91701244813278,
+          "mrr": 0.7104895277613119,
+          "fallback_rate": 0.3029045643153527,
+          "accepted_top1": 0.6488095238095238
+        },
+        "energy": {
+          "count": 931,
+          "top1": 0.4522019334049409,
+          "top3": 0.6584317937701396,
+          "mrr": 0.5903477607762674,
+          "fallback_rate": 0.80343716433942,
+          "accepted_top1": 0.6120218579234973
+        },
+        "evolve": {
+          "count": 1570,
+          "top1": 0.6515923566878981,
+          "top3": 0.8955414012738854,
+          "mrr": 0.7836649046282803,
+          "fallback_rate": 0.8598726114649682,
+          "accepted_top1": 0.6681818181818182
+        },
+        "hammer": {
+          "count": 147,
+          "top1": 0.5102040816326531,
+          "top3": 0.8367346938775511,
+          "mrr": 0.6866431565411157,
+          "fallback_rate": 0.8299319727891157,
+          "accepted_top1": 0.36
+        },
+        "retreat": {
+          "count": 155,
+          "top1": 0.0967741935483871,
+          "top3": 0.45806451612903226,
+          "mrr": 0.3199282605565416,
+          "fallback_rate": 0.6064516129032258,
+          "accepted_top1": 0.14754098360655737
+        },
+        "trainer": {
+          "count": 1658,
+          "top1": 0.34197828709288297,
+          "top3": 0.6688781664656213,
+          "mrr": 0.5422439585842546,
+          "fallback_rate": 0.8075995174909529,
+          "accepted_top1": 0.5015673981191222
+        },
+        "xerosic": {
+          "count": 205,
+          "top1": 0.25365853658536586,
+          "top3": 0.775609756097561,
+          "mrr": 0.530534262485482,
+          "fallback_rate": 0.926829268292683,
+          "accepted_top1": 0.0
+        }
+      },
+      "train_decisions": 312459,
+      "test_decisions": 8060,
+      "test_episode_cutoff": 86356241
+    }
+  },
+  "schema": {
+    "feature_columns": [
+      "turn",
+      "turn_action_count",
+      "first_player_is_self",
+      "energy_attached",
+      "retreated",
+      "stadium_played",
+      "supporter_played",
+      "self_hand_count",
+      "self_deck_count",
+      "self_prize_count",
+      "self_bench_count",
+      "opp_hand_count",
+      "opp_deck_count",
+      "opp_prize_count",
+      "opp_bench_count",
+      "self_total_energy",
+      "opp_total_energy",
+      "self_total_hp",
+      "opp_total_hp",
+      "self_status_count",
+      "opp_status_count",
+      "early_game",
+      "mid_game",
+      "late_game",
+      "deck_low_10",
+      "deck_low_5",
+      "current_powerful_hand_damage",
+      "self_active_id",
+      "self_active_hp",
+      "self_active_max_hp",
+      "self_active_damage",
+      "self_active_energy",
+      "self_active_special_energy",
+      "self_active_tool_count",
+      "self_active_appear_this_turn",
+      "opp_active_id",
+      "opp_active_hp",
+      "opp_active_max_hp",
+      "opp_active_damage",
+      "opp_active_energy",
+      "opp_active_special_energy",
+      "opp_active_tool_count",
+      "opp_active_appear_this_turn",
+      "self_bench_open",
+      "self_bench_min_hp",
+      "self_bench_max_hp",
+      "self_bench_max_energy",
+      "self_bench_total_damage",
+      "self_bench_damaged_count",
+      "self_bench_low_hp_count",
+      "opp_bench_open",
+      "opp_bench_min_hp",
+      "opp_bench_max_hp",
+      "opp_bench_max_energy",
+      "opp_bench_total_damage",
+      "opp_bench_damaged_count",
+      "opp_bench_low_hp_count",
+      "hand_5",
+      "field_5",
+      "discard_5",
+      "opp_field_5",
+      "hand_13",
+      "field_13",
+      "discard_13",
+      "opp_field_13",
+      "hand_19",
+      "field_19",
+      "discard_19",
+      "opp_field_19",
+      "hand_66",
+      "field_66",
+      "discard_66",
+      "opp_field_66",
+      "hand_140",
+      "field_140",
+      "discard_140",
+      "opp_field_140",
+      "hand_305",
+      "field_305",
+      "discard_305",
+      "opp_field_305",
+      "hand_343",
+      "field_343",
+      "discard_343",
+      "opp_field_343",
+      "hand_741",
+      "field_741",
+      "discard_741",
+      "opp_field_741",
+      "hand_742",
+      "field_742",
+      "discard_742",
+      "opp_field_742",
+      "hand_743",
+      "field_743",
+      "discard_743",
+      "opp_field_743",
+      "hand_1079",
+      "field_1079",
+      "discard_1079",
+      "opp_field_1079",
+      "hand_1081",
+      "field_1081",
+      "discard_1081",
+      "opp_field_1081",
+      "hand_1086",
+      "field_1086",
+      "discard_1086",
+      "opp_field_1086",
+      "hand_1097",
+      "field_1097",
+      "discard_1097",
+      "opp_field_1097",
+      "hand_1129",
+      "field_1129",
+      "discard_1129",
+      "opp_field_1129",
+      "hand_1152",
+      "field_1152",
+      "discard_1152",
+      "opp_field_1152",
+      "hand_1182",
+      "field_1182",
+      "discard_1182",
+      "opp_field_1182",
+      "hand_1197",
+      "field_1197",
+      "discard_1197",
+      "opp_field_1197",
+      "hand_1225",
+      "field_1225",
+      "discard_1225",
+      "opp_field_1225",
+      "hand_1231",
+      "field_1231",
+      "discard_1231",
+      "opp_field_1231",
+      "hand_1266",
+      "field_1266",
+      "discard_1266",
+      "opp_field_1266",
+      "ready_alakazam_count",
+      "has_ready_alakazam",
+      "field_route_body_count",
+      "has_abra_anywhere",
+      "has_bridge_anywhere",
+      "has_alakazam_anywhere",
+      "has_psychic_energy_in_hand",
+      "complete_route_components",
+      "needs_first_abra",
+      "needs_stage2",
+      "needs_attacker_energy",
+      "dudunsparce_engine_count",
+      "dunsparce_engine_count",
+      "stadium_id",
+      "select_type",
+      "select_context",
+      "select_min_count",
+      "select_max_count",
+      "option_type",
+      "candidate_card_id",
+      "candidate_attack_id",
+      "candidate_area",
+      "candidate_inplay_area",
+      "candidate_target_id",
+      "candidate_target_hp",
+      "candidate_target_max_hp",
+      "candidate_target_energy",
+      "candidate_target_special_energy",
+      "candidate_target_appear_this_turn",
+      "candidate_target_is_active",
+      "candidate_target_is_bench",
+      "candidate_hand_cost",
+      "post_action_hand_count",
+      "post_action_powerful_hand_damage",
+      "current_ko_estimate",
+      "post_action_ko_estimate",
+      "breaks_current_ko_estimate",
+      "preserves_current_ko_estimate",
+      "powerful_hand_attack_option",
+      "attack_lethal_estimate",
+      "attack_overkill_estimate",
+      "candidate_is_route_card",
+      "candidate_is_abra",
+      "candidate_is_kadabra",
+      "candidate_is_alakazam",
+      "candidate_is_rare_candy",
+      "candidate_is_psychic_energy",
+      "target_is_abra",
+      "target_is_kadabra",
+      "target_is_alakazam",
+      "target_is_dunsparce",
+      "target_is_dudunsparce",
+      "candidate_fills_missing_abra",
+      "candidate_fills_stage2",
+      "candidate_fills_energy",
+      "action_type",
+      "is_attack",
+      "is_retreat",
+      "is_end",
+      "is_evolve",
+      "is_ability",
+      "is_energy",
+      "is_boss",
+      "is_xerosic",
+      "is_hammer",
+      "is_bench",
+      "is_trainer",
+      "is_other",
+      "hammer_opp_active_energy_value",
+      "hammer_opp_active_special_energy_value",
+      "xerosic_opp_hand_value",
+      "boss_opp_bench_value",
+      "boss_opp_bench_low_hp_value",
+      "retreat_active_damage_value",
+      "retreat_status_value",
+      "energy_target_existing_energy_value",
+      "energy_target_is_alakazam_value",
+      "energy_target_is_fezandipiti_value",
+      "evolve_target_is_abra_value",
+      "evolve_target_is_kadabra_value",
+      "bench_early_game_value",
+      "ability_low_deck_risk",
+      "trainer_low_deck_risk",
+      "end_has_attack_ready_penalty"
+    ],
+    "action_type_map": {
+      "ability": 0,
+      "attack": 1,
+      "bench": 2,
+      "boss": 3,
+      "end": 4,
+      "energy": 5,
+      "evolve": 6,
+      "hammer": 7,
+      "other": 8,
+      "retreat": 9,
+      "trainer": 10,
+      "xerosic": 11
+    },
+    "category_maps": {
+      "action_type": {
+        "ability": 0,
+        "attack": 1,
+        "bench": 2,
+        "boss": 3,
+        "end": 4,
+        "energy": 5,
+        "evolve": 6,
+        "hammer": 7,
+        "other": 8,
+        "retreat": 9,
+        "trainer": 10,
+        "xerosic": 11
+      }
+    },
+    "categorical_features": [
+      "action_type",
+      "option_type",
+      "candidate_card_id",
+      "candidate_attack_id",
+      "candidate_target_id",
+      "self_active_id",
+      "opp_active_id",
+      "stadium_id"
+    ],
+    "temperature": 0.5542567596335081,
+    "fallback_probability": 0.55,
+    "fallback_margin": 0.12,
+    "action_type_thresholds": {
+      "ability": 0.47,
+      "attack": 0.55,
+      "bench": 0.37,
+      "boss": 0.55,
+      "end": 0.35,
+      "energy": 0.55,
+      "evolve": 0.35,
+      "hammer": 0.55,
+      "retreat": 0.39,
+      "trainer": 0.55,
+      "xerosic": 0.55
+    },
+    "legal_option_only": true,
+    "n_estimators": 50,
+    "training_decisions": 320519,
+    "training_candidate_rows": 3698955
+  }
+}

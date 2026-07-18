@@ -1,0 +1,166 @@
+{
+  "games": 92,
+  "wins": 52,
+  "losses": {
+    "deckout": 10,
+    "unsafe_last_body_dudunsparce": 3,
+    "other": 27
+  },
+  "win_rate": 0.5652173913043478,
+  "submission_results": {
+    "54788067": {
+      "games": 57,
+      "wins": 34,
+      "losses": 23,
+      "win_rate": 0.5964912280701754
+    },
+    "54795292": {
+      "games": 35,
+      "wins": 18,
+      "losses": 17,
+      "win_rate": 0.5142857142857142
+    }
+  },
+  "win_loss_behavior": {
+    "wins": {
+      "attack_turn_rate": 0.7110195360195359,
+      "first_attack_own_turn": 2.5384615384615383,
+      "alakazam_attacks_per_game": 4.1923076923076925
+    },
+    "losses": {
+      "attack_turn_rate": 0.497495664058164,
+      "first_attack_own_turn": 2.5714285714285716,
+      "alakazam_attacks_per_game": 3.1
+    }
+  },
+  "role_cards": {
+    "genesect_play_games": 60,
+    "lucky_helmet_attach_games": 41,
+    "both_games": 30,
+    "both_wins": 12,
+    "both_win_rate": 0.4,
+    "without_both_games": 62,
+    "without_both_wins": 40,
+    "without_both_win_rate": 0.6451612903225806,
+    "both_deckout_losses": 7
+  },
+  "unsafe_episodes": [
+    {
+      "run": "20260718_115226_alakazam_ml_v5_sub54788067",
+      "episode_id": 86528650,
+      "unsafe_event": "[{\"step\": 107, \"turn\": 20, \"type\": 10, \"board\": 1, \"active\": 66, \"hand\": 9, \"deck\": 27, \"card_id\": 66}]"
+    },
+    {
+      "run": "20260718_115226_alakazam_ml_v5_sub54788067",
+      "episode_id": 86528022,
+      "unsafe_event": "[{\"step\": 14, \"turn\": 3, \"type\": 10, \"board\": 1, \"active\": 66, \"hand\": 7, \"deck\": 45, \"card_id\": 66}]"
+    },
+    {
+      "run": "20260718_115226_alakazam_ml_v5_sub54795292",
+      "episode_id": 86595694,
+      "unsafe_event": "[{\"step\": 24, \"turn\": 3, \"type\": 10, \"board\": 1, \"active\": 66, \"hand\": 7, \"deck\": 45, \"card_id\": 66}]"
+    }
+  ],
+  "matchups": [
+    {
+      "opponent_archetype": "Team Rocket Spidops",
+      "games": 18,
+      "wins": 15,
+      "win_rate": 0.8333333333333334,
+      "attack_turn_rate": 0.5842592592592593,
+      "alakazam_attacks": 2.7777777777777777,
+      "deckout_losses": 0,
+      "unsafe_dudun_losses": 1
+    },
+    {
+      "opponent_archetype": "Alakazam",
+      "games": 17,
+      "wins": 13,
+      "win_rate": 0.7647058823529411,
+      "attack_turn_rate": 0.7278011204481792,
+      "alakazam_attacks": 5.235294117647059,
+      "deckout_losses": 2,
+      "unsafe_dudun_losses": 0
+    },
+    {
+      "opponent_archetype": "Marnie's Grimmsnarl",
+      "games": 10,
+      "wins": 6,
+      "win_rate": 0.6,
+      "attack_turn_rate": 0.5385714285714286,
+      "alakazam_attacks": 2.7,
+      "deckout_losses": 0,
+      "unsafe_dudun_losses": 0
+    },
+    {
+      "opponent_archetype": "Cinderace / Mega Starmie",
+      "games": 9,
+      "wins": 5,
+      "win_rate": 0.5555555555555556,
+      "attack_turn_rate": 0.575925925925926,
+      "alakazam_attacks": 2.888888888888889,
+      "deckout_losses": 0,
+      "unsafe_dudun_losses": 1
+    },
+    {
+      "opponent_archetype": "Crustle + Mega Kangaskhan",
+      "games": 9,
+      "wins": 2,
+      "win_rate": 0.2222222222222222,
+      "attack_turn_rate": 0.5486772486772487,
+      "alakazam_attacks": 2.3333333333333335,
+      "deckout_losses": 0,
+      "unsafe_dudun_losses": 0
+    },
+    {
+      "opponent_archetype": "Other",
+      "games": 8,
+      "wins": 3,
+      "win_rate": 0.375,
+      "attack_turn_rate": 0.6925595238095238,
+      "alakazam_attacks": 4.375,
+      "deckout_losses": 3,
+      "unsafe_dudun_losses": 0
+    },
+    {
+      "opponent_archetype": "Dragapult",
+      "games": 7,
+      "wins": 3,
+      "win_rate": 0.42857142857142855,
+      "attack_turn_rate": 0.5399659863945578,
+      "alakazam_attacks": 2.7142857142857144,
+      "deckout_losses": 1,
+      "unsafe_dudun_losses": 1
+    },
+    {
+      "opponent_archetype": "Hop Trevenant/Dragapult",
+      "games": 7,
+      "wins": 3,
+      "win_rate": 0.42857142857142855,
+      "attack_turn_rate": 0.6333137100994245,
+      "alakazam_attacks": 5.571428571428571,
+      "deckout_losses": 3,
+      "unsafe_dudun_losses": 0
+    },
+    {
+      "opponent_archetype": "Mega Lucario",
+      "games": 4,
+      "wins": 1,
+      "win_rate": 0.25,
+      "attack_turn_rate": 0.7724116161616161,
+      "alakazam_attacks": 6.75,
+      "deckout_losses": 1,
+      "unsafe_dudun_losses": 0
+    },
+    {
+      "opponent_archetype": "Festival Dipplin",
+      "games": 3,
+      "wins": 1,
+      "win_rate": 0.3333333333333333,
+      "attack_turn_rate": 0.5444444444444444,
+      "alakazam_attacks": 3.0,
+      "deckout_losses": 0,
+      "unsafe_dudun_losses": 0
+    }
+  ]
+}

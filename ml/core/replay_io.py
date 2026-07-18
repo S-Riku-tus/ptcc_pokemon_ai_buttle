@@ -129,11 +129,25 @@ def extract_fast_header_from_file(path: str | Path, limit: int = 240_000) -> dic
         return extract_fast_header_from_bytes(handle.read(limit))
 
 
-def zip_metadata(zip_path: str | Path) -> dict[str, Any]:
+def replay_bundle_scope(member: str) -> str:
+    """Return the archive prefix that owns a packaged episode replay."""
+    parts = member.split("/")
+    if "episodes" in parts:
+        return "/".join(parts[:parts.index("episodes")])
+    return ""
+
+
+def zip_metadata(zip_path: str | Path, replay_member: str | None = None) -> dict[str, Any]:
     path = Path(zip_path)
     meta: dict[str, Any] = {}
     with ZipFile(path) as zf:
-        members = zf.namelist()
+        all_members = zf.namelist()
+        scope = replay_bundle_scope(replay_member) if replay_member is not None else None
+        if scope:
+            prefix = scope.rstrip("/") + "/"
+            members = [name for name in all_members if name.startswith(prefix)]
+        else:
+            members = all_members
 
         def load_json_member(suffix: str) -> dict[str, Any] | None:
             member = next((name for name in members if name.endswith(suffix)), None)
@@ -145,7 +159,7 @@ def zip_metadata(zip_path: str | Path) -> dict[str, Any]:
                 return None
             return value if isinstance(value, dict) else None
 
-        for member in zf.namelist():
+        for member in members:
             if member.endswith("bundle_summary.json"):
                 try:
                     meta.update(orjson.loads(zf.read(member)))

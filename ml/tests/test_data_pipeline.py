@@ -10,7 +10,7 @@ import pytest
 pd = pytest.importorskip("pandas")
 
 from ml.core.features import LEAKAGE_DENYLIST, state_features
-from ml.core.manifest import _deduplicate_usable_trajectories
+from ml.core.manifest import _deduplicate_usable_trajectories, _resolved_target_team
 from ml.core.replay_io import replay_refs, zip_metadata
 
 
@@ -63,6 +63,38 @@ def test_full_bundle_metadata_recovers_team_rank_and_submission_seat(tmp_path):
     assert meta["source_manifest"][86306463]["detected_submission_agent_index"] == "1"
 
 
+def test_combined_rank_zip_resolves_metadata_per_submission_bundle(tmp_path):
+    path = tmp_path / "rank23_combined_full.zip"
+    with zipfile.ZipFile(path, "w") as archive:
+        for bundle, submission_id, episode_id, team_name, seat in (
+            ("rank23_a_sub54770001", 54770001, 86300001, "Team A", 0),
+            ("rank23_b_sub54770002", 54770002, 86300002, "Team B", 1),
+        ):
+            archive.writestr(f"{bundle}/submission.json", json.dumps({
+                "submission_id": submission_id,
+                "leaderboard_rank": "23",
+                "team_name": team_name,
+            }))
+            archive.writestr(
+                f"{bundle}/manifest.csv",
+                "episode_id,detected_submission_agent_index\n"
+                f"{episode_id},{seat}\n",
+            )
+            archive.writestr(
+                f"{bundle}/episodes/{episode_id}/replay/episode_{episode_id}.json",
+                "{}",
+            )
+
+    refs = replay_refs(path)
+    metadata = {ref.episode_id: zip_metadata(path, ref.member) for ref in refs}
+    assert metadata[86300001]["submission_id"] == 54770001
+    assert metadata[86300001]["team_name"] == "Team A"
+    assert metadata[86300001]["source_manifest"][86300001]["detected_submission_agent_index"] == "0"
+    assert metadata[86300002]["submission_id"] == 54770002
+    assert metadata[86300002]["team_name"] == "Team B"
+    assert metadata[86300002]["source_manifest"][86300002]["detected_submission_agent_index"] == "1"
+
+
 def test_duplicate_trajectory_rows_prefer_stronger_seat_evidence():
     frame = pd.DataFrame([
         {
@@ -80,6 +112,11 @@ def test_duplicate_trajectory_rows_prefer_stronger_seat_evidence():
     assert removed == 1
     assert len(deduplicated) == 1
     assert deduplicated.iloc[0]["zip_name"] == "full.zip"
+
+
+def test_target_team_falls_back_to_observed_seat_name():
+    assert _resolved_target_team("", ["opponent", "v5 teacher"], 1) == "v5 teacher"
+    assert _resolved_target_team("configured", ["opponent", "observed"], 1) == "configured"
 
 
 def test_manifest_seats_and_decks_are_auditable():
