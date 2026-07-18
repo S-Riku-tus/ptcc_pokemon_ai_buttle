@@ -55,11 +55,11 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "output_root": "artifacts/champion_challenger",
     "promotion_thresholds": {
         "minimum_head_to_head_win_rate": 0.53,
-        "minimum_attack_turn_rate": 0.70,
+        "minimum_attack_opportunity_conversion_rate": 0.95,
         "minimum_alakazam_attacks_per_game": 3.8,
         "maximum_deckout_rate": 0.05,
         "maximum_boardout_rate": 0.05,
-        "maximum_post_first_attack_idle_turns_in_losses": 0.8,
+        "maximum_post_first_main_idle_turns_in_losses": 2.0,
         "maximum_crashes": 0,
         "maximum_illegal_actions": 0,
         "maximum_timeouts": 0,
@@ -348,7 +348,10 @@ def _empty_role_metrics() -> dict[str, Any]:
         "search_uses": 0,
         "first_attack_turn": None,
         "acting_turns": set(),
+        "main_turns": set(),
         "attack_turns": set(),
+        "attack_opportunity_turns": set(),
+        "attackable_end_turns": set(),
         "hand_size_samples": [],
         "hand_at_alakazam_attack": [],
         "overkill_total": 0.0,
@@ -378,6 +381,10 @@ def summarize_game(events: list[dict[str, Any]], meta: dict[str, Any]) -> dict[s
         turn = int(event.get("turn", 0))
         acc["decisions"] += 1
         acc["acting_turns"].add(turn)
+        if event.get("is_main_decision"):
+            acc["main_turns"].add(turn)
+        if event.get("attack_offered"):
+            acc["attack_opportunity_turns"].add(turn)
         acc["decision_ms_total"] += float(event.get("decision_ms", 0.0))
         acc["decision_ms_max"] = max(acc["decision_ms_max"], float(event.get("decision_ms", 0.0)))
         action = str(event.get("action_type") or "other")
@@ -397,16 +404,23 @@ def summarize_game(events: list[dict[str, Any]], meta: dict[str, Any]) -> dict[s
             if overkill > 0:
                 acc["overkill_total"] += overkill
                 acc["overkill_samples"] += 1
+        elif action == "end" and event.get("attack_offered"):
+            acc["attackable_end_turns"].add(turn)
 
     per_role: dict[str, Any] = {}
     for role, acc in roles.items():
         acting = acc["acting_turns"]
         attack_turns = acc["attack_turns"]
+        main_turns = acc["main_turns"]
+        opportunity_turns = acc["attack_opportunity_turns"]
         first = acc["first_attack_turn"]
         idle_after_first = 0
+        main_idle_after_first = 0
         if first is not None:
             after = {t for t in acting if t >= first}
             idle_after_first = len(after - attack_turns)
+            main_after = {t for t in main_turns if t >= first}
+            main_idle_after_first = len(main_after - attack_turns)
         role_meta = meta.get(role, {}) if isinstance(meta.get(role), dict) else {}
         per_role[role] = {
             "decisions": acc["decisions"],
@@ -415,8 +429,13 @@ def summarize_game(events: list[dict[str, Any]], meta: dict[str, Any]) -> dict[s
             "search_uses": acc["search_uses"],
             "first_attack_turn": first,
             "acting_turns": len(acting),
+            "main_turns": len(main_turns),
             "attack_turns": len(attack_turns),
+            "attack_opportunity_turns": len(opportunity_turns),
+            "missed_attack_opportunity_turns": len(opportunity_turns - attack_turns),
+            "attackable_end_turns": len(acc["attackable_end_turns"]),
             "idle_turns_after_first_attack": idle_after_first,
+            "main_idle_turns_after_first_attack": main_idle_after_first,
             "hand_size_samples": acc["hand_size_samples"],
             "hand_at_alakazam_attack": acc["hand_at_alakazam_attack"],
             "overkill_total": acc["overkill_total"],
@@ -473,7 +492,11 @@ def aggregate_role(records: list[dict[str, Any]], role: str) -> dict[str, Any]:
     attacks = sum(r["attacks"] for r in rows)
     alakazam_attacks = sum(r["alakazam_attacks"] for r in rows)
     acting_turns = sum(r["acting_turns"] for r in rows)
+    main_turns = sum(r["main_turns"] for r in rows)
     attack_turns = sum(r["attack_turns"] for r in rows)
+    attack_opportunity_turns = sum(r["attack_opportunity_turns"] for r in rows)
+    missed_attack_opportunity_turns = sum(r["missed_attack_opportunity_turns"] for r in rows)
+    attackable_end_turns = sum(r["attackable_end_turns"] for r in rows)
     searches = sum(r["search_uses"] for r in rows)
     decisions = sum(r["decisions"] for r in rows)
 
@@ -484,6 +507,11 @@ def aggregate_role(records: list[dict[str, Any]], role: str) -> dict[str, Any]:
     losses = [r for r in rows if r["lost"]]
     idle_in_losses = [
         r["idle_turns_after_first_attack"]
+        for r in losses
+        if r["first_attack_turn"] is not None
+    ]
+    main_idle_in_losses = [
+        r["main_idle_turns_after_first_attack"]
         for r in losses
         if r["first_attack_turn"] is not None
     ]
@@ -512,9 +540,14 @@ def aggregate_role(records: list[dict[str, Any]], role: str) -> dict[str, Any]:
         "games_with_attack": games_with_attack,
         "t2_attack_rate": _safe_div(t2_attacks, games),
         "attack_turn_rate": _safe_div(attack_turns, acting_turns),
+        "main_turn_attack_rate": _safe_div(attack_turns, main_turns),
+        "attack_opportunity_conversion_rate": _safe_div(attack_turns, attack_opportunity_turns),
+        "missed_attack_opportunity_turns": missed_attack_opportunity_turns,
+        "attackable_end_turns": attackable_end_turns,
         "attacks_per_game": _safe_div(attacks, games),
         "alakazam_attacks_per_game": _safe_div(alakazam_attacks, games),
         "idle_turns_after_first_attack_in_losses": _mean(idle_in_losses),
+        "main_idle_turns_after_first_attack_in_losses": _mean(main_idle_in_losses),
         "avg_game_turns": _mean([r for r in (rec["turns"] for rec in records) if r is not None]),
         "search_uses_per_attack": _safe_div(searches, max(1, attacks)),
         "avg_hand_size": _mean(hand_samples),
@@ -710,7 +743,11 @@ def judge_promotion(
 
     # --- tactical gates ---
     tactical_specs = [
-        ("minimum_attack_turn_rate", challenger_role_metrics["attack_turn_rate"], _ge),
+        (
+            "minimum_attack_opportunity_conversion_rate",
+            challenger_role_metrics["attack_opportunity_conversion_rate"],
+            _ge,
+        ),
         (
             "minimum_alakazam_attacks_per_game",
             challenger_role_metrics["alakazam_attacks_per_game"],
@@ -719,8 +756,8 @@ def judge_promotion(
         ("maximum_deckout_rate", challenger_role_metrics["deckout_rate"], _le),
         ("maximum_boardout_rate", challenger_role_metrics["boardout_rate"], _le),
         (
-            "maximum_post_first_attack_idle_turns_in_losses",
-            challenger_role_metrics["idle_turns_after_first_attack_in_losses"],
+            "maximum_post_first_main_idle_turns_in_losses",
+            challenger_role_metrics["main_idle_turns_after_first_attack_in_losses"],
             _le,
         ),
     ]
@@ -884,10 +921,15 @@ def render_markdown(report: dict[str, Any]) -> str:
     tactical_keys = [
         ("avg_first_attack_turn", "Avg first attack turn"),
         ("t2_attack_rate", "Attack-by-T2 rate"),
-        ("attack_turn_rate", "Attack rate (per own turn)"),
+        ("attack_turn_rate", "Legacy attack rate (all acting engine turns)"),
+        ("main_turn_attack_rate", "Attack rate (MAIN turns)"),
+        ("attack_opportunity_conversion_rate", "Attack opportunity conversion"),
+        ("missed_attack_opportunity_turns", "Missed attack-opportunity turns"),
+        ("attackable_end_turns", "END while attack offered"),
         ("attacks_per_game", "Attacks / game"),
         ("alakazam_attacks_per_game", "Alakazam attacks / game"),
         ("idle_turns_after_first_attack_in_losses", "Idle turns post-1st-attack (losses)"),
+        ("main_idle_turns_after_first_attack_in_losses", "MAIN idle post-1st-attack (losses)"),
         ("avg_game_turns", "Avg game turns"),
         ("search_uses_per_attack", "Search uses / attack"),
         ("avg_hand_size", "Avg hand size"),

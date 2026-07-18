@@ -278,6 +278,13 @@ def play_instrumented_game(
             my_active = (player.get("active") or [{}])
             my_active_id = int(my_active[0].get("id", -1)) if my_active and isinstance(my_active[0], dict) else -1
 
+            is_main_decision = (
+                int(select.get("type", -1)) == 0
+                and int(select.get("context", -1)) == 0
+            )
+            attack_offered = any(
+                int(option.get("type", -1)) == ATTACK_OPTION_TYPE for option in options
+            )
             traj_record = None
             if trajectory_sink is not None:
                 traj_record = {
@@ -289,6 +296,8 @@ def play_instrumented_game(
                     "select_type": int(select.get("type", -1)),
                     "select_context": int(select.get("context", -1)),
                     "num_options": len(options),
+                    "is_main_decision": is_main_decision,
+                    "attack_offered": attack_offered,
                     "selected_action": None,
                     "action_type": None,
                     "exception": None,
@@ -314,6 +323,8 @@ def play_instrumented_game(
                     {
                         "role": role, "seat": seat, "turn": last_turn,
                         "action_type": "crash", "is_attack": False,
+                        "is_main_decision": is_main_decision,
+                        "attack_offered": attack_offered,
                         "is_alakazam_attack": False, "is_search": False,
                         "hand_count": hand_count, "overkill": 0.0,
                         "decision_ms": decision_ms,
@@ -362,6 +373,8 @@ def play_instrumented_game(
                 {
                     "role": role, "seat": seat, "turn": last_turn,
                     "action_type": action_type, "is_attack": is_attack,
+                    "is_main_decision": is_main_decision,
+                    "attack_offered": attack_offered,
                     "is_alakazam_attack": is_alakazam_attack, "is_search": is_search,
                     "hand_count": hand_count, "overkill": overkill,
                     "decision_ms": decision_ms,
@@ -892,8 +905,12 @@ def main(argv: list[str] | None = None) -> int:
     log(f"challenger win rate: {matchup['challenger_win_rate']*100:.1f}% "
         f"(95% CI {matchup['challenger_win_rate_ci_low']*100:.1f}%-"
         f"{matchup['challenger_win_rate_ci_high']*100:.1f}%)")
-    log(f"challenger attack rate: {report['challenger_metrics']['attack_turn_rate']*100:.1f}% | "
-        f"alakazam attacks/game: {report['challenger_metrics']['alakazam_attacks_per_game']:.2f}")
+    log(
+        "challenger attack opportunity conversion: "
+        f"{report['challenger_metrics']['attack_opportunity_conversion_rate']*100:.1f}% | "
+        f"legacy all-turn rate: {report['challenger_metrics']['attack_turn_rate']*100:.1f}% | "
+        f"alakazam attacks/game: {report['challenger_metrics']['alakazam_attacks_per_game']:.2f}"
+    )
     log(f"safety: crashes={report['challenger_metrics']['crashes']} "
         f"illegal={report['challenger_metrics']['illegal_actions']} "
         f"timeouts={report['challenger_metrics']['timeouts']}")

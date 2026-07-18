@@ -24,11 +24,11 @@
 
   "promotion_thresholds": {
     "minimum_head_to_head_win_rate": 0.53,
-    "minimum_attack_turn_rate": 0.70,
+    "minimum_attack_opportunity_conversion_rate": 0.95,
     "minimum_alakazam_attacks_per_game": 3.8,
     "maximum_deckout_rate": 0.05,
     "maximum_boardout_rate": 0.05,
-    "maximum_post_first_attack_idle_turns_in_losses": 0.8,
+    "maximum_post_first_main_idle_turns_in_losses": 2.0,
     "maximum_crashes": 0,
     "maximum_illegal_actions": 0,
     "maximum_timeouts": 0

@@ -68,8 +68,18 @@ def _discover_zip_paths(config: dict[str, Any], config_path: Path, repo_root: Pa
     from ml.core.replay_io import discover_zip_paths
 
     roots: list[Path] = []
+    missing_explicit_roots: list[Path] = []
     for value in config.get("replay_roots", []):
-        roots.append(resolve_data_path(value, config_path=config_path, repo_root=repo_root))
+        root = resolve_data_path(value, config_path=config_path, repo_root=repo_root)
+        roots.append(root)
+        if not root.exists():
+            missing_explicit_roots.append(root)
+    if missing_explicit_roots:
+        formatted = "\n".join(f"  - {path}" for path in missing_explicit_roots)
+        raise FileNotFoundError(
+            "Explicit replay_roots are missing; refusing a partial-corpus retrain:\n"
+            f"{formatted}"
+        )
     replay_glob = config.get("replay_glob")
     if replay_glob:
         pattern = resolve_data_path(replay_glob, config_path=config_path, repo_root=repo_root)

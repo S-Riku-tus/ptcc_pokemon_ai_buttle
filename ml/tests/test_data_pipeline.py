@@ -9,7 +9,7 @@ import pytest
 
 pd = pytest.importorskip("pandas")
 
-from ml.core.features import LEAKAGE_DENYLIST, state_features
+from ml.core.features import LEAKAGE_DENYLIST, option_features, state_features
 from ml.core.manifest import _deduplicate_usable_trajectories, _resolved_target_team
 from ml.core.replay_io import replay_refs, zip_metadata
 
@@ -171,6 +171,36 @@ def test_opponent_private_hand_ids_do_not_change_features():
     changed = json.loads(json.dumps(current))
     changed["players"][1]["hand"] = [{"id": 123456}, {"id": 654321}]
     assert state_features(current) == state_features(changed)
+
+
+def test_attack_continuity_features_separate_active_from_backup_attacker():
+    current = {
+        "yourIndex": 0,
+        "firstPlayer": 0,
+        "turn": 6,
+        "players": [
+            {
+                "hand": [], "handCount": 0, "prize": [], "deckCount": 30,
+                "active": [{"id": 140, "energies": []}],
+                "bench": [{"id": 743, "energies": [5]}],
+            },
+            {
+                "hand": None, "handCount": 5, "prize": [], "deckCount": 30,
+                "active": [{"id": 140, "energies": []}], "bench": [],
+            },
+        ],
+    }
+    state = state_features(current)
+    assert state["has_ready_alakazam"] == 1
+    assert state["has_ready_active_alakazam"] == 0
+    assert state["has_ready_backup_alakazam"] == 1
+    assert state["active_is_fezandipiti"] == 1
+    assert state["active_is_setup_wall"] == 1
+
+    retreat = option_features(current, {"type": 0, "context": 0}, {"type": 12})
+    end = option_features(current, {"type": 0, "context": 0}, {"type": 14})
+    assert retreat["retreat_to_ready_backup_value"] == 1
+    assert end["end_ready_active_alakazam_penalty"] == 0
 
 
 def test_compressed_candidate_dataset_is_present_and_nonempty():

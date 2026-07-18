@@ -17,15 +17,19 @@ teacher corpus and a newly trained LightGBM ranker.
 
 ## Training corpus
 
-The v7 ranker uses the v6 corpus plus ten top21-40 Alakazam rank archives.
+The v7.1 ranker uses the v6 corpus plus ten top21-40 Alakazam rank archives
+and the explicitly requested rank-1 Majkel1337 bundle.
 The combined rank archives contain sixteen distinct submissions; the ML input
 reader resolves metadata per submission sub-bundle.
 
-- 17 ZIPs / 23 submissions / 16 teams / 5 deck clusters
-- 6,499 full replay files / 6,518 expert trajectories
-- 320,519 aligned decisions
-- 3,698,955 legal candidate rows
+- 18 ZIPs / 23 submissions / 16 teams / 5 deck clusters
+- 6,663 full replay files / 6,562 expert trajectories
+- 322,167 aligned decisions
+- 3,717,660 legal candidate rows
 - 6 unresolved decisions; alignment rate 99.998%
+
+Of the 164 rank-1 replays, 120 overlapped the existing submission corpus and
+were deduplicated; 44 trajectories were genuinely new.
 
 The top21-40 addition contributed 3,249 episodes, 3,265 trajectories, 148,845
 decisions, and 1,726,889 candidate rows.
@@ -49,10 +53,25 @@ v6, 89-111 (44.5%), with no safety errors, so that deck change was rejected.
 - default shadow vs non-ML v3: 124-76, 62.0%
 - all three 200-game runs had zero crashes, illegal actions, and timeouts
 
-The repository's formal gate also rejected the v3 result because attack-turn
-rate was 43.9% versus the configured 70% minimum. v7 therefore remains a
-development shadow agent and does not replace v6.
+The old formal gate counted every engine turn on which the agent made any
+selection. A replay audit showed that this was not an attack-opportunity rate:
+Majkel1337 scored only 35.35% by that definition despite a 79.14% replay win
+rate. The gate now keeps that number as a legacy diagnostic and instead checks
+attack-opportunity conversion (minimum 95%) plus MAIN-only idle turns after the
+first attack (maximum 2.0 in losses).
 
-See `data/ml/alakazam_ml_v7_candidate/TRAINING_REPORT.md` and
-`reports/top21_40_teacher_analysis.json` under that directory for the complete
-audit and replay-level evidence.
+In fresh 200-game measurements, default-shadow v7 converted 100% of offered
+attack turns with zero attackable END choices. It still remains a development
+shadow agent because the v6 mirror had 11% deckout and 5.5% boardout, while the
+v3 matchup had 10% boardout. Those are resource and board-continuity failures,
+not failures to choose an available attack.
+
+v7.1 adds 12 public-state features that distinguish a ready Active Alakazam
+from a ready Bench backup. On the exact same time split, the feature ablation
+improved overall Top-1 by 0.84 points, driven by END (+16.46) and retreat
+(+13.99). Attack and evolution did not improve in that exact ablation, so they
+remain deterministic fallback actions and live override scope is unchanged.
+
+See `data/ml/alakazam_ml_v7/ATTACK_CONTINUITY_REPORT.md` and
+`data/ml/alakazam_ml_v7_candidate/reports/attack_continuity_feature_ablation.json`
+for the complete audit and replay-level evidence.

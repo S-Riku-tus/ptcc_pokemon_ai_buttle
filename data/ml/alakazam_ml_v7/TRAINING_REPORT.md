@@ -1,5 +1,13 @@
 # Alakazam ML v7 candidate report
 
+> 2026-07-18 v7.1 addendum: the 70% `attack-turn rate` gate discussed below
+> used all engine turns on which the agent made any selection. A rank-1 replay
+> audit measured Majkel1337 at only 35.35% by that definition despite a 79.14%
+> win rate. The corrected gate uses attack-opportunity conversion and MAIN-only
+> idle turns. See `ATTACK_CONTINUITY_REPORT.md` for the v7.1 retrain, exact
+> feature ablation, and fresh 200-game results. Historical v7 numbers below are
+> retained as the record of the original decision.
+
 ## Decision
 
 Create `alakazam_ml_v7`, but keep its new ranker shadow-only. Restrict any
@@ -169,9 +177,9 @@ not evidence to promote the ML override.
    Team Rocket's Mewtwo and Mega Kangaskhan teacher matchups remain weak.
 5. Keep reward/value learning separate. These logs currently train imitation
    labels; outcome is only a mild sample weight.
-6. Make attack continuity the next primary target. The live runs satisfy total
-   Alakazam attacks/game but fail attack-turn rate, indicating too many optional
-   MAIN actions or non-attacking turns after offense is available.
+6. Treat attack continuity as attack-opportunity conversion, not the legacy
+   all-engine-turn rate. The replay audit found no local attackable END choices;
+   current higher priorities are boardout and mirror deckout.
 
 ## 9. Artifacts
 

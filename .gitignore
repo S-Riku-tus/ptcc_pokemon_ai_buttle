@@ -42,3 +42,6 @@ data/ml/**/processed/.dataset_parts/
 Thumbs.db
 .vscode/
 .idea/
+
+# Regeneratable ML matrix feature arrays (exceed GitHub LFS 2GB limit)
+data/ml/**/processed/matrix/features.npy

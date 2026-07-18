@@ -175,11 +175,27 @@ def state_features(current: dict[str, Any]) -> dict[str, float | int]:
         out[f"discard_{card_id}"] = discard_counts[card_id]
         out[f"opp_field_{card_id}"] = opp_field_counts[card_id]
 
-    ready_alakazam = sum(int(int(card.get("id", -1)) == 743 and _energy_count(card) >= 1) for card in me_in_play)
+    active_cards = _cards(me, "active")
+    bench_cards = _cards(me, "bench")
+    ready_active_alakazam = sum(
+        int(int(card.get("id", -1)) == 743 and _energy_count(card) >= 1)
+        for card in active_cards
+    )
+    ready_bench_alakazam = sum(
+        int(int(card.get("id", -1)) == 743 and _energy_count(card) >= 1)
+        for card in bench_cards
+    )
+    ready_alakazam = ready_active_alakazam + ready_bench_alakazam
     field_route_bodies = field_counts[741] + field_counts[742] + field_counts[743]
     out.update({
         "ready_alakazam_count": ready_alakazam,
         "has_ready_alakazam": int(ready_alakazam > 0),
+        "ready_active_alakazam_count": ready_active_alakazam,
+        "has_ready_active_alakazam": int(ready_active_alakazam > 0),
+        "ready_bench_alakazam_count": ready_bench_alakazam,
+        "has_ready_backup_alakazam": int(ready_bench_alakazam > 0),
+        "active_is_fezandipiti": int(int(out["self_active_id"]) == 140),
+        "active_is_setup_wall": int(int(out["self_active_id"]) in {66, 140, 305, 343}),
         "field_route_body_count": field_route_bodies,
         "has_abra_anywhere": int(field_counts[741] + hand_counts[741] > 0),
         "has_bridge_anywhere": int(field_counts[742] + hand_counts[742] + hand_counts[1079] > 0),
@@ -291,6 +307,20 @@ def option_features(
         "ability_low_deck_risk": int(action == "ability") * int(out["deck_low_5"]),
         "trainer_low_deck_risk": int(action == "trainer") * int(out["deck_low_5"]),
         "end_has_attack_ready_penalty": int(action == "end") * int(out["has_ready_alakazam"]),
+        "end_ready_active_alakazam_penalty": int(action == "end") * int(out["has_ready_active_alakazam"]),
+        "attack_with_ready_active_alakazam": int(action == "attack") * int(out["has_ready_active_alakazam"]),
+        "retreat_to_ready_backup_value": int(action == "retreat") * int(out["has_ready_backup_alakazam"]),
+        "ability_repositions_to_ready_backup_value": (
+            int(action == "ability")
+            * int(out["self_active_id"] == 66)
+            * int(out["has_ready_backup_alakazam"])
+        ),
+        "evolve_builds_active_alakazam": int(
+            action == "evolve" and card_id == 743 and target_area == 4
+        ),
+        "evolve_builds_backup_alakazam": int(
+            action == "evolve" and card_id == 743 and target_area == 5
+        ),
     })
     return out
 

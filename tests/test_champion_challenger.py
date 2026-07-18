@@ -20,13 +20,29 @@ import promote_challenger  # noqa: E402
 # ---------------------------------------------------------------------------
 
 
-def make_event(role, turn, *, attack=False, alakazam=False, hand=5, search=False, ms=1.0):
+def make_event(
+    role,
+    turn,
+    *,
+    attack=False,
+    alakazam=False,
+    hand=5,
+    search=False,
+    ms=1.0,
+    main=True,
+    attack_offered=None,
+    action_type=None,
+):
+    if attack_offered is None:
+        attack_offered = attack
     return {
         "role": role,
         "seat": 0,
         "turn": turn,
-        "action_type": "attack" if attack else "other",
+        "action_type": action_type or ("attack" if attack else "other"),
         "is_attack": attack,
+        "is_main_decision": main,
+        "attack_offered": attack_offered,
         "is_alakazam_attack": alakazam,
         "is_search": search,
         "hand_count": hand,
@@ -203,8 +219,11 @@ def test_summarize_game_tactical_counts():
     assert chal["alakazam_attacks"] == 2
     assert chal["first_attack_turn"] == 3
     assert chal["acting_turns"] == 3
+    assert chal["main_turns"] == 3
     assert chal["attack_turns"] == 2
+    assert chal["attack_opportunity_turns"] == 2
     assert chal["idle_turns_after_first_attack"] == 1
+    assert chal["main_idle_turns_after_first_attack"] == 1
 
 
 def test_aggregate_matchup_winrate_and_seats():
@@ -236,6 +255,7 @@ def test_aggregate_role_rates():
     assert role["deckouts"] == 2
     assert role["deckout_rate"] == pytest.approx(0.2)
     assert role["attack_turn_rate"] == pytest.approx(1.0)
+    assert role["attack_opportunity_conversion_rate"] == pytest.approx(1.0)
     assert role["alakazam_attacks_per_game"] == pytest.approx(1.0)
 
 
@@ -267,10 +287,12 @@ def test_wilson_interval():
 def _clean_challenger_metrics(**overrides):
     base = {
         "attack_turn_rate": 0.8,
+        "attack_opportunity_conversion_rate": 0.98,
         "alakazam_attacks_per_game": 4.0,
         "deckout_rate": 0.0,
         "boardout_rate": 0.0,
         "idle_turns_after_first_attack_in_losses": 0.0,
+        "main_idle_turns_after_first_attack_in_losses": 0.0,
         "crashes": 0,
         "illegal_actions": 0,
         "timeouts": 0,
@@ -326,6 +348,29 @@ def test_judge_reject_on_deckout():
         _matchup(), _clean_challenger_metrics(deckout_rate=0.2), _config()
     )
     assert result["verdict"] == cc_core.VERDICT_REJECT
+
+
+def test_judge_uses_attack_opportunities_not_legacy_all_turn_rate():
+    metrics = _clean_challenger_metrics(
+        attack_turn_rate=0.35,
+        attack_opportunity_conversion_rate=0.97,
+    )
+    result = cc_core.judge_promotion(_matchup(), metrics, _config())
+    checks = {check["name"]: check for check in result["checks"]}
+    assert "minimum_attack_turn_rate" not in checks
+    assert checks["minimum_attack_opportunity_conversion_rate"]["pass"] is True
+    assert result["verdict"] == cc_core.VERDICT_PROMOTE
+
+
+def test_judge_holds_on_missed_attack_opportunities():
+    result = cc_core.judge_promotion(
+        _matchup(),
+        _clean_challenger_metrics(attack_opportunity_conversion_rate=0.90),
+        _config(),
+    )
+    checks = {check["name"]: check for check in result["checks"]}
+    assert checks["minimum_attack_opportunity_conversion_rate"]["pass"] is False
+    assert result["verdict"] == cc_core.VERDICT_HOLD
 
 
 def test_judge_hold_on_insufficient_games():

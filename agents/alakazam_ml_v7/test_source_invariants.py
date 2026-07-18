@@ -51,6 +51,6 @@ def test_shadow_runtime_keeps_boss_rule_only():
 def test_metadata_is_v7():
     data = json.loads((ROOT / "metadata.json").read_text(encoding="utf-8"))
     assert data["name"] == "alakazam_ml_v7"
-    assert data["version"] == "0.7.0"
+    assert data["version"] == "0.7.1"
     assert data["base"] == "alakazam741_v3"
     assert "Boss's Orders 3" in data["deck_policy"]
