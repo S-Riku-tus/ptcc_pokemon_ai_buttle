@@ -17,6 +17,7 @@ Examples:
 from __future__ import annotations
 
 import argparse
+import json
 import random
 import sys
 import time
@@ -57,6 +58,15 @@ def load_baseline(kind: str, deck: list[int]):
         return list(range(min(obs["select"]["maxCount"], len(obs["select"]["option"]))))
 
     return (random_agent if kind == "random" else first_agent), None
+
+
+def load_deck_override(path: str | None, fallback: list[int]) -> list[int]:
+    if not path:
+        return list(fallback)
+    values = [int(value) for value in Path(path).read_text(encoding="utf-8-sig").split()]
+    if len(values) != 60:
+        raise ValueError(f"{path}: expected 60 ids, got {len(values)}")
+    return values
 
 
 def resolve(spec: str, fallback_deck: list[int]):
@@ -112,6 +122,10 @@ def main():
     parser.add_argument("agent_b")
     parser.add_argument("--games", type=int, default=40)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--quiet", action="store_true", help="suppress per-game result lines")
+    parser.add_argument("--diag-json", action="store_true", help="print complete agent diagnostics as JSON")
+    parser.add_argument("--deck-a", help="override A's engine deck with a 60-id CSV/text file")
+    parser.add_argument("--deck-b", help="override B's engine deck with a 60-id CSV/text file")
     args = parser.parse_args()
 
     random.seed(args.seed)
@@ -124,8 +138,8 @@ def main():
     agent_a, diag_a = resolve(args.agent_a, fallback_deck)
     agent_b, diag_b = resolve(args.agent_b, fallback_deck)
 
-    deck_a = agent_a({"select": None})
-    deck_b = agent_b({"select": None})
+    deck_a = load_deck_override(args.deck_a, agent_a({"select": None}))
+    deck_b = load_deck_override(args.deck_b, agent_b({"select": None}))
 
     wins = {args.agent_a: 0, args.agent_b: 0, "draw": 0}
     first_wins = {args.agent_a: 0, args.agent_b: 0}
@@ -145,7 +159,8 @@ def main():
             wins[label] += 1
             if result == 0:
                 first_wins[label] += 1
-        print(f"game {g + 1:>3}: seat0={'A' if a_first else 'B'} -> {label}")
+        if not args.quiet:
+            print(f"game {g + 1:>3}: seat0={'A' if a_first else 'B'} -> {label}")
 
     total = args.games
     played = total - wins["draw"]
@@ -172,6 +187,8 @@ def main():
                 f"errors={snap['errors']} "
                 f"fallback_rate={snap['fallback_rate']:.1%}"
             )
+        if args.diag_json and isinstance(diag, dict):
+            print(f"diag-json {tag}: {json.dumps(diag, ensure_ascii=False, sort_keys=True)}")
 
 
 if __name__ == "__main__":

@@ -79,6 +79,44 @@ def _initial_decks(replay: dict[str, Any]) -> list[list[dict[str, Any]]]:
         return [[], []]
 
 
+def _final_current(replay: dict[str, Any]) -> dict[str, Any] | None:
+    for step in reversed(replay.get("steps") or []):
+        for seat_data in step:
+            current = (seat_data.get("observation") or {}).get("current")
+            if current:
+                return current
+    return None
+
+
+def _end_reason(replay: dict[str, Any], seat: int, won: bool) -> str:
+    current = _final_current(replay)
+    if current is None:
+        return "missing_final_state"
+    players = current.get("players") or [{}, {}]
+    if len(players) != 2:
+        return "missing_final_players"
+    me, opponent = players[seat], players[1 - seat]
+    statuses = replay.get("statuses") or []
+    own_status = str(statuses[seat] if seat < len(statuses) else "")
+    if any(value in own_status.upper() for value in ("ERROR", "TIMEOUT", "INVALID")):
+        return "agent_error"
+    if won:
+        if len(me.get("prize") or []) == 0:
+            return "prizes_taken"
+        if int(opponent.get("deckCount") or 0) == 0:
+            return "opponent_deckout"
+        if not (opponent.get("active") or []) and not (opponent.get("bench") or []):
+            return "opponent_boardout"
+        return "other_win"
+    if int(me.get("deckCount") or 0) == 0:
+        return "deckout"
+    if len(opponent.get("prize") or []) == 0:
+        return "opponent_prizes_taken"
+    if not (me.get("active") or []) and not (me.get("bench") or []):
+        return "boardout"
+    return "other_loss"
+
+
 def _name_map(replay: dict[str, Any]) -> dict[int, str]:
     result: dict[int, str] = {}
     for deck in _initial_decks(replay):
@@ -184,6 +222,7 @@ def analyze_replay(replay: dict[str, Any], seat: int) -> dict[str, Any]:
     target_deck = decks[seat] if len(decks) == 2 else []
     rewards = replay.get("rewards") or [None, None]
     reward = rewards[seat] if seat < len(rewards) else None
+    won = bool(reward is not None and reward > 0)
     episode_id = int((replay.get("info") or {}).get("EpisodeId", 0))
 
     acting_turns: set[int] = set()
@@ -197,6 +236,7 @@ def analyze_replay(replay: dict[str, Any], seat: int) -> dict[str, Any]:
     evolution_choices: list[dict[str, Any]] = []
     dual_kadabra_choices: list[dict[str, Any]] = []
     selected_attacks: list[dict[str, Any]] = []
+    selected_plays: list[dict[str, Any]] = []
     hp_events: list[dict[str, Any]] = []
     last_hp: dict[int, tuple[int, int, int]] = {}
     seen_state_keys: set[tuple[int, int, int]] = set()
@@ -271,9 +311,15 @@ def analyze_replay(replay: dict[str, Any], seat: int) -> dict[str, Any]:
             })
         elif selected_type == PLAY:
             card = _action_card(current, seat, selected)
-            if card and int(card.get("id", -1)) == BOSS_ORDERS:
-                boss_plays += 1
-                boss_play_turns.add(turn)
+            if card:
+                selected_plays.append({
+                    "turn": turn,
+                    "card_id": int(card.get("id", -1)),
+                    "card_name": names.get(int(card.get("id", -1)), str(card.get("name") or "")),
+                })
+                if int(card.get("id", -1)) == BOSS_ORDERS:
+                    boss_plays += 1
+                    boss_play_turns.add(turn)
         elif selected_type == EVOLVE:
             card = _action_card(current, seat, selected)
             target = _target_card(current, selected)
@@ -330,8 +376,11 @@ def analyze_replay(replay: dict[str, Any], seat: int) -> dict[str, Any]:
         boss_two_turn_opportunities.append(event)
 
     first_attack = min(attack_turns) if attack_turns else None
+    ordered_main_turns = sorted(main_turns)
     post_first_main = {turn for turn in main_turns if first_attack is not None and turn >= first_attack}
     ten_damage = [event for event in hp_events if event["damage"] == 10]
+    final_current = _final_current(replay)
+    final_me = ((final_current or {}).get("players") or [{}, {}])[seat]
     return {
         "episode_id": episode_id,
         "team": _team_names(replay)[seat],
@@ -341,8 +390,12 @@ def analyze_replay(replay: dict[str, Any], seat: int) -> dict[str, Any]:
             {"id": int(card.get("id", -1)), "name": str(card.get("name") or "")}
             for card in target_deck if isinstance(card, dict)
         ],
-        "won": bool(reward is not None and reward > 0),
+        "won": won,
         "reward": reward,
+        "end_reason": _end_reason(replay, seat, won),
+        "final_deck_count": int(final_me.get("deckCount") or 0),
+        "final_prize_count": len(final_me.get("prize") or []),
+        "final_board_count": len(final_me.get("active") or []) + len(final_me.get("bench") or []),
         "acting_turns": len(acting_turns),
         "main_turns": len(main_turns),
         "attack_turns": len(attack_turns),
@@ -350,12 +403,18 @@ def analyze_replay(replay: dict[str, Any], seat: int) -> dict[str, Any]:
         "missed_attack_opportunity_turns": len(opportunity_turns - attack_turns),
         "post_first_main_turns": len(post_first_main),
         "post_first_attack_turns": len(post_first_main & attack_turns),
+        "first_attack_own_main_turn": (
+            sum(turn < first_attack for turn in ordered_main_turns) + 1
+            if first_attack is not None else None
+        ),
         "boss_plays": boss_plays,
+        "boss_same_turn_attacks": len(boss_play_turns & attack_turns),
         "boss_targets": boss_targets,
         "boss_two_turn_opportunities": boss_two_turn_opportunities,
         "evolution_choices": evolution_choices,
         "dual_kadabra_choices": dual_kadabra_choices,
         "selected_attacks": selected_attacks,
+        "selected_plays": selected_plays,
         "hp_damage_events": hp_events,
         "ten_damage_events": ten_damage,
         "has_froslass": any(int(card.get("id", -1)) == FROSLASS for card in opponent_deck),
@@ -375,6 +434,7 @@ def aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "acting_turns", "main_turns", "attack_turns", "attack_opportunity_turns",
             "missed_attack_opportunity_turns", "post_first_main_turns", "post_first_attack_turns",
             "boss_plays",
+            "boss_same_turn_attacks",
         ):
             sums[key] += int(row[key])
     boss_targets = [event for row in rows for event in row["boss_targets"]]
@@ -383,6 +443,13 @@ def aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
     dual = [event for row in rows for event in row["dual_kadabra_choices"]]
     ten_damage = [event for row in rows for event in row["ten_damage_events"]]
     grim = [row for row in rows if row["has_grimmsnarl_ex"]]
+    selected_plays = [event for row in rows for event in row["selected_plays"]]
+    selected_attacks = [event for row in rows for event in row["selected_attacks"]]
+    losses = [row for row in rows if not row["won"]]
+    first_attack_turns = [
+        int(row["first_attack_own_main_turn"])
+        for row in rows if row["first_attack_own_main_turn"] is not None
+    ]
     target_deck = rows[0].get("target_deck", []) if rows else []
     target_deck_counts = Counter(int(card["id"]) for card in target_deck)
     target_deck_names = {int(card["id"]): str(card["name"]) for card in target_deck}
@@ -402,6 +469,20 @@ def aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "wins": wins,
         "losses": len(rows) - wins,
         "win_rate": _ratio(wins, len(rows)),
+        "end_reasons": dict(Counter(row["end_reason"] for row in rows).most_common()),
+        "games_with_attack": sum(row["attack_turns"] > 0 for row in rows),
+        "games_with_attack_rate": _ratio(sum(row["attack_turns"] > 0 for row in rows), len(rows)),
+        "attacks_per_game": _ratio(sums["attack_turns"], len(rows)),
+        "avg_first_attack_own_main_turn": (
+            sum(first_attack_turns) / len(first_attack_turns) if first_attack_turns else None
+        ),
+        "post_first_idle_turns_per_game": _ratio(
+            sums["post_first_main_turns"] - sums["post_first_attack_turns"], len(rows)
+        ),
+        "post_first_idle_turns_per_loss": _ratio(
+            sum(row["post_first_main_turns"] - row["post_first_attack_turns"] for row in losses),
+            len(losses),
+        ),
         "target_deck": [
             {"id": card_id, "name": target_deck_names.get(card_id, ""), "count": count}
             for card_id, count in sorted(target_deck_counts.items())
@@ -411,6 +492,14 @@ def aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "attack_opportunity_conversion_rate": _ratio(sums["attack_turns"], sums["attack_opportunity_turns"]),
         "post_first_main_turn_attack_rate": _ratio(sums["post_first_attack_turns"], sums["post_first_main_turns"]),
         "boss_plays": sums["boss_plays"],
+        "boss_same_turn_attacks": sums["boss_same_turn_attacks"],
+        "boss_same_turn_attack_rate": _ratio(sums["boss_same_turn_attacks"], sums["boss_plays"]),
+        "selected_play_card_ids": dict(
+            Counter(event["card_id"] for event in selected_plays).most_common()
+        ),
+        "attacker_ids": dict(
+            Counter(event["attacker_id"] for event in selected_attacks).most_common()
+        ),
         "boss_targets": len(boss_targets),
         "boss_target_ids": dict(Counter(event["target_id"] for event in boss_targets).most_common()),
         "two_turn_boss_opportunities": len(two_turn),

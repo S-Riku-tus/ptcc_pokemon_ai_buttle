@@ -28,11 +28,29 @@ def add_decision_weights(decisions: pd.DataFrame) -> pd.DataFrame:
     decisions["rank_weight"] = decisions["rank"].astype(float).map(rank_weight)
     decisions["deck_weight"] = decisions["majkel_distance"].fillna(20).astype(float).map(deck_weight)
     decisions["outcome_weight"] = [outcome_weight(bool(w), bool(l)) for w, l in zip(decisions["target_win"], decisions["target_loss"])]
-    decisions["action_balance_weight"] = decisions["selected_action_type"].map(lambda x: 1.08 if x in FOCUS_TYPES else 1.0)
+    # A 1,000-replay submission should contribute more evidence than a 40-game
+    # submission, but not 25x as much.  Otherwise the model learns one pilot's
+    # option ordering instead of a strategy that transfers across teams/decks.
+    submission_counts = decisions.groupby("submission_id")["decision_id"].transform("count")
+    team_counts = decisions.groupby("target_team")["decision_id"].transform("count")
+    submission_median = max(float(submission_counts.median()), 1.0)
+    team_median = max(float(team_counts.median()), 1.0)
+    decisions["submission_balance_weight"] = (
+        (submission_median / submission_counts.astype(float)).pow(0.25).clip(0.80, 1.20)
+    )
+    decisions["team_balance_weight"] = (
+        (team_median / team_counts.astype(float)).pow(0.25).clip(0.80, 1.20)
+    )
+    action_counts = decisions.groupby("selected_action_type")["decision_id"].transform("count")
+    action_median = max(float(action_counts.median()), 1.0)
+    action_balance = (action_median / action_counts.astype(float)).pow(0.20).clip(0.88, 1.12)
+    focus_bonus = decisions["selected_action_type"].map(lambda x: 1.04 if x in FOCUS_TYPES else 1.0)
+    decisions["action_balance_weight"] = action_balance * focus_bonus
     raw = (
         decisions["rank_weight"] * decisions["deck_weight"] * decisions["outcome_weight"]
         * decisions["seat_confidence"].astype(float) * decisions["alignment_confidence"].astype(float)
         * decisions["action_balance_weight"]
+        * decisions["submission_balance_weight"] * decisions["team_balance_weight"]
     ).clip(0.65, 1.35)
     decisions["sample_weight"] = raw / max(float(raw.mean()), 1e-8)
     return decisions

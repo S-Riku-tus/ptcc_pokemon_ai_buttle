@@ -215,11 +215,16 @@ def _weight_arrays(arrays: dict[str, np.ndarray], decisions: pd.DataFrame) -> di
     deck = decisions["deck_weight"].to_numpy(dtype=np.float32)[decision_index]
     rank = decisions["rank_weight"].to_numpy(dtype=np.float32)[decision_index]
     outcome = decisions["outcome_weight"].to_numpy(dtype=np.float32)[decision_index]
+    source_balance = (
+        decisions["submission_balance_weight"].to_numpy(dtype=np.float32)[decision_index]
+        * decisions["team_balance_weight"].to_numpy(dtype=np.float32)[decision_index]
+    )
     return {
         "full": sample,
         "uniform": np.ones_like(sample, dtype=np.float32),
         "no_deck_distance": sample / np.maximum(deck, 1e-6),
         "no_rank_outcome": sample / np.maximum(rank * outcome, 1e-6),
+        "no_source_balance": sample / np.maximum(source_balance, 1e-6),
     }
 
 
@@ -283,7 +288,7 @@ def run_matrix_training(processed_dir: str | Path, artifact_dir: str | Path, rep
     test_rows = _row_indices(arrays["decision_index"], test_ids, decision_count)
     weight_variants = _weight_arrays(arrays, decisions)
     ablations: dict[str, Any] = {}
-    for name in ("full", "uniform", "no_deck_distance", "no_rank_outcome"):
+    for name in ("full", "uniform", "no_deck_distance", "no_rank_outcome", "no_source_balance"):
         if progress:
             print(json.dumps({"event": "ablation_train", "variant": name, "estimators": fixed_estimators}), flush=True)
         model = _fit_model(arrays, train_rows, feature_columns, row_weight=weight_variants[name], fixed_estimators=fixed_estimators)
