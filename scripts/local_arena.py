@@ -5,14 +5,12 @@ reports wins/losses/draws, error losses, and per-move timing.
 
 Agent specs:
   <dir-name>            an agent under agents/<dir-name>/ with main.py + deck.csv
-  generic:<dir-name>    a deck.csv under agents/_opponents/<dir-name>/ piloted by
-                        the shared GenericPolicy (fair, non-crashing opponent)
-  random | first        the official baseline agents (need a 60-card deck via
-                        --random-deck; defaults to the active Alakazam deck)
+  random | first        the official baseline agents (fall back to the active
+                        Alakazam deck unless overridden with --deck-a/--deck-b)
 
 Examples:
   python scripts/local_arena.py alakazam741_v2 alakazam741_v1 --games 40
-  python scripts/local_arena.py alakazam741_v2 generic:grimmsnarl --games 80
+  python scripts/local_arena.py marnies_grimmsnarl_ex_v2 alakazam_ml_v11 --games 80
 """
 from __future__ import annotations
 
@@ -25,7 +23,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "vendor"))          # -> import cg.api / cg.game
-sys.path.insert(0, str(ROOT / "agents" / "_base"))  # -> shared generic_policy imports
 
 from agent_loader import diag_snapshot, load_dir_agent as load_agent_dir  # noqa: E402
 from cg.game import battle_start, battle_select, battle_finish  # noqa: E402
@@ -34,14 +31,6 @@ from cg.game import battle_start, battle_select, battle_finish  # noqa: E402
 def load_dir_agent(agent_dir: Path):
     agent, diag, _module = load_agent_dir(agent_dir)
     return agent, diag
-
-
-def load_generic_agent(deck_dir: Path):
-    from generic_policy import make_generic_agent
-    deck = [int(x) for x in (deck_dir / "deck.csv").read_text(encoding="utf-8-sig").split()]
-    if len(deck) != 60:
-        raise ValueError(f"{deck_dir}: expected 60 ids, got {len(deck)}")
-    return make_generic_agent(deck), None
 
 
 def load_baseline(kind: str, deck: list[int]):
@@ -72,8 +61,6 @@ def load_deck_override(path: str | None, fallback: list[int]) -> list[int]:
 def resolve(spec: str, fallback_deck: list[int]):
     if spec in ("random", "first"):
         return load_baseline(spec, fallback_deck)
-    if spec.startswith("generic:"):
-        return load_generic_agent(ROOT / "agents" / "_opponents" / spec.split(":", 1)[1])
 
     direct = Path(spec)
     if direct.is_dir():
