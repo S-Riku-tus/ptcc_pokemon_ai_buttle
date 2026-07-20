@@ -44,6 +44,21 @@ def locate_cg() -> Path:
     return candidates[0]
 
 
+def resolve_agent_dir(repo_dir: Path, agent: str) -> Path:
+    """Find an agent by bare name under agents/, including per-Pokemon
+    subfolders (agents/<pokemon>/<agent>) introduced by the repo layout."""
+    direct = repo_dir / "agents" / agent
+    if direct.is_dir():
+        return direct
+    agents_root = repo_dir / "agents"
+    if agents_root.is_dir():
+        for group in sorted(agents_root.iterdir(), key=lambda p: p.name):
+            nested = group / agent
+            if group.is_dir() and nested.is_dir():
+                return nested
+    return direct
+
+
 def clone_url() -> str:
     """Private repos: store a GitHub token as a Kaggle Secret named GITHUB_TOKEN
     (Notebook: Add-ons -> Secrets -> Attach), and it is injected here."""
@@ -78,7 +93,7 @@ def main() -> None:
 
     cg_source = locate_cg()
     for agent in AGENTS:
-        agent_dir = REPO_DIR / "agents" / agent
+        agent_dir = resolve_agent_dir(REPO_DIR, agent)
         if not agent_dir.is_dir():
             raise FileNotFoundError(f"Configured agent does not exist in cloned repository: {agent}")
         output = WORKING / f"submission_{agent}.tar.gz"
