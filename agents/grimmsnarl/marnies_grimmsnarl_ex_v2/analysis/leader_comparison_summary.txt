@@ -1,0 +1,135 @@
+## 54837973: games=161 results={'loss': 53, 'win': 108} winrate=67.081%
+seat {(True, 'loss'): 28, (True, 'win'): 69, (False, 'win'): 39, (False, 'loss'): 25}
+own_turns=5.907 attacks=2.099 attack_rate=35.542% first_attack=2.874
+initial_active [("Marnie's Impidimp", 92), ('Munkidori', 36), ('Snorunt', 33)]
+target_decks [(161, 60, [('Basic {D} Energy', 10), ('Munkidori', 4), ("Marnie's Impidimp", 4), ('Buddy-Buddy Poffin', 4), ('Poké Pad', 4), ("Team Rocket's Petrel", 4), ("Lillie's Determination", 4), ('Spikemuth Gym', 4), ("Marnie's Morgrem", 3), ("Marnie's Grimmsnarl ex", 3), ('Rare Candy', 3), ('Night Stretcher', 3), ('Froslass', 2), ('Snorunt', 2), ('Handheld Fan', 2), ('Boss’s Orders', 2), ('Unfair Stamp', 1), ('Dawn', 1)])]
+opponents
+  Alakazam/Dudunsparce: 44 {'win': 33, 'loss': 11} wr=75.000%
+  Team Rocket's Spidops: 42 {'loss': 17, 'win': 25} wr=59.524%
+  Marnie Grimmsnarl/Froslass: 22 {'loss': 7, 'win': 15} wr=68.182%
+  Dragapult ex: 15 {'win': 10, 'loss': 5} wr=66.667%
+  Cynthia's Garchomp: 12 {'win': 5, 'loss': 7} wr=41.667%
+  Crustle/Mega Kangaskhan: 10 {'win': 9, 'loss': 1} wr=90.000%
+  Mega Lucario ex: 5 {'win': 3, 'loss': 2} wr=60.000%
+  Cinderace: 2 {'win': 2} wr=100.000%
+  N’s Zorua/N’s Zoroark ex/N’s PP Up: 2 {'loss': 2} wr=0.000%
+  Waitress/Snover/Mega Signal: 2 {'win': 1, 'loss': 1} wr=50.000%
+  Wally's Compassion/Staryu/Hilda: 1 {'win': 1} wr=100.000%
+  Waitress/Snover/Pokégear 3.0: 1 {'win': 1} wr=100.000%
+  Wally's Compassion/Mega Signal/Mega Sharpedo ex: 1 {'win': 1} wr=100.000%
+  Mega Kangaskhan ex: 1 {'win': 1} wr=100.000%
+  Wally's Compassion/Dunsparce/Hilda: 1 {'win': 1} wr=100.000%
+kinds Counter({'PLAY_CARD': 1825, 'TARGET_CARD': 1295, 'END': 755, 'ATTACK': 544, 'ABILITY': 442, 'STADIUM_ABILITY': 393, 'RETREAT': 271})
+cards [('Basic {D} Energy', 1109, 6.888), ("Team Rocket's Petrel", 272, 1.689), ("Lillie's Determination", 217, 1.348), ('Poké Pad', 210, 1.304), ('Night Stretcher', 201, 1.248), ('Handheld Fan', 186, 1.155), ('Buddy-Buddy Poffin', 183, 1.137), ('Munkidori', 157, 0.975), ('Boss’s Orders', 132, 0.82), ("Marnie's Impidimp", 110, 0.683), ('Snorunt', 88, 0.547), ('Spikemuth Gym', 84, 0.522), ('Unfair Stamp', 71, 0.441), ('Dawn', 63, 0.391), ('Rare Candy', 37, 0.23)]
+abilities [(None, 339, 2.106), ("Marnie's Grimmsnarl ex", 199, 1.236), ("Marnie's Morgrem", 160, 0.994), ('Froslass', 83, 0.516), ('Munkidori', 54, 0.335)]
+attacks Counter({937: 407, 934: 102, 936: 21, 935: 14})
+card_same_turn_attack [('Basic {D} Energy', 1109, 0.317), ("Team Rocket's Petrel", 272, 0.397), ("Lillie's Determination", 217, 0.484), ('Poké Pad', 210, 0.343), ('Night Stretcher', 201, 0.463), ('Handheld Fan', 186, 0.398), ('Buddy-Buddy Poffin', 183, 0.437), ('Munkidori', 157, 0.503), ('Boss’s Orders', 132, 0.417), ("Marnie's Impidimp", 110, 0.3), ('Snorunt', 88, 0.33), ('Spikemuth Gym', 84, 0.286), ('Unfair Stamp', 71, 0.423), ('Dawn', 63, 0.492), ('Rare Candy', 37, 0.514)]
+ability_same_turn_attack [("Marnie's Grimmsnarl ex", 199, 0.407), ("Marnie's Morgrem", 160, 0.394), ('Froslass', 83, 0.422), ('Munkidori', 54, 0.259)]
+effects
+  eff=Marnie's Grimmsnarl ex(648) ctx=21 n=1307 selected=[("Marnie's Grimmsnarl ex", 668), ("Marnie's Impidimp", 456), ("Marnie's Morgrem", 183)]
+  eff=None(None) ctx=7 n=1116 selected=[(None, 1116)]
+  eff=Munkidori(112) ctx=40 n=695 selected=[(None, 695)]
+  eff=Munkidori(112) ctx=13 n=662 selected=[('Munkidori', 51), ('Alakazam', 41), ('Abra', 35), ("Marnie's Morgrem", 34), ('Fezandipiti ex', 33), ("Team Rocket's Mewtwo ex", 30), ('Shaymin', 25), ("Marnie's Grimmsnarl ex", 24), ('Mega Kangaskhan ex', 23), ('Kadabra', 23), ("Team Rocket's Mimikyu", 22), ("Team Rocket's Spidops", 20)]
+  eff=Marnie's Grimmsnarl ex(648) ctx=15 n=477 selected=[('Munkidori', 67), ("Team Rocket's Spidops", 28), ("Team Rocket's Mewtwo ex", 25), ("Team Rocket's Tarountula", 24), ('Alakazam', 23), ('Kadabra', 22), ("Team Rocket's Mimikyu", 19), ('Dunsparce', 18), ('Abra', 17), ('Fezandipiti ex', 17), ('Shaymin', 16), ("Marnie's Impidimp", 14)]
+  eff=Marnie's Grimmsnarl ex(648) ctx=22 n=267 selected=[('Basic {D} Energy', 267)]
+  eff=Spikemuth Gym(1259) ctx=7 n=267 selected=[("Marnie's Grimmsnarl ex", 103), ("Marnie's Morgrem", 96), ("Marnie's Impidimp", 68)]
+  eff=Poké Pad(1152) ctx=7 n=248 selected=[('Munkidori', 80), ("Marnie's Morgrem", 67), ('Froslass', 45), ("Marnie's Impidimp", 35), ('Snorunt', 21)]
+  eff=None(None) ctx=1 n=233 selected=[("Marnie's Impidimp", 122), ('Munkidori', 57), ('Snorunt', 54)]
+  eff=None(None) ctx=43 n=230 selected=[(None, 230)]
+  eff=Team Rocket's Petrel(1219) ctx=7 n=175 selected=[("Lillie's Determination", 31), ('Buddy-Buddy Poffin', 25), ('Spikemuth Gym', 19), ('Poké Pad', 19), ('Night Stretcher', 18), ("Team Rocket's Petrel", 16), ('Rare Candy', 16), ('Boss’s Orders', 12), ('Handheld Fan', 9), ('Unfair Stamp', 5), ('Dawn', 5)]
+  eff=Night Stretcher(1097) ctx=7 n=175 selected=[('Basic {D} Energy', 54), ("Marnie's Impidimp", 46), ("Marnie's Grimmsnarl ex", 29), ("Marnie's Morgrem", 15), ('Snorunt', 13), ('Munkidori', 10), ('Froslass', 8)]
+  eff=Munkidori(112) ctx=16 n=137 selected=[('Munkidori', 95), ("Marnie's Grimmsnarl ex", 30), ('Snorunt', 6), ("Marnie's Morgrem", 2), ('Froslass', 2), ("Marnie's Impidimp", 2)]
+  eff=Buddy-Buddy Poffin(1086) ctx=5 n=130 selected=[("Marnie's Impidimp", 87), ('Snorunt', 43)]
+  eff=None(None) ctx=3 n=85 selected=[("Marnie's Grimmsnarl ex", 29), ('Munkidori', 28), ('Froslass', 13), ("Marnie's Morgrem", 9), ('Snorunt', 4), ("Marnie's Impidimp", 2)]
+  eff=Dawn(1231) ctx=7 n=85 selected=[("Marnie's Morgrem", 25), ("Marnie's Grimmsnarl ex", 25), ('Munkidori', 17), ('Froslass', 10), ('Snorunt', 5), ("Marnie's Impidimp", 3)]
+  eff=None(None) ctx=2 n=77 selected=[('Munkidori', 39), ("Marnie's Impidimp", 22), ('Snorunt', 16)]
+  eff=Rare Candy(1079) ctx=37 n=64 selected=[("Marnie's Grimmsnarl ex", 64)]
+  eff=Boss’s Orders(1182) ctx=3 n=59 selected=[('Fezandipiti ex', 6), ('Abra', 6), ('Kadabra', 5), ("Team Rocket's Tarountula", 4), ("Team Rocket's Mewtwo ex", 4), ("Team Rocket's Spidops", 4), ('Riolu', 2), ('Duraludon', 2), ('Froslass', 2), ("Cynthia's Garchomp ex", 2), ('Munkidori', 2), ("Team Rocket's Mimikyu", 2)]
+  eff=None(None) ctx=30 n=24 selected=[("Marnie's Morgrem", 13), ("Marnie's Grimmsnarl ex", 3), ('Froslass', 3), ('Snorunt', 2), ("Marnie's Impidimp", 2), ('Munkidori', 1)]
+  eff=None(None) ctx=41 n=16 selected=[(None, 16)]
+  eff=None(None) ctx=38 n=14 selected=[(None, 14)]
+snapshots
+  T1 n=161 board=3.801 hand=4.677 deck=42.553 attack=6.211%
+  T2 n=151 board=4.921 hand=3.947 deck=35.715 attack=39.735%
+  T3 n=123 board=5.439 hand=4.024 deck=28.846 attack=64.228%
+  T4 n=113 board=5.469 hand=4.097 deck=24.487 attack=62.832%
+  T5 n=93 board=5.430 hand=4.000 deck=21.559 attack=65.591%
+  T6 n=43 board=5.256 hand=4.372 deck=20.070 attack=48.837%
+  T7 n=23 board=5.522 hand=4.522 deck=18.304 attack=52.174%
+win: firstatk=2.902 attacks=2.028 rate=33.232%
+loss: firstatk=2.816 attacks=2.245 rate=40.753%
+
+## 54797424: games=747 results={'win': 455, 'loss': 292} winrate=60.910%
+seat {(True, 'win'): 261, (True, 'loss'): 136, (False, 'loss'): 156, (False, 'win'): 194}
+own_turns=6.285 attacks=2.092 attack_rate=33.291% first_attack=3.006
+initial_active [("Marnie's Impidimp", 414), ('Munkidori', 213), ('Snorunt', 120)]
+target_decks [(747, 60, [('Basic {D} Energy', 10), ('Munkidori', 4), ("Marnie's Impidimp", 4), ('Buddy-Buddy Poffin', 4), ('Poké Pad', 4), ("Team Rocket's Petrel", 4), ("Lillie's Determination", 4), ('Spikemuth Gym', 4), ("Marnie's Morgrem", 3), ("Marnie's Grimmsnarl ex", 3), ('Rare Candy', 3), ('Night Stretcher', 3), ('Froslass', 2), ('Snorunt', 2), ('Handheld Fan', 2), ('Boss’s Orders', 2), ('Unfair Stamp', 1), ('Dawn', 1)])]
+opponents
+  Alakazam/Dudunsparce: 301 {'loss': 121, 'win': 180} wr=59.801%
+  Marnie Grimmsnarl/Froslass: 132 {'win': 81, 'loss': 51} wr=61.364%
+  Team Rocket's Spidops: 67 {'win': 37, 'loss': 30} wr=55.224%
+  Crustle/Mega Kangaskhan: 67 {'win': 50, 'loss': 17} wr=74.627%
+  Dragapult ex: 41 {'win': 21, 'loss': 20} wr=51.220%
+  Cynthia's Garchomp: 30 {'win': 14, 'loss': 16} wr=46.667%
+  Mega Lucario ex: 26 {'loss': 13, 'win': 13} wr=50.000%
+  Mega Starmie/Cinderace: 13 {'loss': 4, 'win': 9} wr=69.231%
+  Festival Dipplin: 11 {'loss': 5, 'win': 6} wr=54.545%
+  Cinderace: 9 {'win': 6, 'loss': 3} wr=66.667%
+  Marnie Grimmsnarl: 9 {'win': 7, 'loss': 2} wr=77.778%
+  Wally's Compassion/Mega Signal/Mega Sharpedo ex: 6 {'win': 3, 'loss': 3} wr=50.000%
+  Waitress/Snover/Mega Signal: 5 {'win': 5} wr=100.000%
+  Wally's Compassion/Staryu/Hilda: 4 {'win': 3, 'loss': 1} wr=75.000%
+  Hop's Trevenant: 4 {'loss': 1, 'win': 3} wr=75.000%
+  N’s Zorua/N’s Zoroark ex/N’s PP Up: 4 {'win': 2, 'loss': 2} wr=50.000%
+  Mega Kangaskhan ex: 3 {'win': 3} wr=100.000%
+  Snover/Mega Abomasnow ex/Surfing Beach: 2 {'win': 2} wr=100.000%
+  Waitress/Jumbo Ice Cream/Dwebble: 2 {'win': 2} wr=100.000%
+  Wally's Compassion/Dunsparce/Hilda: 2 {'win': 2} wr=100.000%
+  Xerosic’s Machinations/Pokégear 3.0/Crushing Hammer: 1 {'win': 1} wr=100.000%
+  Wally's Compassion/Dunsparce/Mega Signal: 1 {'win': 1} wr=100.000%
+  Snover/Mega Abomasnow ex/Carmine: 1 {'win': 1} wr=100.000%
+  Wally's Compassion/Surfing Beach/Snorunt: 1 {'loss': 1} wr=0.000%
+  Xerosic’s Machinations/Crushing Hammer/Comfey: 1 {'win': 1} wr=100.000%
+  Comfey/Xerosic’s Machinations/Litwick: 1 {'loss': 1} wr=0.000%
+  Xerosic’s Machinations/Switch/Pokégear 3.0: 1 {'win': 1} wr=100.000%
+  Canari/Levincia/Iono’s Wattrel: 1 {'win': 1} wr=100.000%
+  Pokégear 3.0/Full Metal Lab/Duraludon: 1 {'loss': 1} wr=0.000%
+kinds Counter({'PLAY_CARD': 8949, 'TARGET_CARD': 5299, 'END': 4267, 'ATTACK': 2558, 'STADIUM_ABILITY': 2056, 'ABILITY': 1905, 'RETREAT': 1510})
+cards [('Basic {D} Energy', 4405, 5.897), ("Team Rocket's Petrel", 1221, 1.635), ('Poké Pad', 1065, 1.426), ("Lillie's Determination", 1004, 1.344), ('Buddy-Buddy Poffin', 972, 1.301), ('Night Stretcher', 905, 1.212), ('Handheld Fan', 894, 1.197), ('Munkidori', 786, 1.052), ("Marnie's Impidimp", 722, 0.967), ('Boss’s Orders', 617, 0.826), ('Spikemuth Gym', 474, 0.635), ('Rare Candy', 398, 0.533), ('Snorunt', 298, 0.399), ('Unfair Stamp', 260, 0.348), ('Dawn', 227, 0.304)]
+abilities [(None, 1714, 2.295), ("Marnie's Morgrem", 1111, 1.487), ("Marnie's Grimmsnarl ex", 556, 0.744), ('Munkidori', 342, 0.458), ('Froslass', 238, 0.319)]
+attacks Counter({937: 1504, 934: 429, 935: 418, 936: 207})
+card_same_turn_attack [('Basic {D} Energy', 4405, 0.326), ("Team Rocket's Petrel", 1221, 0.365), ('Poké Pad', 1065, 0.344), ("Lillie's Determination", 1004, 0.379), ('Buddy-Buddy Poffin', 972, 0.357), ('Night Stretcher', 905, 0.491), ('Handheld Fan', 894, 0.295), ('Munkidori', 786, 0.407), ("Marnie's Impidimp", 722, 0.323), ('Boss’s Orders', 617, 0.334), ('Spikemuth Gym', 474, 0.297), ('Rare Candy', 398, 0.475), ('Snorunt', 298, 0.419), ('Unfair Stamp', 260, 0.477), ('Dawn', 227, 0.383)]
+ability_same_turn_attack [("Marnie's Morgrem", 1111, 0.446), ("Marnie's Grimmsnarl ex", 556, 0.459), ('Munkidori', 342, 0.295), ('Froslass', 238, 0.458)]
+effects
+  eff=Marnie's Grimmsnarl ex(648) ctx=21 n=5243 selected=[("Marnie's Grimmsnarl ex", 2993), ("Marnie's Impidimp", 1957), ("Marnie's Morgrem", 293)]
+  eff=None(None) ctx=7 n=4762 selected=[(None, 4762)]
+  eff=Munkidori(112) ctx=13 n=3560 selected=[('Munkidori', 346), ('Crustle', 317), ('Alakazam', 277), ("Marnie's Morgrem", 215), ("Marnie's Grimmsnarl ex", 215), ('Kadabra', 202), ('Dunsparce', 193), ('Fezandipiti ex', 192), ('Abra', 144), ("Team Rocket's Spidops", 118), ('Mega Kangaskhan ex', 107), ('Dwebble', 107)]
+  eff=Munkidori(112) ctx=40 n=3526 selected=[(None, 3526)]
+  eff=Marnie's Grimmsnarl ex(648) ctx=15 n=2046 selected=[('Munkidori', 254), ('Kadabra', 145), ("Marnie's Morgrem", 127), ('Alakazam', 112), ('Abra', 99), ('Fezandipiti ex', 97), ("Marnie's Impidimp", 82), ('Dwebble', 80), ('Mega Kangaskhan ex', 77), ("Marnie's Grimmsnarl ex", 76), ('Dunsparce', 76), ('Shaymin', 71)]
+  eff=Spikemuth Gym(1259) ctx=7 n=1462 selected=[("Marnie's Grimmsnarl ex", 569), ("Marnie's Morgrem", 523), ("Marnie's Impidimp", 370)]
+  eff=Poké Pad(1152) ctx=7 n=1235 selected=[('Munkidori', 393), ("Marnie's Morgrem", 313), ("Marnie's Impidimp", 220), ('Froslass', 199), ('Snorunt', 110)]
+  eff=Marnie's Grimmsnarl ex(648) ctx=22 n=1062 selected=[('Basic {D} Energy', 1062)]
+  eff=None(None) ctx=1 n=1001 selected=[("Marnie's Impidimp", 517), ('Munkidori', 315), ('Snorunt', 169)]
+  eff=Team Rocket's Petrel(1219) ctx=7 n=988 selected=[("Lillie's Determination", 139), ('Buddy-Buddy Poffin', 130), ('Spikemuth Gym', 116), ('Poké Pad', 108), ('Night Stretcher', 104), ("Team Rocket's Petrel", 101), ('Rare Candy', 85), ('Boss’s Orders', 81), ('Handheld Fan', 70), ('Dawn', 28), ('Unfair Stamp', 26)]
+  eff=None(None) ctx=43 n=977 selected=[(None, 977)]
+  eff=Night Stretcher(1097) ctx=7 n=761 selected=[('Basic {D} Energy', 308), ("Marnie's Impidimp", 133), ("Marnie's Morgrem", 98), ("Marnie's Grimmsnarl ex", 90), ('Munkidori', 57), ('Snorunt', 39), ('Froslass', 36)]
+  eff=Munkidori(112) ctx=16 n=676 selected=[('Munkidori', 514), ("Marnie's Grimmsnarl ex", 96), ("Marnie's Morgrem", 24), ("Marnie's Impidimp", 24), ('Froslass', 9), ('Snorunt', 9)]
+  eff=Buddy-Buddy Poffin(1086) ctx=5 n=653 selected=[("Marnie's Impidimp", 427), ('Snorunt', 226)]
+  eff=None(None) ctx=3 n=621 selected=[('Munkidori', 229), ("Marnie's Grimmsnarl ex", 134), ('Froslass', 108), ('Snorunt', 63), ("Marnie's Impidimp", 52), ("Marnie's Morgrem", 35)]
+  eff=Dawn(1231) ctx=7 n=526 selected=[("Marnie's Grimmsnarl ex", 163), ('Munkidori', 113), ("Marnie's Morgrem", 107), ('Froslass', 74), ("Marnie's Impidimp", 44), ('Snorunt', 25)]
+  eff=Rare Candy(1079) ctx=37 n=342 selected=[("Marnie's Grimmsnarl ex", 342)]
+  eff=None(None) ctx=2 n=324 selected=[('Munkidori', 208), ('Snorunt', 59), ("Marnie's Impidimp", 57)]
+  eff=None(None) ctx=30 n=314 selected=[("Marnie's Grimmsnarl ex", 110), ('Munkidori', 101), ("Marnie's Morgrem", 51), ('Snorunt', 26), ('Froslass', 17), ("Marnie's Impidimp", 9)]
+  eff=Boss’s Orders(1182) ctx=3 n=296 selected=[('Munkidori', 29), ('Kadabra', 24), ('Abra', 23), ('Fezandipiti ex', 20), ('Crustle', 19), ('Dunsparce', 19), ('Alakazam', 18), ("Marnie's Impidimp", 13), ("Marnie's Grimmsnarl ex", 11), ("Marnie's Morgrem", 10), ('Shaymin', 9), ('Dwebble', 8)]
+  eff=None(None) ctx=41 n=88 selected=[(None, 88)]
+  eff=None(None) ctx=38 n=73 selected=[(None, 73)]
+snapshots
+  T1 n=747 board=3.649 hand=4.853 deck=42.527 attack=9.639%
+  T2 n=687 board=4.705 hand=4.096 deck=36.546 attack=33.479%
+  T3 n=619 board=5.087 hand=3.788 deck=30.903 attack=52.504%
+  T4 n=561 board=5.178 hand=3.793 deck=26.766 attack=58.111%
+  T5 n=459 board=5.072 hand=3.926 deck=23.436 attack=52.941%
+  T6 n=300 board=4.970 hand=4.143 deck=21.187 attack=42.667%
+  T7 n=143 board=5.105 hand=4.343 deck=19.804 attack=35.664%
+win: firstatk=3.042 attacks=2.033 rate=31.646%
+loss: firstatk=2.950 attacks=2.185 rate=36.005%
