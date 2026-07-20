@@ -14,6 +14,7 @@ except ModuleNotFoundError:
     from validate_agent import resolve_agent_dir, validate_agent
 
 ROOT = Path(__file__).resolve().parents[1]
+SHARED_POLICY_BASE = ROOT / "agents" / "_base" / "policy_base.py"
 
 EXCLUDED_NAMES = {
     "__pycache__",
@@ -117,6 +118,14 @@ def copy_runtime_files(agent_dir: Path, stage: Path) -> None:
         destination = stage / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
+
+    # Local loading already falls back to agents/_base/policy_base.py.  Mirror that
+    # behavior in submission archives so a new rule-based agent can stay small while
+    # the produced Kaggle package remains self-contained.
+    if not (stage / "policy_base.py").exists():
+        if not SHARED_POLICY_BASE.exists():
+            raise FileNotFoundError(SHARED_POLICY_BASE)
+        shutil.copy2(SHARED_POLICY_BASE, stage / "policy_base.py")
 
 
 def build(agent_dir: Path, output: Path, cg_source: Path) -> None:

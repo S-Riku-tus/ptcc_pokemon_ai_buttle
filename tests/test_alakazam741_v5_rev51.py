@@ -16,7 +16,7 @@ if str(ROOT / "vendor") not in sys.path:
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-AGENT_DIR = ROOT / "agents" / "alakazam741_v5"
+AGENT_DIR = ROOT / "agents" / "alakazam" / "alakazam741_v5"
 
 
 def _load_v5():

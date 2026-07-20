@@ -14,7 +14,7 @@ from pathlib import Path
 from scripts.agent_loader import load_dir_agent_module
 
 ROOT = Path(__file__).resolve().parents[1]
-AGENT_DIR = ROOT / "agents" / "alakazam741_v10_route_eta"
+AGENT_DIR = ROOT / "agents" / "alakazam" / "alakazam741_v10_route_eta"
 
 for path in (ROOT / "vendor", ROOT):
     text = str(path)
@@ -23,7 +23,7 @@ for path in (ROOT / "vendor", ROOT):
 
 
 def _load_agent(name: str):
-    return load_dir_agent_module(ROOT / "agents" / name)
+    return load_dir_agent_module(ROOT / "agents" / "alakazam" / name)
 
 
 M = _load_agent("alakazam741_v10_route_eta")
@@ -100,7 +100,7 @@ def test_loader_uses_bundled_policy_base():  # item 19
 
 def test_deck_is_60_cards_identical_to_v8():  # item 20
     v9 = (AGENT_DIR / "deck.csv").read_text(encoding="utf-8-sig").split()
-    v8 = (ROOT / "agents" / "alakazam741_v8" / "deck.csv").read_text(encoding="utf-8-sig").split()
+    v8 = (ROOT / "agents" / "alakazam" / "alakazam741_v8" / "deck.csv").read_text(encoding="utf-8-sig").split()
     assert len(v9) == 60
     assert v9 == v8  # first version keeps v8's exact 60 cards
 

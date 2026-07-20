@@ -18,8 +18,8 @@ class AlakazamArchetype:
     core_card_ids: tuple[int, ...] = (741, 742, 743)
     reference_team: str = "Majkel1337"
     reference_deck_selection: str = "latest_or_rank1_modal_exact_team_deck"
-    fallback_agent_dir: str = "agents/alakazam741_v12_top_sync_full"
-    runtime_agent_dir: str = "agents/alakazam_ml_v2_expanded"
+    fallback_agent_dir: str = "agents/alakazam/alakazam741_v12_top_sync_full"
+    runtime_agent_dir: str = "agents/alakazam/alakazam_ml_v2_expanded"
     important_card_ids: tuple[int, ...] = (
         13, 19, 66, 140, 305, 343, 741, 742, 743, 1079, 1081,
         1086, 1097, 1129, 1152, 1182, 1197, 1225, 1231, 1266,

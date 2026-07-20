@@ -140,9 +140,12 @@ def read_deck(path: Path) -> list[int]:
 
 def fallback_deck() -> list[int]:
     for name in ("alakazam741_v4", "alakazam741_v3", "alakazam741_v2", "alakazam741_v1"):
-        path = ROOT / "agents" / name / "deck.csv"
-        if path.exists():
-            return read_deck(path)
+        for path in (
+            ROOT / "agents" / "alakazam" / name / "deck.csv",
+            ROOT / "agents" / name / "deck.csv",
+        ):
+            if path.exists():
+                return read_deck(path)
     raise FileNotFoundError("No fallback deck found under agents/.")
 
 
@@ -151,15 +154,26 @@ def discover_agents(include_archive: bool = False) -> list[str]:
     if include_archive:
         roots.append(ROOT / "archive" / "agents")
 
+    def is_agent(path: Path) -> bool:
+        return (path / "main.py").exists() and (path / "deck.csv").exists()
+
     specs: list[str] = []
     for base in roots:
         if not base.exists():
             continue
         for child in sorted(base.iterdir(), key=lambda p: p.name):
-            if child.name.startswith("_"):
+            if child.name.startswith("_") or not child.is_dir():
                 continue
-            if (child / "main.py").exists() and (child / "deck.csv").exists():
+            if is_agent(child):
                 specs.append(child.name if base.name == "agents" else str(child))
+                continue
+            # Agents grouped one level deep by main Pokemon
+            # (agents/<pokemon>/<agent>); descend to find them.
+            for nested in sorted(child.iterdir(), key=lambda p: p.name):
+                if nested.is_dir() and is_agent(nested):
+                    specs.append(
+                        nested.name if base.name == "agents" else str(nested)
+                    )
     return specs
 
 

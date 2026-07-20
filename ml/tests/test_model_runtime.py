@@ -17,7 +17,7 @@ from ml.core.distill import tree_score
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_ROOT = ROOT / "data" / "ml" / "alakazam"
-AGENT = ROOT / "agents" / "alakazam_ml_v8"
+AGENT = ROOT / "agents" / "alakazam" / "alakazam_ml_v8"
 
 
 def _runtime_module():

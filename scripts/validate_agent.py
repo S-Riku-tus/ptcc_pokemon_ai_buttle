@@ -28,6 +28,13 @@ def resolve_agent_dir(spec: str) -> Path:
         candidate = base / spec
         if candidate.is_dir():
             return candidate.resolve()
+        # Agents live one level deep under a per-Pokemon folder
+        # (agents/<pokemon>/<agent>); match bare names there too.
+        if base.is_dir():
+            for group in sorted(base.iterdir(), key=lambda p: p.name):
+                nested = group / spec
+                if group.is_dir() and nested.is_dir():
+                    return nested.resolve()
 
     runs_dir = ROOT / "data" / "runs"
     if runs_dir.is_dir():

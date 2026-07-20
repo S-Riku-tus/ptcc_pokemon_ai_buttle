@@ -83,6 +83,13 @@ def resolve(spec: str, fallback_deck: list[int]):
         candidate = base / spec
         if candidate.is_dir():
             return load_dir_agent(candidate)
+        # Agents are grouped one level deep by main Pokemon
+        # (agents/<pokemon>/<agent>); match bare names there too.
+        if base.is_dir():
+            for group in sorted(base.iterdir(), key=lambda p: p.name):
+                nested = group / spec
+                if group.is_dir() and nested.is_dir():
+                    return load_dir_agent(nested)
 
     raise FileNotFoundError(spec)
 
@@ -132,7 +139,7 @@ def main():
 
     fallback_deck = [
         int(x) for x in
-        (ROOT / "agents" / "alakazam741_v2" / "deck.csv")
+        (ROOT / "agents" / "alakazam" / "alakazam741_v2" / "deck.csv")
         .read_text(encoding="utf-8-sig").split()
     ]
     agent_a, diag_a = resolve(args.agent_a, fallback_deck)

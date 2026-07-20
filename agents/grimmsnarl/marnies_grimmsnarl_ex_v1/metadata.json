@@ -1,0 +1,22 @@
+{
+  "name": "marnies_grimmsnarl_ex_v1",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "1.0.0",
+  "created_at": "2026-07-20T00:00:00+09:00",
+  "deck_source": "representative 60-card upper-ladder list reconstructed from saved replays",
+  "policy": "deterministic Punk Up / Adrena-Brain / Shadow Bullet multi-turn route policy",
+  "parent_agent": null,
+  "status": "validated_challenger",
+  "validation": {
+    "crashes": 0,
+    "illegal_actions": 0,
+    "generic_same_deck": {"games": 100, "wins": 92, "losses": 8},
+    "generic_megastarmie": {"games": 100, "wins": 75, "losses": 25},
+    "alakazam_ml_v10": {"games": 200, "wins": 97, "losses": 103},
+    "alakazam_v3": {"games": 150, "wins": 82, "losses": 68},
+    "alakazam_ml_v7": {"games": 150, "wins": 80, "losses": 70},
+    "alakazam_v12_top_sync_full": {"games": 150, "wins": 111, "losses": 39}
+  },
+  "deck_ablation_decision": "retain the replay-reconstructed Petrel 4 / Dawn 1 list; the best alternate list gained only 1 point in a separate 300-game confirmation"
+}

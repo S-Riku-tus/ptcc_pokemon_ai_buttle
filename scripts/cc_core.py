@@ -154,7 +154,11 @@ def validate_config(config: dict[str, Any]) -> None:
 
 
 def resolve_agent_dir(spec: str) -> Path:
-    """Resolve an agent spec to its directory, searching agents/ then archive."""
+    """Resolve an agent spec to its directory, searching agents/ then archive.
+
+    Agents are grouped one level deep by main Pokemon (agents/<pokemon>/<agent>),
+    so a bare agent name is also matched against those nested subfolders.
+    """
     direct = Path(spec)
     if direct.is_dir():
         return direct.resolve()
@@ -162,9 +166,26 @@ def resolve_agent_dir(spec: str) -> Path:
         candidate = base / spec
         if candidate.is_dir():
             return candidate.resolve()
+        nested = _find_nested_agent(base, spec)
+        if nested is not None:
+            return nested
     raise FileNotFoundError(
-        f"Could not resolve agent {spec!r}; checked agents/ and archive/agents/."
+        f"Could not resolve agent {spec!r}; checked agents/ and archive/agents/ "
+        "(including per-Pokemon subfolders)."
     )
+
+
+def _find_nested_agent(base: Path, spec: str) -> Path | None:
+    """Look for base/<pokemon>/<spec> one level below base."""
+    if not base.is_dir():
+        return None
+    for group in sorted(base.iterdir(), key=lambda p: p.name):
+        if not group.is_dir():
+            continue
+        candidate = group / spec
+        if candidate.is_dir():
+            return candidate.resolve()
+    return None
 
 
 def read_metadata(agent_dir: Path) -> dict[str, Any]:

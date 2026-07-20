@@ -6,7 +6,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-AGENT_DIR = ROOT / "agents" / "alakazam741_v7"
+AGENT_DIR = ROOT / "agents" / "alakazam" / "alakazam741_v7"
 
 for p in (ROOT / "vendor", ROOT, AGENT_DIR):
     if str(p) not in sys.path:

@@ -83,6 +83,9 @@ def apply_promotion(plan: dict) -> None:
     destination = Path(plan["destination"])
     if destination.exists():
         raise FileExistsError(destination)  # defensive; plan already checked
+    # Support the per-Pokemon grouping (agents/<pokemon>/<agent>): the
+    # destination's parent folder may not exist yet for a new Pokemon.
+    destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copytree(
         source, destination, ignore=shutil.ignore_patterns("__pycache__", "*.pyc")
     )

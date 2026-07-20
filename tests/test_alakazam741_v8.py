@@ -8,7 +8,7 @@ from pathlib import Path
 from scripts.agent_loader import load_dir_agent_module
 
 ROOT = Path(__file__).resolve().parents[1]
-AGENT_DIR = ROOT / "agents" / "alakazam741_v8"
+AGENT_DIR = ROOT / "agents" / "alakazam" / "alakazam741_v8"
 
 for path in (ROOT / "vendor", ROOT):
     text = str(path)
@@ -17,7 +17,7 @@ for path in (ROOT / "vendor", ROOT):
 
 
 def _load_agent(name: str):
-    return load_dir_agent_module(ROOT / "agents" / name)
+    return load_dir_agent_module(ROOT / "agents" / "alakazam" / name)
 
 
 M = _load_agent("alakazam741_v8")
