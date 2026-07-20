@@ -1,20 +1,20 @@
 {
   "name": "alakazam_ml_v12",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "role": "challenger",
-  "status": "development",
+  "status": "validated_targeted_challenger",
   "archetype": "alakazam",
-  "parent_agent": "alakazam_ml_v10",
-  "created_at": "2026-07-20T12:30:00+09:00",
-  "runtime_revision": "v11_targeted_ladder_recovery_20260720",
+  "parent_agent": "alakazam_ml_v11",
+  "created_at": "2026-07-20T15:30:00+09:00",
+  "runtime_revision": "v12_teleport_and_rocket_articuno_20260720",
   "model_version": "v10-ranker-v11-features-shadow",
-  "model": "The validated v10 LightGBM ranker remains shadow-only; v11 adds observation-time tempo and probability features without granting strategic authority.",
+  "model": "The v11 LightGBM ranker and features are inherited unchanged and remain shadow-only; v12 changes deterministic policy only.",
   "model_scope": "Deterministic policy owns setup, draw activation, trainer, energy, evolution, attack, retreat, Boss, Hammer, Fezandipiti, Shaymin, Xerosic, and end decisions. The ranker can only shadow-score guarded Abra bench choices unless explicitly enabled for an experiment.",
   "confidence_threshold": 0.55,
   "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
   "ranker_model_unchanged_from_v10": true,
   "ml_override_default": false,
-  "ml_override_environment": "ALAKAZAM_ML_V11_ENABLE_OVERRIDE=1",
+  "ml_override_environment": "ALAKAZAM_ML_V12_ENABLE_OVERRIDE=1",
   "deck_policy": "Keep the submitted v10 60-card list: 2 Basic Psychic plus 4 Telepath Psychic, 3 Dunsparce / 2 Dudunsparce, Shaymin, Fezandipiti ex, 3 Rare Candy, 4 Enhanced Hammer, 3 Boss's Orders, and Max Rod. Existing controlled deck ablations favored Max Rod over Enriching Energy 278-222 and did not justify replacing Shaymin outside the mirror.",
   "deck_changed_from_v10": false,
   "evidence": {
@@ -61,6 +61,15 @@
     "Bench Shaymin only for a payable Active spread attack that threatens a non-rule-box Bench Pokemon within two attacks.",
     "Keep mirror Xerosic thresholds while requiring a nine-card developing-board target outside the mirror."
   ],
+  "v12_rule_changes": [
+    "Use Abra's effect card in SWITCH context to separate Teleport selection from ordinary KO promotion and retreat selection.",
+    "After Teleport, prefer Dunsparce, Dudunsparce, or a spare Abra; allow Fezandipiti at comparable priority only when a public-information next-turn KO check says it is likely safe.",
+    "Keep Kadabra and both Alakazam cards as mandatory-only Teleport targets when more than one Bench choice exists.",
+    "Apply Team Rocket's Articuno protection only to Basic Team Rocket Pokemon, not Team Rocket Evolutions or unrelated Pokemon.",
+    "Use Boss's Orders for a same-turn KO on an unprotected Evolution or non-Team-Rocket Bench target when the opposing Active is Articuno-protected.",
+    "When every visible opponent is protected by Articuno, gradually fund Fezandipiti as the primary damage attacker, then Dudunsparce, Dunsparce, or Shaymin as single-prize fallbacks.",
+    "Retreat or switch into a ready damage-based breaker, prioritize Articuno with Cruel Arrow, and reject Powerful Hand or zero-damage Trading Places into the complete lock."
+  ],
   "ml_feature_changes": [
     "correct Psychic-providing Energy identity instead of treating Enriching Energy as Psychic",
     "public-information draw-2 and draw-3 Psychic Energy hit probabilities",
@@ -71,7 +80,7 @@
     "Dunsparce-over-Abra setup interaction"
   ],
   "local_validation": {
-    "targeted_tests": 34,
+    "targeted_tests": 44,
     "mirror_v11_vs_v10": {
       "games": 800,
       "v11_wins": 414,
@@ -106,12 +115,39 @@
       "wins": 718,
       "win_rate": 0.8975
     },
+    "v12_vs_v11_fair_seat_swap": {
+      "games": 200,
+      "v12_wins": 116,
+      "v11_wins": 84,
+      "v12_win_rate": 0.58,
+      "wilson_95_ci": [0.5107, 0.6463],
+      "attack_opportunity_conversion": 1.0,
+      "v12_deckout_rate": 0.07,
+      "v11_deckout_rate": 0.155,
+      "v12_boardout_rate": 0.08,
+      "v11_boardout_rate": 0.095
+    },
+    "v12_generic_pool": {
+      "games": 400,
+      "wins": 367,
+      "win_rate": 0.9175,
+      "v11_same_seed_wins": 374,
+      "v11_same_seed_win_rate": 0.935
+    },
+    "team_rocket_spidops_generic": {
+      "games": 200,
+      "v12_wins": 163,
+      "v12_win_rate": 0.815,
+      "v11_wins": 158,
+      "v11_win_rate": 0.79
+    },
     "errors": 0,
     "illegal_selections": 0
   },
   "known_limitations": [
     "Local battle results are regression gates, not a Kaggle rating guarantee.",
     "The v10 ranker is intentionally not retrained on v10 losses because those trajectories are failure evidence, not expert action labels.",
-    "Deck order variance remains; v11 changes the decision under pressure rather than claiming to remove variance."
+    "Deck order variance remains; v12 changes two requested tactical branches rather than claiming to remove opening-hand variance.",
+    "The formal champion-challenger report passed win-rate, attack, idle-turn, and safety checks but missed absolute deckout and boardout thresholds; both rates still improved versus v11 in the same run."
   ]
 }

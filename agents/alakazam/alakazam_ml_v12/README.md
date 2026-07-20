@@ -1,35 +1,39 @@
-# alakazam_ml_v11
+# alakazam_ml_v12
 
-v11 is a targeted recovery branch from the actually submitted `alakazam_ml_v10`.
-It uses the 59 public v10 games, the saved eight-team Alakazam corpus, the
-2026-07-20 leaderboard snapshot, and the attached independent analysis.
+v12 is a narrow policy branch from `alakazam_ml_v11`. The 60-card deck, ML
+model, ML features, and shadow-only model authority are unchanged. Only the two
+requested tactical areas are modified: Abra's Teleport destination and Team
+Rocket's Articuno counterplay.
 
-The deck is unchanged. The top Alakazam lists share a 54-card core, while the
-existing controlled tests favored Max Rod over Enriching Energy 278-222 and
-did not show a cross-matchup reason to replace Shaymin. v11 therefore isolates
-policy changes before another deck experiment.
+## Abra Teleport
 
-## Main policy changes
+The engine reports an attack-effect switch as `SWITCH` with Abra (`741`) in the
+effect field. v12 uses that signal to keep this selection separate from normal
+KO promotion and retreat selection.
 
-- If both Abra and Dunsparce are in the opening hand, start Dunsparce and keep
-  Abra as the evolution route.
-- Rare Candy is promoted above Kadabra only when Candy creates the first
-  same-turn attack or, after Alakazam's three-card draw, an immediate KO.
-- Rare Candy selects a fueled Active Abra; Kadabra on the Bench receives an
-  expected-value bonus when drawing two can find Candy for an Active Abra.
-- A low-deck draw for Psychic Energy is allowed only at deck eight or lower,
-  at least 50% estimated hit probability, no usable Psychic in hand, and real
-  next-turn loss pressure. Ordinary low-deck filtering remains blocked.
-- Fezandipiti ex receives Energy only for a same-turn pivot or a concrete prize
-  route that is at most one attachment away.
-- Shaymin and non-mirror Xerosic plays require visible, actionable threats.
+With multiple choices, the order is Dunsparce, Dudunsparce, spare Abra, then a
+Fezandipiti ex that is unlikely to be Knocked Out next turn. The safety check
+uses only visible state and allows the opponent's next Energy attachment.
+Kadabra and either Alakazam are last-resort mandatory choices. If only one
+Bench Pokemon is legal, the normal `minCount=1` rule still selects it.
 
-## ML decision
+## Team Rocket's Articuno
 
-The v10 ranker remains shadow-only because its transfer holdouts were mixed.
-v11 fixes and adds features for evolution draw, Rare Candy tempo, Energy hit
-probability, and opening choice, but does not pretend that the losing v10 games
-are expert labels. Live ML promotion still requires a separate held-out and
-battle gate.
+Powerful Hand places damage counters, so Articuno prevents it only against
+Basic Team Rocket Pokemon. Team Rocket Evolutions and non-Team-Rocket Pokemon
+remain valid Powerful Hand targets.
 
-See `CHANGELOG_V11.md` and `VALIDATION_REPORT_V11.md`.
+v12 follows two branches:
+
+1. If an unprotected Bench Pokemon can be Knocked Out now, Boss's Orders moves
+   it Active and Alakazam attacks it.
+2. If every visible opponent is Articuno-protected, v12 builds a damage-based
+   attacker. Fezandipiti ex is primary because Cruel Arrow can hit Articuno on
+   the Bench; Dudunsparce, Dunsparce, and Shaymin are progressively weaker
+   fallbacks. Once ready, the policy brings that attacker Active and does not
+   use Powerful Hand or zero-damage Trading Places into the lock.
+
+The complete-lock condition is intentionally strict so the normal v11 Energy
+discipline remains unchanged in other matchups.
+
+See `CHANGELOG_V12.md` and `VALIDATION_REPORT_V12.md`.

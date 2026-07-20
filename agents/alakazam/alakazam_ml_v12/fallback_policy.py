@@ -783,19 +783,19 @@ class AlakazamPolicy:
             value += 20000
         return value
 
-    def _opponent_can_ko_fez_next_turn(self, fez=None):
-        """Conservative public-information safety check for a Teleport Fez pivot.
+    def _opponent_can_ko_card_next_turn(self, target_id, target_hp):
+        """Conservative public-information next-turn KO check for a pivot target.
 
         Account for the opponent's next attachment, because checking only its
-        currently payable attacks incorrectly labels many exposed Fezandipiti as
-        safe. Variable-damage powered ex attackers remain conservatively unsafe.
+        currently payable attacks incorrectly labels exposed pivots as safe.
+        Variable-damage powered ex attackers remain conservatively unsafe.
         """
         active = self.opponent.active[0] if self.opponent.active else None
         data = card_table.get(active.id) if active is not None else None
         if active is None or data is None:
             return False
-        target_hp = max(1, int(getattr(fez, "hp", 210) or 210))
-        target_data = card_table.get(C.FEZANDIPITI_EX)
+        target_hp = max(1, int(target_hp or 1))
+        target_data = card_table.get(target_id)
         attacker_type = getattr(data, "energyType", None)
         for attack_id in (data.attacks or []):
             if not self._attack_payable_after_one(active, attack_id):
@@ -816,6 +816,17 @@ class AlakazamPolicy:
         return bool(
             (getattr(data, "ex", False) or getattr(data, "megaEx", False))
             and self._energy_count(active) >= 2
+        )
+
+    def _opponent_can_ko_next_turn(self, target):
+        if target is None:
+            return False
+        return self._opponent_can_ko_card_next_turn(target.id, target.hp)
+
+    def _opponent_can_ko_fez_next_turn(self, fez=None):
+        return self._opponent_can_ko_card_next_turn(
+            C.FEZANDIPITI_EX,
+            getattr(fez, "hp", 210) if fez is not None else 210,
         )
 
     def _fez_two_prize_exposure(self):
@@ -2136,7 +2147,12 @@ class AlakazamPolicy:
             # it to bring up a ready attacker when the current Active isn't one and we
             # can't otherwise swap (Issue 1) — otherwise it's just a wasted reposition.
             if self._articuno_breaker_required():
-                return 5200 if self._bench_articuno_breaker_ready() else 700
+                if self._bench_articuno_breaker_ready():
+                    return 5200
+                # Trading Places deals no damage. Keep an invested Dunsparce
+                # Active for the next Ram attachment instead of cycling back to
+                # a Powerful Hand attacker that remains fully protected.
+                return -1 if aid == DUNSPARCE_TRADE else 700
             if active.id not in ALAKAZAM_IDS and active.id != C.KADABRA and self._bench_attacker_ready():
                 return 5000
             return 700
@@ -2295,11 +2311,11 @@ class AlakazamPolicy:
         a mandatory one-card selection still remains legal via ``minCount``.
         """
         if card.id == C.DUNSPARCE:
-            return 700
+            return 700 if not self._opponent_can_ko_next_turn(card) else 580
         if card.id == C.DUDUNSPARCE:
-            return 680
+            return 680 if not self._opponent_can_ko_next_turn(card) else 560
         if card.id == C.ABRA:
-            return 650
+            return 650 if not self._opponent_can_ko_next_turn(card) else 540
         if card.id == C.FEZANDIPITI_EX:
             return 640 if not self._opponent_can_ko_fez_next_turn(card) else 100
         if card.id in (C.PSYDUCK, C.SHAYMIN, C.GENESECT):
@@ -2317,7 +2333,7 @@ class AlakazamPolicy:
             return self._gust_value(card)
         if o.playerIndex != self.my_index:
             return 0
-        if (self.context == SelectContext.SWITCH
+        if (getattr(self, "context", None) == SelectContext.SWITCH
                 and getattr(self._context_effect_card(), "id", None) == C.ABRA):
             return self._score_teleport_choice(card)
         if self._articuno_breaker_required():

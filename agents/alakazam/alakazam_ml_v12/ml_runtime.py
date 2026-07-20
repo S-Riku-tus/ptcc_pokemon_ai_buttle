@@ -198,16 +198,19 @@ class HybridRanker:
         del attacks
         self.threshold_override = float(threshold)
         override = os.environ.get(
-            "ALAKAZAM_ML_V11_ENABLE_OVERRIDE",
+            "ALAKAZAM_ML_V12_ENABLE_OVERRIDE",
             os.environ.get(
-                "ALAKAZAM_ML_V10_ENABLE_OVERRIDE",
+                "ALAKAZAM_ML_V11_ENABLE_OVERRIDE",
                 os.environ.get(
-                    "ALAKAZAM_ML_V9_ENABLE_OVERRIDE",
+                    "ALAKAZAM_ML_V10_ENABLE_OVERRIDE",
                     os.environ.get(
-                        "ALAKAZAM_ML_V8_ENABLE_OVERRIDE",
+                        "ALAKAZAM_ML_V9_ENABLE_OVERRIDE",
                         os.environ.get(
-                            "ALAKAZAM_ML_V7_ENABLE_OVERRIDE",
-                            os.environ.get("ALAKAZAM_ML_ENABLE_OVERRIDE", "0"),
+                            "ALAKAZAM_ML_V8_ENABLE_OVERRIDE",
+                            os.environ.get(
+                                "ALAKAZAM_ML_V7_ENABLE_OVERRIDE",
+                                os.environ.get("ALAKAZAM_ML_ENABLE_OVERRIDE", "0"),
+                            ),
                         ),
                     ),
                 ),
@@ -235,7 +238,7 @@ class HybridRanker:
         decisions = max(1, self.diag["decisions"])
         return {
             **dict(self.diag),
-            "runtime_scope": "shadow_guarded_semantic_bench_v11_rules",
+            "runtime_scope": "shadow_guarded_semantic_bench_v12_rules",
             "override_enabled": self.enable_override,
             "model_loaded": self.model is not None,
             "model_error": self.model_error,
