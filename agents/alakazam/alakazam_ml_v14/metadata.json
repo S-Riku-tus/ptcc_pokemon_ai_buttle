@@ -1,0 +1,139 @@
+{
+  "name": "alakazam_ml_v14",
+  "version": "14.0.0",
+  "role": "challenger",
+  "status": "static_golden_and_v13_replay_log_validated",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v13",
+  "created_at": "2026-07-22T00:00:00+09:00",
+  "runtime_revision": "v14_attack_completion_mist_memory_20260722",
+  "model_version": "v10-ranker-v13-features-shadow",
+  "model": "The v11 distilled LightGBM ranker and v13 feature extractor are unchanged and remain shadow-only by default. v14 is an evidence-driven deterministic runtime correction, not a falsely claimed retraining.",
+  "model_scope": "Deterministic fallback policy owns all strategic decisions. Live ML override remains disabled by default and the existing guarded scope is unchanged.",
+  "confidence_threshold": 0.55,
+  "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "ranker_model_unchanged_from_v11": true,
+  "ml_override_default": false,
+  "ml_override_environment": "ALAKAZAM_ML_V14_ENABLE_OVERRIDE=1 (v13 and older aliases remain supported)",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_change": {
+    "removed": {
+      "card_id": 1110,
+      "name": "Max Rod",
+      "count": 1
+    },
+    "added": {
+      "card_id": 13,
+      "name": "Enriching Energy (Rich Energy)",
+      "count": 1
+    },
+    "ace_spec_count": 1,
+    "matches_majkel_reference_60": true
+  },
+  "analysis_evidence": {
+    "v11_combined": {
+      "games": 106,
+      "wins": 71,
+      "losses": 35,
+      "win_rate": 0.6698,
+      "deckout_losses": 8,
+      "boardout_losses": 8,
+      "attacks_per_game": 4.877,
+      "alakazam_attacks_per_game": 4.038
+    },
+    "v12": {
+      "games": 26,
+      "wins": 11,
+      "losses": 15,
+      "win_rate": 0.4231,
+      "attack_turn_rate": 0.561,
+      "post_first_attack_idle_turns": 1.654
+    },
+    "v13_ladder": {
+      "submission_id": 54868871,
+      "rating": 807.1,
+      "saved_games_audited": 52,
+      "end_with_attack_offered": 36,
+      "protected_end_turns_mist": 21,
+      "protected_end_turns_rock_fighting": 6,
+      "protected_end_turns_global_protector": 9,
+      "rich_or_other_attachment_diverted_immediate_attack": 11,
+      "rich_diverted_active_alakazam_attack": 6,
+      "boss_escape_missed_with_unprotected_bench_ko": 3,
+      "non_mist_hammer_targets_after_mist_seen": 12
+    },
+    "majkel_reference": {
+      "games": 163,
+      "wins": 129,
+      "losses": 34,
+      "win_rate": 0.7914,
+      "enriching_attachments": 123,
+      "average_enriching_draw": 3.959,
+      "fez_attacks_per_game": 0.558,
+      "deckout_losses": 3
+    },
+    "yushin_reference": {
+      "games": 100,
+      "wins": 68,
+      "losses": 32,
+      "win_rate": 0.68,
+      "enriching_attachments": 80,
+      "average_enriching_draw": 4.0,
+      "deckout_losses": 23
+    }
+  },
+  "v13_rule_changes": [
+    "Replace Max Rod with the single legal ACE SPEC Enriching Energy.",
+    "Treat Enriching Energy as Colorless, never as Psychic fuel for Powerful Hand.",
+    "Prioritize attach-to-Dunsparce/Dudunsparce recycle lines, with four-card and seven-card deck-spend gates.",
+    "Stop optional Rich Energy draw when the current Active KO and a one-turn backup are already secured.",
+    "Reject Boss targets that give fewer prizes than an already available Active KO; equal-prize gusts require a large role/value upgrade.",
+    "Block lower-prize Boss targets when the current Active becomes a deterministic KO after non-Supporter evolution/ability/Rich draws later in the same turn.",
+    "Reject Powerful Hand into Mist Energy or correctly scoped global effect protection when it would place zero damage counters.",
+    "Scope Team Rocket's Articuno protection to Basic Team Rocket Pokemon instead of all opposing Pokemon.",
+    "Use Boss to escape an Articuno-protected Active only when a legal unprotected KO exists.",
+    "Promote Fezandipiti ex into an alternate attacker plan when every visible target is protected from Powerful Hand.",
+    "Track distinct publicly revealed Mist Energy serials and decay the reserve probability by archetype and copies seen.",
+    "Reserve only the final Enhanced Hammer, and release it for concrete immediate tempo or when further Mist is no longer plausible.",
+    "Keep v11 Teleport targeting; do not inherit the broad v12 Teleport regression."
+  ],
+  "v14_rule_changes": [
+    "Prioritize a Psychic attachment that creates a same-turn Active Alakazam attack above Enriching Energy and every competing attachment.",
+    "Reject Enriching Energy attachment whenever the Active Alakazam can instead be fueled from hand.",
+    "Use an explicit END-turn safety invariant whenever an Active Alakazam attack or enabling attachment is offered.",
+    "Restore v11's harmless protected Powerful Hand fallback above END after all useful setup, Boss, and Hammer actions.",
+    "Use Boss's Orders to convert a protected Active zero-effect attack into a real unprotected Bench KO, including low-value one-prize Basics.",
+    "After a public Mist Energy appears, reserve every Hammer while another copy remains likely; release only when the public-copy prior is exhausted.",
+    "Play Hammer immediately against effect-prevention Energy anywhere on the opposing board, with Mist remaining the highest-scored target."
+  ],
+  "ml_feature_changes": [
+    "visible Mist copy count and archetype prior",
+    "active effect-prevention energy",
+    "Enriching Energy in hand",
+    "same-turn Dunsparce recycle readiness",
+    "Rich draw-safety and projected net hand delta (+3)",
+    "correct Psychic-energy identity excluding Enriching Energy"
+  ],
+  "local_validation": {
+    "pytest_tests": 53,
+    "python_compile": true,
+    "deck_cards": 60,
+    "ace_specs": 1,
+    "runtime_import_smoke": true,
+    "model_loaded": true,
+    "ml_override_enabled": false,
+    "local_engine_games": 320,
+    "vs_v13_win_rate": 0.50625,
+    "vs_v11_win_rate": 0.4375,
+    "policy_fallbacks": 0,
+    "crashes": 0,
+    "illegal_selects": 0,
+    "errors": 0
+  },
+  "known_limitations": [
+    "v13's supplied ladder rating is 807.1; v14 has not yet been submitted, so its rating is unknown and improvement cannot be guaranteed.",
+    "The ML model was not retrained because the uploaded agent is runtime-only and contains no training pipeline or labeled training corpus.",
+    "Rich Energy, Boss, Mist, Articuno, and alternate-attacker changes are covered by deterministic Golden-state tests, not full engine self-play.",
+    "Public ladder samples use different opponents, so v11-v12 differences are observational rather than head-to-head causal estimates."
+  ]
+}
