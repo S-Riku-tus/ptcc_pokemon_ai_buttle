@@ -1,0 +1,18 @@
+{
+  "name": "marnies_grimmsnarl_ex_v4",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "4.0.0",
+  "created_at": "2026-07-20T00:00:00+09:00",
+  "parent_agent": "marnies_grimmsnarl_ex_v2",
+  "deck_changed": false,
+  "source_submissions": [
+    54837973,
+    54797424
+  ],
+  "source_replays": 908,
+  "policy": "v2 route/target model + Unfair Stamp hand-denial (free Item played before the attack, scaled to opponent hand size) + second-Munkidori spread engine vs a racing opponent",
+  "validation_scope": "syntax, 60-card deck, self-contained runtime, 14 static golden-state tests; large-sample self-play A/B vs alakazam_ml_v11 (4000 games) and alakazam_ml_v10 (2000 games); engine is not seed-reproducible so results are reported with 95% CIs",
+  "parent": "marnies_grimmsnarl_ex_v3",
+  "description": "Route-aware pre-attack sequencing and short prize-route planning over v3."
+}
