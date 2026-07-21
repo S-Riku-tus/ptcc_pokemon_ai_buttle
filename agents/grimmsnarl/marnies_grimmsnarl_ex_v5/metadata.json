@@ -1,0 +1,17 @@
+{
+  "name": "marnies_grimmsnarl_ex_v5",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "5.0.0",
+  "created_at": "2026-07-22T00:00:00+09:00",
+  "parent_agent": "marnies_grimmsnarl_ex_v4",
+  "deck_changed": false,
+  "source_submissions": [
+    54868864
+  ],
+  "source_replays": 43,
+  "policy": "v4 route/target model + two TCG-fundamentals fixes: (1) generalized damage-immune-wall (Crustle/Sylveon/Neutralization Zone) handling that stops hammering a 0-damage Shadow Bullet, un-suppresses development while walled, and values a Boss's Orders unlock; (2) evolve-on-the-bench rules so Morgrem is only evolved into the Active when it can attack this turn and Grimmsnarl ex is built on the bench rather than fed into a wall it cannot damage.",
+  "validation_scope": "syntax, 60-card deck, self-contained runtime, 34 static golden-state tests (22 inherited v4 + 12 new v5); replay smoke test over 4 Crustle-wall episodes (388 grimmsnarl decisions, 0 exceptions, 0 policy fallbacks); v4-vs-v5 divergence audit on identical observations confirms the wall is no longer hammered and evolutions move to the bench. Live win-rate must be measured by the user on the competition engine.",
+  "parent": "marnies_grimmsnarl_ex_v4",
+  "description": "Pokemon-TCG-fundamentals pass over v4: damage-immune-wall unlocking and safe evolution placement, grounded in the 658.1-rating ladder log."
+}
