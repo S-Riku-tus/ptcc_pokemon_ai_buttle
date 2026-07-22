@@ -16,6 +16,11 @@ v15 is a logic/ML successor to v14. The v14 directory is untouched and v15's
 
 ## Validation
 
+The finalized-agent rerun went 508-492 against v11 under identical v14 decks,
+556-444 against unchanged v14, and 734-66 across four generic opponents. All
+2,800 games had zero attackable END selections and zero runtime errors. The
+full 58-test suite also passes.
+
 Run the self-contained tests with:
 
 ```powershell

@@ -57,6 +57,14 @@ generic matchup gates.
 | v15 vs original v14 | 549-451 (54.9%) |
 | Four generic opponents | 733-67 (91.625%) |
 
+Those rows are the pre-promotion candidate gates. A fresh rerun against the
+files in the finalized v15 directory produced 508-492 (50.8%) against v11 with
+v14's deck forced on both sides, 556-444 (55.6%) directly against unchanged
+v14, and 734-66 (91.75%) across the four generic opponents. Across those 2,800
+games there were zero attackable END selections, crashes, illegal selections,
+policy fallbacks, or recorder exceptions. The finalized ML adoption rate was
+1.7-2.4% of decisions.
+
 The local engine is not perfectly seed-reproducible, so ladder improvement is
 not guaranteed. The repeated direction, direct v14 gate, behavioral metrics,
 zero runtime errors, and non-mirror gate together justify the separate v15.
