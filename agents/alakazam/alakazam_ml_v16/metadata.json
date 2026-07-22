@@ -1,0 +1,70 @@
+{
+  "name": "alakazam_ml_v16",
+  "version": "16.0.0",
+  "role": "challenger",
+  "status": "local_validation_passed",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v15",
+  "created_at": "2026-07-22T00:00:00+09:00",
+  "runtime_revision": "v16_terminal_lock_hammer_targeting_20260722",
+  "model_version": "v10-ranker-v16-tactical-guard",
+  "model": "The distilled LightGBM weights and its narrow reversible scope are unchanged from v15. v16 adds deterministic terminal, attack-lock, Hammer, gust-target, Teleport, protected-target, deck-horizon, and Grimmsnarl risk rules.",
+  "model_scope": "Live ML may choose Abra versus Dunsparce bench roles and the target of the same evolution card. Attack, Energy, Trainer, Boss, Hammer, retreat, abilities, END, and visible Grimmsnarl tactical boards remain deterministic.",
+  "confidence_threshold": 0.37,
+  "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "ranker_model_unchanged_from_v15": true,
+  "ml_override_default": true,
+  "ml_override_environment": "ALAKAZAM_ML_V16_ENABLE_OVERRIDE=0 disables the guarded live scope for A/B tests.",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v15": true,
+  "source_evidence": {
+    "v15_public": {
+      "games": 33,
+      "wins": 22,
+      "losses": 11,
+      "win_rate": 0.6667,
+      "rating_at_fetch": 907.5
+    },
+    "attack_lock_replay": {
+      "episode_id": 87378335,
+      "opponent": "senkin",
+      "attacker_card_id": 506,
+      "attack_id": 716
+    }
+  },
+  "v16_rule_changes": [
+    "Remember next-turn attack-disable attacks from public logs for the exact Active Pokemon; prefer evolution or a ready-benched-attacker retreat route and clear the lock after identity changes.",
+    "Recompute Powerful Hand after Enhanced Hammer leaves the hand; reject a doomed Active target and any ordinary Hammer that loses the current exact KO.",
+    "Block a non-winning Boss when the current Active route deterministically takes the final prizes; explicitly prioritize higher-prize ex targets.",
+    "Reject zero-effect Powerful Hand and concentrate energy on Fezandipiti ex when all visible targets prevent Powerful Hand and no immediate Hammer or Psychic-damage Alakazam answer exists.",
+    "Rank Abra Teleport switches by role and next-turn KO risk: Dudunsparce, Dunsparce, ready Alakazam, Kadabra, Abra, with Fezandipiti ex accepted mainly while the opponent still has at least five prizes.",
+    "Use a Grimmsnarl 30 bench damage plus energy-ready Munkidori 30-counter projection instead of a fixed bench-size cap; always preserve the second Alakazam line and first Dunsparce role.",
+    "Compare optional deck spend with a visible prize-race horizon, while stopping sufficient-damage draw only for a terminal KO or real deck emergency.",
+    "Defer the ML override on visible Grimmsnarl tactical boards so deterministic damage-counter safety cannot be overwritten."
+  ],
+  "local_validation": {
+    "pytest_tests": 74,
+    "python_compile": true,
+    "deck_cards": 60,
+    "runtime_import_smoke": true,
+    "model_loaded": true,
+    "ml_override_enabled": true,
+    "final_engine_games": 1800,
+    "v16_vs_v15_same_deck": "500-500 (50.0%)",
+    "v16_vs_grimmsnarl_v6": "255-145 (63.75%)",
+    "v15_vs_grimmsnarl_v6_control": "253-147 (63.25%) on the same seed stream",
+    "attack_lock_replay_verified": true,
+    "policy_fallbacks": 0,
+    "observation_fallbacks": 0,
+    "crashes": 0,
+    "illegal_selects": 0
+  },
+  "known_limitations": [
+    "v16 has not been submitted, so its public ladder rating is unknown.",
+    "The 33-game v15 public sample is small and opponent-mix dependent; local paired gates do not guarantee a public rating increase.",
+    "The Cubchoo behavior is verified against the saved public observation sequence and Golden states, not a dedicated local Cubchoo deck matchup.",
+    "The ranker was not retrained; the requested improvements are deterministic tactical logic."
+  ]
+}
