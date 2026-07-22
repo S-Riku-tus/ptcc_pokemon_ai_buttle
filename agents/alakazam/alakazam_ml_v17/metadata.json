@@ -1,0 +1,103 @@
+{
+  "name": "alakazam_ml_v17",
+  "version": "17.0.0",
+  "role": "challenger",
+  "status": "local_validation_passed",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v15",
+  "created_at": "2026-07-22T00:00:00+09:00",
+  "runtime_revision": "v17_minimal_v15_rebase_20260722",
+  "model_version": "v10-ranker-v15-scope-v17-tactical-memory",
+  "model": "The distilled LightGBM weights, feature set, and narrow reversible scope are unchanged from v15. v17 adds only deterministic attack-state memory, a narrow immediate-KO pivot, and a persistent Team Rocket's Articuno breaker.",
+  "model_scope": "Live ML retains v15's safe Abra/Dunsparce bench-role choice and same-evolution-card target choice. Attack, Energy, Trainer, Boss, Hammer, retreat, abilities, and END remain deterministic.",
+  "confidence_threshold": 0.37,
+  "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "ranker_model_unchanged_from_v15": true,
+  "ml_override_default": true,
+  "ml_override_environment": "ALAKAZAM_ML_V17_ENABLE_OVERRIDE=0 disables the inherited guarded live scope; the v15 flag remains a compatibility fallback.",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v15": true,
+  "source_evidence": {
+    "v15_public": {
+      "games": 33,
+      "wins": 22,
+      "losses": 11,
+      "win_rate": 0.6667,
+      "rating_at_fetch": 907.5,
+      "observed_rating_band": "880-920"
+    },
+    "v16_public": {
+      "games": 60,
+      "wins": 35,
+      "losses": 25,
+      "win_rate": 0.5833,
+      "rating_at_fetch": 830.5
+    },
+    "temporary_immunity_replays": [
+      {
+        "episode_id": 87405053,
+        "opponent": "Kinf11",
+        "attack_id": 1266,
+        "result": "heads; v17-minimal selects Boss's Orders instead of zero-damage Powerful Hand"
+      },
+      {
+        "episode_id": 87413112,
+        "opponent": "Project Mew",
+        "attack_id": 1266,
+        "result": "heads; v17-minimal rejects zero-damage Powerful Hand and selects Enriching Energy"
+      }
+    ]
+  },
+  "v15_behavior_preserved": [
+    "backup ETA",
+    "deck preservation and deck-spend budget",
+    "Enriching Energy draw gate",
+    "Enhanced Hammer target scoring",
+    "Trainer scoring including Boss and Xerosic",
+    "Pokemon bench scoring",
+    "evolution scoring"
+  ],
+  "v16_broad_rules_excluded": [
+    "Grimmsnarl-specific broad bench restriction",
+    "cross-action ko_and_continuity_locked draw/search/evolution suppression",
+    "turns-to-win versus turns-to-deckout midgame gating",
+    "Teleportation Attack target rewrite",
+    "v16-wide Boss and Hammer repricing",
+    "Grimmsnarl-wide ML override shutdown"
+  ],
+  "v17_rule_changes": [
+    "Remember attack-disable effects for the exact Active identity and retreat to a ready attacker.",
+    "Pair qualifying immunity attacks with coin results and reject attacks against a heads-protected exact Active until identity change or expiry.",
+    "Evaluate Active-Alakazam attach-retreat-benched-Alakazam attack only when it creates an immediate KO.",
+    "Persist an Articuno breaker state, concentrate three Energy on Fezandipiti ex, and promote it only when attack-ready.",
+    "Prioritize Cruel Arrow into Team Rocket's Articuno and Boss's Orders into unprotected evolved Team Rocket Pokemon."
+  ],
+  "local_validation": {
+    "pytest_tests": 72,
+    "python_compile": true,
+    "deck_cards": 60,
+    "runtime_import_smoke": true,
+    "model_loaded": true,
+    "ml_override_enabled": true,
+    "final_engine_games": 2400,
+    "v17_minimal_vs_v15": "520-480 (52.0%) in 1,000 games",
+    "v17_minimal_vs_previous_v17": "524-476 (52.4%) in 1,000 games",
+    "v17_minimal_vs_grimmsnarl_v6": "249-151 (62.25%) in 400 games",
+    "temporary_immunity_public_replays_verified": true,
+    "articuno_golden_states_verified": true,
+    "v15_core_ast_parity_verified": true,
+    "policy_fallbacks": 0,
+    "observation_fallbacks": 0,
+    "crashes": 0,
+    "illegal_selects": 0
+  },
+  "known_limitations": [
+    "v17 has not been submitted, so its public ladder rating is unknown.",
+    "Public v15 and v16 samples differ in opponent and seat distributions; local games do not guarantee a public rating increase.",
+    "The Articuno plan is verified from card semantics, public replay boards, and Golden states rather than a large dedicated local Articuno matchup.",
+    "Cruel Arrow deals 100 damage, so a full-HP 120 Articuno normally takes two attacks and the unfavorable race is mitigated rather than eliminated.",
+    "The ranker was not retrained; the requested improvements are deterministic tactical logic."
+  ]
+}
