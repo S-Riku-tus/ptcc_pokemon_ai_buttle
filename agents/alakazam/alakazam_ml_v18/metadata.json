@@ -1,0 +1,90 @@
+{
+  "name": "alakazam_ml_v18",
+  "version": "18.0.0",
+  "role": "challenger",
+  "status": "local_validation_passed",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v17",
+  "created_at": "2026-07-23T00:00:00+09:00",
+  "runtime_revision": "v18_deterministic_full_turn_route_20260723",
+  "model_version": "v10-ranker-v15-scope-v18-route",
+  "model": "The deck, LightGBM weights, features, and guarded ML scope are unchanged from v17. v18 adds deterministic legal-route planning for terminal attacks and Active-versus-Boss decisions.",
+  "model_scope": "Live ML remains restricted to safe Abra/Dunsparce bench-role choice and same-evolution-card target choice. Attack, Energy, Trainer, Boss, Hammer, retreat, abilities, and END remain deterministic.",
+  "confidence_threshold": 0.37,
+  "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "ranker_model_unchanged_from_v17": true,
+  "ml_override_default": true,
+  "ml_override_environment": "ALAKAZAM_ML_V18_ENABLE_OVERRIDE=0 disables the inherited guarded live scope; v17 and v15 flags remain compatibility fallbacks.",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v17": true,
+  "source_evidence": {
+    "v17_public": {
+      "submission_id": 54906373,
+      "games": 60,
+      "wins": 39,
+      "losses": 21,
+      "win_rate": 0.65,
+      "rating_at_fetch": 833.1
+    },
+    "boss_route_failures": [
+      {
+        "episode_id": 87597062,
+        "route": "Enhanced Hammer -> 340 HP Active KO",
+        "v17_action": "Boss to a one-prize Riolu before Hammer"
+      },
+      {
+        "episode_id": 87486591,
+        "route": "Enriching Energy + Alakazam evolution -> 340 HP Active KO",
+        "v17_action": "Boss to a lower-prize Hariyama"
+      },
+      {
+        "episode_id": 87498561,
+        "route": "Dawn -> 440 HP Active KO -> game win",
+        "v17_action": "Boss to an 80 HP Makuhita"
+      }
+    ],
+    "terminal_pivot_replay": {
+      "episode_id": 87485511,
+      "finding": "Run Away Draw was initially illegal under the opposing Stadium; after Stadium replacement the correct Dudunsparce pivot won, but optional setup actions were still interleaved."
+    }
+  },
+  "v18_rule_changes": [
+    "Enumerate only currently offered deterministic MAIN actions when projecting Powerful Hand damage.",
+    "Compare the final Active KO route against each Boss target and block a lower-prize Boss when the Active route is certain.",
+    "Treat Enhanced Hammer as a mandatory route action when it removes effect-prevention Energy.",
+    "Model guaranteed net hand gains from Alakazam/Kadabra evolution, Rare Candy, Enriching Energy, Dudunsparce, Dawn, and Hilda.",
+    "Attack immediately when an offered KO removes the opponent's final in-play Pokemon.",
+    "Use Active Dudunsparce immediately when Run Away Draw promotes a ready Alakazam for a board-wipe win.",
+    "Record Dudunsparce unavailable, declined, and terminal-pivot reasons separately."
+  ],
+  "rejected_ablation": {
+    "change": "Broad post-first-attack backup rebuilding priority",
+    "result": "65-135 versus v17 in 200 local games",
+    "decision": "Removed from v18 because it fired 2,895 times and over-constrained normal setup."
+  },
+  "local_validation": {
+    "pytest_tests": 82,
+    "python_compile": true,
+    "deck_cards": 60,
+      "final_engine_games": 2200,
+    "v18_vs_v17_primary": "505-495 (50.5%) in 1,000 games",
+      "v18_vs_v17_smoke": "105-95 (52.5%) in 200 games",
+      "v18_vs_v17_post_hardening_smoke": "99-101 (49.5%) in 200 games",
+    "v18_vs_v15": "203-197 (50.75%) in 400 games",
+    "v18_vs_grimmsnarl_v6": "247-153 (61.75%) in 400 games",
+    "golden_route_states": 10,
+    "policy_fallbacks": 0,
+    "observation_fallbacks": 0,
+    "crashes": 0,
+    "illegal_selects": 0
+  },
+  "known_limitations": [
+    "v18 has not been submitted, so a public ladder rating improvement is not proven.",
+    "The local v17 and v15 results are statistically consistent with equal strength; they establish non-regression, not superiority.",
+    "The route planner is intentionally conservative and ignores unknown top-decks or cards that are not currently legal options.",
+    "Post-KO attack continuity remains a measured problem, but the broad rebuilding rule failed its ablation and is not included.",
+    "The ranker was not retrained; the changes are deterministic tactical logic."
+  ]
+}
