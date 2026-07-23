@@ -1,0 +1,17 @@
+{
+  "name": "marnies_grimmsnarl_ex_v7",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "7.0.0",
+  "created_at": "2026-07-23T17:00:00+09:00",
+  "parent_agent": "marnies_grimmsnarl_ex_v6",
+  "parent": "marnies_grimmsnarl_ex_v6",
+  "deck_changed": false,
+  "source_submissions": [
+    54893530
+  ],
+  "source_replays": 52,
+  "policy": "v6 wall/target/opening model + P0 fixes from the 52-game v6 ladder audit (deck unchanged): (1) purpose-split Boss's Orders (WIN_NOW / WALL_UNLOCK / HIGHER_PRIZE_KO / ENGINE_KO / TEMPO_GUST), dropping v6's flat 10k gate that suppressed every engine/tempo gust (v6 played Boss 0.04/game vs v5's 0.38) while still protecting a confirmed high-prize Active KO from a cheap gust; (2) legal-step first/backup attacker ETAs that respect appearThisTurn, the evolution piece in hand, and a real path to the Active spot (retreat is the only switch this deck runs), so a lone Morgrem without Grimmsnarl ex is no longer a fake ETA-0 backup - the cause of v6's doubled post-attack idle (0.44->0.83); (3) a fast_race gear vs Mega Lucario / Archaludon (every attack-less v6 loss was vs Mega Lucario) that floods Impidimp, holds optional engines until the first attacker is live, and demands a completed (ETA 0) backup; (4) conditional initial Active - a sole escape-less Munkidori now ranks below a Snorunt with its Froslass route; (5) best-effort temporary Dodge/Hide immunity from attack text. Wall detection and the below-END wall attack are UNCHANGED (0 useless 0-damage attacks preserved).",
+  "validation_scope": "syntax; 60-card deck unchanged; self-contained runtime; 61 static golden-state tests pass (22 v4 + 10 v5 + 16 v6 + 13 new v7, run against the real vendor card database) - two v6 initial-Active tests updated for the new conditional order; 190 real self-play games via cg engine (150 v7-vs-v6 head-to-head + 40 mixed) with 0 crashes, 0 policy fallbacks, 0 illegal actions, 0 obs fallbacks; Boss usage restored to ~0.28/game (modes observed: WIN_NOW / HIGHER_PRIZE_KO / ENGINE_KO) and fast_race confirmed to no longer false-fire on non-fast decks. Mirror win-rate is ~50% (48% over 150) and does NOT measure v7's gains, which are match-up-specific (Mega Lucario, walls) and behavioral (Boss frequency, honest ETA, post-attack continuity); the user must measure those on the competition engine and against Mega Lucario / wall decks.",
+  "description": "v6 successes kept fixed (wall detection, below-END wall attack, meta target priority); repairs v6's over-corrections: Boss by purpose (not a flat gate), honest legal-step ETAs, a Mega-Lucario fast-race gear, conditional initial Active, and remembered Dodge/Hide immunity."
+}
