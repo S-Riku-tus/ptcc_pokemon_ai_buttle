@@ -102,6 +102,15 @@ LOW_DECK_COUNT = 6
 ENERGY_DIG_MIN_PROBABILITY = 0.50
 TERMINAL_BOSS_SCORE = 1_000_000
 BLOCKED_BY_TERMINAL_BOSS_SCORE = -1_000_000
+V20_TARGET_ROUTES_ENABLED = os.environ.get(
+    "ALAKAZAM_V20_TARGET_ROUTES", "1"
+) != "0"
+V20_HAND_GATE_ENABLED = os.environ.get(
+    "ALAKAZAM_V20_HAND_GATE", "1"
+) != "0"
+V20_HAND_SURPLUS = max(
+    0, int(os.environ.get("ALAKAZAM_V20_HAND_SURPLUS", "5"))
+)
 pre_turn = -1
 
 
@@ -1951,7 +1960,13 @@ class AlakazamPolicy:
         if getattr(self, "_chosen_ko_plan_cached", False):
             return getattr(self, "_chosen_ko_plan_cache", None)
         plan = None
-        for entry in self._target_priority_list():
+        entries = self._target_priority_list()
+        if not V20_TARGET_ROUTES_ENABLED:
+            entries = [
+                entry for entry in entries
+                if entry["area"] == AreaType.ACTIVE
+            ]
+        for entry in entries:
             candidate = self._ko_route_plan(entry["target"])
             if not candidate["ko"]:
                 continue
@@ -1992,8 +2007,17 @@ class AlakazamPolicy:
         """The chosen KO is deterministic without this optional hand-growth action."""
         plan = self._chosen_ko_plan()
         return bool(
-            plan is not None
+            V20_HAND_GATE_ENABLED
+            and plan is not None
             and plan["ko"]
+            # "Reached" means no prerequisite remains. A Bench route may still
+            # have Boss itself pending, but Hammer/evolution/another draw action
+            # means the target hand has not actually been secured yet.
+            and not (plan["actions"] - {"boss"})
+            # Keep a next-turn buffer. The five-card threshold targets the severe
+            # overkill bucket measured in v19 instead of reviving the blanket hand
+            # cap that regressed cabt.
+            and plan["hand"] - plan["required_hand"] >= V20_HAND_SURPLUS
             and kind not in plan["actions"]
             and self._ready_alakazam_count() > 0
             and not self._energy_starved()
@@ -3230,11 +3254,7 @@ class AlakazamPolicy:
         )
 
     def _enrich_draw_needed(self):
-        plan = self._chosen_ko_plan()
-        if (plan is not None and plan["ko"]
-                and "enriching" not in plan["actions"]
-                and self._ready_alakazam_count() > 0
-                and not self._energy_starved()):
+        if self._draw_redundant_for_chosen_target("enriching"):
             return False
         opponent = self.opponent.active[0] if self.opponent.active else None
         required = self._attack_hand_required(opponent) if opponent is not None else 0

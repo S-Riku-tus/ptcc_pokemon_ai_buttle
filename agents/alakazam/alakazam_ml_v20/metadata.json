@@ -1,23 +1,25 @@
 {
-  "name": "alakazam_ml_v19",
-  "version": "19.0.0",
+  "name": "alakazam_ml_v20",
+  "version": "20.0.0",
   "role": "challenger",
   "status": "local_validation_passed",
   "archetype": "alakazam_dudunsparce",
-  "parent_agent": "alakazam_ml_v18",
-  "created_at": "2026-07-24T00:00:00+09:00",
-  "runtime_revision": "v19_top40_mine_lana_20260724",
-  "model_version": "v10-ranker-v15-scope-v18-route",
-  "model": "The deck, LightGBM weights, features, guarded ML scope, and v18 deterministic route planner are unchanged. v19 fixes deterministic Trainer role valuation.",
+  "parent_agent": "alakazam_ml_v19",
+  "created_at": "2026-07-24T15:47:29+09:00",
+  "runtime_revision": "v20_prize_target_routes_20260724",
+  "model_version": "v10-ranker-v15-scope-v20-route",
+  "model": "The v19 deck, LightGBM weights, features, and guarded ML scope are unchanged. v20 adds deterministic terminal Boss gating, target-ranked KO routes, and bounded target-sized hand control.",
   "model_scope": "Live ML remains restricted to safe Abra/Dunsparce bench-role choice and same-evolution-card target choice. Attack, Energy, Trainer, Boss, Hammer, retreat, abilities, and END remain deterministic.",
   "confidence_threshold": 0.37,
   "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
   "ranker_model_unchanged_from_v18": true,
+  "ranker_model_unchanged_from_v19": true,
   "ml_override_default": true,
   "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
   "deck_cards": 60,
   "ace_spec_count": 1,
   "deck_unchanged_from_v18": true,
+  "deck_unchanged_from_v19": true,
   "source_evidence": {
     "retrieved_at": "2026-07-24T01:23:16+09:00",
     "v18_public": {
@@ -52,44 +54,43 @@
       "decisions": 18749,
       "v18_agreement": 0.5940583497786549,
       "v19_agreement": 0.6078190836844632,
+      "v20_agreement": 0.6055256280334951,
+      "v20_difference_from_v19": -0.0022934556509681,
       "v18_divergent_nighttime_mine_choices": 711,
       "top_divergent_nighttime_mine_choices": 73
     }
   },
-  "v19_rule_changes": [
-    "Replace the stale Battle Cage constant 1264 with the deck's actual Nighttime Mine ID 1266.",
-    "Play Nighttime Mine only for a Tera tax or a developed opposing-Stadium overwrite.",
-    "Never spend Nighttime Mine when its one-card hand loss removes a current Powerful Hand KO.",
-    "Count only non-Rule-Box Pokemon and basic Psychic Energy as Lana's Aid recovery targets.",
-    "Score Lana's Aid by one, two, or three legal targets and model its actual net hand gain."
+  "v20_rule_changes": [
+    "At exactly two or three remaining prizes, make a legal same-turn winning Boss's Orders the absolute MAIN action.",
+    "Rank all visible opposing Pokemon from prize race, role, development, and Active-resource value, then try deterministic KO routes in that order.",
+    "Generalize the v18 Active-only bitmask route to Bench targets with Boss hand cost, Supporter exclusivity, prevention-Energy Hammer removal, and target binding.",
+    "Use ceil(remaining HP / 20) as the target-sized Powerful Hand requirement and stop optional draw only after a route is secured with at least five cards of surplus.",
+    "Unify guaranteed net hand deltas, including Dawn +2, and prefer lower overkill when route costs tie."
   ],
   "rejected_or_bounded_changes": [
-    "No deck change: the 13-submission main top deck is exactly byte-for-card identical to v18.",
-    "No broad backup-rebuild priority: the v18 experiment lost 65-135 to v17 and fired 2895 times.",
-    "No generic Nighttime Mine play: replay imitation showed it displacing top attacks and END actions.",
-    "Lana's Aid is rejected with zero targets and remains below core setup actions with only one target."
+    "No deck or ML retraining change: all requested actions remain deterministic fallback decisions.",
+    "No Xerosic hand buffer: Xerosic reduces any larger hand to three, so extra pre-hit cards do not preserve Powerful Hand damage.",
+    "No blanket draw cap or deck-out guard: broad target-reached hand gates regressed the v20-v19 mirror and were narrowed.",
+    "Target value and route feasibility remain separate so an unreachable high-value target falls through to the next target."
   ],
   "local_validation": {
-    "pytest_tests": 88,
+    "pytest_tests": 109,
     "python_compile": true,
-    "final_engine_games": 2300,
-    "v19_vs_v18_seed1901": "259-241 (51.8%) in 500 games",
-    "v19_vs_v18_seed1902": "259-241 (51.8%) in 500 games",
-    "v19_vs_v17": "262-238 (52.4%) in 500 games",
-    "v19_vs_v15": "202-198 (50.5%) in 400 games",
-    "v19_vs_grimmsnarl_v6": "262-138 (65.5%) in 400 games",
-    "mine_only_vs_v18": "250-250 (50.0%) in 500 games",
-    "same_seed_v18_vs_grimmsnarl_v6": "285-115 (71.25%) in 400 games",
+    "ab_engine_games": 3300,
+    "final_v20_vs_v19_seed1901": "245-255 (49.0%) in 500 games",
+    "terminal_boss_only_vs_v19_seed1901": "153-147 (51.0%) in 300 games",
+    "target_routes_without_hand_gate_vs_v19_seed1901": "147-153 (49.0%) in 300 games",
+    "terminal_boss_conversion": "18/18 in the final 500-game run",
     "policy_fallbacks": 0,
     "observation_fallbacks": 0,
     "crashes": 0,
     "illegal_selects": 0
   },
   "known_limitations": [
-    "v19 has not been submitted; a public ladder rating improvement is not proven.",
-    "The 51.8% head-to-head result is a small local edge whose confidence interval includes 50%.",
-    "The Nighttime Mine correction improved top-policy agreement but reduced the same-seed local Grimmsnarl result versus v18; the public metagame must decide the tradeoff.",
-    "No local Archaludon opponent implementation exists, so v18's 1-7 public result against that archetype could not be directly reproduced.",
-    "The ranker was not retrained; changes are deterministic policy corrections."
+    "v20 has not been submitted; a public ladder rating improvement is not proven.",
+    "The final 500-game v20-v19 mirror is statistically consistent with an even result and is not evidence of an edge.",
+    "Top-policy agreement decreased by 0.229 percentage points because the requested Boss and hand-control divergences are intentional.",
+    "The fixed-deck mirror does not measure the ex-heavy public metagame where high-prize targeting should have its largest benefit.",
+      "Both v20 rollout switches default on; ALAKAZAM_V20_TARGET_ROUTES=0 and ALAKAZAM_V20_HAND_GATE=0 remain diagnostic rollback controls, with ALAKAZAM_V20_HAND_SURPLUS=5 as the conservative default threshold."
   ]
 }

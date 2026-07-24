@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from types import SimpleNamespace as NS
-
 import pytest
 
 import test_v11_runtime_logic as h
@@ -207,7 +205,7 @@ def test_v20_benched_run_away_draw_stops_after_chosen_target_is_lethal():
     obj = _main_board(
         policy,
         hand_ids=[],
-        hand_count=8,
+        hand_count=10,
         active=_attacking_alakazam(policy),
         bench=[dudun],
         opponent_active=h.Pokemon(9000, hp=100, playerIndex=1, serial=90),
@@ -237,6 +235,26 @@ def test_v20_benched_run_away_draw_executes_when_it_is_in_minimum_ko_route():
     assert plan["actions"] == frozenset({"dudun"})
     assert obj._score_ability(ability) > 47000
     assert obj.choose() == [0]
+
+
+def test_v20_enriching_draw_stops_only_after_surplus_target_hand_is_secured():
+    policy = h.load_policy()
+    target = h.Pokemon(9000, hp=100, playerIndex=1, serial=105)
+    obj = _main_board(
+        policy,
+        hand_ids=[policy.C.ENRICHING_ENERGY],
+        hand_count=10,
+        active=_attacking_alakazam(policy),
+        opponent_active=target,
+        options=[_attack_option(policy)],
+    )
+    assert not obj._enrich_draw_needed()
+
+    target.hp = 200
+    obj._ko_route_cache = {}
+    obj._chosen_ko_plan_cache = None
+    obj._chosen_ko_plan_cached = False
+    assert obj._enrich_draw_needed()
 
 
 def test_v20_boss_route_reserves_supporter_and_uses_non_supporter_draw():
