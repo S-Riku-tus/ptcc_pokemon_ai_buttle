@@ -76,10 +76,10 @@ def test_v18_preserves_unmodified_v15_recovery_heads():
         "_backup_eta",
         "_deck_preserve",
         "_deck_spend_ok",
-        "_enriching_attach_score",
-        "_hammer_target_score",
         "_score_to_bench",
     }
+    # v20 intentionally changes the Enriching hand gate and binds Hammer's
+    # sub-selection to the target chosen by the generic KO route planner.
     assert all(current[name] == champion[name] for name in preserved)
 
     policy = h.load_policy()
