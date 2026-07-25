@@ -1,0 +1,84 @@
+{
+  "name": "alakazam_ml_v21",
+  "version": "21.0.0",
+  "role": "challenger",
+  "status": "real_ladder_replay_validated",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v20",
+  "created_at": "2026-07-25T17:48:54+09:00",
+  "runtime_revision": "v21_ladder_risk_control_20260725",
+  "model_version": "v10-ranker-v15-scope-v20-route-unchanged",
+  "model": "The v20 deck, LightGBM weights, features, confidence threshold, and guarded live scope are unchanged. v21 adds deterministic ladder-risk controls for draw, switching, promotion, attack completion, late Fezandipiti exposure, and evolution-family targeting.",
+  "model_scope": "Live ML remains restricted to safe Abra/Dunsparce bench-role choice and same-evolution-card target choice. Attack, Energy, Trainer, Boss, Hammer, retreat, abilities, END, KO promotion, and effect-driven switching remain deterministic.",
+  "confidence_threshold": 0.37,
+  "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "ranker_model_unchanged_from_v20": true,
+  "ml_override_default": true,
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v20": true,
+  "source_evidence": {
+    "v20_public": {
+      "submission_id": 54945557,
+      "rating_at_snapshot": 842.8,
+      "games": 64,
+      "wins": 35,
+      "losses": 29,
+      "win_rate": 0.546875,
+      "deckout_losses": 8,
+      "attacks": 286,
+      "attack_opportunity_turns": 324,
+      "attack_opportunity_conversion_rate": 0.8827160493827161,
+      "boss_plays": 39,
+      "boss_same_turn_attacks": 38
+    },
+    "teacher_forced_policy_replay": {
+      "decisions": 3996,
+      "exact_agreement_with_v20": 0.955955955955956,
+      "semantic_agreement_with_v20": 0.9574574574574575,
+      "exact_changes": 176,
+      "semantic_changes": 170,
+      "v20_dudunsparce_draws": 93,
+      "v21_dudunsparce_draws": 74,
+      "v20_abra_switch_to_dunsparce": 5,
+      "v21_abra_switch_to_dunsparce": 18,
+      "v20_ko_promote_dunsparce": 15,
+      "v21_ko_promote_dunsparce": 98,
+      "v21_attack_ready_promotions": 41,
+      "v20_fez_play_at_opponent_three_prizes": 1,
+      "v21_fez_play_at_opponent_three_prizes": 0
+    }
+  },
+  "v21_rule_changes": [
+    "Stop benched Dudunsparce draw as soon as the chosen KO route is secured, except for a narrow single-attacker continuity crisis.",
+    "Separate Abra/Dunsparce end-turn switching from post-KO promotion and price the visible next-turn KO threat.",
+    "Prefer a next-turn attacker after a KO; otherwise promote Dunsparce, Dudunsparce, then prize-clock-safe Fezandipiti ex before the Alakazam line.",
+    "Block END only when an offered attack produces real damage or counters; do not force zero-effect attacks into visible protection.",
+    "Avoid benching Fezandipiti ex at three or fewer opponent prizes unless its immediately available recovery draw creates a KO or restores offense.",
+    "Infer the opponent's important visible evolution families from card metadata and combine lineage value with prizes, energy, tools, HP, and engine text."
+  ],
+  "local_validation": {
+    "pytest_tests": 119,
+    "python_compile": true,
+    "real_ladder_replay_decisions": 3996,
+    "policy_fallbacks": 0,
+    "observation_fallbacks": 0,
+    "arena_safety_games": 100,
+    "arena_v21_vs_v20": "50-50",
+    "crashes": 0,
+    "illegal_selects": 0
+  },
+  "diagnostic_controls": {
+    "ALAKAZAM_V21_TARGET_ROUTES": "1 by default; falls back to the v20 variable for compatibility",
+    "ALAKAZAM_V21_HAND_GATE": "1 by default; falls back to the v20 variable for compatibility",
+    "ALAKAZAM_V21_HAND_SURPLUS": "2 by default for non-Dudunsparce optional draw"
+  },
+  "known_limitations": [
+    "v21 has not yet been submitted, so rating 900 or 1000 stability is not proven.",
+    "Teacher-forced replay evaluates each choice on the real v20 trajectory and cannot measure downstream states created by earlier v21 divergences.",
+    "Evolution-family targeting uses visible public card metadata; it does not claim knowledge of hidden deck contents.",
+    "The current chosen-action corpus supports pairwise candidates but is selection-biased for target ranking, so v21 does not expand live ML into Boss, attack, promotion, or switch targets.",
+    "The late Fezandipiti exception is deterministic and conservative; it does not assume favorable unknown draws beyond the guaranteed three-card hand increase."
+  ]
+}
