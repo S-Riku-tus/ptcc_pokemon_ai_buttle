@@ -1,0 +1,90 @@
+{
+  "name": "alakazam_ml_v22",
+  "version": "22.0.0",
+  "role": "challenger",
+  "status": "static_and_golden_state_validated",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v21",
+  "created_at": "2026-07-26T00:17:51+09:00",
+  "runtime_revision": "v22_continuity_route_control_20260726",
+  "model_version": "v10-ranker-v15-scope-v22-model-unchanged",
+  "model": "The v21 LightGBM ranker, features, confidence threshold, live ML scope, and 60-card deck are unchanged. v22 changes deterministic route control for Dudunsparce cycling, sufficient-hand stopping, Dunsparce cycle rebuilds, and explicit Fezandipiti ex alternate-attacker investment.",
+  "model_scope": "Live ML remains restricted to safe Abra/Dunsparce bench-role choice and same-evolution-card target choice. Attack, Energy, Trainer, Boss, Hammer, retreat, abilities, END, KO promotion, effect-driven switching, continuity, and Fezandipiti route commitment remain deterministic.",
+  "confidence_threshold": 0.37,
+  "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "ranker_model_unchanged_from_v21": true,
+  "fallback_policy_sha256": "d32dd3f85a06f1792ea6ab4cdc914b86d723a26a5d172e50954064542c70ea78",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v21": true,
+  "source_evidence": {
+    "v21_public": {
+      "games": 50,
+      "wins": 32,
+      "losses": 18,
+      "win_rate": 0.64,
+      "mean_first_attack": 2.59,
+      "attacks_per_game": 3.88,
+      "alakazam_attacks_per_game": 3.18,
+      "dudunsparce_abilities_per_game": 1.46,
+      "deckout_losses": 1
+    },
+    "top_alakazam_snapshot": {
+      "Majkel1337": {
+        "games": 1000,
+        "win_rate": 0.725,
+        "attacks_per_game": 5.67,
+        "alakazam_attacks_per_game": 3.98,
+        "dudunsparce_abilities_per_game": 6.68,
+        "winning_game_dudunsparce_abilities": 3.13,
+        "powerful_hand_mean_hand": 12.56,
+        "fezandipiti_attacks_per_game": 0.97
+      },
+      "Yushin_Ito": {
+        "games": 178,
+        "win_rate": 0.697,
+        "attacks_per_game": 5.33,
+        "alakazam_attacks_per_game": 4.89,
+        "dudunsparce_abilities_per_game": 6.53,
+        "winning_game_dudunsparce_abilities": 2.94,
+        "powerful_hand_mean_hand": 12.11,
+        "fezandipiti_attacks_per_game": 0.0
+      }
+    },
+    "interpretation": "The three agents use the same 60 cards. The robust common signal is not maximum hand size but repeated attack availability, roughly three Dudunsparce cycles in wins, and a concrete next attacker. Majkel additionally converts Fezandipiti ex into a real alternate attack route."
+  },
+  "v22_rule_changes": [
+    "Treat only backup_eta <= 1 as a safe replacement attacker; a visible Abra or Kadabra alone no longer stops a continuity draw.",
+    "Use a soft 13-card sufficient-hand target: optional Dudunsparce, Hilda, Dawn, Poke Pad, and Enriching draws stop when current offense and a one-turn backup are secured.",
+    "Keep drawing above the target when the current KO is not the final win and backup_eta remains greater than one, subject to the existing deck floor.",
+    "Raise Dunsparce re-benching priority after the engine has cycled away and the current attacker lacks a deterministic replacement.",
+    "Allow progressive Fezandipiti ex Energy investment only for a visible <=100 HP/high-value target, effect-lock escape, or Rocket Articuno breaker route, and only after current Alakazam offense plus a one-turn backup are safe.",
+    "Recognize a powered Fezandipiti ex as an attack-ready KO promotion when Cruel Arrow can take a visible Bench prize.",
+    "Preserve exact-current-KO hand-spend protection, late two-prize exposure gates, deck floors, terminal wins, Boss logic, effect prevention, and the v21 ML boundary."
+  ],
+  "local_validation": {
+    "pytest_tests": 128,
+    "v22_specific_tests": 9,
+    "python_compile": true,
+    "deck_count": 60,
+    "ranker_json_load": true,
+    "model_and_deck_unchanged": true,
+    "crashes": 0,
+    "illegal_selects": "not measurable without official cg arena",
+    "arena_games": 0
+  },
+  "diagnostic_controls": {
+    "ALAKAZAM_V22_HAND_TARGET": "13 by default; soft target, not a hard cap",
+    "ALAKAZAM_V22_CONTINUITY_DECK_BUFFER": "4 cards above the dynamic deck floor",
+    "ALAKAZAM_V22_FEZ_PROGRESSIVE_BUILD": "1 by default; set 0 for v21-style one-Energy-short behavior",
+    "ALAKAZAM_V21_TARGET_ROUTES": "retained",
+    "ALAKAZAM_V21_HAND_GATE": "retained"
+  },
+  "known_limitations": [
+    "No official cg package or live arena was present in this environment, so Validation Episode, local self-play, and rating improvement are not proven.",
+    "The v22 Fezandipiti route is deterministic and requires visible public goals; it does not speculate about hidden future targets.",
+    "The model was intentionally not retrained because the current live ML scope does not control the decisions changed in v22.",
+    "Teacher-forced full replay comparison could not be rerun without the official observation deserializer; the new behavior is covered by self-contained golden-state tests instead."
+  ]
+}

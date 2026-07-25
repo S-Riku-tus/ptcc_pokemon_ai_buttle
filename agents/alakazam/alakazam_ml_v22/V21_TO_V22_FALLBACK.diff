@@ -1,0 +1,347 @@
+--- /mnt/data/v22_work/v21_orig/fallback_policy.py	2026-07-25 15:12:33.386776704 +0000
++++ /mnt/data/v22_work/alakazam_ml_v22/fallback_policy.py	2026-07-25 15:15:13.182783014 +0000
+@@ -1,10 +1,10 @@
+-# alakazam_ml_v21 - ladder-risk control and role-aware sequencing:
+-#   [P0] Never END while an offered attack makes real progress.
+-#   [P0] Treat KO promotion and Abra/Dunsparce end-turn switching as different decisions.
+-#   [P1] Stop optional draw after a concrete KO is secured unless continuity still needs it.
+-#   [P1] Price Fezandipiti ex exposure from the opponent's prize clock and immediate draw out.
+-#   [P1] Infer key evolution families from the visible board instead of relying only on card IDs.
+-# Parent tactical core: v20.
++# alakazam_ml_v22 - continuity-first route control from v21 + top Alakazam replay mining:
++#   [P0] Keep a concrete next attacker, not merely a visible evolution body, before stopping cycles.
++#   [P0] Use a necessary/sufficient hand target instead of maximizing hand size by default.
++#   [P1] Re-bench Dunsparce after a cycle when the current attacker lacks a one-turn replacement.
++#   [P1] Build Fezandipiti ex progressively only for an explicit alternate-attack route.
++#   [P1] Preserve all v21 terminal-KO, deck-floor, promotion, effect-lock and exposure gates.
++# Parent tactical core: v21.
+ # Historical core notes:
+ # alakazam741_v3 - v2 + 67戦の実ラダーログ全数分析(sub54523210) + ローカルアリーナA/Bに基づく改善:
+ #   [P0-1] 致死維持ゲート: 実ログで「致死圏なのに手札消費プレイで圏外に落ちる/攻撃せず
+@@ -121,6 +121,16 @@
+         )
+     ),
+ )
++# Top Alakazam logs attack around 12--13 cards while cycling roughly three times
++# in wins.  Thirteen is a target, not a hard cap: current KO, missing Energy and
++# an incomplete next attacker can all justify drawing beyond it.
++V22_HAND_TARGET = max(10, int(os.environ.get("ALAKAZAM_V22_HAND_TARGET", "13")))
++V22_CONTINUITY_DECK_BUFFER = max(2, int(os.environ.get(
++    "ALAKAZAM_V22_CONTINUITY_DECK_BUFFER", "4"
++)))
++V22_FEZ_PROGRESSIVE_BUILD = os.environ.get(
++    "ALAKAZAM_V22_FEZ_PROGRESSIVE_BUILD", "1"
++) != "0"
+ pre_turn = -1
+ 
+ 
+@@ -147,6 +157,8 @@
+         "target_route_boss_actions": 0,
+         "target_satisfied_draw_blocks": 0,
+         "dudun_continuity_draws": 0,
++        "v22_sufficient_hand_draw_blocks": 0,
++        "v22_dunsparce_cycle_rebuilds": 0,
+         "progress_attack_end_blocks": 0,
+         "abra_switch_sacrifice_choices": 0,
+         "ko_promotion_attacker_choices": 0,
+@@ -185,6 +197,7 @@
+         "candy_first_attack_routes": 0,
+         "candy_immediate_ko_routes": 0,
+         "fez_energy_investments": 0,
++        "v22_fez_progressive_investments": 0,
+         "fez_pivot_conversions": 0,
+         "fez_attack_conversions": 0,
+         "shaymin_threat_plays": 0,
+@@ -1130,20 +1143,62 @@
+         )
+ 
+     def _fez_attack_goal(self):
+-        if self._articuno_breaker_mode():
+-            return True
+-        return any(
+-            p is not None and getattr(p, "hp", 0) <= 100
+-            and (prize_count(p) >= 2 or self._boss_role_bonus(p) >= 1000
+-                 or prize_count(p) >= len(self.me.prize))
+-            for p in (self.opponent.active + self.opponent.bench)
+-        )
++        return self._fez_progressive_goal()
+ 
+     def _fez_energy_eta(self, pokemon):
+         missing = max(0, 3 - self._energy_count(pokemon))
+         energy_in_hand = sum(1 for card in (self.me.hand or []) if is_energy(card.id))
+         return missing if energy_in_hand >= missing else 99
+ 
++    def _fez_progressive_goal(self):
++        """Whether Cruel Arrow has a concrete job worth multi-turn investment."""
++        if self._articuno_breaker_mode():
++            return True
++        targets = [
++            pokemon for pokemon in (self.opponent.active + self.opponent.bench)
++            if pokemon is not None and not self._temporary_attack_immunity_applies(pokemon)
++        ]
++        if any(
++            getattr(pokemon, "hp", 0) <= 100
++            and (prize_count(pokemon) >= 2 or self._boss_role_bonus(pokemon) >= 1000
++                 or prize_count(pokemon) >= len(self.me.prize))
++            for pokemon in targets
++        ):
++            return True
++        active = self.opponent.active[0] if self.opponent.active else None
++        return bool(
++            active is not None
++            and self._effect_prevented(active)
++            and self.hand[C.ENHANCED_HAMMER] == 0
++            and targets
++        )
++
++    def _fez_progressive_build_allowed(self, pokemon):
++        """Reserve one attachment for a visible alternate-attack route.
++
++        v21 only invested when Fez was already one Energy short, so the route was
++        almost never created.  v22 may start/continue the build, but only after the
++        Alakazam attack and a one-turn replacement are secured.
++        """
++        if (not V22_FEZ_PROGRESSIVE_BUILD or pokemon is None
++                or pokemon.id != C.FEZANDIPITI_EX
++                or not self._fez_alternate_matchup()
++                or not self._fez_progressive_goal()):
++            return False
++        attached = self._energy_count(pokemon)
++        if attached >= 3 or getattr(self.state, "energyAttached", False):
++            return False
++        if self._active_alakazam_can_be_fueled():
++            return False
++        if not self._articuno_breaker_mode():
++            if self._ready_alakazam_count() <= 0 or self._backup_eta() > 1:
++                return False
++            # Do not begin a three-turn two-prize route when the opponent can close
++            # immediately. A nearly-complete route may still finish a visible KO.
++            if len(self.opponent.prize) <= 2 and attached < 2:
++                return False
++        return self._energy_in_hand()
++
+     def _fez_mode(self, pokemon=None, *, for_bench=False):
+         """DO_NOT_BENCH / DRAW_ONLY / PIVOT / ALTERNATE_ATTACKER."""
+         if self._articuno_breaker_mode():
+@@ -1153,7 +1208,8 @@
+             return "DO_NOT_BENCH"
+         if pokemon is not None and pokemon.id == C.FEZANDIPITI_EX:
+             if (self._fez_alternate_matchup() and self._fez_attack_goal()
+-                    and self._fez_energy_eta(pokemon) <= 1):
++                    and (self._fez_energy_eta(pokemon) <= 1
++                         or self._fez_progressive_build_allowed(pokemon))):
+                 return "ALTERNATE_ATTACKER"
+             active = self.me.active[0] if self.me.active else None
+             if active is pokemon and self._bench_attacker_ready():
+@@ -2133,22 +2189,16 @@
+         if not secured:
+             return False
+         surplus = plan["hand"] - plan["required_hand"]
++        continuity_needed = bool(
++            not plan["winning"] and self._continuity_draw_needed()
++        )
+         if kind != "dudun":
+-            return surplus >= V21_HAND_SURPLUS
++            return not continuity_needed and surplus >= V21_HAND_SURPLUS
+ 
+-        future_line = (
+-            self.field[C.ABRA]
+-            + self.field[C.KADABRA]
+-            + max(0, self._ready_alakazam_count() - 1)
+-        )
+-        continuity_crisis = bool(
+-            not plan["winning"]
+-            and self._ready_alakazam_count() == 1
+-            and self._backup_eta() > 1
+-            and future_line == 0
+-            and self.me.deckCount > self._deck_floor() + 6
+-        )
+-        return not continuity_crisis
++        # A visible Abra/Kadabra is not a replacement attacker.  v21 stopped the
++        # cycle whenever any future-line body existed, even when backup_eta was 99.
++        # Continue until a deterministic one-turn replacement exists.
++        return not continuity_needed
+ 
+     def _rocket_evolution_escape_target(self, pokemon):
+         """An evolved Team Rocket Pokemon is outside Articuno's Basic-only shield."""
+@@ -2540,6 +2590,9 @@
+             _DIAG["dudun_declined_by_score"] += 1
+             if self._draw_redundant_for_chosen_target("dudun"):
+                 _DIAG["target_satisfied_draw_blocks"] += 1
++            if (self.me.handCount >= V22_HAND_TARGET
++                    and not self._optional_hand_growth_needed()):
++                _DIAG["v22_sufficient_hand_draw_blocks"] += 1
+         elif selected_dudun and self._terminal_pivot_win(option):
+             _DIAG["dudun_used_for_terminal_pivot"] += 1
+             _DIAG["terminal_pivot_abilities"] += 1
+@@ -2711,6 +2764,13 @@
+         elif _V9_STATE.get("planned_hammer_target_key") is not None:
+             _V9_STATE["planned_hammer_target_key"] = None
+ 
++        if (option.type == OptionType.PLAY
++                and getattr(card, "id", None) == C.DUNSPARCE
++                and self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] == 0
++                and self._ready_alakazam_count() >= 1
++                and self._backup_eta() > 1):
++            _DIAG["v22_dunsparce_cycle_rebuilds"] += 1
++
+         if option.type == OptionType.PLAY and getattr(card, "id", None) == C.FEZANDIPITI_EX:
+             _DIAG["fez_draw_only_actions"] += 1
+             if len(self.opponent.prize) <= 3 and self._fez_entry_urgent():
+@@ -2726,6 +2786,8 @@
+                 if target is not None and target.id in (C.DUNSPARCE, C.DUDUNSPARCE):
+                     _DIAG["enriching_cycle_attachments"] += 1
+             if target is not None and target.id == C.FEZANDIPITI_EX:
++                if self._fez_progressive_build_allowed(target):
++                    _DIAG["v22_fez_progressive_investments"] += 1
+                 mode = self._fez_mode(target)
+                 key = ("fez_pivot_actions" if mode == "PIVOT"
+                        else "fez_alternate_attacker_actions")
+@@ -2969,6 +3031,9 @@
+             # Active Dudunsparce remains exempt because its job is repositioning.
+             if self._draw_redundant_for_chosen_target("dudun"):
+                 return -1
++            if (self.me.handCount >= V22_HAND_TARGET
++                    and not self._optional_hand_growth_needed()):
++                return -1
+             # NB: top pilots activate Run Away Draw ~1/4 as often as we did (MAIN ABILITY 163 vs
+             # our 622) — but a blunt hand-cap gave ~0 divergence gain here and risks the documented
+             # cabt regression (deck-out guards hurt cabt), so we keep the aggressive-draw identity
+@@ -2977,7 +3042,7 @@
+             # 既にワンパン圏。これ以上の圧縮はデッキ切れリスクだけが増える。
+             if self.me.handCount >= 12 and self.me.deckCount <= 14:
+                 return -1
+-            return 15000
++            return 32500 if self._continuity_draw_needed() else 15000
+         return 9000
+ 
+     # — play —
+@@ -3013,7 +3078,12 @@
+                 return 300    # do not expose a second draw-engine line to repeated counters
+             if self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] >= 2:
+                 return 1200   # cap at 2 engine bodies
+-            return 18500 - 250 * n
++            score = 18500 - 250 * n
++            if (self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE] == 0
++                    and self._ready_alakazam_count() >= 1
++                    and self._backup_eta() > 1):
++                score += 3000
++            return score
+         if cid == C.FEZANDIPITI_EX:
+             # Draw engine by default. It is never a generic seventh body: reserve
+             # the first attack line and one draw-engine slot, and stop exposing a
+@@ -3094,6 +3164,29 @@
+                 return 1
+         return 99
+ 
++    def _continuity_draw_needed(self):
++        """Need cards to create a deterministic next attack, not just more damage."""
++        if self._ready_alakazam_count() <= 0:
++            return True
++        if self._backup_eta() <= 1:
++            return False
++        return self.me.deckCount > self._deck_floor() + V22_CONTINUITY_DECK_BUFFER
++
++    def _optional_hand_growth_needed(self, target=None):
++        """Whether optional draw/search still has a concrete route-level purpose."""
++        if target is None:
++            target = self.opponent.active[0] if self.opponent.active else None
++        required = self._attack_hand_required(target) if target is not None else 0
++        active = self.me.active[0] if self.me.active else None
++        if (active is not None and active.id == C.ALAKAZAM
++                and self._can_attack(active) and target is not None
++                and not self._effect_prevented(target)
++                and self.me.handCount < required):
++            return True
++        if self._continuity_draw_needed() or self._energy_starved() or self._need_pieces():
++            return True
++        return self.me.handCount < V22_HAND_TARGET
++
+     def _candy_route_projection(self):
+         if self.hand[C.RARE_CANDY] <= 0 or self.hand[C.ALAKAZAM] <= 0:
+             return {"available": False, "damage": 0, "ko": False}
+@@ -3287,6 +3380,11 @@
+         # Powerful Hand, DRAW toward it (a draw Supporter beats gusting a weaker target).
+         draw_for_ko = (opp_active is not None and self._ko_active_reachable()
+                        and 20 * self.me.handCount < opp_active.hp)
++        sufficient_hand = bool(
++            self.me.handCount >= V22_HAND_TARGET
++            and not draw_for_ko
++            and not self._optional_hand_growth_needed(opp_active)
++        )
+         # Winning + deck low: stop spending the deck on draw/search supporters — preserve it
+         # so we can draw 1/turn to the finish (Boss's Orders gust is still allowed below).
+         if cid in (C.HILDA, C.DAWN, C.POKE_PAD) and self._deck_preserve():
+@@ -3296,7 +3394,7 @@
+                 and not self._deck_spend_ok(cost=2):
+             return -1
+         if cid == C.HILDA:
+-            if self.state.supporterPlayed:
++            if self.state.supporterPlayed or sufficient_hand:
+                 return -1
+             if self._draw_redundant_for_chosen_target("hilda"):
+                 return 5000 if self._need_pieces() else 2200
+@@ -3304,7 +3402,7 @@
+                 return 14000
+             return 12500 if self._need_pieces() else 5000
+         if cid == C.DAWN:
+-            if self.state.supporterPlayed:
++            if self.state.supporterPlayed or sufficient_hand:
+                 return -1
+             if self._draw_redundant_for_chosen_target("dawn"):
+                 return 5000 if self._need_pieces() else 2200
+@@ -3320,6 +3418,8 @@
+                 return 600   # board is set — a Poffin now is -20 Powerful Hand for nothing
+             return 13000
+         if cid == C.POKE_PAD:
++            if sufficient_hand:
++                return 300
+             # Majkel keeps digging with it after setup too — every deck→hand card
+             # is +20 Powerful Hand (but below Poffin/supporters)
+             return 8500 if self._need_pieces() else 3500
+@@ -3546,11 +3646,7 @@
+         # four more deck cards merely for overkill.
+         if current_ko and self._backup_eta() <= 1 and not self._energy_starved():
+             return False
+-        return bool(
+-            self.me.handCount <= max(8, required)
+-            or self._need_pieces()
+-            or self._energy_starved()
+-        )
++        return self._optional_hand_growth_needed(opponent)
+ 
+     def _enriching_attach_score(self, pokemon, *, is_active=False):
+         """Use Rich as controlled draw, while preserving immediate attack fuel.
+@@ -3587,6 +3683,9 @@
+                     and self._energy_count(pokemon) < 3
+                     and self._deck_spend_ok(cost=4, allow_lethal=False)):
+                 return 16500 + self._energy_count(pokemon) * 600
++            if (self._fez_progressive_build_allowed(pokemon)
++                    and self._deck_spend_ok(cost=4, allow_lethal=False)):
++                return 8600 + self._energy_count(pokemon) * 900
+             return self._enriching_attach_score(pokemon, is_active=is_active)
+         mode = self._fez_mode(pokemon)
+         attached = self._energy_count(pokemon)
+@@ -3597,6 +3696,8 @@
+                 return 16500 + (500 if is_active else 0) + attached * 600
+             if self._fez_energy_eta(pokemon) <= 1:
+                 return 12500 + (500 if is_active else 0) + attached * 150
++            if self._fez_progressive_build_allowed(pokemon):
++                return 9300 + (500 if is_active else 0) + attached * 1200
+         return -1
+ 
+     def _support_pivot_ready(self, pokemon, area):
+@@ -3912,6 +4013,13 @@
+             return False
+         if card.id in ALAKAZAM_IDS:
+             return self._can_attack(card) or self._psychic_in_hand()
++        if card.id == C.FEZANDIPITI_EX and self._can_attack(card):
++            return any(
++                pokemon is not None
++                and not self._temporary_attack_immunity_applies(pokemon)
++                and getattr(pokemon, "hp", 0) <= 100
++                for pokemon in (self.opponent.active + self.opponent.bench)
++            )
+         opponent = self.opponent.active[0] if self.opponent.active else None
+         return bool(
+             opponent is not None
