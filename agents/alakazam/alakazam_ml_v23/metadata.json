@@ -1,0 +1,73 @@
+{
+  "name": "alakazam_ml_v23",
+  "version": "23.0.0",
+  "role": "challenger",
+  "status": "v22_direct_target_priority_static_validated",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v22",
+  "parent_submission_id": null,
+  "created_at": "2026-07-26T00:00:00+09:00",
+  "runtime_revision": "v23_boss_target_priority_20260726",
+  "model_version": "v20-action-ranker-plus-v23-target-ranker",
+  "model": "The v20 LightGBM action ranker and its live scope are unchanged. v23 adds a card-ID-agnostic pairwise linear ranker only as a bounded Boss-target tie-break.",
+  "model_scope": "Hard rules own legality, win, KO, prize tier, Boss use, and all non-target decisions. The v23 target model contributes at most +/-800 inside the deterministic target value.",
+  "confidence_threshold": 0.37,
+  "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "target_ranker_model_sha256": "75d00736d5fc8918d04d906f3e3f79ded7f933de5ee2715e94467eb44190a5b0",
+  "fallback_policy_sha256": "60258e64d871a80a2674de28ef515b8c7f325610c158cc67944f24d62a41db45",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v22": true,
+  "legacy_action_model_unchanged_from_v22": true,
+  "source_evidence": {
+    "expert_games": 1689,
+    "expert_boss_target_decisions": 1559,
+    "expert_boss_target_candidates": 6257,
+    "pairwise_training_pairs": 2678,
+    "time_holdout_decisions": 312,
+    "time_holdout_target_top1": 0.5770750988142292,
+    "time_holdout_target_top1_with_ko": 0.5807860262008734,
+    "hard_rule_target_top1": 0.22924901185770752,
+    "ex_upgrade_opportunities": 591,
+    "expert_same_turn_boss_plays": 235,
+    "expert_selected_ex_upgrades": 177,
+    "interpretation": "Expert play rejects unconditional ex gusting, but learned target features materially improve same-tier ordering over a naive prize/KO rule. v23 therefore hardens concrete ordinary-single to KO-able-ex upgrades while preserving named engine exceptions."
+  },
+  "v23_rule_changes": [
+    "Explicitly dispatch Boss opponent targeting before generic own-side SWITCH handling.",
+    "Add +6000 only to a concrete same-turn multi-prize KO, leaving unreachable ex targets at the v22 value.",
+    "Raise Boss over a current ordinary single-prize attack only when Alakazam can KO both routes after the real Boss hand cost.",
+    "Never leave an Active winning KO, never assume pre-Boss hand damage, and keep high-role single-prize engines outside the forced upgrade gate.",
+    "Use a bounded card-ID-agnostic learned target score as a narrow strategic tie-break."
+  ],
+  "preserved_v22_invariants": [
+    "v22 backup ETA and continuity Dudunsparce logic",
+    "v22 Dunsparce rebuild and backup pre-attachment",
+    "v22 attack-route promotion and shield switching",
+    "terminal Boss and terminal Active win gates",
+    "Mist Energy Hammer memory and effect-prevention handling",
+    "deck floors, exact-KO hand protection, and Fezandipiti exposure gates"
+  ],
+  "local_validation": {
+    "pytest_tests": 129,
+    "v23_specific_tests": 8,
+    "python_compile": true,
+    "deck_count": 60,
+    "validate_agent_warnings": 0,
+    "target_model_loaded": true,
+    "arena_games": 0,
+    "teacher_forced_replays": 511,
+    "teacher_forced_decisions": 45717,
+    "v22_semantic_agreement": 0.9997375155850121,
+    "v22_semantic_changes": 12,
+    "baseline_teacher_immediate_agreement": 0.6480586240839987,
+    "candidate_teacher_immediate_agreement": 0.6479492507929564
+  },
+  "known_limitations": [
+    "A new live ladder rating has not been measured; 900/1000 stability is a goal, not a validated outcome.",
+    "Teacher-forced policy comparison does not simulate the counterfactual trajectory after a changed action.",
+    "A single expert action is preference data, not proof of globally optimal play.",
+    "No official cg package is present locally, so only a source ZIP can be produced."
+  ]
+}

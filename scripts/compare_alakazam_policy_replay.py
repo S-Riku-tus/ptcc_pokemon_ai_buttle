@@ -112,6 +112,11 @@ def main() -> int:
     parser.add_argument("candidate_dir", type=Path)
     parser.add_argument("--submission-id", required=True, type=int)
     parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--max-replays",
+        type=int,
+        help="Deterministic sorted replay cap for a frozen, reproducible audit.",
+    )
     args = parser.parse_args()
 
     run_dir = args.run_dir.resolve()
@@ -119,11 +124,16 @@ def main() -> int:
     baseline, _, baseline_module = load_dir_agent(args.baseline_dir.resolve())
     candidate, _, candidate_module = load_dir_agent(args.candidate_dir.resolve())
     total = exact = semantic = 0
+    teacher_comparable = baseline_teacher = candidate_teacher = 0
+    changed_teacher_comparable = changed_baseline_teacher = changed_candidate_teacher = 0
     changed_pairs: Counter[str] = Counter()
     changed_contexts: Counter[str] = Counter()
     examples: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
-    for replay_path in sorted((run_dir / "episodes").glob("*/replay/*.json")):
+    replay_paths = sorted((run_dir / "episodes").glob("*/replay/*.json"))
+    if args.max_replays is not None:
+        replay_paths = replay_paths[: max(0, args.max_replays)]
+    for replay_path in replay_paths:
         episode_id = int(replay_path.parents[1].name)
         seat = seats.get(episode_id)
         if seat is None:
@@ -146,9 +156,20 @@ def main() -> int:
             exact += int(base_action == cand_action)
             base_label = _label(obs, base_action)
             cand_label = _label(obs, cand_action)
+            teacher_action = steps[step_index + 1][seat].get("action")
+            teacher_label = None
+            if isinstance(teacher_action, list):
+                teacher_label = _label(obs, teacher_action)
+                teacher_comparable += 1
+                baseline_teacher += int(base_label == teacher_label)
+                candidate_teacher += int(cand_label == teacher_label)
             semantic += int(base_label == cand_label)
             if base_label == cand_label:
                 continue
+            if teacher_label is not None:
+                changed_teacher_comparable += 1
+                changed_baseline_teacher += int(base_label == teacher_label)
+                changed_candidate_teacher += int(cand_label == teacher_label)
             context = _context(obs)
             key = f"{context}: {base_label} -> {cand_label}"
             changed_pairs[key] += 1
@@ -179,6 +200,7 @@ def main() -> int:
                         **_state_summary(obs, episode_id, seat),
                         "baseline": base_label,
                         "candidate": cand_label,
+                        "teacher": teacher_label,
                         **ranked_scores,
                     }
                 )
@@ -188,10 +210,29 @@ def main() -> int:
         "run_dir": str(run_dir),
         "baseline_dir": str(args.baseline_dir.resolve()),
         "candidate_dir": str(args.candidate_dir.resolve()),
+        "replays_compared": len(replay_paths),
         "decisions": total,
         "exact_agreement": exact / total if total else 0.0,
         "semantic_agreement": semantic / total if total else 0.0,
         "semantic_changes": total - semantic,
+        "teacher_comparable_decisions": teacher_comparable,
+        "baseline_teacher_agreement": (
+            baseline_teacher / teacher_comparable if teacher_comparable else None
+        ),
+        "candidate_teacher_agreement": (
+            candidate_teacher / teacher_comparable if teacher_comparable else None
+        ),
+        "changed_teacher_comparable": changed_teacher_comparable,
+        "changed_baseline_teacher_agreement": (
+            changed_baseline_teacher / changed_teacher_comparable
+            if changed_teacher_comparable
+            else None
+        ),
+        "changed_candidate_teacher_agreement": (
+            changed_candidate_teacher / changed_teacher_comparable
+            if changed_teacher_comparable
+            else None
+        ),
         "changed_contexts": dict(changed_contexts.most_common()),
         "top_changed_pairs": top_pairs,
         "examples": {key: examples[key] for key, _ in top_pairs},
