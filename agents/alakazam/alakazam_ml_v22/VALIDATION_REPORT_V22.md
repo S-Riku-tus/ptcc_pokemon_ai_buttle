@@ -1,59 +1,74 @@
-# v22 validation report
+# v22 Validation Report
 
-検証日時：2026-07-26T00:17:51+09:00
+## 実施日
 
-## 静的検証
+2026-07-26
 
-| 項目 | 結果 |
-|---|---:|
-| deck.csv | 60枚 |
-| ACE SPEC ID 13 | 1枚 |
-| ranker model SHA-256 | `22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb` |
-| deck SHA-256 | `57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe` |
-| fallback SHA-256 | `d32dd3f85a06f1792ea6ab4cdc914b86d723a26a5d172e50954064542c70ea78` |
-| v21とのdeck一致 | 成功 |
-| v21とのmodel一致 | 成功 |
-| Python compile | 成功 |
-| JSON model load | 成功 |
+## 静的・単体検証
 
-## 自動テスト
+- pytest: 121 / 121 成功
+- v22固有Golden-state: 12 / 12 成功
+- `scripts/validate_agent.py`: 成功
+- deck: 60枚
+- unique card IDs: 22
+- warning: 0
+- fallback policy例外: 0
+- observation fallback: 0
 
-```text
-128 passed
-```
+## v20継承確認
 
-v22固有テストは9件です。
+| ファイル | v20との関係 |
+|---|---|
+| `deck.csv` | SHA-256一致 |
+| `ranker_model.json` | SHA-256一致 |
+| `main.py` | SHA-256一致 |
+| `ml_runtime.py` | SHA-256一致 |
+| `ml_features.py` | SHA-256一致 |
+| `policy_base.py` | SHA-256一致 |
+| `fallback_policy.py` | v20から242行追加、7行変更/削除 |
 
-1. ケーシィが見えているだけでは後続完成とせずノココッチを使う
-2. アメ＋フーディン＋超エネルギーがあり`backup_eta=1`なら循環を止める
-3. エンジン消失後、追加ケーシィよりノコッチを再展開する
-4. 100HPの2サイド対象に向けキチキギスを段階育成する
-5. キチキギス給エネで現在の確定KOを失わない
-6. 後続フーディンが遠いときはキチキギス給エネを始めない
-7. 3エネルギー付きキチキギスのベンチKOを攻撃可能昇格として認識する
-8. 手札13枚・現在攻撃・後続完成時はDawnを使わない
-9. 手札14枚でも後続未完成ならノココッチを使う
+`fallback_policy.py`以外の実行時構成は最新版v20と同一である。
 
-## 維持した回帰テスト
+## 最新v20ログ再生
 
-- 最後の1体ノココッチ禁止
-- 動的山札フロア
-- 確定KO維持
-- 勝利攻撃の絶対優先
-- Bossの高サイド・終端勝利処理
-- Mist／一時無敵／ロケット団フリーザー効果判定
-- Active支援ポケモンからのピボット
-- 気絶後昇格と攻撃後交代の分離
-- MLの狭い安全範囲
-- モデル・デッキ不変
+- source: `20260725_v20_run2_sub54976903`
+- decisions: 3,046
+- v22 policy成功: 3,046
+- policy exception: 0
+- semantic changes from v20: 113
+- semantic agreement with v20: 96.29%
+- model override: 12
+- live model rate: 1.51%
 
-## 未実施
+狙った変更の観測数:
 
-この環境には公式`cg`と対戦ハーネスがありません。そのため、次は未実施です。
+- continuity Dudunsparce choices: 9
+- sufficient-chain draw blocks: 57
+- backup pre-fuel choices: 43
+- first Dunsparce rebuild choices: 34
+- attack-route promotions: 113
+- shield promotions: 65
 
-- Kaggle Validation Episode
-- v21との同seed・席順交換対戦
-- 実リプレイ全判断のteacher-forced再評価
-- Rating確認
+この集計は同じ実観測に両方策を当てたteacher-forced監査であり、v22の仮想勝率
+ではない。前の行動を変えた後の盤面推移や相手の応答は再現しない。
 
-静的・Golden-state上は提出可能な構造ですが、実戦性能はChallengerとして評価してください。
+## 守られた重要不変条件
+
+- 場のフーディンへの同ターン攻撃給エネが後続先貼りより高い
+- 最後の1体でノココッチを使わない
+- 確定KOを手札消費で壊さない
+- ミスト/完全無効への0ダメージ攻撃を強制しない
+- ふしぎなアメ即KOをユンゲラー経由より優先できる
+- きぜつ後は攻撃可能な経路を盾より優先
+- 攻撃経路がなければノコッチ/ノココッチを進化ラインより優先
+- 通常時キチキギスexへ攻撃用エネルギーを段階投資しない
+
+## 未検証
+
+- 新規提出の実戦Rating
+- Rating 900/1000での安定性
+- 変更後の対戦系列を含む反実仮想勝率
+- 公式`cg`を含む提出tar.gz（ローカルには互換shimしかない）
+
+Rating目標は設計目標であり、達成を保証する検証結果ではない。新しい実戦ログを
+取得後、Archaludon、Grimmsnarl、攻撃4回未満、後続先貼りの成否を再監査する。

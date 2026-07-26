@@ -1,42 +1,39 @@
-# CHANGELOG v22
+# v22 Changelog
 
-## Runtime
+## 基準
 
-### `fallback_policy.py`
+- parent: `alakazam_ml_v20`
+- source submission: `54976903`
+- v21由来コードを破棄し、提出時v20から直接作り直した
+- deck、model、features、ML runtime、thresholdはv20と同一
 
-- `V22_HAND_TARGET=13`を追加
-- `V22_CONTINUITY_DECK_BUFFER=4`を追加
-- `V22_FEZ_PROGRESSIVE_BUILD`を追加
-- `_continuity_draw_needed()`を追加
-- `_optional_hand_growth_needed()`を追加
-- ノココッチ停止条件を`backup_eta`基準へ変更
-- 継戦用ノココッチ特性を確定KOより上へ設定
-- 循環停止後のノコッチ再展開を強化
-- 高手札・後続完成時のHilda/Dawn/Poke Pad/Rich任意消費を抑制
-- `_fez_progressive_goal()`を追加
-- `_fez_progressive_build_allowed()`を追加
-- キチキギスexの段階的給エネを追加
-- キチキギスexのベンチ100KOを気絶後の攻撃可能昇格として認識
-- v22診断カウンタを追加
+## 追加
 
-### 変更なし
+- 公開情報による後続攻撃ETA（0 / 1 / 2 / 99）
+- 後続不在時のノココッチ継続ドロー
+- 現在攻撃・1ターン後続・必要手札が揃った時だけ行う余剰ノココッチ停止
+- 2本のフーディン系がある時の最初のノコッチ再展開
+- 現在の攻撃を確保した後のケーシィ/ユンゲラーへの超エネルギー先貼り
+- きぜつ後の「次ターン攻撃経路 → 単サイド盾」昇格
+- ケーシィ/ノコッチの交代技専用の盾優先順位
+- 終盤ベンチ攻撃対面での余分なノコッチ抑制
+- 悪エネルギー付きマシマシラのGrimmsnarlエンジン評価
+- v22 Golden-state 12件
+- v20/v22 teacher-forced差分監査スクリプト
 
-- `deck.csv`
-- `ranker_model.json`
-- `ml_runtime.py`
-- `ml_features.py`
-- ML threshold・ライブ担当範囲
+## 維持
 
-## Tests
+- ふしぎなアメ即攻撃/即KO
+- 有効な攻撃をせずENDしない安全網
+- Bossの現在場KO優先、勝利Boss、35/35同ターン攻撃
+- ミスト用ハンマー温存と公開カード記憶
+- キチキギスexの2サイド露出制御
+- キチキギスexを一般対面で段階育成しない方針
 
-- `test_v22_runtime_logic.py`を追加
-- 後続未完成時のKO前循環
-- 後続完成時の循環停止
-- ノコッチ再展開
-- キチキギス段階育成
-- 確定KO保護
-- 本線未完成時のキチキギス給エネ禁止
-- ベンチKO可能キチキギス昇格
-- 13枚手札目標
-- 13枚超でも後続未完成なら循環継続
-- 旧テストの外部兄弟フォルダ依存をSHA/AST固定値へ置換し、完全版単体で実行可能に変更
+## 削除
+
+- v21の広い確定KOドロー停止
+- v21由来の一律高手札停止
+- 動的な全進化系統Boss補正
+- キチキギスexの段階的第二アタッカー化
+- `V21_TO_V22_FALLBACK.diff`

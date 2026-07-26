@@ -61,7 +61,7 @@ def test_v17_deck_and_ranker_are_byte_identical_to_v15():
     )
 
 
-def test_v18_preserves_unmodified_v15_recovery_heads():
+def test_v22_preserves_unmodified_v20_deck_safety_heads():
     import hashlib
 
     here = h.Path(__file__).resolve().parent
@@ -75,10 +75,9 @@ def test_v18_preserves_unmodified_v15_recovery_heads():
         if isinstance(node, ast.FunctionDef)
     }
     expected = {
-        "_backup_eta": "9ddefc13eaeb4e28dd48c8b030f16d3d782e663765a1a4565240f229cb8fafa1",
-        "_deck_preserve": "24866022348609dd0d8f553e75dce0c8ac1ac0a460a3fac6cf601978f409bccd",
-        "_deck_spend_ok": "4a132093fa043e4c26ec0600eec6cc21122230513a74ea0f92ba3dc7db514033",
-        "_score_to_bench": "f44f806821956e4364ba0058b27a3ea8273c959ec0bafafe782a00972987e00a",
+        "_deck_preserve": "b7e1e2462b5ca5fc595b837e0b546a736e9c26d330758e8797d8cd9f3c5ae0b7",
+        "_deck_spend_ok": "e011528b88134bcd2f28d90a61d4b40c5da67c2fc057fd6607e5397e7489572f",
+        "_score_to_bench": "07c1e57f18d6c3328dd336683f3ded09f728c46f775251abb361086d0e0b46b0",
     }
     assert {name: methods[name] for name in expected} == expected
 
