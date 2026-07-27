@@ -128,6 +128,8 @@ def main() -> int:
     changed_teacher_comparable = changed_baseline_teacher = changed_candidate_teacher = 0
     changed_pairs: Counter[str] = Counter()
     changed_contexts: Counter[str] = Counter()
+    changed_context_teacher: dict[str, Counter[str]] = defaultdict(Counter)
+    changed_pair_teacher: dict[str, Counter[str]] = defaultdict(Counter)
     examples: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
     replay_paths = sorted((run_dir / "episodes").glob("*/replay/*.json"))
@@ -166,14 +168,22 @@ def main() -> int:
             semantic += int(base_label == cand_label)
             if base_label == cand_label:
                 continue
+            context = _context(obs)
+            context_key = str(context)
+            key = f"{context}: {base_label} -> {cand_label}"
             if teacher_label is not None:
                 changed_teacher_comparable += 1
                 changed_baseline_teacher += int(base_label == teacher_label)
                 changed_candidate_teacher += int(cand_label == teacher_label)
-            context = _context(obs)
-            key = f"{context}: {base_label} -> {cand_label}"
+                for stats in (
+                    changed_context_teacher[context_key],
+                    changed_pair_teacher[key],
+                ):
+                    stats["comparable"] += 1
+                    stats["baseline_matches"] += int(base_label == teacher_label)
+                    stats["candidate_matches"] += int(cand_label == teacher_label)
             changed_pairs[key] += 1
-            changed_contexts[str(context)] += 1
+            changed_contexts[context_key] += 1
             if len(examples[key]) < 5:
                 base_scores = _policy_scores(baseline_module, obs)
                 cand_scores = _policy_scores(candidate_module, obs)
@@ -206,6 +216,21 @@ def main() -> int:
                 )
 
     top_pairs = changed_pairs.most_common(40)
+
+    def teacher_stats(stats: Counter[str]) -> dict[str, int | float | None]:
+        comparable = stats["comparable"]
+        return {
+            "comparable": comparable,
+            "baseline_matches": stats["baseline_matches"],
+            "candidate_matches": stats["candidate_matches"],
+            "baseline_agreement": (
+                stats["baseline_matches"] / comparable if comparable else None
+            ),
+            "candidate_agreement": (
+                stats["candidate_matches"] / comparable if comparable else None
+            ),
+        }
+
     report = {
         "run_dir": str(run_dir),
         "baseline_dir": str(args.baseline_dir.resolve()),
@@ -234,7 +259,15 @@ def main() -> int:
             else None
         ),
         "changed_contexts": dict(changed_contexts.most_common()),
+        "changed_context_teacher": {
+            key: teacher_stats(changed_context_teacher[key])
+            for key, _ in changed_contexts.most_common()
+        },
         "top_changed_pairs": top_pairs,
+        "top_changed_pair_teacher": {
+            key: teacher_stats(changed_pair_teacher[key])
+            for key, _ in top_pairs
+        },
         "examples": {key: examples[key] for key, _ in top_pairs},
     }
     rendered = json.dumps(report, ensure_ascii=False, indent=2)
