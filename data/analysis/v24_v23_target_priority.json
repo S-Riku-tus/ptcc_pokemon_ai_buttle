@@ -1,0 +1,852 @@
+{
+  "sources": {
+    "v23": {
+      "replays_found": 50,
+      "replays_analyzed": 50
+    }
+  },
+  "boss_target_decisions": 25,
+  "boss_target_candidates": 95,
+  "train_decisions": 20,
+  "test_decisions": 5,
+  "model": {
+    "feature_names": [
+      "prizes",
+      "wins_game",
+      "same_turn_ko",
+      "is_ex",
+      "is_mega_ex",
+      "is_stage1",
+      "is_stage2",
+      "energy_count",
+      "tool_count",
+      "remaining_hp_100",
+      "damage_taken_100",
+      "retreat_gap",
+      "attack_ready",
+      "has_ability",
+      "engine_ability",
+      "protection_ability"
+    ],
+    "weights": [
+      0.18863379735498215,
+      1.1388632094455136,
+      2.9296242748218857,
+      0.6498834613172889,
+      -0.060919586054226545,
+      0.0946299779855483,
+      0.4141373226876181,
+      0.21828608654775966,
+      0.0,
+      0.26161549354569746,
+      1.5704666683207207,
+      -0.38682694437624177,
+      0.015940332346207096,
+      0.9016848176010388,
+      0.15080310031279304,
+      0.3232458294654314
+    ],
+    "regularization": 0.08,
+    "iterations": 4000,
+    "pair_count": 59,
+    "training_logloss": 0.23938469324744163
+  },
+  "train_evaluation": {
+    "metrics": {
+      "all": {
+        "decisions": 20,
+        "learned_top1": 0.95,
+        "hard_prize_rule_top1": 0.75
+      },
+      "has_ko": {
+        "decisions": 20,
+        "learned_top1": 0.95,
+        "hard_prize_rule_top1": 0.75
+      },
+      "has_ex": {
+        "decisions": 8,
+        "learned_top1": 0.875,
+        "hard_prize_rule_top1": 0.875
+      }
+    },
+    "examples": [
+      {
+        "decision_id": "v23:88197396:51",
+        "selected_card_id": 743,
+        "learned_card_id": 743,
+        "rule_card_id": 742,
+        "candidates": [
+          {
+            "card_id": 742,
+            "selected": false,
+            "learned_score": 4.708894781806773,
+            "rule_score": 124500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 1.0,
+            "is_stage2": 0.0,
+            "energy_count": 1.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.8,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 1.0,
+            "engine_ability": 1.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 743,
+            "selected": true,
+            "learned_score": 5.185371422636261,
+            "rule_score": 124500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 1.0,
+            "energy_count": 1.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.4,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 1.0,
+            "engine_ability": 1.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 741,
+            "selected": false,
+            "learned_score": 2.862238874573475,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.5,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 305,
+            "selected": false,
+            "learned_score": 2.9145619732826145,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.7,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          }
+        ]
+      },
+      {
+        "decision_id": "v23:88199688:117",
+        "selected_card_id": 120,
+        "learned_card_id": 120,
+        "rule_card_id": 119,
+        "candidates": [
+          {
+            "card_id": 120,
+            "selected": false,
+            "learned_score": 3.963199867578341,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 1.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.9,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 1.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 120,
+            "selected": true,
+            "learned_score": 4.5683128985023425,
+            "rule_score": 120500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 1.0,
+            "is_stage2": 0.0,
+            "energy_count": 1.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.9,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 0.0,
+            "has_ability": 1.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 119,
+            "selected": false,
+            "learned_score": 3.535615336552823,
+            "rule_score": 122000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 1.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.7,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 140,
+            "selected": false,
+            "learned_score": 2.5654503954762395,
+            "rule_score": 46500.0,
+            "prizes": 2.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 0.0,
+            "is_ex": 1.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 2.1,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 1.0,
+            "engine_ability": 1.0,
+            "protection_ability": 1.0
+          }
+        ]
+      },
+      {
+        "decision_id": "v23:88200215:87",
+        "selected_card_id": 674,
+        "learned_card_id": 674,
+        "rule_card_id": 675,
+        "candidates": [
+          {
+            "card_id": 675,
+            "selected": false,
+            "learned_score": 4.394941918080157,
+            "rule_score": 126500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.1,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 1.0,
+            "engine_ability": 1.0,
+            "protection_ability": 1.0
+          },
+          {
+            "card_id": 674,
+            "selected": true,
+            "learned_score": 5.1777947000714875,
+            "rule_score": 123000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 1.0,
+            "is_stage2": 0.0,
+            "energy_count": 3.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.5,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 1.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 678,
+            "selected": false,
+            "learned_score": 0.7154505732991561,
+            "rule_score": 60000.0,
+            "prizes": 3.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 0.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 1.0,
+            "is_stage1": 1.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 3.4,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 2.0,
+            "attack_ready": 0.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 673,
+            "selected": false,
+            "learned_score": 2.553896578260942,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.8,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 2.0,
+            "attack_ready": 0.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 676,
+            "selected": false,
+            "learned_score": 3.0192081707008933,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.1,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          }
+        ]
+      },
+      {
+        "decision_id": "v23:88206095:149",
+        "selected_card_id": 646,
+        "learned_card_id": 648,
+        "rule_card_id": 646,
+        "candidates": [
+          {
+            "card_id": 648,
+            "selected": false,
+            "learned_score": 3.7834583814166614,
+            "rule_score": 45000.0,
+            "prizes": 2.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 0.0,
+            "is_ex": 1.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 1.0,
+            "energy_count": 2.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 3.2,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 1.0,
+            "engine_ability": 1.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 112,
+            "selected": false,
+            "learned_score": 1.1420718137928394,
+            "rule_score": 22500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 0.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.1,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 1.0,
+            "engine_ability": 1.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 112,
+            "selected": false,
+            "learned_score": 1.1420718137928394,
+            "rule_score": 22500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 0.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.1,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 1.0,
+            "engine_ability": 1.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 646,
+            "selected": true,
+            "learned_score": 2.9145619732826145,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 0.7,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          }
+        ]
+      },
+      {
+        "decision_id": "v23:88207708:71",
+        "selected_card_id": 666,
+        "learned_card_id": 666,
+        "rule_card_id": 169,
+        "candidates": [
+          {
+            "card_id": 666,
+            "selected": true,
+            "learned_score": 5.21777653851011,
+            "rule_score": 122010.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 1.0,
+            "energy_count": 1.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.5,
+            "damage_taken_100": 0.1,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 1.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 169,
+            "selected": false,
+            "learned_score": 3.9108707192280012,
+            "rule_score": 122500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 2.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.3,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 57,
+            "selected": false,
+            "learned_score": 3.8947314389473626,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.0,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 1.0,
+            "attack_ready": 0.0,
+            "has_ability": 1.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          }
+        ]
+      },
+      {
+        "decision_id": "v23:88208233:87",
+        "selected_card_id": 666,
+        "learned_card_id": 666,
+        "rule_card_id": 169,
+        "candidates": [
+          {
+            "card_id": 666,
+            "selected": true,
+            "learned_score": 5.21777653851011,
+            "rule_score": 122010.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 1.0,
+            "energy_count": 1.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.5,
+            "damage_taken_100": 0.1,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 1.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 169,
+            "selected": false,
+            "learned_score": 3.9108707192280012,
+            "rule_score": 122500.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 2.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.3,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 0.0,
+            "attack_ready": 1.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          },
+          {
+            "card_id": 169,
+            "selected": false,
+            "learned_score": 2.684704325033791,
+            "rule_score": 120000.0,
+            "prizes": 1.0,
+            "wins_game": 0.0,
+            "same_turn_ko": 1.0,
+            "is_ex": 0.0,
+            "is_mega_ex": 0.0,
+            "is_stage1": 0.0,
+            "is_stage2": 0.0,
+            "energy_count": 0.0,
+            "tool_count": 0.0,
+            "remaining_hp_100": 1.3,
+            "damage_taken_100": 0.0,
+            "retreat_gap": 2.0,
+            "attack_ready": 0.0,
+            "has_ability": 0.0,
+            "engine_ability": 0.0,
+            "protection_ability": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  "test_evaluation": {
+    "metrics": {
+      "all": {
+        "decisions": 5,
+        "learned_top1": 1.0,
+        "hard_prize_rule_top1": 1.0
+      },
+      "has_ko": {
+        "decisions": 5,
+        "learned_top1": 1.0,
+        "hard_prize_rule_top1": 1.0
+      },
+      "has_ex": {
+        "decisions": 2,
+        "learned_top1": 1.0,
+        "hard_prize_rule_top1": 1.0
+      }
+    },
+    "examples": []
+  },
+  "evaluation_by_source": {
+    "v23": {
+      "all": {
+        "decisions": 25,
+        "learned_top1": 0.96,
+        "hard_prize_rule_top1": 0.8
+      },
+      "has_ko": {
+        "decisions": 25,
+        "learned_top1": 0.96,
+        "hard_prize_rule_top1": 0.8
+      },
+      "has_ex": {
+        "decisions": 10,
+        "learned_top1": 0.9,
+        "hard_prize_rule_top1": 0.9
+      }
+    }
+  },
+  "ex_upgrade_opportunities": {
+    "total": 8,
+    "teacher_played_boss": 8,
+    "teacher_selected_upgrade": 8,
+    "by_source": {
+      "v23": {
+        "opportunities": 8,
+        "teacher_played_boss": 8,
+        "teacher_played_boss_rate": 1.0,
+        "teacher_selected_upgrade": 8,
+        "teacher_selected_upgrade_rate": 1.0
+      }
+    },
+    "examples": [
+      {
+        "source": "v23",
+        "episode_id": 88198601,
+        "turn": 8,
+        "active_id": 674,
+        "active_prizes": 1,
+        "active_hp": 80,
+        "active_ko": true,
+        "boss_damage": 380,
+        "teacher_played_boss": true,
+        "teacher_target_id": 678,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 678,
+            "prizes": 3,
+            "hp": 340,
+            "energy": 2
+          }
+        ]
+      },
+      {
+        "source": "v23",
+        "episode_id": 88199688,
+        "turn": 9,
+        "active_id": 235,
+        "active_prizes": 1,
+        "active_hp": 30,
+        "active_ko": true,
+        "boss_damage": 360,
+        "teacher_played_boss": true,
+        "teacher_target_id": 140,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 140,
+            "prizes": 2,
+            "hp": 210,
+            "energy": 0
+          }
+        ]
+      },
+      {
+        "source": "v23",
+        "episode_id": 88202330,
+        "turn": 7,
+        "active_id": 265,
+        "active_prizes": 1,
+        "active_hp": 70,
+        "active_ko": true,
+        "boss_damage": 300,
+        "teacher_played_boss": true,
+        "teacher_target_id": 269,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 269,
+            "prizes": 2,
+            "hp": 280,
+            "energy": 4
+          }
+        ]
+      },
+      {
+        "source": "v23",
+        "episode_id": 88202330,
+        "turn": 11,
+        "active_id": 265,
+        "active_prizes": 1,
+        "active_hp": 40,
+        "active_ko": true,
+        "boss_damage": 380,
+        "teacher_played_boss": true,
+        "teacher_target_id": 269,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 269,
+            "prizes": 2,
+            "hp": 280,
+            "energy": 4
+          }
+        ]
+      },
+      {
+        "source": "v23",
+        "episode_id": 88210387,
+        "turn": 9,
+        "active_id": 743,
+        "active_prizes": 1,
+        "active_hp": 140,
+        "active_ko": true,
+        "boss_damage": 220,
+        "teacher_played_boss": true,
+        "teacher_target_id": 140,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 140,
+            "prizes": 2,
+            "hp": 210,
+            "energy": 0
+          }
+        ]
+      },
+      {
+        "source": "v23",
+        "episode_id": 88218459,
+        "turn": 13,
+        "active_id": 743,
+        "active_prizes": 1,
+        "active_hp": 140,
+        "active_ko": true,
+        "boss_damage": 220,
+        "teacher_played_boss": true,
+        "teacher_target_id": 140,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 140,
+            "prizes": 2,
+            "hp": 210,
+            "energy": 0
+          }
+        ]
+      },
+      {
+        "source": "v23",
+        "episode_id": 88220048,
+        "turn": 7,
+        "active_id": 743,
+        "active_prizes": 1,
+        "active_hp": 140,
+        "active_ko": true,
+        "boss_damage": 220,
+        "teacher_played_boss": true,
+        "teacher_target_id": 140,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 140,
+            "prizes": 2,
+            "hp": 210,
+            "energy": 0
+          }
+        ]
+      },
+      {
+        "source": "v23",
+        "episode_id": 88227558,
+        "turn": 5,
+        "active_id": 756,
+        "active_prizes": 3,
+        "active_hp": 400,
+        "active_ko": false,
+        "boss_damage": 240,
+        "teacher_played_boss": true,
+        "teacher_target_id": 117,
+        "teacher_selected_upgrade": true,
+        "upgrade_targets": [
+          {
+            "card_id": 117,
+            "prizes": 2,
+            "hp": 210,
+            "energy": 0
+          }
+        ]
+      }
+    ]
+  }
+}

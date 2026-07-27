@@ -1,0 +1,5223 @@
+{
+  "run_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\runs\\alakazam\\20260726_v23_sub54992864",
+  "submission_id": 54992864,
+  "summary": {
+    "games": 50,
+    "wins": 29,
+    "win_rate": 0.58,
+    "main_states": 1651,
+    "grimmsnarl_games": 5,
+    "ex_upgrade_turns": 19,
+    "ex_upgrade_boss_plays": 9,
+    "ex_upgrade_selected": 8,
+    "same_ex_lower_hp_turns": 1,
+    "same_ex_lower_hp_selected": 0,
+    "grim_munk_boss_plays": 2,
+    "low_deck_dudun_pivot_ko_turns": 3,
+    "low_deck_dudun_attach_selected": 0,
+    "low_deck_dudun_retreat_selected": 0
+  },
+  "ex_upgrade_examples": [
+    {
+      "episode_id": 88197396,
+      "step_index": 82,
+      "turn": 7,
+      "turn_action_count": 7,
+      "hand": 12,
+      "deck": 26,
+      "own_prizes": 4,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 743,
+        "serial": 27,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 743,
+          "serial": 24,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 743,
+          "serial": 25,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 18,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 84,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 83,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 75,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 13,
+        "card_id": -1,
+        "attack_id": 1072,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 240,
+      "boss_damage": 220,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 77,
+          "turn_action_count": 1,
+          "hand": 12,
+          "deck": 29,
+          "type": 7,
+          "card_id": 1197,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 79,
+          "turn_action_count": 3,
+          "hand": 11,
+          "deck": 29,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 22,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 81,
+          "turn_action_count": 5,
+          "hand": 13,
+          "deck": 26,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 27,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 82,
+          "turn_action_count": 7,
+          "hand": 12,
+          "deck": 26,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88198601,
+      "step_index": 98,
+      "turn": 8,
+      "turn_action_count": 4,
+      "hand": 20,
+      "deck": 25,
+      "own_prizes": 3,
+      "opp_prizes": 2,
+      "own_active": {
+        "id": 743,
+        "serial": 87,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [],
+      "opp_active": {
+        "id": 674,
+        "serial": 5,
+        "hp": 80,
+        "max_hp": 150,
+        "prizes": 1,
+        "energy": 3
+      },
+      "opp_bench": [
+        {
+          "id": 675,
+          "serial": 7,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 676,
+          "serial": 9,
+          "hp": 100,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 678,
+          "serial": 18,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        },
+        {
+          "id": 673,
+          "serial": 4,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 3
+        },
+        {
+          "id": 677,
+          "serial": 12,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 400,
+      "boss_damage": 380,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 678,
+          "serial": 18,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": false,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 678,
+        "serial": 18,
+        "hp": 340,
+        "max_hp": 340,
+        "prizes": 3,
+        "energy": 2
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 95,
+          "turn_action_count": 1,
+          "hand": 15,
+          "deck": 29,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 81,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 97,
+          "turn_action_count": 3,
+          "hand": 17,
+          "deck": 26,
+          "type": 10,
+          "card_id": 1225,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 70,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 98,
+          "turn_action_count": 4,
+          "hand": 20,
+          "deck": 25,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 100,
+          "turn_action_count": 6,
+          "hand": 19,
+          "deck": 25,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88199136,
+      "step_index": 108,
+      "turn": 8,
+      "turn_action_count": 5,
+      "hand": 18,
+      "deck": 19,
+      "own_prizes": 3,
+      "opp_prizes": 2,
+      "own_active": {
+        "id": 743,
+        "serial": 87,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 742,
+          "serial": 82,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 66,
+          "serial": 69,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 674,
+        "serial": 5,
+        "hp": 80,
+        "max_hp": 150,
+        "prizes": 1,
+        "energy": 3
+      },
+      "opp_bench": [
+        {
+          "id": 675,
+          "serial": 7,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 676,
+          "serial": 10,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 678,
+          "serial": 17,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        },
+        {
+          "id": 673,
+          "serial": 3,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 677,
+          "serial": 13,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 741,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 360,
+      "boss_damage": 340,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 678,
+          "serial": 17,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": true,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 105,
+          "turn_action_count": 1,
+          "hand": 17,
+          "deck": 19,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 82,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 106,
+          "turn_action_count": 3,
+          "hand": 16,
+          "deck": 19,
+          "type": 7,
+          "card_id": 1184,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 108,
+          "turn_action_count": 5,
+          "hand": 18,
+          "deck": 19,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 109,
+          "turn_action_count": 6,
+          "hand": 17,
+          "deck": 19,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88199352,
+      "step_index": 54,
+      "turn": 4,
+      "turn_action_count": 18,
+      "hand": 12,
+      "deck": 29,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_active": {
+        "id": 743,
+        "serial": 87,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 83,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 743,
+          "serial": 85,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 27,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 742,
+          "serial": 21,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 22,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 15,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 305,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 240,
+      "boss_damage": 220,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 38,
+          "turn_action_count": 1,
+          "hand": 6,
+          "deck": 41,
+          "type": 7,
+          "card_id": 1079,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 41,
+          "turn_action_count": 4,
+          "hand": 7,
+          "deck": 38,
+          "type": 9,
+          "card_id": 742,
+          "attack_id": -1,
+          "target_id": 741,
+          "target_serial": 76,
+          "in_play_area": 5,
+          "in_play_index": 2
+        },
+        {
+          "step_index": 43,
+          "turn_action_count": 6,
+          "hand": 8,
+          "deck": 36,
+          "type": 7,
+          "card_id": 1079,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 46,
+          "turn_action_count": 9,
+          "hand": 9,
+          "deck": 33,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 74,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 47,
+          "turn_action_count": 10,
+          "hand": 8,
+          "deck": 33,
+          "type": 10,
+          "card_id": 343,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 70,
+          "in_play_area": 4,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 49,
+          "turn_action_count": 12,
+          "hand": 11,
+          "deck": 32,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 83,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 50,
+          "turn_action_count": 14,
+          "hand": 10,
+          "deck": 32,
+          "type": 7,
+          "card_id": 1231,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 54,
+          "turn_action_count": 18,
+          "hand": 12,
+          "deck": 29,
+          "type": 7,
+          "card_id": 305,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 55,
+          "turn_action_count": 19,
+          "hand": 11,
+          "deck": 29,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88199688,
+      "step_index": 87,
+      "turn": 9,
+      "turn_action_count": 1,
+      "hand": 19,
+      "deck": 12,
+      "own_prizes": 4,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 743,
+        "serial": 85,
+        "hp": 130,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 743,
+          "serial": 86,
+          "hp": 80,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 74,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 235,
+        "serial": 16,
+        "hp": 30,
+        "max_hp": 30,
+        "prizes": 1,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 140,
+          "serial": 14,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 119,
+          "serial": 3,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 119,
+          "serial": 6,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 119,
+          "serial": 4,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 380,
+      "boss_damage": 360,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 14,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 140,
+        "serial": 14,
+        "hp": 210,
+        "max_hp": 210,
+        "prizes": 2,
+        "energy": 0
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 87,
+          "turn_action_count": 1,
+          "hand": 19,
+          "deck": 12,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 89,
+          "turn_action_count": 3,
+          "hand": 18,
+          "deck": 12,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 90,
+          "turn_action_count": 4,
+          "hand": 17,
+          "deck": 12,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 73,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 91,
+          "turn_action_count": 5,
+          "hand": 16,
+          "deck": 12,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 74,
+          "in_play_area": 5,
+          "in_play_index": 2
+        },
+        {
+          "step_index": 92,
+          "turn_action_count": 6,
+          "hand": 15,
+          "deck": 12,
+          "type": 7,
+          "card_id": 140,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 93,
+          "turn_action_count": 7,
+          "hand": 14,
+          "deck": 12,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88200215,
+      "step_index": 111,
+      "turn": 9,
+      "turn_action_count": 16,
+      "hand": 18,
+      "deck": 17,
+      "own_prizes": 3,
+      "opp_prizes": 3,
+      "own_active": {
+        "id": 743,
+        "serial": 25,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 305,
+          "serial": 15,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 743,
+          "serial": 24,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 16,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 678,
+        "serial": 77,
+        "hp": 440,
+        "max_hp": 440,
+        "prizes": 3,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 675,
+          "serial": 68,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 678,
+          "serial": 75,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        },
+        {
+          "id": 673,
+          "serial": 63,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 676,
+          "serial": 71,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1152,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 360,
+      "boss_damage": 340,
+      "active_ko": false,
+      "ex_upgrades": [
+        {
+          "id": 678,
+          "serial": 75,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        }
+      ],
+      "same_ex_lower_hp": [
+        {
+          "id": 678,
+          "serial": 75,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        }
+      ],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": false,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 98,
+          "turn_action_count": 1,
+          "hand": 16,
+          "deck": 25,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 99,
+          "turn_action_count": 2,
+          "hand": 15,
+          "deck": 25,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 21,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 101,
+          "turn_action_count": 4,
+          "hand": 17,
+          "deck": 22,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 25,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 102,
+          "turn_action_count": 6,
+          "hand": 16,
+          "deck": 22,
+          "type": 12,
+          "card_id": -1,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 105,
+          "turn_action_count": 9,
+          "hand": 16,
+          "deck": 22,
+          "type": 7,
+          "card_id": 1231,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 108,
+          "turn_action_count": 13,
+          "hand": 17,
+          "deck": 20,
+          "type": 7,
+          "card_id": 305,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 109,
+          "turn_action_count": 14,
+          "hand": 16,
+          "deck": 20,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 20,
+          "in_play_area": 5,
+          "in_play_index": 2
+        },
+        {
+          "step_index": 111,
+          "turn_action_count": 16,
+          "hand": 18,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1152,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 113,
+          "turn_action_count": 18,
+          "hand": 18,
+          "deck": 16,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 15,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 114,
+          "turn_action_count": 19,
+          "hand": 17,
+          "deck": 16,
+          "type": 10,
+          "card_id": 343,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 10,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 115,
+          "turn_action_count": 20,
+          "hand": 20,
+          "deck": 15,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88202330,
+      "step_index": 101,
+      "turn": 7,
+      "turn_action_count": 4,
+      "hand": 16,
+      "deck": 25,
+      "own_prizes": 5,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 743,
+        "serial": 26,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 741,
+          "serial": 16,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 265,
+        "serial": 63,
+        "hp": 70,
+        "max_hp": 70,
+        "prizes": 1,
+        "energy": 2
+      },
+      "opp_bench": [
+        {
+          "id": 271,
+          "serial": 75,
+          "hp": 120,
+          "max_hp": 120,
+          "prizes": 1,
+          "energy": 2
+        },
+        {
+          "id": 269,
+          "serial": 70,
+          "hp": 280,
+          "max_hp": 280,
+          "prizes": 2,
+          "energy": 4
+        },
+        {
+          "id": 268,
+          "serial": 68,
+          "hp": 60,
+          "max_hp": 60,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 320,
+      "boss_damage": 300,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 269,
+          "serial": 70,
+          "hp": 280,
+          "max_hp": 280,
+          "prizes": 2,
+          "energy": 4
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 269,
+        "serial": 70,
+        "hp": 280,
+        "max_hp": 280,
+        "prizes": 2,
+        "energy": 4
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 98,
+          "turn_action_count": 1,
+          "hand": 15,
+          "deck": 28,
+          "type": 7,
+          "card_id": 1079,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 101,
+          "turn_action_count": 4,
+          "hand": 16,
+          "deck": 25,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 103,
+          "turn_action_count": 6,
+          "hand": 15,
+          "deck": 25,
+          "type": 7,
+          "card_id": 305,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 104,
+          "turn_action_count": 7,
+          "hand": 14,
+          "deck": 25,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88202330,
+      "step_index": 189,
+      "turn": 11,
+      "turn_action_count": 6,
+      "hand": 20,
+      "deck": 16,
+      "own_prizes": 3,
+      "opp_prizes": 2,
+      "own_active": {
+        "id": 743,
+        "serial": 27,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 17,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 19,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 265,
+        "serial": 63,
+        "hp": 40,
+        "max_hp": 70,
+        "prizes": 1,
+        "energy": 2
+      },
+      "opp_bench": [
+        {
+          "id": 271,
+          "serial": 75,
+          "hp": 120,
+          "max_hp": 120,
+          "prizes": 1,
+          "energy": 6
+        },
+        {
+          "id": 269,
+          "serial": 69,
+          "hp": 280,
+          "max_hp": 280,
+          "prizes": 2,
+          "energy": 4
+        },
+        {
+          "id": 268,
+          "serial": 67,
+          "hp": 60,
+          "max_hp": 60,
+          "prizes": 1,
+          "energy": 4
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 400,
+      "boss_damage": 380,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 269,
+          "serial": 69,
+          "hp": 280,
+          "max_hp": 280,
+          "prizes": 2,
+          "energy": 4
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 269,
+        "serial": 69,
+        "hp": 280,
+        "max_hp": 280,
+        "prizes": 2,
+        "energy": 4
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 185,
+          "turn_action_count": 1,
+          "hand": 20,
+          "deck": 19,
+          "type": 7,
+          "card_id": 1079,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 188,
+          "turn_action_count": 4,
+          "hand": 21,
+          "deck": 16,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 27,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 189,
+          "turn_action_count": 6,
+          "hand": 20,
+          "deck": 16,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 191,
+          "turn_action_count": 8,
+          "hand": 19,
+          "deck": 16,
+          "type": 9,
+          "card_id": 742,
+          "attack_id": -1,
+          "target_id": 741,
+          "target_serial": 17,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 193,
+          "turn_action_count": 10,
+          "hand": 20,
+          "deck": 14,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 14,
+          "in_play_area": 5,
+          "in_play_index": 2
+        },
+        {
+          "step_index": 194,
+          "turn_action_count": 11,
+          "hand": 19,
+          "deck": 14,
+          "type": 7,
+          "card_id": 305,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 195,
+          "turn_action_count": 12,
+          "hand": 18,
+          "deck": 14,
+          "type": 9,
+          "card_id": 742,
+          "attack_id": -1,
+          "target_id": 741,
+          "target_serial": 19,
+          "in_play_area": 5,
+          "in_play_index": 3
+        },
+        {
+          "step_index": 197,
+          "turn_action_count": 14,
+          "hand": 19,
+          "deck": 12,
+          "type": 10,
+          "card_id": 1081,
+          "attack_id": -1,
+          "target_id": 140,
+          "target_serial": 12,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 198,
+          "turn_action_count": 15,
+          "hand": 22,
+          "deck": 9,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88202330,
+      "step_index": 224,
+      "turn": 13,
+      "turn_action_count": 5,
+      "hand": 22,
+      "deck": 8,
+      "own_prizes": 1,
+      "opp_prizes": 1,
+      "own_active": {
+        "id": 743,
+        "serial": 24,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 66,
+          "serial": 10,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 21,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 15,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 265,
+        "serial": 63,
+        "hp": 40,
+        "max_hp": 70,
+        "prizes": 1,
+        "energy": 2
+      },
+      "opp_bench": [
+        {
+          "id": 271,
+          "serial": 75,
+          "hp": 120,
+          "max_hp": 120,
+          "prizes": 1,
+          "energy": 5
+        },
+        {
+          "id": 269,
+          "serial": 71,
+          "hp": 280,
+          "max_hp": 280,
+          "prizes": 2,
+          "energy": 4
+        },
+        {
+          "id": 265,
+          "serial": 64,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 270,
+          "serial": 72,
+          "hp": 60,
+          "max_hp": 60,
+          "prizes": 1,
+          "energy": 1
+        }
+      ],
+      "selected": {
+        "type": 13,
+        "card_id": -1,
+        "attack_id": 1072,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 440,
+      "boss_damage": 420,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 269,
+          "serial": 71,
+          "hp": 280,
+          "max_hp": 280,
+          "prizes": 2,
+          "energy": 4
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": true,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 220,
+          "turn_action_count": 1,
+          "hand": 25,
+          "deck": 8,
+          "type": 7,
+          "card_id": 305,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 221,
+          "turn_action_count": 2,
+          "hand": 24,
+          "deck": 8,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 23,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 223,
+          "turn_action_count": 4,
+          "hand": 23,
+          "deck": 8,
+          "type": 8,
+          "card_id": 5,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 24,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 224,
+          "turn_action_count": 5,
+          "hand": 22,
+          "deck": 8,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88207708,
+      "step_index": 111,
+      "turn": 11,
+      "turn_action_count": 1,
+      "hand": 18,
+      "deck": 17,
+      "own_prizes": 3,
+      "opp_prizes": 2,
+      "own_active": {
+        "id": 743,
+        "serial": 25,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 742,
+          "serial": 23,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 169,
+        "serial": 76,
+        "hp": 130,
+        "max_hp": 130,
+        "prizes": 1,
+        "energy": 3
+      },
+      "opp_bench": [
+        {
+          "id": 57,
+          "serial": 74,
+          "hp": 100,
+          "max_hp": 100,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 190,
+          "serial": 80,
+          "hp": 300,
+          "max_hp": 300,
+          "prizes": 2,
+          "energy": 3
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 305,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 360,
+      "boss_damage": 340,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 190,
+          "serial": 80,
+          "hp": 300,
+          "max_hp": 300,
+          "prizes": 2,
+          "energy": 3
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 111,
+          "turn_action_count": 1,
+          "hand": 18,
+          "deck": 17,
+          "type": 7,
+          "card_id": 305,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 112,
+          "turn_action_count": 2,
+          "hand": 17,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1086,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 113,
+          "turn_action_count": 4,
+          "hand": 16,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1184,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 115,
+          "turn_action_count": 6,
+          "hand": 18,
+          "deck": 17,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 116,
+          "turn_action_count": 7,
+          "hand": 17,
+          "deck": 17,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 23,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 117,
+          "turn_action_count": 9,
+          "hand": 16,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1266,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 118,
+          "turn_action_count": 10,
+          "hand": 15,
+          "deck": 17,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88208233,
+      "step_index": 88,
+      "turn": 9,
+      "turn_action_count": 5,
+      "hand": 9,
+      "deck": 17,
+      "own_prizes": 6,
+      "opp_prizes": 2,
+      "own_active": {
+        "id": 743,
+        "serial": 27,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 666,
+        "serial": 86,
+        "hp": 150,
+        "max_hp": 160,
+        "prizes": 1,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 190,
+          "serial": 82,
+          "hp": 120,
+          "max_hp": 400,
+          "prizes": 2,
+          "energy": 3
+        },
+        {
+          "id": 169,
+          "serial": 79,
+          "hp": 130,
+          "max_hp": 130,
+          "prizes": 1,
+          "energy": 2
+        },
+        {
+          "id": 169,
+          "serial": 78,
+          "hp": 130,
+          "max_hp": 130,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1086,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 180,
+      "boss_damage": 160,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 190,
+          "serial": 82,
+          "hp": 120,
+          "max_hp": 400,
+          "prizes": 2,
+          "energy": 3
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 666,
+        "serial": 86,
+        "hp": 150,
+        "max_hp": 160,
+        "prizes": 1,
+        "energy": 1
+      },
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 84,
+          "turn_action_count": 1,
+          "hand": 8,
+          "deck": 20,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 21,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 86,
+          "turn_action_count": 3,
+          "hand": 10,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 88,
+          "turn_action_count": 5,
+          "hand": 9,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1086,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 89,
+          "turn_action_count": 7,
+          "hand": 8,
+          "deck": 17,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88210387,
+      "step_index": 87,
+      "turn": 9,
+      "turn_action_count": 1,
+      "hand": 12,
+      "deck": 20,
+      "own_prizes": 6,
+      "opp_prizes": 5,
+      "own_active": {
+        "id": 743,
+        "serial": 26,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 743,
+          "serial": 27,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 23,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 22,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 88,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 742,
+          "serial": 82,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 83,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 122,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 81,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 74,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 240,
+      "boss_damage": 220,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 122,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 140,
+        "serial": 122,
+        "hp": 210,
+        "max_hp": 210,
+        "prizes": 2,
+        "energy": 0
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 87,
+          "turn_action_count": 1,
+          "hand": 12,
+          "deck": 20,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 89,
+          "turn_action_count": 3,
+          "hand": 11,
+          "deck": 20,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88212525,
+      "step_index": 53,
+      "turn": 5,
+      "turn_action_count": 6,
+      "hand": 13,
+      "deck": 28,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_active": {
+        "id": 743,
+        "serial": 85,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 80,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 83,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 78,
+          "hp": 40,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 1
+        }
+      ],
+      "opp_active": {
+        "id": 235,
+        "serial": 18,
+        "hp": 20,
+        "max_hp": 30,
+        "prizes": 1,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 184,
+          "serial": 16,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 120,
+          "serial": 7,
+          "hp": 90,
+          "max_hp": 90,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 120,
+          "serial": 10,
+          "hp": 90,
+          "max_hp": 90,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 119,
+          "serial": 3,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 119,
+          "serial": 6,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 8,
+        "card_id": 5,
+        "attack_id": -1,
+        "target_id": 742,
+        "target_serial": 80,
+        "in_play_area": 5,
+        "in_play_index": 1
+      },
+      "legal_boss": false,
+      "active_damage": 260,
+      "boss_damage": 240,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 184,
+          "serial": 16,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 48,
+          "turn_action_count": 1,
+          "hand": 9,
+          "deck": 32,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 81,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 50,
+          "turn_action_count": 3,
+          "hand": 11,
+          "deck": 29,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 74,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 51,
+          "turn_action_count": 4,
+          "hand": 10,
+          "deck": 29,
+          "type": 10,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 70,
+          "in_play_area": 4,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 53,
+          "turn_action_count": 6,
+          "hand": 13,
+          "deck": 28,
+          "type": 8,
+          "card_id": 5,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 80,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 54,
+          "turn_action_count": 7,
+          "hand": 12,
+          "deck": 28,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88216857,
+      "step_index": 141,
+      "turn": 14,
+      "turn_action_count": 5,
+      "hand": 12,
+      "deck": 7,
+      "own_prizes": 4,
+      "opp_prizes": 1,
+      "own_active": {
+        "id": 743,
+        "serial": 84,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 25,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 743,
+          "serial": 27,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 19,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 10,
+        "card_id": 742,
+        "attack_id": -1,
+        "target_id": 140,
+        "target_serial": 72,
+        "in_play_area": 5,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 240,
+      "boss_damage": 220,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 137,
+          "turn_action_count": 1,
+          "hand": 8,
+          "deck": 10,
+          "type": 7,
+          "card_id": 1184,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 139,
+          "turn_action_count": 3,
+          "hand": 10,
+          "deck": 10,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 80,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 141,
+          "turn_action_count": 5,
+          "hand": 12,
+          "deck": 7,
+          "type": 10,
+          "card_id": 742,
+          "attack_id": -1,
+          "target_id": 140,
+          "target_serial": 72,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 142,
+          "turn_action_count": 6,
+          "hand": 15,
+          "deck": 4,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88218459,
+      "step_index": 154,
+      "turn": 13,
+      "turn_action_count": 7,
+      "hand": 12,
+      "deck": 0,
+      "own_prizes": 3,
+      "opp_prizes": 2,
+      "own_active": {
+        "id": 743,
+        "serial": 24,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 200,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 743,
+          "serial": 25,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 66,
+          "serial": 10,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 88,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 83,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 81,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 74,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 240,
+      "boss_damage": 220,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": true,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 140,
+        "serial": 72,
+        "hp": 210,
+        "max_hp": 210,
+        "prizes": 2,
+        "energy": 0
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 148,
+          "turn_action_count": 1,
+          "hand": 9,
+          "deck": 6,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 20,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 150,
+          "turn_action_count": 3,
+          "hand": 11,
+          "deck": 3,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 22,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 152,
+          "turn_action_count": 5,
+          "hand": 10,
+          "deck": 3,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 15,
+          "in_play_area": 5,
+          "in_play_index": 2
+        },
+        {
+          "step_index": 153,
+          "turn_action_count": 6,
+          "hand": 9,
+          "deck": 3,
+          "type": 10,
+          "card_id": 13,
+          "attack_id": -1,
+          "target_id": 140,
+          "target_serial": 12,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 154,
+          "turn_action_count": 7,
+          "hand": 12,
+          "deck": 0,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 156,
+          "turn_action_count": 9,
+          "hand": 11,
+          "deck": 0,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88220048,
+      "step_index": 86,
+      "turn": 7,
+      "turn_action_count": 1,
+      "hand": 12,
+      "deck": 31,
+      "own_prizes": 4,
+      "opp_prizes": 6,
+      "own_active": {
+        "id": 743,
+        "serial": 24,
+        "hp": 130,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 741,
+          "serial": 19,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 18,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 17,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 88,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 743,
+          "serial": 87,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 77,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 74,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 240,
+      "boss_damage": 220,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 140,
+        "serial": 72,
+        "hp": 210,
+        "max_hp": 210,
+        "prizes": 2,
+        "energy": 0
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 86,
+          "turn_action_count": 1,
+          "hand": 12,
+          "deck": 31,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 88,
+          "turn_action_count": 3,
+          "hand": 11,
+          "deck": 31,
+          "type": 7,
+          "card_id": 1079,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 91,
+          "turn_action_count": 6,
+          "hand": 12,
+          "deck": 28,
+          "type": 8,
+          "card_id": 5,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 26,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 92,
+          "turn_action_count": 7,
+          "hand": 11,
+          "deck": 28,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88221694,
+      "step_index": 100,
+      "turn": 8,
+      "turn_action_count": 14,
+      "hand": 15,
+      "deck": 16,
+      "own_prizes": 5,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 743,
+        "serial": 85,
+        "hp": 130,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 743,
+          "serial": 87,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 77,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 74,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 27,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 742,
+          "serial": 24,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 15,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 18,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 13,
+        "card_id": -1,
+        "attack_id": 1072,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 300,
+      "boss_damage": 280,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 87,
+          "turn_action_count": 1,
+          "hand": 12,
+          "deck": 27,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 80,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 89,
+          "turn_action_count": 3,
+          "hand": 14,
+          "deck": 24,
+          "type": 7,
+          "card_id": 1197,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 91,
+          "turn_action_count": 5,
+          "hand": 13,
+          "deck": 24,
+          "type": 7,
+          "card_id": 1086,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 93,
+          "turn_action_count": 7,
+          "hand": 12,
+          "deck": 22,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 81,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 95,
+          "turn_action_count": 9,
+          "hand": 14,
+          "deck": 19,
+          "type": 7,
+          "card_id": 140,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 96,
+          "turn_action_count": 10,
+          "hand": 13,
+          "deck": 19,
+          "type": 10,
+          "card_id": 1231,
+          "attack_id": -1,
+          "target_id": 140,
+          "target_serial": 72,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 97,
+          "turn_action_count": 11,
+          "hand": 16,
+          "deck": 16,
+          "type": 7,
+          "card_id": 1097,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 99,
+          "turn_action_count": 13,
+          "hand": 16,
+          "deck": 16,
+          "type": 8,
+          "card_id": 5,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 85,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 100,
+          "turn_action_count": 14,
+          "hand": 15,
+          "deck": 16,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88221694,
+      "step_index": 137,
+      "turn": 10,
+      "turn_action_count": 15,
+      "hand": 22,
+      "deck": 11,
+      "own_prizes": 4,
+      "opp_prizes": 3,
+      "own_active": {
+        "id": 743,
+        "serial": 87,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 742,
+          "serial": 80,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 79,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 25,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 21,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 19,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 13,
+        "card_id": -1,
+        "attack_id": 1072,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 440,
+      "boss_damage": 420,
+      "active_ko": true,
+      "ex_upgrades": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_upgrade": false,
+      "turn_actions": [
+        {
+          "step_index": 123,
+          "turn_action_count": 1,
+          "hand": 17,
+          "deck": 15,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 74,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 124,
+          "turn_action_count": 2,
+          "hand": 16,
+          "deck": 15,
+          "type": 10,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": 140,
+          "target_serial": 72,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 125,
+          "turn_action_count": 3,
+          "hand": 19,
+          "deck": 12,
+          "type": 7,
+          "card_id": 1129,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 127,
+          "turn_action_count": 5,
+          "hand": 18,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1231,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 131,
+          "turn_action_count": 9,
+          "hand": 20,
+          "deck": 14,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 132,
+          "turn_action_count": 10,
+          "hand": 19,
+          "deck": 14,
+          "type": 9,
+          "card_id": 742,
+          "attack_id": -1,
+          "target_id": 741,
+          "target_serial": 77,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 134,
+          "turn_action_count": 12,
+          "hand": 20,
+          "deck": 12,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 87,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 135,
+          "turn_action_count": 13,
+          "hand": 19,
+          "deck": 12,
+          "type": 10,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 69,
+          "in_play_area": 4,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 137,
+          "turn_action_count": 15,
+          "hand": 22,
+          "deck": 11,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88227558,
+      "step_index": 52,
+      "turn": 5,
+      "turn_action_count": 12,
+      "hand": 13,
+      "deck": 24,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_active": {
+        "id": 743,
+        "serial": 25,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 343,
+          "serial": 11,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 742,
+          "serial": 22,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 18,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 756,
+        "serial": 89,
+        "hp": 400,
+        "max_hp": 400,
+        "prizes": 3,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 117,
+          "serial": 78,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 344,
+          "serial": 79,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 260,
+      "boss_damage": 240,
+      "active_ko": false,
+      "ex_upgrades": [
+        {
+          "id": 117,
+          "serial": 78,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        }
+      ],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": false,
+      "policy": {},
+      "played_boss": true,
+      "boss_target": {
+        "id": 117,
+        "serial": 78,
+        "hp": 210,
+        "max_hp": 210,
+        "prizes": 2,
+        "energy": 0
+      },
+      "selected_upgrade": true,
+      "turn_actions": [
+        {
+          "step_index": 41,
+          "turn_action_count": 1,
+          "hand": 8,
+          "deck": 29,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 21,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 43,
+          "turn_action_count": 3,
+          "hand": 10,
+          "deck": 26,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 14,
+          "in_play_area": 5,
+          "in_play_index": 2
+        },
+        {
+          "step_index": 44,
+          "turn_action_count": 4,
+          "hand": 9,
+          "deck": 26,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 13,
+          "in_play_area": 5,
+          "in_play_index": 4
+        },
+        {
+          "step_index": 45,
+          "turn_action_count": 5,
+          "hand": 8,
+          "deck": 26,
+          "type": 7,
+          "card_id": 1081,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 47,
+          "turn_action_count": 7,
+          "hand": 7,
+          "deck": 26,
+          "type": 12,
+          "card_id": -1,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 50,
+          "turn_action_count": 10,
+          "hand": 7,
+          "deck": 26,
+          "type": 10,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 10,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 51,
+          "turn_action_count": 11,
+          "hand": 10,
+          "deck": 25,
+          "type": 10,
+          "card_id": 1086,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 9,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 52,
+          "turn_action_count": 12,
+          "hand": 13,
+          "deck": 24,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 54,
+          "turn_action_count": 14,
+          "hand": 12,
+          "deck": 24,
+          "type": 7,
+          "card_id": 1086,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 56,
+          "turn_action_count": 16,
+          "hand": 11,
+          "deck": 22,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    }
+  ],
+  "same_ex_lower_hp_examples": [
+    {
+      "episode_id": 88200215,
+      "step_index": 111,
+      "turn": 9,
+      "turn_action_count": 16,
+      "hand": 18,
+      "deck": 17,
+      "own_prizes": 3,
+      "opp_prizes": 3,
+      "own_active": {
+        "id": 743,
+        "serial": 25,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 305,
+          "serial": 15,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 14,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 743,
+          "serial": 24,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 16,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 678,
+        "serial": 77,
+        "hp": 440,
+        "max_hp": 440,
+        "prizes": 3,
+        "energy": 1
+      },
+      "opp_bench": [
+        {
+          "id": 675,
+          "serial": 68,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 678,
+          "serial": 75,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        },
+        {
+          "id": 673,
+          "serial": 63,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 676,
+          "serial": 71,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1152,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": false,
+      "active_damage": 360,
+      "boss_damage": 340,
+      "active_ko": false,
+      "ex_upgrades": [
+        {
+          "id": 678,
+          "serial": 75,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        }
+      ],
+      "same_ex_lower_hp": [
+        {
+          "id": 678,
+          "serial": 75,
+          "hp": 340,
+          "max_hp": 340,
+          "prizes": 3,
+          "energy": 2
+        }
+      ],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": false,
+      "policy": {},
+      "played_boss": false,
+      "boss_target": null,
+      "selected_lower_hp_copy": false,
+      "turn_actions": [
+        {
+          "step_index": 98,
+          "turn_action_count": 1,
+          "hand": 16,
+          "deck": 25,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 99,
+          "turn_action_count": 2,
+          "hand": 15,
+          "deck": 25,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 21,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 101,
+          "turn_action_count": 4,
+          "hand": 17,
+          "deck": 22,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 25,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 102,
+          "turn_action_count": 6,
+          "hand": 16,
+          "deck": 22,
+          "type": 12,
+          "card_id": -1,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 105,
+          "turn_action_count": 9,
+          "hand": 16,
+          "deck": 22,
+          "type": 7,
+          "card_id": 1231,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 108,
+          "turn_action_count": 13,
+          "hand": 17,
+          "deck": 20,
+          "type": 7,
+          "card_id": 305,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 109,
+          "turn_action_count": 14,
+          "hand": 16,
+          "deck": 20,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 20,
+          "in_play_area": 5,
+          "in_play_index": 2
+        },
+        {
+          "step_index": 111,
+          "turn_action_count": 16,
+          "hand": 18,
+          "deck": 17,
+          "type": 7,
+          "card_id": 1152,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 113,
+          "turn_action_count": 18,
+          "hand": 18,
+          "deck": 16,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 15,
+          "in_play_area": 5,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 114,
+          "turn_action_count": 19,
+          "hand": 17,
+          "deck": 16,
+          "type": 10,
+          "card_id": 343,
+          "attack_id": -1,
+          "target_id": 66,
+          "target_serial": 10,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 115,
+          "turn_action_count": 20,
+          "hand": 20,
+          "deck": 15,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    }
+  ],
+  "grim_munk_boss_examples": [
+    {
+      "episode_id": 88206095,
+      "step_index": 99,
+      "turn": 7,
+      "turn_action_count": 2,
+      "hand": 18,
+      "deck": 19,
+      "own_prizes": 4,
+      "opp_prizes": 3,
+      "own_active": {
+        "id": 743,
+        "serial": 26,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 15,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 648,
+        "serial": 90,
+        "hp": 420,
+        "max_hp": 420,
+        "prizes": 2,
+        "energy": 3
+      },
+      "opp_bench": [
+        {
+          "id": 647,
+          "serial": 88,
+          "hp": 100,
+          "max_hp": 100,
+          "prizes": 1,
+          "energy": 2
+        },
+        {
+          "id": 112,
+          "serial": 75,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 112,
+          "serial": 76,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 80,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 112,
+          "serial": 77,
+          "hp": 110,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 360,
+      "boss_damage": 340,
+      "active_ko": false,
+      "ex_upgrades": [],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "boss_target": {
+        "id": 112,
+        "serial": 75,
+        "hp": 110,
+        "max_hp": 110,
+        "prizes": 1,
+        "energy": 1
+      },
+      "grimmsnarl_visible": [
+        {
+          "id": 648,
+          "serial": 90,
+          "hp": 420,
+          "max_hp": 420,
+          "prizes": 2,
+          "energy": 3
+        }
+      ],
+      "grimmsnarl_plans": [],
+      "munkidori_plans": [],
+      "turn_actions": [
+        {
+          "step_index": 98,
+          "turn_action_count": 1,
+          "hand": 19,
+          "deck": 19,
+          "type": 8,
+          "card_id": 5,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 26,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 99,
+          "turn_action_count": 2,
+          "hand": 18,
+          "deck": 19,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 101,
+          "turn_action_count": 4,
+          "hand": 17,
+          "deck": 19,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 102,
+          "turn_action_count": 5,
+          "hand": 16,
+          "deck": 19,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 13,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 103,
+          "turn_action_count": 6,
+          "hand": 15,
+          "deck": 19,
+          "type": 10,
+          "card_id": 343,
+          "attack_id": -1,
+          "target_id": 140,
+          "target_serial": 12,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 104,
+          "turn_action_count": 7,
+          "hand": 18,
+          "deck": 16,
+          "type": 10,
+          "card_id": 343,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": 7,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 105,
+          "turn_action_count": 9,
+          "hand": 18,
+          "deck": 16,
+          "type": 7,
+          "card_id": 1266,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 106,
+          "turn_action_count": 10,
+          "hand": 17,
+          "deck": 16,
+          "type": 7,
+          "card_id": 1097,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 108,
+          "turn_action_count": 12,
+          "hand": 17,
+          "deck": 16,
+          "type": 7,
+          "card_id": 741,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 109,
+          "turn_action_count": 13,
+          "hand": 16,
+          "deck": 16,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88211994,
+      "step_index": 96,
+      "turn": 8,
+      "turn_action_count": 8,
+      "hand": 6,
+      "deck": 32,
+      "own_prizes": 5,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 743,
+        "serial": 85,
+        "hp": 70,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 1
+      },
+      "own_bench": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 170,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 77,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 75,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 74,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 648,
+        "serial": 28,
+        "hp": 310,
+        "max_hp": 320,
+        "prizes": 2,
+        "energy": 2
+      },
+      "opp_bench": [
+        {
+          "id": 112,
+          "serial": 16,
+          "hp": 90,
+          "max_hp": 110,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 104,
+          "serial": 14,
+          "hp": 90,
+          "max_hp": 90,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 646,
+          "serial": 21,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 646,
+          "serial": 22,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 646,
+          "serial": 19,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 1
+        }
+      ],
+      "selected": {
+        "type": 7,
+        "card_id": 1182,
+        "attack_id": -1,
+        "target_id": -1,
+        "target_serial": -1,
+        "in_play_area": -1,
+        "in_play_index": -1
+      },
+      "legal_boss": true,
+      "active_damage": 120,
+      "boss_damage": 100,
+      "active_ko": false,
+      "ex_upgrades": [],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": false,
+      "pivot_kos": [],
+      "dudun_ability_offered": false,
+      "retreat_offered": true,
+      "policy": {},
+      "boss_target": {
+        "id": 112,
+        "serial": 16,
+        "hp": 90,
+        "max_hp": 110,
+        "prizes": 1,
+        "energy": 1
+      },
+      "grimmsnarl_visible": [
+        {
+          "id": 648,
+          "serial": 28,
+          "hp": 310,
+          "max_hp": 320,
+          "prizes": 2,
+          "energy": 2
+        }
+      ],
+      "grimmsnarl_plans": [],
+      "munkidori_plans": [],
+      "turn_actions": [
+        {
+          "step_index": 90,
+          "turn_action_count": 1,
+          "hand": 3,
+          "deck": 40,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 80,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 92,
+          "turn_action_count": 3,
+          "hand": 5,
+          "deck": 37,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 85,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 93,
+          "turn_action_count": 5,
+          "hand": 4,
+          "deck": 37,
+          "type": 7,
+          "card_id": 1086,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 95,
+          "turn_action_count": 7,
+          "hand": 3,
+          "deck": 35,
+          "type": 10,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 140,
+          "target_serial": 72,
+          "in_play_area": 5,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 96,
+          "turn_action_count": 8,
+          "hand": 6,
+          "deck": 32,
+          "type": 7,
+          "card_id": 1182,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        },
+        {
+          "step_index": 98,
+          "turn_action_count": 10,
+          "hand": 5,
+          "deck": 32,
+          "type": 13,
+          "card_id": -1,
+          "attack_id": 1072,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    }
+  ],
+  "low_deck_dudun_pivot_examples": [
+    {
+      "episode_id": 88205560,
+      "step_index": 166,
+      "turn": 17,
+      "turn_action_count": 2,
+      "hand": 9,
+      "deck": 2,
+      "own_prizes": 2,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 66,
+        "serial": 9,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "own_bench": [
+        {
+          "id": 743,
+          "serial": 24,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 742,
+          "serial": 23,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 19,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 87,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 343,
+          "serial": 76,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 9,
+        "card_id": 743,
+        "attack_id": -1,
+        "target_id": 742,
+        "target_serial": 23,
+        "in_play_area": 5,
+        "in_play_index": 1
+      },
+      "legal_boss": false,
+      "active_damage": 0,
+      "boss_damage": 0,
+      "active_ko": false,
+      "ex_upgrades": [],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": true,
+      "pivot_kos": [
+        {
+          "energy_id": 19,
+          "post_attach_hand": 8,
+          "damage": 160
+        },
+        {
+          "energy_id": 19,
+          "post_attach_hand": 8,
+          "damage": 160
+        },
+        {
+          "energy_id": 19,
+          "post_attach_hand": 8,
+          "damage": 160
+        },
+        {
+          "energy_id": 19,
+          "post_attach_hand": 8,
+          "damage": 160
+        }
+      ],
+      "dudun_ability_offered": true,
+      "retreat_offered": false,
+      "policy": {},
+      "selected_attach_to_active": false,
+      "selected_retreat": false,
+      "turn_actions": [
+        {
+          "step_index": 165,
+          "turn_action_count": 1,
+          "hand": 10,
+          "deck": 2,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 14,
+          "in_play_area": 4,
+          "in_play_index": 0
+        },
+        {
+          "step_index": 166,
+          "turn_action_count": 2,
+          "hand": 9,
+          "deck": 2,
+          "type": 9,
+          "card_id": 743,
+          "attack_id": -1,
+          "target_id": 742,
+          "target_serial": 23,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 168,
+          "turn_action_count": 4,
+          "hand": 8,
+          "deck": 2,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 743,
+          "target_serial": 26,
+          "in_play_area": 5,
+          "in_play_index": 1
+        },
+        {
+          "step_index": 169,
+          "turn_action_count": 5,
+          "hand": 7,
+          "deck": 2,
+          "type": 14,
+          "card_id": -1,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88205560,
+      "step_index": 172,
+      "turn": 19,
+      "turn_action_count": 1,
+      "hand": 8,
+      "deck": 1,
+      "own_prizes": 2,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 66,
+        "serial": 9,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "own_bench": [
+        {
+          "id": 743,
+          "serial": 24,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 743,
+          "serial": 26,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 19,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 87,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 343,
+          "serial": 76,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 75,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 8,
+        "card_id": 19,
+        "attack_id": -1,
+        "target_id": 741,
+        "target_serial": 19,
+        "in_play_area": 5,
+        "in_play_index": 3
+      },
+      "legal_boss": false,
+      "active_damage": 0,
+      "boss_damage": 0,
+      "active_ko": false,
+      "ex_upgrades": [],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": true,
+      "pivot_kos": [
+        {
+          "energy_id": 19,
+          "post_attach_hand": 7,
+          "damage": 140
+        },
+        {
+          "energy_id": 19,
+          "post_attach_hand": 7,
+          "damage": 140
+        },
+        {
+          "energy_id": 19,
+          "post_attach_hand": 7,
+          "damage": 140
+        }
+      ],
+      "dudun_ability_offered": true,
+      "retreat_offered": false,
+      "policy": {},
+      "selected_attach_to_active": false,
+      "selected_retreat": false,
+      "turn_actions": [
+        {
+          "step_index": 172,
+          "turn_action_count": 1,
+          "hand": 8,
+          "deck": 1,
+          "type": 8,
+          "card_id": 19,
+          "attack_id": -1,
+          "target_id": 741,
+          "target_serial": 19,
+          "in_play_area": 5,
+          "in_play_index": 3
+        },
+        {
+          "step_index": 173,
+          "turn_action_count": 2,
+          "hand": 7,
+          "deck": 1,
+          "type": 14,
+          "card_id": -1,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    },
+    {
+      "episode_id": 88205560,
+      "step_index": 178,
+      "turn": 21,
+      "turn_action_count": 1,
+      "hand": 8,
+      "deck": 0,
+      "own_prizes": 2,
+      "opp_prizes": 4,
+      "own_active": {
+        "id": 66,
+        "serial": 9,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "own_bench": [
+        {
+          "id": 743,
+          "serial": 24,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 743,
+          "serial": 26,
+          "hp": 140,
+          "max_hp": 140,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 140,
+          "serial": 12,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 19,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 1
+        },
+        {
+          "id": 305,
+          "serial": 13,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "opp_active": {
+        "id": 743,
+        "serial": 87,
+        "hp": 140,
+        "max_hp": 140,
+        "prizes": 1,
+        "energy": 0
+      },
+      "opp_bench": [
+        {
+          "id": 140,
+          "serial": 72,
+          "hp": 210,
+          "max_hp": 210,
+          "prizes": 2,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 73,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 343,
+          "serial": 76,
+          "hp": 80,
+          "max_hp": 80,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 305,
+          "serial": 75,
+          "hp": 70,
+          "max_hp": 70,
+          "prizes": 1,
+          "energy": 0
+        },
+        {
+          "id": 741,
+          "serial": 80,
+          "hp": 50,
+          "max_hp": 50,
+          "prizes": 1,
+          "energy": 0
+        }
+      ],
+      "selected": {
+        "type": 9,
+        "card_id": 66,
+        "attack_id": -1,
+        "target_id": 305,
+        "target_serial": 13,
+        "in_play_area": 5,
+        "in_play_index": 4
+      },
+      "legal_boss": false,
+      "active_damage": 0,
+      "boss_damage": 0,
+      "active_ko": false,
+      "ex_upgrades": [],
+      "same_ex_lower_hp": [],
+      "active_dudun_low_deck_pivot_ko": true,
+      "pivot_kos": [
+        {
+          "energy_id": 19,
+          "post_attach_hand": 7,
+          "damage": 140
+        },
+        {
+          "energy_id": 19,
+          "post_attach_hand": 7,
+          "damage": 140
+        }
+      ],
+      "dudun_ability_offered": true,
+      "retreat_offered": false,
+      "policy": {},
+      "selected_attach_to_active": false,
+      "selected_retreat": false,
+      "turn_actions": [
+        {
+          "step_index": 178,
+          "turn_action_count": 1,
+          "hand": 8,
+          "deck": 0,
+          "type": 9,
+          "card_id": 66,
+          "attack_id": -1,
+          "target_id": 305,
+          "target_serial": 13,
+          "in_play_area": 5,
+          "in_play_index": 4
+        },
+        {
+          "step_index": 179,
+          "turn_action_count": 2,
+          "hand": 7,
+          "deck": 0,
+          "type": 14,
+          "card_id": -1,
+          "attack_id": -1,
+          "target_id": -1,
+          "target_serial": -1,
+          "in_play_area": -1,
+          "in_play_index": -1
+        }
+      ]
+    }
+  ],
+  "boss_target_counts": {
+    "140": 4,
+    "345": 3,
+    "112": 3,
+    "666": 3,
+    "678": 2,
+    "120": 2,
+    "269": 2,
+    "743": 1,
+    "674": 1,
+    "676": 1,
+    "344": 1,
+    "646": 1,
+    "675": 1,
+    "57": 1,
+    "169": 1,
+    "741": 1,
+    "117": 1
+  }
+}

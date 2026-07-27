@@ -1,0 +1,6131 @@
+{
+  "run_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\runs\\alakazam\\20260726_v24_sub55003538",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v24",
+  "submission_id": 55003538,
+  "summary": {
+    "mirror_fez_plays": 11,
+    "mirror_fez_with_ability": 3,
+    "promotion_counts": {
+      "305": 67,
+      "743": 59,
+      "742": 50,
+      "741": 27,
+      "140": 6,
+      "66": 3,
+      "343": 2
+    },
+    "promotion_route_counts": [
+      {
+        "selected_id": 305,
+        "attacks_next_turn": false,
+        "visible_ko_risk": true,
+        "count": 36
+      },
+      {
+        "selected_id": 743,
+        "attacks_next_turn": true,
+        "visible_ko_risk": true,
+        "count": 32
+      },
+      {
+        "selected_id": 305,
+        "attacks_next_turn": false,
+        "visible_ko_risk": false,
+        "count": 31
+      },
+      {
+        "selected_id": 742,
+        "attacks_next_turn": true,
+        "visible_ko_risk": true,
+        "count": 28
+      },
+      {
+        "selected_id": 743,
+        "attacks_next_turn": true,
+        "visible_ko_risk": false,
+        "count": 27
+      },
+      {
+        "selected_id": 742,
+        "attacks_next_turn": true,
+        "visible_ko_risk": false,
+        "count": 17
+      },
+      {
+        "selected_id": 741,
+        "attacks_next_turn": false,
+        "visible_ko_risk": true,
+        "count": 12
+      },
+      {
+        "selected_id": 741,
+        "attacks_next_turn": false,
+        "visible_ko_risk": false,
+        "count": 8
+      },
+      {
+        "selected_id": 140,
+        "attacks_next_turn": false,
+        "visible_ko_risk": false,
+        "count": 4
+      },
+      {
+        "selected_id": 741,
+        "attacks_next_turn": true,
+        "visible_ko_risk": true,
+        "count": 4
+      },
+      {
+        "selected_id": 741,
+        "attacks_next_turn": true,
+        "visible_ko_risk": false,
+        "count": 3
+      },
+      {
+        "selected_id": 742,
+        "attacks_next_turn": false,
+        "visible_ko_risk": true,
+        "count": 3
+      },
+      {
+        "selected_id": 742,
+        "attacks_next_turn": false,
+        "visible_ko_risk": false,
+        "count": 2
+      },
+      {
+        "selected_id": 66,
+        "attacks_next_turn": false,
+        "visible_ko_risk": true,
+        "count": 2
+      },
+      {
+        "selected_id": 343,
+        "attacks_next_turn": false,
+        "visible_ko_risk": true,
+        "count": 2
+      },
+      {
+        "selected_id": 140,
+        "attacks_next_turn": true,
+        "visible_ko_risk": false,
+        "count": 1
+      },
+      {
+        "selected_id": 66,
+        "attacks_next_turn": false,
+        "visible_ko_risk": false,
+        "count": 1
+      },
+      {
+        "selected_id": 140,
+        "attacks_next_turn": false,
+        "visible_ko_risk": true,
+        "count": 1
+      }
+    ],
+    "grim_boss_counts": {
+      "112": 10,
+      "104": 1
+    }
+  },
+  "mirror_fez_examples": [
+    {
+      "episode_id": 88264998,
+      "turn": 3,
+      "used_flip_the_script": false,
+      "hand": 7,
+      "deck": 42,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_board": [
+        741,
+        742
+      ],
+      "opp_board": [
+        305,
+        741
+      ],
+      "opp_hand": 6
+    },
+    {
+      "episode_id": 88267809,
+      "turn": 3,
+      "used_flip_the_script": false,
+      "hand": 6,
+      "deck": 41,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_board": [
+        305,
+        741,
+        742
+      ],
+      "opp_board": [
+        741
+      ],
+      "opp_hand": 3
+    },
+    {
+      "episode_id": 88269971,
+      "turn": 11,
+      "used_flip_the_script": true,
+      "hand": 5,
+      "deck": 22,
+      "own_prizes": 3,
+      "opp_prizes": 3,
+      "own_board": [
+        305,
+        742
+      ],
+      "opp_board": [
+        140,
+        305,
+        742,
+        743
+      ],
+      "opp_hand": 7
+    },
+    {
+      "episode_id": 88272097,
+      "turn": 3,
+      "used_flip_the_script": false,
+      "hand": 7,
+      "deck": 38,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_board": [
+        305,
+        741,
+        742,
+        743
+      ],
+      "opp_board": [
+        305,
+        741
+      ],
+      "opp_hand": 7
+    },
+    {
+      "episode_id": 88274287,
+      "turn": 5,
+      "used_flip_the_script": false,
+      "hand": 8,
+      "deck": 14,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_board": [
+        305,
+        742,
+        743
+      ],
+      "opp_board": [
+        140,
+        343,
+        741,
+        742
+      ],
+      "opp_hand": 8
+    },
+    {
+      "episode_id": 88274827,
+      "turn": 9,
+      "used_flip_the_script": true,
+      "hand": 3,
+      "deck": 20,
+      "own_prizes": 4,
+      "opp_prizes": 3,
+      "own_board": [
+        305,
+        741,
+        743
+      ],
+      "opp_board": [
+        66,
+        305,
+        742,
+        743
+      ],
+      "opp_hand": 14
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 7,
+      "used_flip_the_script": true,
+      "hand": 15,
+      "deck": 19,
+      "own_prizes": 4,
+      "opp_prizes": 5,
+      "own_board": [
+        66,
+        305,
+        741,
+        743
+      ],
+      "opp_board": [
+        66,
+        305,
+        743
+      ],
+      "opp_hand": 3
+    },
+    {
+      "episode_id": 88283929,
+      "turn": 7,
+      "used_flip_the_script": false,
+      "hand": 11,
+      "deck": 31,
+      "own_prizes": 5,
+      "opp_prizes": 5,
+      "own_board": [
+        305,
+        741,
+        743
+      ],
+      "opp_board": [
+        305,
+        742
+      ],
+      "opp_hand": 3
+    },
+    {
+      "episode_id": 88289803,
+      "turn": 2,
+      "used_flip_the_script": false,
+      "hand": 10,
+      "deck": 38,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_board": [
+        305,
+        741
+      ],
+      "opp_board": [
+        140,
+        305,
+        741
+      ],
+      "opp_hand": 3
+    },
+    {
+      "episode_id": 88293007,
+      "turn": 2,
+      "used_flip_the_script": false,
+      "hand": 7,
+      "deck": 41,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_board": [
+        305,
+        741
+      ],
+      "opp_board": [
+        741
+      ],
+      "opp_hand": 7
+    },
+    {
+      "episode_id": 88299818,
+      "turn": 3,
+      "used_flip_the_script": false,
+      "hand": 8,
+      "deck": 31,
+      "own_prizes": 6,
+      "opp_prizes": 6,
+      "own_board": [
+        66,
+        741,
+        742,
+        743
+      ],
+      "opp_board": [
+        305,
+        741
+      ],
+      "opp_hand": 7
+    }
+  ],
+  "promotion_examples": [
+    {
+      "episode_id": 88264998,
+      "turn": 4,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        140,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1266,
+        743,
+        1184,
+        743,
+        1231,
+        66,
+        66,
+        1266,
+        19,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88264998,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        742,
+        140,
+        743,
+        305,
+        305
+      ],
+      "hand_ids": [
+        66,
+        19,
+        741
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88265132,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        742,
+        305,
+        140,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        66,
+        1266,
+        1081,
+        1197,
+        1197,
+        1129,
+        1225,
+        1225,
+        5,
+        742,
+        1266,
+        743,
+        19,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 674
+    },
+    {
+      "episode_id": 88265652,
+      "turn": 5,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        140,
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        343,
+        743,
+        19,
+        19
+      ],
+      "energy_attached": false,
+      "opp_active": 89
+    },
+    {
+      "episode_id": 88265652,
+      "turn": 9,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        140,
+        743,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        743,
+        1266,
+        1184,
+        1197,
+        13
+      ],
+      "energy_attached": true,
+      "opp_active": 89
+    },
+    {
+      "episode_id": 88265652,
+      "turn": 13,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        140,
+        742,
+        741,
+        66
+      ],
+      "hand_ids": [
+        743,
+        1197,
+        13,
+        741,
+        743,
+        1152,
+        1225,
+        1225,
+        1231,
+        742,
+        343,
+        1182
+      ],
+      "energy_attached": true,
+      "opp_active": 89
+    },
+    {
+      "episode_id": 88266188,
+      "turn": 6,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        66,
+        1081,
+        343,
+        1197,
+        743,
+        1266,
+        1225,
+        19,
+        1197,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 721
+    },
+    {
+      "episode_id": 88266188,
+      "turn": 8,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        343,
+        1197,
+        1266,
+        1225,
+        19,
+        1197,
+        1086,
+        1152,
+        1231,
+        1081,
+        1197,
+        743,
+        1086,
+        1182
+      ],
+      "energy_attached": true,
+      "opp_active": 722
+    },
+    {
+      "episode_id": 88266721,
+      "turn": 3,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742
+      ],
+      "hand_ids": [
+        1182,
+        1129,
+        1266,
+        743,
+        743,
+        1225,
+        742,
+        19,
+        19,
+        1079,
+        5
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88267265,
+      "turn": 6,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        140,
+        742,
+        742,
+        66,
+        305
+      ],
+      "hand_ids": [
+        1266,
+        1266,
+        1097,
+        1081,
+        741,
+        743,
+        1081,
+        1081,
+        1079,
+        1182,
+        1079,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88267265,
+      "turn": 10,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        140,
+        742,
+        66,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1266,
+        1081,
+        1081,
+        1081,
+        1079,
+        1079,
+        742,
+        1152,
+        743,
+        1197,
+        743,
+        13,
+        1231,
+        1197,
+        742,
+        1225
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88267809,
+      "turn": 4,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        741,
+        140,
+        741
+      ],
+      "hand_ids": [
+        1231,
+        343,
+        5,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88267809,
+      "turn": 6,
+      "selected_id": 741,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 16500,
+      "offered_ids": [
+        741,
+        741,
+        140,
+        741
+      ],
+      "hand_ids": [
+        1231,
+        343,
+        5,
+        1152,
+        743,
+        1152,
+        5,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88267809,
+      "turn": 8,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        140,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        343,
+        1152,
+        1152,
+        5,
+        1081,
+        1225,
+        1086,
+        66,
+        66,
+        742,
+        743,
+        1182,
+        742,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88267809,
+      "turn": 10,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        140,
+        743,
+        66,
+        66
+      ],
+      "hand_ids": [
+        1266,
+        1197,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88268346,
+      "turn": 5,
+      "selected_id": 742,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 2300,
+      "offered_ids": [
+        742,
+        742
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        1182,
+        1182,
+        1184,
+        743
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88268346,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        743,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1086,
+        305
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88268881,
+      "turn": 12,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        741
+      ],
+      "hand_ids": [
+        1225,
+        1231,
+        13,
+        743,
+        343,
+        1086,
+        1081,
+        1086,
+        1231,
+        1086,
+        1129,
+        742,
+        1225,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88269426,
+      "turn": 3,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1266,
+        743,
+        1182,
+        19,
+        1097
+      ],
+      "energy_attached": false,
+      "opp_active": 646
+    },
+    {
+      "episode_id": 88269426,
+      "turn": 5,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        741,
+        741
+      ],
+      "hand_ids": [
+        743,
+        1182,
+        1266
+      ],
+      "energy_attached": true,
+      "opp_active": 647
+    },
+    {
+      "episode_id": 88269426,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        743,
+        1182,
+        1266
+      ],
+      "energy_attached": false,
+      "opp_active": 647
+    },
+    {
+      "episode_id": 88269426,
+      "turn": 9,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1266,
+        1225,
+        66,
+        743,
+        19
+      ],
+      "energy_attached": false,
+      "opp_active": 647
+    },
+    {
+      "episode_id": 88269971,
+      "turn": 6,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        743,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1097,
+        66,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88269971,
+      "turn": 7,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        742,
+        741
+      ],
+      "hand_ids": [
+        1097,
+        743,
+        343,
+        5,
+        741,
+        743,
+        1129,
+        1081,
+        1225
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88269971,
+      "turn": 8,
+      "selected_id": 742,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 2300,
+      "offered_ids": [
+        742,
+        741
+      ],
+      "hand_ids": [
+        343,
+        1129,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88269971,
+      "turn": 10,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741
+      ],
+      "hand_ids": [
+        343,
+        1129
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88269971,
+      "turn": 12,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        305,
+        140
+      ],
+      "hand_ids": [
+        343,
+        743,
+        1182,
+        1231,
+        1197,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88269971,
+      "turn": 14,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        140,
+        741,
+        741
+      ],
+      "hand_ids": [
+        343,
+        743,
+        1182,
+        1231,
+        742,
+        13
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88271032,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        305,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1184,
+        19,
+        5,
+        1197,
+        1197,
+        743,
+        1081,
+        742,
+        1079,
+        1182,
+        1225
+      ],
+      "energy_attached": true,
+      "opp_active": 292
+    },
+    {
+      "episode_id": 88271196,
+      "turn": 5,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        305,
+        742,
+        741
+      ],
+      "hand_ids": [
+        19,
+        1182,
+        1197,
+        1182,
+        1231,
+        1152,
+        1266,
+        743,
+        19,
+        1086,
+        1225
+      ],
+      "energy_attached": true,
+      "opp_active": 401
+    },
+    {
+      "episode_id": 88271196,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1197,
+        1182,
+        1231,
+        1152,
+        19,
+        1225,
+        343,
+        1152,
+        1086,
+        1152,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 463
+    },
+    {
+      "episode_id": 88271196,
+      "turn": 8,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1231,
+        1225,
+        343,
+        1081,
+        742,
+        742,
+        1231,
+        1231,
+        1225,
+        19,
+        1266,
+        1081,
+        741,
+        305,
+        1197
+      ],
+      "energy_attached": true,
+      "opp_active": 463
+    },
+    {
+      "episode_id": 88271196,
+      "turn": 9,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        140,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1231,
+        1225,
+        343,
+        1081,
+        742,
+        742,
+        1231,
+        1231,
+        1225,
+        19,
+        1081,
+        1197
+      ],
+      "energy_attached": true,
+      "opp_active": 463
+    },
+    {
+      "episode_id": 88271196,
+      "turn": 11,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        140,
+        742
+      ],
+      "hand_ids": [
+        1182,
+        1231,
+        1225,
+        343,
+        1081,
+        742,
+        1231,
+        1231,
+        1225,
+        1081,
+        1197,
+        1079,
+        743,
+        13,
+        5,
+        1225,
+        1079,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 463
+    },
+    {
+      "episode_id": 88271196,
+      "turn": 13,
+      "selected_id": 140,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 14500,
+      "offered_ids": [
+        140,
+        743,
+        305,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1231,
+        1225,
+        343,
+        1081,
+        742,
+        1231,
+        1231,
+        1225,
+        1081,
+        1197,
+        1079,
+        13,
+        1225,
+        1079,
+        742,
+        1197,
+        66,
+        305
+      ],
+      "energy_attached": false,
+      "opp_active": 463
+    },
+    {
+      "episode_id": 88271551,
+      "turn": 3,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        140,
+        741
+      ],
+      "hand_ids": [
+        743,
+        1197,
+        1081,
+        1079,
+        1081,
+        742,
+        743
+      ],
+      "energy_attached": false,
+      "opp_active": 673
+    },
+    {
+      "episode_id": 88271551,
+      "turn": 5,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        305,
+        741,
+        741
+      ],
+      "hand_ids": [
+        743,
+        1197,
+        1081,
+        1079,
+        1081,
+        743,
+        1231,
+        742,
+        5,
+        1266,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 674
+    },
+    {
+      "episode_id": 88271551,
+      "turn": 7,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        305,
+        743,
+        742,
+        305
+      ],
+      "hand_ids": [
+        1197,
+        1081,
+        1081,
+        1231,
+        1266,
+        742,
+        1182,
+        1152,
+        743,
+        1097,
+        1225,
+        1152,
+        1225,
+        19,
+        1225,
+        66,
+        305
+      ],
+      "energy_attached": true,
+      "opp_active": 674
+    },
+    {
+      "episode_id": 88271782,
+      "turn": 4,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        742,
+        305,
+        742,
+        743,
+        140
+      ],
+      "hand_ids": [
+        743,
+        1097,
+        1182,
+        1079,
+        1225,
+        5,
+        1182,
+        1081,
+        1182,
+        743,
+        1266,
+        1225
+      ],
+      "energy_attached": true,
+      "opp_active": 400
+    },
+    {
+      "episode_id": 88272097,
+      "turn": 6,
+      "selected_id": 140,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 7000,
+      "offered_ids": [
+        140,
+        742,
+        742
+      ],
+      "hand_ids": [
+        1182,
+        1129,
+        1081,
+        743,
+        13,
+        1097,
+        1081,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88272097,
+      "turn": 8,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        13,
+        1081,
+        1231,
+        1231,
+        1079,
+        742,
+        1184
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88272097,
+      "turn": 10,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        66,
+        305
+      ],
+      "hand_ids": [
+        741,
+        5,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88272097,
+      "turn": 11,
+      "selected_id": 742,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 2300,
+      "offered_ids": [
+        742,
+        742,
+        741
+      ],
+      "hand_ids": [
+        5,
+        19,
+        1079,
+        742,
+        305,
+        1182,
+        1231
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88272097,
+      "turn": 12,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        741,
+        305
+      ],
+      "hand_ids": [
+        5,
+        1079,
+        742,
+        1182,
+        343,
+        66
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88272628,
+      "turn": 22,
+      "selected_id": 66,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 8500,
+      "offered_ids": [
+        140,
+        742,
+        742,
+        66
+      ],
+      "hand_ids": [
+        5,
+        19,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 344
+    },
+    {
+      "episode_id": 88272628,
+      "turn": 24,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        140,
+        742,
+        742,
+        305
+      ],
+      "hand_ids": [
+        5,
+        19,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 344
+    },
+    {
+      "episode_id": 88272628,
+      "turn": 26,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        140,
+        305,
+        742
+      ],
+      "hand_ids": [
+        19,
+        19,
+        742,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 344
+    },
+    {
+      "episode_id": 88272628,
+      "turn": 28,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        140,
+        743
+      ],
+      "hand_ids": [
+        19,
+        19,
+        742,
+        1086,
+        1225
+      ],
+      "energy_attached": false,
+      "opp_active": 344
+    },
+    {
+      "episode_id": 88272628,
+      "turn": 30,
+      "selected_id": 140,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": -2000,
+      "offered_ids": [
+        140
+      ],
+      "hand_ids": [
+        19,
+        19,
+        742,
+        1086,
+        1225,
+        1086,
+        743,
+        1079,
+        743
+      ],
+      "energy_attached": false,
+      "opp_active": 344
+    },
+    {
+      "episode_id": 88273155,
+      "turn": 5,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        140,
+        743,
+        742,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1231,
+        1266,
+        1225,
+        1152,
+        1081,
+        1231,
+        1225,
+        1086,
+        343,
+        743,
+        1184,
+        13,
+        305,
+        1086,
+        1097
+      ],
+      "energy_attached": true,
+      "opp_active": 817
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 3,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        743,
+        742,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1182,
+        1086,
+        1129,
+        743,
+        1266,
+        743,
+        742,
+        1184,
+        1081,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 4,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        743,
+        742,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1182,
+        1086,
+        1129,
+        743,
+        1266,
+        743,
+        742,
+        1184,
+        1081,
+        1231
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 5,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        742,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1182,
+        1086,
+        1129,
+        743,
+        1266,
+        743,
+        1081,
+        1231,
+        742,
+        741,
+        1182,
+        742,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 6,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        743,
+        742,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1182,
+        1086,
+        1129,
+        1266,
+        743,
+        1081,
+        1231,
+        742,
+        1182,
+        742,
+        1266,
+        66,
+        1081,
+        66
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 7,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        742
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1182,
+        1086,
+        1129,
+        1266,
+        743,
+        1081,
+        1231,
+        1182,
+        742,
+        1266,
+        1081,
+        66,
+        13,
+        1225,
+        1197,
+        743,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 8,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1129,
+        1266,
+        743,
+        1081,
+        1231,
+        1182,
+        742,
+        1266,
+        1081,
+        66,
+        13,
+        1225,
+        1197,
+        743,
+        1086,
+        1225
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 9,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        305,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1266,
+        1081,
+        1231,
+        1182,
+        742,
+        1266,
+        1081,
+        13,
+        1225,
+        1197,
+        743,
+        1086,
+        1225,
+        1079,
+        305,
+        1081,
+        1225,
+        19,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 10,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        305,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        1197,
+        1266,
+        1081,
+        1231,
+        1182,
+        742,
+        1266,
+        1081,
+        13,
+        1225,
+        1197,
+        743,
+        1086,
+        1225,
+        1079,
+        1081,
+        1225,
+        19,
+        1086,
+        1097,
+        1231
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88273728,
+      "turn": 12,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        66,
+        743,
+        742,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        1197,
+        1266,
+        1081,
+        1231,
+        1182,
+        1266,
+        1081,
+        13,
+        1225,
+        1197,
+        1086,
+        1225,
+        1081,
+        1225,
+        1086,
+        1231,
+        305,
+        742,
+        743,
+        1197,
+        1182,
+        140,
+        343
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88274287,
+      "turn": 6,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        742,
+        305,
+        140
+      ],
+      "hand_ids": [
+        1266,
+        1231,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 140
+    },
+    {
+      "episode_id": 88274287,
+      "turn": 8,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1266,
+        1152,
+        1182,
+        1182,
+        1086
+      ],
+      "energy_attached": false,
+      "opp_active": 140
+    },
+    {
+      "episode_id": 88274287,
+      "turn": 10,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        742,
+        742,
+        305
+      ],
+      "hand_ids": [
+        1266,
+        1152,
+        1182,
+        1182,
+        1086,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 140
+    },
+    {
+      "episode_id": 88274287,
+      "turn": 12,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        742,
+        305
+      ],
+      "hand_ids": [
+        1266,
+        1152,
+        1182,
+        1182,
+        1086,
+        1086,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 140
+    },
+    {
+      "episode_id": 88274827,
+      "turn": 4,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        741,
+        305,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        19,
+        19,
+        1081,
+        1097,
+        1081
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88274827,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        305,
+        743,
+        743,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        19,
+        1081,
+        1097,
+        1081,
+        742,
+        1182,
+        743,
+        1184,
+        1225,
+        1231,
+        140
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88274827,
+      "turn": 8,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        305,
+        743,
+        305,
+        305,
+        741
+      ],
+      "hand_ids": [
+        140,
+        5,
+        343
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88274827,
+      "turn": 10,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        305,
+        305,
+        741,
+        140
+      ],
+      "hand_ids": [
+        343,
+        1079,
+        1266,
+        1225
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88274827,
+      "turn": 11,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        305,
+        742,
+        140
+      ],
+      "hand_ids": [
+        343,
+        1079,
+        1266,
+        5,
+        19,
+        1225,
+        1182,
+        1197,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88274827,
+      "turn": 12,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        742,
+        140
+      ],
+      "hand_ids": [
+        19,
+        1086,
+        1152
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88275382,
+      "turn": 2,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        741
+      ],
+      "hand_ids": [
+        742,
+        1081,
+        1266,
+        343,
+        1097,
+        66
+      ],
+      "energy_attached": true,
+      "opp_active": 666
+    },
+    {
+      "episode_id": 88275382,
+      "turn": 3,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        140,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        343,
+        1081,
+        1079,
+        742,
+        743,
+        5,
+        743,
+        741,
+        1231,
+        1152,
+        1152
+      ],
+      "energy_attached": false,
+      "opp_active": 666
+    },
+    {
+      "episode_id": 88275382,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        140,
+        742,
+        743,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        343,
+        1081,
+        1231,
+        1086,
+        1086,
+        1129,
+        1197,
+        743,
+        1231,
+        1225,
+        1152,
+        1225,
+        1184,
+        19
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88275382,
+      "turn": 8,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        140,
+        742,
+        743,
+        66
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        343,
+        1081,
+        1231,
+        1086,
+        1086,
+        1129,
+        1197,
+        1231,
+        1225,
+        1152,
+        1225,
+        1079,
+        1225,
+        19,
+        743,
+        742,
+        5,
+        1231,
+        743,
+        742,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88275902,
+      "turn": 6,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1266,
+        743,
+        1182
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88275902,
+      "turn": 8,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        1266,
+        5,
+        19,
+        743,
+        19,
+        1081
+      ],
+      "energy_attached": true,
+      "opp_active": 65
+    },
+    {
+      "episode_id": 88275902,
+      "turn": 10,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741
+      ],
+      "hand_ids": [
+        1266,
+        5,
+        743,
+        19,
+        13,
+        1182,
+        66
+      ],
+      "energy_attached": true,
+      "opp_active": 65
+    },
+    {
+      "episode_id": 88275902,
+      "turn": 12,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        305
+      ],
+      "hand_ids": [
+        1266,
+        5,
+        743,
+        19,
+        1182,
+        66,
+        743,
+        743,
+        66
+      ],
+      "energy_attached": false,
+      "opp_active": 742
+    },
+    {
+      "episode_id": 88275902,
+      "turn": 16,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741
+      ],
+      "hand_ids": [
+        1266,
+        5,
+        743,
+        19,
+        1182,
+        743,
+        743,
+        66,
+        19
+      ],
+      "energy_attached": false,
+      "opp_active": 742
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 3,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        742,
+        743,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1231,
+        743,
+        1081,
+        343,
+        1097,
+        1081,
+        1266,
+        743,
+        1197,
+        1152,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 6,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        743,
+        1081,
+        343,
+        1097,
+        1081,
+        1266,
+        743,
+        1197,
+        742,
+        140,
+        1184,
+        741
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 7,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        743,
+        305,
+        741,
+        140
+      ],
+      "hand_ids": [
+        1231,
+        343,
+        1097,
+        1266,
+        742,
+        1184,
+        1086,
+        742,
+        1231,
+        1081,
+        1225,
+        1152,
+        1182,
+        1152,
+        13,
+        5,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 10,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        743,
+        305,
+        741,
+        140
+      ],
+      "hand_ids": [
+        13,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 13,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        741,
+        140,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1266,
+        19,
+        343,
+        743,
+        1225,
+        5
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 16,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        140,
+        741,
+        305
+      ],
+      "hand_ids": [
+        19,
+        5,
+        1079,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88276458,
+      "turn": 18,
+      "selected_id": 66,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 8500,
+      "offered_ids": [
+        66,
+        140,
+        742
+      ],
+      "hand_ids": [
+        19,
+        1079,
+        1079,
+        13
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88277004,
+      "turn": 4,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        741,
+        742,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1184,
+        743,
+        1182,
+        1081,
+        13,
+        5,
+        343,
+        66
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88277004,
+      "turn": 6,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1184,
+        1182,
+        1081,
+        13,
+        343,
+        66,
+        19,
+        1152,
+        1231,
+        1231
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88277004,
+      "turn": 7,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1081,
+        13,
+        343,
+        19,
+        1231,
+        1231,
+        1231,
+        743,
+        741,
+        1225,
+        1225,
+        743,
+        1079,
+        1081
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88277004,
+      "turn": 8,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        305,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1081,
+        13,
+        343,
+        1231,
+        1231,
+        1231,
+        1225,
+        1225,
+        743,
+        1081,
+        1079,
+        19,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88277004,
+      "turn": 10,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        66,
+        743,
+        742,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1081,
+        13,
+        343,
+        1231,
+        1231,
+        1225,
+        1225,
+        1081,
+        742,
+        1197,
+        140,
+        1197,
+        1081,
+        1079,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88277004,
+      "turn": 12,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        66,
+        742,
+        305,
+        742
+      ],
+      "hand_ids": [
+        1182,
+        1081,
+        13,
+        343,
+        1231,
+        1231,
+        1225,
+        1225,
+        1081,
+        1197,
+        140,
+        1197,
+        1081,
+        1079,
+        743,
+        1081,
+        742,
+        1225,
+        1086,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88278079,
+      "turn": 5,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        343,
+        140,
+        741,
+        305
+      ],
+      "hand_ids": [
+        66,
+        1182
+      ],
+      "energy_attached": false,
+      "opp_active": 646
+    },
+    {
+      "episode_id": 88278079,
+      "turn": 6,
+      "selected_id": 343,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 3003,
+      "offered_ids": [
+        343,
+        140,
+        741
+      ],
+      "hand_ids": [
+        66,
+        1182
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88278079,
+      "turn": 8,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        140,
+        742,
+        305
+      ],
+      "hand_ids": [
+        66,
+        1182,
+        1081,
+        743,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88278079,
+      "turn": 8,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        140,
+        305
+      ],
+      "hand_ids": [
+        66,
+        1182,
+        1081,
+        743,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88278079,
+      "turn": 9,
+      "selected_id": 140,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": -2000,
+      "offered_ids": [
+        140
+      ],
+      "hand_ids": [
+        1182,
+        1081,
+        743,
+        742,
+        742,
+        1225,
+        1097,
+        19
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88278613,
+      "turn": 2,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        741,
+        741
+      ],
+      "hand_ids": [
+        66,
+        13,
+        1081,
+        1197,
+        1182,
+        5,
+        66,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 666
+    },
+    {
+      "episode_id": 88278613,
+      "turn": 3,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        13,
+        1081,
+        1197,
+        1182,
+        5,
+        66,
+        743,
+        19,
+        1081,
+        140,
+        1231
+      ],
+      "energy_attached": false,
+      "opp_active": 666
+    },
+    {
+      "episode_id": 88279137,
+      "turn": 5,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        66,
+        1081,
+        742,
+        1081,
+        1129,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88279137,
+      "turn": 6,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        13,
+        343,
+        743,
+        1182,
+        1197,
+        1182,
+        1152,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88279137,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        13,
+        343,
+        1197
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88279137,
+      "turn": 8,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        742,
+        305,
+        741,
+        305
+      ],
+      "hand_ids": [
+        343,
+        1231,
+        1086,
+        1225,
+        1197,
+        5,
+        1182,
+        1225,
+        1266
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88279137,
+      "turn": 11,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        305,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1266,
+        19
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88279137,
+      "turn": 13,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1266,
+        1266
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88279137,
+      "turn": 15,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        305,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1266,
+        1266,
+        743,
+        743
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88279678,
+      "turn": 3,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        741,
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1266,
+        1081,
+        1184,
+        1079,
+        1079,
+        1231,
+        1225,
+        1081,
+        1197,
+        1225,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88279678,
+      "turn": 4,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        742,
+        743,
+        742,
+        741,
+        140
+      ],
+      "hand_ids": [
+        1266,
+        1081,
+        1184,
+        1079,
+        1231,
+        1081,
+        1197,
+        1225,
+        1097,
+        1231,
+        1225,
+        1231,
+        5
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88279678,
+      "turn": 6,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        741,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1266,
+        1081,
+        1184,
+        1079,
+        1231,
+        1081,
+        1197,
+        1225,
+        1231,
+        1225,
+        1231,
+        5,
+        1197,
+        19,
+        1231,
+        1152,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88279678,
+      "turn": 8,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        742,
+        743,
+        140,
+        66,
+        741
+      ],
+      "hand_ids": [
+        19,
+        305,
+        5
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88279678,
+      "turn": 10,
+      "selected_id": 742,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 2300,
+      "offered_ids": [
+        742,
+        140,
+        741
+      ],
+      "hand_ids": [
+        305,
+        5,
+        343,
+        305,
+        1081,
+        1129
+      ],
+      "energy_attached": false,
+      "opp_active": 666
+    },
+    {
+      "episode_id": 88280755,
+      "turn": 3,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        13,
+        66,
+        1182,
+        742,
+        1184,
+        743
+      ],
+      "energy_attached": false,
+      "opp_active": 673
+    },
+    {
+      "episode_id": 88280755,
+      "turn": 5,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        742,
+        742,
+        742,
+        743,
+        305
+      ],
+      "hand_ids": [
+        66,
+        1182,
+        1184,
+        1086,
+        1197,
+        743,
+        1266,
+        1081,
+        1197,
+        1225,
+        743,
+        1225,
+        1231,
+        5,
+        1129,
+        66,
+        343
+      ],
+      "energy_attached": false,
+      "opp_active": 674
+    },
+    {
+      "episode_id": 88280755,
+      "turn": 7,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        742,
+        66,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1184,
+        1086,
+        1197,
+        743,
+        1266,
+        1081,
+        1197,
+        1225,
+        743,
+        1225,
+        1231,
+        1129,
+        66,
+        343,
+        1231,
+        743,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 674
+    },
+    {
+      "episode_id": 88281284,
+      "turn": 10,
+      "selected_id": 66,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 8500,
+      "offered_ids": [
+        140,
+        742,
+        742,
+        66
+      ],
+      "hand_ids": [
+        1231,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88281284,
+      "turn": 11,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        140,
+        743,
+        742
+      ],
+      "hand_ids": [
+        1152,
+        1081,
+        343,
+        742,
+        66,
+        1231,
+        1086,
+        19,
+        1152,
+        1081
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88281284,
+      "turn": 12,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        140,
+        743,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        343,
+        742,
+        66,
+        1231,
+        19,
+        1081,
+        19,
+        1129,
+        1266,
+        1079,
+        1231,
+        1225,
+        743
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88281810,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        742,
+        140,
+        741
+      ],
+      "hand_ids": [
+        5,
+        1081,
+        743,
+        1197,
+        1081,
+        66,
+        1152,
+        1152,
+        1086,
+        343,
+        5,
+        1081,
+        1079,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 674
+    },
+    {
+      "episode_id": 88281810,
+      "turn": 15,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        140,
+        741,
+        66
+      ],
+      "hand_ids": [
+        1081,
+        743,
+        1197,
+        1081,
+        1152,
+        1152,
+        1086,
+        343,
+        1081,
+        1079,
+        1231,
+        13,
+        1086,
+        1231,
+        1152,
+        1197,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 673
+    },
+    {
+      "episode_id": 88282351,
+      "turn": 4,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        305,
+        742,
+        140,
+        741
+      ],
+      "hand_ids": [
+        1225,
+        1231,
+        1225,
+        1182,
+        1086,
+        1152,
+        743,
+        1266,
+        1086,
+        1129,
+        1097
+      ],
+      "energy_attached": true,
+      "opp_active": 817
+    },
+    {
+      "episode_id": 88282351,
+      "turn": 12,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        742,
+        140,
+        743,
+        66,
+        743
+      ],
+      "hand_ids": [
+        1129,
+        1182,
+        1081,
+        1152,
+        742,
+        743,
+        343,
+        1197,
+        1081,
+        19,
+        1266,
+        1197,
+        1152,
+        13,
+        1079,
+        1086,
+        19,
+        1184
+      ],
+      "energy_attached": false,
+      "opp_active": 818
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 3,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        19,
+        743,
+        1225,
+        19,
+        1197,
+        1081,
+        1225
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 4,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        743,
+        19,
+        1197,
+        1081,
+        1225,
+        13,
+        1182,
+        66
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 6,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        741,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        742,
+        66,
+        1086
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 7,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1182,
+        343,
+        743,
+        743,
+        1081,
+        66,
+        1197
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 8,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1182,
+        343,
+        743,
+        743,
+        1081,
+        1197,
+        1266,
+        1079,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 9,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1182,
+        343,
+        743,
+        1081,
+        1197,
+        1266,
+        1079,
+        1079,
+        1079,
+        1197,
+        743,
+        1152,
+        1225,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 10,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1182,
+        343,
+        743,
+        1081,
+        1197,
+        1266,
+        1079,
+        1079,
+        1079,
+        1197,
+        743,
+        1225,
+        66,
+        66
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88282869,
+      "turn": 11,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1182,
+        343,
+        743,
+        1081,
+        1197,
+        1266,
+        1079,
+        1079,
+        1079,
+        1197,
+        743,
+        1225,
+        66,
+        1081,
+        1182,
+        5
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88283420,
+      "turn": 10,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        742,
+        343,
+        743,
+        66,
+        305
+      ],
+      "hand_ids": [
+        1197,
+        1097,
+        1182,
+        1081,
+        1231,
+        1086,
+        1152,
+        1184,
+        305,
+        742,
+        19,
+        1182,
+        742,
+        1081,
+        1129,
+        743,
+        1079,
+        741,
+        1225,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88283929,
+      "turn": 4,
+      "selected_id": 741,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 16500,
+      "offered_ids": [
+        305,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1231,
+        1182,
+        19,
+        1197,
+        1079,
+        743,
+        19,
+        742,
+        742,
+        5
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88283946,
+      "turn": 2,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        743,
+        1266,
+        1225,
+        1266
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88283946,
+      "turn": 4,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        305,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        743,
+        1266,
+        1266,
+        1182,
+        743,
+        1184,
+        19
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88283946,
+      "turn": 6,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        305,
+        741,
+        305,
+        140
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        1266,
+        743,
+        1184,
+        1197,
+        1231,
+        1152,
+        1097
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88283946,
+      "turn": 7,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        305,
+        140,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        1266,
+        743,
+        1197,
+        1231,
+        19,
+        741,
+        1225,
+        1225,
+        743,
+        1086,
+        1197,
+        742,
+        305,
+        19,
+        66,
+        1182
+      ],
+      "energy_attached": false,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88283946,
+      "turn": 8,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        140,
+        741,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        1266,
+        743,
+        1197,
+        1231,
+        1225,
+        1225,
+        743,
+        1086,
+        1197,
+        742,
+        19,
+        1182,
+        1231,
+        1079,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88283946,
+      "turn": 10,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        140,
+        743,
+        66,
+        743,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1266,
+        1197,
+        1231,
+        1225,
+        1225,
+        1086,
+        1197,
+        742,
+        19,
+        1182,
+        1231,
+        1086,
+        1081,
+        1231,
+        305,
+        1197,
+        1086,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88284485,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        742,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1097,
+        1182
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88284485,
+      "turn": 8,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        742,
+        140
+      ],
+      "hand_ids": [
+        1097,
+        1182,
+        742,
+        343,
+        1225,
+        743,
+        1231
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88284485,
+      "turn": 9,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        140
+      ],
+      "hand_ids": [
+        1097,
+        742,
+        343,
+        1225,
+        743,
+        1231,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88284485,
+      "turn": 13,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        743,
+        66,
+        742,
+        305
+      ],
+      "hand_ids": [
+        343,
+        1225,
+        1079,
+        1081,
+        1225,
+        1231,
+        1086,
+        1081,
+        1086,
+        1197,
+        1081,
+        13,
+        1184,
+        1182
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88285036,
+      "turn": 3,
+      "selected_id": 140,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 7000,
+      "offered_ids": [
+        140,
+        741,
+        741
+      ],
+      "hand_ids": [
+        5,
+        343,
+        1231,
+        743,
+        5
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88285036,
+      "turn": 5,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        305
+      ],
+      "hand_ids": [
+        5,
+        343,
+        743,
+        5,
+        743,
+        1197,
+        743,
+        1225,
+        1184,
+        1079
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88285036,
+      "turn": 7,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        343,
+        5,
+        743,
+        743,
+        1225,
+        1184,
+        1079,
+        1152,
+        1086,
+        1086,
+        741
+      ],
+      "energy_attached": false,
+      "opp_active": 343
+    },
+    {
+      "episode_id": 88286649,
+      "turn": 3,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        5,
+        19,
+        1081,
+        1266,
+        1081,
+        743,
+        1197,
+        1182
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88286649,
+      "turn": 5,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        5,
+        1081,
+        1266,
+        1081,
+        743,
+        1182,
+        1184
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88286649,
+      "turn": 7,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        743,
+        1086,
+        343
+      ],
+      "energy_attached": true,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88286649,
+      "turn": 9,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        743,
+        1086,
+        343,
+        66
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88286649,
+      "turn": 11,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        741
+      ],
+      "hand_ids": [
+        743,
+        343,
+        66,
+        1129,
+        743,
+        1266,
+        1182
+      ],
+      "energy_attached": false,
+      "opp_active": 66
+    },
+    {
+      "episode_id": 88289803,
+      "turn": 7,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        140,
+        742,
+        741
+      ],
+      "hand_ids": [
+        1086,
+        5,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88289803,
+      "turn": 13,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20000,
+      "offered_ids": [
+        140,
+        743,
+        742
+      ],
+      "hand_ids": [
+        19,
+        1081,
+        1266,
+        1086,
+        66,
+        305,
+        19,
+        1182
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88289884,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        742,
+        743,
+        305
+      ],
+      "hand_ids": [
+        1197,
+        343,
+        1266,
+        1197,
+        1086,
+        1079,
+        1086,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 345
+    },
+    {
+      "episode_id": 88289884,
+      "turn": 10,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        742,
+        742,
+        742,
+        743,
+        305
+      ],
+      "hand_ids": [
+        1079,
+        1086,
+        305,
+        743,
+        1225,
+        1225,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 344
+    },
+    {
+      "episode_id": 88293007,
+      "turn": 4,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        741,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        743,
+        1182,
+        19,
+        66,
+        1225,
+        1225,
+        1081
+      ],
+      "energy_attached": false,
+      "opp_active": 140
+    },
+    {
+      "episode_id": 88293007,
+      "turn": 5,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        743,
+        1182,
+        66,
+        1225,
+        1225,
+        1081,
+        19
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88293007,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        140,
+        305,
+        305
+      ],
+      "hand_ids": [
+        19,
+        66,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88293007,
+      "turn": 9,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        140,
+        305,
+        305
+      ],
+      "hand_ids": [
+        19,
+        742,
+        5
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88293007,
+      "turn": 11,
+      "selected_id": 741,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 16500,
+      "offered_ids": [
+        305,
+        140,
+        305,
+        741,
+        741
+      ],
+      "hand_ids": [
+        19,
+        742,
+        1079,
+        1231,
+        743,
+        1231,
+        742,
+        343
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88293007,
+      "turn": 13,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 9000,
+      "offered_ids": [
+        66,
+        140,
+        305,
+        742
+      ],
+      "hand_ids": [
+        1231,
+        742,
+        343,
+        1182,
+        1086,
+        5
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88295608,
+      "turn": 4,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        1129,
+        1081,
+        343,
+        1081,
+        743,
+        1197,
+        742,
+        13
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88295608,
+      "turn": 6,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1129,
+        1081,
+        343,
+        1081,
+        743,
+        1197,
+        13,
+        5,
+        1266
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88295608,
+      "turn": 10,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1129,
+        1081,
+        343,
+        1081,
+        1197,
+        5,
+        1266,
+        1225,
+        1086,
+        742,
+        19,
+        1081,
+        1152,
+        1086,
+        305,
+        743,
+        19,
+        1231,
+        1197,
+        1079,
+        1152,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88295630,
+      "turn": 5,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        741,
+        741,
+        140
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        1182,
+        743,
+        743,
+        1197
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88295630,
+      "turn": 6,
+      "selected_id": 140,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 7000,
+      "offered_ids": [
+        741,
+        741,
+        140
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        1182,
+        743,
+        743,
+        1197,
+        5,
+        1197,
+        1182
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88295630,
+      "turn": 7,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        140,
+        741,
+        305,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        1182,
+        743,
+        743,
+        1197,
+        1197,
+        1182,
+        1182
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88295630,
+      "turn": 8,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        140,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        1182,
+        743,
+        743,
+        1197,
+        1197,
+        1182,
+        1182,
+        743,
+        742,
+        742,
+        743,
+        1079,
+        1081,
+        1097,
+        1079,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88295630,
+      "turn": 9,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        140,
+        305,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        1182,
+        743,
+        743,
+        1197,
+        1197,
+        1182,
+        1182,
+        743,
+        742,
+        742,
+        743,
+        1079,
+        1081,
+        1097,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88295630,
+      "turn": 10,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        140,
+        305,
+        742,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        1182,
+        743,
+        743,
+        1197,
+        1197,
+        1182,
+        1182,
+        743,
+        742,
+        743,
+        1079,
+        1081,
+        1079,
+        1231,
+        1231,
+        5,
+        13,
+        19,
+        742,
+        1225,
+        1225,
+        1225
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88299818,
+      "turn": 3,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        741,
+        741,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        1231,
+        743,
+        1184,
+        19,
+        1079
+      ],
+      "energy_attached": false,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88299818,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        741,
+        743
+      ],
+      "hand_ids": [
+        343,
+        1197,
+        1086,
+        19,
+        1266
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88299818,
+      "turn": 8,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        741,
+        743
+      ],
+      "hand_ids": [
+        343,
+        1086,
+        19,
+        1266,
+        1086,
+        305,
+        5,
+        66
+      ],
+      "energy_attached": true,
+      "opp_active": 305
+    },
+    {
+      "episode_id": 88302354,
+      "turn": 4,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        305,
+        742,
+        742,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1182,
+        5,
+        19,
+        1129,
+        1081,
+        1225,
+        743,
+        742,
+        5
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88302354,
+      "turn": 6,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        305,
+        743,
+        741,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        5,
+        1129,
+        1081,
+        1225,
+        742,
+        5,
+        1079,
+        1266,
+        1086,
+        1081,
+        1152,
+        1231
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88302354,
+      "turn": 8,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        305,
+        742,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        5,
+        1129,
+        1081,
+        1225,
+        5,
+        1079,
+        1266,
+        1086,
+        1081,
+        1152,
+        1231,
+        66,
+        1086,
+        1079,
+        1152,
+        1152
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88302354,
+      "turn": 9,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        5,
+        1129,
+        1081,
+        5,
+        1079,
+        1266,
+        1081,
+        1152,
+        1231,
+        1079,
+        1152,
+        1152,
+        1197,
+        1182,
+        1197,
+        1182,
+        1079,
+        1197
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88302354,
+      "turn": 10,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        305
+      ],
+      "hand_ids": [
+        1081,
+        5,
+        1129,
+        1081,
+        5,
+        1079,
+        1081,
+        1152,
+        1231,
+        1079,
+        1152,
+        1152,
+        1197,
+        1182,
+        1197,
+        1182,
+        1079,
+        1197,
+        1097,
+        741
+      ],
+      "energy_attached": true,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88302354,
+      "turn": 11,
+      "selected_id": 741,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 16500,
+      "offered_ids": [
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        5,
+        1081,
+        5,
+        1079,
+        1081,
+        1231,
+        1079,
+        1197,
+        1182,
+        1197,
+        1182,
+        1079,
+        1197,
+        743,
+        13,
+        742,
+        1225,
+        743,
+        1184
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88302354,
+      "turn": 12,
+      "selected_id": 741,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 16500,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        1081,
+        5,
+        1079,
+        1081,
+        1231,
+        1079,
+        1197,
+        1182,
+        1197,
+        1182,
+        1079,
+        1197,
+        743,
+        13,
+        742,
+        1225,
+        743,
+        1184
+      ],
+      "energy_attached": false,
+      "opp_active": 57
+    },
+    {
+      "episode_id": 88303916,
+      "turn": 9,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        305,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        1197
+      ],
+      "energy_attached": true,
+      "opp_active": 379
+    },
+    {
+      "episode_id": 88303916,
+      "turn": 11,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        742,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1197,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 379
+    },
+    {
+      "episode_id": 88303916,
+      "turn": 13,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        743,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1197,
+        742,
+        1266,
+        1266,
+        742,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 379
+    },
+    {
+      "episode_id": 88303916,
+      "turn": 17,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        743,
+        305,
+        741
+      ],
+      "hand_ids": [
+        1197,
+        1266,
+        742,
+        1225,
+        343,
+        13,
+        140,
+        1152,
+        19,
+        1225,
+        1152
+      ],
+      "energy_attached": false,
+      "opp_active": 379
+    },
+    {
+      "episode_id": 88303916,
+      "turn": 19,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        305,
+        742
+      ],
+      "hand_ids": [
+        1197,
+        1266,
+        1225,
+        343,
+        13,
+        140,
+        1152,
+        1225,
+        1152,
+        1086
+      ],
+      "energy_attached": true,
+      "opp_active": 379
+    },
+    {
+      "episode_id": 88306108,
+      "turn": 2,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1225,
+        1182,
+        1184,
+        66,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88306108,
+      "turn": 4,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        1184,
+        66,
+        1182,
+        1197,
+        1266,
+        743
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88306108,
+      "turn": 6,
+      "selected_id": 742,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 2300,
+      "offered_ids": [
+        742,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1182,
+        66,
+        1182,
+        1197,
+        743,
+        1225,
+        1081,
+        1197,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 666
+    },
+    {
+      "episode_id": 88306108,
+      "turn": 8,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        66,
+        1182,
+        1197,
+        1225,
+        1081,
+        1197,
+        742,
+        1225,
+        1079,
+        1081,
+        13
+      ],
+      "energy_attached": false,
+      "opp_active": 190
+    },
+    {
+      "episode_id": 88306108,
+      "turn": 10,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        305,
+        305,
+        305,
+        741
+      ],
+      "hand_ids": [
+        66,
+        1182,
+        1197,
+        1225,
+        1081,
+        1197,
+        1225,
+        1081,
+        140,
+        66,
+        743,
+        1225,
+        19,
+        5
+      ],
+      "energy_attached": true,
+      "opp_active": 169
+    },
+    {
+      "episode_id": 88309731,
+      "turn": 9,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        66,
+        742,
+        140
+      ],
+      "hand_ids": [
+        1197,
+        1225,
+        1081,
+        1231,
+        1079,
+        1197,
+        1081,
+        1129,
+        743,
+        741,
+        19,
+        1086,
+        742,
+        742
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88309731,
+      "turn": 11,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        140,
+        741,
+        343,
+        305
+      ],
+      "hand_ids": [
+        1197,
+        1225,
+        1081,
+        1079,
+        1197,
+        1081,
+        1129,
+        742,
+        742,
+        1266,
+        1152,
+        1231,
+        1152,
+        1182,
+        1086,
+        1182,
+        1231,
+        66,
+        305,
+        66,
+        743,
+        1086,
+        1079
+      ],
+      "energy_attached": true,
+      "opp_active": 112
+    },
+    {
+      "episode_id": 88316571,
+      "turn": 3,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": false,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        1197,
+        1079,
+        1197,
+        1225,
+        1225,
+        1225,
+        5,
+        343,
+        1086,
+        1182,
+        305
+      ],
+      "energy_attached": false,
+      "opp_active": 112
+    },
+    {
+      "episode_id": 88316571,
+      "turn": 7,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": false,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        742,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1197,
+        1079,
+        1197,
+        1225,
+        343,
+        1086,
+        1182,
+        1231,
+        1231,
+        1266,
+        1079,
+        1182,
+        1097,
+        1081,
+        743,
+        1086,
+        1081,
+        1152,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 120
+    },
+    {
+      "episode_id": 88316571,
+      "turn": 8,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1225,
+        1231
+      ],
+      "energy_attached": true,
+      "opp_active": 235
+    },
+    {
+      "episode_id": 88316571,
+      "turn": 10,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        305,
+        743,
+        305
+      ],
+      "hand_ids": [
+        1231,
+        1079,
+        19,
+        19,
+        742,
+        1129
+      ],
+      "energy_attached": true,
+      "opp_active": 120
+    },
+    {
+      "episode_id": 88316580,
+      "turn": 5,
+      "selected_id": 343,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 3003,
+      "offered_ids": [
+        343,
+        741,
+        741,
+        741
+      ],
+      "hand_ids": [
+        1081,
+        1152
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88316580,
+      "turn": 7,
+      "selected_id": 742,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 17000,
+      "offered_ids": [
+        742,
+        742,
+        140,
+        305
+      ],
+      "hand_ids": [
+        1081,
+        743,
+        1225,
+        66,
+        1184,
+        1081,
+        1086,
+        1182,
+        1231,
+        19,
+        742
+      ],
+      "energy_attached": true,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88319059,
+      "turn": 14,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        741,
+        743,
+        305,
+        305
+      ],
+      "hand_ids": [
+        1182,
+        1097,
+        1182,
+        1081,
+        1081,
+        1197,
+        743,
+        1086
+      ],
+      "energy_attached": false,
+      "opp_active": 647
+    },
+    {
+      "episode_id": 88319059,
+      "turn": 16,
+      "selected_id": 305,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 9000,
+      "offered_ids": [
+        742,
+        743,
+        305,
+        741,
+        343
+      ],
+      "hand_ids": [
+        1182,
+        1182,
+        1081,
+        1081,
+        1197,
+        743,
+        1086,
+        1081,
+        742,
+        743
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88319059,
+      "turn": 18,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20500,
+      "offered_ids": [
+        743,
+        743,
+        742,
+        343
+      ],
+      "hand_ids": [
+        1182,
+        1182,
+        1081,
+        1081,
+        1197,
+        1081,
+        743,
+        140,
+        742,
+        743,
+        1197,
+        5,
+        1225
+      ],
+      "energy_attached": false,
+      "opp_active": 648
+    },
+    {
+      "episode_id": 88319059,
+      "turn": 20,
+      "selected_id": 743,
+      "attacks_next_turn": true,
+      "visible_ko_risk": true,
+      "v24_score": 20000,
+      "offered_ids": [
+        743,
+        743,
+        343
+      ],
+      "hand_ids": [
+        1182,
+        1182,
+        1081,
+        1081,
+        1197,
+        1081,
+        140,
+        742,
+        743,
+        1197,
+        5,
+        1225,
+        1225,
+        1182,
+        19,
+        1225,
+        1081,
+        1266
+      ],
+      "energy_attached": true,
+      "opp_active": 646
+    },
+    {
+      "episode_id": 88326441,
+      "turn": 3,
+      "selected_id": 741,
+      "attacks_next_turn": false,
+      "visible_ko_risk": true,
+      "v24_score": 1300,
+      "offered_ids": [
+        741,
+        741
+      ],
+      "hand_ids": [
+        743,
+        742,
+        742,
+        66,
+        1097,
+        1129
+      ],
+      "energy_attached": true,
+      "opp_active": 673
+    }
+  ],
+  "grim_boss_examples": [
+    {
+      "episode_id": 88267265,
+      "turn": 5,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 647,
+          "score": 15721.0
+        },
+        {
+          "id": 646,
+          "score": 11677.0
+        },
+        {
+          "id": 112,
+          "score": 17822.0
+        },
+        {
+          "id": 646,
+          "score": 11677.0
+        },
+        {
+          "id": 860,
+          "score": 11677.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88267265,
+      "turn": 9,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 860,
+          "score": 12377.0
+        },
+        {
+          "id": 646,
+          "score": 13674.0
+        },
+        {
+          "id": 860,
+          "score": 12377.0
+        },
+        {
+          "id": 112,
+          "score": 18522.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88268346,
+      "turn": 6,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 112,
+          "score": 19684.0
+        },
+        {
+          "id": 104,
+          "score": 19022.0
+        },
+        {
+          "id": 104,
+          "score": 19022.0
+        },
+        {
+          "id": 112,
+          "score": 16002.0
+        },
+        {
+          "id": 646,
+          "score": 13477.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88268881,
+      "turn": 5,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 112,
+          "score": 15422.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88268881,
+      "turn": 7,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 646,
+          "score": 12377.0
+        },
+        {
+          "id": 112,
+          "score": 15422.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88269426,
+      "turn": 10,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 112,
+          "score": 19684.0
+        },
+        {
+          "id": 647,
+          "score": 19442.0
+        },
+        {
+          "id": 104,
+          "score": 19022.0
+        },
+        {
+          "id": 860,
+          "score": 13477.0
+        },
+        {
+          "id": 647,
+          "score": 17521.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88281284,
+      "turn": 5,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 647,
+          "score": 15721.0
+        },
+        {
+          "id": 860,
+          "score": 11677.0
+        },
+        {
+          "id": 860,
+          "score": 11677.0
+        },
+        {
+          "id": 646,
+          "score": 11677.0
+        },
+        {
+          "id": 112,
+          "score": 17822.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88281284,
+      "turn": 7,
+      "selected_id": 104,
+      "offered": [
+        {
+          "id": 104,
+          "score": 17922.0
+        },
+        {
+          "id": 860,
+          "score": 12377.0
+        },
+        {
+          "id": 646,
+          "score": 12377.0
+        },
+        {
+          "id": 647,
+          "score": 16421.0
+        },
+        {
+          "id": 646,
+          "score": 12377.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88284485,
+      "turn": 8,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 112,
+          "score": 17822.0
+        },
+        {
+          "id": 648,
+          "score": -1.0
+        },
+        {
+          "id": 646,
+          "score": 13286.0
+        },
+        {
+          "id": 646,
+          "score": 11677.0
+        },
+        {
+          "id": 112,
+          "score": 14119.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88316571,
+      "turn": 7,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 120,
+          "score": 14686.0
+        },
+        {
+          "id": 120,
+          "score": 14686.0
+        },
+        {
+          "id": 120,
+          "score": 13483.0
+        },
+        {
+          "id": 112,
+          "score": 14722.0
+        },
+        {
+          "id": 305,
+          "score": 11677.0
+        }
+      ]
+    },
+    {
+      "episode_id": 88316580,
+      "turn": 10,
+      "selected_id": 112,
+      "offered": [
+        {
+          "id": 104,
+          "score": 19022.0
+        },
+        {
+          "id": 104,
+          "score": 19022.0
+        },
+        {
+          "id": 112,
+          "score": 19663.0
+        },
+        {
+          "id": 112,
+          "score": 19745.0
+        },
+        {
+          "id": 646,
+          "score": 13477.0
+        }
+      ]
+    }
+  ]
+}
