@@ -1,0 +1,445 @@
+{
+  "run_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\runs\\alakazam\\20260727_v24_rerun_sub55021266",
+  "submission_id": 55021266,
+  "games": 57,
+  "game_outcomes": {
+    "win": 32,
+    "loss": 25
+  },
+  "counts": {
+    "fez_play": 34,
+    "fez_ability": 63,
+    "dudun_ability": 90,
+    "fez_attach": 16,
+    "fez_attack": 2
+  },
+  "per_game": {
+    "dudun_ability": 1.5789473684210527,
+    "fez_play": 0.5964912280701754,
+    "fez_attach": 0.2807017543859649,
+    "fez_attack": 0.03508771929824561
+  },
+  "games_with_action": {
+    "dudun_ability": 48,
+    "fez_play": 34,
+    "fez_attach": 14,
+    "fez_attack": 1
+  },
+  "action_outcomes": {
+    "dudun_ability": {
+      "win": 55,
+      "loss": 35
+    },
+    "fez_play": {
+      "win": 19,
+      "loss": 15
+    },
+    "fez_attach": {
+      "win": 12,
+      "loss": 4
+    },
+    "fez_attack": {
+      "win": 2
+    }
+  },
+  "action_matchups": {
+    "dudun_ability": {
+      "Alakazam": 27,
+      "Archaludon": 18,
+      "Buddy-Buddy Poffin": 16,
+      "Carmine": 9,
+      "Marnie's Grimmsnarl ex": 8,
+      "Brock’s Scouting": 4,
+      "Team Rocket's Mewtwo": 3,
+      "Battle Cage": 2,
+      "Bug Catching Set": 1,
+      "Acerola's Mischief": 1,
+      "Dragapult": 1
+    },
+    "fez_play": {
+      "Alakazam": 15,
+      "Archaludon": 6,
+      "Buddy-Buddy Poffin": 4,
+      "Dragapult": 2,
+      "Marnie's Grimmsnarl ex": 2,
+      "Team Rocket's Mewtwo": 1,
+      "Acerola's Mischief": 1,
+      "Carmine": 1,
+      "Brock’s Scouting": 1,
+      "Battle Cage": 1
+    },
+    "fez_attach": {
+      "Alakazam": 6,
+      "Team Rocket's Mewtwo": 3,
+      "Buddy-Buddy Poffin": 3,
+      "Marnie's Grimmsnarl ex": 2,
+      "Acerola's Mischief": 1,
+      "Carmine": 1
+    },
+    "fez_attack": {
+      "Team Rocket's Mewtwo": 2
+    }
+  },
+  "dudun": {
+    "locations": {
+      "bench": 46,
+      "active": 44
+    },
+    "deck_bins": {
+      "13+": 82,
+      "9-12": 6,
+      "5-8": 1,
+      "0-4": 1
+    },
+    "hand_bins": {
+      "6-9": 23,
+      "10-12": 21,
+      "0-5": 15,
+      "13+": 31
+    }
+  },
+  "fez_attach": {
+    "source_ids": {
+      "19": 10,
+      "13": 4,
+      "5": 2
+    },
+    "before_energy": {
+      "0": 14,
+      "1": 1,
+      "2": 1
+    }
+  },
+  "fez_attack": {
+    "target_ids": {
+      "414": 2
+    },
+    "target_hp_bins": {
+      "20": 1,
+      "120": 1
+    },
+    "ko_count": 1,
+    "ko_rate": 0.5,
+    "two_prize_ko_proxy_count": 0
+  },
+  "examples": {
+    "low_deck_dudun": [
+      {
+        "episode_id": 88397194,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 11,
+        "deck": 12,
+        "hand": 11,
+        "location": "bench",
+        "own_prizes": 3
+      },
+      {
+        "episode_id": 88400462,
+        "outcome": "win",
+        "matchup": "Buddy-Buddy Poffin",
+        "turn": 10,
+        "deck": 10,
+        "hand": 24,
+        "location": "active",
+        "own_prizes": 3
+      },
+      {
+        "episode_id": 88407840,
+        "outcome": "loss",
+        "matchup": "Buddy-Buddy Poffin",
+        "turn": 16,
+        "deck": 8,
+        "hand": 20,
+        "location": "active",
+        "own_prizes": 2
+      },
+      {
+        "episode_id": 88412067,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 19,
+        "deck": 11,
+        "hand": 4,
+        "location": "bench",
+        "own_prizes": 3
+      },
+      {
+        "episode_id": 88416397,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 16,
+        "deck": 2,
+        "hand": 18,
+        "location": "active",
+        "own_prizes": 3
+      },
+      {
+        "episode_id": 88416917,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 13,
+        "deck": 12,
+        "hand": 6,
+        "location": "active",
+        "own_prizes": 4
+      },
+      {
+        "episode_id": 88428723,
+        "outcome": "loss",
+        "matchup": "Marnie's Grimmsnarl ex",
+        "turn": 8,
+        "deck": 11,
+        "hand": 20,
+        "location": "active",
+        "own_prizes": 6
+      },
+      {
+        "episode_id": 88432533,
+        "outcome": "loss",
+        "matchup": "Buddy-Buddy Poffin",
+        "turn": 11,
+        "deck": 12,
+        "hand": 9,
+        "location": "bench",
+        "own_prizes": 2
+      }
+    ],
+    "fez_attach": [
+      {
+        "episode_id": 88397319,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 8,
+        "deck": 24,
+        "hand": 6,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 5,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88397840,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 12,
+        "deck": 6,
+        "hand": 23,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 4,
+        "opp_prizes": 4,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88398873,
+        "outcome": "win",
+        "matchup": "Team Rocket's Mewtwo",
+        "turn": 5,
+        "deck": 28,
+        "hand": 11,
+        "source_id": 13,
+        "before_energy": 0,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88398873,
+        "outcome": "win",
+        "matchup": "Team Rocket's Mewtwo",
+        "turn": 7,
+        "deck": 15,
+        "hand": 19,
+        "source_id": 19,
+        "before_energy": 1,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88398873,
+        "outcome": "win",
+        "matchup": "Team Rocket's Mewtwo",
+        "turn": 9,
+        "deck": 10,
+        "hand": 20,
+        "source_id": 19,
+        "before_energy": 2,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88400462,
+        "outcome": "win",
+        "matchup": "Buddy-Buddy Poffin",
+        "turn": 6,
+        "deck": 24,
+        "hand": 17,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88402571,
+        "outcome": "loss",
+        "matchup": "Acerola's Mischief",
+        "turn": 19,
+        "deck": 4,
+        "hand": 24,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 4,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88405202,
+        "outcome": "win",
+        "matchup": "Marnie's Grimmsnarl ex",
+        "turn": 3,
+        "deck": 43,
+        "hand": 9,
+        "source_id": 13,
+        "before_energy": 0,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": false
+      },
+      {
+        "episode_id": 88406772,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 15,
+        "deck": 9,
+        "hand": 21,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 1,
+        "opp_prizes": 4,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88407840,
+        "outcome": "loss",
+        "matchup": "Buddy-Buddy Poffin",
+        "turn": 10,
+        "deck": 18,
+        "hand": 15,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 4,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88408377,
+        "outcome": "win",
+        "matchup": "Buddy-Buddy Poffin",
+        "turn": 2,
+        "deck": 43,
+        "hand": 8,
+        "source_id": 13,
+        "before_energy": 0,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": false
+      },
+      {
+        "episode_id": 88408900,
+        "outcome": "win",
+        "matchup": "Carmine",
+        "turn": 6,
+        "deck": 26,
+        "hand": 9,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 6,
+        "opp_prizes": 5,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88409568,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 11,
+        "deck": 16,
+        "hand": 16,
+        "source_id": 5,
+        "before_energy": 0,
+        "own_prizes": 3,
+        "opp_prizes": 5,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88412067,
+        "outcome": "win",
+        "matchup": "Alakazam",
+        "turn": 17,
+        "deck": 12,
+        "hand": 12,
+        "source_id": 5,
+        "before_energy": 0,
+        "own_prizes": 4,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      },
+      {
+        "episode_id": 88417447,
+        "outcome": "loss",
+        "matchup": "Alakazam",
+        "turn": 3,
+        "deck": 41,
+        "hand": 9,
+        "source_id": 13,
+        "before_energy": 0,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": false
+      },
+      {
+        "episode_id": 88421109,
+        "outcome": "loss",
+        "matchup": "Marnie's Grimmsnarl ex",
+        "turn": 5,
+        "deck": 24,
+        "hand": 16,
+        "source_id": 19,
+        "before_energy": 0,
+        "own_prizes": 6,
+        "opp_prizes": 6,
+        "has_ready_alakazam": true
+      }
+    ],
+    "fez_attack": [
+      {
+        "episode_id": 88398873,
+        "outcome": "win",
+        "matchup": "Team Rocket's Mewtwo",
+        "turn": 9,
+        "target_id": 414,
+        "target_hp": 120,
+        "target_max_hp": 120,
+        "ko": false,
+        "deck": 10,
+        "hand": 19
+      },
+      {
+        "episode_id": 88398873,
+        "outcome": "win",
+        "matchup": "Team Rocket's Mewtwo",
+        "turn": 11,
+        "target_id": 414,
+        "target_hp": 20,
+        "target_max_hp": 120,
+        "ko": true,
+        "deck": 9,
+        "hand": 20
+      }
+    ]
+  }
+}
