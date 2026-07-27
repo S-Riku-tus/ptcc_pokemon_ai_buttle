@@ -49,14 +49,16 @@ def _memory_board(policy, *, head):
     return obj, phantump, attack, end, obs
 
 
-def test_goal_v1_deck_is_unchanged_and_ranker_is_removed():
+def test_v17_deck_and_ranker_are_byte_identical_to_v15():
     import hashlib
 
     here = h.Path(__file__).resolve().parent
     assert hashlib.sha256((here / "deck.csv").read_bytes()).hexdigest() == (
         "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe"
     )
-    assert not (here / "ranker_model.json").exists()
+    assert hashlib.sha256((here / "ranker_model.json").read_bytes()).hexdigest() == (
+        "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb"
+    )
 
 
 def test_v22_preserves_unmodified_v20_deck_safety_heads():

@@ -110,7 +110,7 @@ def test_v18_hammer_route_dominates_one_prize_boss():
     assert obj._score_play_trainer(h.Card(policy.C.ENHANCED_HAMMER)) > 45000
 
 
-def test_goal_route_orders_evolution_before_rich_and_dominates_low_prize_boss():
+def test_v18_rich_and_evolution_route_dominates_low_prize_boss():
     policy = h.load_policy()
     policy.diag_reset()
     _mark_mega_as_three_prize(policy)
@@ -164,9 +164,8 @@ def test_goal_route_orders_evolution_before_rich_and_dominates_low_prize_boss():
     assert plan["damage"] == 340
     assert plan["actions"] == frozenset({"enriching", "evolve_alakazam"})
     assert obj._boss_target_score(hariyama) < 0
+    assert obj._score_attach(rich) > 45000
     assert obj._score_evolve(evolve) > 45000
-    assert obj._score_attach(rich) < obj._score_evolve(evolve)
-    assert obj.choose() == [1]
 
 
 def test_v18_dawn_winning_route_dominates_makuhita_boss():

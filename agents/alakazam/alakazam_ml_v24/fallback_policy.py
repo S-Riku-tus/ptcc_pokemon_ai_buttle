@@ -1,9 +1,10 @@
-# alakazam_goal_v1 - deterministic outcome-first planner.
-#
-# Proven v15 tempo and v22 continuity mechanics remain the tactical substrate,
-# but same-turn target/action selection is no longer a contest between unrelated
-# card bonuses.  Legal deterministic routes are enumerated, compared by outcome,
-# and executed in one stable order by goal_planner.py.  No learned model is used.
+# alakazam_ml_v24 - v23 target control + route-complete prize/pivot decisions:
+# Baseline is v23; v24 compares concrete ex KOs and low-deck retreat routes directly.
+# This file remains self-contained for the official Kaggle runtime.
+#   [P0] A legal Boss's Orders that takes the last 2/3 prizes is an absolute action gate.
+#   [P1] Rank every visible opposing Pokemon, then execute the first deterministic KO route.
+#   [P1] Stop optional draw once the chosen route already has the hand needed for its KO.
+# Parent tactical core: v19.
 # Historical core notes:
 # alakazam741_v3 - v2 + 67戦の実ラダーログ全数分析(sub54523210) + ローカルアリーナA/Bに基づく改善:
 #   [P0-1] 致死維持ゲート: 実ログで「致死圏なのに手札消費プレイで圏外に落ちる/攻撃せず
@@ -30,6 +31,7 @@
 # Base: alakazam741_v2 (wmh/ptcg-abc alakazam v3 divergence-mined). Self-contained.
 from __future__ import annotations
 
+import json
 import math
 import os
 import re
@@ -38,13 +40,6 @@ from collections import Counter, defaultdict
 from cg.api import (
     AreaType, Card, CardType, EnergyType, Observation, OptionType, Pokemon,
     SelectContext, all_card_data, all_attack, to_observation_class,
-)
-from goal_planner import (
-    GoalCandidate,
-    choose_development_action,
-    choose_goal,
-    choose_next_action,
-    development_action_score,
 )
 
 
@@ -110,6 +105,7 @@ LOW_DECK_COUNT = 6
 ENERGY_DIG_MIN_PROBABILITY = 0.50
 TERMINAL_BOSS_SCORE = 1_000_000
 BLOCKED_BY_TERMINAL_BOSS_SCORE = -1_000_000
+PRIZE_UPGRADE_BOSS_SCORE = 38_000
 V20_TARGET_ROUTES_ENABLED = os.environ.get(
     "ALAKAZAM_V20_TARGET_ROUTES", "1"
 ) != "0"
@@ -120,6 +116,32 @@ V20_HAND_SURPLUS = max(
     0, int(os.environ.get("ALAKAZAM_V20_HAND_SURPLUS", "5"))
 )
 pre_turn = -1
+
+
+def _load_target_ranker():
+    """Load the small, interpretable Boss-target model; fail closed to pure rules."""
+    candidates = (
+        os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                     "target_ranker_model.json"),
+        "target_ranker_model.json",
+        "/kaggle_simulations/agent/target_ranker_model.json",
+    )
+    for path in candidates:
+        try:
+            if not os.path.exists(path):
+                continue
+            with open(path, encoding="utf-8") as handle:
+                model = json.load(handle)
+            if (model.get("format") == "pairwise_linear_target_ranker_v1"
+                    and len(model.get("feature_names", ()))
+                    == len(model.get("weights", ()))):
+                return model
+        except Exception:
+            continue
+    return None
+
+
+TARGET_RANKER_MODEL = _load_target_ranker()
 
 
 def _diag_template():
@@ -193,13 +215,17 @@ def _diag_template():
         "v22_dunsparce_rebuilds": 0,
         "v22_attack_route_promotions": 0,
         "v22_shield_promotions": 0,
-        "goal_candidates": 0,
-        "goal_routes_selected": 0,
-        "goal_locked_routes": 0,
-        "goal_replans": 0,
-        "goal_prize_upgrade_routes": 0,
-        "goal_grim_pressure_blocks": 0,
-        "goal_ordered_actions": 0,
+        "v23_boss_target_dispatches": 0,
+        "v23_boss_target_ex_selections": 0,
+        "v23_prize_upgrade_opportunities": 0,
+        "v23_prize_upgrade_boss_plays": 0,
+        "v23_target_model_tiebreaks": 0,
+        "v24_ex_ko_upgrade_opportunities": 0,
+        "v24_ex_ko_upgrade_boss_plays": 0,
+        "v24_munk_pressure_blocks": 0,
+        "v24_dudun_pivot_attachments": 0,
+        "v24_dudun_pivot_retreats": 0,
+        "v24_dudun_low_deck_cycles": 0,
     }
 
 
@@ -216,10 +242,8 @@ _V9_STATE = {
     "temporary_immunity_event": None,
     "temporary_immunity_pending": None,
     "articuno_breaker_armed": False,
-    "planned_hammer_target_key": None,
-    "goal_turn": None,
-    "goal_target_key": None,
     "grim_pressure_turn": None,
+    "planned_hammer_target_key": None,
     # Public-information memory only. Card serials remain stable when a visible
     # Mist Energy moves from the field to the discard pile, so this counts
     # distinct copies without peeking at the opponent's hand or deck.
@@ -243,10 +267,8 @@ def diag_reset():
         "temporary_immunity_event": None,
         "temporary_immunity_pending": None,
         "articuno_breaker_armed": False,
-        "planned_hammer_target_key": None,
-        "goal_turn": None,
-        "goal_target_key": None,
         "grim_pressure_turn": None,
+        "planned_hammer_target_key": None,
         "mist_seen_serials": set(),
     })
 
@@ -1574,6 +1596,111 @@ class AlakazamPolicy:
             return AreaType.BENCH
         return None
 
+    def _target_ranker_features(self, target, area=None):
+        """Features shared with the offline pairwise Boss-target study.
+
+        The model is deliberately small and card-ID agnostic. Hard legality,
+        attack prevention, KO reachability, game wins, and prize tiers remain
+        deterministic; this learned score only orders strategically similar
+        targets.
+        """
+        if target is None:
+            return {}
+        area = area or self._target_area(target)
+        data = card_table.get(target.id)
+        prizes = prize_count(target)
+        hp = max(0, int(getattr(target, "hp", 0) or 0))
+        max_hp = max(hp, int(getattr(target, "maxHp", hp) or hp))
+        active = self.me.active[0] if self.me.active else None
+        damage = 0
+        if active is not None and self._can_attack(active):
+            if active.id == C.ALAKAZAM:
+                spend = int(
+                    area == AreaType.BENCH and not self._boss_resolving()
+                )
+                damage = 20 * max(0, self.me.handCount - spend)
+                if self._effect_prevented(target):
+                    damage = 0
+            else:
+                damage = self._active_best_dmg(target)
+        attached = self._energy_count(target)
+        attacks = list(getattr(data, "attacks", None) or []) if data is not None else []
+        costs = [
+            ATTACK_COST.get(attack_id, 99)
+            for attack_id in attacks
+            if attack_id in ATTACK_COST
+        ]
+        skills = list(getattr(data, "skills", None) or []) if data is not None else []
+        skill_text = " ".join(
+            _norm_card_text(getattr(skill, "text", "")) for skill in skills
+        )
+        engine_terms = (
+            "draw ",
+            "draws ",
+            "search your deck",
+            "damage counter",
+            "attach ",
+            "put into your hand",
+        )
+        protection_terms = (
+            "prevent all effects",
+            "prevent all damage",
+            "can't use",
+        )
+        return {
+            "prizes": float(prizes),
+            "wins_game": float(
+                0 < len(self.me.prize) <= prizes and damage >= hp > 0
+            ),
+            "same_turn_ko": float(damage >= hp > 0),
+            "is_ex": float(bool(data is not None and getattr(data, "ex", False))),
+            "is_mega_ex": float(
+                bool(data is not None and getattr(data, "megaEx", False))
+            ),
+            "is_stage1": float(
+                bool(data is not None and getattr(data, "stage1", False))
+            ),
+            "is_stage2": float(
+                bool(data is not None and getattr(data, "stage2", False))
+            ),
+            "energy_count": float(attached),
+            "tool_count": float(len(getattr(target, "tools", None) or [])),
+            "remaining_hp_100": hp / 100.0,
+            "damage_taken_100": max(0, max_hp - hp) / 100.0,
+            "retreat_gap": float(
+                max(
+                    0,
+                    int(getattr(data, "retreatCost", 0) or 0) - attached,
+                )
+                if data is not None
+                else 0
+            ),
+            "attack_ready": float(bool(costs and min(costs) <= attached)),
+            "has_ability": float(bool(skills)),
+            "engine_ability": float(
+                any(term in skill_text for term in engine_terms)
+            ),
+            "protection_ability": float(
+                any(term in skill_text for term in protection_terms)
+            ),
+        }
+
+    def _learned_target_tiebreak(self, target, area=None):
+        model = TARGET_RANKER_MODEL
+        if target is None or model is None:
+            return 0
+        features = self._target_ranker_features(target, area)
+        score = sum(
+            float(weight) * float(features.get(name, 0.0))
+            for name, weight in zip(
+                model.get("feature_names", ()),
+                model.get("weights", ()),
+            )
+        )
+        # The learned signal is a narrow tie-break. Known matchup/role logic from
+        # v22 remains dominant, and one noisy teacher feature cannot overturn it.
+        return max(-800, min(800, int(round(score * 160))))
+
     @staticmethod
     def _attack_hand_required(target):
         """Minimum hand at attack time for 743's 20x Powerful Hand."""
@@ -1605,6 +1732,13 @@ class AlakazamPolicy:
         opponent_remaining = len(self.opponent.prize)
 
         score = self._target_value(target) + prizes * 6000
+        # Preserve v22's successful engine-role ordering, but add one extra
+        # prize-tier step only when the multi-prizer is a concrete same-turn KO.
+        # This addresses "ordinary Active KO versus KO-able benched ex" without
+        # making an unreachable ex dominate a live single-prize engine.
+        ranker_features = self._target_ranker_features(target, area)
+        if prizes >= 2 and ranker_features.get("same_turn_ko", 0.0):
+            score += 6000
         if prizes >= my_remaining:
             score += 100000
         # When behind in the prize race, removing a multi-prizer now matters more.
@@ -1617,6 +1751,7 @@ class AlakazamPolicy:
             score += 900
         # Low remaining HP is a tiebreak only, never a substitute for prize/role value.
         score += max(0, 500 - min(500, int(getattr(target, "hp", 0) or 0)))
+        score += self._learned_target_tiebreak(target, area)
         return score
 
     def _target_priority_list(self):
@@ -1689,20 +1824,19 @@ class AlakazamPolicy:
         return BLOCKED_BY_TERMINAL_BOSS_SCORE
 
     def _active_offered_attack_damage(self, target):
-        """Best real damage to the current Active from an offered attack."""
-        if target is None:
+        """Damage to the current Active from attacks offered in this selection."""
+        active = self.me.active[0] if self.me.active else None
+        if active is None or target is None:
             return 0
-        return max(
-            (
-                self._alakazam_damage(
-                    getattr(option, "attackId", None),
-                    target,
-                )
-                for option in (self.select.option or [])
-                if getattr(option, "type", None) == OptionType.ATTACK
-            ),
-            default=0,
-        )
+        best = 0
+        for option in (self.select.option or []):
+            if getattr(option, "type", None) != OptionType.ATTACK:
+                continue
+            best = max(
+                best,
+                self._alakazam_damage(getattr(option, "attackId", None), target),
+            )
+        return best
 
     def _boss_offered_attack_damage(self, target):
         """Damage after Boss, restricted to attacks actually offered this selection."""
@@ -1723,15 +1857,66 @@ class AlakazamPolicy:
             best = max(best, damage)
         return best
 
-    def _grim_ex_two_hit_pressure(self):
-        """Keep attacking Active Grimmsnarl ex when it is a clean visible two-hit.
+    def _boss_prize_upgrade_targets(self):
+        """Immediate ex/Mega KOs that dominate the currently available Active KO.
 
-        The v23 ladder exposed a recurring regression: a first Powerful Hand
-        already put Grimmsnarl ex on a guaranteed two-attack clock, but a
-        one-prize Boss target released that pressure.  This guard is intentionally
-        matchup-narrow; one-prize engine KOs remain legal when the Active ex is
-        not actually finishable in two visible attacks.
+        v23 required the current Active to be KO-able and exempted high-role
+        single-prize engines.  That left two concrete holes seen in the v23
+        ladder: an un-KO-able Active ex could hide a damaged copy on the Bench,
+        and a KO-able ex could still lose the MAIN comparison to a one-prize
+        engine.  v24 makes the invariant route-based: when Boss produces a real
+        same-turn multi-prize KO and the current Active does not already win or
+        yield at least as many prizes, Boss owns the prize upgrade.
         """
+        if not self._boss_action_available():
+            return []
+        attacker = self.me.active[0] if self.me.active else None
+        if attacker is None or attacker.id != C.ALAKAZAM:
+            return []
+        active = self.opponent.active[0] if self.opponent.active else None
+        if active is None:
+            return []
+        active_damage = self._active_offered_attack_damage(active)
+        active_ko = active_damage >= max(1, int(getattr(active, "hp", 0) or 0))
+        active_prizes = prize_count(active) if active_ko else 0
+        if active_ko and active_prizes >= len(self.me.prize):
+            return []
+        targets = []
+        for target in self.opponent.bench:
+            if target is None:
+                continue
+            prizes = prize_count(target)
+            if prizes < 2 or (active_ko and prizes <= active_prizes):
+                continue
+            damage = self._boss_offered_attack_damage(target)
+            if damage < max(1, int(getattr(target, "hp", 0) or 0)):
+                continue
+            targets.append(target)
+        return sorted(
+            targets,
+            key=lambda target: (
+                -self._target_priority_score(target, AreaType.BENCH),
+                int(getattr(target, "hp", 0) or 0),
+                str(_pokemon_key(target)),
+            ),
+        )
+
+    def _boss_prize_upgrade_gate_score(self, option):
+        targets = self._boss_prize_upgrade_targets()
+        if not targets:
+            return None
+        card = self._main_option_card(option)
+        if (
+                getattr(option, "type", None) == OptionType.PLAY
+                and getattr(card, "id", None) == C.BOSS_ORDERS):
+            return (
+                PRIZE_UPGRADE_BOSS_SCORE
+                + prize_count(targets[0]) * 500
+            )
+        return None
+
+    def _grim_ex_two_hit_pressure(self):
+        """The Active Grimmsnarl ex is already a clean visible two-hit."""
         active = self.opponent.active[0] if self.opponent.active else None
         if (
                 active is None
@@ -1748,8 +1933,28 @@ class AlakazamPolicy:
             and 2 * damage >= getattr(active, "hp", 0)
         )
         if pressured and turn is not None:
+            # Keep the target commitment for the rest of this turn. Otherwise,
+            # playing an Abra or attaching an Energy can lower Powerful Hand
+            # enough to re-enable the exact one-prize Boss route we rejected.
             _V9_STATE["grim_pressure_turn"] = turn
         return pressured
+
+    def _munk_gust_abandons_ex_pressure(self, target):
+        """Do not cash Munkidori when the Active ex is already a clean two-hit.
+
+        This is intentionally narrower than a general ban on one-prize engine
+        KOs.  Current Yushin logs strongly support removing Froslass and other
+        engines, while the reported v23 regression is specifically an early
+        Munkidori gust that releases pressure from Grimmsnarl ex.  If the ex
+        cannot be finished in two visible Powerful Hand attacks, the Munkidori
+        fallback remains legal.
+        """
+        if (
+                target is None
+                or target.id != 112
+                or self._boss_resolving()):
+            return False
+        return self._grim_ex_two_hit_pressure()
 
     def _dudun_ability_options(self):
         options = []
@@ -1879,7 +2084,6 @@ class AlakazamPolicy:
             "required_hand": self._attack_hand_required(target) if target is not None else 0,
             "actions": frozenset(),
             "next_actions": frozenset(),
-            "step_targets": {},
             "action_count": 0,
             "deck_cost": 0,
         }
@@ -1944,7 +2148,6 @@ class AlakazamPolicy:
                     non_boss_actions if non_boss_actions
                     else (frozenset({"boss"}) if needs_boss else frozenset())
                 ),
-                "step_targets": {},
                 "action_count": len(mandatory_actions),
             }
             cache[cache_key] = result
@@ -2003,10 +2206,6 @@ class AlakazamPolicy:
                 continue
             actions = mandatory_actions | {atom["kind"] for atom in chosen}
             non_boss_actions = frozenset(actions - {"boss"})
-            step_targets = defaultdict(list)
-            for atom in chosen:
-                if atom["target"] is not None:
-                    step_targets[atom["kind"]].append(atom["target"])
             action_count = len(chosen) + len(mandatory_actions)
             supporter_cost = sum(int(atom["supporter"]) for atom in chosen)
             overkill = max(0, damage - target.hp)
@@ -2024,10 +2223,6 @@ class AlakazamPolicy:
                         non_boss_actions if non_boss_actions
                         else (frozenset({"boss"}) if needs_boss else frozenset())
                     ),
-                    "step_targets": {
-                        kind: tuple(targets)
-                        for kind, targets in step_targets.items()
-                    },
                     "action_count": action_count,
                     "deck_cost": deck_cost,
                 })
@@ -2041,10 +2236,10 @@ class AlakazamPolicy:
         return self._ko_route_plan(target)
 
     def _chosen_ko_plan(self):
-        """Choose one proven KO goal by outcome, not by unrelated action scores."""
+        """Try targets in strategic order and return the first reachable KO route."""
         if getattr(self, "_chosen_ko_plan_cached", False):
             return getattr(self, "_chosen_ko_plan_cache", None)
-        candidates = []
+        plan = None
         entries = self._target_priority_list()
         if not V20_TARGET_ROUTES_ENABLED:
             entries = [
@@ -2052,53 +2247,20 @@ class AlakazamPolicy:
                 if entry["area"] == AreaType.ACTIVE
             ]
         for entry in entries:
-            target = entry["target"]
             if (
                     entry["area"] == AreaType.BENCH
-                    and prize_count(target) < 2
+                    and prize_count(entry["target"]) < 2
                     and self._grim_ex_two_hit_pressure()
                     and not self._boss_resolving()):
-                _DIAG["goal_grim_pressure_blocks"] += 1
                 continue
-            route = self._ko_route_plan(target)
-            if not route["ko"]:
+            candidate = self._ko_route_plan(entry["target"])
+            if not candidate["ko"]:
                 continue
             plan = {
-                **route,
+                **candidate,
                 "priority": entry["score"],
             }
-            candidates.append(
-                GoalCandidate(
-                    target_key=_pokemon_key(target),
-                    payload=plan,
-                    winning=bool(plan["winning"]),
-                    prizes=prize_count(target),
-                    priority=int(entry["score"]),
-                    action_count=int(plan["action_count"]),
-                    deck_cost=int(plan["deck_cost"]),
-                    needs_boss=bool(plan["needs_boss"]),
-                    is_active=entry["area"] == AreaType.ACTIVE,
-                    damage=int(plan["damage"]),
-                    target_hp=int(getattr(target, "hp", 0) or 0),
-                )
-            )
-        _DIAG["goal_candidates"] += len(candidates)
-        locked_key = None
-        turn = getattr(self.state, "turn", None)
-        if _V9_STATE.get("goal_turn") == turn:
-            locked_key = _V9_STATE.get("goal_target_key")
-        chosen = choose_goal(candidates, locked_target_key=locked_key)
-        plan = chosen.payload if chosen is not None else None
-        if plan is not None:
-            _DIAG["goal_routes_selected"] += 1
-            if locked_key is not None and chosen.target_key == locked_key:
-                _DIAG["goal_locked_routes"] += 1
-            elif locked_key is not None:
-                _DIAG["goal_replans"] += 1
-            active = self.opponent.active[0] if self.opponent.active else None
-            active_prizes = prize_count(active) if active is not None else 0
-            if plan["needs_boss"] and prize_count(plan["target"]) > active_prizes:
-                _DIAG["goal_prize_upgrade_routes"] += 1
+            break
         self._chosen_ko_plan_cache = plan
         self._chosen_ko_plan_cached = True
         return plan
@@ -2119,25 +2281,10 @@ class AlakazamPolicy:
         target = self.opponent.active[0]
         return 47000 + prize_count(target) * 900
 
-    @staticmethod
-    def _route_step_matches(plan, kind, option):
-        targets = plan.get("step_targets", {}).get(kind, ())
-        if not targets or option is None:
-            return True
-        actual = (
-            getattr(option, "inPlayArea", None),
-            getattr(option, "inPlayIndex", None),
-        )
-        return actual in targets
-
-    def _chosen_route_action_score(self, kind, option=None):
+    def _chosen_route_action_score(self, kind):
         plan = self._chosen_ko_plan()
-        if plan is None:
+        if plan is None or kind not in plan["next_actions"]:
             return -1
-        next_action = choose_next_action(plan["next_actions"])
-        if kind != next_action or not self._route_step_matches(plan, kind, option):
-            return -1
-        _DIAG["goal_ordered_actions"] += 1
         if plan["winning"]:
             return 88000
         return 47000 + prize_count(plan["target"]) * 900
@@ -2300,10 +2447,12 @@ class AlakazamPolicy:
         """
         if target is None or (self.state.supporterPlayed and not self._boss_resolving()):
             return -1
+        if self._munk_gust_abandons_ex_pressure(target):
+            return -1
         if (
-                not self._boss_resolving()
-                and prize_count(target) < 2
-                and self._grim_ex_two_hit_pressure()):
+                prize_count(target) < 2
+                and self._grim_ex_two_hit_pressure()
+                and not self._boss_resolving()):
             return -1
         damage = self._boss_damage_after_spend(target)
         if damage <= 0:
@@ -2315,17 +2464,7 @@ class AlakazamPolicy:
             # During Boss's sub-selection, keep every legal KO target comparable by
             # the same prize-race priority instead of reapplying the old anti-waste
             # filters (which could reject the chosen one-prize fallback target).
-            locked = (
-                _V9_STATE.get("goal_target_key")
-                if _V9_STATE.get("goal_turn") == getattr(self.state, "turn", None)
-                else None
-            )
-            locked_bonus = 500000 if _pokemon_key(target) == locked else 0
-            return (
-                3000
-                + locked_bonus
-                + self._target_priority_score(target, AreaType.BENCH)
-            )
+            return 3000 + self._target_priority_score(target, AreaType.BENCH)
 
         active = self.opponent.active[0] if self.opponent.active else None
         effect_lock_escape_ko = self._boss_effect_lock_escape_ko(target, damage)
@@ -2501,6 +2640,21 @@ class AlakazamPolicy:
                     and getattr(selected_card, "id", None) == C.BOSS_ORDERS):
                 _DIAG["terminal_boss_plays"] += 1
 
+        prize_upgrade_targets = self._boss_prize_upgrade_targets()
+        if prize_upgrade_targets:
+            _DIAG["v23_prize_upgrade_opportunities"] += 1
+            _DIAG["v24_ex_ko_upgrade_opportunities"] += 1
+            if (
+                    option.type == OptionType.PLAY
+                    and getattr(selected_card, "id", None) == C.BOSS_ORDERS):
+                _DIAG["v23_prize_upgrade_boss_plays"] += 1
+                _DIAG["v24_ex_ko_upgrade_boss_plays"] += 1
+        if any(
+                pokemon is not None
+                and self._munk_gust_abandons_ex_pressure(pokemon)
+                for pokemon in self.opponent.bench):
+            _DIAG["v24_munk_pressure_blocks"] += 1
+
         route_kind = None
         if selected_dudun:
             route_kind = "dudun"
@@ -2533,11 +2687,6 @@ class AlakazamPolicy:
         chosen_plan = self._chosen_ko_plan()
         if chosen_plan is not None and route_kind in chosen_plan["next_actions"]:
             _DIAG["target_route_plans"] += 1
-            if route_kind == choose_next_action(chosen_plan["next_actions"]):
-                _V9_STATE.update({
-                    "goal_turn": getattr(self.state, "turn", None),
-                    "goal_target_key": _pokemon_key(chosen_plan["target"]),
-                })
             if route_kind == "boss":
                 _DIAG["target_route_boss_actions"] += 1
 
@@ -2570,6 +2719,19 @@ class AlakazamPolicy:
                        if option.type == OptionType.YES
                        else "emergency_energy_draw_declines")
                 _DIAG[key] += 1
+            return
+        if self._boss_resolving():
+            target = get_card(
+                self.obs,
+                getattr(option, "area", getattr(option, "inPlayArea", None)),
+                getattr(option, "index", getattr(option, "inPlayIndex", None)),
+                getattr(option, "playerIndex", self.op_index),
+            )
+            _DIAG["v23_boss_target_dispatches"] += 1
+            if isinstance(target, Pokemon) and prize_count(target) >= 2:
+                _DIAG["v23_boss_target_ex_selections"] += 1
+            if TARGET_RANKER_MODEL is not None:
+                _DIAG["v23_target_model_tiebreaks"] += 1
             return
         if self.context == getattr(SelectContext, "TO_ACTIVE", object()):
             promoted = get_card(
@@ -2664,8 +2826,14 @@ class AlakazamPolicy:
                        else "fez_alternate_attacker_actions")
                 _DIAG[key] += 1
                 _DIAG["fez_energy_investments"] += 1
-            if target is not None and self._support_pivot_ready(target, option.inPlayArea):
+            if (
+                    target is not None
+                    and self._support_pivot_ready(
+                        target, option.inPlayArea, card
+                    )):
                 _DIAG["support_pivot_attach_actions"] += 1
+                if target.id == C.DUDUNSPARCE:
+                    _DIAG["v24_dudun_pivot_attachments"] += 1
             if (target is not None
                     and self._pivot_attach_score(target, option.inPlayArea, card) > 0):
                 _DIAG["pivot_route_attachments"] += 1
@@ -2687,12 +2855,23 @@ class AlakazamPolicy:
                 _DIAG["fez_pivot_conversions"] += 1
             if active is not None and active.id in ONE_ENERGY_PIVOT_IDS:
                 _DIAG["support_pivot_retreat_actions"] += 1
+            if (
+                    active is not None
+                    and active.id == C.DUDUNSPARCE
+                    and self._dudun_retreat_attack_route() is not None):
+                _DIAG["v24_dudun_pivot_retreats"] += 1
             if self._best_pivot_attack_route() is not None:
                 _DIAG["pivot_route_retreats"] += 1
         elif option.type == OptionType.ABILITY:
             ability_user = get_card(self.obs, option.area, option.index, self.my_index)
             if ability_user is not None and ability_user.id == C.FEZANDIPITI_EX:
                 _DIAG["fez_draw_only_actions"] += 1
+            if (
+                    ability_user is not None
+                    and ability_user.id == C.DUDUNSPARCE
+                    and option.area == AreaType.ACTIVE
+                    and self._active_dudun_low_deck_cycle_route() is not None):
+                _DIAG["v24_dudun_low_deck_cycles"] += 1
             if (ability_user is not None and ability_user.id == C.DUDUNSPARCE
                     and option.area == AreaType.BENCH):
                 if self._continuity_draw_needed():
@@ -2763,6 +2942,9 @@ class AlakazamPolicy:
             terminal_boss_score = self._terminal_boss_gate_score(o)
             if terminal_boss_score is not None:
                 return terminal_boss_score
+            prize_upgrade_score = self._boss_prize_upgrade_gate_score(o)
+            if prize_upgrade_score is not None:
+                return prize_upgrade_score
         if (self.context == SelectContext.MAIN
                 and t != OptionType.ATTACK
                 and self._terminal_win_attack_offered()):
@@ -2882,7 +3064,7 @@ class AlakazamPolicy:
                 return -1
             if self._terminal_pivot_win(o):
                 return 88000
-            route_score = self._chosen_route_action_score("dudun", o)
+            route_score = self._chosen_route_action_score("dudun")
             if route_score > 0:
                 return route_score
             if o.area != AreaType.BENCH:
@@ -3230,13 +3412,14 @@ class AlakazamPolicy:
         return False
 
     def _active_dudun_low_deck_cycle_route(self):
-        """Allow the real draw-then-shuffle pivot at one or two deck cards.
+        """Use an Active Dudunsparce as a safe low-deck pivot into a KO.
 
-        Run Away Draw does not simply spend three cards: it draws what remains
-        and then returns Dudunsparce and its attachments to the deck.  The
-        exception is legal only when the resulting hand gives a powered benched
-        Alakazam a concrete same-turn KO.  Deck zero and non-KO cycles stay
-        blocked.
+        Run Away Draw first draws the remaining one or two cards, then shuffles
+        Dudunsparce and its attached cards into the deck.  Treating that as a
+        flat three-card deck cost stranded the Active and caused a deck-out.
+        This exception is deliberately narrow: it requires a powered benched
+        Alakazam and a concrete same-turn KO after the cards actually available
+        to draw.
         """
         active = self.me.active[0] if self.me.active else None
         opponent = self.opponent.active[0] if self.opponent.active else None
@@ -3395,15 +3578,6 @@ class AlakazamPolicy:
             )
             if opp_hand >= 9 and developing >= 2:
                 return 13000
-            if self.hand[C.XEROSIC] >= 2 and opp_hand >= 6:
-                return 11000
-            other_supporter = any(
-                self.hand[card_id] > 0
-                for card_id in (C.HILDA, C.DAWN, C.BOSS_ORDERS)
-            )
-            behind = len(self.me.prize) > len(self.opponent.prize)
-            if behind and opp_hand >= 5 and not other_supporter:
-                return 10200
             return -1              # non-mirror disruption needs a concrete large-hand target
         if cid == C.ENHANCED_HAMMER:
             # Strip Mist/effect-prevention Energy anywhere on the board. A benched
@@ -3417,11 +3591,12 @@ class AlakazamPolicy:
                 return -1
             if self._should_reserve_last_hammer():
                 return -1
-            # Preserve hand damage and future Mist answers. A non-prevention
-            # target is worth a Hammer only when removal stops an immediate
-            # attack (or removes a final HP-granting Energy for a KO).
-            if self._non_mist_hammer_exception():
-                return 9500
+            # otherwise only worth it if the opponent has any Special Energy to remove
+            if any(card_table.get(getattr(e, 'id', None)) is not None
+                   and card_table[e.id].cardType == CardType.SPECIAL_ENERGY
+                   for p in (self.opponent.active + self.opponent.bench) if p is not None
+                   for e in (getattr(p, 'energyCards', None) or [])):
+                return 9500   # Majkel hammers special energy on sight (248x on 7-06)
             return -1
         if cid == C.NIGHTTIME_MINE:
             if not self._nighttime_mine_worthwhile():
@@ -3523,7 +3698,7 @@ class AlakazamPolicy:
             C.KADABRA: "evolve_kadabra",
         }.get(cid)
         if route_kind is not None:
-            route_score = self._chosen_route_action_score(route_kind, o)
+            route_score = self._chosen_route_action_score(route_kind)
             if route_score > 0:
                 return route_score
             if (self._draw_redundant_for_chosen_target(route_kind)
@@ -3545,8 +3720,6 @@ class AlakazamPolicy:
             # even with one Alakazam up, but doesn't stack bench Alakazams.
             have = self.field[C.ALAKAZAM] + self.field[C.ALAKAZAM_PSY]
             if have == 0 or o.inPlayArea == AreaType.ACTIVE:
-                if self._fez_development_competes():
-                    return development_action_score("evolve_alakazam")
                 return 21000
             return 4000
         if cid == C.KADABRA:
@@ -3557,37 +3730,11 @@ class AlakazamPolicy:
             if self._candy_accelerates_first_attack():
                 return 7000 + target_bonus
             if self.hand[C.ALAKAZAM] >= 1 or self.me.handCount <= 4                     or self.field[C.ALAKAZAM] + self.field[C.ALAKAZAM_PSY] == 0:
-                if self._fez_development_competes():
-                    return (
-                        development_action_score("evolve_kadabra")
-                        + target_bonus
-                    )
                 return 20000 + target_bonus
             return 6000 + target_bonus
         if cid == C.DUDUNSPARCE:
-            # The retired ranker mainly helped by taking this safe, recyclable
-            # evolution before benching Fezandipiti ex in the Articuno/Spidops
-            # route.  Keep that useful ordering as an explicit public-state
-            # rule instead of retaining a model for it.
-            development_actions = {
-                "evolve_dudunsparce",
-                "deploy_fezandipiti",
-            }
-            if (
-                    self._fez_development_competes()
-                    and choose_development_action(development_actions)
-                    == "evolve_dudunsparce"):
-                return development_action_score("evolve_dudunsparce")
             return 19000
         return 18000
-
-    def _fez_development_competes(self):
-        """Whether the two-prize breaker is a currently offered development rival."""
-        return bool(
-            self.hand[C.FEZANDIPITI_EX] > 0
-            and self._articuno_breaker_required()
-            and self._fez_bench_worthwhile()
-        )
 
     # ── v2: エンリッチ vs 超エネルギーの貼り分け ──────────────────────────────
     def _need_p_fuel(self):
@@ -3675,7 +3822,12 @@ class AlakazamPolicy:
         return -1
 
     def _dudun_retreat_attack_route(self, source=None):
-        """Attach the final retreat Energy only for a proven Alakazam KO."""
+        """A concrete attach -> retreat -> benched Alakazam KO route.
+
+        Run Away Draw remains the normal Dudunsparce escape.  This route exists
+        only when drawing is unsafe/unnecessary and spending one Energy creates
+        a same-turn KO, so it cannot turn Dudunsparce into a generic Energy sink.
+        """
         active = self.me.active[0] if self.me.active else None
         opponent = self.opponent.active[0] if self.opponent.active else None
         if (
@@ -3702,6 +3854,7 @@ class AlakazamPolicy:
                 hand_adjust = self._guaranteed_hand_delta("normal_attach")
         elif attached < retreat_cost:
             return None
+
         routes = []
         for attacker in self.me.bench:
             if attacker is None or attacker.id not in ALAKAZAM_IDS:
@@ -3718,9 +3871,9 @@ class AlakazamPolicy:
         """A single attachment can turn a stranded Active into a same-turn attack.
 
         v9 correctly escaped Fezandipiti ex, but the ladder logs show the same
-        failure after Shaymin/Dunsparce/Abra/Kadabra promotions. Dudunsparce is
-        admitted only when its full three-Energy retreat cost is met and the
-        retreat produces a concrete KO.
+        failure after Shaymin/Dunsparce/Abra/Kadabra promotions.  Those cards all
+        retreat for one Energy.  Dudunsparce normally uses Run Away Draw, but
+        v24 admits its separate low-deck, same-turn-KO retreat route.
         """
         if (
                 pokemon is not None
@@ -3739,9 +3892,8 @@ class AlakazamPolicy:
         if not self._support_pivot_ready(pokemon, area, source):
             return -1
         if pokemon.id == C.DUDUNSPARCE:
-            return self._pivot_action_score(
-                self._dudun_retreat_attack_route(source)
-            )
+            route = self._dudun_retreat_attack_route(source)
+            return self._pivot_action_score(route)
         # Basic Energy is marginally preferable: Telepath remains a searchable
         # attacker fuel and can force two additional deck pulls in a low-deck game.
         basic_bonus = 100 if getattr(source, "id", None) == C.PSYCHIC_ENERGY else 0
@@ -3754,7 +3906,7 @@ class AlakazamPolicy:
             return 0
         src = get_card(self.obs, AreaType.HAND, o.index, self.my_index)
         if getattr(src, "id", None) == C.ENRICHING_ENERGY:
-            route_score = self._chosen_route_action_score("enriching", o)
+            route_score = self._chosen_route_action_score("enriching")
             if route_score > 0:
                 return route_score
         route_score = self._pivot_attach_score(p, o.inPlayArea, src)
@@ -3939,8 +4091,11 @@ class AlakazamPolicy:
             if d is not None and d.cardType == CardType.SPECIAL_ENERGY:
                 return 300
             return 50
-        # Boss uses SWITCH too, but these are opposing targets rather than our
-        # promotion choices.  Dispatch by effect and ownership first.
+        # Boss's Orders also uses SelectContext.SWITCH, but its candidates are
+        # the OPPONENT'S bench. v22 fell through to _score_active_choice here,
+        # accidentally applying our own Dunsparce/Abra promotion priorities to
+        # an offensive gust. Effect identity and player ownership must be
+        # dispatched before the generic SWITCH branch.
         if (
                 self._boss_resolving()
                 and isinstance(card, Pokemon)
@@ -4421,11 +4576,6 @@ def _update_v9_state(obs):
     if state is None or _V9_STATE["turn"] == getattr(state, "turn", None):
         return
     _V9_STATE["turn"] = getattr(state, "turn", None)
-    _V9_STATE.update({
-        "goal_turn": None,
-        "goal_target_key": None,
-        "grim_pressure_turn": None,
-    })
     me = state.players[state.yourIndex]
     active = me.active[0] if me.active else None
     if active is None or active.id != C.FEZANDIPITI_EX:
@@ -4456,9 +4606,6 @@ def agent(obs_dict):
                 "temporary_immunity_event": None,
                 "temporary_immunity_pending": None,
                 "articuno_breaker_armed": False,
-                "planned_hammer_target_key": None,
-                "goal_turn": None,
-                "goal_target_key": None,
                 "grim_pressure_turn": None,
                 "mist_seen_serials": set(),
             })

@@ -56,11 +56,10 @@ def test_v15_projected_active_ko_does_not_block_immediate_key_role_boss():
     assert obj._boss_target_score(kadabra) > 0
 
 
-def test_goal_v1_runtime_is_deterministic_and_ships_no_ml_artifacts():
-    root = Path(__file__).resolve().parent
+def test_v15_ml_scope_is_narrow_live_and_class_calibrated():
+    source = (Path(__file__).resolve().parent / "ml_runtime.py").read_text(encoding="utf-8")
     main_source = (Path(__file__).resolve().parent / "main.py").read_text(encoding="utf-8")
-    assert not (root / "ml_runtime.py").exists()
-    assert not (root / "ml_features.py").exists()
-    assert not (root / "ranker_model.json").exists()
-    assert "HybridRanker" not in main_source
-    assert "fallback_policy" in main_source
+    assert 'ML_ALLOWED_ACTIONS = {"bench", "evolve"}' in source
+    assert 'ALAKAZAM_ML_V15_ENABLE_OVERRIDE", "1"' in source
+    assert "predicted_action in ML_ALLOWED_ACTIONS" in source
+    assert 'ALAKAZAM_ML_THRESHOLD", "0.37"' in main_source

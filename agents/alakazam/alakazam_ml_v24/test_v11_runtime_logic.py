@@ -601,7 +601,7 @@ def test_v10_shaymin_pivot_pays_one_energy_then_retreats_to_ready_alakazam():
     assert obj._score_retreat() == 16800
 
 
-def test_goal_support_pivot_requires_ready_backup_and_full_dudun_retreat():
+def test_v10_support_pivot_requires_a_ready_backup_and_excludes_dudunsparce():
     policy = load_policy()
     shaymin = Pokemon(policy.C.SHAYMIN, hp=80, maxHp=80)
     unpowered = Pokemon(policy.C.ALAKAZAM, hp=140, maxHp=140)
