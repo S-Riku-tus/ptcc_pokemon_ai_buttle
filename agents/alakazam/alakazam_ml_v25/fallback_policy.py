@@ -1,5 +1,5 @@
-# alakazam_ml_v25 - v24 tactical core + high-ladder continuity invariants:
-# Baseline is v24; v25 fixes Froslass targeting, mirror Fez exposure, and KO promotion.
+# alakazam_ml_v25 - conservative v24 rebuild from two live submissions:
+# Keep v24's action order intact; repair only repeated, directly observed route errors.
 # This file remains self-contained for the official Kaggle runtime.
 #   [P0] A legal Boss's Orders that takes the last 2/3 prizes is an absolute action gate.
 #   [P1] Rank every visible opposing Pokemon, then execute the first deterministic KO route.
@@ -226,10 +226,11 @@ def _diag_template():
         "v24_dudun_pivot_attachments": 0,
         "v24_dudun_pivot_retreats": 0,
         "v24_dudun_low_deck_cycles": 0,
-        "v25_froslass_priority_scores": 0,
-        "v25_mirror_fez_blocks": 0,
-        "v25_mirror_fez_recovery_windows": 0,
-        "v25_line_promotion_scores": 0,
+        "v25_active_prize_dominance_blocks": 0,
+        "v25_arch_pressure_blocks": 0,
+        "v25_froslass_over_munk_routes": 0,
+        "v25_dudun_net_safe_cycles": 0,
+        "v25_dudun_refill_cycles": 0,
     }
 
 
@@ -247,10 +248,8 @@ _V9_STATE = {
     "temporary_immunity_pending": None,
     "articuno_breaker_armed": False,
     "grim_pressure_turn": None,
+    "arch_pressure_turn": None,
     "planned_hammer_target_key": None,
-    # A TO_ACTIVE choice on the opponent's turn means one of our Pokémon was
-    # knocked out. Flip the Script is live on our immediately following turn.
-    "fez_recovery_turn": None,
     # Public-information memory only. Card serials remain stable when a visible
     # Mist Energy moves from the field to the discard pile, so this counts
     # distinct copies without peeking at the opponent's hand or deck.
@@ -275,6 +274,7 @@ def diag_reset():
         "temporary_immunity_pending": None,
         "articuno_breaker_armed": False,
         "grim_pressure_turn": None,
+        "arch_pressure_turn": None,
         "planned_hammer_target_key": None,
         "mist_seen_serials": set(),
     })
@@ -389,11 +389,13 @@ MIST_MEDIUM_SIGNATURE_IDS = {
     1030, 1031,     # Mega Starmie variants sometimes include Mist
 }
 SPIDOPS_SIGNATURE_IDS = {400, 401, 414, 431, 432, 434}
+ARCHALUDON_EX_ID = 190
+CINDERACE_ID = 666
 BOSS_KEY_ROLE_BONUS = {
     ROCKET_ARTICUNO_ID: 7000,  # remove Rocket protection before attacking the core
     FROSLASS_ID: 3600,         # stop repeated Ability damage-counter pressure
     678: 3200,                 # Mega Lucario ex
-    666: 3200,                 # Cinderace pressure attacker
+    CINDERACE_ID: 3200,       # Cinderace pressure attacker
     140: 2600,                 # Fezandipiti ex draw engine / two-prize target
     112: 1800,                 # Munkidori damage-moving engine
     121: 3000,                 # Dragapult ex
@@ -641,6 +643,32 @@ class AlakazamPolicy:
             return True
         return False
 
+    def _dudun_cycle_post_deck(self, pokemon=None):
+        """Visible deck size after Run Away Draw resolves.
+
+        The ability draws up to three cards and then returns Dudunsparce, its
+        Dunsparce, and attached cards.  v24 charged a flat three-card cost, even
+        though an ordinary cycle has net cost one and a zero-card deck is
+        refilled to at least two.  Count only public cards and retain the
+        guaranteed two-card evolution stack as the safety floor.
+        """
+        pokemon = pokemon or self._context_effect_card()
+        draws = min(3, max(0, int(self.me.deckCount)))
+        returned = 1
+        if pokemon is not None and getattr(pokemon, "id", None) == C.DUDUNSPARCE:
+            returned += len(getattr(pokemon, "preEvolution", None) or [])
+            returned += len(getattr(pokemon, "energyCards", None) or [])
+            returned += len(getattr(pokemon, "tools", None) or [])
+        returned = max(2, returned)
+        return max(0, int(self.me.deckCount) - draws + returned)
+
+    def _dudun_cycle_deck_ok(self, pokemon=None):
+        """Run Away Draw is safe when it leaves a normal next-turn draw."""
+        return self._dudun_cycle_post_deck(pokemon) >= 2
+
+    def _dudun_cycle_refills_deck(self, pokemon=None):
+        return self._dudun_cycle_post_deck(pokemon) > int(self.me.deckCount)
+
     def _visible_own_count(self, card_id):
         count = self.hand.get(card_id, 0) + self.discard.get(card_id, 0)
         for pokemon in self._my_board():
@@ -720,10 +748,10 @@ class AlakazamPolicy:
 
     def _activate_draw_ok(self):
         draws = self._activate_draw_count()
-        if (
-                getattr(self._context_effect_card(), "id", None) == C.DUDUNSPARCE
-                and self._active_dudun_low_deck_cycle_route() is not None):
-            return True
+        if getattr(self._context_effect_card(), "id", None) == C.DUDUNSPARCE:
+            if self._active_dudun_low_deck_cycle_route() is not None:
+                return True
+            return self._dudun_cycle_deck_ok(self._context_effect_card())
         return self._emergency_energy_draw(draws) or self._deck_spend_ok(
             cost=draws, allow_lethal=True
         )
@@ -1050,11 +1078,6 @@ class AlakazamPolicy:
         data = card_table.get(active.id) if active is not None else None
         if active is None or data is None or not self._can_attack(active):
             return False
-        # Powerful Hand reports zero printed damage because it places counters.
-        # The old generic check therefore treated Fezandipiti as safe in the
-        # mirror even when the opposing hand already exposed a 210+ counter KO.
-        if active.id == C.ALAKAZAM:
-            return 20 * int(getattr(self.opponent, "handCount", 0) or 0) >= 210
         base_damage = max(
             (int(getattr(ATTACK_TABLE.get(aid), "damage", 0) or 0)
              for aid in (data.attacks or [])),
@@ -1074,19 +1097,6 @@ class AlakazamPolicy:
         if remaining <= 2:
             return True
         return remaining <= 4 and self._opponent_can_ko_fez_next_turn()
-
-    def _opponent_is_alakazam_mirror(self):
-        return any(
-            pokemon is not None
-            and pokemon.id in (C.ABRA, C.KADABRA, C.ALAKAZAM, C.ALAKAZAM_PSY)
-            for pokemon in (self.opponent.active + self.opponent.bench)
-        )
-
-    def _fez_recovery_available_this_turn(self):
-        return (
-            getattr(self.state, "turn", None)
-            == _V9_STATE.get("fez_recovery_turn")
-        )
 
     def _fez_alternate_matchup(self):
         visible = self._visible_opponent_ids()
@@ -1137,21 +1147,6 @@ class AlakazamPolicy:
             return False
         if self._articuno_breaker_mode():
             return True
-        # Yushin's 242 mirror games expose Fez almost exclusively after a KO:
-        # 38/47 mirror bench plays immediately use Flip the Script. v24 did the
-        # reverse (3/11), giving the opposing Alakazam a 2-prize Boss target
-        # without receiving the compensating draw. Keep an only-body survival
-        # exception, but otherwise require the real recovery window.
-        if (
-                self._opponent_is_alakazam_mirror()
-                and self._board_body_count() > 1
-                and not self._fez_recovery_available_this_turn()):
-            _DIAG["v25_mirror_fez_blocks"] += 1
-            return False
-        if (
-                self._opponent_is_alakazam_mirror()
-                and self._fez_recovery_available_this_turn()):
-            _DIAG["v25_mirror_fez_recovery_windows"] += 1
         if self._fez_mode(for_bench=True) == "DO_NOT_BENCH":
             return False
         if self._board_body_count() <= 1:
@@ -1925,6 +1920,8 @@ class AlakazamPolicy:
         for target in self.opponent.bench:
             if target is None:
                 continue
+            if self._cinderace_gust_abandons_arch_pressure(target):
+                continue
             prizes = prize_count(target)
             if prizes < 2 or (active_ko and prizes <= active_prizes):
                 continue
@@ -1996,6 +1993,44 @@ class AlakazamPolicy:
             return False
         return self._grim_ex_two_hit_pressure()
 
+    def _arch_ex_two_hit_pressure(self):
+        """The Active Archaludon ex is already a clean visible two-hit."""
+        active = self.opponent.active[0] if self.opponent.active else None
+        if (
+                active is None
+                or active.id != ARCHALUDON_EX_ID
+                or prize_count(active) < 2
+                or self._effect_prevented(active)):
+            return False
+        turn = getattr(self.state, "turn", None)
+        if turn is not None and _V9_STATE.get("arch_pressure_turn") == turn:
+            return True
+        damage = self._active_offered_attack_damage(active)
+        pressured = bool(
+            0 < damage < getattr(active, "hp", 0)
+            and 2 * damage >= getattr(active, "hp", 0)
+        )
+        if pressured and turn is not None:
+            _V9_STATE["arch_pressure_turn"] = turn
+        return pressured
+
+    def _cinderace_gust_abandons_arch_pressure(self, target):
+        """Do not release a clean Archaludon route merely to cash Cinderace."""
+        active = self.opponent.active[0] if self.opponent.active else None
+        if (
+                target is None
+                or target.id != CINDERACE_ID
+                or active is None
+                or active.id != ARCHALUDON_EX_ID):
+            return False
+        damage = self._active_offered_attack_damage(active)
+        active_ko = damage >= max(1, int(getattr(active, "hp", 0) or 0))
+        active_wins = active_ko and prize_count(active) >= len(self.me.prize)
+        target_wins = prize_count(target) >= len(self.me.prize)
+        if target_wins and not active_wins:
+            return False
+        return active_ko or self._arch_ex_two_hit_pressure()
+
     def _dudun_ability_options(self):
         options = []
         for option in (self.select.option or []):
@@ -2019,7 +2054,8 @@ class AlakazamPolicy:
             atoms.append({
                 "kind": "dudun",
                 "delta": self._guaranteed_hand_delta("dudun"),
-                "deck": 3,
+                # Draw three, then return the two-card evolution stack.
+                "deck": 1,
                 "supporter": False,
                 "target": None,
                 "identity": ("dudun", number),
@@ -2365,23 +2401,13 @@ class AlakazamPolicy:
         if p is None:
             return 0
         bonus = BOSS_KEY_ROLE_BONUS.get(p.id, 0)
-        visible_ids = self._visible_opponent_ids()
-        if p.id == FROSLASS_ID and visible_ids & {
-                112, 647, GRIMMSNARL_EX_ID}:
-            # Freezing Shroud creates counters every turn and enables both
-            # Munkidori and the Grimmsnarl prize race. In Yushin's 449 games the
-            # Boss split is Froslass 346 vs Munkidori 11; v24's energy bonus
-            # inverted that split to 1 vs 10 in its own 12-game sample.
-            _DIAG["v25_froslass_priority_scores"] += 1
-        if p.id == 112 and visible_ids & {647, GRIMMSNARL_EX_ID}:
-            # A powered Munkidori remains the fallback engine target only after
-            # Froslass is absent. While both are visible, remove the repeatable
-            # source of counters first.
-            bonus += (
-                600 + 2500 * int(self._energy_count(p) > 0)
-                if FROSLASS_ID not in visible_ids
-                else 0
-            )
+        if (p.id == 112 and not self._opp_has_froslass()
+                and self._visible_opponent_ids() & {647, GRIMMSNARL_EX_ID}):
+            # Adrena-Brain is the prize-race engine in Grimmsnarl/Froslass boards.
+            # With no live Froslass, an online Munkidori remains a high-value target.
+            # When Froslass is live, keep its repeated spread pressure above the
+            # one-shot Munkidori route (Majkel 65:9, Yushin 346:11).
+            bonus += 600 + 2500 * int(self._energy_count(p) > 0)
         if p.id in GLOBAL_EFFECT_PROTECTORS:
             bonus = max(bonus, 6500)
         if self._rocket_evolution_escape_target(p):
@@ -2500,10 +2526,20 @@ class AlakazamPolicy:
             return -1
         if self._munk_gust_abandons_ex_pressure(target):
             return -1
+        if self._cinderace_gust_abandons_arch_pressure(target):
+            _DIAG["v25_arch_pressure_blocks"] += 1
+            return -1
         if (
                 prize_count(target) < 2
                 and self._grim_ex_two_hit_pressure()
                 and not self._boss_resolving()):
+            return -1
+        active = self.opponent.active[0] if self.opponent.active else None
+        if (
+                self._arch_ex_two_hit_pressure()
+                and active is not None
+                and prize_count(target) < prize_count(active)
+                and prize_count(target) < len(self.me.prize)):
             return -1
         damage = self._boss_damage_after_spend(target)
         if damage <= 0:
@@ -2517,7 +2553,6 @@ class AlakazamPolicy:
             # filters (which could reject the chosen one-prize fallback target).
             return 3000 + self._target_priority_score(target, AreaType.BENCH)
 
-        active = self.opponent.active[0] if self.opponent.active else None
         effect_lock_escape_ko = self._boss_effect_lock_escape_ko(target, damage)
         active_damage_without_boss = self._active_best_dmg(active) if active is not None else 0
         active_ko = bool(active is not None and active_damage_without_boss >= active.hp)
@@ -2554,8 +2589,9 @@ class AlakazamPolicy:
                 return -1
             if not winning:
                 role_upgrade = target_role >= active_role + 1500
-                if target_prizes < active_prizes and not role_upgrade:
+                if target_prizes < active_prizes:
                     _DIAG["boss_active_ko_dominance_blocks"] += 1
+                    _DIAG["v25_active_prize_dominance_blocks"] += 1
                     return -1
                 if target_value < active_value + 700 and not role_upgrade:
                     _DIAG["boss_active_ko_dominance_blocks"] += 1
@@ -2668,7 +2704,7 @@ class AlakazamPolicy:
             elif (active is not None and active.id == C.DUDUNSPARCE
                   and not any(pokemon is not None for pokemon in self.me.bench)):
                 _DIAG["dudun_block_no_bench"] += 1
-            elif (not self._deck_spend_ok(cost=3)
+            elif (not self._dudun_cycle_deck_ok()
                   and not self._emergency_energy_draw(3)):
                 _DIAG["dudun_block_deck_floor"] += 1
             else:
@@ -2680,6 +2716,15 @@ class AlakazamPolicy:
         elif selected_dudun and self._terminal_pivot_win(option):
             _DIAG["dudun_used_for_terminal_pivot"] += 1
             _DIAG["terminal_pivot_abilities"] += 1
+        if selected_dudun:
+            selected_engine = get_card(
+                self.obs, option.area, option.index, self.my_index
+            )
+            if (not self._deck_spend_ok(cost=3)
+                    and self._dudun_cycle_deck_ok(selected_engine)):
+                _DIAG["v25_dudun_net_safe_cycles"] += 1
+            if self._dudun_cycle_refills_deck(selected_engine):
+                _DIAG["v25_dudun_refill_cycles"] += 1
 
         if option.type == OptionType.ATTACK and self._terminal_win_attack_offered():
             _DIAG["terminal_win_attack_gates"] += 1
@@ -2781,6 +2826,16 @@ class AlakazamPolicy:
             _DIAG["v23_boss_target_dispatches"] += 1
             if isinstance(target, Pokemon) and prize_count(target) >= 2:
                 _DIAG["v23_boss_target_ex_selections"] += 1
+            if (
+                    isinstance(target, Pokemon)
+                    and target.id == FROSLASS_ID
+                    and any(
+                        pokemon is not None
+                        and pokemon.id == 112
+                        and self._energy_count(pokemon) > 0
+                        for pokemon in self.opponent.bench
+                    )):
+                _DIAG["v25_froslass_over_munk_routes"] += 1
             if TARGET_RANKER_MODEL is not None:
                 _DIAG["v23_target_model_tiebreaks"] += 1
             return
@@ -2993,6 +3048,15 @@ class AlakazamPolicy:
             terminal_boss_score = self._terminal_boss_gate_score(o)
             if terminal_boss_score is not None:
                 return terminal_boss_score
+            # The v24 ladder repeatedly spent Boss on Cinderace (and then, once
+            # that target was filtered, another one-prizer) while an Active
+            # Archaludon ex was already a clean two-hit.  Make the commitment
+            # action-level so target fallback cannot reopen the same mistake.
+            if (
+                    t == OptionType.PLAY
+                    and getattr(self._main_option_card(o), "id", None) == C.BOSS_ORDERS
+                    and self._arch_ex_two_hit_pressure()):
+                return -1
             prize_upgrade_score = self._boss_prize_upgrade_gate_score(o)
             if prize_upgrade_score is not None:
                 return prize_upgrade_score
@@ -3111,8 +3175,9 @@ class AlakazamPolicy:
                 return self._pivot_action_score(low_deck_route)
             # Run Away Draw: draw 3 + shuffle this Pokémon back into the deck.
             # v2: 固定フロア(7)→動的フロア(残サイド連動)。致死に届くドローだけ例外。
-            if not self._deck_spend_ok(cost=3) and not self._emergency_energy_draw(3):
+            if not self._dudun_cycle_deck_ok(card) and not self._emergency_energy_draw(3):
                 return -1
+            refills_deck = self._dudun_cycle_refills_deck(card)
             if self._terminal_pivot_win(o):
                 return 88000
             route_score = self._chosen_route_action_score("dudun")
@@ -3133,16 +3198,17 @@ class AlakazamPolicy:
             # drawing aggressively (big hand = big Powerful Hand) — blanket deck-out guards
             # regressed cabt — so we draw, EXCEPT: when we already have a winning hand and the
             # deck is low, stop filtering ourselves out of a won game (real-ladder bug).
-            if self._deck_preserve():
+            if self._deck_preserve() and not refills_deck:
                 return -1
             # v22: a secured KO is not enough by itself; keep cycling if no public
             # replacement attacker exists.  Conversely, when both current attack
             # and one-turn backup are secured, stop surplus hand growth.
             continuity_needed = self._continuity_draw_needed()
             if (self._draw_redundant_for_chosen_target("dudun")
-                    and not continuity_needed):
+                    and not continuity_needed and not refills_deck):
                 return -1
-            if self._dudun_draw_satisfied() and not continuity_needed:
+            if (self._dudun_draw_satisfied()
+                    and not continuity_needed and not refills_deck):
                 return -1
             # NB: top pilots activate Run Away Draw ~1/4 as often as we did (MAIN ABILITY 163 vs
             # our 622) — but a blunt hand-cap gave ~0 divergence gain here and risks the documented
@@ -3150,7 +3216,8 @@ class AlakazamPolicy:
             # and leave "draw less" as a separate real-ladder A/B. Only the high-hand floor stays.
             # v3 P0-2: 高手札×低山札ガードを強化(14/12→12/14)。手札12枚=240ダメは
             # 既にワンパン圏。これ以上の圧縮はデッキ切れリスクだけが増える。
-            if self.me.handCount >= 12 and self.me.deckCount <= 14:
+            if (self.me.handCount >= 12 and self.me.deckCount <= 14
+                    and not refills_deck):
                 return -1
             if continuity_needed:
                 return 20500
@@ -3306,7 +3373,7 @@ class AlakazamPolicy:
         """Use Dudunsparce to find the *next* attacker, not merely a larger hand."""
         if self._backup_eta() <= 1:
             return False
-        if not self._deck_spend_ok(cost=3) and not self._emergency_energy_draw(3):
+        if not self._dudun_cycle_deck_ok() and not self._emergency_energy_draw(3):
             return False
         # Once the opponent is on its last prize, a speculative shuffle/draw is
         # too slow unless it is also a same-turn KO route (handled before this).
@@ -4266,15 +4333,7 @@ class AlakazamPolicy:
         return False
 
     def _score_ko_promotion(self, card):
-        """Attack route first; otherwise preserve the shortest attack-line ETA.
-
-        v22/v24 dropped an unfuelled evolution line below Dunsparce. On the
-        Yushin corpus that makes the local policy over-promote Dunsparce while
-        the teacher keeps Kadabra/Alakazam active even when the next attack is
-        not already deterministic. The line can turn any next Energy/evolution
-        draw into pressure; a shield cannot. Dunsparce remains above a truly
-        naked Abra and all two-prize liabilities.
-        """
+        """Attack route first; otherwise expose a recyclable single-prize shield."""
         if self._promotion_attacks_next_turn(card):
             if card.id in ALAKAZAM_IDS:
                 return 20000 + 500 * int(self._can_attack(card))
@@ -4283,21 +4342,6 @@ class AlakazamPolicy:
             if card.id == C.ABRA:
                 return 16500
             return 14500
-        if card.id in ALAKAZAM_IDS:
-            _DIAG["v25_line_promotion_scores"] += 1
-            return 12600
-        if card.id == C.KADABRA:
-            _DIAG["v25_line_promotion_scores"] += 1
-            return 11200
-        if card.id == C.ABRA:
-            has_bridge = bool(
-                self.hand[C.KADABRA]
-                or (self.hand[C.RARE_CANDY] and self.hand[C.ALAKAZAM])
-            )
-            if has_bridge:
-                _DIAG["v25_line_promotion_scores"] += 1
-                return 10200
-            return 7800
         if card.id == C.DUNSPARCE:
             return 9000
         if card.id == C.DUDUNSPARCE:
@@ -4308,6 +4352,10 @@ class AlakazamPolicy:
                 and not self._opponent_can_ko_target_next_turn(card)
             )
             return 7000 if safe_early else -2000
+        if card.id == C.KADABRA:
+            return 2300
+        if card.id == C.ABRA:
+            return 1300
         return 3000 + getattr(card, "hp", 0) // 20
 
     def _score_end_turn_switch_choice(self, card):
@@ -4638,34 +4686,10 @@ def _remember_temporary_attack_immunity(obs):
         _V9_STATE["temporary_immunity_pending"] = None
 
 
-def _remember_fez_recovery_window(obs):
-    """Remember the one turn on which Flip the Script can actually be used."""
-    state = getattr(obs, "current", None)
-    selection = getattr(obs, "select", None)
-    if state is None or selection is None:
-        return
-    turn = getattr(state, "turn", None)
-    if (
-            getattr(selection, "context", None)
-            == getattr(SelectContext, "TO_ACTIVE", object())
-            and turn is not None):
-        # This agent is choosing a replacement after its own Active was KO'd
-        # during the opposing turn. Its next MAIN turn is the following number.
-        _V9_STATE["fez_recovery_turn"] = turn + 1
-        return
-    recovery_turn = _V9_STATE.get("fez_recovery_turn")
-    if (
-            recovery_turn is not None
-            and turn is not None
-            and turn > recovery_turn):
-        _V9_STATE["fez_recovery_turn"] = None
-
-
 def _update_v9_state(obs):
     _remember_visible_mist(obs)
     _remember_attack_disable(obs)
     _remember_temporary_attack_immunity(obs)
-    _remember_fez_recovery_window(obs)
     state = getattr(obs, "current", None)
     if state is None or _V9_STATE["turn"] == getattr(state, "turn", None):
         return
@@ -4701,7 +4725,7 @@ def agent(obs_dict):
                 "temporary_immunity_pending": None,
                 "articuno_breaker_armed": False,
                 "grim_pressure_turn": None,
-                "fez_recovery_turn": None,
+                "arch_pressure_turn": None,
                 "mist_seen_serials": set(),
             })
             _DIAG["deck_returns"] += 1

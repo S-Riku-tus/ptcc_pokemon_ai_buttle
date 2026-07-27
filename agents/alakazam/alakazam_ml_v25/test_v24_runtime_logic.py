@@ -166,7 +166,7 @@ def test_v24_active_dudunsparce_cycles_last_two_cards_into_alakazam_ko():
     assert obj._activate_draw_ok()
 
 
-def test_v24_active_dudunsparce_does_not_cycle_an_empty_deck():
+def test_v25_active_dudunsparce_refills_an_empty_deck():
     policy = h.load_policy()
     ability = _option(
         h.OptionType.ABILITY,
@@ -187,8 +187,9 @@ def test_v24_active_dudunsparce_does_not_cycle_an_empty_deck():
     obj.me.deckCount = 0
 
     assert obj._active_dudun_low_deck_cycle_route() is None
-    assert obj._score_ability(ability) < 0
-    assert obj.choose() == [1]
+    assert obj._dudun_cycle_post_deck(obj.me.active[0]) == 2
+    assert obj._score_ability(ability) > 0
+    assert obj.choose() == [0]
 
 
 def test_v24_can_attach_third_energy_then_retreat_dudunsparce_for_ko():

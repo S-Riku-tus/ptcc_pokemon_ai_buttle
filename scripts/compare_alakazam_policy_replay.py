@@ -130,6 +130,8 @@ def main() -> int:
     changed_contexts: Counter[str] = Counter()
     changed_context_teacher: dict[str, Counter[str]] = defaultdict(Counter)
     changed_pair_teacher: dict[str, Counter[str]] = defaultdict(Counter)
+    changed_episode_outcomes: Counter[str] = Counter()
+    changed_decision_outcomes: Counter[str] = Counter()
     examples: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
     replay_paths = sorted((run_dir / "episodes").glob("*/replay/*.json"))
@@ -144,6 +146,20 @@ def main() -> int:
         candidate({"select": None})
         replay = json.loads(replay_path.read_text(encoding="utf-8"))
         steps = replay.get("steps") or []
+        final = steps[-1] if steps else []
+        own_reward = final[seat].get("reward") if seat < len(final) else None
+        other_reward = (
+            final[1 - seat].get("reward") if 1 - seat < len(final) else None
+        )
+        if own_reward is None or other_reward is None:
+            episode_outcome = "unknown"
+        elif own_reward > other_reward:
+            episode_outcome = "win"
+        elif own_reward < other_reward:
+            episode_outcome = "loss"
+        else:
+            episode_outcome = "draw"
+        episode_changes = 0
         for step_index, step in enumerate(steps[:-1]):
             record = step[seat] if seat < len(step) else {}
             obs = (record or {}).get("observation") or {}
@@ -168,6 +184,8 @@ def main() -> int:
             semantic += int(base_label == cand_label)
             if base_label == cand_label:
                 continue
+            episode_changes += 1
+            changed_decision_outcomes[episode_outcome] += 1
             context = _context(obs)
             context_key = str(context)
             key = f"{context}: {base_label} -> {cand_label}"
@@ -214,6 +232,8 @@ def main() -> int:
                         **ranked_scores,
                     }
                 )
+        if episode_changes:
+            changed_episode_outcomes[episode_outcome] += 1
 
     top_pairs = changed_pairs.most_common(40)
 
@@ -259,6 +279,8 @@ def main() -> int:
             else None
         ),
         "changed_contexts": dict(changed_contexts.most_common()),
+        "changed_episode_outcomes": dict(changed_episode_outcomes),
+        "changed_decision_outcomes": dict(changed_decision_outcomes),
         "changed_context_teacher": {
             key: teacher_stats(changed_context_teacher[key])
             for key, _ in changed_contexts.most_common()

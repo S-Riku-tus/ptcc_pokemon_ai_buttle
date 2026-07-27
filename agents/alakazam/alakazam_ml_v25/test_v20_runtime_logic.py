@@ -286,7 +286,7 @@ def test_v20_boss_route_reserves_supporter_and_uses_non_supporter_draw():
     assert obj.choose() == [2]
 
 
-def test_v20_route_tiebreak_prefers_less_overkill_at_equal_action_and_deck_cost():
+def test_v25_route_tiebreak_uses_dudun_net_deck_cost():
     policy = h.load_policy()
     dudun = h.Pokemon(policy.C.DUDUNSPARCE, serial=121)
     kadabra = h.Pokemon(policy.C.KADABRA, serial=122)
@@ -308,8 +308,11 @@ def test_v20_route_tiebreak_prefers_less_overkill_at_equal_action_and_deck_cost(
     )
 
     plan = obj._active_route_plan()
-    assert plan["actions"] == frozenset({"evolve_alakazam"})
-    assert plan["damage"] == 220
+    # Run Away Draw spends one net deck card (draw three, return the
+    # Dudunsparce evolution stack), while evolving Alakazam draws three without
+    # returning a stack.  The routes no longer have equal deck cost.
+    assert plan["actions"] == frozenset({"dudun"})
+    assert plan["damage"] == 240
 
 
 def test_v20_hammer_route_binds_selection_to_the_planned_bench_target():

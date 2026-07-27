@@ -187,7 +187,7 @@ def test_v22_post_ko_promotes_attack_route_before_recyclable_shield():
     assert obj._score_ko_promotion(abra) > obj._score_ko_promotion(dunsparce)
 
 
-def test_v25_post_ko_keeps_kadabra_route_even_before_energy_is_visible():
+def test_v22_post_ko_uses_shield_when_evolution_line_cannot_attack():
     policy = h.load_policy()
     obj = h.bare_policy(policy, opp_active=h.Pokemon(9000, hp=200, playerIndex=1))
     obj.context = h.SelectContext.TO_ACTIVE
@@ -196,8 +196,8 @@ def test_v25_post_ko_keeps_kadabra_route_even_before_energy_is_visible():
     kadabra = h.Pokemon(policy.C.KADABRA, serial=72)
 
     assert not obj._promotion_attacks_next_turn(kadabra)
-    assert obj._score_ko_promotion(kadabra) > obj._score_ko_promotion(dunsparce)
     assert obj._score_ko_promotion(dunsparce) > obj._score_ko_promotion(dudun)
+    assert obj._score_ko_promotion(dudun) > obj._score_ko_promotion(kadabra)
 
 
 def test_v22_abra_end_turn_switch_preserves_the_evolution_line():
