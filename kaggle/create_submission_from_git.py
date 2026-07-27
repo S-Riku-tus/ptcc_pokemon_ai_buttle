@@ -8,6 +8,7 @@ Builds one submission_<agent>.tar.gz per active agent in AGENTS.
 
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import sys
@@ -77,6 +78,11 @@ def main() -> None:
     if REPO_DIR.exists():
         shutil.rmtree(REPO_DIR)
 
+    # The submission archive never contains LFS payloads (build_submission.py
+    # forbids models/*.joblib/*.csv/*.gz/*.zip), so skip the smudge filter.
+    # Without this, cloning downloads ~4GB of LFS objects and blows the
+    # repository's LFS bandwidth budget.
+    env = {**os.environ, "GIT_LFS_SKIP_SMUDGE": "1"}
     subprocess.run(
         [
             "git",
@@ -89,6 +95,7 @@ def main() -> None:
             str(REPO_DIR),
         ],
         check=True,
+        env=env,
     )
 
     cg_source = locate_cg()
