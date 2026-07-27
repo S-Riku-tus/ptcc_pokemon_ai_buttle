@@ -50,6 +50,15 @@ data/ml/alakazam_ml_v7_candidate/processed/
 data/ml/alakazam_ml_v8_candidate/processed/
 data/ml/alakazam_v4_candidate/processed.zip
 
+# Own submission run archives default to local-only: each one is 5-200MB of
+# LFS payload. The three most recent are already tracked and stay tracked
+# (.gitignore does not untrack). To share a new one deliberately:
+#   git add -f data/runs/alakazam/<archive>.zip
+data/runs/alakazam/
+
+# Scratch space for ad-hoc analysis runs
+/.tmp/
+
 # OS / editors
 .DS_Store
 Thumbs.db
