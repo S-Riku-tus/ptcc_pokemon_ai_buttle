@@ -37,6 +37,19 @@ data/ml/**/processed/.dataset_parts/
 # Kaggle result logs and analysis outputs are kept in Git.
 # Large replay archives are routed through Git LFS by .gitattributes.
 
+# Bulk battle logs and superseded training data. These blew past the GitHub
+# LFS budget (4GB) and nothing in the repo reads them, so they live on local
+# disk only. Regenerate replays by re-running the ladder; regenerate the
+# processed matrices from the raw replays.
+data/runs/leaderboard_top50/
+data/runs/local_self_play/
+data/ml/alakazam_ml_v5/processed/
+data/ml/alakazam_ml_v6/processed/
+data/ml/alakazam_ml_v7/processed/
+data/ml/alakazam_ml_v7_candidate/processed/
+data/ml/alakazam_ml_v8_candidate/processed/
+data/ml/alakazam_v4_candidate/processed.zip
+
 # OS / editors
 .DS_Store
 Thumbs.db
