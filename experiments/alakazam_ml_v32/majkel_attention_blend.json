@@ -1,0 +1,27 @@
+{
+  "attention_model": {
+    "validation_top1": 0.7803683842387503,
+    "test_top1": 0.7483782435129741
+  },
+  "model_order": [
+    "large",
+    "numeric",
+    "deepset",
+    "history_deepset",
+    "set_attention"
+  ],
+  "selected_weights": [
+    1.0,
+    0.55,
+    0.6000000000000001,
+    1.1,
+    0.0
+  ],
+  "validation_top1": 0.8015854511541152,
+  "test_top1": 0.7715818363273453,
+  "validation_oracle_any_model": 0.8929820470972255,
+  "test_oracle_any_model": 0.8701347305389222,
+  "previous_v32_blend_test_top1": 0.7708333333333334,
+  "target_top1": 0.9,
+  "target_met": false
+}

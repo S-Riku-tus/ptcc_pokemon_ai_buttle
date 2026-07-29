@@ -1,0 +1,64 @@
+{
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305"
+  ],
+  "experiments": [
+    {
+      "threshold": 2,
+      "validation_top1": 0.8001190948789202,
+      "validation_consensus_usage": 1.0,
+      "test_top1": 0.7989376130198915,
+      "test_consensus_usage": 1.0
+    },
+    {
+      "threshold": 3,
+      "validation_top1": 0.7999206034140532,
+      "validation_consensus_usage": 0.9906709011512504,
+      "test_top1": 0.7991636528028933,
+      "test_consensus_usage": 0.9882459312839059
+    },
+    {
+      "threshold": 4,
+      "validation_top1": 0.8019055180627233,
+      "validation_consensus_usage": 0.9128622469233822,
+      "test_top1": 0.7999547920433996,
+      "test_consensus_usage": 0.9090189873417721
+    },
+    {
+      "threshold": 5,
+      "validation_top1": 0.8021040095275903,
+      "validation_consensus_usage": 0.8042874156411274,
+      "test_top1": 0.8007459312839059,
+      "test_consensus_usage": 0.7870705244122965
+    },
+    {
+      "threshold": 6,
+      "validation_top1": 0.8021040095275903,
+      "validation_consensus_usage": 0.6601826121476776,
+      "test_top1": 0.8011980108499096,
+      "test_consensus_usage": 0.6517857142857143
+    },
+    {
+      "threshold": 7,
+      "validation_top1": 0.8021040095275903,
+      "validation_consensus_usage": 0.0,
+      "test_top1": 0.8011980108499096,
+      "test_consensus_usage": 0.0
+    }
+  ],
+  "selected_on_validation": {
+    "threshold": 7,
+    "validation_top1": 0.8021040095275903,
+    "validation_consensus_usage": 0.0,
+    "test_top1": 0.8011980108499096,
+    "test_consensus_usage": 0.0
+  },
+  "reference_test_top1": 0.8011980108499096,
+  "target_top1": 0.9,
+  "target_met": false
+}

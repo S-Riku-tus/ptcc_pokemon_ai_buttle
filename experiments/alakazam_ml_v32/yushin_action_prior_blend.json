@@ -1,0 +1,48 @@
+{
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305"
+  ],
+  "base_validation_top1": 0.8021040095275903,
+  "base_test_top1": 0.8011980108499096,
+  "experiments": [
+    {
+      "leaves": 63,
+      "minimum": 30,
+      "best_iteration": 434,
+      "alpha": 0.0,
+      "validation_top1": 0.8021040095275903,
+      "test_top1": 0.8011980108499096
+    },
+    {
+      "leaves": 127,
+      "minimum": 25,
+      "best_iteration": 327,
+      "alpha": 0.0,
+      "validation_top1": 0.8021040095275903,
+      "test_top1": 0.8011980108499096
+    },
+    {
+      "leaves": 255,
+      "minimum": 20,
+      "best_iteration": 318,
+      "alpha": 0.0,
+      "validation_top1": 0.8021040095275903,
+      "test_top1": 0.8011980108499096
+    }
+  ],
+  "selected": {
+    "leaves": 63,
+    "minimum": 30,
+    "best_iteration": 434,
+    "alpha": 0.0,
+    "validation_top1": 0.8021040095275903,
+    "test_top1": 0.8011980108499096
+  },
+  "target_top1": 0.9,
+  "target_met": false
+}

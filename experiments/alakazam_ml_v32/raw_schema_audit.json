@@ -1,0 +1,2141 @@
+{
+  "episodes": 100,
+  "decisions": 7829,
+  "select_types": {
+    "0": 7829
+  },
+  "option_types": {
+    "7": 41626,
+    "8": 32626,
+    "14": 7829,
+    "12": 2047,
+    "9": 15165,
+    "13": 1980,
+    "10": 2053
+  },
+  "paths": [
+    {
+      "path": "observation",
+      "observations": 7829,
+      "kinds": {
+        "dict": 7829
+      },
+      "examples": [
+        {
+          "keys": [
+            "current",
+            "logs",
+            "remainingOverageTime",
+            "search_begin_input",
+            "select",
+            "step"
+          ]
+        },
+        {
+          "keys": [
+            "current",
+            "logs",
+            "remainingOverageTime",
+            "search_begin_input",
+            "select"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current",
+      "observations": 7829,
+      "kinds": {
+        "dict": 7829
+      },
+      "examples": [
+        {
+          "keys": [
+            "energyAttached",
+            "firstPlayer",
+            "looking",
+            "players",
+            "result",
+            "retreated",
+            "stadium",
+            "stadiumPlayed",
+            "supporterPlayed",
+            "turn",
+            "turnActionCount",
+            "yourIndex"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.energyAttached",
+      "observations": 7829,
+      "kinds": {
+        "bool": 7829
+      },
+      "examples": [
+        false,
+        true
+      ]
+    },
+    {
+      "path": "observation.current.firstPlayer",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.looking",
+      "observations": 7829,
+      "kinds": {
+        "null": 7829
+      },
+      "examples": [
+        null
+      ]
+    },
+    {
+      "path": "observation.current.players",
+      "observations": 7829,
+      "kinds": {
+        "list": 7829
+      },
+      "examples": [
+        {
+          "length": 2
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[]",
+      "observations": 15658,
+      "kinds": {
+        "dict": 15658
+      },
+      "examples": [
+        {
+          "keys": [
+            "active",
+            "asleep",
+            "bench",
+            "benchMax",
+            "burned",
+            "confused",
+            "deckCount",
+            "discard",
+            "hand",
+            "handCount",
+            "paralyzed",
+            "poisoned",
+            "prize"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 1
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[]",
+      "observations": 15658,
+      "kinds": {
+        "dict": 15658
+      },
+      "examples": [
+        {
+          "keys": [
+            "appearThisTurn",
+            "energies",
+            "energyCards",
+            "hp",
+            "id",
+            "maxHp",
+            "playerIndex",
+            "preEvolution",
+            "serial",
+            "tools"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].appearThisTurn",
+      "observations": 15658,
+      "kinds": {
+        "bool": 15658
+      },
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].energies",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 4
+        },
+        {
+          "length": 5
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].energies[]",
+      "observations": 6253,
+      "kinds": {
+        "int": 6253
+      },
+      "examples": [
+        5,
+        1,
+        0,
+        11,
+        7,
+        3,
+        6,
+        2
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].energyCards",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 4
+        },
+        {
+          "length": 5
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].energyCards[]",
+      "observations": 6245,
+      "kinds": {
+        "dict": 6245
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].energyCards[].id",
+      "observations": 6245,
+      "kinds": {
+        "int": 6245
+      },
+      "examples": [
+        19,
+        1,
+        5,
+        13,
+        15,
+        7,
+        3,
+        11
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].energyCards[].playerIndex",
+      "observations": 6245,
+      "kinds": {
+        "int": 6245
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].energyCards[].serial",
+      "observations": 6245,
+      "kinds": {
+        "int": 6245
+      },
+      "examples": [
+        7,
+        63,
+        67,
+        71,
+        8,
+        5,
+        68,
+        72
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].hp",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        50,
+        60,
+        80,
+        30,
+        120,
+        140,
+        130,
+        280
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].id",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        741,
+        434,
+        742,
+        414,
+        743,
+        401,
+        431,
+        140
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].maxHp",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        50,
+        60,
+        80,
+        120,
+        140,
+        130,
+        280,
+        210
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].playerIndex",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].preEvolution",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 2
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].preEvolution[]",
+      "observations": 10028,
+      "kinds": {
+        "dict": 10028
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].preEvolution[].id",
+      "observations": 10028,
+      "kinds": {
+        "int": 10028
+      },
+      "examples": [
+        741,
+        742,
+        400,
+        92,
+        73,
+        89,
+        646,
+        647
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].preEvolution[].playerIndex",
+      "observations": 10028,
+      "kinds": {
+        "int": 10028
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].preEvolution[].serial",
+      "observations": 10028,
+      "kinds": {
+        "int": 10028
+      },
+      "examples": [
+        20,
+        22,
+        77,
+        79,
+        17,
+        78,
+        19,
+        24
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].serial",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        20,
+        89,
+        22,
+        85,
+        26,
+        81,
+        86,
+        12
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].tools",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].tools[]",
+      "observations": 608,
+      "kinds": {
+        "dict": 608
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].tools[].id",
+      "observations": 608,
+      "kinds": {
+        "int": 608
+      },
+      "examples": [
+        1175,
+        1174,
+        1161,
+        1159,
+        1173,
+        1167
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].tools[].playerIndex",
+      "observations": 608,
+      "kinds": {
+        "int": 608
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].active[].tools[].serial",
+      "observations": 608,
+      "kinds": {
+        "int": 608
+      },
+      "examples": [
+        51,
+        52,
+        107,
+        102,
+        103,
+        46,
+        113,
+        111
+      ]
+    },
+    {
+      "path": "observation.current.players[].asleep",
+      "observations": 15658,
+      "kinds": {
+        "bool": 15658
+      },
+      "examples": [
+        false
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 4
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 5
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].benchMax",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        5
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[]",
+      "observations": 59920,
+      "kinds": {
+        "dict": 59920
+      },
+      "examples": [
+        {
+          "keys": [
+            "appearThisTurn",
+            "energies",
+            "energyCards",
+            "hp",
+            "id",
+            "maxHp",
+            "playerIndex",
+            "preEvolution",
+            "serial",
+            "tools"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].appearThisTurn",
+      "observations": 59920,
+      "kinds": {
+        "bool": 59920
+      },
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].energies",
+      "observations": 59920,
+      "kinds": {
+        "list": 59920
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 5
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].energies[]",
+      "observations": 8411,
+      "kinds": {
+        "int": 8411
+      },
+      "examples": [
+        1,
+        5,
+        11,
+        0,
+        7,
+        3,
+        6
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].energyCards",
+      "observations": 59920,
+      "kinds": {
+        "list": 59920
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 5
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].energyCards[]",
+      "observations": 8394,
+      "kinds": {
+        "dict": 8394
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].energyCards[].id",
+      "observations": 8394,
+      "kinds": {
+        "int": 8394
+      },
+      "examples": [
+        1,
+        19,
+        5,
+        15,
+        13,
+        7,
+        3,
+        14
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].energyCards[].playerIndex",
+      "observations": 8394,
+      "kinds": {
+        "int": 8394
+      },
+      "examples": [
+        1,
+        0
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].energyCards[].serial",
+      "observations": 8394,
+      "kinds": {
+        "int": 8394
+      },
+      "examples": [
+        63,
+        9,
+        67,
+        71,
+        3,
+        75,
+        8,
+        68
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].hp",
+      "observations": 59920,
+      "kinds": {
+        "int": 59920
+      },
+      "examples": [
+        50,
+        70,
+        120,
+        80,
+        140,
+        130,
+        280,
+        210
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].id",
+      "observations": 59920,
+      "kinds": {
+        "int": 59920
+      },
+      "examples": [
+        741,
+        305,
+        414,
+        742,
+        66,
+        400,
+        401,
+        431
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].maxHp",
+      "observations": 59920,
+      "kinds": {
+        "int": 59920
+      },
+      "examples": [
+        50,
+        70,
+        120,
+        80,
+        140,
+        130,
+        280,
+        210
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].playerIndex",
+      "observations": 59920,
+      "kinds": {
+        "int": 59920
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].preEvolution",
+      "observations": 59920,
+      "kinds": {
+        "list": 59920
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 2
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].preEvolution[]",
+      "observations": 38397,
+      "kinds": {
+        "dict": 38397
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].preEvolution[].id",
+      "observations": 38397,
+      "kinds": {
+        "int": 38397
+      },
+      "examples": [
+        741,
+        305,
+        400,
+        742,
+        92,
+        89,
+        73,
+        646
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].preEvolution[].playerIndex",
+      "observations": 38397,
+      "kinds": {
+        "int": 38397
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].preEvolution[].serial",
+      "observations": 38397,
+      "kinds": {
+        "int": 38397
+      },
+      "examples": [
+        17,
+        13,
+        77,
+        19,
+        18,
+        15,
+        20,
+        22
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].serial",
+      "observations": 59920,
+      "kinds": {
+        "int": 59920
+      },
+      "examples": [
+        17,
+        19,
+        13,
+        18,
+        85,
+        23,
+        11,
+        77
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].tools",
+      "observations": 59920,
+      "kinds": {
+        "list": 59920
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].tools[]",
+      "observations": 412,
+      "kinds": {
+        "dict": 412
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].tools[].id",
+      "observations": 412,
+      "kinds": {
+        "int": 412
+      },
+      "examples": [
+        1174,
+        1175,
+        1161,
+        1159,
+        1173
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].tools[].playerIndex",
+      "observations": 412,
+      "kinds": {
+        "int": 412
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].bench[].tools[].serial",
+      "observations": 412,
+      "kinds": {
+        "int": 412
+      },
+      "examples": [
+        52,
+        51,
+        107,
+        102,
+        113,
+        111,
+        106,
+        103
+      ]
+    },
+    {
+      "path": "observation.current.players[].burned",
+      "observations": 15658,
+      "kinds": {
+        "bool": 15658
+      },
+      "examples": [
+        false
+      ]
+    },
+    {
+      "path": "observation.current.players[].confused",
+      "observations": 15658,
+      "kinds": {
+        "bool": 15658
+      },
+      "examples": [
+        false
+      ]
+    },
+    {
+      "path": "observation.current.players[].deckCount",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        46,
+        47,
+        44,
+        42,
+        41,
+        43,
+        39,
+        37
+      ]
+    },
+    {
+      "path": "observation.current.players[].discard",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 4
+        },
+        {
+          "length": 6
+        },
+        {
+          "length": 5
+        },
+        {
+          "length": 7
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].discard[]",
+      "observations": 396082,
+      "kinds": {
+        "dict": 396082
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].discard[].id",
+      "observations": 396082,
+      "kinds": {
+        "int": 396082
+      },
+      "examples": [
+        1086,
+        1152,
+        1094,
+        1225,
+        434,
+        1216,
+        1182,
+        401
+      ]
+    },
+    {
+      "path": "observation.current.players[].discard[].playerIndex",
+      "observations": 396082,
+      "kinds": {
+        "int": 396082
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].discard[].serial",
+      "observations": 396082,
+      "kinds": {
+        "int": 396082
+      },
+      "examples": [
+        37,
+        101,
+        91,
+        54,
+        42,
+        89,
+        104,
+        48
+      ]
+    },
+    {
+      "path": "observation.current.players[].hand",
+      "observations": 15658,
+      "kinds": {
+        "list": 7829,
+        "null": 7829
+      },
+      "examples": [
+        {
+          "length": 7
+        },
+        null,
+        {
+          "length": 6
+        },
+        {
+          "length": 5
+        },
+        {
+          "length": 8
+        },
+        {
+          "length": 9
+        },
+        {
+          "length": 11
+        },
+        {
+          "length": 10
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].handCount",
+      "observations": 15658,
+      "kinds": {
+        "int": 15658
+      },
+      "examples": [
+        7,
+        6,
+        5,
+        8,
+        9,
+        11,
+        10,
+        13
+      ]
+    },
+    {
+      "path": "observation.current.players[].hand[]",
+      "observations": 89297,
+      "kinds": {
+        "dict": 89297
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].hand[].id",
+      "observations": 89297,
+      "kinds": {
+        "int": 89297
+      },
+      "examples": [
+        742,
+        1197,
+        1086,
+        1225,
+        743,
+        19,
+        1081,
+        1266
+      ]
+    },
+    {
+      "path": "observation.current.players[].hand[].playerIndex",
+      "observations": 89297,
+      "kinds": {
+        "int": 89297
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.players[].hand[].serial",
+      "observations": 89297,
+      "kinds": {
+        "int": 89297
+      },
+      "examples": [
+        22,
+        52,
+        37,
+        54,
+        26,
+        7,
+        35,
+        61
+      ]
+    },
+    {
+      "path": "observation.current.players[].paralyzed",
+      "observations": 15658,
+      "kinds": {
+        "bool": 15658
+      },
+      "examples": [
+        false
+      ]
+    },
+    {
+      "path": "observation.current.players[].poisoned",
+      "observations": 15658,
+      "kinds": {
+        "bool": 15658
+      },
+      "examples": [
+        false
+      ]
+    },
+    {
+      "path": "observation.current.players[].prize",
+      "observations": 15658,
+      "kinds": {
+        "list": 15658
+      },
+      "examples": [
+        {
+          "length": 6
+        },
+        {
+          "length": 5
+        },
+        {
+          "length": 4
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 1
+        }
+      ]
+    },
+    {
+      "path": "observation.current.players[].prize[]",
+      "observations": 55053,
+      "kinds": {
+        "null": 55053
+      },
+      "examples": [
+        null
+      ]
+    },
+    {
+      "path": "observation.current.result",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        -1
+      ]
+    },
+    {
+      "path": "observation.current.retreated",
+      "observations": 7829,
+      "kinds": {
+        "bool": 7829
+      },
+      "examples": [
+        false,
+        true
+      ]
+    },
+    {
+      "path": "observation.current.stadium",
+      "observations": 7829,
+      "kinds": {
+        "list": 7829
+      },
+      "examples": [
+        {
+          "length": 0
+        },
+        {
+          "length": 1
+        }
+      ]
+    },
+    {
+      "path": "observation.current.stadiumPlayed",
+      "observations": 7829,
+      "kinds": {
+        "bool": 7829
+      },
+      "examples": [
+        false,
+        true
+      ]
+    },
+    {
+      "path": "observation.current.stadium[]",
+      "observations": 5739,
+      "kinds": {
+        "dict": 5739
+      },
+      "examples": [
+        {
+          "keys": [
+            "id",
+            "playerIndex",
+            "serial"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.current.stadium[].id",
+      "observations": 5739,
+      "kinds": {
+        "int": 5739
+      },
+      "examples": [
+        1245,
+        1259,
+        1266,
+        1257,
+        1262,
+        1264,
+        1247,
+        1246
+      ]
+    },
+    {
+      "path": "observation.current.stadium[].playerIndex",
+      "observations": 5739,
+      "kinds": {
+        "int": 5739
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.current.stadium[].serial",
+      "observations": 5739,
+      "kinds": {
+        "int": 5739
+      },
+      "examples": [
+        55,
+        121,
+        62,
+        122,
+        61,
+        53,
+        114,
+        115
+      ]
+    },
+    {
+      "path": "observation.current.supporterPlayed",
+      "observations": 7829,
+      "kinds": {
+        "bool": 7829
+      },
+      "examples": [
+        false,
+        true
+      ]
+    },
+    {
+      "path": "observation.current.turn",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ]
+    },
+    {
+      "path": "observation.current.turnActionCount",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        1,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "path": "observation.current.yourIndex",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.logs",
+      "observations": 7829,
+      "kinds": {
+        "list": 7829
+      },
+      "examples": [
+        {
+          "length": 16
+        },
+        {
+          "length": 3
+        },
+        {
+          "length": 27
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 1
+        },
+        {
+          "length": 6
+        },
+        {
+          "length": 10
+        },
+        {
+          "length": 20
+        }
+      ]
+    },
+    {
+      "path": "observation.logs[]",
+      "observations": 31151,
+      "kinds": {
+        "dict": 31151
+      },
+      "examples": [
+        {
+          "keys": [
+            "cardId",
+            "fromArea",
+            "playerIndex",
+            "serial",
+            "toArea",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "fromArea",
+            "playerIndex",
+            "toArea",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "playerIndex",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "cardId",
+            "playerIndex",
+            "serial",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "cardId",
+            "cardIdTarget",
+            "playerIndex",
+            "serial",
+            "serialTarget",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "attackId",
+            "cardId",
+            "playerIndex",
+            "serial",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "cardId",
+            "playerIndex",
+            "putDamageCounter",
+            "serial",
+            "type",
+            "value"
+          ]
+        },
+        {
+          "keys": [
+            "cardIdActive",
+            "cardIdBench",
+            "playerIndex",
+            "serialActive",
+            "serialBench",
+            "type"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.logs[].attackId",
+      "observations": 110,
+      "kinds": {
+        "int": 110
+      },
+      "examples": [
+        1071,
+        1072,
+        608,
+        965,
+        1070,
+        115,
+        114,
+        478
+      ]
+    },
+    {
+      "path": "observation.logs[].cardId",
+      "observations": 19570,
+      "kinds": {
+        "int": 19570
+      },
+      "examples": [
+        741,
+        1081,
+        305,
+        1152,
+        414,
+        1094,
+        1,
+        1266
+      ]
+    },
+    {
+      "path": "observation.logs[].cardIdActive",
+      "observations": 208,
+      "kinds": {
+        "int": 208
+      },
+      "examples": [
+        414,
+        431,
+        743,
+        140,
+        742,
+        741,
+        89,
+        648
+      ]
+    },
+    {
+      "path": "observation.logs[].cardIdBench",
+      "observations": 208,
+      "kinds": {
+        "int": 208
+      },
+      "examples": [
+        401,
+        431,
+        414,
+        140,
+        743,
+        742,
+        741,
+        93
+      ]
+    },
+    {
+      "path": "observation.logs[].cardIdTarget",
+      "observations": 2851,
+      "kinds": {
+        "int": 2851
+      },
+      "examples": [
+        414,
+        305,
+        742,
+        400,
+        431,
+        140,
+        401,
+        743
+      ]
+    },
+    {
+      "path": "observation.logs[].fromArea",
+      "observations": 9037,
+      "kinds": {
+        "int": 9037
+      },
+      "examples": [
+        2,
+        1,
+        12,
+        5,
+        10,
+        6,
+        8,
+        3
+      ]
+    },
+    {
+      "path": "observation.logs[].head",
+      "observations": 10,
+      "kinds": {
+        "bool": 10
+      },
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "path": "observation.logs[].playerIndex",
+      "observations": 31151,
+      "kinds": {
+        "int": 31151
+      },
+      "examples": [
+        0,
+        1
+      ]
+    },
+    {
+      "path": "observation.logs[].putDamageCounter",
+      "observations": 279,
+      "kinds": {
+        "bool": 279
+      },
+      "examples": [
+        false,
+        true
+      ]
+    },
+    {
+      "path": "observation.logs[].serial",
+      "observations": 19570,
+      "kinds": {
+        "int": 19570
+      },
+      "examples": [
+        20,
+        35,
+        17,
+        19,
+        13,
+        18,
+        101,
+        85
+      ]
+    },
+    {
+      "path": "observation.logs[].serialActive",
+      "observations": 208,
+      "kinds": {
+        "int": 208
+      },
+      "examples": [
+        85,
+        86,
+        26,
+        12,
+        87,
+        21,
+        79,
+        5
+      ]
+    },
+    {
+      "path": "observation.logs[].serialBench",
+      "observations": 208,
+      "kinds": {
+        "int": 208
+      },
+      "examples": [
+        81,
+        86,
+        85,
+        12,
+        87,
+        26,
+        83,
+        23
+      ]
+    },
+    {
+      "path": "observation.logs[].serialTarget",
+      "observations": 2851,
+      "kinds": {
+        "int": 2851
+      },
+      "examples": [
+        85,
+        13,
+        23,
+        77,
+        24,
+        87,
+        12,
+        15
+      ]
+    },
+    {
+      "path": "observation.logs[].toArea",
+      "observations": 9037,
+      "kinds": {
+        "int": 9037
+      },
+      "examples": [
+        4,
+        6,
+        5,
+        2,
+        12,
+        1,
+        3,
+        14
+      ]
+    },
+    {
+      "path": "observation.logs[].type",
+      "observations": 31151,
+      "kinds": {
+        "int": 31151
+      },
+      "examples": [
+        6,
+        7,
+        2,
+        4,
+        0,
+        3,
+        5,
+        10
+      ]
+    },
+    {
+      "path": "observation.logs[].value",
+      "observations": 279,
+      "kinds": {
+        "int": 279
+      },
+      "examples": [
+        -30,
+        0,
+        -160,
+        -10,
+        -240,
+        -100,
+        -200,
+        -50
+      ]
+    },
+    {
+      "path": "observation.remainingOverageTime",
+      "observations": 7829,
+      "kinds": {
+        "float": 7829
+      },
+      "examples": [
+        587.3277909999999,
+        586.851506,
+        586.38095,
+        586.1759069999999,
+        585.885912,
+        585.4131169999999,
+        585.066539,
+        584.729715
+      ]
+    },
+    {
+      "path": "observation.search_begin_input",
+      "observations": 7829,
+      "kinds": {
+        "str": 7829
+      },
+      "examples": [
+        "ABQAEEAPEAbEAbEBAGEAEB-+CCY-lFRQANBg-ZBHAEFjQlNhoHIw-LBC4-PJFZAOY-ZBBg-ZBv-fIB-V",
+        "ABQAEMAPEAbEADQAXEBAGEAEB-+CCb-lFRQCERMAJBg-ZBGAEFjQlNhoj-NBCw-0CBAEBw-UGFZAOY-Z",
+        "ABQAEUAPEAbEADQAXEBAGEAEB-+CCf-lFRQEERMNEgAGBg-ZBFAEFjQ2GiM-OBCo-aBQADCU-UBBAEBw",
+        "ABwAEEAPEAWQAEEAbEBAGEAEB-+CC2-lFRQEERMNEgAGBg-ZBGAEFjQ2GiM9-NBCk-aBQADCU-UBBAEB",
+        "ABwAEMAPEAWQAEEAbEBAGEAEB-+CC6-lFRYEERMNEgAGBg-ZBHAENDYaIz0dGQ-LBCc-aBQADCU-UBBA",
+        "ABwAEYAPEAWQAEEADEAXEBAGEAEB-+CC+-lFRYEERMNEgAGBg-ZBIAENBojPR0ZFwU-KBCU-aBgADCU2",
+        "ABwAEgAPEAWQAEEADEAXEBAGEAEB-+CDC-lFRYEFxMNEgAGBg-ZBJAENBojPR0ZBSIq-JBCM-aBgADCU",
+        "ABwAEoAPEAWQAEEADEAXEBAGEAEB-+CDF-lFRYEFxMNEgAGBg-ZBJAENBojPR0ZBSIL-JBCI-aBwADCU"
+      ]
+    },
+    {
+      "path": "observation.select",
+      "observations": 7829,
+      "kinds": {
+        "dict": 7829
+      },
+      "examples": [
+        {
+          "keys": [
+            "context",
+            "contextCard",
+            "deck",
+            "effect",
+            "maxCount",
+            "minCount",
+            "option",
+            "remainDamageCounter",
+            "remainEnergyCost",
+            "type"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.select.context",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        0
+      ]
+    },
+    {
+      "path": "observation.select.contextCard",
+      "observations": 7829,
+      "kinds": {
+        "null": 7829
+      },
+      "examples": [
+        null
+      ]
+    },
+    {
+      "path": "observation.select.deck",
+      "observations": 7829,
+      "kinds": {
+        "null": 7829
+      },
+      "examples": [
+        null
+      ]
+    },
+    {
+      "path": "observation.select.effect",
+      "observations": 7829,
+      "kinds": {
+        "null": 7829
+      },
+      "examples": [
+        null
+      ]
+    },
+    {
+      "path": "observation.select.maxCount",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        1
+      ]
+    },
+    {
+      "path": "observation.select.minCount",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        1
+      ]
+    },
+    {
+      "path": "observation.select.option",
+      "observations": 7829,
+      "kinds": {
+        "list": 7829
+      },
+      "examples": [
+        {
+          "length": 3
+        },
+        {
+          "length": 2
+        },
+        {
+          "length": 10
+        },
+        {
+          "length": 7
+        },
+        {
+          "length": 13
+        },
+        {
+          "length": 11
+        },
+        {
+          "length": 14
+        },
+        {
+          "length": 6
+        }
+      ]
+    },
+    {
+      "path": "observation.select.option[]",
+      "observations": 103326,
+      "kinds": {
+        "dict": 103326
+      },
+      "examples": [
+        {
+          "keys": [
+            "index",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "area",
+            "inPlayArea",
+            "inPlayIndex",
+            "index",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "attackId",
+            "type"
+          ]
+        },
+        {
+          "keys": [
+            "area",
+            "index",
+            "type"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "observation.select.option[].area",
+      "observations": 49844,
+      "kinds": {
+        "int": 49844
+      },
+      "examples": [
+        2,
+        5,
+        7,
+        4
+      ]
+    },
+    {
+      "path": "observation.select.option[].attackId",
+      "observations": 1980,
+      "kinds": {
+        "int": 1980
+      },
+      "examples": [
+        1070,
+        1071,
+        1072,
+        183,
+        423
+      ]
+    },
+    {
+      "path": "observation.select.option[].inPlayArea",
+      "observations": 47791,
+      "kinds": {
+        "int": 47791
+      },
+      "examples": [
+        4,
+        5
+      ]
+    },
+    {
+      "path": "observation.select.option[].inPlayIndex",
+      "observations": 47791,
+      "kinds": {
+        "int": 47791
+      },
+      "examples": [
+        0,
+        1,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "path": "observation.select.option[].index",
+      "observations": 91470,
+      "kinds": {
+        "int": 91470
+      },
+      "examples": [
+        2,
+        5,
+        0,
+        1,
+        4,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "path": "observation.select.option[].type",
+      "observations": 103326,
+      "kinds": {
+        "int": 103326
+      },
+      "examples": [
+        7,
+        8,
+        14,
+        12,
+        9,
+        13,
+        10
+      ]
+    },
+    {
+      "path": "observation.select.remainDamageCounter",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        0
+      ]
+    },
+    {
+      "path": "observation.select.remainEnergyCost",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        0
+      ]
+    },
+    {
+      "path": "observation.select.type",
+      "observations": 7829,
+      "kinds": {
+        "int": 7829
+      },
+      "examples": [
+        0
+      ]
+    },
+    {
+      "path": "observation.step",
+      "observations": 5625,
+      "kinds": {
+        "int": 5625
+      },
+      "examples": [
+        4,
+        6,
+        8,
+        16,
+        18,
+        21,
+        23,
+        25
+      ]
+    }
+  ]
+}

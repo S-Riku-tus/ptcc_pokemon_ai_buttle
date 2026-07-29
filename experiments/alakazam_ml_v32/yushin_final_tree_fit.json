@@ -1,0 +1,26 @@
+{
+  "features": 657,
+  "teacher_trajectories": 999,
+  "teacher_decisions": 49590,
+  "ensemble": [
+    {
+      "path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v32\\ranker_model.json",
+      "role": "categorical_large_leaf",
+      "weight": 1.0,
+      "iterations": 499,
+      "bytes": 12125407
+    },
+    {
+      "path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v32\\ranker_numeric_model.json",
+      "role": "numeric_id_diversifier",
+      "weight": 0.0,
+      "iterations": 520,
+      "bytes": 5700931
+    }
+  ],
+  "selection_evidence": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v32\\yushin_ranker_ensemble.json",
+  "heldout_semantic_top1": 0.7766726943942134,
+  "heldout_semantic_top2_reference": 0.895,
+  "target_top1": 0.9,
+  "target_met": false
+}

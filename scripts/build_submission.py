@@ -99,6 +99,10 @@ def locate_cg(explicit: str | None) -> Path:
 def should_copy(path: Path) -> bool:
     if any(part in EXCLUDED_NAMES for part in path.parts):
         return False
+    if path.name.startswith(
+        ("test_", "ANALYSIS_", "CHANGELOG_", "VALIDATION_REPORT_")
+    ):
+        return False
     if is_forbidden_archive_member(path):
         return False
     if path.name.startswith("."):
@@ -169,7 +173,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--agent",
-        default="alakazam_ml_v2_expanded",
+        default="alakazam_ml_v31",
         help="Agent dir name or path. Checks direct path, agents/, archive/agents/, and data/runs/.",
     )
     parser.add_argument("--cg-source")

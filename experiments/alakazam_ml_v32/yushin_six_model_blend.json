@@ -1,0 +1,30 @@
+{
+  "new_model": {
+    "name": "deep_seed305",
+    "validation_top1": 0.7727272727272727,
+    "test_top1": 0.7797242314647378
+  },
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305"
+  ],
+  "selected_weights": [
+    1.0,
+    0.0,
+    0.7250000000000001,
+    1.1500000000000001,
+    0.8,
+    1.675
+  ],
+  "validation_top1": 0.8021040095275903,
+  "test_top1": 0.8011980108499096,
+  "validation_oracle_any_model": 0.9071059944422389,
+  "test_oracle_any_model": 0.9122965641952984,
+  "previous_test_top1": 0.7975813743218807,
+  "target_top1": 0.9,
+  "target_met": false
+}

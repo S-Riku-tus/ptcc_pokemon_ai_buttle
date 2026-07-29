@@ -1,0 +1,32 @@
+{
+  "tree_models": [
+    {
+      "name": "lambda_large_leaf",
+      "best_iteration": 499,
+      "validation_top1": 0.7741167129813418,
+      "test_top1": 0.7766726943942134
+    },
+    {
+      "name": "lambda_numeric_ids",
+      "best_iteration": 520,
+      "validation_top1": 0.7691544263596666,
+      "test_top1": 0.7724909584086799
+    }
+  ],
+  "deep_model": {
+    "name": "deepset",
+    "validation_top1": 0.7725287812624058,
+    "test_top1": 0.7633363471971067
+  },
+  "selected": {
+    "numeric_weight": 0.5,
+    "deep_weight": 1.4500000000000002,
+    "validation_top1": 0.7892020643112346
+  },
+  "test_top1": 0.7875226039783002,
+  "validation_oracle_any_model": 0.8566891623660182,
+  "test_oracle_any_model": 0.8625678119349005,
+  "v31_reference_top1": 0.7630988023952096,
+  "target_top1": 0.9,
+  "target_met": false
+}

@@ -1,0 +1,25 @@
+{
+  "attention_model": {
+    "validation_top1": 0.77888050813815,
+    "test_top1": 0.7672920433996383
+  },
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention"
+  ],
+  "selected_weights": [
+    1.0,
+    0.4,
+    1.4000000000000001,
+    1.0
+  ],
+  "validation_top1": 0.7953552997221119,
+  "test_top1": 0.7900090415913201,
+  "validation_oracle_any_model": 0.8757443429932513,
+  "test_oracle_any_model": 0.8816681735985533,
+  "previous_v32_blend_test_top1": 0.7708333333333334,
+  "target_top1": 0.9,
+  "target_met": false
+}

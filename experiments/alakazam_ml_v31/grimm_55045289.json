@@ -1,0 +1,2168 @@
+[
+ {
+  "episode_id": "88567962",
+  "won": false,
+  "seat": 0,
+  "we_went_first": true,
+  "turns": 11,
+  "opp_archetype": "Marnie's Grimmsnarl ex",
+  "opp_deck": [
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   104,
+   104,
+   112,
+   112,
+   112,
+   112,
+   646,
+   646,
+   646,
+   646,
+   647,
+   647,
+   647,
+   648,
+   648,
+   648,
+   860,
+   860,
+   1079,
+   1079,
+   1079,
+   1080,
+   1086,
+   1086,
+   1086,
+   1086,
+   1097,
+   1097,
+   1097,
+   1122,
+   1137,
+   1152,
+   1152,
+   1152,
+   1152,
+   1182,
+   1182,
+   1219,
+   1219,
+   1219,
+   1219,
+   1227,
+   1227,
+   1227,
+   1227,
+   1231,
+   1259,
+   1259,
+   1259,
+   1259
+  ],
+  "my_prizes_taken": 2,
+  "opp_prizes_taken": 5,
+  "my_alakazam_turn": 5,
+  "opp_grimmsnarl_turn": 4,
+  "my_attacks": [
+   {
+    "turn": 3,
+    "player": 0,
+    "attacker": 741,
+    "attack_id": 1070,
+    "damage": 10,
+    "targets": [
+     [
+      646,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 5,
+    "player": 0,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 180,
+    "targets": [
+     [
+      648,
+      180
+     ]
+    ]
+   },
+   {
+    "turn": 7,
+    "player": 0,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 270,
+    "targets": [
+     [
+      648,
+      260
+     ],
+     [
+      112,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 9,
+    "player": 0,
+    "attacker": 741,
+    "attack_id": 1070,
+    "damage": 30,
+    "targets": [
+     [
+      648,
+      10
+     ],
+     [
+      648,
+      10
+     ],
+     [
+      112,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 11,
+    "player": 0,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 360,
+    "targets": [
+     [
+      648,
+      360
+     ]
+    ]
+   }
+  ],
+  "opp_attacks": [
+   {
+    "turn": 4,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      742,
+      360
+     ],
+     [
+      741,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 6,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      742,
+      10
+     ],
+     [
+      742,
+      10
+     ],
+     [
+      343,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 8,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 370,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      343,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 10,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 190,
+    "targets": [
+     [
+      305,
+      180
+     ],
+     [
+      343,
+      10
+     ]
+    ]
+   }
+  ],
+  "powerful_hand_count": 3,
+  "powerful_hand_damage": [
+   180,
+   270,
+   360
+  ],
+  "shadow_bullet_count": 4,
+  "opp_attack_damage": [
+   390,
+   390,
+   370,
+   190
+  ],
+  "my_total_damage": 850,
+  "opp_total_damage": 1340,
+  "first_attack_turn": 3,
+  "opp_first_attack_turn": 4,
+  "my_deck_left": 7,
+  "loss_mode": "other(bodies=5)",
+  "our_kos": [
+   {
+    "turn": 4,
+    "card": 742,
+    "area": "active"
+   },
+   {
+    "turn": 6,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 6,
+    "card": 742,
+    "area": "active"
+   },
+   {
+    "turn": 8,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 10,
+    "card": 305,
+    "area": "active"
+   }
+  ],
+  "their_kos": [
+   {
+    "turn": 7,
+    "card": 648,
+    "area": "active"
+   },
+   {
+    "turn": 11,
+    "card": 648,
+    "area": "active"
+   }
+  ],
+  "our_ko_count": 5,
+  "our_bench_ko_count": 0,
+  "their_ko_count": 2,
+  "our_kos_by_card": {
+   "Kadabra": 2,
+   "Alakazam": 2,
+   "Dunsparce": 1
+  },
+  "their_kos_by_card": {
+   "Marnie's Grimmsnarl ex": 2
+  },
+  "alakazam_evolves": 3,
+  "kadabra_evolves": 5,
+  "rare_candy_played": 2,
+  "shaymin_turn": 5,
+  "abra_played": 4,
+  "bench_at_turn": {
+   "1": 0,
+   "3": 3,
+   "4": 3,
+   "5": 2,
+   "6": 4,
+   "7": 2,
+   "8": 2,
+   "9": 1,
+   "10": 4,
+   "11": 3
+  },
+  "hand_sizes_on_powerful_hand": [
+   9,
+   13,
+   18
+  ],
+  "my_bench_left": 4,
+  "damage_we_took": 1450,
+  "damage_we_dealt": 910,
+  "events": [
+   "T 1 --- US turn ---",
+   "T 1 US  play Poké Pad",
+   "T 1 US  play Poké Pad",
+   "T 1 US  play Abra",
+   "T 2 --- OPP turn ---",
+   "T 2 OPP play Spikemuth Gym",
+   "T 2 OPP play Marnie's Impidimp",
+   "T 2 OPP play Lillie's Determination",
+   "T 2 OPP play Munkidori",
+   "T 2 OPP play Marnie's Impidimp",
+   "T 2 OPP play Snorunt",
+   "T 3 --- US turn ---",
+   "T 3 US  play Hilda",
+   "T 3 US  evolve -> Kadabra",
+   "T 3 US  ATTACK Abra / Teleportation Attack",
+   "T 3      dmg  10 -> OPPMarnie's Impidimp",
+   "T 3 US  switch active -> Kadabra",
+   "T 4 --- OPP turn ---",
+   "T 4 OPP play Rare Candy",
+   "T 4 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 4      heal +10 on OPPMarnie's Grimmsnarl ex",
+   "T 4      dmg  10 -> US Abra (counters)",
+   "T 4 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 4      dmg 360 -> US Kadabra",
+   "T 4      dmg  30 -> US Abra",
+   "T 4      KO US Kadabra (active)",
+   "T 5 --- US turn ---",
+   "T 5 US  evolve -> Kadabra",
+   "T 5 US  play Dunsparce",
+   "T 5 US  play Dawn",
+   "T 5 US  evolve -> Kadabra",
+   "T 5 US  play Rare Candy",
+   "T 5 US  evolve -> Alakazam",
+   "T 5 US  play Dunsparce",
+   "T 5 US  play Shaymin",
+   "T 5 US  play Poké Pad",
+   "T 5 US  ATTACK Alakazam / Powerful Hand",
+   "T 5      dmg 180 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 6 --- OPP turn ---",
+   "T 6      heal +30 on OPPMarnie's Grimmsnarl ex",
+   "T 6      dmg  30 -> US Kadabra (counters)",
+   "T 6 OPP evolve -> Froslass",
+   "T 6 OPP play Poké Pad",
+   "T 6 OPP evolve -> Marnie's Morgrem",
+   "T 6 OPP play Poké Pad",
+   "T 6 OPP evolve -> Marnie's Morgrem",
+   "T 6 OPP evolve -> Marnie's Morgrem",
+   "T 6 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 6      dmg 360 -> US Alakazam",
+   "T 6      KO US Alakazam (active)",
+   "T 6      dmg  10 -> US Kadabra (counters)",
+   "T 6      dmg  10 -> US Kadabra (counters)",
+   "T 6      dmg  10 -> US Shaymin (counters)",
+   "T 6      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 6      dmg  10 -> OPPMunkidori (counters)",
+   "T 6      KO US Kadabra (active)",
+   "T 7 --- US turn ---",
+   "T 7 US  evolve -> Alakazam",
+   "T 7 US  evolve -> Dudunsparce",
+   "T 7 US  evolve -> Dudunsparce",
+   "T 7 US  play Dawn",
+   "T 7 US  play Buddy-Buddy Poffin",
+   "T 7 US  play Nighttime Mine",
+   "T 7 US  ATTACK Alakazam / Powerful Hand",
+   "T 7      dmg 260 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 7      KO OPPMarnie's Grimmsnarl ex (active)",
+   "T 7      dmg  10 -> US Alakazam (counters)",
+   "T 7      dmg  10 -> US Shaymin (counters)",
+   "T 7      dmg  10 -> OPPMunkidori (counters)",
+   "T 8 --- OPP turn ---",
+   "T 8      heal +20 on OPPMunkidori",
+   "T 8      dmg  20 -> US Shaymin (counters)",
+   "T 8 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 8 OPP play Night Stretcher",
+   "T 8 OPP play Buddy-Buddy Poffin",
+   "T 8 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 8      dmg 360 -> US Alakazam",
+   "T 8      KO US Alakazam (active)",
+   "T 8      dmg  10 -> US Shaymin (counters)",
+   "T 8      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 8      dmg  10 -> OPPMunkidori (counters)",
+   "T 9 --- US turn ---",
+   "T 9 US  play Buddy-Buddy Poffin",
+   "T 9 US  play Lana’s Aid",
+   "T 9 US  play Abra",
+   "T 9 US  play Abra",
+   "T 9 US  play Abra",
+   "T 9 US  play Poké Pad",
+   "T 9 US  evolve -> Dudunsparce",
+   "T 9 US  play Sacred Ash",
+   "T 9 US  ATTACK Abra / Teleportation Attack",
+   "T 9      dmg  10 -> OPPMarnie's Grimmsnarl ex",
+   "T 9 US  switch active -> Dunsparce",
+   "T 9      dmg  10 -> US Shaymin (counters)",
+   "T 9      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 9      dmg  10 -> OPPMunkidori (counters)",
+   "T10 --- OPP turn ---",
+   "T10 OPP play Spikemuth Gym",
+   "T10      heal +20 on OPPMunkidori",
+   "T10      dmg  20 -> US Abra (counters)",
+   "T10 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T10      dmg 180 -> US Dunsparce",
+   "T10      KO US Dunsparce (active)",
+   "T10      dmg  10 -> US Shaymin (counters)",
+   "T10      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T10      dmg  10 -> OPPMunkidori (counters)",
+   "T11 --- US turn ---",
+   "T11 US  play Rare Candy",
+   "T11 US  evolve -> Alakazam",
+   "T11 US  play Dunsparce",
+   "T11 US  play Dawn",
+   "T11 US  evolve -> Kadabra",
+   "T11 US  evolve -> Kadabra",
+   "T11 US  ATTACK Alakazam / Powerful Hand",
+   "T11      dmg 360 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T11      KO OPPMarnie's Grimmsnarl ex (active)"
+  ],
+  "hand_at_turn": {
+   "1": 5,
+   "3": 7,
+   "4": 7,
+   "5": 9,
+   "6": 9,
+   "7": 13,
+   "8": 15,
+   "9": 14,
+   "10": 14,
+   "11": 18
+  }
+ },
+ {
+  "episode_id": "88569764",
+  "won": true,
+  "seat": 1,
+  "we_went_first": false,
+  "turns": 10,
+  "opp_archetype": "Marnie's Grimmsnarl ex",
+  "opp_deck": [
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   104,
+   104,
+   112,
+   112,
+   112,
+   112,
+   646,
+   646,
+   646,
+   646,
+   647,
+   647,
+   647,
+   648,
+   648,
+   648,
+   860,
+   860,
+   1079,
+   1079,
+   1079,
+   1080,
+   1086,
+   1086,
+   1086,
+   1086,
+   1097,
+   1097,
+   1097,
+   1122,
+   1137,
+   1152,
+   1152,
+   1152,
+   1152,
+   1182,
+   1182,
+   1219,
+   1219,
+   1219,
+   1219,
+   1227,
+   1227,
+   1227,
+   1227,
+   1231,
+   1259,
+   1259,
+   1259,
+   1259
+  ],
+  "my_prizes_taken": 4,
+  "opp_prizes_taken": 4,
+  "my_alakazam_turn": 4,
+  "opp_grimmsnarl_turn": 3,
+  "my_attacks": [
+   {
+    "turn": 2,
+    "player": 1,
+    "attacker": 305,
+    "attack_id": 423,
+    "damage": 0,
+    "targets": []
+   },
+   {
+    "turn": 4,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 280,
+    "targets": [
+     [
+      648,
+      280
+     ]
+    ]
+   },
+   {
+    "turn": 6,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 340,
+    "targets": [
+     [
+      648,
+      340
+     ]
+    ]
+   },
+   {
+    "turn": 8,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 500,
+    "targets": [
+     [
+      648,
+      500
+     ]
+    ]
+   },
+   {
+    "turn": 10,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 460,
+    "targets": [
+     [
+      648,
+      460
+     ]
+    ]
+   }
+  ],
+  "opp_attacks": [
+   {
+    "turn": 3,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 210,
+    "targets": [
+     [
+      305,
+      180
+     ],
+     [
+      741,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 5,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      305,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 7,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      305,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 9,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 400,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      741,
+      30
+     ],
+     [
+      140,
+      10
+     ]
+    ]
+   }
+  ],
+  "powerful_hand_count": 4,
+  "powerful_hand_damage": [
+   280,
+   340,
+   500,
+   460
+  ],
+  "shadow_bullet_count": 4,
+  "opp_attack_damage": [
+   210,
+   390,
+   390,
+   400
+  ],
+  "my_total_damage": 1580,
+  "opp_total_damage": 1390,
+  "first_attack_turn": 2,
+  "opp_first_attack_turn": 3,
+  "my_deck_left": 8,
+  "loss_mode": "",
+  "our_kos": [
+   {
+    "turn": 3,
+    "card": 305,
+    "area": "active"
+   },
+   {
+    "turn": 5,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 7,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 9,
+    "card": 743,
+    "area": "active"
+   }
+  ],
+  "their_kos": [
+   {
+    "turn": 6,
+    "card": 648,
+    "area": "active"
+   },
+   {
+    "turn": 8,
+    "card": 648,
+    "area": "active"
+   },
+   {
+    "turn": 10,
+    "card": 648,
+    "area": "active"
+   }
+  ],
+  "our_ko_count": 4,
+  "our_bench_ko_count": 0,
+  "their_ko_count": 3,
+  "our_kos_by_card": {
+   "Dunsparce": 1,
+   "Alakazam": 3
+  },
+  "their_kos_by_card": {
+   "Marnie's Grimmsnarl ex": 3
+  },
+  "alakazam_evolves": 5,
+  "kadabra_evolves": 2,
+  "rare_candy_played": 3,
+  "shaymin_turn": null,
+  "abra_played": 4,
+  "bench_at_turn": {
+   "0": 0,
+   "2": 2,
+   "3": 4,
+   "4": 3,
+   "5": 4,
+   "6": 3,
+   "7": 4,
+   "8": 2,
+   "9": 5,
+   "10": 4
+  },
+  "hand_sizes_on_powerful_hand": [
+   14,
+   17,
+   25,
+   23
+  ],
+  "my_bench_left": 4,
+  "damage_we_took": 1420,
+  "damage_we_dealt": 1610,
+  "events": [
+   "T 1 --- OPP turn ---",
+   "T 1 OPP play Spikemuth Gym",
+   "T 1 OPP play Buddy-Buddy Poffin",
+   "T 1 OPP play Munkidori",
+   "T 2 --- US turn ---",
+   "T 2 US  play Hilda",
+   "T 2 US  play Poké Pad",
+   "T 2 US  play Abra",
+   "T 2 US  play Poké Pad",
+   "T 2 US  play Abra",
+   "T 2 US  play Poké Pad",
+   "T 2 US  ATTACK Dunsparce / Trading Places",
+   "T 2 US  switch active -> Dunsparce",
+   "T 3 --- OPP turn ---",
+   "T 3 OPP play Rare Candy",
+   "T 3 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 3 OPP evolve -> Marnie's Morgrem",
+   "T 3 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 3      dmg 180 -> US Dunsparce",
+   "T 3      dmg  30 -> US Abra",
+   "T 3      KO US Dunsparce (active)",
+   "T 4 --- US turn ---",
+   "T 4 US  play Rare Candy",
+   "T 4 US  evolve -> Alakazam",
+   "T 4 US  evolve -> Kadabra",
+   "T 4 US  evolve -> Kadabra",
+   "T 4 US  evolve -> Dudunsparce",
+   "T 4 US  play Dunsparce",
+   "T 4 US  play Nighttime Mine",
+   "T 4 US  play Dawn",
+   "T 4 US  play Fezandipiti ex",
+   "T 4 US  ATTACK Alakazam / Powerful Hand",
+   "T 4      dmg 280 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 5 --- OPP turn ---",
+   "T 5      heal +30 on OPPMarnie's Grimmsnarl ex",
+   "T 5      dmg  30 -> US Dunsparce (counters)",
+   "T 5 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 5 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 5      dmg 360 -> US Alakazam",
+   "T 5      dmg  30 -> US Dunsparce",
+   "T 5      KO US Alakazam (active)",
+   "T 6 --- US turn ---",
+   "T 6 US  evolve -> Alakazam",
+   "T 6 US  evolve -> Dudunsparce",
+   "T 6 US  play Buddy-Buddy Poffin",
+   "T 6 US  ATTACK Alakazam / Powerful Hand",
+   "T 6      dmg 340 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 6      KO OPPMarnie's Grimmsnarl ex (active)",
+   "T 7 --- OPP turn ---",
+   "T 7 OPP evolve -> Marnie's Morgrem",
+   "T 7 OPP play Dawn",
+   "T 7 OPP play Snorunt",
+   "T 7 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 7      dmg 360 -> US Alakazam",
+   "T 7      dmg  30 -> US Dunsparce",
+   "T 7      KO US Alakazam (active)",
+   "T 8 --- US turn ---",
+   "T 8 US  evolve -> Alakazam",
+   "T 8 US  play Abra",
+   "T 8 US  evolve -> Dudunsparce",
+   "T 8 US  play Sacred Ash",
+   "T 8 US  play Abra",
+   "T 8 US  play Buddy-Buddy Poffin",
+   "T 8 US  play Night Stretcher",
+   "T 8 US  ATTACK Alakazam / Powerful Hand",
+   "T 8      dmg 500 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 8      KO OPPMarnie's Grimmsnarl ex (active)",
+   "T 9 --- OPP turn ---",
+   "T 9 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 9 OPP evolve -> Froslass",
+   "T 9 OPP play Munkidori",
+   "T 9 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 9      dmg 360 -> US Alakazam",
+   "T 9      dmg  30 -> US Abra",
+   "T 9      KO US Alakazam (active)",
+   "T 9      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 9      dmg  10 -> OPPMunkidori (counters)",
+   "T 9      dmg  10 -> OPPMunkidori (counters)",
+   "T 9      dmg  10 -> US Fezandipiti ex (counters)",
+   "T10 --- US turn ---",
+   "T10 US  play Rare Candy",
+   "T10 US  evolve -> Alakazam",
+   "T10 US  play Rare Candy",
+   "T10 US  evolve -> Alakazam",
+   "T10 US  ATTACK Alakazam / Powerful Hand",
+   "T10      dmg 460 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T10      KO OPPMarnie's Grimmsnarl ex (active)"
+  ],
+  "hand_at_turn": {
+   "0": 6,
+   "2": 7,
+   "3": 7,
+   "4": 14,
+   "5": 14,
+   "6": 17,
+   "7": 19,
+   "8": 25,
+   "9": 27,
+   "10": 23
+  }
+ },
+ {
+  "episode_id": "88571271",
+  "won": false,
+  "seat": 1,
+  "we_went_first": false,
+  "turns": 19,
+  "opp_archetype": "Marnie's Grimmsnarl ex",
+  "opp_deck": [
+   646,
+   646,
+   646,
+   646,
+   647,
+   647,
+   648,
+   648,
+   648,
+   648,
+   305,
+   305,
+   305,
+   66,
+   66,
+   66,
+   235,
+   689,
+   1137,
+   112,
+   112,
+   112,
+   140,
+   1086,
+   1086,
+   1086,
+   1086,
+   1152,
+   1152,
+   1152,
+   1152,
+   1159,
+   1079,
+   1079,
+   1079,
+   1079,
+   1197,
+   1227,
+   1227,
+   1227,
+   1227,
+   1231,
+   1231,
+   1231,
+   1182,
+   1182,
+   1259,
+   1259,
+   1259,
+   1260,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7
+  ],
+  "my_prizes_taken": 1,
+  "opp_prizes_taken": 5,
+  "my_alakazam_turn": 4,
+  "opp_grimmsnarl_turn": 9,
+  "my_attacks": [
+   {
+    "turn": 6,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 60,
+    "targets": [
+     [
+      305,
+      60
+     ]
+    ]
+   },
+   {
+    "turn": 8,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 80,
+    "targets": [
+     [
+      305,
+      80
+     ]
+    ]
+   },
+   {
+    "turn": 12,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 200,
+    "targets": [
+     [
+      648,
+      200
+     ]
+    ]
+   }
+  ],
+  "opp_attacks": [
+   {
+    "turn": 9,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      742,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 11,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 360,
+    "targets": [
+     [
+      743,
+      360
+     ]
+    ]
+   },
+   {
+    "turn": 13,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 360,
+    "targets": [
+     [
+      743,
+      360
+     ]
+    ]
+   },
+   {
+    "turn": 15,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 360,
+    "targets": [
+     [
+      742,
+      360
+     ]
+    ]
+   },
+   {
+    "turn": 17,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 180,
+    "targets": [
+     [
+      305,
+      180
+     ]
+    ]
+   },
+   {
+    "turn": 19,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 180,
+    "targets": [
+     [
+      305,
+      180
+     ]
+    ]
+   }
+  ],
+  "powerful_hand_count": 3,
+  "powerful_hand_damage": [
+   60,
+   80,
+   200
+  ],
+  "shadow_bullet_count": 6,
+  "opp_attack_damage": [
+   390,
+   360,
+   360,
+   360,
+   180,
+   180
+  ],
+  "my_total_damage": 340,
+  "opp_total_damage": 1830,
+  "first_attack_turn": 6,
+  "opp_first_attack_turn": 9,
+  "my_deck_left": 7,
+  "loss_mode": "other(bodies=2)",
+  "our_kos": [
+   {
+    "turn": 9,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 11,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 13,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 15,
+    "card": 742,
+    "area": "active"
+   },
+   {
+    "turn": 17,
+    "card": 305,
+    "area": "active"
+   },
+   {
+    "turn": 19,
+    "card": 305,
+    "area": "active"
+   }
+  ],
+  "their_kos": [
+   {
+    "turn": 8,
+    "card": 305,
+    "area": "active"
+   }
+  ],
+  "our_ko_count": 6,
+  "our_bench_ko_count": 0,
+  "their_ko_count": 1,
+  "our_kos_by_card": {
+   "Alakazam": 3,
+   "Kadabra": 1,
+   "Dunsparce": 2
+  },
+  "their_kos_by_card": {
+   "Dunsparce": 1
+  },
+  "alakazam_evolves": 3,
+  "kadabra_evolves": 3,
+  "rare_candy_played": 1,
+  "shaymin_turn": 10,
+  "abra_played": 1,
+  "bench_at_turn": {
+   "0": 0,
+   "1": 1,
+   "3": 5,
+   "5": 5,
+   "7": 5,
+   "8": 5,
+   "9": 5,
+   "11": 5,
+   "13": 5,
+   "15": 4,
+   "17": 3,
+   "19": 2
+  },
+  "hand_sizes_on_powerful_hand": [
+   3,
+   4,
+   10
+  ],
+  "my_bench_left": 2,
+  "damage_we_took": 1830,
+  "damage_we_dealt": 340,
+  "events": [
+   "T 1 --- OPP turn ---",
+   "T 2 --- US turn ---",
+   "T 2 US  play Abra",
+   "T 2 US  play Buddy-Buddy Poffin",
+   "T 2 US  play Buddy-Buddy Poffin",
+   "T 3 --- OPP turn ---",
+   "T 3 OPP play Lillie's Determination",
+   "T 3 OPP play Buddy-Buddy Poffin",
+   "T 3 OPP play Dunsparce",
+   "T 3 OPP play Marnie's Impidimp",
+   "T 4 --- US turn ---",
+   "T 4 US  evolve -> Kadabra",
+   "T 4 US  evolve -> Dudunsparce",
+   "T 4 US  evolve -> Kadabra",
+   "T 4 US  play Dunsparce",
+   "T 4 US  play Dawn",
+   "T 4 US  evolve -> Kadabra",
+   "T 4 US  play Rare Candy",
+   "T 4 US  evolve -> Alakazam",
+   "T 5 --- OPP turn ---",
+   "T 5 OPP play Xerosic’s Machinations",
+   "T 6 --- US turn ---",
+   "T 6 US  switch active -> Alakazam",
+   "T 6 US  play Lana’s Aid",
+   "T 6 US  ATTACK Alakazam / Powerful Hand",
+   "T 6      dmg  60 -> OPPDunsparce (counters)",
+   "T 7 --- OPP turn ---",
+   "T 7 OPP play Dawn",
+   "T 7 OPP evolve -> Marnie's Morgrem",
+   "T 8 --- US turn ---",
+   "T 8 US  ATTACK Alakazam / Powerful Hand",
+   "T 8      dmg  80 -> OPPDunsparce (counters)",
+   "T 8      KO OPPDunsparce (active)",
+   "T 9 --- OPP turn ---",
+   "T 9 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 9 OPP play Munkidori",
+   "T 9 OPP play Spikemuth Gym",
+   "T 9 OPP play Dawn",
+   "T 9 OPP switch active -> Marnie's Grimmsnarl ex",
+   "T 9 OPP evolve -> Marnie's Morgrem",
+   "T 9 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 9      dmg 360 -> US Alakazam",
+   "T 9      dmg  30 -> US Kadabra",
+   "T 9      KO US Alakazam (active)",
+   "T10 --- US turn ---",
+   "T10 US  play Shaymin",
+   "T10 US  play Poké Pad",
+   "T10 US  evolve -> Alakazam",
+   "T10 US  play Hilda",
+   "T10 US  evolve -> Alakazam",
+   "T10 US  play Poké Pad",
+   "T11 --- OPP turn ---",
+   "T11 OPP play Rare Candy",
+   "T11 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T11 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T11 OPP play Boss’s Orders",
+   "T11 US  switch active -> Alakazam",
+   "T11 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T11      dmg 360 -> US Alakazam",
+   "T11      KO US Alakazam (active)",
+   "T12 --- US turn ---",
+   "T12 US  play Nighttime Mine",
+   "T12 US  play Hilda",
+   "T12 US  evolve -> Dudunsparce",
+   "T12 US  play Buddy-Buddy Poffin",
+   "T12 US  ATTACK Alakazam / Powerful Hand",
+   "T12      dmg 200 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T13 --- OPP turn ---",
+   "T13 OPP play Spikemuth Gym",
+   "T13 OPP play Lillie's Determination",
+   "T13 OPP play Poké Pad",
+   "T13 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T13      dmg 360 -> US Alakazam",
+   "T13      KO US Alakazam (active)",
+   "T14 --- US turn ---",
+   "T14 US  play Nighttime Mine",
+   "T15 --- OPP turn ---",
+   "T15 OPP play Boss’s Orders",
+   "T15 US  switch active -> Kadabra",
+   "T15 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T15      dmg 360 -> US Kadabra",
+   "T15      KO US Kadabra (active)",
+   "T16 --- US turn ---",
+   "T17 --- OPP turn ---",
+   "T17 OPP play Lillie's Determination",
+   "T17 OPP play Spikemuth Gym",
+   "T17 OPP evolve -> Dudunsparce",
+   "T17 OPP play Poké Pad",
+   "T17 OPP play Fezandipiti ex",
+   "T17 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T17      dmg 180 -> US Dunsparce",
+   "T17      KO US Dunsparce (active)",
+   "T18 --- US turn ---",
+   "T19 --- OPP turn ---",
+   "T19 OPP play Poké Pad",
+   "T19 OPP play Risky Ruins",
+   "T19 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T19      dmg 180 -> US Dunsparce",
+   "T19      KO US Dunsparce (active)"
+  ],
+  "hand_at_turn": {
+   "0": 6,
+   "1": 5,
+   "3": 3,
+   "5": 3,
+   "7": 3,
+   "8": 5,
+   "9": 5,
+   "11": 9,
+   "13": 10,
+   "15": 9,
+   "17": 10,
+   "19": 11
+  }
+ },
+ {
+  "episode_id": "88576949",
+  "won": false,
+  "seat": 1,
+  "we_went_first": false,
+  "turns": 11,
+  "opp_archetype": "Marnie's Grimmsnarl ex",
+  "opp_deck": [
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   104,
+   104,
+   112,
+   112,
+   112,
+   112,
+   646,
+   646,
+   646,
+   646,
+   647,
+   647,
+   647,
+   648,
+   648,
+   648,
+   860,
+   860,
+   1079,
+   1079,
+   1079,
+   1080,
+   1086,
+   1086,
+   1086,
+   1086,
+   1097,
+   1097,
+   1097,
+   1152,
+   1152,
+   1152,
+   1152,
+   1122,
+   1137,
+   1182,
+   1182,
+   1219,
+   1219,
+   1219,
+   1219,
+   1227,
+   1227,
+   1227,
+   1227,
+   1231,
+   1259,
+   1259,
+   1259,
+   1259
+  ],
+  "my_prizes_taken": 4,
+  "opp_prizes_taken": 5,
+  "my_alakazam_turn": 4,
+  "opp_grimmsnarl_turn": 3,
+  "my_attacks": [
+   {
+    "turn": 4,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 260,
+    "targets": [
+     [
+      648,
+      260
+     ]
+    ]
+   },
+   {
+    "turn": 6,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 380,
+    "targets": [
+     [
+      648,
+      380
+     ]
+    ]
+   },
+   {
+    "turn": 8,
+    "player": 1,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 490,
+    "targets": [
+     [
+      648,
+      480
+     ],
+     [
+      112,
+      10
+     ]
+    ]
+   }
+  ],
+  "opp_attacks": [
+   {
+    "turn": 3,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 210,
+    "targets": [
+     [
+      305,
+      180
+     ],
+     [
+      741,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 5,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      741,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 7,
+    "player": 0,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      743,
+      10
+     ],
+     [
+      140,
+      10
+     ],
+     [
+      343,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 9,
+    "player": 0,
+    "attacker": 647,
+    "attack_id": 936,
+    "damage": 180,
+    "targets": [
+     [
+      743,
+      120
+     ],
+     [
+      140,
+      10
+     ],
+     [
+      66,
+      10
+     ],
+     [
+      343,
+      10
+     ],
+     [
+      140,
+      10
+     ],
+     [
+      66,
+      10
+     ],
+     [
+      343,
+      10
+     ]
+    ]
+   }
+  ],
+  "powerful_hand_count": 3,
+  "powerful_hand_damage": [
+   260,
+   380,
+   490
+  ],
+  "shadow_bullet_count": 3,
+  "opp_attack_damage": [
+   210,
+   390,
+   390,
+   180
+  ],
+  "my_total_damage": 1130,
+  "opp_total_damage": 1170,
+  "first_attack_turn": 4,
+  "opp_first_attack_turn": 3,
+  "my_deck_left": 24,
+  "loss_mode": "other(bodies=5)",
+  "our_kos": [
+   {
+    "turn": 3,
+    "card": 305,
+    "area": "active"
+   },
+   {
+    "turn": 5,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 5,
+    "card": 741,
+    "area": "bench"
+   },
+   {
+    "turn": 7,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 9,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 11,
+    "card": 343,
+    "area": "bench"
+   }
+  ],
+  "their_kos": [
+   {
+    "turn": 6,
+    "card": 648,
+    "area": "active"
+   },
+   {
+    "turn": 8,
+    "card": 648,
+    "area": "active"
+   }
+  ],
+  "our_ko_count": 6,
+  "our_bench_ko_count": 2,
+  "their_ko_count": 2,
+  "our_kos_by_card": {
+   "Dunsparce": 1,
+   "Alakazam": 3,
+   "Abra": 1,
+   "Shaymin": 1
+  },
+  "their_kos_by_card": {
+   "Marnie's Grimmsnarl ex": 2
+  },
+  "alakazam_evolves": 3,
+  "kadabra_evolves": 2,
+  "rare_candy_played": 2,
+  "shaymin_turn": 6,
+  "abra_played": 2,
+  "bench_at_turn": {
+   "1": 0,
+   "3": 2,
+   "5": 4,
+   "6": 5,
+   "7": 5,
+   "8": 5,
+   "9": 5,
+   "10": 5,
+   "11": 4
+  },
+  "hand_sizes_on_powerful_hand": [
+   13,
+   19,
+   24
+  ],
+  "my_bench_left": 4,
+  "damage_we_took": 1350,
+  "damage_we_dealt": 1190,
+  "events": [
+   "T 1 --- OPP turn ---",
+   "T 1 OPP play Poké Pad",
+   "T 1 OPP play Snorunt",
+   "T 1 OPP play Spikemuth Gym",
+   "T 1 OPP play Marnie's Impidimp",
+   "T 2 --- US turn ---",
+   "T 2 US  play Buddy-Buddy Poffin",
+   "T 2 US  play Hilda",
+   "T 3 --- OPP turn ---",
+   "T 3 OPP play Buddy-Buddy Poffin",
+   "T 3 OPP play Rare Candy",
+   "T 3 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 3 OPP switch active -> Marnie's Grimmsnarl ex",
+   "T 3 OPP play Night Stretcher",
+   "T 3 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 3      dmg 180 -> US Dunsparce",
+   "T 3      dmg  30 -> US Abra",
+   "T 3      KO US Dunsparce (active)",
+   "T 4 --- US turn ---",
+   "T 4 US  play Rare Candy",
+   "T 4 US  evolve -> Alakazam",
+   "T 4 US  evolve -> Kadabra",
+   "T 4 US  play Nighttime Mine",
+   "T 4 US  play Dawn",
+   "T 4 US  play Fezandipiti ex",
+   "T 4 US  play Dunsparce",
+   "T 4 US  play Buddy-Buddy Poffin",
+   "T 4 US  ATTACK Alakazam / Powerful Hand",
+   "T 4      dmg 260 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 5 --- OPP turn ---",
+   "T 5      heal +30 on OPPMarnie's Grimmsnarl ex",
+   "T 5      dmg  30 -> US Abra (counters)",
+   "T 5 OPP evolve -> Marnie's Morgrem",
+   "T 5 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 5      dmg 360 -> US Alakazam",
+   "T 5      dmg  30 -> US Abra",
+   "T 5      KO US Alakazam (active)",
+   "T 5      KO US Abra (bench)",
+   "T 6 --- US turn ---",
+   "T 6 US  evolve -> Alakazam",
+   "T 6 US  play Rare Candy",
+   "T 6 US  evolve -> Alakazam",
+   "T 6 US  evolve -> Dudunsparce",
+   "T 6 US  play Dawn",
+   "T 6 US  play Buddy-Buddy Poffin",
+   "T 6 US  play Buddy-Buddy Poffin",
+   "T 6 US  play Shaymin",
+   "T 6 US  ATTACK Alakazam / Powerful Hand",
+   "T 6      dmg 380 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 6      KO OPPMarnie's Grimmsnarl ex (active)",
+   "T 7 --- OPP turn ---",
+   "T 7 OPP play Marnie's Impidimp",
+   "T 7 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 7 OPP play Lillie's Determination",
+   "T 7 OPP play Poké Pad",
+   "T 7 OPP evolve -> Froslass",
+   "T 7 OPP play Buddy-Buddy Poffin",
+   "T 7 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 7      dmg 360 -> US Alakazam",
+   "T 7      KO US Alakazam (active)",
+   "T 7      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 7      dmg  10 -> OPPMunkidori (counters)",
+   "T 7      dmg  10 -> US Alakazam (counters)",
+   "T 7      dmg  10 -> US Fezandipiti ex (counters)",
+   "T 7      dmg  10 -> US Shaymin (counters)",
+   "T 8 --- US turn ---",
+   "T 8 US  evolve -> Dudunsparce",
+   "T 8 US  play Lana’s Aid",
+   "T 8 US  play Abra",
+   "T 8 US  play Night Stretcher",
+   "T 8 US  ATTACK Alakazam / Powerful Hand",
+   "T 8      dmg 480 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 8      KO OPPMarnie's Grimmsnarl ex (active)",
+   "T 8      dmg  10 -> OPPMunkidori (counters)",
+   "T 8      dmg  10 -> US Alakazam (counters)",
+   "T 8      dmg  10 -> US Fezandipiti ex (counters)",
+   "T 8      dmg  10 -> US Dudunsparce (counters)",
+   "T 8      dmg  10 -> US Shaymin (counters)",
+   "T 9 --- OPP turn ---",
+   "T 9      heal +20 on OPPMunkidori",
+   "T 9      dmg  20 -> US Abra (counters)",
+   "T 9 OPP play Marnie's Impidimp",
+   "T 9 OPP play Poké Pad",
+   "T 9 OPP evolve -> Froslass",
+   "T 9 OPP play Lillie's Determination",
+   "T 9 OPP play Poké Pad",
+   "T 9 OPP play Spikemuth Gym",
+   "T 9 OPP play Unfair Stamp",
+   "T 9 OPP evolve -> Marnie's Morgrem",
+   "T 9 OPP ATTACK Marnie's Morgrem / Corkscrew Punch",
+   "T 9      dmg 120 -> US Alakazam",
+   "T 9      KO US Alakazam (active)",
+   "T 9      dmg  10 -> OPPMunkidori (counters)",
+   "T 9      dmg  10 -> US Fezandipiti ex (counters)",
+   "T 9      dmg  10 -> US Dudunsparce (counters)",
+   "T 9      dmg  10 -> US Shaymin (counters)",
+   "T 9      dmg  10 -> OPPMunkidori (counters)",
+   "T 9      dmg  10 -> US Fezandipiti ex (counters)",
+   "T 9      dmg  10 -> US Dudunsparce (counters)",
+   "T 9      dmg  10 -> US Shaymin (counters)",
+   "T10 --- US turn ---",
+   "T10 US  evolve -> Kadabra",
+   "T10 US  play Hilda",
+   "T10 US  play Poké Pad",
+   "T10 US  play Abra",
+   "T10 US  play Nighttime Mine",
+   "T10 US  play Sacred Ash",
+   "T10      dmg  10 -> OPPMunkidori (counters)",
+   "T10      dmg  10 -> US Fezandipiti ex (counters)",
+   "T10      dmg  10 -> US Shaymin (counters)",
+   "T10      dmg  10 -> US Kadabra (counters)",
+   "T10      dmg  10 -> OPPMunkidori (counters)",
+   "T10      dmg  10 -> US Fezandipiti ex (counters)",
+   "T10      dmg  10 -> US Shaymin (counters)",
+   "T10      dmg  10 -> US Kadabra (counters)",
+   "T11 --- OPP turn ---",
+   "T11      heal +30 on OPPMunkidori",
+   "T11      dmg  30 -> US Shaymin (counters)",
+   "T11      KO US Shaymin (bench)"
+  ],
+  "hand_at_turn": {
+   "1": 6,
+   "3": 6,
+   "5": 13,
+   "6": 21,
+   "7": 21,
+   "8": 26,
+   "9": 2,
+   "10": 7,
+   "11": 7
+  }
+ },
+ {
+  "episode_id": "88581786",
+  "won": false,
+  "seat": 0,
+  "we_went_first": true,
+  "turns": 12,
+  "opp_archetype": "Marnie's Grimmsnarl ex",
+  "opp_deck": [
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   646,
+   646,
+   646,
+   646,
+   112,
+   112,
+   112,
+   112,
+   1086,
+   1086,
+   1086,
+   1086,
+   1152,
+   1152,
+   1152,
+   1152,
+   1227,
+   1227,
+   1227,
+   1227,
+   1219,
+   1219,
+   1219,
+   1219,
+   1259,
+   1259,
+   1259,
+   1259,
+   648,
+   648,
+   648,
+   647,
+   647,
+   647,
+   1079,
+   1079,
+   1079,
+   1097,
+   1097,
+   1097,
+   104,
+   104,
+   860,
+   860,
+   1182,
+   1182,
+   1122,
+   1137,
+   1080,
+   1231
+  ],
+  "my_prizes_taken": 4,
+  "opp_prizes_taken": 5,
+  "my_alakazam_turn": 5,
+  "opp_grimmsnarl_turn": 4,
+  "my_attacks": [
+   {
+    "turn": 5,
+    "player": 0,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 260,
+    "targets": [
+     [
+      648,
+      260
+     ]
+    ]
+   },
+   {
+    "turn": 7,
+    "player": 0,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 280,
+    "targets": [
+     [
+      648,
+      280
+     ]
+    ]
+   },
+   {
+    "turn": 11,
+    "player": 0,
+    "attacker": 743,
+    "attack_id": 1072,
+    "damage": 390,
+    "targets": [
+     [
+      648,
+      360
+     ],
+     [
+      648,
+      10
+     ],
+     [
+      112,
+      10
+     ],
+     [
+      112,
+      10
+     ]
+    ]
+   }
+  ],
+  "opp_attacks": [
+   {
+    "turn": 4,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 210,
+    "targets": [
+     [
+      140,
+      180
+     ],
+     [
+      741,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 6,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 390,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      742,
+      30
+     ]
+    ]
+   },
+   {
+    "turn": 8,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 380,
+    "targets": [
+     [
+      743,
+      360
+     ],
+     [
+      742,
+      10
+     ],
+     [
+      343,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 10,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 380,
+    "targets": [
+     [
+      741,
+      360
+     ],
+     [
+      743,
+      10
+     ],
+     [
+      343,
+      10
+     ]
+    ]
+   },
+   {
+    "turn": 12,
+    "player": 1,
+    "attacker": 648,
+    "attack_id": 937,
+    "damage": 360,
+    "targets": [
+     [
+      743,
+      360
+     ]
+    ]
+   }
+  ],
+  "powerful_hand_count": 3,
+  "powerful_hand_damage": [
+   260,
+   280,
+   390
+  ],
+  "shadow_bullet_count": 5,
+  "opp_attack_damage": [
+   210,
+   390,
+   380,
+   380,
+   360
+  ],
+  "my_total_damage": 930,
+  "opp_total_damage": 1720,
+  "first_attack_turn": 5,
+  "opp_first_attack_turn": 4,
+  "my_deck_left": 11,
+  "loss_mode": "other(bodies=5)",
+  "our_kos": [
+   {
+    "turn": 6,
+    "card": 140,
+    "area": "bench"
+   },
+   {
+    "turn": 6,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 8,
+    "card": 743,
+    "area": "active"
+   },
+   {
+    "turn": 10,
+    "card": 741,
+    "area": "active"
+   },
+   {
+    "turn": 12,
+    "card": 743,
+    "area": "active"
+   }
+  ],
+  "their_kos": [
+   {
+    "turn": 7,
+    "card": 648,
+    "area": "active"
+   },
+   {
+    "turn": 11,
+    "card": 648,
+    "area": "active"
+   }
+  ],
+  "our_ko_count": 5,
+  "our_bench_ko_count": 1,
+  "their_ko_count": 2,
+  "our_kos_by_card": {
+   "Fezandipiti ex": 1,
+   "Alakazam": 3,
+   "Abra": 1
+  },
+  "their_kos_by_card": {
+   "Marnie's Grimmsnarl ex": 2
+  },
+  "alakazam_evolves": 3,
+  "kadabra_evolves": 3,
+  "rare_candy_played": 0,
+  "shaymin_turn": 7,
+  "abra_played": 2,
+  "bench_at_turn": {
+   "0": 0,
+   "2": 2,
+   "4": 3,
+   "6": 4,
+   "7": 5,
+   "8": 5,
+   "10": 5,
+   "11": 5,
+   "12": 5
+  },
+  "hand_sizes_on_powerful_hand": [
+   13,
+   14,
+   19
+  ],
+  "my_bench_left": 5,
+  "damage_we_took": 1820,
+  "damage_we_dealt": 1050,
+  "events": [
+   "T 1 --- US turn ---",
+   "T 1 US  play Fezandipiti ex",
+   "T 1 US  play Poké Pad",
+   "T 2 --- OPP turn ---",
+   "T 2 OPP play Buddy-Buddy Poffin",
+   "T 3 --- US turn ---",
+   "T 3 US  evolve -> Dudunsparce",
+   "T 3 US  play Hilda",
+   "T 3 US  evolve -> Kadabra",
+   "T 4 --- OPP turn ---",
+   "T 4 OPP play Rare Candy",
+   "T 4 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 4 OPP play Lillie's Determination",
+   "T 4 OPP switch active -> Marnie's Grimmsnarl ex",
+   "T 4 OPP play Spikemuth Gym",
+   "T 4 OPP play Poké Pad",
+   "T 4 OPP play Marnie's Impidimp",
+   "T 4 OPP evolve -> Marnie's Morgrem",
+   "T 4 OPP play Poké Pad",
+   "T 4 OPP play Marnie's Impidimp",
+   "T 4 OPP play Pokégear 3.0",
+   "T 4 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 4      dmg 180 -> US Fezandipiti ex",
+   "T 4      dmg  30 -> US Abra",
+   "T 5 --- US turn ---",
+   "T 5 US  evolve -> Alakazam",
+   "T 5 US  switch active -> Alakazam",
+   "T 5 US  play Buddy-Buddy Poffin",
+   "T 5 US  play Night Stretcher",
+   "T 5 US  play Nighttime Mine",
+   "T 5 US  play Dawn",
+   "T 5 US  evolve -> Kadabra",
+   "T 5 US  play Poké Pad",
+   "T 5 US  evolve -> Kadabra",
+   "T 5 US  ATTACK Alakazam / Powerful Hand",
+   "T 5      dmg 260 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 6 --- OPP turn ---",
+   "T 6 OPP play Dawn",
+   "T 6 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 6 OPP play Snorunt",
+   "T 6 OPP evolve -> Marnie's Morgrem",
+   "T 6 OPP switch active -> Marnie's Grimmsnarl ex",
+   "T 6      heal +30 on OPPMarnie's Grimmsnarl ex",
+   "T 6      dmg  30 -> US Fezandipiti ex (counters)",
+   "T 6      KO US Fezandipiti ex (bench)",
+   "T 6 OPP evolve -> Marnie's Morgrem",
+   "T 6 OPP play Spikemuth Gym",
+   "T 6 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 6      dmg 360 -> US Alakazam",
+   "T 6      dmg  30 -> US Kadabra",
+   "T 6      KO US Alakazam (active)",
+   "T 7 --- US turn ---",
+   "T 7 US  evolve -> Alakazam",
+   "T 7 US  play Boss’s Orders",
+   "T 7 OPP switch active -> Marnie's Grimmsnarl ex",
+   "T 7 US  evolve -> Dudunsparce",
+   "T 7 US  play Shaymin",
+   "T 7 US  play Buddy-Buddy Poffin",
+   "T 7 US  ATTACK Alakazam / Powerful Hand",
+   "T 7      dmg 280 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 7      KO OPPMarnie's Grimmsnarl ex (active)",
+   "T 8 --- OPP turn ---",
+   "T 8 OPP evolve -> Froslass",
+   "T 8 OPP play Lillie's Determination",
+   "T 8 OPP play Munkidori",
+   "T 8 OPP play Night Stretcher",
+   "T 8 OPP evolve -> Marnie's Grimmsnarl ex",
+   "T 8 OPP play Poké Pad",
+   "T 8 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T 8      dmg 360 -> US Alakazam",
+   "T 8      KO US Alakazam (active)",
+   "T 8      dmg  10 -> US Kadabra (counters)",
+   "T 8      dmg  10 -> US Shaymin (counters)",
+   "T 8      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 8      dmg  10 -> OPPMunkidori (counters)",
+   "T 8      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 8      dmg  10 -> OPPMunkidori (counters)",
+   "T 9 --- US turn ---",
+   "T 9 US  evolve -> Alakazam",
+   "T 9 US  play Lana’s Aid",
+   "T 9 US  play Abra",
+   "T 9 US  play Sacred Ash",
+   "T 9 US  play Poké Pad",
+   "T 9      dmg  10 -> US Alakazam (counters)",
+   "T 9      dmg  10 -> US Shaymin (counters)",
+   "T 9      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 9      dmg  10 -> OPPMunkidori (counters)",
+   "T 9      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T 9      dmg  10 -> OPPMunkidori (counters)",
+   "T10 --- OPP turn ---",
+   "T10      heal +20 on OPPMarnie's Grimmsnarl ex",
+   "T10      dmg  20 -> US Abra (counters)",
+   "T10 OPP play Boss’s Orders",
+   "T10 US  switch active -> Abra",
+   "T10 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T10      dmg 360 -> US Abra",
+   "T10      KO US Abra (active)",
+   "T10      dmg  10 -> US Alakazam (counters)",
+   "T10      dmg  10 -> US Shaymin (counters)",
+   "T10      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T10      dmg  10 -> OPPMunkidori (counters)",
+   "T10      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T10      dmg  10 -> OPPMunkidori (counters)",
+   "T11 --- US turn ---",
+   "T11 US  play Abra",
+   "T11 US  play Dawn",
+   "T11 US  evolve -> Dudunsparce",
+   "T11 US  ATTACK Alakazam / Powerful Hand",
+   "T11      dmg 360 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T11      KO OPPMarnie's Grimmsnarl ex (active)",
+   "T11      dmg  10 -> US Alakazam (counters)",
+   "T11      dmg  10 -> US Shaymin (counters)",
+   "T11      dmg  10 -> US Dudunsparce (counters)",
+   "T11      dmg  10 -> OPPMarnie's Grimmsnarl ex (counters)",
+   "T11      dmg  10 -> OPPMunkidori (counters)",
+   "T11      dmg  10 -> OPPMunkidori (counters)",
+   "T12 --- OPP turn ---",
+   "T12 OPP ATTACK Marnie's Grimmsnarl ex / Shadow Bullet",
+   "T12      dmg 360 -> US Alakazam",
+   "T12      KO US Alakazam (active)"
+  ],
+  "hand_at_turn": {
+   "0": 6,
+   "2": 5,
+   "4": 9,
+   "6": 13,
+   "7": 16,
+   "8": 16,
+   "10": 18,
+   "11": 20,
+   "12": 20
+  }
+ }
+]

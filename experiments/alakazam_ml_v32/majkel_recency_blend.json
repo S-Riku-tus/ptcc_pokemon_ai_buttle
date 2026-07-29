@@ -1,0 +1,25 @@
+{
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "history",
+    "attention",
+    "weighted_floor_0.1_power_1.0"
+  ],
+  "selected_weights": [
+    1.0,
+    0.525,
+    0.6,
+    1.075,
+    0.0,
+    0.0
+  ],
+  "validation_top1": 0.8020517603170902,
+  "test_top1": 0.7712075848303394,
+  "validation_oracle_any_model": 0.8948472837491257,
+  "test_oracle_any_model": 0.874001996007984,
+  "previous_v32_best_test_top1": 0.7715818363273453,
+  "target_top1": 0.9,
+  "target_met": false
+}

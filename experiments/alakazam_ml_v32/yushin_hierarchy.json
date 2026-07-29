@@ -1,0 +1,1089 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v32\\yushin_arrays.npz",
+  "features": 657,
+  "decision_features": 526,
+  "split_decisions": {
+    "train": 35704,
+    "validation": 5038,
+    "test": 8848
+  },
+  "ranker_best_iteration": 314,
+  "experiments": [
+    {
+      "num_leaves": 63,
+      "min_child_samples": 30,
+      "best_iteration": 434,
+      "validation": {
+        "decisions": 5038,
+        "action_top1": 0.815204446208813,
+        "hierarchical_semantic_top1": 0.7743152044462088,
+        "teacher_action_representable": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "semantic_top1": 0.8564814814814815
+          },
+          "attack": {
+            "count": 653,
+            "semantic_top1": 0.8453292496171516
+          },
+          "bench": {
+            "count": 667,
+            "semantic_top1": 0.8245877061469266
+          },
+          "boss": {
+            "count": 105,
+            "semantic_top1": 0.5523809523809524
+          },
+          "end": {
+            "count": 121,
+            "semantic_top1": 0.6776859504132231
+          },
+          "energy": {
+            "count": 542,
+            "semantic_top1": 0.6845018450184502
+          },
+          "evolve": {
+            "count": 1100,
+            "semantic_top1": 0.9090909090909091
+          },
+          "hammer": {
+            "count": 76,
+            "semantic_top1": 0.8026315789473685
+          },
+          "retreat": {
+            "count": 49,
+            "semantic_top1": 0.5714285714285714
+          },
+          "trainer": {
+            "count": 978,
+            "semantic_top1": 0.6104294478527608
+          },
+          "xerosic": {
+            "count": 99,
+            "semantic_top1": 0.47474747474747475
+          }
+        },
+        "action_confusion": {
+          "ability": {
+            "ability": 556,
+            "attack": 19,
+            "bench": 14,
+            "boss": 3,
+            "energy": 15,
+            "evolve": 14,
+            "hammer": 1,
+            "trainer": 24,
+            "xerosic": 2
+          },
+          "attack": {
+            "ability": 7,
+            "attack": 552,
+            "bench": 12,
+            "boss": 4,
+            "energy": 19,
+            "evolve": 10,
+            "hammer": 2,
+            "retreat": 2,
+            "trainer": 43,
+            "xerosic": 2
+          },
+          "bench": {
+            "ability": 13,
+            "attack": 4,
+            "bench": 567,
+            "boss": 4,
+            "end": 2,
+            "energy": 19,
+            "evolve": 22,
+            "hammer": 2,
+            "retreat": 1,
+            "trainer": 30,
+            "xerosic": 3
+          },
+          "boss": {
+            "ability": 2,
+            "attack": 3,
+            "bench": 5,
+            "boss": 58,
+            "energy": 5,
+            "evolve": 11,
+            "trainer": 19,
+            "xerosic": 2
+          },
+          "end": {
+            "ability": 3,
+            "bench": 3,
+            "boss": 1,
+            "end": 82,
+            "energy": 5,
+            "evolve": 17,
+            "trainer": 10
+          },
+          "energy": {
+            "ability": 13,
+            "attack": 43,
+            "bench": 10,
+            "boss": 4,
+            "energy": 406,
+            "evolve": 36,
+            "trainer": 30
+          },
+          "evolve": {
+            "ability": 8,
+            "attack": 5,
+            "bench": 4,
+            "boss": 4,
+            "energy": 24,
+            "evolve": 1032,
+            "hammer": 4,
+            "retreat": 1,
+            "trainer": 15,
+            "xerosic": 3
+          },
+          "hammer": {
+            "attack": 2,
+            "boss": 1,
+            "energy": 1,
+            "evolve": 5,
+            "hammer": 61,
+            "trainer": 2,
+            "xerosic": 4
+          },
+          "other": {},
+          "retreat": {
+            "ability": 1,
+            "attack": 8,
+            "bench": 1,
+            "end": 3,
+            "energy": 1,
+            "evolve": 2,
+            "retreat": 28,
+            "trainer": 5
+          },
+          "trainer": {
+            "ability": 42,
+            "attack": 62,
+            "bench": 34,
+            "boss": 12,
+            "end": 4,
+            "energy": 40,
+            "evolve": 53,
+            "hammer": 6,
+            "retreat": 2,
+            "trainer": 718,
+            "xerosic": 5
+          },
+          "xerosic": {
+            "ability": 5,
+            "attack": 8,
+            "bench": 1,
+            "boss": 3,
+            "end": 1,
+            "energy": 1,
+            "evolve": 4,
+            "hammer": 2,
+            "retreat": 1,
+            "trainer": 26,
+            "xerosic": 47
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "action_top1": 0.8167947558770343,
+        "hierarchical_semantic_top1": 0.7710216998191681,
+        "teacher_action_representable": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "semantic_top1": 0.8254545454545454
+          },
+          "attack": {
+            "count": 1142,
+            "semantic_top1": 0.850262697022767
+          },
+          "bench": {
+            "count": 1051,
+            "semantic_top1": 0.7878211227402474
+          },
+          "boss": {
+            "count": 203,
+            "semantic_top1": 0.5270935960591133
+          },
+          "end": {
+            "count": 231,
+            "semantic_top1": 0.7012987012987013
+          },
+          "energy": {
+            "count": 945,
+            "semantic_top1": 0.7058201058201058
+          },
+          "evolve": {
+            "count": 1903,
+            "semantic_top1": 0.9164477141355754
+          },
+          "hammer": {
+            "count": 145,
+            "semantic_top1": 0.8758620689655172
+          },
+          "retreat": {
+            "count": 70,
+            "semantic_top1": 0.6285714285714286
+          },
+          "trainer": {
+            "count": 1899,
+            "semantic_top1": 0.6287519747235387
+          },
+          "xerosic": {
+            "count": 159,
+            "semantic_top1": 0.44025157232704404
+          }
+        },
+        "action_confusion": {
+          "ability": {
+            "ability": 914,
+            "attack": 17,
+            "bench": 24,
+            "boss": 10,
+            "end": 3,
+            "energy": 28,
+            "evolve": 44,
+            "hammer": 3,
+            "trainer": 55,
+            "xerosic": 2
+          },
+          "attack": {
+            "ability": 15,
+            "attack": 971,
+            "bench": 26,
+            "boss": 4,
+            "energy": 23,
+            "evolve": 15,
+            "hammer": 2,
+            "trainer": 81,
+            "xerosic": 5
+          },
+          "bench": {
+            "ability": 43,
+            "attack": 17,
+            "bench": 856,
+            "boss": 5,
+            "end": 3,
+            "energy": 22,
+            "evolve": 42,
+            "hammer": 1,
+            "trainer": 60,
+            "xerosic": 2
+          },
+          "boss": {
+            "ability": 4,
+            "attack": 4,
+            "bench": 16,
+            "boss": 107,
+            "end": 2,
+            "energy": 12,
+            "evolve": 9,
+            "hammer": 1,
+            "retreat": 1,
+            "trainer": 42,
+            "xerosic": 5
+          },
+          "end": {
+            "ability": 11,
+            "bench": 6,
+            "end": 162,
+            "energy": 6,
+            "evolve": 4,
+            "trainer": 42
+          },
+          "energy": {
+            "ability": 14,
+            "attack": 28,
+            "bench": 15,
+            "boss": 8,
+            "end": 1,
+            "energy": 739,
+            "evolve": 67,
+            "hammer": 2,
+            "trainer": 71
+          },
+          "evolve": {
+            "ability": 10,
+            "attack": 24,
+            "bench": 9,
+            "boss": 5,
+            "end": 1,
+            "energy": 29,
+            "evolve": 1795,
+            "hammer": 7,
+            "retreat": 7,
+            "trainer": 16
+          },
+          "hammer": {
+            "ability": 1,
+            "attack": 6,
+            "bench": 1,
+            "energy": 3,
+            "evolve": 3,
+            "hammer": 127,
+            "trainer": 4
+          },
+          "other": {},
+          "retreat": {
+            "ability": 2,
+            "attack": 8,
+            "bench": 4,
+            "end": 6,
+            "energy": 1,
+            "evolve": 2,
+            "retreat": 44,
+            "trainer": 3
+          },
+          "trainer": {
+            "ability": 79,
+            "attack": 105,
+            "bench": 75,
+            "boss": 14,
+            "end": 2,
+            "energy": 92,
+            "evolve": 72,
+            "hammer": 1,
+            "retreat": 1,
+            "trainer": 1442,
+            "xerosic": 16
+          },
+          "xerosic": {
+            "ability": 7,
+            "attack": 17,
+            "bench": 5,
+            "boss": 6,
+            "end": 3,
+            "energy": 6,
+            "evolve": 9,
+            "trainer": 36,
+            "xerosic": 70
+          }
+        }
+      }
+    },
+    {
+      "num_leaves": 127,
+      "min_child_samples": 25,
+      "best_iteration": 327,
+      "validation": {
+        "decisions": 5038,
+        "action_top1": 0.8165938864628821,
+        "hierarchical_semantic_top1": 0.7753076617705439,
+        "teacher_action_representable": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "semantic_top1": 0.8487654320987654
+          },
+          "attack": {
+            "count": 653,
+            "semantic_top1": 0.8545176110260337
+          },
+          "bench": {
+            "count": 667,
+            "semantic_top1": 0.8215892053973014
+          },
+          "boss": {
+            "count": 105,
+            "semantic_top1": 0.5619047619047619
+          },
+          "end": {
+            "count": 121,
+            "semantic_top1": 0.7024793388429752
+          },
+          "energy": {
+            "count": 542,
+            "semantic_top1": 0.6863468634686347
+          },
+          "evolve": {
+            "count": 1100,
+            "semantic_top1": 0.9127272727272727
+          },
+          "hammer": {
+            "count": 76,
+            "semantic_top1": 0.7894736842105263
+          },
+          "retreat": {
+            "count": 49,
+            "semantic_top1": 0.5510204081632653
+          },
+          "trainer": {
+            "count": 978,
+            "semantic_top1": 0.6094069529652352
+          },
+          "xerosic": {
+            "count": 99,
+            "semantic_top1": 0.47474747474747475
+          }
+        },
+        "action_confusion": {
+          "ability": {
+            "ability": 552,
+            "attack": 17,
+            "bench": 12,
+            "boss": 2,
+            "energy": 14,
+            "evolve": 16,
+            "hammer": 1,
+            "trainer": 31,
+            "xerosic": 3
+          },
+          "attack": {
+            "ability": 6,
+            "attack": 558,
+            "bench": 10,
+            "boss": 8,
+            "energy": 13,
+            "evolve": 10,
+            "hammer": 2,
+            "retreat": 2,
+            "trainer": 41,
+            "xerosic": 3
+          },
+          "bench": {
+            "ability": 14,
+            "attack": 3,
+            "bench": 565,
+            "boss": 2,
+            "end": 2,
+            "energy": 19,
+            "evolve": 24,
+            "hammer": 3,
+            "trainer": 33,
+            "xerosic": 2
+          },
+          "boss": {
+            "ability": 2,
+            "attack": 3,
+            "bench": 3,
+            "boss": 59,
+            "energy": 4,
+            "evolve": 12,
+            "retreat": 1,
+            "trainer": 19,
+            "xerosic": 2
+          },
+          "end": {
+            "ability": 1,
+            "bench": 3,
+            "boss": 1,
+            "end": 85,
+            "energy": 5,
+            "evolve": 18,
+            "trainer": 8
+          },
+          "energy": {
+            "ability": 11,
+            "attack": 44,
+            "bench": 9,
+            "boss": 3,
+            "energy": 406,
+            "evolve": 36,
+            "trainer": 33
+          },
+          "evolve": {
+            "ability": 10,
+            "attack": 8,
+            "bench": 2,
+            "boss": 5,
+            "energy": 18,
+            "evolve": 1035,
+            "hammer": 3,
+            "retreat": 1,
+            "trainer": 16,
+            "xerosic": 2
+          },
+          "hammer": {
+            "attack": 3,
+            "boss": 1,
+            "evolve": 5,
+            "hammer": 60,
+            "trainer": 2,
+            "xerosic": 5
+          },
+          "other": {},
+          "retreat": {
+            "attack": 8,
+            "bench": 1,
+            "end": 5,
+            "energy": 1,
+            "evolve": 1,
+            "retreat": 27,
+            "trainer": 6
+          },
+          "trainer": {
+            "ability": 45,
+            "attack": 65,
+            "bench": 34,
+            "boss": 11,
+            "end": 5,
+            "energy": 38,
+            "evolve": 49,
+            "hammer": 6,
+            "retreat": 1,
+            "trainer": 720,
+            "xerosic": 4
+          },
+          "xerosic": {
+            "ability": 4,
+            "attack": 6,
+            "bench": 1,
+            "boss": 3,
+            "end": 1,
+            "energy": 1,
+            "evolve": 4,
+            "hammer": 3,
+            "retreat": 1,
+            "trainer": 28,
+            "xerosic": 47
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "action_top1": 0.8174728752260397,
+        "hierarchical_semantic_top1": 0.7726039783001808,
+        "teacher_action_representable": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "semantic_top1": 0.8272727272727273
+          },
+          "attack": {
+            "count": 1142,
+            "semantic_top1": 0.8493870402802102
+          },
+          "bench": {
+            "count": 1051,
+            "semantic_top1": 0.7916270218839201
+          },
+          "boss": {
+            "count": 203,
+            "semantic_top1": 0.5320197044334976
+          },
+          "end": {
+            "count": 231,
+            "semantic_top1": 0.696969696969697
+          },
+          "energy": {
+            "count": 945,
+            "semantic_top1": 0.7047619047619048
+          },
+          "evolve": {
+            "count": 1903,
+            "semantic_top1": 0.9159222280609564
+          },
+          "hammer": {
+            "count": 145,
+            "semantic_top1": 0.8758620689655172
+          },
+          "retreat": {
+            "count": 70,
+            "semantic_top1": 0.6285714285714286
+          },
+          "trainer": {
+            "count": 1899,
+            "semantic_top1": 0.6303317535545023
+          },
+          "xerosic": {
+            "count": 159,
+            "semantic_top1": 0.49056603773584906
+          }
+        },
+        "action_confusion": {
+          "ability": {
+            "ability": 916,
+            "attack": 18,
+            "bench": 28,
+            "boss": 11,
+            "end": 2,
+            "energy": 20,
+            "evolve": 40,
+            "hammer": 3,
+            "trainer": 59,
+            "xerosic": 3
+          },
+          "attack": {
+            "ability": 13,
+            "attack": 970,
+            "bench": 25,
+            "boss": 4,
+            "energy": 23,
+            "evolve": 15,
+            "hammer": 2,
+            "trainer": 85,
+            "xerosic": 5
+          },
+          "bench": {
+            "ability": 40,
+            "attack": 18,
+            "bench": 859,
+            "boss": 7,
+            "end": 2,
+            "energy": 26,
+            "evolve": 41,
+            "hammer": 2,
+            "trainer": 53,
+            "xerosic": 3
+          },
+          "boss": {
+            "ability": 5,
+            "attack": 5,
+            "bench": 16,
+            "boss": 108,
+            "end": 3,
+            "energy": 10,
+            "evolve": 9,
+            "hammer": 1,
+            "retreat": 1,
+            "trainer": 40,
+            "xerosic": 5
+          },
+          "end": {
+            "ability": 11,
+            "bench": 5,
+            "boss": 1,
+            "end": 161,
+            "energy": 6,
+            "evolve": 3,
+            "trainer": 44
+          },
+          "energy": {
+            "ability": 16,
+            "attack": 29,
+            "bench": 15,
+            "boss": 8,
+            "end": 1,
+            "energy": 736,
+            "evolve": 69,
+            "hammer": 3,
+            "trainer": 68
+          },
+          "evolve": {
+            "ability": 12,
+            "attack": 22,
+            "bench": 10,
+            "boss": 5,
+            "end": 1,
+            "energy": 29,
+            "evolve": 1795,
+            "hammer": 6,
+            "retreat": 7,
+            "trainer": 15,
+            "xerosic": 1
+          },
+          "hammer": {
+            "ability": 1,
+            "attack": 7,
+            "bench": 1,
+            "energy": 2,
+            "evolve": 3,
+            "hammer": 127,
+            "trainer": 3,
+            "xerosic": 1
+          },
+          "other": {},
+          "retreat": {
+            "ability": 1,
+            "attack": 7,
+            "bench": 4,
+            "end": 6,
+            "energy": 1,
+            "evolve": 3,
+            "retreat": 44,
+            "trainer": 3,
+            "xerosic": 1
+          },
+          "trainer": {
+            "ability": 85,
+            "attack": 103,
+            "bench": 81,
+            "boss": 16,
+            "end": 2,
+            "energy": 89,
+            "evolve": 67,
+            "hammer": 1,
+            "retreat": 1,
+            "trainer": 1439,
+            "xerosic": 15
+          },
+          "xerosic": {
+            "ability": 6,
+            "attack": 16,
+            "bench": 5,
+            "boss": 6,
+            "end": 3,
+            "energy": 5,
+            "evolve": 7,
+            "trainer": 33,
+            "xerosic": 78
+          }
+        }
+      }
+    },
+    {
+      "num_leaves": 255,
+      "min_child_samples": 20,
+      "best_iteration": 318,
+      "validation": {
+        "decisions": 5038,
+        "action_top1": 0.8183803096466852,
+        "hierarchical_semantic_top1": 0.778086542278682,
+        "teacher_action_representable": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "semantic_top1": 0.8518518518518519
+          },
+          "attack": {
+            "count": 653,
+            "semantic_top1": 0.8514548238897397
+          },
+          "bench": {
+            "count": 667,
+            "semantic_top1": 0.823088455772114
+          },
+          "boss": {
+            "count": 105,
+            "semantic_top1": 0.6
+          },
+          "end": {
+            "count": 121,
+            "semantic_top1": 0.6859504132231405
+          },
+          "energy": {
+            "count": 542,
+            "semantic_top1": 0.6900369003690037
+          },
+          "evolve": {
+            "count": 1100,
+            "semantic_top1": 0.9145454545454546
+          },
+          "hammer": {
+            "count": 76,
+            "semantic_top1": 0.8026315789473685
+          },
+          "retreat": {
+            "count": 49,
+            "semantic_top1": 0.5714285714285714
+          },
+          "trainer": {
+            "count": 978,
+            "semantic_top1": 0.6124744376278118
+          },
+          "xerosic": {
+            "count": 99,
+            "semantic_top1": 0.494949494949495
+          }
+        },
+        "action_confusion": {
+          "ability": {
+            "ability": 554,
+            "attack": 15,
+            "bench": 16,
+            "boss": 3,
+            "energy": 13,
+            "evolve": 16,
+            "hammer": 1,
+            "trainer": 29,
+            "xerosic": 1
+          },
+          "attack": {
+            "ability": 6,
+            "attack": 556,
+            "bench": 12,
+            "boss": 7,
+            "energy": 14,
+            "evolve": 9,
+            "hammer": 2,
+            "retreat": 2,
+            "trainer": 42,
+            "xerosic": 3
+          },
+          "bench": {
+            "ability": 15,
+            "attack": 2,
+            "bench": 566,
+            "boss": 3,
+            "end": 2,
+            "energy": 18,
+            "evolve": 23,
+            "hammer": 2,
+            "trainer": 33,
+            "xerosic": 3
+          },
+          "boss": {
+            "attack": 3,
+            "bench": 3,
+            "boss": 63,
+            "energy": 4,
+            "evolve": 12,
+            "trainer": 18,
+            "xerosic": 2
+          },
+          "end": {
+            "ability": 2,
+            "bench": 3,
+            "boss": 1,
+            "end": 83,
+            "energy": 4,
+            "evolve": 19,
+            "trainer": 9
+          },
+          "energy": {
+            "ability": 15,
+            "attack": 43,
+            "bench": 9,
+            "boss": 4,
+            "energy": 407,
+            "evolve": 34,
+            "trainer": 30
+          },
+          "evolve": {
+            "ability": 9,
+            "attack": 7,
+            "bench": 3,
+            "boss": 5,
+            "energy": 20,
+            "evolve": 1038,
+            "hammer": 2,
+            "retreat": 1,
+            "trainer": 13,
+            "xerosic": 2
+          },
+          "hammer": {
+            "attack": 3,
+            "boss": 1,
+            "evolve": 5,
+            "hammer": 61,
+            "trainer": 2,
+            "xerosic": 4
+          },
+          "other": {},
+          "retreat": {
+            "ability": 1,
+            "attack": 7,
+            "bench": 1,
+            "end": 4,
+            "energy": 1,
+            "evolve": 1,
+            "retreat": 28,
+            "trainer": 6
+          },
+          "trainer": {
+            "ability": 47,
+            "attack": 59,
+            "bench": 34,
+            "boss": 13,
+            "end": 4,
+            "energy": 37,
+            "evolve": 52,
+            "hammer": 6,
+            "retreat": 2,
+            "trainer": 718,
+            "xerosic": 6
+          },
+          "xerosic": {
+            "ability": 4,
+            "attack": 4,
+            "bench": 2,
+            "boss": 3,
+            "end": 1,
+            "energy": 2,
+            "evolve": 4,
+            "hammer": 2,
+            "retreat": 1,
+            "trainer": 27,
+            "xerosic": 49
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "action_top1": 0.8181509945750453,
+        "hierarchical_semantic_top1": 0.7732820976491862,
+        "teacher_action_representable": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "semantic_top1": 0.83
+          },
+          "attack": {
+            "count": 1142,
+            "semantic_top1": 0.8476357267950964
+          },
+          "bench": {
+            "count": 1051,
+            "semantic_top1": 0.7973358705994291
+          },
+          "boss": {
+            "count": 203,
+            "semantic_top1": 0.5123152709359606
+          },
+          "end": {
+            "count": 231,
+            "semantic_top1": 0.696969696969697
+          },
+          "energy": {
+            "count": 945,
+            "semantic_top1": 0.7047619047619048
+          },
+          "evolve": {
+            "count": 1903,
+            "semantic_top1": 0.9174986862848135
+          },
+          "hammer": {
+            "count": 145,
+            "semantic_top1": 0.8689655172413793
+          },
+          "retreat": {
+            "count": 70,
+            "semantic_top1": 0.6
+          },
+          "trainer": {
+            "count": 1899,
+            "semantic_top1": 0.6334913112164297
+          },
+          "xerosic": {
+            "count": 159,
+            "semantic_top1": 0.4716981132075472
+          }
+        },
+        "action_confusion": {
+          "ability": {
+            "ability": 919,
+            "attack": 18,
+            "bench": 24,
+            "boss": 10,
+            "end": 4,
+            "energy": 20,
+            "evolve": 38,
+            "hammer": 2,
+            "trainer": 63,
+            "xerosic": 2
+          },
+          "attack": {
+            "ability": 11,
+            "attack": 968,
+            "bench": 24,
+            "boss": 8,
+            "energy": 22,
+            "evolve": 18,
+            "hammer": 2,
+            "trainer": 83,
+            "xerosic": 6
+          },
+          "bench": {
+            "ability": 41,
+            "attack": 15,
+            "bench": 864,
+            "boss": 6,
+            "end": 1,
+            "energy": 23,
+            "evolve": 45,
+            "hammer": 2,
+            "trainer": 52,
+            "xerosic": 2
+          },
+          "boss": {
+            "ability": 3,
+            "attack": 5,
+            "bench": 15,
+            "boss": 104,
+            "end": 3,
+            "energy": 12,
+            "evolve": 9,
+            "hammer": 1,
+            "retreat": 1,
+            "trainer": 44,
+            "xerosic": 6
+          },
+          "end": {
+            "ability": 9,
+            "bench": 6,
+            "end": 161,
+            "energy": 7,
+            "evolve": 4,
+            "trainer": 44
+          },
+          "energy": {
+            "ability": 18,
+            "attack": 26,
+            "bench": 15,
+            "boss": 6,
+            "end": 1,
+            "energy": 736,
+            "evolve": 72,
+            "hammer": 2,
+            "trainer": 69
+          },
+          "evolve": {
+            "ability": 11,
+            "attack": 23,
+            "bench": 7,
+            "boss": 6,
+            "end": 1,
+            "energy": 28,
+            "evolve": 1798,
+            "hammer": 6,
+            "retreat": 6,
+            "trainer": 16,
+            "xerosic": 1
+          },
+          "hammer": {
+            "ability": 1,
+            "attack": 7,
+            "bench": 1,
+            "energy": 2,
+            "evolve": 4,
+            "hammer": 126,
+            "trainer": 3,
+            "xerosic": 1
+          },
+          "other": {},
+          "retreat": {
+            "ability": 1,
+            "attack": 7,
+            "bench": 4,
+            "end": 6,
+            "energy": 1,
+            "evolve": 3,
+            "retreat": 42,
+            "trainer": 5,
+            "xerosic": 1
+          },
+          "trainer": {
+            "ability": 81,
+            "attack": 100,
+            "bench": 74,
+            "boss": 15,
+            "end": 2,
+            "energy": 91,
+            "evolve": 71,
+            "hammer": 2,
+            "retreat": 1,
+            "trainer": 1446,
+            "xerosic": 16
+          },
+          "xerosic": {
+            "ability": 5,
+            "attack": 14,
+            "bench": 5,
+            "boss": 7,
+            "end": 2,
+            "energy": 6,
+            "evolve": 9,
+            "trainer": 36,
+            "xerosic": 75
+          }
+        }
+      }
+    }
+  ]
+}

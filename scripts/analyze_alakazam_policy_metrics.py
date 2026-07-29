@@ -10,8 +10,8 @@ The primary's own policy object is rebuilt on each of its decisions to reuse its
 state / attack-reservation logic (no metric re-implementation drift).
 
 Usage:
-  python scripts/analyze_alakazam_policy_metrics.py alakazam741_v9_top8_core alakazam741_v8 \
-      --games 200 --seed 0 --out experiments/alakazam741_v9_top8_core
+  python scripts/analyze_alakazam_policy_metrics.py alakazam_ml_v31 alakazam_ml_v30 \
+      --games 200 --seed 0 --out experiments/alakazam_ml_v31
 """
 from __future__ import annotations
 

@@ -1,0 +1,33 @@
+{
+  "new_model": {
+    "name": "recency_tree",
+    "source_name": "weighted_floor_0.25_power_2.0",
+    "validation_top1": 0.7796744739976181,
+    "test_top1": 0.7870705244122965
+  },
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305",
+    "recency_tree"
+  ],
+  "selected_weights": [
+    0.2,
+    0.0,
+    1.25,
+    1.9500000000000002,
+    0.8500000000000001,
+    1.675,
+    1.0
+  ],
+  "validation_top1": 0.8013100436681223,
+  "test_top1": 0.7987115732368897,
+  "validation_oracle_any_model": 0.9084954346963081,
+  "test_oracle_any_model": 0.9145569620253164,
+  "previous_test_top1": 0.8011980108499096,
+  "target_top1": 0.9,
+  "target_met": false
+}

@@ -1,0 +1,74 @@
+{
+  "base_models": [
+    "large",
+    "numeric",
+    "deep",
+    "history",
+    "attention"
+  ],
+  "raw_features": 167,
+  "stack_features": 208,
+  "meta_train_decisions": 2504,
+  "meta_validation_decisions": 1785,
+  "experiments": [
+    {
+      "leaves": 7,
+      "minimum": 80,
+      "max_depth": 4,
+      "learning_rate": 0.025,
+      "column_fraction": 0.7,
+      "reg_alpha": 0.5,
+      "reg_lambda": 4.0,
+      "best_iteration": 8,
+      "meta_validation_top1": 0.7949579831932773
+    },
+    {
+      "leaves": 15,
+      "minimum": 80,
+      "max_depth": 5,
+      "learning_rate": 0.025,
+      "column_fraction": 0.75,
+      "reg_alpha": 0.5,
+      "reg_lambda": 4.0,
+      "best_iteration": 5,
+      "meta_validation_top1": 0.7994397759103642
+    },
+    {
+      "leaves": 31,
+      "minimum": 60,
+      "max_depth": 6,
+      "learning_rate": 0.02,
+      "column_fraction": 0.75,
+      "reg_alpha": 0.8,
+      "reg_lambda": 5.0,
+      "best_iteration": 2,
+      "meta_validation_top1": 0.8016806722689076
+    },
+    {
+      "leaves": 31,
+      "minimum": 100,
+      "max_depth": 6,
+      "learning_rate": 0.015,
+      "column_fraction": 0.6,
+      "reg_alpha": 1.0,
+      "reg_lambda": 8.0,
+      "best_iteration": 11,
+      "meta_validation_top1": 0.7977591036414566
+    }
+  ],
+  "selected": {
+    "leaves": 31,
+    "minimum": 60,
+    "max_depth": 6,
+    "learning_rate": 0.02,
+    "column_fraction": 0.75,
+    "reg_alpha": 0.8,
+    "reg_lambda": 5.0,
+    "best_iteration": 2,
+    "meta_validation_top1": 0.8016806722689076
+  },
+  "test_top1": 0.7664670658682635,
+  "weighted_blend_reference": 0.7715818363273453,
+  "target_top1": 0.9,
+  "target_met": false
+}

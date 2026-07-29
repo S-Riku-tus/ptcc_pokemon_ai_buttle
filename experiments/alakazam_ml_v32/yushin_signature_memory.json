@@ -1,0 +1,203 @@
+{
+  "base_validation_top1": 0.8021040095275903,
+  "base_test_top1": 0.8011980108499096,
+  "selected_on_validation": {
+    "signature": "cards",
+    "minimum": 20,
+    "confidence": 1.0,
+    "top1": 0.8023025009924574,
+    "memory_coverage": 0.013100436681222707,
+    "memory_covered_top1": 1.0,
+    "memory_used": 66
+  },
+  "strict_test": {
+    "top1": 0.8011980108499096,
+    "memory_coverage": 0.012319168173598554,
+    "memory_covered_top1": 0.9908256880733946,
+    "memory_used": 109
+  },
+  "top_validation_experiments": [
+    {
+      "signature": "cards",
+      "minimum": 20,
+      "confidence": 1.0,
+      "top1": 0.8023025009924574,
+      "memory_coverage": 0.013100436681222707,
+      "memory_covered_top1": 1.0,
+      "memory_used": 66
+    },
+    {
+      "signature": "options",
+      "minimum": 20,
+      "confidence": 1.0,
+      "top1": 0.8023025009924574,
+      "memory_coverage": 0.013100436681222707,
+      "memory_covered_top1": 1.0,
+      "memory_used": 66
+    },
+    {
+      "signature": "cards",
+      "minimum": 10,
+      "confidence": 1.0,
+      "top1": 0.8023025009924574,
+      "memory_coverage": 0.015879317189360857,
+      "memory_covered_top1": 0.9875,
+      "memory_used": 80
+    },
+    {
+      "signature": "options",
+      "minimum": 10,
+      "confidence": 1.0,
+      "top1": 0.8023025009924574,
+      "memory_coverage": 0.01687177451369591,
+      "memory_covered_top1": 0.9882352941176471,
+      "memory_used": 85
+    },
+    {
+      "signature": "family",
+      "minimum": 20,
+      "confidence": 1.0,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 3,
+      "confidence": 0.4,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 3,
+      "confidence": 0.5,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 3,
+      "confidence": 0.6,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 3,
+      "confidence": 0.7,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 3,
+      "confidence": 0.8,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 3,
+      "confidence": 0.9,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 3,
+      "confidence": 1.0,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 5,
+      "confidence": 0.4,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 5,
+      "confidence": 0.5,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 5,
+      "confidence": 0.6,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 5,
+      "confidence": 0.7,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 5,
+      "confidence": 0.8,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 5,
+      "confidence": 0.9,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 5,
+      "confidence": 1.0,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    },
+    {
+      "signature": "cards_detailed_context",
+      "minimum": 10,
+      "confidence": 0.4,
+      "top1": 0.8021040095275903,
+      "memory_coverage": 0.0,
+      "memory_covered_top1": 0.0,
+      "memory_used": 0
+    }
+  ],
+  "target_top1": 0.9,
+  "target_met": false
+}

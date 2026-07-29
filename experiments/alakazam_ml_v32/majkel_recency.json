@@ -1,0 +1,78 @@
+{
+  "experiments": [
+    {
+      "name": "uniform",
+      "train_decisions": 41477,
+      "best_iteration": 410,
+      "validation_top1": 0.7880624854278386,
+      "test_top1": 0.7551147704590818
+    },
+    {
+      "name": "weighted_floor_0.1_power_1.0",
+      "train_decisions": 41477,
+      "best_iteration": 639,
+      "validation_top1": 0.7875961762648636,
+      "test_top1": 0.7625998003992016
+    },
+    {
+      "name": "weighted_floor_0.25_power_1.0",
+      "train_decisions": 41477,
+      "best_iteration": 339,
+      "validation_top1": 0.7801352296572628,
+      "test_top1": 0.7518712574850299
+    },
+    {
+      "name": "weighted_floor_0.5_power_1.0",
+      "train_decisions": 41477,
+      "best_iteration": 337,
+      "validation_top1": 0.7847983212870133,
+      "test_top1": 0.7544910179640718
+    },
+    {
+      "name": "weighted_floor_0.1_power_2.0",
+      "train_decisions": 41477,
+      "best_iteration": 337,
+      "validation_top1": 0.7817673117276754,
+      "test_top1": 0.7554890219560878
+    },
+    {
+      "name": "weighted_floor_0.25_power_2.0",
+      "train_decisions": 41477,
+      "best_iteration": 334,
+      "validation_top1": 0.7789694567498251,
+      "test_top1": 0.7531187624750499
+    },
+    {
+      "name": "recent_window_0.8",
+      "train_decisions": 27467,
+      "best_iteration": 344,
+      "validation_top1": 0.7775705292609,
+      "test_top1": 0.750374251497006
+    },
+    {
+      "name": "recent_window_0.6",
+      "train_decisions": 21333,
+      "best_iteration": 330,
+      "validation_top1": 0.7752389834460247,
+      "test_top1": 0.7443862275449101
+    },
+    {
+      "name": "recent_window_0.4",
+      "train_decisions": 14388,
+      "best_iteration": 273,
+      "validation_top1": 0.7537887619491723,
+      "test_top1": 0.7367764471057884
+    }
+  ],
+  "selected": {
+    "name": "uniform",
+    "train_decisions": 41477,
+    "best_iteration": 410,
+    "validation_top1": 0.7880624854278386,
+    "test_top1": 0.7551147704590818
+  },
+  "validation_variant_oracle": 0.8430869666588948,
+  "test_variant_oracle": 0.8226047904191617,
+  "target_top1": 0.9,
+  "target_met": false
+}

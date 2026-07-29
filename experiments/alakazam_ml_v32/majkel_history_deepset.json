@@ -1,0 +1,220 @@
+{
+  "selected_candidate_features": 187,
+  "history_features": 438,
+  "parameters": 380634,
+  "best_epoch": 12,
+  "best_validation": {
+    "loss": 0.6850205081469197,
+    "semantic_top1": 0.7810678479832128
+  },
+  "test": {
+    "loss": 0.7293115257027144,
+    "semantic_top1": 0.7531187624750499,
+    "semantic_top2": 0.9030688622754491,
+    "semantic_top3": 0.9504740518962076
+  },
+  "v32_weighted_blend_reference": 0.7699600798403193,
+  "target_top1": 0.9,
+  "target_met": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6978161007975688,
+      "learning_rate": 0.0006973051313327503,
+      "validation": {
+        "loss": 0.8328842061692725,
+        "semantic_top1": 0.7195150384705059,
+        "semantic_top2": 0.8722312893448356,
+        "semantic_top3": 0.9307530892982047
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.5685860005377987,
+      "learning_rate": 0.0006892666352810565,
+      "validation": {
+        "loss": 0.7488899986959054,
+        "semantic_top1": 0.7451620424341339,
+        "semantic_top2": 0.8899510375378876,
+        "semantic_top3": 0.9407787363021684
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.5223945301943754,
+      "learning_rate": 0.0006760220527410553,
+      "validation": {
+        "loss": 0.7370039872507249,
+        "semantic_top1": 0.7467941245045465,
+        "semantic_top2": 0.8929820470972255,
+        "semantic_top3": 0.942410818372581
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.48365206025440416,
+      "learning_rate": 0.0006577980021920982,
+      "validation": {
+        "loss": 0.7025319306437412,
+        "semantic_top1": 0.7558871531825601,
+        "semantic_top2": 0.8974119841454885,
+        "semantic_top3": 0.9475402191653066
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.4542610159599037,
+      "learning_rate": 0.000634906302191739,
+      "validation": {
+        "loss": 0.6879106709717537,
+        "semantic_top1": 0.7617160177197482,
+        "semantic_top2": 0.8999766845418512,
+        "semantic_top3": 0.9496386103986943
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.42911189820227724,
+      "learning_rate": 0.0006077386360737625,
+      "validation": {
+        "loss": 0.6971492522745094,
+        "semantic_top1": 0.7696432734903241,
+        "semantic_top2": 0.9041734670086268,
+        "semantic_top3": 0.9522033107950572
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.40802471938127377,
+      "learning_rate": 0.000576759850137747,
+      "validation": {
+        "loss": 0.6705292336839038,
+        "semantic_top1": 0.7649801818605736,
+        "semantic_top2": 0.9093028678013523,
+        "semantic_top3": 0.9552343203543949
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.3853207015805759,
+      "learning_rate": 0.0005425,
+      "validation": {
+        "loss": 0.6843058781124657,
+        "semantic_top1": 0.7701095826532991,
+        "semantic_top2": 0.9090697132198647,
+        "semantic_top3": 0.9545348566099324
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.3674912790502294,
+      "learning_rate": 0.0005055452811950033,
+      "validation": {
+        "loss": 0.6956819964333497,
+        "semantic_top1": 0.7710422009792492,
+        "semantic_top2": 0.906971321986477,
+        "semantic_top3": 0.9550011657729074
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.3462570585926775,
+      "learning_rate": 0.00046652799920729405,
+      "validation": {
+        "loss": 0.6887407469621597,
+        "semantic_top1": 0.7806015388202379,
+        "semantic_top2": 0.9107017952902775,
+        "semantic_top3": 0.9533690837024947
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.3280605085273688,
+      "learning_rate": 0.0004261157505493164,
+      "validation": {
+        "loss": 0.7149340877946536,
+        "semantic_top1": 0.7782699930053626,
+        "semantic_top2": 0.9102354861273024,
+        "semantic_top3": 0.9550011657729074
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.31051946692924065,
+      "learning_rate": 0.00038500000000000014,
+      "validation": {
+        "loss": 0.6850205081469197,
+        "semantic_top1": 0.7810678479832128,
+        "semantic_top2": 0.9100023315458149,
+        "semantic_top3": 0.9561669386803451
+      }
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.28893819737449333,
+      "learning_rate": 0.0003438842494506839,
+      "validation": {
+        "loss": 0.7360190411329992,
+        "semantic_top1": 0.7715085101422243,
+        "semantic_top2": 0.9144322685940779,
+        "semantic_top3": 0.9566332478433202
+      }
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.27463044830198863,
+      "learning_rate": 0.0003034720007927061,
+      "validation": {
+        "loss": 0.7611443885808559,
+        "semantic_top1": 0.7796689204942877,
+        "semantic_top2": 0.91046864070879,
+        "semantic_top3": 0.9536022382839823
+      }
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.2581476900600096,
+      "learning_rate": 0.0002644547188049969,
+      "validation": {
+        "loss": 0.7607294030610874,
+        "semantic_top1": 0.7743063651200746,
+        "semantic_top2": 0.9072044765679645,
+        "semantic_top3": 0.9529027745395197
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.24278726410060997,
+      "learning_rate": 0.00022750000000000014,
+      "validation": {
+        "loss": 0.8363124663303382,
+        "semantic_top1": 0.7726742830496619,
+        "semantic_top2": 0.906971321986477,
+        "semantic_top3": 0.9536022382839823
+      }
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.23153814567584818,
+      "learning_rate": 0.00019324014986225305,
+      "validation": {
+        "loss": 0.8206321812365321,
+        "semantic_top1": 0.7799020750757752,
+        "semantic_top2": 0.9100023315458149,
+        "semantic_top3": 0.9533690837024947
+      }
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.21756397791002596,
+      "learning_rate": 0.00016226136392623759,
+      "validation": {
+        "loss": 0.8718264760546374,
+        "semantic_top1": 0.7717416647237119,
+        "semantic_top2": 0.9076707857309396,
+        "semantic_top3": 0.9526696199580321
+      }
+    }
+  ],
+  "checkpoint": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v32\\majkel_history_deepset.pt"
+}

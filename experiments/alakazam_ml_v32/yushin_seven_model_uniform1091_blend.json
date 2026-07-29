@@ -1,0 +1,33 @@
+{
+  "new_model": {
+    "name": "uniform_seed1091",
+    "source_name": "weighted_floor_1.0_power_1.0",
+    "validation_top1": 0.7713378324732036,
+    "test_top1": 0.7721518987341772
+  },
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305",
+    "uniform_seed1091"
+  ],
+  "selected_weights": [
+    1.0,
+    0.0,
+    0.7250000000000001,
+    1.1500000000000001,
+    0.8,
+    1.675,
+    0.0
+  ],
+  "validation_top1": 0.8021040095275903,
+  "test_top1": 0.8011980108499096,
+  "validation_oracle_any_model": 0.9092894005557761,
+  "test_oracle_any_model": 0.9143309222423146,
+  "previous_test_top1": 0.8011980108499096,
+  "target_top1": 0.9,
+  "target_met": false
+}

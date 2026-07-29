@@ -9,7 +9,7 @@ Agent specs:
                         Alakazam deck unless overridden with --deck-a/--deck-b)
 
 Examples:
-  python scripts/local_arena.py alakazam741_v2 alakazam741_v1 --games 40
+  python scripts/local_arena.py alakazam_ml_v31 alakazam_ml_v30 --games 40
   python scripts/local_arena.py marnies_grimmsnarl_ex_v2 alakazam_ml_v11 --games 80
 """
 from __future__ import annotations
@@ -126,7 +126,7 @@ def main():
 
     fallback_deck = [
         int(x) for x in
-        (ROOT / "agents" / "alakazam" / "alakazam741_v2" / "deck.csv")
+        (ROOT / "agents" / "alakazam" / "alakazam_ml_v31" / "deck.csv")
         .read_text(encoding="utf-8-sig").split()
     ]
     agent_a, diag_a = resolve(args.agent_a, fallback_deck)

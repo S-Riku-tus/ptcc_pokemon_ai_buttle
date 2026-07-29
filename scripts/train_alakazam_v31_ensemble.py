@@ -73,6 +73,10 @@ def _write(
     weight: float,
     trajectories: int,
     decisions: int,
+    teacher_cohort: str,
+    runtime_scope: str,
+    recency_floor: float | None = None,
+    recency_power: float | None = None,
 ) -> int:
     compact = compact_booster(model.booster_, "ranker")
     compact.update({
@@ -81,14 +85,20 @@ def _write(
         "fallback_margin": 0.0,
         "action_type_map": teacher.ACTION_TYPE_MAP,
         "legal_option_only": True,
-        "runtime_scope": "v31_majkel_two_ranker_ensemble",
+        "runtime_scope": runtime_scope,
         "ensemble_role": role,
         "ensemble_weight": weight,
         "training_decisions": decisions,
         "teacher_trajectories": trajectories,
-        "teacher_cohorts": {"majkel_full": trajectories},
+        "teacher_cohorts": {teacher_cohort: trajectories},
         "baseline": "v29_runtime_choice_and_raw_ranker_score",
     })
+    if recency_floor is not None and recency_power is not None:
+        compact["training_recency_weight"] = {
+            "floor": recency_floor,
+            "power": recency_power,
+            "episode_order": "ascending_episode_id",
+        }
     path.write_text(
         json.dumps(compact, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
@@ -102,6 +112,34 @@ def main() -> int:
     parser.add_argument("schema_cache", type=Path)
     parser.add_argument("agent_dir", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--large-iterations", type=int, default=410)
+    parser.add_argument("--large-seed", type=int, default=1086)
+    parser.add_argument("--numeric-iterations", type=int, default=524)
+    parser.add_argument("--numeric-seed", type=int, default=305)
+    parser.add_argument("--numeric-weight", type=float, default=1.3)
+    parser.add_argument(
+        "--skip-numeric",
+        action="store_true",
+        help="Do not train or write the numeric diversifier.",
+    )
+    parser.add_argument("--recency-floor", type=float)
+    parser.add_argument("--recency-power", type=float)
+    parser.add_argument("--teacher-cohort", default="majkel_full")
+    parser.add_argument(
+        "--runtime-scope",
+        default="v31_majkel_two_ranker_ensemble",
+    )
+    parser.add_argument(
+        "--selection-evidence",
+        type=Path,
+        default=(
+            ROOT
+            / "experiments"
+            / "alakazam_ml_v31"
+            / "majkel_ranker_ensemble.json"
+        ),
+    )
+    parser.add_argument("--heldout-top1", type=float, default=0.7630988023952096)
     args = parser.parse_args()
     with np.load(args.schema_cache, allow_pickle=False) as schema:
         names = schema["feature_names"].astype(str).tolist()
@@ -114,73 +152,108 @@ def main() -> int:
             "weights": cached["weights"],
             "groups": cached["groups"],
         }
-        trajectories = len(np.unique(cached["episode_ids"]))
+        episode_ids = cached["episode_ids"]
+        trajectories = len(np.unique(episode_ids))
+    if (args.recency_floor is None) != (args.recency_power is None):
+        parser.error("--recency-floor and --recency-power must be used together")
+    if args.recency_floor is not None and args.recency_power is not None:
+        ordered = np.unique(episode_ids)
+        ordered.sort()
+        positions = {
+            int(episode): index / max(len(ordered) - 1, 1)
+            for index, episode in enumerate(ordered)
+        }
+        decision_weights = np.asarray([
+            args.recency_floor
+            + (1.0 - args.recency_floor)
+            * positions[int(episode)] ** args.recency_power
+            for episode in episode_ids
+        ], dtype=np.float32)
+        arrays["weights"] = arrays["weights"] * np.repeat(
+            decision_weights,
+            arrays["groups"].astype(np.int64),
+        )
     large = _fit(
         arrays,
         names,
-        iterations=410,
+        iterations=args.large_iterations,
         categorical_ids=True,
         num_leaves=255,
         min_child_samples=55,
         colsample_bytree=0.80,
-        seed=1086,
+        seed=args.large_seed,
     )
-    numeric = _fit(
-        arrays,
-        names,
-        iterations=524,
-        categorical_ids=False,
-        num_leaves=127,
-        min_child_samples=35,
-        colsample_bytree=0.88,
-        seed=305,
-    )
+    numeric = None
+    if not args.skip_numeric:
+        numeric = _fit(
+            arrays,
+            names,
+            iterations=args.numeric_iterations,
+            categorical_ids=False,
+            num_leaves=127,
+            min_child_samples=35,
+            colsample_bytree=0.88,
+            seed=args.numeric_seed,
+        )
     args.agent_dir.mkdir(parents=True, exist_ok=True)
     large_path = args.agent_dir / "ranker_model.json"
     numeric_path = args.agent_dir / "ranker_numeric_model.json"
+    ensemble_rows = [
+        {
+            "path": str(large_path.resolve()),
+            "role": "categorical_large_leaf",
+            "weight": 1.0,
+            "iterations": args.large_iterations,
+            "seed": args.large_seed,
+            "bytes": _write(
+                large,
+                large_path,
+                role="categorical_large_leaf",
+                weight=1.0,
+                trajectories=trajectories,
+                decisions=len(arrays["groups"]),
+                teacher_cohort=args.teacher_cohort,
+                runtime_scope=args.runtime_scope,
+                recency_floor=args.recency_floor,
+                recency_power=args.recency_power,
+            ),
+        },
+    ]
+    if numeric is not None:
+        ensemble_rows.append({
+            "path": str(numeric_path.resolve()),
+            "role": "numeric_id_diversifier",
+            "weight": args.numeric_weight,
+            "iterations": args.numeric_iterations,
+            "seed": args.numeric_seed,
+            "bytes": _write(
+                numeric,
+                numeric_path,
+                role="numeric_id_diversifier",
+                weight=args.numeric_weight,
+                trajectories=trajectories,
+                decisions=len(arrays["groups"]),
+                teacher_cohort=args.teacher_cohort,
+                runtime_scope=args.runtime_scope,
+                recency_floor=args.recency_floor,
+                recency_power=args.recency_power,
+            ),
+        })
     report = {
         "features": len(names),
         "teacher_trajectories": trajectories,
         "teacher_decisions": len(arrays["groups"]),
-        "ensemble": [
+        "recency_weight": (
             {
-                "path": str(large_path.resolve()),
-                "role": "categorical_large_leaf",
-                "weight": 1.0,
-                "iterations": 410,
-                "bytes": _write(
-                    large,
-                    large_path,
-                    role="categorical_large_leaf",
-                    weight=1.0,
-                    trajectories=trajectories,
-                    decisions=len(arrays["groups"]),
-                ),
-            },
-            {
-                "path": str(numeric_path.resolve()),
-                "role": "numeric_id_diversifier",
-                "weight": 1.3,
-                "iterations": 524,
-                "bytes": _write(
-                    numeric,
-                    numeric_path,
-                    role="numeric_id_diversifier",
-                    weight=1.3,
-                    trajectories=trajectories,
-                    decisions=len(arrays["groups"]),
-                ),
-            },
-        ],
-        "selection_evidence": str(
-            (
-                ROOT
-                / "experiments"
-                / "alakazam_ml_v31"
-                / "majkel_ranker_ensemble.json"
-            ).resolve()
+                "floor": args.recency_floor,
+                "power": args.recency_power,
+            }
+            if args.recency_floor is not None
+            else None
         ),
-        "heldout_semantic_top1": 0.7630988023952096,
+        "ensemble": ensemble_rows,
+        "selection_evidence": str(args.selection_evidence.resolve()),
+        "heldout_semantic_top1": args.heldout_top1,
         "heldout_semantic_top2_reference": 0.895,
         "target_top1": 0.90,
         "target_met": False,

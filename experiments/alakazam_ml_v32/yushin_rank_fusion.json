@@ -1,0 +1,241 @@
+{
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305"
+  ],
+  "base_validation_top1": 0.8021040095275903,
+  "base_test_top1": 0.8011980108499096,
+  "selected_on_validation": {
+    "kind": "raw",
+    "parameter": 1.0,
+    "weight_source": "fixed",
+    "weights": [
+      1.0,
+      0.0,
+      0.7250000000000001,
+      1.1500000000000001,
+      0.8,
+      1.675
+    ],
+    "validation_top1": 0.8021040095275903
+  },
+  "strict_test_top1": 0.8011980108499096,
+  "top_validation_candidates": [
+    {
+      "kind": "raw",
+      "parameter": 1.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.8021040095275903
+    },
+    {
+      "kind": "softmax",
+      "parameter": 0.25,
+      "weight_source": "coordinate_validation",
+      "weights": [
+        0.6000000000000001,
+        0.0,
+        0.6000000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.8019055180627233
+    },
+    {
+      "kind": "softmax",
+      "parameter": 2.0,
+      "weight_source": "coordinate_validation",
+      "weights": [
+        1.2000000000000002,
+        0.0,
+        1.0,
+        1.1500000000000001,
+        1.0,
+        1.675
+      ],
+      "validation_top1": 0.8019055180627233
+    },
+    {
+      "kind": "softmax",
+      "parameter": 0.5,
+      "weight_source": "coordinate_validation",
+      "weights": [
+        0.6000000000000001,
+        0.0,
+        0.7000000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.8015085351329893
+    },
+    {
+      "kind": "softmax",
+      "parameter": 0.25,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.8011115522032553
+    },
+    {
+      "kind": "softmax",
+      "parameter": 0.5,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.8003175863437872
+    },
+    {
+      "kind": "softmax",
+      "parameter": 2.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.8003175863437872
+    },
+    {
+      "kind": "softmax",
+      "parameter": 4.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.8003175863437872
+    },
+    {
+      "kind": "softmax",
+      "parameter": 1.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.7999206034140532
+    },
+    {
+      "kind": "reciprocal",
+      "parameter": 0.5,
+      "weight_source": "uniform",
+      "weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "validation_top1": 0.7979356887653831
+    },
+    {
+      "kind": "exponential_rank",
+      "parameter": 1.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.7977371973005161
+    },
+    {
+      "kind": "softmax",
+      "parameter": 0.5,
+      "weight_source": "uniform",
+      "weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "validation_top1": 0.7977371973005161
+    },
+    {
+      "kind": "exponential_rank",
+      "parameter": 2.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.7973402143707821
+    },
+    {
+      "kind": "reciprocal",
+      "parameter": 1.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.797141722905915
+    },
+    {
+      "kind": "reciprocal",
+      "parameter": 5.0,
+      "weight_source": "fixed",
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675
+      ],
+      "validation_top1": 0.797141722905915
+    }
+  ],
+  "target_top1": 0.9,
+  "target_met": false
+}

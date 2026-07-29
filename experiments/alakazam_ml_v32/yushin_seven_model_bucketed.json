@@ -1,0 +1,243 @@
+{
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305",
+    "recency_tree"
+  ],
+  "global_weights": [
+    1.0,
+    0.0,
+    0.7250000000000001,
+    1.1500000000000001,
+    0.8,
+    1.675,
+    0.0
+  ],
+  "bucket_definition": "fallback_action_type",
+  "validation_bucket_counts": {
+    "10": 967,
+    "0": 428,
+    "5": 498,
+    "6": 835,
+    "2": 1336,
+    "1": 572,
+    "4": 93,
+    "11": 74,
+    "9": 30,
+    "7": 37,
+    "3": 168
+  },
+  "test_bucket_counts": {
+    "10": 1892,
+    "2": 1740,
+    "4": 189,
+    "6": 1494,
+    "5": 982,
+    "0": 857,
+    "1": 1081,
+    "11": 109,
+    "3": 393,
+    "9": 53,
+    "7": 58
+  },
+  "bucket_models": [
+    {
+      "fallback_action_type": 0,
+      "validation_decisions": 428,
+      "base_correct": 348,
+      "tuned_correct": 350,
+      "accepted": true,
+      "weights": [
+        1.0,
+        0.75,
+        0.8,
+        1.1500000000000001,
+        0.8,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 1,
+      "validation_decisions": 572,
+      "base_correct": 451,
+      "tuned_correct": 452,
+      "accepted": false,
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 2,
+      "validation_decisions": 1336,
+      "base_correct": 1123,
+      "tuned_correct": 1125,
+      "accepted": true,
+      "weights": [
+        1.0,
+        0.25,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 3,
+      "validation_decisions": 168,
+      "base_correct": 101,
+      "tuned_correct": 104,
+      "accepted": true,
+      "weights": [
+        1.0,
+        0.30000000000000004,
+        0.0,
+        1.1500000000000001,
+        0.3500000000000001,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 4,
+      "validation_decisions": 93,
+      "base_correct": 80,
+      "tuned_correct": 80,
+      "accepted": false,
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 5,
+      "validation_decisions": 498,
+      "base_correct": 378,
+      "tuned_correct": 383,
+      "accepted": true,
+      "weights": [
+        1.0,
+        0.0,
+        0.0,
+        1.4,
+        0.050000000000000044,
+        1.2750000000000004,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 6,
+      "validation_decisions": 835,
+      "base_correct": 716,
+      "tuned_correct": 718,
+      "accepted": true,
+      "weights": [
+        1.0,
+        0.0,
+        0.8500000000000001,
+        1.1500000000000001,
+        0.20000000000000007,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 7,
+      "validation_decisions": 37,
+      "base_correct": 29,
+      "tuned_correct": 29,
+      "accepted": false,
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 9,
+      "validation_decisions": 30,
+      "base_correct": 25,
+      "tuned_correct": 25,
+      "accepted": false,
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 10,
+      "validation_decisions": 967,
+      "base_correct": 731,
+      "tuned_correct": 740,
+      "accepted": true,
+      "weights": [
+        1.0,
+        0.05,
+        1.1500000000000001,
+        1.2999999999999998,
+        0.25000000000000006,
+        2.075000000000001,
+        0.0
+      ]
+    },
+    {
+      "fallback_action_type": 11,
+      "validation_decisions": 74,
+      "base_correct": 59,
+      "tuned_correct": 59,
+      "accepted": false,
+      "weights": [
+        1.0,
+        0.0,
+        0.7250000000000001,
+        1.1500000000000001,
+        0.8,
+        1.675,
+        0.0
+      ]
+    }
+  ],
+  "global_validation_top1": 0.8021040095275903,
+  "bucketed_validation_top1": 0.8066693132195316,
+  "global_test_top1": 0.8011980108499096,
+  "bucketed_test_top1": 0.799502712477396,
+  "turn_bins_audited_not_used": {
+    "validation": {
+      "0": 1269,
+      "1": 2067,
+      "2": 1702
+    },
+    "test": {
+      "0": 2451,
+      "1": 4013,
+      "2": 2384
+    }
+  },
+  "target_top1": 0.9,
+  "target_met": false
+}

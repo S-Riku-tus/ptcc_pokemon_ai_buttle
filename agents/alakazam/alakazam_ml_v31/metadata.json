@@ -92,6 +92,14 @@
     "arena_crashes": 0,
     "arena_illegal_actions": 0
   },
+  "ladder_observation": {
+    "source": "user_reported",
+    "reported_at": "2026-07-29",
+    "peak_rating": 1050,
+    "settled_rating_band": "900s",
+    "previous_versions_had_not_stabilized_in_900s": true,
+    "interpretation": "v31 has the strongest observed real-ladder performance in the Alakazam series so far."
+  },
   "known_limitations": [
     "The requested 90% unseen Top-1 agreement was not reached. The strict held-out semantic Top-1 is 76.31%.",
     "Known replay questions remain 100% semantically reproducible through teacher memory, but that is not an unbiased generalization estimate.",

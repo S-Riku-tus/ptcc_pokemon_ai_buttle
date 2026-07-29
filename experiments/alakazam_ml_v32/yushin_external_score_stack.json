@@ -1,0 +1,70 @@
+{
+  "teacher_for_selector": "Majkel1337 rank 2",
+  "target_teacher": "Yushin Ito rank 3",
+  "selector_train_decisions": 53782,
+  "selector_features": 47,
+  "experiments": [
+    {
+      "leaves": 3,
+      "max_depth": 2,
+      "minimum": 150,
+      "learning_rate": 0.02,
+      "column_fraction": 0.75,
+      "reg_alpha": 1.0,
+      "reg_lambda": 8.0,
+      "best_iteration": 31,
+      "validation_top1": 0.7743152044462088
+    },
+    {
+      "leaves": 7,
+      "max_depth": 3,
+      "minimum": 120,
+      "learning_rate": 0.02,
+      "column_fraction": 0.8,
+      "reg_alpha": 1.0,
+      "reg_lambda": 8.0,
+      "best_iteration": 27,
+      "validation_top1": 0.778483525208416
+    },
+    {
+      "leaves": 15,
+      "max_depth": 4,
+      "minimum": 100,
+      "learning_rate": 0.015,
+      "column_fraction": 0.8,
+      "reg_alpha": 1.5,
+      "reg_lambda": 10.0,
+      "best_iteration": 12,
+      "validation_top1": 0.7753076617705439
+    },
+    {
+      "leaves": 31,
+      "max_depth": 5,
+      "minimum": 100,
+      "learning_rate": 0.012,
+      "column_fraction": 0.75,
+      "reg_alpha": 2.0,
+      "reg_lambda": 12.0,
+      "best_iteration": 113,
+      "validation_top1": 0.7818578801111552
+    }
+  ],
+  "selected_on_validation": {
+    "leaves": 31,
+    "max_depth": 5,
+    "minimum": 100,
+    "learning_rate": 0.012,
+    "column_fraction": 0.75,
+    "reg_alpha": 2.0,
+    "reg_lambda": 12.0,
+    "best_iteration": 113,
+    "validation_top1": 0.7818578801111552
+  },
+  "selected_blend_alpha": -0.0,
+  "blend_validation_top1": 0.8021040095275903,
+  "strict_test_top1": 0.8011980108499096,
+  "base_validation_top1": 0.8021040095275903,
+  "base_test_top1": 0.8011980108499096,
+  "target_top1": 0.9,
+  "target_met": false
+}

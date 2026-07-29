@@ -1,0 +1,32 @@
+{
+  "experiments": [
+    {
+      "name": "weighted_floor_1.0_power_1.0",
+      "train_decisions": 35704,
+      "best_iteration": 359,
+      "seed": 1091,
+      "validation_top1": 0.7713378324732036,
+      "test_top1": 0.7721518987341772
+    },
+    {
+      "name": "weighted_floor_0.25_power_2.0",
+      "train_decisions": 35704,
+      "best_iteration": 692,
+      "seed": 1091,
+      "validation_top1": 0.7796744739976181,
+      "test_top1": 0.7870705244122965
+    }
+  ],
+  "selected": {
+    "name": "weighted_floor_0.25_power_2.0",
+    "train_decisions": 35704,
+    "best_iteration": 692,
+    "seed": 1091,
+    "validation_top1": 0.7796744739976181,
+    "test_top1": 0.7870705244122965
+  },
+  "validation_variant_oracle": 0.7983326716951171,
+  "test_variant_oracle": 0.8054927667269439,
+  "target_top1": 0.9,
+  "target_met": false
+}

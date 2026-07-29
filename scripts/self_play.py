@@ -5,9 +5,9 @@ agent directories, runs alternating-seat matches for every pair, and writes
 machine-readable CSV/JSON summaries under data/runs/local_self_play/.
 
 Examples:
-  python scripts/self_play.py alakazam741_v4 alakazam741_v3 --games 40
+  python scripts/self_play.py alakazam_ml_v31 alakazam_ml_v30 --games 40
   python scripts/self_play.py --games 20
-  python scripts/self_play.py alakazam741_v4 alakazam741_v3 alakazam741_v2 --games 80
+  python scripts/self_play.py alakazam_ml_v31 alakazam_ml_v30 alakazam_ml_v29 --games 80
 """
 from __future__ import annotations
 
@@ -139,7 +139,7 @@ def read_deck(path: Path) -> list[int]:
 
 
 def fallback_deck() -> list[int]:
-    for name in ("alakazam741_v4", "alakazam741_v3", "alakazam741_v2", "alakazam741_v1"):
+    for name in ("alakazam_ml_v31", "alakazam_ml_v30", "alakazam_ml_v29"):
         for path in (
             ROOT / "agents" / "alakazam" / name / "deck.csv",
             ROOT / "agents" / name / "deck.csv",

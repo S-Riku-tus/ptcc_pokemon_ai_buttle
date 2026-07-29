@@ -1,0 +1,78 @@
+{
+  "external_teacher": "Majkel1337 rank 2",
+  "target_teacher": "Yushin Ito rank 3",
+  "external_decisions": 53782,
+  "early_target_calibration_decisions": 3022,
+  "late_target_selection_decisions": 2016,
+  "experiments": [
+    {
+      "leaves": 3,
+      "max_depth": 2,
+      "minimum": 150,
+      "learning_rate": 0.02,
+      "column_fraction": 0.75,
+      "reg_alpha": 1.0,
+      "reg_lambda": 8.0,
+      "best_iteration": 32,
+      "late_selector_top1": 0.7614087301587301,
+      "selected_alpha": -0.0,
+      "late_blend_top1": 0.7901785714285714
+    },
+    {
+      "leaves": 7,
+      "max_depth": 3,
+      "minimum": 120,
+      "learning_rate": 0.02,
+      "column_fraction": 0.8,
+      "reg_alpha": 1.0,
+      "reg_lambda": 8.0,
+      "best_iteration": 44,
+      "late_selector_top1": 0.7653769841269841,
+      "selected_alpha": -0.0,
+      "late_blend_top1": 0.7901785714285714
+    },
+    {
+      "leaves": 15,
+      "max_depth": 4,
+      "minimum": 100,
+      "learning_rate": 0.015,
+      "column_fraction": 0.8,
+      "reg_alpha": 1.5,
+      "reg_lambda": 10.0,
+      "best_iteration": 4,
+      "late_selector_top1": 0.7628968253968254,
+      "selected_alpha": -0.0,
+      "late_blend_top1": 0.7901785714285714
+    },
+    {
+      "leaves": 31,
+      "max_depth": 5,
+      "minimum": 100,
+      "learning_rate": 0.012,
+      "column_fraction": 0.75,
+      "reg_alpha": 2.0,
+      "reg_lambda": 12.0,
+      "best_iteration": 36,
+      "late_selector_top1": 0.7693452380952381,
+      "selected_alpha": -0.0,
+      "late_blend_top1": 0.7901785714285714
+    }
+  ],
+  "selected_on_late_validation": {
+    "leaves": 3,
+    "max_depth": 2,
+    "minimum": 150,
+    "learning_rate": 0.02,
+    "column_fraction": 0.75,
+    "reg_alpha": 1.0,
+    "reg_lambda": 8.0,
+    "best_iteration": 32,
+    "late_selector_top1": 0.7614087301587301,
+    "selected_alpha": -0.0,
+    "late_blend_top1": 0.7901785714285714
+  },
+  "strict_test_top1": 0.8011980108499096,
+  "base_test_top1": 0.8011980108499096,
+  "target_top1": 0.9,
+  "target_met": false
+}

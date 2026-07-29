@@ -13,6 +13,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import experiment_alakazam_v31_ranker_ensemble as ensemble  # noqa: E402
 import train_alakazam_v31_teacher as teacher  # noqa: E402
 
 
@@ -64,8 +65,21 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("current_cache", type=Path)
     parser.add_argument("prior_cache", type=Path)
+    parser.add_argument(
+        "--transfer-weights",
+        default="0,0.25,0.5,1.0",
+        help="Comma-separated prior-corpus weights selected on validation.",
+    )
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--scores-output", type=Path)
     args = parser.parse_args()
+    transfer_weights = tuple(
+        float(value)
+        for value in args.transfer_weights.split(",")
+        if value.strip()
+    )
+    if not transfer_weights:
+        raise ValueError("at least one transfer weight is required")
     prior = _load(args.prior_cache)
     current = _load(args.current_cache, prior["names"])
     current_count = len(current["groups"])
@@ -84,7 +98,7 @@ def main() -> int:
     best_model = None
     best_row = None
     original_weights = arrays["weights"].copy()
-    for transfer_weight in (0.0, 0.25, 0.5, 1.0):
+    for transfer_weight in transfer_weights:
         if transfer_weight == 0:
             train = current_train
         else:
@@ -136,6 +150,39 @@ def main() -> int:
         json.dumps(report, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    if args.scores_output is not None:
+        validation_scores, validation_labels, validation_groups = (
+            teacher._predict_for_decisions(
+                best_model,
+                arrays,
+                current_validation,
+            )
+        )
+        test_scores, test_labels, test_groups = teacher._predict_for_decisions(
+            best_model,
+            arrays,
+            current_test,
+        )
+        args.scores_output.parent.mkdir(parents=True, exist_ok=True)
+        np.savez_compressed(
+            args.scores_output,
+            names=np.asarray([
+                f"prior_transfer_{best_row['transfer_weight']:g}"
+            ]),
+            validation_scores=np.stack([
+                ensemble._normalize(
+                    validation_scores,
+                    validation_groups,
+                )
+            ]),
+            test_scores=np.stack([
+                ensemble._normalize(test_scores, test_groups)
+            ]),
+            validation_labels=validation_labels,
+            validation_groups=np.asarray(validation_groups),
+            test_labels=test_labels,
+            test_groups=np.asarray(test_groups),
+        )
     print(json.dumps({
         "output": str(args.output),
         "selected_transfer_weight": report["selected_transfer_weight"],

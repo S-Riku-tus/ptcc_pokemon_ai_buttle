@@ -1,0 +1,35 @@
+{
+  "new_model": {
+    "name": "majkel_prior_0025",
+    "source_name": "prior_transfer_0.025",
+    "validation_top1": 0.7651845970623263,
+    "test_top1": 0.7661618444846293
+  },
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305",
+    "recency_tree",
+    "majkel_prior_0025"
+  ],
+  "selected_weights": [
+    1.0,
+    0.0,
+    0.7250000000000001,
+    1.1500000000000001,
+    0.8,
+    1.675,
+    0.0,
+    0.0
+  ],
+  "validation_top1": 0.8021040095275903,
+  "test_top1": 0.8011980108499096,
+  "validation_oracle_any_model": 0.9112743152044462,
+  "test_oracle_any_model": 0.9168173598553345,
+  "previous_test_top1": 0.8011980108499096,
+  "target_top1": 0.9,
+  "target_met": false
+}

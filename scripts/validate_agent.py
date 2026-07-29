@@ -131,7 +131,7 @@ def main() -> None:
         sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--agent", default="alakazam741_v2")
+    parser.add_argument("--agent", default="alakazam_ml_v31")
     args = parser.parse_args()
 
     agent_dir = resolve_agent_dir(args.agent)

@@ -1,0 +1,49 @@
+{
+  "model_order": [
+    "large",
+    "numeric",
+    "deep",
+    "attention",
+    "wide_deep",
+    "deep_seed305"
+  ],
+  "features": 47,
+  "meta_train_decisions": 2935,
+  "meta_validation_decisions": 2103,
+  "experiments": [
+    {
+      "leaves": 3,
+      "min_child_samples": 80,
+      "best_iteration": 40,
+      "meta_validation_top1": 0.7907750832144556
+    },
+    {
+      "leaves": 7,
+      "min_child_samples": 60,
+      "best_iteration": 22,
+      "meta_validation_top1": 0.7941036614360437
+    },
+    {
+      "leaves": 15,
+      "min_child_samples": 60,
+      "best_iteration": 20,
+      "meta_validation_top1": 0.7912505943889682
+    },
+    {
+      "leaves": 31,
+      "min_child_samples": 80,
+      "best_iteration": 48,
+      "meta_validation_top1": 0.7902995720399429
+    }
+  ],
+  "selected": {
+    "leaves": 7,
+    "min_child_samples": 60,
+    "best_iteration": 22,
+    "meta_validation_top1": 0.7941036614360437
+  },
+  "test_top1": 0.7982594936708861,
+  "weighted_blend_reference": 0.8011980108499096,
+  "target_top1": 0.9,
+  "target_met": false
+}
