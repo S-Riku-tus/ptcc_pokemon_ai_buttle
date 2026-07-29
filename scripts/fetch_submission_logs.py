@@ -584,6 +584,14 @@ def main() -> None:
         help="Redownload files that already exist.",
     )
     parser.add_argument(
+        "--replay-only",
+        action="store_true",
+        help=(
+            "Download replay JSON only and skip both large per-agent "
+            "observation logs."
+        ),
+    )
+    parser.add_argument(
         "--zip",
         action="store_true",
         help="Create a ZIP archive after downloading.",
@@ -697,34 +705,39 @@ def main() -> None:
                 "both logs will still be saved."
             )
 
-        for agent_index, target_dir in (
-            (0, log_0_dir),
-            (1, log_1_dir),
-        ):
-            try:
-                status = download_agent_log(
-                    episode.episode_id,
-                    agent_index,
-                    target_dir,
-                    replay_path=replay_path,
-                    overwrite=args.overwrite,
-                )
-                print(f"  Agent {agent_index} log: {status}")
-                if agent_index == 0:
-                    log_0_status = status
-                else:
-                    log_1_status = status
-            except Exception as exc:
-                status = "failed"
-                errors.append(
-                    f"agent_{agent_index}: "
-                    f"{type(exc).__name__}: {exc}"
-                )
-                print(f"  Agent {agent_index} log: FAILED: {exc}")
-                if agent_index == 0:
-                    log_0_status = status
-                else:
-                    log_1_status = status
+        if args.replay_only:
+            log_0_status = "skipped_replay_only"
+            log_1_status = "skipped_replay_only"
+            print("  Agent logs: skipped (--replay-only)")
+        else:
+            for agent_index, target_dir in (
+                (0, log_0_dir),
+                (1, log_1_dir),
+            ):
+                try:
+                    status = download_agent_log(
+                        episode.episode_id,
+                        agent_index,
+                        target_dir,
+                        replay_path=replay_path,
+                        overwrite=args.overwrite,
+                    )
+                    print(f"  Agent {agent_index} log: {status}")
+                    if agent_index == 0:
+                        log_0_status = status
+                    else:
+                        log_1_status = status
+                except Exception as exc:
+                    status = "failed"
+                    errors.append(
+                        f"agent_{agent_index}: "
+                        f"{type(exc).__name__}: {exc}"
+                    )
+                    print(f"  Agent {agent_index} log: FAILED: {exc}")
+                    if agent_index == 0:
+                        log_0_status = status
+                    else:
+                        log_1_status = status
 
         manifest.append(
             DownloadRecord(

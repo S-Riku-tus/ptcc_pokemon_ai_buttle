@@ -1,0 +1,32 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v31\\majkel_history_arrays.npz",
+  "features": 162,
+  "selection_rule": "highest frozen validation Top-1",
+  "experiments": [
+    {
+      "loss": "QuerySoftMax",
+      "depth": 6,
+      "best_iteration": 244,
+      "validation": {
+        "semantic_top1": 0.7351363954301702,
+        "semantic_top2": 0.8820237817673118,
+        "semantic_top3": 0.937048262998368
+      }
+    }
+  ],
+  "selected": {
+    "loss": "QuerySoftMax",
+    "depth": 6,
+    "best_iteration": 244,
+    "validation": {
+      "semantic_top1": 0.7351363954301702,
+      "semantic_top2": 0.8820237817673118,
+      "semantic_top3": 0.937048262998368
+    }
+  },
+  "test": {
+    "semantic_top1": 0.7210578842315369,
+    "semantic_top2": 0.876746506986028,
+    "semantic_top3": 0.9404940119760479
+  }
+}

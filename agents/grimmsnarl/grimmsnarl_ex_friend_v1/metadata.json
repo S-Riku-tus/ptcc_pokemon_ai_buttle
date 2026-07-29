@@ -1,0 +1,26 @@
+{
+  "name": "grimmsnarl_ex_friend_v1",
+  "role": "reference",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "1.0.0",
+  "status": "received",
+  "origin": "external",
+  "parent_agent": null,
+  "deck_changed": true,
+  "deck_hash": "c20a8a46f5c63577",
+  "deck_diff_vs_marnies_grimmsnarl_ex_v7": {
+    "baseline_deck_hash": "e2e03fe8ef9592b1",
+    "added": {
+      "1122": "Pokegear 3.0 x1",
+      "1137": "Tool Scrapper x1"
+    },
+    "removed": {
+      "1161": "Handheld Fan x2"
+    }
+  },
+  "description": "友人から共有されたオーロンゲ (Marnie's Grimmsnarl ex) デッキ／エージェント。deck.csv (60枚 / 19種) と main.py を配置済み。自分の marnies_grimmsnarl_ex_vN 反復ラインとは別系統で、比較対象および派生元として保持する。デッキは v7 と2枚違い: Handheld Fan x2 を抜いて Pokegear 3.0 x1 + Tool Scrapper x1。よってロジック単独の差分比較にはならず、デッキ差込みでの評価になる。",
+  "self_reported_version": "grimmsnarl_v5",
+  "provenance": "高ランクAgent (jneums) の対戦ログ3件から60枚と行動順を抽出した再現実装。main.py ヘッダおよび各所のコメントに由来が明記されている。",
+  "validation_scope": "scripts/validate_agent.py 通過 (60枚 / 19種 / 警告なし)。main.py 内の DECK 定数と deck.csv は多重集合として完全一致。6試合のスモーク自己対戦でエンジン由来のエラー・違法手ともに 0。ただし本エージェントは _DIAG を公開しないため self_play の policy_fallback / obs_fallback は「計測されておらず 0」であり健全性の根拠にならない。agent() が全例外を握りつぶして機械的フォールバックを返すため、例外の常態化は AGENT_LOG=1 でしか検出できない。コンペエンジン上の性能は未検証。",
+  "analysis": "ANALYSIS.md を参照。要点: (1) 相手アーキタイプ (alakazam / mirror / unknown) 検出による展開方針の切替を持ち、Alakazam に対して明示的にチューニングされている — よって Alakazam 系との勝率は汎用性能の指標にならない。(2) v7 が持つウォール検出・アタッカーETA・Dodge/Hide 一時無敵・fast_race ギアをいずれも持たない。(3) cg.api と policy_base に一切依存せず生 dict で動く自己完結実装のため、v7 との相互移植には観測レイヤの書き直しが必要。(4) デッキ非搭載の Yveltal / Budew 分岐が死にコードとして残存。"
+}

@@ -1,0 +1,57 @@
+{
+  "features": 657,
+  "models": [
+    {
+      "name": "lambda_standard",
+      "best_iteration": 441,
+      "validation_top1": 0.7857309396129634,
+      "test_top1": 0.7534930139720559
+    },
+    {
+      "name": "lambda_small_leaf",
+      "best_iteration": 286,
+      "validation_top1": 0.7645138726975985,
+      "test_top1": 0.7367764471057884
+    },
+    {
+      "name": "lambda_large_leaf",
+      "best_iteration": 410,
+      "validation_top1": 0.7880624854278386,
+      "test_top1": 0.7551147704590818
+    },
+    {
+      "name": "lambda_numeric_ids",
+      "best_iteration": 524,
+      "validation_top1": 0.7836325483795756,
+      "test_top1": 0.7586077844311377
+    },
+    {
+      "name": "xendcg",
+      "best_iteration": 881,
+      "validation_top1": 0.7530892982047097,
+      "test_top1": 0.7304141716566867
+    },
+    {
+      "name": "binary_balanced",
+      "best_iteration": 46,
+      "validation_top1": 0.6707857309396129,
+      "test_top1": 0.6741516966067864
+    }
+  ],
+  "ensemble": {
+    "components": [
+      {
+        "name": "lambda_large_leaf",
+        "weight": 1.0
+      },
+      {
+        "name": "lambda_numeric_ids",
+        "weight": 1.3000000000000003
+      }
+    ],
+    "validation_top1": 0.7894614129167639,
+    "test_top1": 0.7630988023952096
+  },
+  "validation_oracle_any_model": 0.8549778503147587,
+  "test_oracle_any_model": 0.8269710578842315
+}

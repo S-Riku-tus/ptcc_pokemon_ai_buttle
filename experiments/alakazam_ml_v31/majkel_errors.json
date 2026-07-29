@@ -1,0 +1,5961 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v31\\majkel_history_arrays.npz",
+  "test_decisions": 8016,
+  "top1": 0.7543662674650699,
+  "errors": 1969,
+  "top_action_confusions": [
+    [
+      "trainer <- trainer",
+      190
+    ],
+    [
+      "trainer <- energy",
+      107
+    ],
+    [
+      "trainer <- bench",
+      94
+    ],
+    [
+      "energy <- energy",
+      84
+    ],
+    [
+      "trainer <- attack",
+      74
+    ],
+    [
+      "energy <- trainer",
+      72
+    ],
+    [
+      "trainer <- evolve",
+      59
+    ],
+    [
+      "energy <- evolve",
+      56
+    ],
+    [
+      "evolve <- evolve",
+      49
+    ],
+    [
+      "attack <- bench",
+      47
+    ],
+    [
+      "bench <- trainer",
+      44
+    ],
+    [
+      "evolve <- attack",
+      43
+    ],
+    [
+      "ability <- trainer",
+      41
+    ],
+    [
+      "trainer <- ability",
+      41
+    ],
+    [
+      "evolve <- trainer",
+      40
+    ],
+    [
+      "ability <- bench",
+      37
+    ],
+    [
+      "boss <- trainer",
+      36
+    ],
+    [
+      "evolve <- energy",
+      36
+    ],
+    [
+      "evolve <- bench",
+      35
+    ],
+    [
+      "energy <- bench",
+      34
+    ],
+    [
+      "trainer <- boss",
+      33
+    ],
+    [
+      "attack <- trainer",
+      33
+    ],
+    [
+      "trainer <- xerosic",
+      28
+    ],
+    [
+      "energy <- attack",
+      26
+    ],
+    [
+      "bench <- attack",
+      26
+    ],
+    [
+      "bench <- evolve",
+      25
+    ],
+    [
+      "xerosic <- trainer",
+      25
+    ],
+    [
+      "retreat <- attack",
+      22
+    ],
+    [
+      "bench <- bench",
+      21
+    ],
+    [
+      "evolve <- ability",
+      20
+    ],
+    [
+      "attack <- evolve",
+      19
+    ],
+    [
+      "end <- trainer",
+      18
+    ],
+    [
+      "ability <- evolve",
+      18
+    ],
+    [
+      "attack <- boss",
+      17
+    ],
+    [
+      "ability <- energy",
+      16
+    ],
+    [
+      "bench <- ability",
+      15
+    ],
+    [
+      "retreat <- trainer",
+      15
+    ],
+    [
+      "xerosic <- attack",
+      14
+    ],
+    [
+      "boss <- bench",
+      14
+    ],
+    [
+      "boss <- attack",
+      13
+    ],
+    [
+      "energy <- ability",
+      13
+    ],
+    [
+      "attack <- energy",
+      13
+    ],
+    [
+      "retreat <- end",
+      13
+    ],
+    [
+      "boss <- evolve",
+      12
+    ],
+    [
+      "boss <- xerosic",
+      12
+    ],
+    [
+      "energy <- boss",
+      11
+    ],
+    [
+      "trainer <- hammer",
+      10
+    ],
+    [
+      "evolve <- xerosic",
+      10
+    ],
+    [
+      "bench <- energy",
+      10
+    ],
+    [
+      "hammer <- trainer",
+      10
+    ]
+  ],
+  "top_semantic_pairs": [
+    [
+      "attack:-1:-1 <- bench:305:-1",
+      33
+    ],
+    [
+      "evolve:66:305 <- attack:-1:-1",
+      31
+    ],
+    [
+      "ability:-1:-1 <- bench:305:-1",
+      23
+    ],
+    [
+      "trainer:1152:-1 <- attack:-1:-1",
+      22
+    ],
+    [
+      "retreat:-1:-1 <- attack:-1:-1",
+      22
+    ],
+    [
+      "trainer:1152:-1 <- bench:305:-1",
+      22
+    ],
+    [
+      "bench:305:-1 <- attack:-1:-1",
+      19
+    ],
+    [
+      "attack:-1:-1 <- boss:1182:-1",
+      17
+    ],
+    [
+      "trainer:1266:-1 <- attack:-1:-1",
+      16
+    ],
+    [
+      "trainer:1225:-1 <- trainer:1231:-1",
+      16
+    ],
+    [
+      "evolve:743:742 <- evolve:66:305",
+      15
+    ],
+    [
+      "evolve:743:742 <- bench:305:-1",
+      15
+    ],
+    [
+      "evolve:742:741 <- evolve:742:741",
+      15
+    ],
+    [
+      "boss:1182:-1 <- trainer:1231:-1",
+      15
+    ],
+    [
+      "trainer:1231:-1 <- trainer:1152:-1",
+      15
+    ],
+    [
+      "xerosic:1197:-1 <- attack:-1:-1",
+      14
+    ],
+    [
+      "boss:1182:-1 <- attack:-1:-1",
+      13
+    ],
+    [
+      "trainer:1086:-1 <- attack:-1:-1",
+      13
+    ],
+    [
+      "attack:-1:-1 <- bench:741:-1",
+      13
+    ],
+    [
+      "retreat:-1:-1 <- end:-1:-1",
+      13
+    ],
+    [
+      "attack:-1:-1 <- evolve:66:305",
+      13
+    ],
+    [
+      "evolve:743:742 <- attack:-1:-1",
+      12
+    ],
+    [
+      "boss:1182:-1 <- xerosic:1197:-1",
+      12
+    ],
+    [
+      "trainer:1231:-1 <- trainer:1086:-1",
+      12
+    ],
+    [
+      "bench:305:-1 <- trainer:1231:-1",
+      11
+    ],
+    [
+      "end:-1:-1 <- trainer:1152:-1",
+      11
+    ],
+    [
+      "attack:-1:-1 <- trainer:1152:-1",
+      11
+    ],
+    [
+      "trainer:1231:-1 <- bench:305:-1",
+      11
+    ],
+    [
+      "energy:19:743 <- energy:5:743",
+      11
+    ],
+    [
+      "trainer:1225:-1 <- trainer:1086:-1",
+      10
+    ],
+    [
+      "xerosic:1197:-1 <- trainer:1231:-1",
+      10
+    ],
+    [
+      "evolve:743:742 <- ability:140:140",
+      10
+    ],
+    [
+      "trainer:1152:-1 <- trainer:1231:-1",
+      10
+    ],
+    [
+      "boss:1182:-1 <- end:-1:-1",
+      10
+    ],
+    [
+      "evolve:66:305 <- trainer:1079:-1",
+      9
+    ],
+    [
+      "bench:305:-1 <- bench:741:-1",
+      9
+    ],
+    [
+      "attack:-1:-1 <- trainer:1266:-1",
+      9
+    ],
+    [
+      "ability:-1:-1 <- trainer:1152:-1",
+      9
+    ],
+    [
+      "energy:19:743 <- bench:305:-1",
+      9
+    ],
+    [
+      "ability:140:140 <- evolve:743:742",
+      9
+    ],
+    [
+      "evolve:66:305 <- evolve:66:305",
+      8
+    ],
+    [
+      "trainer:1086:-1 <- boss:1182:-1",
+      8
+    ],
+    [
+      "trainer:1225:-1 <- trainer:1152:-1",
+      8
+    ],
+    [
+      "boss:1182:-1 <- bench:305:-1",
+      8
+    ],
+    [
+      "trainer:1184:-1 <- trainer:1152:-1",
+      8
+    ],
+    [
+      "trainer:1152:-1 <- xerosic:1197:-1",
+      8
+    ],
+    [
+      "trainer:1225:-1 <- bench:305:-1",
+      8
+    ],
+    [
+      "trainer:1184:-1 <- bench:305:-1",
+      8
+    ],
+    [
+      "evolve:66:305 <- bench:305:-1",
+      8
+    ],
+    [
+      "ability:-1:-1 <- trainer:1266:-1",
+      8
+    ],
+    [
+      "trainer:1129:-1 <- energy:5:743",
+      7
+    ],
+    [
+      "end:-1:-1 <- evolve:66:305",
+      7
+    ],
+    [
+      "trainer:1086:-1 <- trainer:1152:-1",
+      7
+    ],
+    [
+      "evolve:66:305 <- energy:5:743",
+      7
+    ],
+    [
+      "boss:1182:-1 <- evolve:66:305",
+      7
+    ],
+    [
+      "trainer:1097:-1 <- attack:-1:-1",
+      7
+    ],
+    [
+      "energy:13:305 <- evolve:66:305",
+      7
+    ],
+    [
+      "trainer:1152:-1 <- ability:-1:-1",
+      7
+    ],
+    [
+      "ability:-1:-1 <- trainer:1231:-1",
+      7
+    ],
+    [
+      "energy:19:742 <- evolve:66:305",
+      7
+    ],
+    [
+      "boss:1182:-1 <- trainer:1225:-1",
+      6
+    ],
+    [
+      "evolve:66:305 <- xerosic:1197:-1",
+      6
+    ],
+    [
+      "trainer:1266:-1 <- xerosic:1197:-1",
+      6
+    ],
+    [
+      "trainer:1129:-1 <- energy:19:743",
+      6
+    ],
+    [
+      "trainer:1225:-1 <- attack:-1:-1",
+      6
+    ],
+    [
+      "xerosic:1197:-1 <- bench:305:-1",
+      6
+    ],
+    [
+      "evolve:66:305 <- ability:140:140",
+      6
+    ],
+    [
+      "evolve:743:742 <- trainer:1079:-1",
+      6
+    ],
+    [
+      "trainer:1231:-1 <- boss:1182:-1",
+      6
+    ],
+    [
+      "trainer:1097:-1 <- evolve:66:305",
+      6
+    ],
+    [
+      "evolve:66:305 <- energy:13:305",
+      6
+    ],
+    [
+      "ability:140:140 <- energy:5:743",
+      6
+    ],
+    [
+      "ability:140:140 <- bench:305:-1",
+      6
+    ],
+    [
+      "ability:-1:-1 <- boss:1182:-1",
+      6
+    ],
+    [
+      "evolve:742:741 <- trainer:1079:-1",
+      6
+    ],
+    [
+      "trainer:1266:-1 <- trainer:1086:-1",
+      6
+    ],
+    [
+      "energy:19:742 <- trainer:1086:-1",
+      6
+    ],
+    [
+      "evolve:742:741 <- evolve:66:305",
+      6
+    ],
+    [
+      "energy:5:742 <- evolve:743:742",
+      6
+    ],
+    [
+      "trainer:1129:-1 <- bench:305:-1",
+      6
+    ],
+    [
+      "bench:305:-1 <- evolve:66:305",
+      6
+    ],
+    [
+      "energy:13:305 <- energy:13:140",
+      6
+    ],
+    [
+      "energy:19:743 <- attack:-1:-1",
+      6
+    ],
+    [
+      "trainer:1079:-1 <- evolve:742:741",
+      6
+    ],
+    [
+      "bench:305:-1 <- boss:1182:-1",
+      6
+    ],
+    [
+      "attack:-1:-1 <- retreat:-1:-1",
+      6
+    ],
+    [
+      "end:-1:-1 <- attack:-1:-1",
+      5
+    ],
+    [
+      "evolve:66:305 <- boss:1182:-1",
+      5
+    ],
+    [
+      "trainer:1225:-1 <- evolve:743:742",
+      5
+    ],
+    [
+      "attack:-1:-1 <- xerosic:1197:-1",
+      5
+    ],
+    [
+      "attack:-1:-1 <- ability:140:140",
+      5
+    ],
+    [
+      "trainer:1079:-1 <- evolve:66:305",
+      5
+    ],
+    [
+      "trainer:1231:-1 <- bench:741:-1",
+      5
+    ],
+    [
+      "xerosic:1197:-1 <- evolve:66:305",
+      5
+    ],
+    [
+      "bench:305:-1 <- ability:140:140",
+      5
+    ],
+    [
+      "trainer:1129:-1 <- trainer:1152:-1",
+      5
+    ],
+    [
+      "trainer:1231:-1 <- trainer:1225:-1",
+      5
+    ],
+    [
+      "energy:5:743 <- bench:305:-1",
+      5
+    ],
+    [
+      "ability:-1:-1 <- trainer:1086:-1",
+      5
+    ],
+    [
+      "trainer:1266:-1 <- trainer:1152:-1",
+      5
+    ]
+  ],
+  "errors_by_turn": {
+    "early": 397,
+    "mid": 1024,
+    "late": 548
+  },
+  "errors_by_option_count": {
+    "5-8": 639,
+    "2-4": 203,
+    "9-15": 864,
+    "16+": 263
+  },
+  "examples": [
+    {
+      "episode_id": 86357290,
+      "turn": 2,
+      "self_active_id": 305,
+      "opp_active_id": 677,
+      "hand_count": 6,
+      "deck_count": 46,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.3579238951206207,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": 0.20297102630138397,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.5392374396324158,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 4,
+          "score": -3.143725633621216,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -4.707042694091797,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86357290,
+      "turn": 2,
+      "self_active_id": 305,
+      "opp_active_id": 677,
+      "hand_count": 8,
+      "deck_count": 40,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6101709008216858,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -2.370846748352051,
+          "teacher": true,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -4.141576290130615,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -4.485229015350342,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -4.903369903564453,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86357290,
+      "turn": 2,
+      "self_active_id": 305,
+      "opp_active_id": 677,
+      "hand_count": 7,
+      "deck_count": 40,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.1398337483406067,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.2698820233345032,
+          "teacher": true,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.76807701587677,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86357290,
+      "turn": 6,
+      "self_active_id": 743,
+      "opp_active_id": 678,
+      "hand_count": 12,
+      "deck_count": 29,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9369996190071106,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": -0.7295055389404297,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 3,
+          "score": -2.131747245788574,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.139474868774414,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.797912120819092,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86357290,
+      "turn": 6,
+      "self_active_id": 743,
+      "opp_active_id": 678,
+      "hand_count": 17,
+      "deck_count": 23,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.2674466371536255,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.2757851779460907,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 3,
+          "score": -1.3435667753219604,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 742,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 4,
+          "score": -3.17293643951416,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 5,
+          "score": -3.2250592708587646,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86359316,
+      "turn": 2,
+      "self_active_id": 305,
+      "opp_active_id": 878,
+      "hand_count": 6,
+      "deck_count": 43,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.13248690962791443,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.5948106646537781,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.7954013347625732,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.996894359588623,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 5,
+          "score": -2.964167594909668,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 305,
+          "target_hp": 70
+        }
+      ]
+    },
+    {
+      "episode_id": 86359316,
+      "turn": 2,
+      "self_active_id": 305,
+      "opp_active_id": 878,
+      "hand_count": 8,
+      "deck_count": 35,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.35418984293937683,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.4985277056694031,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.500102162361145,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.7175577878952026,
+          "teacher": true,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86359316,
+      "turn": 4,
+      "self_active_id": 741,
+      "opp_active_id": 879,
+      "hand_count": 11,
+      "deck_count": 32,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.37236836552619934,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.055158935487270355,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.03363002464175224,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -0.5469985008239746,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 5,
+          "score": -0.5998595952987671,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 741,
+          "target_hp": 50
+        }
+      ]
+    },
+    {
+      "episode_id": 86359316,
+      "turn": 4,
+      "self_active_id": 741,
+      "opp_active_id": 879,
+      "hand_count": 12,
+      "deck_count": 29,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.03181591257452965,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 2,
+          "score": -0.08208445459604263,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.6686744093894958,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 4,
+          "score": -0.866550862789154,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 5,
+          "score": -2.1709728240966797,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86359316,
+      "turn": 4,
+      "self_active_id": 741,
+      "opp_active_id": 879,
+      "hand_count": 11,
+      "deck_count": 29,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.09701650589704514,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 2,
+          "score": -0.04294813051819801,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.5465513467788696,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 4,
+          "score": -0.8316501379013062,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 5,
+          "score": -1.931727647781372,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 5,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 9,
+      "deck_count": 35,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9502185583114624,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.9449896216392517,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 140,
+          "target_hp": 50
+        },
+        {
+          "rank": 3,
+          "score": 0.8790107369422913,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 140,
+          "target_hp": 50
+        },
+        {
+          "rank": 4,
+          "score": 0.418094277381897,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": 0.31137192249298096,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 5,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 10,
+      "deck_count": 33,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.7005926370620728,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 140,
+          "target_hp": 50
+        },
+        {
+          "rank": 2,
+          "score": 0.654621422290802,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -0.10623545199632645,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.37489521503448486,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 140,
+          "target_hp": 50
+        },
+        {
+          "rank": 5,
+          "score": -3.181910991668701,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 5,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 10,
+      "deck_count": 30,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.349484384059906,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.31278499960899353,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.8664637207984924,
+          "teacher": true,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.879606246948242,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 7,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 11,
+      "deck_count": 29,
+      "options": [
+        {
+          "rank": 1,
+          "score": 2.3901264667510986,
+          "teacher": false,
+          "action": "hammer",
+          "card_id": 1081,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.5076555609703064,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -0.7816326022148132,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.9049456119537354,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.2616498470306396,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 7,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 11,
+      "deck_count": 26,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.0536927692592144,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.2547610402107239,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -0.6397073268890381,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.6983401775360107,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.7151496410369873,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 7,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 13,
+      "deck_count": 21,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.19628454744815826,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.2322464883327484,
+          "teacher": true,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.2376110553741455,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -1.643777847290039,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.8278393745422363,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 9,
+      "self_active_id": 743,
+      "opp_active_id": 401,
+      "hand_count": 13,
+      "deck_count": 17,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.5626927614212036,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 2,
+          "score": 1.4660935401916504,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 3,
+          "score": -0.5218366384506226,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -1.06228506565094,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -1.1189740896224976,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 13,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 15,
+      "deck_count": 15,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.4879527688026428,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.9973266124725342,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 3,
+          "score": -1.1921875476837158,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.5207912921905518,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.9523924589157104,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 13,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 15,
+      "deck_count": 14,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.7659386396408081,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.26344701647758484,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -1.2616392374038696,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -1.47318696975708,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.726039171218872,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 13,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 17,
+      "deck_count": 13,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.011644208803772926,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.27623113989830017,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 3,
+          "score": -0.49728864431381226,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.9457947015762329,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -1.0145741701126099,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 13,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 18,
+      "deck_count": 11,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.2107776403427124,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.5342559814453125,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 3,
+          "score": -0.9840367436408997,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -1.0789769887924194,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.3397974967956543,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 13,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 17,
+      "deck_count": 11,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.8633058071136475,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.008037685416638851,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.2173959016799927,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.28483510017395,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -2.387925624847412,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 15,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 17,
+      "deck_count": 9,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9287042617797852,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": -0.15023024380207062,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -2.5124247074127197,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -3.1374099254608154,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.615771532058716,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 15,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 19,
+      "deck_count": 8,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.7194972634315491,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": -0.2926812469959259,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -1.853650689125061,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.008240222930908,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.4460089206695557,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 15,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 7,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6271076798439026,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.35160836577415466,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.39467474818229675,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.40541934967041016,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -0.7301921844482422,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 15,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 5,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6608380079269409,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 2,
+          "score": 0.2387106865644455,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -1.217476487159729,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.9879626035690308,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.4992878437042236,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 15,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 19,
+      "deck_count": 6,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6170727014541626,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.15829548239707947,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": 0.11161838471889496,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.010538110509514809,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -0.24573956429958344,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 17,
+      "self_active_id": 305,
+      "opp_active_id": 432,
+      "hand_count": 22,
+      "deck_count": 3,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6967498660087585,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 2,
+          "score": 0.254457950592041,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -1.38478422164917,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.4834014177322388,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -1.7125657796859741,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 17,
+      "self_active_id": 305,
+      "opp_active_id": 432,
+      "hand_count": 21,
+      "deck_count": 3,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.452303409576416,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.38002485036849976,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.5261499881744385,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.5370267629623413,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.0243011713027954,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 17,
+      "self_active_id": 305,
+      "opp_active_id": 432,
+      "hand_count": 20,
+      "deck_count": 3,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.03306659683585167,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.11854001879692078,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.7531676292419434,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.1162551641464233,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.5198360681533813,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 17,
+      "self_active_id": 305,
+      "opp_active_id": 432,
+      "hand_count": 19,
+      "deck_count": 3,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.27195248007774353,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.23981308937072754,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.8639753460884094,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.5594075918197632,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 19,
+      "self_active_id": 743,
+      "opp_active_id": 432,
+      "hand_count": 17,
+      "deck_count": 2,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9971392750740051,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.4992445409297943,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -0.9932655692100525,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.7933118343353271,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.982938289642334,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86361362,
+      "turn": 19,
+      "self_active_id": 743,
+      "opp_active_id": 432,
+      "hand_count": 17,
+      "deck_count": 3,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.2163983583450317,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.777397871017456,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.03725266456604,
+          "teacher": true,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -3.075523853302002,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -4.177070140838623,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 5,
+      "self_active_id": 743,
+      "opp_active_id": 401,
+      "hand_count": 15,
+      "deck_count": 26,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.097298502922058,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.5057839155197144,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.35330942273139954,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.5903202295303345,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -0.6943439245223999,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 7,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 18,
+      "deck_count": 22,
+      "options": [
+        {
+          "rank": 1,
+          "score": 2.2734594345092773,
+          "teacher": false,
+          "action": "hammer",
+          "card_id": 1081,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.8610233068466187,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 742,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 3,
+          "score": -0.35155513882637024,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -0.929207980632782,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.3507411479949951,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 140,
+          "target_hp": 210
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 7,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 20,
+      "deck_count": 18,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.1022530794143677,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 742,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 2,
+          "score": 0.8854705095291138,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.3557508587837219,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -0.9890962839126587,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.476184606552124,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 7,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 20,
+      "deck_count": 16,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.004615585785359144,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.028013240545988083,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.5999220013618469,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -2.1059160232543945,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.1608619689941406,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 11,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 19,
+      "deck_count": 12,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.387338250875473,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.2957291901111603,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -0.9061905145645142,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -1.544240117073059,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.733882427215576,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 11,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 20,
+      "deck_count": 11,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6761029362678528,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.6096664667129517,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 3,
+          "score": -1.542942762374878,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.1072912216186523,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -2.320612907409668,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 140,
+          "target_hp": 50
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 13,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 10,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.15989170968532562,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": -0.666400671005249,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.9401471614837646,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -2.0456759929656982,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.6610448360443115,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 13,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 22,
+      "deck_count": 9,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.3527362048625946,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.30641937255859375,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.4001181125640869,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.5602415204048157,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -0.7754105925559998,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 13,
+      "self_active_id": 305,
+      "opp_active_id": 431,
+      "hand_count": 22,
+      "deck_count": 7,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.9034795761108398,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.9017737507820129,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -0.9711722135543823,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.9210609197616577,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.1713216304779053,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 15,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 23,
+      "deck_count": 6,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6787559390068054,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 2,
+          "score": 0.5403697490692139,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.49836379289627075,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -0.6507425904273987,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 5,
+          "score": -1.7719203233718872,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 15,
+      "self_active_id": 742,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 6,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.0001690667268121615,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.025316443294286728,
+          "teacher": true,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.2101992517709732,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 4,
+          "score": -1.2302366495132446,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.035372495651245,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 17,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 5,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.04460546001791954,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": -0.7012786865234375,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 3,
+          "score": -1.0353368520736694,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.5379812717437744,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -3.7714600563049316,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 17,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 23,
+      "deck_count": 5,
+      "options": [
+        {
+          "rank": 1,
+          "score": 2.491464376449585,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 2,
+          "score": 0.013787476345896721,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.5903764963150024,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -0.6986074447631836,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 5,
+          "score": -1.5773804187774658,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 17,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 5,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.04345466196537018,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.7494052052497864,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 3,
+          "score": -0.8768846988677979,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.693794846534729,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 5,
+          "score": -3.0228021144866943,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 17,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 22,
+      "deck_count": 4,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.07752315700054169,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.457030713558197,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.9732353687286377,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -1.0297489166259766,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 5,
+          "score": -3.04903244972229,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 17,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 23,
+      "deck_count": 3,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.2172439098358154,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.850473940372467,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.07362775504589081,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.137540578842163,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 5,
+          "score": -2.225191593170166,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 19,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 2,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.8068927526473999,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.18656881153583527,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -1.0525422096252441,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.6069787740707397,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.8721065521240234,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 19,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 21,
+      "deck_count": 2,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.34299740195274353,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.15930412709712982,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -1.8574273586273193,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.8740458488464355,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.0026257038116455,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 21,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 24,
+      "deck_count": 1,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9396196007728577,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.9301748871803284,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": 0.3801351487636566,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -1.458832025527954,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.0408918857574463,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86362894,
+      "turn": 21,
+      "self_active_id": 140,
+      "opp_active_id": 431,
+      "hand_count": 23,
+      "deck_count": 1,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.088133454322815,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.8337641358375549,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -1.7383548021316528,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 4,
+          "score": -2.028942346572876,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -2.2277371883392334,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 4,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 5,
+      "deck_count": 40,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.511848509311676,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.7072519063949585,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -3.2637767791748047,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 4,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 8,
+      "deck_count": 33,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.1725853830575943,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.2171325385570526,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -2.87595796585083,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 6,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 6,
+      "deck_count": 30,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.1021788120269775,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1079,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.5015469789505005,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -4.438665866851807,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -4.911670684814453,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 6,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 9,
+      "deck_count": 26,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.7399305105209351,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 20
+        },
+        {
+          "rank": 2,
+          "score": -1.0594456195831299,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.5398608446121216,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.728064775466919,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.5527451038360596,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 6,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 11,
+      "deck_count": 24,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.05969056487083435,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.2504464089870453,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.6658163070678711,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -4.497682094573975,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -5.548063278198242,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 15,
+      "deck_count": 18,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.06524308770895004,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -1.3359347581863403,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.4588301181793213,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.8272677659988403,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.206974983215332,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 13,
+      "deck_count": 18,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.18159015476703644,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.3127279579639435,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.40053147077560425,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.9676705598831177,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.046502709388733,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 1031,
+      "hand_count": 14,
+      "deck_count": 16,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.0759902000427246,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.10413127392530441,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": -3.3775322437286377,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -4.555658340454102,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -4.7669548988342285,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 12,
+      "self_active_id": 743,
+      "opp_active_id": 861,
+      "hand_count": 13,
+      "deck_count": 2,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.5814061760902405,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.26137492060661316,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.053610920906067,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.605139136314392,
+          "teacher": true,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 5,
+          "score": -2.1572346687316895,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86364909,
+      "turn": 12,
+      "self_active_id": 743,
+      "opp_active_id": 861,
+      "hand_count": 15,
+      "deck_count": 0,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.7834272980690002,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.1444079428911209,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.1404956579208374,
+          "teacher": true,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.0806546211242676,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.1136252880096436,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86367007,
+      "turn": 3,
+      "self_active_id": 305,
+      "opp_active_id": 305,
+      "hand_count": 7,
+      "deck_count": 41,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.0551236867904663,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 60
+        },
+        {
+          "rank": 2,
+          "score": -2.5665783882141113,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 3,
+          "score": -4.512469291687012,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -4.645018577575684,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 305,
+          "target_hp": 60
+        }
+      ]
+    },
+    {
+      "episode_id": 86367007,
+      "turn": 3,
+      "self_active_id": 305,
+      "opp_active_id": 305,
+      "hand_count": 6,
+      "deck_count": 41,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.20618972182273865,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 60
+        },
+        {
+          "rank": 2,
+          "score": -1.3452411890029907,
+          "teacher": true,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86367007,
+      "turn": 5,
+      "self_active_id": 743,
+      "opp_active_id": 741,
+      "hand_count": 10,
+      "deck_count": 34,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.2504107654094696,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.015259630046784878,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.03743768110871315,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.1644198894500732,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.432291269302368,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86367007,
+      "turn": 7,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 9,
+      "deck_count": 27,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6422153115272522,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.2981994152069092,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 3,
+          "score": -0.05367584526538849,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -1.0225797891616821,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.8020964860916138,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 741,
+          "target_hp": 50
+        }
+      ]
+    },
+    {
+      "episode_id": 86367007,
+      "turn": 11,
+      "self_active_id": 743,
+      "opp_active_id": 66,
+      "hand_count": 12,
+      "deck_count": 18,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.12132705748081207,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.30951181054115295,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.5898414850234985,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.0296587944030762,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 5,
+          "score": -1.1125065088272095,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86367007,
+      "turn": 13,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 4,
+      "deck_count": 15,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.865917444229126,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": 0.7431419491767883,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 3,
+          "score": -2.1348962783813477,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.8645174503326416,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 743,
+          "target_hp": 100
+        },
+        {
+          "rank": 5,
+          "score": -3.0115339756011963,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 305,
+          "target_hp": 70
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 3,
+      "self_active_id": 741,
+      "opp_active_id": 140,
+      "hand_count": 9,
+      "deck_count": 40,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6272101998329163,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 2,
+          "score": -0.2114306539297104,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.2878662943840027,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -0.5090956091880798,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.3165204524993896,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 5,
+      "self_active_id": 742,
+      "opp_active_id": 140,
+      "hand_count": 4,
+      "deck_count": 33,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.5699755549430847,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.06020067259669304,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1097,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -2.017766237258911,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.5259222984313965,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -4.561044692993164,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 5,
+      "self_active_id": 743,
+      "opp_active_id": 140,
+      "hand_count": 6,
+      "deck_count": 30,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.7104491591453552,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 2,
+          "score": -0.2419639527797699,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.303922176361084,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -3.1708056926727295,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.3388259410858154,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 5,
+      "self_active_id": 743,
+      "opp_active_id": 140,
+      "hand_count": 7,
+      "deck_count": 26,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.7083247900009155,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.14745523035526276,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.3036859631538391,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.7164056301116943,
+          "teacher": true,
+          "action": "hammer",
+          "card_id": 1081,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.1298097372055054,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 5,
+      "self_active_id": 743,
+      "opp_active_id": 140,
+      "hand_count": 6,
+      "deck_count": 26,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.679786205291748,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.6149159073829651,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.8036126494407654,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.3203587532043457,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -4.055577278137207,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 5,
+      "self_active_id": 743,
+      "opp_active_id": 140,
+      "hand_count": 8,
+      "deck_count": 23,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.36603209376335144,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.2280215620994568,
+          "teacher": true,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.6286482810974121,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -3.8815701007843018,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -4.4907426834106445,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 7,
+      "self_active_id": 743,
+      "opp_active_id": 140,
+      "hand_count": 9,
+      "deck_count": 22,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.577471137046814,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.33208799362182617,
+          "teacher": true,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.6956475973129272,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.088914394378662,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.0982210636138916,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 9,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 7,
+      "deck_count": 18,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9486769437789917,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 2,
+          "score": 0.32379385828971863,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.3272910714149475,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -0.8702355623245239,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.2970633506774902,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 9,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 6,
+      "deck_count": 23,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.5876577496528625,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.2512376010417938,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 3,
+          "score": -0.5002497434616089,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.561895489692688,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.31475830078125,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 9,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 7,
+      "deck_count": 20,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.2661633491516113,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 1.1154974699020386,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": 0.15833605825901031,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -0.6003126502037048,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -1.2797836065292358,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 11,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 12,
+      "deck_count": 13,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.6378586292266846,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.7156424522399902,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.4265028238296509,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 4,
+          "score": -1.8887184858322144,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.939150333404541,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86369098,
+      "turn": 13,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 15,
+      "deck_count": 7,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.4036411941051483,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.1059439480304718,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.6684034466743469,
+          "teacher": true,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 4,
+          "score": -1.8174240589141846,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.3074066638946533,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 2,
+      "self_active_id": 343,
+      "opp_active_id": 305,
+      "hand_count": 6,
+      "deck_count": 42,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.8102683424949646,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 741,
+          "target_hp": 50
+        },
+        {
+          "rank": 2,
+          "score": 0.1058126911520958,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -3.1721506118774414,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -3.26228666305542,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 343,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -3.7763679027557373,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 4,
+      "self_active_id": 741,
+      "opp_active_id": 743,
+      "hand_count": 7,
+      "deck_count": 36,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.2905094623565674,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.2428169697523117,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.30987516045570374,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.0700002908706665,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -4.242801666259766,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 4,
+      "self_active_id": 741,
+      "opp_active_id": 743,
+      "hand_count": 6,
+      "deck_count": 34,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.4718621075153351,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.721798837184906,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.5560263395309448,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -3.097137212753296,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.7254655361175537,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 4,
+      "self_active_id": 742,
+      "opp_active_id": 743,
+      "hand_count": 10,
+      "deck_count": 27,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.5011385083198547,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 2,
+          "score": 0.4186203181743622,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.18047085404396057,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -0.7438414692878723,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.9762563705444336,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 4,
+      "self_active_id": 305,
+      "opp_active_id": 743,
+      "hand_count": 10,
+      "deck_count": 27,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.18698230385780334,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.18093174695968628,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 3,
+          "score": -0.3195246458053589,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -1.0095634460449219,
+          "teacher": true,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.8305498361587524,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 13,
+          "target_id": 305,
+          "target_hp": 70
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 6,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 17,
+      "deck_count": 17,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.846085786819458,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 2,
+          "score": 0.9041392803192139,
+          "teacher": true,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 3,
+          "score": -2.4414167404174805,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 4,
+          "score": -3.2551941871643066,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.3256897926330566,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 17,
+      "deck_count": 16,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.4877986907958984,
+          "teacher": false,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 2,
+          "score": 1.0207393169403076,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": 0.010160204954445362,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 4,
+          "score": -2.0907177925109863,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.2443950176239014,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 19,
+      "deck_count": 15,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9699156880378723,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1129,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.9312486052513123,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": 0.2071867436170578,
+          "teacher": true,
+          "action": "ability",
+          "card_id": 140,
+          "target_id": 140,
+          "target_hp": 210
+        },
+        {
+          "rank": 4,
+          "score": -1.8054848909378052,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.8535091876983643,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 21,
+      "deck_count": 14,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.720571517944336,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 1.3770744800567627,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 741,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -1.903342604637146,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.674842596054077,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1086,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.110995292663574,
+          "teacher": false,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 12,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 4,
+      "deck_count": 8,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.6399305462837219,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1079,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.20151197910308838,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 3,
+          "score": -0.4156140685081482,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -1.4175608158111572,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -1.6418378353118896,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 12,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 6,
+      "deck_count": 5,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.3059702217578888,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1079,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.10771062225103378,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.3761832118034363,
+          "teacher": false,
+          "action": "evolve",
+          "card_id": 743,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": -1.3290773630142212,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -1.6110410690307617,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 12,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 8,
+      "deck_count": 5,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.9898722767829895,
+          "teacher": false,
+          "action": "bench",
+          "card_id": 305,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": 0.8014218807220459,
+          "teacher": true,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": 0.6442030072212219,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 4,
+          "score": 0.49449723958969116,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 5,
+          "score": 0.02496192418038845,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1079,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86370642,
+      "turn": 18,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 4,
+      "deck_count": 2,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.3148225247859955,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.4183262884616852,
+          "teacher": true,
+          "action": "bench",
+          "card_id": 343,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86372683,
+      "turn": 2,
+      "self_active_id": 741,
+      "opp_active_id": 305,
+      "hand_count": 6,
+      "deck_count": 40,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.6920579671859741,
+          "teacher": false,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.730746328830719,
+          "teacher": true,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -2.2513256072998047,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.714186191558838,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.0700387954711914,
+          "teacher": false,
+          "action": "retreat",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86372683,
+      "turn": 4,
+      "self_active_id": 305,
+      "opp_active_id": 743,
+      "hand_count": 4,
+      "deck_count": 37,
+      "options": [
+        {
+          "rank": 1,
+          "score": -0.16397637128829956,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1184,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.20676228404045105,
+          "teacher": true,
+          "action": "xerosic",
+          "card_id": 1197,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -2.4870424270629883,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.903066396713257,
+          "teacher": false,
+          "action": "end",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86372683,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 8,
+      "deck_count": 27,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.5688416957855225,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.04310982674360275,
+          "teacher": true,
+          "action": "hammer",
+          "card_id": 1081,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.047386933118104935,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 4,
+          "score": -2.9614715576171875,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.746248245239258,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1266,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    },
+    {
+      "episode_id": 86372683,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 10,
+      "deck_count": 23,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.1085296869277954,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 2,
+          "score": 0.05599808320403099,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 3,
+          "score": -1.349936842918396,
+          "teacher": true,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -3.4749953746795654,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        },
+        {
+          "rank": 5,
+          "score": -3.8150405883789062,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86372683,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 10,
+      "deck_count": 22,
+      "options": [
+        {
+          "rank": 1,
+          "score": 1.0602971315383911,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 2,
+          "score": 0.9273494482040405,
+          "teacher": true,
+          "action": "evolve",
+          "card_id": 66,
+          "target_id": 305,
+          "target_hp": 70
+        },
+        {
+          "rank": 3,
+          "score": 0.06893902271986008,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 19,
+          "target_id": 743,
+          "target_hp": 140
+        },
+        {
+          "rank": 4,
+          "score": -1.7961913347244263,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -3.4801905155181885,
+          "teacher": false,
+          "action": "energy",
+          "card_id": 5,
+          "target_id": 742,
+          "target_hp": 80
+        }
+      ]
+    },
+    {
+      "episode_id": 86372683,
+      "turn": 8,
+      "self_active_id": 743,
+      "opp_active_id": 743,
+      "hand_count": 10,
+      "deck_count": 21,
+      "options": [
+        {
+          "rank": 1,
+          "score": 0.26725995540618896,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1152,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 2,
+          "score": -0.19914941489696503,
+          "teacher": true,
+          "action": "boss",
+          "card_id": 1182,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 3,
+          "score": -0.28603655099868774,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1231,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 4,
+          "score": -2.419656753540039,
+          "teacher": false,
+          "action": "attack",
+          "card_id": -1,
+          "target_id": -1,
+          "target_hp": 0
+        },
+        {
+          "rank": 5,
+          "score": -2.8935060501098633,
+          "teacher": false,
+          "action": "trainer",
+          "card_id": 1225,
+          "target_id": -1,
+          "target_hp": 0
+        }
+      ]
+    }
+  ]
+}

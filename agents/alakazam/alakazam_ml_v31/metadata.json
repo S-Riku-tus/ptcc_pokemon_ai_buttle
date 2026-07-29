@@ -1,0 +1,102 @@
+{
+  "name": "alakazam_ml_v31",
+  "version": "31.0.0",
+  "role": "challenger",
+  "status": "finalized_current_best_target_not_met",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v30",
+  "created_at": "2026-07-29T00:00:00+09:00",
+  "runtime_revision": "v31_majkel_two_ranker_ensemble_20260729",
+  "model_version": "v31-majkel-categorical-numeric-lambdarank-ensemble",
+  "model": "Exact replay memory followed by a two-model 657-feature LambdaRank ensemble. A large-leaf categorical-ID model and a numeric-ID diversifier are normalized within each legal option set and combined at 1.0:1.3.",
+  "model_scope": "The learned policy covers unseen single-choice MAIN decisions. Exact memory handles recorded questions; v29 and the deterministic policy remain fallbacks for unsupported, unsafe, low-time, or illegal cases.",
+  "confidence_threshold": 0.0,
+  "ranker_model_sha256": "de0feeb2c2796cc3a81a8a41f7eeeba8474fd399d83cb72520e7efd18cbc53ff",
+  "ranker_numeric_model_sha256": "d07fd90593ad347d2e3f6c8df5a37263f27d0e98c45939472b865f3ec36317ef",
+  "v29_ranker_model_sha256": "9724331c95ee88abd98b3531af862fa4fea2c399d1c1eadca8a7ef19e6811db4",
+  "legacy_ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "target_ranker_model_sha256": "a58d27eabbfd638debf893cf584ec2d2a680f7953282b47331735bb39b9af5c4",
+  "teacher_memory_sha256": "5dd73b13b92ef6ba403e4fc3b50df1ec7badc7cdf26f6a6b6a21c18790d30bb3",
+  "fallback_policy_sha256": "3fcdb252f207646cd6464e6164aeb76c6eb2c515303a39f4b7f5711af754913b",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "unique_cards": 22,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v30": true,
+  "teacher_corpus": {
+    "index": "experiments/alakazam_ml_v31/teacher_index.csv",
+    "deck_hash": "cc38cb450b86770a",
+    "primary_teacher": "Majkel1337",
+    "primary_submission_id": 54662660,
+    "primary_trajectories": 1000,
+    "primary_unique_episodes": 999,
+    "main_decisions": 53782,
+    "candidate_rows": 484538,
+    "auxiliary_evaluated_not_in_final_fit": {
+      "Rmy_submission_54750312": 699,
+      "Majkel_previous_submission_54618168": 311,
+      "Yushin_Ito": 1000
+    }
+  },
+  "teacher_training": {
+    "features": 657,
+    "episode_split": "Chronological 70/10/20 by episode ID within the current Majkel submission.",
+    "train_decisions": 41477,
+    "validation_decisions": 4289,
+    "test_decisions": 8016,
+    "categorical_large_leaf_validation_top1": 0.7880624854,
+    "categorical_large_leaf_test_top1": 0.7551147705,
+    "numeric_id_validation_top1": 0.7836325484,
+    "numeric_id_test_top1": 0.7586077844,
+    "ensemble_validation_top1": 0.7894614129,
+    "ensemble_heldout_test_top1": 0.7630988024,
+    "single_ranker_test_top2": 0.8960828343,
+    "single_ranker_test_top3": 0.9530938124,
+    "six_model_test_oracle_top1": 0.8269710579,
+    "target_top1": 0.9,
+    "target_met": false
+  },
+  "rejected_experiments": {
+    "Rmy_single_teacher_test_top1": 0.7338296112,
+    "mixed_Majkel_Rmy_test_top1": 0.6961098073,
+    "Majkel_previous_transfer_best_weight": 0.0,
+    "CatBoost_QuerySoftMax_test_top1": 0.7210578842,
+    "hashed_pairwise_test_top1": 0.7101736973,
+    "MLP_reranker_test_top1": 0.7280397022,
+    "nearest_neighbor_blend_test_top1": 0.750998004,
+    "stacked_ranker_test_top1": 0.7613522954
+  },
+  "teacher_memory": {
+    "format": "v30_teacher_memory_v1",
+    "exact_keys": 199558,
+    "canonical_repeated_keys": 2,
+    "runtime_semantic_accuracy_on_known_questions": 1.0,
+    "chronological_holdout_retrieval_coverage": 0.0165799278
+  },
+  "safety_guards": [
+    "Always preserve a deterministic immediate lethal attack.",
+    "Reject candidates that destroy a currently available KO.",
+    "Never end the turn while the Active Alakazam can attack.",
+    "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
+    "Use the frozen v29 policy for unsupported, nested, low-time, or illegal cases."
+  ],
+  "local_validation": {
+    "v31_pytest_tests": 176,
+    "v31_pytest_failures": 0,
+    "static_validation_passed": true,
+    "arena_vs_v30_games": 10,
+    "arena_vs_v30_wins": 6,
+    "arena_vs_v30_losses": 4,
+    "arena_vs_v30_draws": 0,
+    "arena_seed": 3110,
+    "arena_crashes": 0,
+    "arena_illegal_actions": 0
+  },
+  "known_limitations": [
+    "The requested 90% unseen Top-1 agreement was not reached. The strict held-out semantic Top-1 is 76.31%.",
+    "Known replay questions remain 100% semantically reproducible through teacher memory, but that is not an unbiased generalization estimate.",
+    "The single-ranker Top-3 rate is 95.31%, so most remaining error is ordering among plausible actions rather than candidate generation.",
+    "A six-model oracle reaches only 82.70% on the same held-out test, showing that the evaluated model family cannot reach 90% by blending alone.",
+    "A new leaderboard submission is required to measure rating impact."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v31\\rmy_arrays.npz",
+  "train_pairs": 34367,
+  "positive_rate": 0.13559519306311288,
+  "experiments": [
+    {
+      "hidden": [
+        128,
+        64
+      ],
+      "alpha": 0.0001,
+      "iterations": 32,
+      "threshold": 0.9500000000000006,
+      "top1": 0.7491387409959286
+    },
+    {
+      "hidden": [
+        256,
+        128
+      ],
+      "alpha": 0.0003,
+      "iterations": 30,
+      "threshold": 0.9250000000000005,
+      "top1": 0.7557156279361102
+    }
+  ],
+  "selected": {
+    "hidden": [
+      256,
+      128
+    ],
+    "alpha": 0.0003,
+    "iterations": 30,
+    "threshold": 0.9250000000000005,
+    "top1": 0.7557156279361102
+  },
+  "test_base": 0.7338296112489661,
+  "test_top1": 0.7280397022332507
+}

@@ -1,0 +1,55 @@
+{
+  "base_cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v31\\majkel_arrays.npz",
+  "history_cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v31\\majkel_history_arrays.npz",
+  "experiments": [
+    {
+      "variant": "base",
+      "features": 648,
+      "best_iteration": 343,
+      "validation_top1": 0.782466775472138,
+      "test_top1": 0.750249500998004
+    },
+    {
+      "variant": "option_order",
+      "features": 657,
+      "best_iteration": 435,
+      "validation_top1": 0.7859640941944509,
+      "test_top1": 0.7543662674650699
+    },
+    {
+      "variant": "option_plus_opp_discard",
+      "features": 687,
+      "best_iteration": 318,
+      "validation_top1": 0.7633480997901608,
+      "test_top1": 0.7377744510978044
+    },
+    {
+      "variant": "option_plus_long_recent",
+      "features": 945,
+      "best_iteration": 243,
+      "validation_top1": 0.773606901375612,
+      "test_top1": 0.7473802395209581
+    },
+    {
+      "variant": "option_plus_turn_open",
+      "features": 777,
+      "best_iteration": 266,
+      "validation_top1": 0.7750058288645372,
+      "test_top1": 0.747629740518962
+    },
+    {
+      "variant": "option_plus_all_logs",
+      "features": 1065,
+      "best_iteration": 360,
+      "validation_top1": 0.7752389834460247,
+      "test_top1": 0.749001996007984
+    },
+    {
+      "variant": "all",
+      "features": 1095,
+      "best_iteration": 312,
+      "validation_top1": 0.7675448822569364,
+      "test_top1": 0.7386477045908184
+    }
+  ]
+}

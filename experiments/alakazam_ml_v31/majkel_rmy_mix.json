@@ -1,0 +1,893 @@
+{
+  "features": 657,
+  "best_iteration": 319,
+  "decisions": 83653,
+  "validation": {
+    "decisions": 7482,
+    "semantic_top1": 0.723336006415397,
+    "semantic_top2": 0.8833199679230153,
+    "semantic_top3": 0.9452018176958032,
+    "fallback_semantic": 0.6170809943865276,
+    "fallback_or_model_oracle": 0.7711841753541834,
+    "temperature": 1.0,
+    "by_teacher_action": {
+      "ability": {
+        "count": 858,
+        "semantic_top1": 0.8904428904428905
+      },
+      "attack": {
+        "count": 1074,
+        "semantic_top1": 0.7970204841713222
+      },
+      "bench": {
+        "count": 901,
+        "semantic_top1": 0.8390677025527192
+      },
+      "boss": {
+        "count": 134,
+        "semantic_top1": 0.35074626865671643
+      },
+      "end": {
+        "count": 250,
+        "semantic_top1": 0.78
+      },
+      "energy": {
+        "count": 861,
+        "semantic_top1": 0.6190476190476191
+      },
+      "evolve": {
+        "count": 1521,
+        "semantic_top1": 0.7817225509533202
+      },
+      "hammer": {
+        "count": 214,
+        "semantic_top1": 0.705607476635514
+      },
+      "retreat": {
+        "count": 106,
+        "semantic_top1": 0.5943396226415094
+      },
+      "trainer": {
+        "count": 1300,
+        "semantic_top1": 0.5384615384615384
+      },
+      "xerosic": {
+        "count": 263,
+        "semantic_top1": 0.6007604562737643
+      }
+    },
+    "best_gates": [
+      {
+        "probability": 0.0,
+        "margin": 0.0,
+        "semantic": 0.723336006415397,
+        "model_selection_rate": 1.0
+      },
+      {
+        "probability": 0.05,
+        "margin": 0.0,
+        "semantic": 0.723336006415397,
+        "model_selection_rate": 1.0
+      },
+      {
+        "probability": 0.1,
+        "margin": 0.0,
+        "semantic": 0.723336006415397,
+        "model_selection_rate": 1.0
+      },
+      {
+        "probability": 0.15,
+        "margin": 0.0,
+        "semantic": 0.723336006415397,
+        "model_selection_rate": 1.0
+      },
+      {
+        "probability": 0.2,
+        "margin": 0.0,
+        "semantic": 0.7215985030740444,
+        "model_selection_rate": 0.9954557604918471
+      },
+      {
+        "probability": 0.25,
+        "margin": 0.0,
+        "semantic": 0.7193263833199679,
+        "model_selection_rate": 0.979550922213312
+      },
+      {
+        "probability": 0.3,
+        "margin": 0.0,
+        "semantic": 0.7161186848436247,
+        "model_selection_rate": 0.9470729751403368
+      },
+      {
+        "probability": 0.0,
+        "margin": 0.05,
+        "semantic": 0.714915797914996,
+        "model_selection_rate": 0.9151296444800855
+      },
+      {
+        "probability": 0.05,
+        "margin": 0.05,
+        "semantic": 0.714915797914996,
+        "model_selection_rate": 0.9151296444800855
+      },
+      {
+        "probability": 0.1,
+        "margin": 0.05,
+        "semantic": 0.714915797914996,
+        "model_selection_rate": 0.9151296444800855
+      },
+      {
+        "probability": 0.15,
+        "margin": 0.05,
+        "semantic": 0.714915797914996,
+        "model_selection_rate": 0.9151296444800855
+      },
+      {
+        "probability": 0.2,
+        "margin": 0.05,
+        "semantic": 0.714648489708634,
+        "model_selection_rate": 0.9147286821705426
+      },
+      {
+        "probability": 0.25,
+        "margin": 0.05,
+        "semantic": 0.7137129109863672,
+        "model_selection_rate": 0.9111200213846565
+      },
+      {
+        "probability": 0.3,
+        "margin": 0.05,
+        "semantic": 0.7115744453354718,
+        "model_selection_rate": 0.89641807003475
+      },
+      {
+        "probability": 0.35,
+        "margin": 0.0,
+        "semantic": 0.7111734830259289,
+        "model_selection_rate": 0.8990911520983694
+      }
+    ]
+  },
+  "test": {
+    "decisions": 14061,
+    "semantic_top1": 0.6961098072683308,
+    "semantic_top2": 0.8694260721143588,
+    "semantic_top3": 0.9344285612687575,
+    "fallback_semantic": 0.6102695398620297,
+    "fallback_or_model_oracle": 0.7456795391508427,
+    "temperature": 1.0,
+    "by_teacher_action": {
+      "ability": {
+        "count": 1722,
+        "semantic_top1": 0.8164924506387921
+      },
+      "attack": {
+        "count": 1698,
+        "semantic_top1": 0.7732626619552415
+      },
+      "bench": {
+        "count": 1692,
+        "semantic_top1": 0.7978723404255319
+      },
+      "boss": {
+        "count": 285,
+        "semantic_top1": 0.3087719298245614
+      },
+      "end": {
+        "count": 449,
+        "semantic_top1": 0.7193763919821826
+      },
+      "energy": {
+        "count": 1638,
+        "semantic_top1": 0.594017094017094
+      },
+      "evolve": {
+        "count": 2788,
+        "semantic_top1": 0.7865853658536586
+      },
+      "hammer": {
+        "count": 289,
+        "semantic_top1": 0.7058823529411765
+      },
+      "retreat": {
+        "count": 232,
+        "semantic_top1": 0.6120689655172413
+      },
+      "trainer": {
+        "count": 2853,
+        "semantic_top1": 0.544689800210305
+      },
+      "xerosic": {
+        "count": 415,
+        "semantic_top1": 0.5831325301204819
+      }
+    },
+    "best_gates": [
+      {
+        "probability": 0.2,
+        "margin": 0.0,
+        "semantic": 0.6961809259654363,
+        "model_selection_rate": 0.9955195220823555
+      },
+      {
+        "probability": 0.15,
+        "margin": 0.0,
+        "semantic": 0.6961809259654363,
+        "model_selection_rate": 0.9995021691202617
+      },
+      {
+        "probability": 0.0,
+        "margin": 0.0,
+        "semantic": 0.6961098072683308,
+        "model_selection_rate": 1.0
+      },
+      {
+        "probability": 0.05,
+        "margin": 0.0,
+        "semantic": 0.6961098072683308,
+        "model_selection_rate": 1.0
+      },
+      {
+        "probability": 0.1,
+        "margin": 0.0,
+        "semantic": 0.6961098072683308,
+        "model_selection_rate": 1.0
+      },
+      {
+        "probability": 0.25,
+        "margin": 0.0,
+        "semantic": 0.6940473650522723,
+        "model_selection_rate": 0.9767441860465116
+      },
+      {
+        "probability": 0.3,
+        "margin": 0.0,
+        "semantic": 0.689922480620155,
+        "model_selection_rate": 0.9382689709124529
+      },
+      {
+        "probability": 0.2,
+        "margin": 0.05,
+        "semantic": 0.6894246497404167,
+        "model_selection_rate": 0.9049854206670934
+      },
+      {
+        "probability": 0.0,
+        "margin": 0.05,
+        "semantic": 0.6894246497404167,
+        "model_selection_rate": 0.9050565393641988
+      },
+      {
+        "probability": 0.05,
+        "margin": 0.05,
+        "semantic": 0.6894246497404167,
+        "model_selection_rate": 0.9050565393641988
+      },
+      {
+        "probability": 0.1,
+        "margin": 0.05,
+        "semantic": 0.6894246497404167,
+        "model_selection_rate": 0.9050565393641988
+      },
+      {
+        "probability": 0.15,
+        "margin": 0.05,
+        "semantic": 0.6894246497404167,
+        "model_selection_rate": 0.9050565393641988
+      },
+      {
+        "probability": 0.25,
+        "margin": 0.05,
+        "semantic": 0.6893535310433113,
+        "model_selection_rate": 0.9011450110233981
+      },
+      {
+        "probability": 0.3,
+        "margin": 0.05,
+        "semantic": 0.6860109522793543,
+        "model_selection_rate": 0.882938624564398
+      },
+      {
+        "probability": 0.35,
+        "margin": 0.0,
+        "semantic": 0.6850864092169832,
+        "model_selection_rate": 0.8867790342080933
+      }
+    ]
+  },
+  "by_cohort": {
+    "majkel": {
+      "validation": {
+        "decisions": 4289,
+        "semantic_top1": 0.7593844719048729,
+        "semantic_top2": 0.8957799020750757,
+        "semantic_top3": 0.9487059920727442,
+        "fallback_semantic": 0.6346467708090464,
+        "fallback_or_model_oracle": 0.7969223595243646,
+        "temperature": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 493,
+            "semantic_top1": 0.9411764705882353
+          },
+          "attack": {
+            "count": 645,
+            "semantic_top1": 0.8387596899224806
+          },
+          "bench": {
+            "count": 500,
+            "semantic_top1": 0.836
+          },
+          "boss": {
+            "count": 97,
+            "semantic_top1": 0.35051546391752575
+          },
+          "end": {
+            "count": 154,
+            "semantic_top1": 0.8246753246753247
+          },
+          "energy": {
+            "count": 517,
+            "semantic_top1": 0.6731141199226306
+          },
+          "evolve": {
+            "count": 851,
+            "semantic_top1": 0.8049353701527615
+          },
+          "hammer": {
+            "count": 118,
+            "semantic_top1": 0.7542372881355932
+          },
+          "retreat": {
+            "count": 76,
+            "semantic_top1": 0.5789473684210527
+          },
+          "trainer": {
+            "count": 706,
+            "semantic_top1": 0.5736543909348442
+          },
+          "xerosic": {
+            "count": 132,
+            "semantic_top1": 0.7727272727272727
+          }
+        },
+        "best_gates": [
+          {
+            "probability": 0.0,
+            "margin": 0.0,
+            "semantic": 0.7593844719048729,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.0,
+            "semantic": 0.7593844719048729,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.0,
+            "semantic": 0.7593844719048729,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.15,
+            "margin": 0.0,
+            "semantic": 0.7593844719048729,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.2,
+            "margin": 0.0,
+            "semantic": 0.7579855444159478,
+            "model_selection_rate": 0.9965026812776872
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.0,
+            "semantic": 0.7565866169270227,
+            "model_selection_rate": 0.9804150151550478
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.0,
+            "semantic": 0.7535556073676848,
+            "model_selection_rate": 0.9517370016320821
+          },
+          {
+            "probability": 0.0,
+            "margin": 0.05,
+            "semantic": 0.7507577523898344,
+            "model_selection_rate": 0.9165306598274656
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.05,
+            "semantic": 0.7507577523898344,
+            "model_selection_rate": 0.9165306598274656
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.05,
+            "semantic": 0.7507577523898344,
+            "model_selection_rate": 0.9165306598274656
+          },
+          {
+            "probability": 0.15,
+            "margin": 0.05,
+            "semantic": 0.7507577523898344,
+            "model_selection_rate": 0.9165306598274656
+          },
+          {
+            "probability": 0.2,
+            "margin": 0.05,
+            "semantic": 0.7502914432268594,
+            "model_selection_rate": 0.9160643506644905
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.05,
+            "semantic": 0.7495919794823969,
+            "model_selection_rate": 0.9128001865236652
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.05,
+            "semantic": 0.7479598974119841,
+            "model_selection_rate": 0.8999766845418512
+          },
+          {
+            "probability": 0.35,
+            "margin": 0.0,
+            "semantic": 0.7460946607600839,
+            "model_selection_rate": 0.9030076941011891
+          }
+        ]
+      },
+      "test": {
+        "decisions": 8016,
+        "semantic_top1": 0.715818363273453,
+        "semantic_top2": 0.8802395209580839,
+        "semantic_top3": 0.939620758483034,
+        "fallback_semantic": 0.6291167664670658,
+        "fallback_or_model_oracle": 0.7649700598802395,
+        "temperature": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1052,
+            "semantic_top1": 0.80893536121673
+          },
+          "attack": {
+            "count": 939,
+            "semantic_top1": 0.7965921192758253
+          },
+          "bench": {
+            "count": 949,
+            "semantic_top1": 0.7608008429926238
+          },
+          "boss": {
+            "count": 197,
+            "semantic_top1": 0.2893401015228426
+          },
+          "end": {
+            "count": 240,
+            "semantic_top1": 0.7833333333333333
+          },
+          "energy": {
+            "count": 926,
+            "semantic_top1": 0.661987041036717
+          },
+          "evolve": {
+            "count": 1562,
+            "semantic_top1": 0.8060179257362355
+          },
+          "hammer": {
+            "count": 147,
+            "semantic_top1": 0.7619047619047619
+          },
+          "retreat": {
+            "count": 154,
+            "semantic_top1": 0.538961038961039
+          },
+          "trainer": {
+            "count": 1648,
+            "semantic_top1": 0.5776699029126213
+          },
+          "xerosic": {
+            "count": 202,
+            "semantic_top1": 0.7574257425742574
+          }
+        },
+        "best_gates": [
+          {
+            "probability": 0.2,
+            "margin": 0.0,
+            "semantic": 0.716192614770459,
+            "model_selection_rate": 0.9960079840319361
+          },
+          {
+            "probability": 0.15,
+            "margin": 0.0,
+            "semantic": 0.7159431137724551,
+            "model_selection_rate": 0.99937624750499
+          },
+          {
+            "probability": 0.0,
+            "margin": 0.0,
+            "semantic": 0.715818363273453,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.0,
+            "semantic": 0.715818363273453,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.0,
+            "semantic": 0.715818363273453,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.0,
+            "semantic": 0.7148203592814372,
+            "model_selection_rate": 0.9782934131736527
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.0,
+            "semantic": 0.7123253493013972,
+            "model_selection_rate": 0.9397455089820359
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.05,
+            "semantic": 0.7115768463073853,
+            "model_selection_rate": 0.9083083832335329
+          },
+          {
+            "probability": 0.0,
+            "margin": 0.05,
+            "semantic": 0.7114520958083832,
+            "model_selection_rate": 0.9115518962075848
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.05,
+            "semantic": 0.7114520958083832,
+            "model_selection_rate": 0.9115518962075848
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.05,
+            "semantic": 0.7114520958083832,
+            "model_selection_rate": 0.9115518962075848
+          },
+          {
+            "probability": 0.15,
+            "margin": 0.05,
+            "semantic": 0.7114520958083832,
+            "model_selection_rate": 0.9115518962075848
+          },
+          {
+            "probability": 0.2,
+            "margin": 0.05,
+            "semantic": 0.7114520958083832,
+            "model_selection_rate": 0.9115518962075848
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.05,
+            "semantic": 0.7083333333333334,
+            "model_selection_rate": 0.8893463073852296
+          },
+          {
+            "probability": 0.35,
+            "margin": 0.0,
+            "semantic": 0.7068363273453094,
+            "model_selection_rate": 0.8887225548902196
+          }
+        ]
+      }
+    },
+    "rmy": {
+      "validation": {
+        "decisions": 3193,
+        "semantic_top1": 0.6749138740995929,
+        "semantic_top2": 0.8665831506420294,
+        "semantic_top3": 0.9404948324459755,
+        "fallback_semantic": 0.5934857500782963,
+        "fallback_or_model_oracle": 0.7366113373003444,
+        "temperature": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 365,
+            "semantic_top1": 0.821917808219178
+          },
+          "attack": {
+            "count": 429,
+            "semantic_top1": 0.7342657342657343
+          },
+          "bench": {
+            "count": 401,
+            "semantic_top1": 0.8428927680798005
+          },
+          "boss": {
+            "count": 37,
+            "semantic_top1": 0.35135135135135137
+          },
+          "end": {
+            "count": 96,
+            "semantic_top1": 0.7083333333333334
+          },
+          "energy": {
+            "count": 344,
+            "semantic_top1": 0.5377906976744186
+          },
+          "evolve": {
+            "count": 670,
+            "semantic_top1": 0.7522388059701492
+          },
+          "hammer": {
+            "count": 96,
+            "semantic_top1": 0.6458333333333334
+          },
+          "retreat": {
+            "count": 30,
+            "semantic_top1": 0.6333333333333333
+          },
+          "trainer": {
+            "count": 594,
+            "semantic_top1": 0.49663299663299665
+          },
+          "xerosic": {
+            "count": 131,
+            "semantic_top1": 0.42748091603053434
+          }
+        },
+        "best_gates": [
+          {
+            "probability": 0.0,
+            "margin": 0.0,
+            "semantic": 0.6749138740995929,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.0,
+            "semantic": 0.6749138740995929,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.0,
+            "semantic": 0.6749138740995929,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.15,
+            "margin": 0.0,
+            "semantic": 0.6749138740995929,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.2,
+            "margin": 0.0,
+            "semantic": 0.6727215784528656,
+            "model_selection_rate": 0.9940494832445975
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.0,
+            "semantic": 0.66927654243658,
+            "model_selection_rate": 0.9783902286251175
+          },
+          {
+            "probability": 0.2,
+            "margin": 0.05,
+            "semantic": 0.6667710616974633,
+            "model_selection_rate": 0.9129345443156905
+          },
+          {
+            "probability": 0.0,
+            "margin": 0.05,
+            "semantic": 0.6667710616974633,
+            "model_selection_rate": 0.9132477294080802
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.05,
+            "semantic": 0.6667710616974633,
+            "model_selection_rate": 0.9132477294080802
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.05,
+            "semantic": 0.6667710616974633,
+            "model_selection_rate": 0.9132477294080802
+          },
+          {
+            "probability": 0.15,
+            "margin": 0.05,
+            "semantic": 0.6667710616974633,
+            "model_selection_rate": 0.9132477294080802
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.0,
+            "semantic": 0.6658315064202944,
+            "model_selection_rate": 0.9408080175383652
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.05,
+            "semantic": 0.6655183213279048,
+            "model_selection_rate": 0.9088631381146257
+          },
+          {
+            "probability": 0.35,
+            "margin": 0.0,
+            "semantic": 0.6642655809583464,
+            "model_selection_rate": 0.8938302536799249
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.05,
+            "semantic": 0.6626996554963984,
+            "model_selection_rate": 0.8916379580331977
+          }
+        ]
+      },
+      "test": {
+        "decisions": 6045,
+        "semantic_top1": 0.6699751861042184,
+        "semantic_top2": 0.8550868486352358,
+        "semantic_top3": 0.9275434243176178,
+        "fallback_semantic": 0.585277088502895,
+        "fallback_or_model_oracle": 0.7200992555831266,
+        "temperature": 1.0,
+        "by_teacher_action": {
+          "ability": {
+            "count": 670,
+            "semantic_top1": 0.8283582089552238
+          },
+          "attack": {
+            "count": 759,
+            "semantic_top1": 0.7444005270092227
+          },
+          "bench": {
+            "count": 743,
+            "semantic_top1": 0.845222072678331
+          },
+          "boss": {
+            "count": 88,
+            "semantic_top1": 0.3522727272727273
+          },
+          "end": {
+            "count": 209,
+            "semantic_top1": 0.645933014354067
+          },
+          "energy": {
+            "count": 712,
+            "semantic_top1": 0.5056179775280899
+          },
+          "evolve": {
+            "count": 1226,
+            "semantic_top1": 0.7618270799347472
+          },
+          "hammer": {
+            "count": 142,
+            "semantic_top1": 0.647887323943662
+          },
+          "retreat": {
+            "count": 78,
+            "semantic_top1": 0.7564102564102564
+          },
+          "trainer": {
+            "count": 1205,
+            "semantic_top1": 0.4995850622406639
+          },
+          "xerosic": {
+            "count": 213,
+            "semantic_top1": 0.41784037558685444
+          }
+        },
+        "best_gates": [
+          {
+            "probability": 0.15,
+            "margin": 0.0,
+            "semantic": 0.6699751861042184,
+            "model_selection_rate": 0.9996691480562448
+          },
+          {
+            "probability": 0.0,
+            "margin": 0.0,
+            "semantic": 0.6699751861042184,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.0,
+            "semantic": 0.6699751861042184,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.0,
+            "semantic": 0.6699751861042184,
+            "model_selection_rate": 1.0
+          },
+          {
+            "probability": 0.2,
+            "margin": 0.0,
+            "semantic": 0.6696443341604632,
+            "model_selection_rate": 0.9948717948717949
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.0,
+            "semantic": 0.6665012406947891,
+            "model_selection_rate": 0.9746898263027295
+          },
+          {
+            "probability": 0.2,
+            "margin": 0.05,
+            "semantic": 0.6602150537634408,
+            "model_selection_rate": 0.8962779156327544
+          },
+          {
+            "probability": 0.0,
+            "margin": 0.05,
+            "semantic": 0.6602150537634408,
+            "model_selection_rate": 0.8964433416046319
+          },
+          {
+            "probability": 0.05,
+            "margin": 0.05,
+            "semantic": 0.6602150537634408,
+            "model_selection_rate": 0.8964433416046319
+          },
+          {
+            "probability": 0.1,
+            "margin": 0.05,
+            "semantic": 0.6602150537634408,
+            "model_selection_rate": 0.8964433416046319
+          },
+          {
+            "probability": 0.15,
+            "margin": 0.05,
+            "semantic": 0.6602150537634408,
+            "model_selection_rate": 0.8964433416046319
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.0,
+            "semantic": 0.6602150537634408,
+            "model_selection_rate": 0.9363110008271298
+          },
+          {
+            "probability": 0.25,
+            "margin": 0.05,
+            "semantic": 0.6598842018196857,
+            "model_selection_rate": 0.891645988420182
+          },
+          {
+            "probability": 0.3,
+            "margin": 0.05,
+            "semantic": 0.6564102564102564,
+            "model_selection_rate": 0.8744416873449131
+          },
+          {
+            "probability": 0.35,
+            "margin": 0.0,
+            "semantic": 0.6562448304383788,
+            "model_selection_rate": 0.8842018196856907
+          }
+        ]
+      }
+    }
+  }
+}

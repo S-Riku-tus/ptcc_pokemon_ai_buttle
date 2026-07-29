@@ -1,0 +1,162 @@
+{
+  "base_cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v31\\majkel_arrays.npz",
+  "order_cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v31\\majkel_order_arrays.npz",
+  "new_features": [
+    "candidate_is_first_action_copy",
+    "candidate_is_first_card_copy",
+    "candidate_option_position",
+    "candidate_option_reverse_position",
+    "candidate_raw_index",
+    "candidate_raw_inplay_index",
+    "candidate_raw_player_relative",
+    "candidate_same_action_preceding",
+    "candidate_same_card_preceding",
+    "candidate_serial",
+    "candidate_target_serial",
+    "observation_step",
+    "opp_active_serial",
+    "opp_bench_slot_0_serial",
+    "opp_bench_slot_1_serial",
+    "opp_bench_slot_2_serial",
+    "opp_bench_slot_3_serial",
+    "opp_bench_slot_4_serial",
+    "self_active_serial",
+    "self_bench_slot_0_serial",
+    "self_bench_slot_1_serial",
+    "self_bench_slot_2_serial",
+    "self_bench_slot_3_serial",
+    "self_bench_slot_4_serial",
+    "self_hand_slot_0_id",
+    "self_hand_slot_0_serial",
+    "self_hand_slot_10_id",
+    "self_hand_slot_10_serial",
+    "self_hand_slot_11_id",
+    "self_hand_slot_11_serial",
+    "self_hand_slot_12_id",
+    "self_hand_slot_12_serial",
+    "self_hand_slot_13_id",
+    "self_hand_slot_13_serial",
+    "self_hand_slot_14_id",
+    "self_hand_slot_14_serial",
+    "self_hand_slot_15_id",
+    "self_hand_slot_15_serial",
+    "self_hand_slot_16_id",
+    "self_hand_slot_16_serial",
+    "self_hand_slot_17_id",
+    "self_hand_slot_17_serial",
+    "self_hand_slot_18_id",
+    "self_hand_slot_18_serial",
+    "self_hand_slot_19_id",
+    "self_hand_slot_19_serial",
+    "self_hand_slot_1_id",
+    "self_hand_slot_1_serial",
+    "self_hand_slot_2_id",
+    "self_hand_slot_2_serial",
+    "self_hand_slot_3_id",
+    "self_hand_slot_3_serial",
+    "self_hand_slot_4_id",
+    "self_hand_slot_4_serial",
+    "self_hand_slot_5_id",
+    "self_hand_slot_5_serial",
+    "self_hand_slot_6_id",
+    "self_hand_slot_6_serial",
+    "self_hand_slot_7_id",
+    "self_hand_slot_7_serial",
+    "self_hand_slot_8_id",
+    "self_hand_slot_8_serial",
+    "self_hand_slot_9_id",
+    "self_hand_slot_9_serial"
+  ],
+  "experiments": [
+    {
+      "variant": "v30_schema",
+      "features": 648,
+      "best_iteration": 343,
+      "validation": {
+        "top1": 0.782466775472138,
+        "top2": 0.9100023315458149,
+        "top3": 0.9575658661692702
+      },
+      "test": {
+        "top1": 0.750249500998004,
+        "top2": 0.8960828343313373,
+        "top3": 0.9530938123752495
+      }
+    },
+    {
+      "variant": "step_only",
+      "features": 649,
+      "best_iteration": 323,
+      "validation": {
+        "top1": 0.778036838423875,
+        "top2": 0.9097691769643274,
+        "top3": 0.9564000932618326
+      },
+      "test": {
+        "top1": 0.7487524950099801,
+        "top2": 0.8954590818363274,
+        "top3": 0.9520958083832335
+      }
+    },
+    {
+      "variant": "option_order_no_serial",
+      "features": 657,
+      "best_iteration": 435,
+      "validation": {
+        "top1": 0.7859640941944509,
+        "top2": 0.9134996502681277,
+        "top3": 0.960130566565633
+      },
+      "test": {
+        "top1": 0.7543662674650699,
+        "top2": 0.8988273453093812,
+        "top3": 0.9539670658682635
+      }
+    },
+    {
+      "variant": "hand_order_ids_no_serial",
+      "features": 669,
+      "best_iteration": 273,
+      "validation": {
+        "top1": 0.7724411284681744,
+        "top2": 0.9055723944975519,
+        "top3": 0.9543017020284449
+      },
+      "test": {
+        "top1": 0.7406437125748503,
+        "top2": 0.8943363273453094,
+        "top3": 0.9497255489021956
+      }
+    },
+    {
+      "variant": "all_no_serial",
+      "features": 678,
+      "best_iteration": 323,
+      "validation": {
+        "top1": 0.7705758918162742,
+        "top2": 0.9046397761716017,
+        "top3": 0.95476801119142
+      },
+      "test": {
+        "top1": 0.7445109780439122,
+        "top2": 0.8948353293413174,
+        "top3": 0.9499750499001997
+      }
+    },
+    {
+      "variant": "all_features",
+      "features": 712,
+      "best_iteration": 265,
+      "validation": {
+        "top1": 0.7677780368384238,
+        "top2": 0.9053392399160644,
+        "top3": 0.9540685474469573
+      },
+      "test": {
+        "top1": 0.7447604790419161,
+        "top2": 0.8899700598802395,
+        "top3": 0.9489770459081837
+      }
+    }
+  ]
+}

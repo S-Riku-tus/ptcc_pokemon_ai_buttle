@@ -1,0 +1,52 @@
+{
+  "base_models": [
+    {
+      "name": "standard",
+      "best_iteration": 441,
+      "validation_top1": 0.7857309396129634,
+      "test_top1": 0.7534930139720559
+    },
+    {
+      "name": "large",
+      "best_iteration": 410,
+      "validation_top1": 0.7880624854278386,
+      "test_top1": 0.7551147704590818
+    },
+    {
+      "name": "numeric",
+      "best_iteration": 524,
+      "validation_top1": 0.7836325483795756,
+      "test_top1": 0.7586077844311377
+    }
+  ],
+  "meta_train_decisions": 2504,
+  "meta_validation_decisions": 1785,
+  "experiments": [
+    {
+      "leaves": 31,
+      "min_child_samples": 20,
+      "best_iteration": 36,
+      "meta_validation_top1": 0.7876750700280112
+    },
+    {
+      "leaves": 63,
+      "min_child_samples": 25,
+      "best_iteration": 16,
+      "meta_validation_top1": 0.7887955182072829
+    },
+    {
+      "leaves": 127,
+      "min_child_samples": 30,
+      "best_iteration": 47,
+      "meta_validation_top1": 0.7859943977591036
+    }
+  ],
+  "selected": {
+    "leaves": 63,
+    "min_child_samples": 25,
+    "best_iteration": 16,
+    "meta_validation_top1": 0.7887955182072829
+  },
+  "test_top1": 0.7613522954091816,
+  "reference_weighted_ensemble_test": 0.7630988023952096
+}
