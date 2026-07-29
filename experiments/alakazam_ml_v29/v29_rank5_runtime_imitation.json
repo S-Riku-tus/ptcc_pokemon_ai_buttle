@@ -1,0 +1,741 @@
+{
+  "run_root": "C:\\Users\\shiba\\AppData\\Local\\Temp\\ptcc_v29_top40\\20260724_top40_current",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v29",
+  "deck_hash": "cc38cb450b86770a",
+  "ranks": [
+    5
+  ],
+  "games": 26,
+  "metrics": {
+    "decisions": 1622,
+    "exact": 0.7768187422934648,
+    "semantic": 0.8384710234278668,
+    "intent": 0.842170160295931,
+    "nontrivial_decisions": 1508,
+    "nontrivial_exact": 0.7599469496021221,
+    "nontrivial_semantic": 0.8262599469496021,
+    "nontrivial_intent": 0.830238726790451,
+    "rank_weighted_exact": 0.7768187422934745,
+    "rank_weighted_semantic": 0.8384710234278739,
+    "rank_weighted_intent": 0.8421701602959379,
+    "agent_errors": 0
+  },
+  "by_rank": {
+    "5": {
+      "decisions": 1622,
+      "exact": 0.7768187422934648,
+      "semantic": 0.8384710234278668,
+      "intent": 0.842170160295931,
+      "nontrivial_decisions": 1508,
+      "nontrivial_exact": 0.7599469496021221,
+      "nontrivial_semantic": 0.8262599469496021,
+      "nontrivial_intent": 0.830238726790451,
+      "rank_weighted_exact": 0.7768187422934745,
+      "rank_weighted_semantic": 0.8384710234278739,
+      "rank_weighted_intent": 0.8421701602959379,
+      "agent_errors": 0
+    }
+  },
+  "by_context": {
+    "0": {
+      "decisions": 903,
+      "exact": 0.7851605758582503,
+      "semantic": 0.8073089700996677,
+      "intent": 0.8106312292358804,
+      "nontrivial_decisions": 880,
+      "nontrivial_exact": 0.7795454545454545,
+      "nontrivial_semantic": 0.8022727272727272,
+      "nontrivial_intent": 0.8056818181818182,
+      "rank_weighted_exact": 0.7851605758582499,
+      "rank_weighted_semantic": 0.8073089700996675,
+      "rank_weighted_intent": 0.8106312292358802,
+      "agent_errors": 0
+    },
+    "1": {
+      "decisions": 26,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "intent": 1.0,
+      "nontrivial_decisions": 8,
+      "nontrivial_exact": 1.0,
+      "nontrivial_semantic": 1.0,
+      "nontrivial_intent": 1.0,
+      "rank_weighted_exact": 1.0,
+      "rank_weighted_semantic": 1.0,
+      "rank_weighted_intent": 1.0,
+      "agent_errors": 0
+    },
+    "2": {
+      "decisions": 9,
+      "exact": 0.6666666666666666,
+      "semantic": 0.7777777777777778,
+      "intent": 0.7777777777777778,
+      "nontrivial_decisions": 3,
+      "nontrivial_exact": 0.0,
+      "nontrivial_semantic": 0.3333333333333333,
+      "nontrivial_intent": 0.3333333333333333,
+      "rank_weighted_exact": 0.6666666666666667,
+      "rank_weighted_semantic": 0.7777777777777778,
+      "rank_weighted_intent": 0.7777777777777778,
+      "agent_errors": 0
+    },
+    "3": {
+      "decisions": 44,
+      "exact": 0.6590909090909091,
+      "semantic": 0.6590909090909091,
+      "intent": 0.6818181818181818,
+      "nontrivial_decisions": 41,
+      "nontrivial_exact": 0.6341463414634146,
+      "nontrivial_semantic": 0.6341463414634146,
+      "nontrivial_intent": 0.6585365853658537,
+      "rank_weighted_exact": 0.659090909090909,
+      "rank_weighted_semantic": 0.659090909090909,
+      "rank_weighted_intent": 0.6818181818181817,
+      "agent_errors": 0
+    },
+    "4": {
+      "decisions": 64,
+      "exact": 0.640625,
+      "semantic": 0.65625,
+      "intent": 0.6875,
+      "nontrivial_decisions": 62,
+      "nontrivial_exact": 0.6290322580645161,
+      "nontrivial_semantic": 0.6451612903225806,
+      "nontrivial_intent": 0.6774193548387096,
+      "rank_weighted_exact": 0.640625,
+      "rank_weighted_semantic": 0.6562499999999999,
+      "rank_weighted_intent": 0.6874999999999999,
+      "agent_errors": 0
+    },
+    "5": {
+      "decisions": 57,
+      "exact": 0.6842105263157895,
+      "semantic": 0.8596491228070176,
+      "intent": 0.8596491228070176,
+      "nontrivial_decisions": 52,
+      "nontrivial_exact": 0.6538461538461539,
+      "nontrivial_semantic": 0.8461538461538461,
+      "nontrivial_intent": 0.8461538461538461,
+      "rank_weighted_exact": 0.6842105263157893,
+      "rank_weighted_semantic": 0.8596491228070176,
+      "rank_weighted_intent": 0.8596491228070176,
+      "agent_errors": 0
+    },
+    "7": {
+      "decisions": 268,
+      "exact": 0.7611940298507462,
+      "semantic": 0.9552238805970149,
+      "intent": 0.9552238805970149,
+      "nontrivial_decisions": 248,
+      "nontrivial_exact": 0.7419354838709677,
+      "nontrivial_semantic": 0.9516129032258065,
+      "nontrivial_intent": 0.9516129032258065,
+      "rank_weighted_exact": 0.7611940298507456,
+      "rank_weighted_semantic": 0.9552238805970149,
+      "rank_weighted_intent": 0.9552238805970149,
+      "agent_errors": 0
+    },
+    "8": {
+      "decisions": 22,
+      "exact": 0.09090909090909091,
+      "semantic": 0.13636363636363635,
+      "intent": 0.13636363636363635,
+      "nontrivial_decisions": 22,
+      "nontrivial_exact": 0.09090909090909091,
+      "nontrivial_semantic": 0.13636363636363635,
+      "nontrivial_intent": 0.13636363636363635,
+      "rank_weighted_exact": 0.0909090909090909,
+      "rank_weighted_semantic": 0.13636363636363635,
+      "rank_weighted_intent": 0.13636363636363635,
+      "agent_errors": 0
+    },
+    "9": {
+      "decisions": 12,
+      "exact": 0.08333333333333333,
+      "semantic": 0.5833333333333334,
+      "intent": 0.5833333333333334,
+      "nontrivial_decisions": 11,
+      "nontrivial_exact": 0.0,
+      "nontrivial_semantic": 0.5454545454545454,
+      "nontrivial_intent": 0.5454545454545454,
+      "rank_weighted_exact": 0.08333333333333333,
+      "rank_weighted_semantic": 0.5833333333333334,
+      "rank_weighted_intent": 0.5833333333333334,
+      "agent_errors": 0
+    },
+    "30": {
+      "decisions": 44,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "intent": 1.0,
+      "nontrivial_decisions": 11,
+      "nontrivial_exact": 1.0,
+      "nontrivial_semantic": 1.0,
+      "nontrivial_intent": 1.0,
+      "rank_weighted_exact": 1.0,
+      "rank_weighted_semantic": 1.0,
+      "rank_weighted_intent": 1.0,
+      "agent_errors": 0
+    },
+    "34": {
+      "decisions": 6,
+      "exact": 0.0,
+      "semantic": 1.0,
+      "intent": 1.0,
+      "nontrivial_decisions": 6,
+      "nontrivial_exact": 0.0,
+      "nontrivial_semantic": 1.0,
+      "nontrivial_intent": 1.0,
+      "rank_weighted_exact": 0.0,
+      "rank_weighted_semantic": 1.0,
+      "rank_weighted_intent": 1.0,
+      "agent_errors": 0
+    },
+    "37": {
+      "decisions": 24,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "intent": 1.0,
+      "nontrivial_decisions": 21,
+      "nontrivial_exact": 1.0,
+      "nontrivial_semantic": 1.0,
+      "nontrivial_intent": 1.0,
+      "rank_weighted_exact": 1.0,
+      "rank_weighted_semantic": 1.0,
+      "rank_weighted_intent": 1.0,
+      "agent_errors": 0
+    },
+    "38": {
+      "decisions": 8,
+      "exact": 0.625,
+      "semantic": 1.0,
+      "intent": 1.0,
+      "nontrivial_decisions": 8,
+      "nontrivial_exact": 0.625,
+      "nontrivial_semantic": 1.0,
+      "nontrivial_intent": 1.0,
+      "rank_weighted_exact": 0.625,
+      "rank_weighted_semantic": 1.0,
+      "rank_weighted_intent": 1.0,
+      "agent_errors": 0
+    },
+    "41": {
+      "decisions": 6,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "intent": 1.0,
+      "nontrivial_decisions": 6,
+      "nontrivial_exact": 1.0,
+      "nontrivial_semantic": 1.0,
+      "nontrivial_intent": 1.0,
+      "rank_weighted_exact": 1.0,
+      "rank_weighted_semantic": 1.0,
+      "rank_weighted_intent": 1.0,
+      "agent_errors": 0
+    },
+    "43": {
+      "decisions": 129,
+      "exact": 0.9612403100775194,
+      "semantic": 0.9612403100775194,
+      "intent": 0.9612403100775194,
+      "nontrivial_decisions": 129,
+      "nontrivial_exact": 0.9612403100775194,
+      "nontrivial_semantic": 0.9612403100775194,
+      "nontrivial_intent": 0.9612403100775194,
+      "rank_weighted_exact": 0.9612403100775195,
+      "rank_weighted_semantic": 0.9612403100775195,
+      "rank_weighted_intent": 0.9612403100775195,
+      "agent_errors": 0
+    }
+  },
+  "top_semantic_mismatches": [
+    [
+      "card -> card+card",
+      8
+    ],
+    [
+      "play:card:1197 -> play:card:1182",
+      6
+    ],
+    [
+      "card:card:741:target:(741, 50, 50, 0, 0) -> card:card:305:target:(305, 70, 70, 0, 0)",
+      6
+    ],
+    [
+      "play:card:1152 -> play:card:1182",
+      6
+    ],
+    [
+      "evolve:card:66:target:(305, 70, 70, 0, 0) -> play:card:1182",
+      6
+    ],
+    [
+      "ability:card:66:target:(66, 140, 140, 0, 0) -> play:card:1182",
+      6
+    ],
+    [
+      "attack:attack:1072 -> evolve:card:66:target:(305, 70, 70, 0, 0)",
+      5
+    ],
+    [
+      "attack:attack:1072 -> play:card:1182",
+      5
+    ],
+    [
+      "type -> area",
+      5
+    ],
+    [
+      "play:card:1231 -> play:card:1182",
+      4
+    ],
+    [
+      "play:card:305 -> play:card:1182",
+      4
+    ],
+    [
+      "play:card:1086 -> play:card:1182",
+      4
+    ],
+    [
+      "evolve:card:742:target:(741, 50, 50, 0, 0) -> attack:attack:1072",
+      4
+    ],
+    [
+      "ability -> play:card:1182",
+      4
+    ],
+    [
+      "evolve:card:742:target:(741, 50, 50, 0, 0) -> play:card:1182",
+      3
+    ],
+    [
+      "play:card:1184 -> play:card:305",
+      3
+    ],
+    [
+      "card:card:742:target:(742, 80, 80, 0, 0) -> card:card:305:target:(305, 70, 70, 0, 0)",
+      3
+    ],
+    [
+      "play:card:1086 -> attack:attack:1072",
+      3
+    ],
+    [
+      "retreat -> attack:attack:1071",
+      3
+    ],
+    [
+      "evolve:card:66:target:(305, 70, 70, 0, 0) -> energy:card:5:target:(743, 140, 140, 0, 0)",
+      3
+    ],
+    [
+      "card:card:741:target:(741, 50, 50, 1, 0) -> card:card:305:target:(305, 70, 70, 0, 0)",
+      2
+    ],
+    [
+      "play:card:305 -> evolve:card:66:target:(305, 70, 70, 0, 0)",
+      2
+    ],
+    [
+      "attack:attack:1072 -> play:card:305",
+      2
+    ],
+    [
+      "play:card:741 -> attack:attack:1072",
+      2
+    ],
+    [
+      "play:card:1079 -> play:card:1182",
+      2
+    ],
+    [
+      "play:card:1129 -> energy:card:19:target:(743, 140, 140, 0, 0)",
+      2
+    ],
+    [
+      "attack:attack:1072 -> evolve:card:742:target:(741, 50, 50, 0, 0)",
+      2
+    ],
+    [
+      "card:card:741:target:(741, 50, 50, 0, 0) -> card:card:140:target:(140, 210, 210, 0, 0)",
+      2
+    ],
+    [
+      "play:card:1225 -> play:card:1182",
+      2
+    ],
+    [
+      "card:card:104:target:(104, 90, 90, 0, 0) -> card:card:112:target:(112, 100, 110, 1, 0)",
+      2
+    ],
+    [
+      "play:card:1097 -> play:card:1182",
+      2
+    ],
+    [
+      "play:card:1129 -> play:card:1182",
+      2
+    ],
+    [
+      "play:card:741 -> play:card:1182",
+      2
+    ],
+    [
+      "card:card:305:target:(305, 70, 70, 0, 0) -> card:card:741:target:(741, 50, 50, 0, 0)",
+      2
+    ],
+    [
+      "evolve:card:743:target:(742, 40, 80, 0, 0) -> play:card:1182",
+      2
+    ],
+    [
+      "play:card:1081 -> evolve:card:66:target:(305, 70, 70, 0, 0)",
+      2
+    ],
+    [
+      "retreat -> end",
+      2
+    ],
+    [
+      "card:card:742:target:(742, 80, 80, 0, 0) -> card:card:140:target:(140, 210, 210, 0, 0)",
+      1
+    ],
+    [
+      "play:card:1184 -> attack:attack:1072",
+      1
+    ],
+    [
+      "energy:card:13:target:(742, 80, 80, 0, 0) -> play:card:1182",
+      1
+    ],
+    [
+      "evolve:card:743:target:(742, 80, 80, 1, 0) -> play:card:1182",
+      1
+    ],
+    [
+      "energy:card:5:target:(743, 140, 140, 1, 0) -> play:card:1182",
+      1
+    ],
+    [
+      "evolve:card:66:target:(305, 70, 70, 0, 0) -> evolve:card:742:target:(741, 50, 50, 0, 0)",
+      1
+    ],
+    [
+      "card:card:741:target:(741, -1, -1, 0, 0) -> card:card:741:target:(741, -1, -1, 0, 0)+card:card:741:target:(741, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "evolve:card:743:target:(742, 80, 80, 0, 0) -> evolve:card:742:target:(741, 50, 50, 0, 0)",
+      1
+    ],
+    [
+      "card:card:743:target:(743, 140, 140, 0, 0) -> card:card:305:target:(305, 70, 70, 0, 0)",
+      1
+    ],
+    [
+      "play:card:1129 -> evolve:card:66:target:(305, 70, 70, 0, 0)",
+      1
+    ],
+    [
+      "play:card:1086 -> play:card:1197",
+      1
+    ],
+    [
+      "card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:305:target:(305, -1, -1, 0, 0)+card:card:343:target:(343, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0) -> card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:343:target:(343, -1, -1, 0, 0)+card:card:66:target:(66, -1, -1, 0, 0)+card:card:66:target:(66, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:140:target:(140, -1, -1, 0, 0)+card:card:66:target:(66, -1, -1, 0, 0) -> card:card:66:target:(66, -1, -1, 0, 0)+card:card:66:target:(66, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "energy:card:13:target:(140, 200, 210, 0, 0) -> evolve:card:742:target:(741, 50, 50, 1, 0)",
+      1
+    ],
+    [
+      "retreat -> evolve:card:743:target:(742, 50, 80, 1, 0)",
+      1
+    ],
+    [
+      "card:card:742:target:(742, 80, 80, 0, 0) -> card:card:742:target:(742, 50, 80, 1, 0)",
+      1
+    ],
+    [
+      "play:card:305 -> attack:attack:1072",
+      1
+    ],
+    [
+      "energy:card:19:target:(742, 80, 80, 0, 0) -> evolve:card:742:target:(741, 50, 50, 0, 0)",
+      1
+    ],
+    [
+      "play:card:305 -> evolve:card:742:target:(741, 50, 50, 1, 0)",
+      1
+    ],
+    [
+      "evolve:card:743:target:(742, 80, 80, 1, 0) -> play:card:1079",
+      1
+    ],
+    [
+      "card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0) -> card:card:1184:target:(1184, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:743:target:(743, 140, 140, 0, 0) -> card:card:742:target:(742, 80, 80, 1, 0)",
+      1
+    ],
+    [
+      "card:card:5:target:(5, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0) -> card:card:742:target:(742, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "play:card:1197 -> attack:attack:1072",
+      1
+    ],
+    [
+      "play:card:1081 -> play:card:1079",
+      1
+    ],
+    [
+      "evolve:card:66:target:(305, 70, 70, 0, 0) -> play:card:1079",
+      1
+    ],
+    [
+      "play:card:140 -> energy:card:5:target:(743, 140, 140, 0, 0)",
+      1
+    ],
+    [
+      "card:card:741:target:(741, -1, -1, 0, 0)+card:card:741:target:(741, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0) -> card:card:741:target:(741, -1, -1, 0, 0)+card:card:741:target:(741, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1097:target:(1097, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:19:target:(19, -1, -1, 0, 0)+card:card:305:target:(305, -1, -1, 0, 0)+card:card:343:target:(343, -1, -1, 0, 0)+card:card:66:target:(66, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0) -> card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1097:target:(1097, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1184:target:(1184, -1, -1, 0, 0)+card:card:1197:target:(1197, -1, -1, 0, 0)+card:card:1197:target:(1197, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:305:target:(305, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "play:card:1152 -> play:card:741",
+      1
+    ],
+    [
+      "card:card:5:target:(5, -1, -1, 0, 0) -> card:card:66:target:(66, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:387:target:(387, 140, 140, 0, 1) -> card:card:379:target:(379, 70, 70, 1, 0)",
+      1
+    ],
+    [
+      "card:card:741:target:(741, 50, 50, 1, 0) -> card:card:140:target:(140, 210, 210, 0, 0)",
+      1
+    ],
+    [
+      "play:card:305 -> evolve:card:742:target:(741, 50, 50, 0, 0)",
+      1
+    ],
+    [
+      "evolve:card:742:target:(741, 50, 50, 1, 0) -> evolve:card:742:target:(741, 50, 50, 0, 0)",
+      1
+    ],
+    [
+      "retreat -> attack:attack:1070",
+      1
+    ],
+    [
+      "end -> evolve:card:743:target:(742, 80, 80, 1, 0)",
+      1
+    ],
+    [
+      "energy:card:13:target:(742, 80, 80, 0, 0) -> energy:card:13:target:(741, 30, 50, 1, 0)",
+      1
+    ],
+    [
+      "play:card:1231 -> play:card:140",
+      1
+    ],
+    [
+      "energy:card:5:target:(743, 140, 140, 0, 0) -> play:card:140",
+      1
+    ],
+    [
+      "card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1197:target:(1197, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:19:target:(19, -1, -1, 0, 0)+card:card:343:target:(343, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0) -> card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1129:target:(1129, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1197:target:(1197, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:343:target:(343, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:5:target:(5, -1, -1, 0, 0) -> card:card:741:target:(741, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:741:target:(741, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0) -> card:card:742:target:(742, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:742:target:(742, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "play:card:1266 -> attack:attack:1070",
+      1
+    ],
+    [
+      "play:card:1231 -> attack:attack:1070",
+      1
+    ],
+    [
+      "play:card:1152 -> evolve:card:742:target:(741, 50, 50, 0, 0)",
+      1
+    ],
+    [
+      "energy:card:19:target:(741, 50, 50, 0, 0) -> play:card:1152",
+      1
+    ],
+    [
+      "play:card:1182 -> energy:card:5:target:(742, 80, 80, 0, 0)",
+      1
+    ],
+    [
+      "card:card:756:target:(756, 300, 300, 2, 0) -> card:card:344:target:(344, 70, 70, 0, 0)",
+      1
+    ],
+    [
+      "attack:attack:1072 -> energy:card:5:target:(742, 80, 80, 0, 0)",
+      1
+    ],
+    [
+      "card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:19:target:(19, -1, -1, 0, 0)+card:card:19:target:(19, -1, -1, 0, 0)+card:card:5:target:(5, -1, -1, 0, 0) -> card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "play:card:1152 -> play:card:1081",
+      1
+    ],
+    [
+      "play:card:1097 -> play:card:1081",
+      1
+    ],
+    [
+      "play:card:1197 -> play:card:1184",
+      1
+    ],
+    [
+      "retreat -> play:card:1152",
+      1
+    ],
+    [
+      "play:card:1197 -> play:card:1152",
+      1
+    ],
+    [
+      "card:card:1081:target:(1081, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1197:target:(1197, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:19:target:(19, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0) -> card:card:1097:target:(1097, -1, -1, 0, 0)+card:card:1129:target:(1129, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1197:target:(1197, -1, -1, 0, 0)+card:card:1231:target:(1231, -1, -1, 0, 0)+card:card:1266:target:(1266, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:19:target:(19, -1, -1, 0, 0)+card:card:305:target:(305, -1, -1, 0, 0)+card:card:343:target:(343, -1, -1, 0, 0)+card:card:741:target:(741, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0) -> card:card:1079:target:(1079, -1, -1, 0, 0)+card:card:1086:target:(1086, -1, -1, 0, 0)+card:card:1097:target:(1097, -1, -1, 0, 0)+card:card:1129:target:(1129, -1, -1, 0, 0)+card:card:1152:target:(1152, -1, -1, 0, 0)+card:card:1182:target:(1182, -1, -1, 0, 0)+card:card:1225:target:(1225, -1, -1, 0, 0)+card:card:19:target:(19, -1, -1, 0, 0)+card:card:343:target:(343, -1, -1, 0, 0)+card:card:743:target:(743, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "card:card:1266:target:(1266, -1, -1, 0, 0) -> card:card:1129:target:(1129, -1, -1, 0, 0)",
+      1
+    ],
+    [
+      "evolve:card:742:target:(741, 40, 50, 1, 0) -> attack:attack:1072",
+      1
+    ],
+    [
+      "play:card:1152 -> attack:attack:1072",
+      1
+    ],
+    [
+      "evolve:card:743:target:(742, 50, 80, 1, 0) -> attack:attack:1072",
+      1
+    ],
+    [
+      "energy:card:13:target:(140, 190, 210, 0, 0) -> evolve:card:743:target:(742, 60, 80, 0, 0)",
+      1
+    ]
+  ],
+  "semantic_definition": "same option type/card/attack and same target card state; interchangeable copies and multi-select order are collapsed",
+  "intent_definition": "same option type/card/attack; target instance is ignored",
+  "rank_weight": "1/sqrt(leaderboard_rank)",
+  "raw_ranker": {
+    "decisions": 880,
+    "semantic_top1": 0.3875,
+    "semantic_top2": 0.5863636363636363,
+    "semantic_top3": 0.7147727272727272,
+    "fallback_or_ranker_oracle": 0.8818181818181818,
+    "errors": 0,
+    "best_confidence_gates": [
+      {
+        "gate": "p0.80_m0.00",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.003409090909090909
+      },
+      {
+        "gate": "p0.80_m0.05",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.003409090909090909
+      },
+      {
+        "gate": "p0.80_m0.10",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.003409090909090909
+      },
+      {
+        "gate": "p0.80_m0.15",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.003409090909090909
+      },
+      {
+        "gate": "p0.80_m0.20",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.003409090909090909
+      },
+      {
+        "gate": "p0.70_m0.00",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.00909090909090909
+      },
+      {
+        "gate": "p0.70_m0.05",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.00909090909090909
+      },
+      {
+        "gate": "p0.70_m0.10",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.00909090909090909
+      },
+      {
+        "gate": "p0.70_m0.15",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.00909090909090909
+      },
+      {
+        "gate": "p0.70_m0.20",
+        "semantic": 0.8045454545454546,
+        "model_selection_rate": 0.00909090909090909
+      },
+      {
+        "gate": "p0.60_m0.00",
+        "semantic": 0.7954545454545454,
+        "model_selection_rate": 0.03295454545454545
+      },
+      {
+        "gate": "p0.60_m0.05",
+        "semantic": 0.7954545454545454,
+        "model_selection_rate": 0.03295454545454545
+      },
+      {
+        "gate": "p0.60_m0.10",
+        "semantic": 0.7954545454545454,
+        "model_selection_rate": 0.03295454545454545
+      },
+      {
+        "gate": "p0.60_m0.15",
+        "semantic": 0.7954545454545454,
+        "model_selection_rate": 0.03295454545454545
+      },
+      {
+        "gate": "p0.60_m0.20",
+        "semantic": 0.7954545454545454,
+        "model_selection_rate": 0.03295454545454545
+      }
+    ]
+  }
+}
