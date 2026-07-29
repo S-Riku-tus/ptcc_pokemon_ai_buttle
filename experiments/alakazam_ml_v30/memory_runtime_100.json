@@ -1,0 +1,242 @@
+{
+  "teacher_index": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v30\\teacher_index.csv",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v30",
+  "trajectories": 100,
+  "metrics": {
+    "decisions": 11610,
+    "exact": 0.9795865633074935,
+    "semantic": 1.0,
+    "errors": 0
+  },
+  "by_context": {
+    "0": {
+      "decisions": 7963,
+      "exact": 0.996986060529951,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "1": {
+      "decisions": 100,
+      "exact": 0.97,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "2": {
+      "decisions": 43,
+      "exact": 0.9767441860465116,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "3": {
+      "decisions": 205,
+      "exact": 0.9560975609756097,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "4": {
+      "decisions": 604,
+      "exact": 0.9966887417218543,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "5": {
+      "decisions": 316,
+      "exact": 0.9588607594936709,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "7": {
+      "decisions": 1244,
+      "exact": 0.9638263665594855,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "8": {
+      "decisions": 64,
+      "exact": 0.046875,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "9": {
+      "decisions": 60,
+      "exact": 0.016666666666666666,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "30": {
+      "decisions": 120,
+      "exact": 0.975,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "34": {
+      "decisions": 21,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "37": {
+      "decisions": 113,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "38": {
+      "decisions": 17,
+      "exact": 0.0,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "41": {
+      "decisions": 59,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "errors": 0
+    },
+    "43": {
+      "decisions": 681,
+      "exact": 1.0,
+      "semantic": 1.0,
+      "errors": 0
+    }
+  },
+  "by_cohort": {
+    "current_top": {
+      "decisions": 11610,
+      "exact": 0.9795865633074935,
+      "semantic": 1.0,
+      "errors": 0
+    }
+  },
+  "diagnostics": {
+    "fallback": {
+      "decisions": 0,
+      "policy_ok": 0,
+      "policy_fallback": 0,
+      "obs_fallback": 0,
+      "deck_returns": 100,
+      "errors": {},
+      "hammer_mist_targets": 0,
+      "hammer_non_mist_targets": 0,
+      "hammer_reserve_decisions": 0,
+      "hammer_mist_memory_reserves": 0,
+      "mist_seen_max": 0,
+      "boss_active_ko_dominance_blocks": 0,
+      "boss_reachable_active_ko_blocks": 0,
+      "boss_prevented_target_blocks": 0,
+      "boss_effect_lock_escapes": 0,
+      "terminal_boss_opportunities": 0,
+      "terminal_boss_plays": 0,
+      "target_route_plans": 0,
+      "target_route_boss_actions": 0,
+      "target_satisfied_draw_blocks": 0,
+      "active_route_plans": 0,
+      "active_route_hammer_actions": 0,
+      "active_route_draw_actions": 0,
+      "terminal_win_attack_gates": 0,
+      "terminal_pivot_abilities": 0,
+      "dudun_block_only_body": 0,
+      "dudun_block_no_bench": 0,
+      "dudun_block_deck_floor": 0,
+      "dudun_block_ability_lock": 0,
+      "dudun_declined_by_score": 0,
+      "dudun_used_for_terminal_pivot": 0,
+      "protected_attack_fallbacks": 0,
+      "attack_first_energy_attachments": 0,
+      "enriching_attachments": 0,
+      "enriching_cycle_attachments": 0,
+      "fez_draw_only_actions": 0,
+      "fez_pivot_actions": 0,
+      "fez_alternate_attacker_actions": 0,
+      "fez_do_not_bench_blocks": 0,
+      "fez_active_stall_turns": 0,
+      "support_pivot_attach_actions": 0,
+      "support_pivot_retreat_actions": 0,
+      "kadabra_dual_active_choices": 0,
+      "kadabra_dual_bench_choices": 0,
+      "boss_same_turn_plays": 0,
+      "boss_two_hit_plays": 0,
+      "emergency_energy_draws": 0,
+      "emergency_energy_draw_declines": 0,
+      "candy_first_attack_routes": 0,
+      "candy_immediate_ko_routes": 0,
+      "fez_energy_investments": 0,
+      "fez_pivot_conversions": 0,
+      "fez_attack_conversions": 0,
+      "shaymin_threat_plays": 0,
+      "xerosic_nonmirror_plays": 0,
+      "attack_lock_retreats": 0,
+      "temporary_immunity_heads": 0,
+      "temporary_immunity_tails": 0,
+      "temporary_immunity_blocks": 0,
+      "pivot_route_attachments": 0,
+      "pivot_route_retreats": 0,
+      "articuno_breaker_entries": 0,
+      "articuno_breaker_promotions": 0,
+      "v22_continuity_draws": 0,
+      "v22_satisfied_draw_blocks": 0,
+      "v22_backup_prefuels": 0,
+      "v22_dunsparce_rebuilds": 0,
+      "v22_attack_route_promotions": 0,
+      "v22_shield_promotions": 0,
+      "v23_boss_target_dispatches": 0,
+      "v23_boss_target_ex_selections": 0,
+      "v23_prize_upgrade_opportunities": 0,
+      "v23_prize_upgrade_boss_plays": 0,
+      "v23_target_model_tiebreaks": 0,
+      "v24_ex_ko_upgrade_opportunities": 0,
+      "v24_ex_ko_upgrade_boss_plays": 0,
+      "v24_munk_pressure_blocks": 0,
+      "v24_dudun_pivot_attachments": 0,
+      "v24_dudun_pivot_retreats": 0,
+      "v24_dudun_low_deck_cycles": 0,
+      "v25_active_prize_dominance_blocks": 0,
+      "v25_arch_pressure_blocks": 0,
+      "v25_froslass_over_munk_routes": 0,
+      "v26_body_floor_plays": 0,
+      "v26_body_floor_end_blocks": 0,
+      "v26_dudun_body_floor_blocks": 0,
+      "v26_hilda_dead_search_demotions": 0,
+      "v26_dawn_body_searches": 0,
+      "v26_checkup_engine_gusts": 0,
+      "v27_support_pivot_attachments": 0,
+      "v27_support_pivot_retreats": 0,
+      "v27_exact_hand_draw_blocks": 0,
+      "v27_strategic_line_gusts": 0,
+      "v28_end_turn_asset_blocks": 0,
+      "v25_dudun_net_safe_cycles": 0,
+      "v25_dudun_refill_cycles": 0,
+      "fallback_rate": 0.0
+    },
+    "v29": {
+      "runtime_scope": "v29_rank_weighted_residual_main_policy",
+      "override_enabled": true,
+      "model_loaded": true,
+      "legacy_model_loaded": true,
+      "model_error": "",
+      "legacy_model_error": "",
+      "model_rate": 0.0,
+      "fallback_rate": 0.0,
+      "low_confidence_rate": 0.0,
+      "average_inference_ms": 0.0
+    },
+    "ml": {
+      "decisions": 11610,
+      "memory_selected": 11610,
+      "memory_exact_selected": 11610,
+      "inference_us": 16278288,
+      "runtime_scope": "v30_exact_memory_plus_expanded_teacher_main_policy",
+      "override_enabled": true,
+      "memory_enabled": true,
+      "model_loaded": true,
+      "v29_model_loaded": true,
+      "legacy_model_loaded": true,
+      "memory_loaded": true,
+      "errors": {},
+      "memory_rate": 1.0,
+      "model_rate": 0.0,
+      "fallback_rate": 0.0,
+      "average_inference_ms": 1.4020919896640827
+    }
+  }
+}

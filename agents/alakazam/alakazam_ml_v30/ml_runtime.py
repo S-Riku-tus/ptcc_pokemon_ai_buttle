@@ -1,0 +1,429 @@
+from __future__ import annotations
+
+import json
+import os
+import time
+import zlib
+from collections import Counter
+from typing import Any
+
+from ml_features import (
+    observation_features,
+    option_features,
+    state_features,
+)
+from teacher_memory import (
+    resolve_semantic_action,
+    teacher_memory_keys,
+)
+from v29_runtime import (
+    _candidate_safety_reason,
+    _context_from_feature,
+    _fallback_policy_scores,
+    _feature_semantic_key,
+    _legal,
+    _load_model,
+    _probabilities,
+    _rank_positions,
+    _tree_score,
+)
+
+
+def _artifact_path(name: str) -> str:
+    here = os.path.dirname(os.path.abspath(__file__))
+    for candidate in (
+        os.path.join(here, name),
+        name,
+        f"/kaggle_simulations/agent/{name}",
+    ):
+        if os.path.exists(candidate):
+            return candidate
+    raise FileNotFoundError(f"{name} not found")
+
+
+def _load_memory() -> dict[str, Any]:
+    with open(_artifact_path("teacher_memory.bin"), "rb") as handle:
+        payload = json.loads(zlib.decompress(handle.read()))
+    if payload.get("format") != "v30_teacher_memory_v1":
+        raise ValueError("unsupported teacher memory")
+    return payload
+
+
+class HybridRanker:
+    """Lossless expert replay memory plus a v29-residual v30 ranker."""
+
+    def __init__(
+        self,
+        attacks: dict[int, dict[str, Any]] | None = None,
+        threshold: float = 0.20,
+    ):
+        del attacks
+        self.threshold_override = float(threshold)
+        self.enable_override = (
+            os.environ.get("ALAKAZAM_ML_V30_ENABLE_OVERRIDE", "1") == "1"
+        )
+        self.enable_memory = (
+            os.environ.get("ALAKAZAM_ML_V30_ENABLE_MEMORY", "1") == "1"
+        )
+        self.model: dict[str, Any] | None = None
+        self.v29_model: dict[str, Any] | None = None
+        self.legacy_model: dict[str, Any] | None = None
+        self.memory: dict[str, Any] = {}
+        self.errors: dict[str, str] = {}
+        self.diag = Counter()
+        for attribute, artifact in (
+            ("model", "ranker_model.json"),
+            ("v29_model", "v29_ranker_model.json"),
+            ("legacy_model", "legacy_ranker_model.json"),
+        ):
+            try:
+                setattr(self, attribute, _load_model(artifact))
+            except Exception as exc:
+                self.errors[attribute] = f"{type(exc).__name__}: {exc}"
+        try:
+            self.memory = _load_memory()
+        except Exception as exc:
+            self.errors["memory"] = f"{type(exc).__name__}: {exc}"
+
+    def reset(self) -> None:
+        self.diag.clear()
+
+    def snapshot(self) -> dict[str, Any]:
+        decisions = max(1, self.diag["decisions"])
+        return {
+            **dict(self.diag),
+            "runtime_scope": (
+                "v30_exact_memory_plus_expanded_teacher_main_policy"
+            ),
+            "override_enabled": self.enable_override,
+            "memory_enabled": self.enable_memory,
+            "model_loaded": self.model is not None,
+            "v29_model_loaded": self.v29_model is not None,
+            "legacy_model_loaded": self.legacy_model is not None,
+            "memory_loaded": bool(self.memory),
+            "errors": dict(self.errors),
+            "memory_rate": self.diag["memory_selected"] / decisions,
+            "model_rate": self.diag["model_selected"] / decisions,
+            "fallback_rate": self.diag["fallback"] / decisions,
+            "average_inference_ms": (
+                self.diag["inference_us"] / decisions / 1000.0
+            ),
+        }
+
+    def _fallback(
+        self,
+        baseline_action: list[int],
+        reason: str,
+    ) -> list[int]:
+        self.diag["fallback"] += 1
+        self.diag[f"fallback_{reason}"] += 1
+        return list(baseline_action)
+
+    def _memory_choice(
+        self,
+        observation: dict[str, Any],
+        select: dict[str, Any],
+    ) -> tuple[list[int] | None, str]:
+        if not self.enable_memory or not self.memory:
+            return None, ""
+        exact_key, canonical_key = teacher_memory_keys(observation)
+        for name, key in (
+            ("exact", exact_key),
+            ("canonical", canonical_key),
+        ):
+            table_name = (
+                "exact" if name == "exact" else "canonical_repeated"
+            )
+            semantic = (self.memory.get(table_name) or {}).get(key)
+            if semantic is None:
+                continue
+            action = resolve_semantic_action(observation, semantic)
+            if action is not None and _legal(action, select):
+                return action, name
+            self.diag[f"memory_{name}_unresolved"] += 1
+        return None, ""
+
+    def recall(
+        self,
+        observation: dict[str, Any],
+    ) -> list[int] | None:
+        """Fast path used before the substantially costlier v29 baseline."""
+        started = time.perf_counter()
+        select = observation.get("select") or {}
+        action, kind = self._memory_choice(observation, select)
+        if action is None:
+            return None
+        self.diag["decisions"] += 1
+        self.diag["memory_selected"] += 1
+        self.diag[f"memory_{kind}_selected"] += 1
+        self.diag["inference_us"] += int(
+            (time.perf_counter() - started) * 1_000_000
+        )
+        return action
+
+    def choose(
+        self,
+        observation: dict[str, Any],
+        baseline_action: list[int],
+        deterministic_action: list[int] | None = None,
+        *,
+        memory_checked: bool = False,
+    ) -> list[int]:
+        self.diag["decisions"] += 1
+        started = time.perf_counter()
+        select = observation.get("select") or {}
+        options = list(select.get("option") or [])
+
+        if not memory_checked:
+            memory_action, memory_kind = self._memory_choice(
+                observation,
+                select,
+            )
+            if memory_action is not None:
+                self.diag["memory_selected"] += 1
+                self.diag[f"memory_{memory_kind}_selected"] += 1
+                self.diag["inference_us"] += int(
+                    (time.perf_counter() - started) * 1_000_000
+                )
+                return memory_action
+
+        if (
+            self.model is None
+            or self.v29_model is None
+            or self.legacy_model is None
+            or not options
+        ):
+            return self._fallback(baseline_action, "model_unavailable")
+        if float(observation.get("remainingOverageTime") or 600) < 2.0:
+            return self._fallback(baseline_action, "time_guard")
+        if (
+            int(select.get("type", -1)) != 0
+            or int(select.get("context", -1)) != 0
+        ):
+            return self._fallback(baseline_action, "outside_training_scope")
+        if (
+            int(select.get("minCount") or 0) != 1
+            or int(select.get("maxCount") or 0) != 1
+        ):
+            return self._fallback(baseline_action, "multi_select")
+        if len(options) < 2:
+            return self._fallback(baseline_action, "forced")
+        if (
+            len(baseline_action) != 1
+            or not 0 <= baseline_action[0] < len(options)
+        ):
+            return self._fallback(baseline_action, "baseline_unresolved")
+        deterministic = (
+            list(deterministic_action)
+            if deterministic_action is not None
+            else list(baseline_action)
+        )
+        if (
+            len(deterministic) != 1
+            or not 0 <= deterministic[0] < len(options)
+        ):
+            return self._fallback(baseline_action, "deterministic_unresolved")
+
+        try:
+            current = observation.get("current") or {}
+            action_map = {
+                str(key): int(value)
+                for key, value in (
+                    self.model.get("action_type_map") or {}
+                ).items()
+            }
+            base_state = state_features(current)
+            base_state.update(observation_features(observation))
+            features: list[dict[str, Any]] = []
+            contexts: list[dict[str, Any]] = []
+            for option in options:
+                feature = dict(option_features(
+                    current,
+                    select,
+                    option,
+                    base_state=base_state,
+                ))
+                action_name = str(feature.get("action_type") or "other")
+                feature["_action_name"] = action_name
+                feature["action_type"] = action_map.get(action_name, -1)
+                features.append(feature)
+                contexts.append(_context_from_feature(option, feature))
+
+            baseline_index = baseline_action[0]
+            deterministic_index = deterministic[0]
+            baseline_key = _feature_semantic_key(features[baseline_index])
+            deterministic_key = _feature_semantic_key(
+                features[deterministic_index]
+            )
+            baseline_context = contexts[baseline_index]
+            if baseline_context["attack_lethal"]:
+                return self._fallback(baseline_action, "lethal_guard")
+
+            policy_scores = _fallback_policy_scores(
+                observation,
+                len(options),
+            )
+            policy_order, policy_positions = _rank_positions(policy_scores)
+            policy_peak = policy_scores[policy_order[0]]
+
+            legacy_scores = []
+            for feature in features:
+                row = [
+                    float(feature.get(name, -1))
+                    for name in self.legacy_model["feature_names"]
+                ]
+                legacy_scores.append(_tree_score(row, self.legacy_model))
+            legacy_order, legacy_positions = _rank_positions(legacy_scores)
+            legacy_peak = legacy_scores[legacy_order[0]]
+            fallback_action_type = int(
+                features[deterministic_index]["action_type"]
+            )
+            fallback_card_id = int(
+                features[deterministic_index].get(
+                    "candidate_card_id",
+                    -1,
+                )
+            )
+            fallback_legacy_agree = int(
+                deterministic_index == legacy_order[0]
+            )
+            for index, feature in enumerate(features):
+                feature.update({
+                    "fallback_selected": int(
+                        _feature_semantic_key(feature) == deterministic_key
+                    ),
+                    "fallback_action_type": fallback_action_type,
+                    "fallback_card_id": fallback_card_id,
+                    "fallback_policy_score": max(
+                        -10_000_000.0,
+                        min(10_000_000.0, policy_scores[index]),
+                    ),
+                    "fallback_policy_score_gap": max(
+                        -10_000_000.0,
+                        min(
+                            10_000_000.0,
+                            policy_scores[index] - policy_peak,
+                        ),
+                    ),
+                    "fallback_policy_rank": policy_positions[index],
+                    "legacy_ranker_score": legacy_scores[index],
+                    "legacy_ranker_score_gap": (
+                        legacy_scores[index] - legacy_peak
+                    ),
+                    "legacy_ranker_rank": legacy_positions[index],
+                    "legacy_ranker_selected": int(
+                        index == legacy_order[0]
+                    ),
+                    "fallback_legacy_agree": fallback_legacy_agree,
+                })
+
+            v29_scores = []
+            for feature in features:
+                row = [
+                    float(feature.get(name, -1))
+                    for name in self.v29_model["feature_names"]
+                ]
+                v29_scores.append(_tree_score(row, self.v29_model))
+            v29_order, v29_positions = _rank_positions(v29_scores)
+            v29_peak = v29_scores[v29_order[0]]
+            for index, feature in enumerate(features):
+                feature.update({
+                    "v29_selected": int(
+                        _feature_semantic_key(feature) == baseline_key
+                    ),
+                    "v29_ranker_score": v29_scores[index],
+                    "v29_ranker_score_gap": v29_scores[index] - v29_peak,
+                    "v29_ranker_rank": v29_positions[index],
+                    "v29_ranker_raw_selected": int(
+                        index == v29_order[0]
+                    ),
+                    "v29_deterministic_agree": int(
+                        baseline_key == deterministic_key
+                    ),
+                })
+
+            representatives = []
+            seen = set()
+            for index, feature in enumerate(features):
+                key = _feature_semantic_key(feature)
+                if key in seen:
+                    continue
+                seen.add(key)
+                representatives.append(index)
+            rows = [
+                [
+                    float(features[index].get(name, -1))
+                    for name in self.model["feature_names"]
+                ]
+                for index in representatives
+            ]
+            scores = [_tree_score(row, self.model) for row in rows]
+            order = sorted(
+                range(len(scores)),
+                key=lambda index: scores[index],
+                reverse=True,
+            )
+            probabilities = _probabilities(
+                scores,
+                float(self.model.get("temperature", 1.0)),
+            )
+            local_top = order[0]
+            top = representatives[local_top]
+            confidence = probabilities[local_top]
+            second = probabilities[order[1]] if len(order) > 1 else 0.0
+            threshold = max(
+                float(self.model.get("fallback_probability", 0.20)),
+                self.threshold_override,
+            )
+            margin_threshold = float(
+                self.model.get("fallback_margin", 0.0)
+            )
+            if (
+                confidence < threshold
+                or confidence - second < margin_threshold
+            ):
+                self.diag["low_confidence"] += 1
+                return self._fallback(
+                    baseline_action,
+                    "low_confidence",
+                )
+
+            attack_available = any(
+                context["action_type"] == "attack"
+                for context in contexts
+            )
+            safety_reason = _candidate_safety_reason(
+                contexts[top],
+                baseline_context,
+                features[top],
+                attack_is_available=attack_available,
+            )
+            if safety_reason is not None:
+                self.diag[f"candidate_blocked_{safety_reason}"] += 1
+                return self._fallback(
+                    baseline_action,
+                    f"safety_{safety_reason}",
+                )
+
+            if _feature_semantic_key(features[top]) == baseline_key:
+                self.diag["model_selected"] += 1
+                self.diag["model_agrees_v29"] += 1
+                return list(baseline_action)
+            action = [top]
+            if not _legal(action, select):
+                return self._fallback(baseline_action, "legality")
+            self.diag["inference_us"] += int(
+                (time.perf_counter() - started) * 1_000_000
+            )
+            self.diag["model_selected"] += 1
+            predicted = contexts[top]["action_type"]
+            self.diag["model_override"] += 1
+            self.diag[f"model_override_{predicted}"] += 1
+            if not self.enable_override:
+                self.diag["shadow_evaluated"] += 1
+                return self._fallback(baseline_action, "shadow_only")
+            return action
+        except Exception as exc:
+            self.diag["runtime_error"] += 1
+            self.diag[f"runtime_{type(exc).__name__}"] += 1
+            return self._fallback(baseline_action, "runtime_error")

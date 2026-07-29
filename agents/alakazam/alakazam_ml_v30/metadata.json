@@ -1,0 +1,112 @@
+{
+  "name": "alakazam_ml_v30",
+  "version": "30.0.0",
+  "role": "challenger",
+  "status": "validated_candidate",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v29",
+  "created_at": "2026-07-29T00:00:00+09:00",
+  "runtime_revision": "v30_exact_teacher_memory_plus_expanded_residual_policy_20260729",
+  "model_version": "v30-expanded-coherent-teacher-residual-lambdarank",
+  "model": "A two-layer imitation policy: lossless exact replay memory for known top-agent questions, followed by a 648-feature LightGBM LambdaRank residual policy for unseen single-choice MAIN decisions.",
+  "model_scope": "Exact memory covers every recorded selection context. The learned residual policy covers unseen single-choice MAIN decisions. The frozen v29 policy remains the fallback for unsupported, nested, unsafe, low-confidence, or illegal cases.",
+  "confidence_threshold": 0.2,
+  "ranker_model_sha256": "b5f00cfb6db598d06ecd8a4e4d757a0d838a9d0ff1b113abee8d415ab635afa9",
+  "v29_ranker_model_sha256": "9724331c95ee88abd98b3531af862fa4fea2c399d1c1eadca8a7ef19e6811db4",
+  "legacy_ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "target_ranker_model_sha256": "a58d27eabbfd638debf893cf584ec2d2a680f7953282b47331735bb39b9af5c4",
+  "teacher_memory_sha256": "5dd73b13b92ef6ba403e4fc3b50df1ec7badc7cdf26f6a6b6a21c18790d30bb3",
+  "fallback_policy_sha256": "3fcdb252f207646cd6464e6164aeb76c6eb2c515303a39f4b7f5711af754913b",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "unique_cards": 22,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v29": true,
+  "teacher_corpus": {
+    "index": "experiments/alakazam_ml_v30/teacher_index.csv",
+    "deck_hash": "cc38cb450b86770a",
+    "teacher_trajectories": 2361,
+    "all_context_decisions": 200798,
+    "main_training_decisions": 121708,
+    "candidate_rows": 1081441,
+    "cohorts": {
+      "current_top": 361,
+      "majkel_full": 1000,
+      "yushin_full": 1000
+    },
+    "teacher_teams": [
+      "Majkel1337",
+      "Yushin Ito",
+      "Team KASA.",
+      "213tubo",
+      "theredbluepill"
+    ],
+    "teacher_ranks": [
+      2,
+      3,
+      5,
+      6,
+      8
+    ]
+  },
+  "teacher_memory": {
+    "exact_keys": 199558,
+    "exact_conflicting_keys_excluded": 0,
+    "canonical_repeated_keys": 2,
+    "canonical_conflicting_keys_excluded": 0,
+    "compressed_bytes": 3475317,
+    "runtime_sample_trajectories": 100,
+    "runtime_sample_decisions": 11610,
+    "runtime_exact_index_accuracy": 0.9795865633,
+    "runtime_semantic_accuracy": 1.0,
+    "runtime_errors": 0,
+    "chronological_holdout_exact_retrieval_coverage": 0.0165799278,
+    "chronological_holdout_hit_accuracy": 1.0
+  },
+  "teacher_training": {
+    "features": 648,
+    "trees": 452,
+    "duplicate_candidates_collapsed": 318421,
+    "rank_weight": "teacher_priority * cohort_weight * slight outcome_weight",
+    "label": "One representative per card, attack, and target semantic option.",
+    "episode_split": "Chronological 70/10/20 within every corpus cohort.",
+    "train_decisions": 91117,
+    "validation_decisions": 10983,
+    "test_decisions": 19608,
+    "validation_semantic_top1": 0.7564417737,
+    "validation_semantic_top3": 0.9562960940,
+    "heldout_test_semantic_top1": 0.7394940840,
+    "heldout_test_semantic_top2": 0.8955528356,
+    "heldout_test_semantic_top3": 0.9511423909,
+    "heldout_v29_semantic_top1": 0.6553447572,
+    "heldout_v29_or_v30_oracle": 0.7780497756
+  },
+  "safety_guards": [
+    "Always preserve a deterministic immediate lethal attack.",
+    "Do not replace a complete fallback Boss route with a non-Boss MAIN action.",
+    "Reject candidates that destroy a currently available KO.",
+    "Never end the turn while the Active Alakazam can attack.",
+    "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
+    "Use the frozen v29 policy for unsupported, nested, low-confidence, low-time, or illegal cases."
+  ],
+  "local_validation": {
+    "v30_pytest_tests": 176,
+    "v30_pytest_failures": 0,
+    "same_seed_1741_games_per_matchup": 60,
+    "v30_vs_grimmsnarl_wins": 47,
+    "v29_vs_grimmsnarl_wins": 47,
+    "v30_vs_megastarmie_wins": 56,
+    "v29_vs_megastarmie_wins": 54,
+    "same_deck_seed_741_mirror_games": 100,
+    "v30_vs_v29_mirror_wins": 50,
+    "arena_crashes": 0,
+    "arena_illegal_selects": 0
+  },
+  "known_limitations": [
+    "The requested 90% unseen top-choice agreement was not reached: held-out semantic top-1 is 73.95%. Held-out top-3 recall is 95.11%.",
+    "The 100% semantic replay result measures exact questions already stored in teacher memory and is not an unbiased generalization estimate.",
+    "Exact/canonical memory retrieves only 1.66% of chronologically held-out decisions, so the learned ranker remains essential for genuinely unseen states.",
+    "Unseen Boss, retreat, trainer, Xerosic, and energy choices remain the weakest action families.",
+    "Local arena results are opponent- and seed-dependent. A real leaderboard submission is required to determine whether v30 improves the approximately 800 rating."
+  ]
+}

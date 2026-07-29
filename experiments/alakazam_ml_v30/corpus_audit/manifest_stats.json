@@ -1,0 +1,43 @@
+{
+  "zip_count": 3,
+  "replay_file_count": 3264,
+  "full_replay_count": 3264,
+  "usable_episode_count": 2974,
+  "legacy_singular_replay_count": 2000,
+  "plural_replays_recovered": 1264,
+  "manifest_trajectory_count": 3276,
+  "usable_trajectory_count": 2992,
+  "top50_plural_zip_count": 1,
+  "excluded_trajectory_rows": 284,
+  "duplicate_trajectory_rows_removed": 0,
+  "unique_teams": 3,
+  "unique_submissions": 3,
+  "unique_decks": 2,
+  "majkel_reference_hash": "cc38cb450b86770a",
+  "seat_methods": {
+    "source_manifest": 2100,
+    "modal_target_deck_unique": 849,
+    "alias_self_play_same_modal_deck": 24,
+    "team_name_exact": 19
+  },
+  "exclusion_reasons": {
+    "both_seats_match_target_deck_without_team_identity": 161,
+    "target_seat_not_identifiable": 123
+  },
+  "path_variants_by_zip": {
+    "20260724_top40_current.zip": [
+      "replays"
+    ],
+    "20260726_yushin_ito.zip": [
+      "replay"
+    ],
+    "rank02_Majkel1337_sub54662660_full.zip": [
+      "replay"
+    ]
+  },
+  "replay_layouts_supported": [
+    "replay",
+    "replays"
+  ],
+  "missing_rank_49_jack": true
+}
