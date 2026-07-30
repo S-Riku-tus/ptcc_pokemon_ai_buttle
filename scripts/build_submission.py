@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 import tarfile
 import tempfile
@@ -113,10 +114,26 @@ def should_copy(path: Path) -> bool:
 
 
 def copy_runtime_files(agent_dir: Path, stage: Path) -> None:
+    selector_enabled = False
+    selector_path = agent_dir / "selector_model.json"
+    if selector_path.exists():
+        try:
+            selector_enabled = bool(
+                json.loads(
+                    selector_path.read_text(encoding="utf-8")
+                ).get("enabled")
+            )
+        except Exception:
+            selector_enabled = False
     for source in agent_dir.rglob("*"):
         if not source.is_file():
             continue
         relative = source.relative_to(agent_dir)
+        if (
+            source.name.startswith("selector_base_")
+            and not selector_enabled
+        ):
+            continue
         if not should_copy(relative):
             continue
         destination = stage / relative

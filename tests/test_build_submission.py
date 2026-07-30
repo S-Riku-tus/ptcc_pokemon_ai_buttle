@@ -1,3 +1,4 @@
+import json
 import tarfile
 from pathlib import Path
 
@@ -74,6 +75,38 @@ def test_v32_submission_excludes_inherited_tests_and_reports(tmp_path):
         )
         for name in names
     )
+
+
+def test_v33_submission_respects_selector_adoption_gate(tmp_path):
+    fake_cg = tmp_path / "cg"
+    fake_cg.mkdir()
+    (fake_cg / "api.py").write_text("# fake cg api\n", encoding="utf-8")
+
+    output = tmp_path / "submission_v33.tar.gz"
+    build(
+        ROOT / "agents" / "alakazam" / "alakazam_ml_v33",
+        output,
+        fake_cg,
+    )
+
+    with tarfile.open(output, "r:gz") as archive:
+        names = set(archive.getnames())
+
+    selector_path = (
+        ROOT / "agents" / "alakazam" / "alakazam_ml_v33"
+        / "selector_model.json"
+    )
+    if selector_path.exists():
+        selector_enabled = bool(
+            json.loads(
+                selector_path.read_text(encoding="utf-8")
+            ).get("enabled")
+        )
+        base_members = {
+            name for name in names
+            if Path(name).name.startswith("selector_base_")
+        }
+        assert bool(base_members) == selector_enabled
 
 
 def test_shared_policy_is_bundled_for_compact_agent(tmp_path):
