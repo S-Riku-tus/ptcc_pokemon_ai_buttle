@@ -1,0 +1,113 @@
+{
+  "name": "alakazam_ml_v34",
+  "version": "34.0.0",
+  "role": "challenger",
+  "status": "finalized_offline_challenger_target_not_met",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v32",
+  "ladder_champion": "alakazam_ml_v31",
+  "created_at": "2026-07-31T13:32:00+09:00",
+  "runtime_revision": "v34_sequence_state_ranker_20260731",
+  "model_version": "v34-yushin-sequence-state-recency-lambdarank",
+  "deployed_model": "312-tree, 674-feature sequence-state LambdaRank distilled to standard-library JSON.",
+  "model_scope": "v31/v32 deterministic safety, Majkel teacher memory and v29 residual are preserved; v34 replaces only the main unseen-board ranker and records past own MAIN decisions as policy state.",
+  "deck_cards": 60,
+  "unique_cards": 22,
+  "deck_unchanged_from_v31_v32": true,
+  "hashes": {
+    "deck_csv": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+    "ranker_model": "e00f482127411bbaecdf856b3e45ec31808ca158cdf6ad0a2129da1dbc309001",
+    "legacy_ranker_model": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+    "v29_ranker_model": "9724331c95ee88abd98b3531af862fa4fea2c399d1c1eadca8a7ef19e6811db4",
+    "teacher_memory": "5dd73b13b92ef6ba403e4fc3b50df1ec7badc7cdf26f6a6b6a21c18790d30bb3",
+    "fallback_policy": "3fcdb252f207646cd6464e6164aeb76c6eb2c515303a39f4b7f5711af754913b",
+    "ml_runtime": "85accb3f01d607c12ff939ff466e17b7857e0a818bffccbf7c4c074b97592889",
+    "main": "74c8140c2a4e8b626d7178daa760a709b2b3ec4f5d2f32ab98600b743bfdf2d7"
+  },
+  "teacher_corpus": {
+    "primary_teacher": "Yushin Ito",
+    "archive_date": "2026-07-26",
+    "raw_episodes": 1000,
+    "unique_trajectories": 999,
+    "main_decisions": 49590,
+    "semantic_candidate_rows": 443714,
+    "features": 674,
+    "split_method": "ascending episode id 70/10/20",
+    "train_decisions": 35704,
+    "validation_decisions": 5038,
+    "test_decisions": 8848,
+    "train_candidates": 309362,
+    "validation_candidates": 51311,
+    "test_candidates": 83041
+  },
+  "offline_evaluation": {
+    "target_top1": 0.9,
+    "target_met": false,
+    "validation_top1": 0.8080587534736007,
+    "validation_top2": 0.9327113934100834,
+    "validation_top3": 0.9716157205240175,
+    "test_top1": 0.8062839059674503,
+    "test_top2": 0.9329792043399638,
+    "test_top3": 0.9699367088607594,
+    "v32_deployed_test_top1": 0.7870705244,
+    "improvement_vs_v32_deployed_points": 1.92133815674503,
+    "v32_research_blend_test_top1": 0.8011980108,
+    "improvement_vs_v32_research_points": 0.50858951674503
+  },
+  "sequence_state": {
+    "previous_decisions": 4,
+    "cumulative_action_counts": true,
+    "same_turn_decision_index": true,
+    "last_action_turn_gaps": [
+      "attack",
+      "energy",
+      "evolve",
+      "trainer"
+    ],
+    "future_information_used": false
+  },
+  "research_selectors": {
+    "top2_selector_best_validation_top1": 0.8126240571655419,
+    "top2_selector_best_test_top1": 0.8099014466546112,
+    "oof_residual_validation_top1": 0.8094481937276697,
+    "oof_residual_test_top1": 0.8109177215189873,
+    "leak_free_gru_validation_top1": 0.813815005954744,
+    "leak_free_gru_test_top1": 0.810126582278481,
+    "deployed": false,
+    "reason": "Small and inconsistent gain, PyTorch/runtime complexity, and no 90% result."
+  },
+  "validation": {
+    "pytest_passed": 181,
+    "pytest_failed": 0,
+    "python_compile_passed": true,
+    "deck_count_valid": true,
+    "compact_native_rows": 512,
+    "compact_native_max_abs_error": 0.0,
+    "feature_parity_episodes": 3,
+    "feature_parity_candidate_rows": 1251,
+    "feature_parity_max_abs_error": 0.0,
+    "official_cg_engine_games_run": 0,
+    "kaggle_validation_run": false
+  },
+  "safety_guards": [
+    "Preserve deterministic immediate lethal attacks.",
+    "Reject candidates that destroy a currently available KO.",
+    "Use teacher memory before the unseen-board ranker.",
+    "Use v29/deterministic fallback for unsupported, nested, low-time or illegal decisions.",
+    "Reset sequence state on episode turn rollback.",
+    "Record only legal multi-option MAIN decisions."
+  ],
+  "known_limitations": [
+    "The requested 90% unseen Top-1 agreement was not reached.",
+    "The current development test has now been observed and is not a pristine final holdout.",
+    "Trainer, Energy, Boss, Xerosic and Retreat remain the weakest action families.",
+    "Official cg and the local battle harness were not included in the supplied archives, so engine matches and ladder rating were not measured.",
+    "The runtime deploys the measured train-only model; a train-plus-validation refit did not complete within this execution environment and was not substituted without evaluation."
+  ],
+  "promotion_decision": {
+    "promote_over_v31": false,
+    "keep_v31_as_champion": true,
+    "v34_role": "offline challenger",
+    "reason": "Offline imitation improved, but 90% was not met and no engine/laddder A/B has been run."
+  }
+}
