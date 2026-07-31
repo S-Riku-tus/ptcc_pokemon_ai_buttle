@@ -70,11 +70,13 @@ def test_v32_deck_is_preserved_and_yushin_provenance_is_frozen():
     model = json.loads(
         (here / "ranker_model.json").read_text(encoding="utf-8")
     )
-    assert model["runtime_scope"] == "v32_yushin_recency_large_leaf"
-    assert model["teacher_trajectories"] == 999
+    assert model["runtime_scope"] == "v33_yushin_turn_order_ranker"
+    assert model["teacher_trajectories"] == 1284
     assert not (here / "ranker_numeric_model.json").exists()
     assert model["teacher_cohorts"] == {
-        "yushin_full_recency": 999
+        "yushin_20260717": 180,
+        "yushin_current_top": 109,
+        "yushin_20260726": 1000,
     }
     assert model["training_recency_weight"] == {
         "floor": 0.25,

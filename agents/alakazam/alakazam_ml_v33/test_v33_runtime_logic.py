@@ -1,222 +1,132 @@
-"""Regressions for the measured v33 rebuild and hand-as-damage rules."""
+"""v33 runtime regressions: model provenance, blending and intra-turn state."""
 
 from __future__ import annotations
 
-import importlib
+import json
+from pathlib import Path
 
-import test_v11_runtime_logic as h
-from test_v18_runtime_logic import _main_board, _option
-from test_v24_runtime_logic import _attack, _attacking_alakazam
-from test_v26_runtime_logic import _install_v26_cards
+import test_v11_runtime_logic as harness
 
+harness.install_cg_stub()
 
-def _dudun_board(policy, *, hand_ids, hand_count, target_hp):
-    dudunsparce = h.Pokemon(
-        policy.C.DUDUNSPARCE,
-        hp=140,
-        maxHp=140,
-        serial=11,
-    )
-    abra = h.Pokemon(
-        policy.C.ABRA,
-        hp=50,
-        maxHp=50,
-        energies=[h.EnergyType.PSYCHIC],
-        serial=12,
-    )
-    ability = _option(
-        h.OptionType.ABILITY,
-        index=0,
-        area=h.AreaType.BENCH,
-    )
-    obj = _main_board(
-        policy,
-        hand_ids=hand_ids,
-        hand_count=hand_count,
-        active=_attacking_alakazam(policy),
-        bench=[dudunsparce, abra],
-        opponent_active=h.Pokemon(
-            9000,
-            hp=target_hp,
-            maxHp=target_hp,
-            playerIndex=1,
-            serial=20,
-        ),
-        options=[ability, _attack(policy)],
-    )
-    return obj, ability
+from ml_runtime import (  # noqa: E402
+    TURN_FEATURE_NAMES,
+    HybridRanker,
+    _TurnHistory,
+)
 
 
-def test_v33_cycles_even_when_backup_eta_is_one():
-    policy = _install_v26_cards(h.load_policy())
-    obj, ability = _dudun_board(
-        policy,
-        hand_ids=[policy.C.RARE_CANDY, policy.C.ALAKAZAM],
-        hand_count=6,
-        target_hp=300,
-    )
-
-    assert obj._backup_eta() == 1
-    assert not obj._dudun_draw_satisfied()
-    assert obj._continuity_draw_needed()
-    assert obj._score_ability(ability) > 0
-    assert obj.choose() == [0]
+HERE = Path(__file__).resolve().parent
 
 
-def test_v33_last_opponent_prize_does_not_block_nonlethal_cycle():
-    policy = _install_v26_cards(h.load_policy())
-    obj, ability = _dudun_board(
-        policy,
-        hand_ids=[],
-        hand_count=6,
-        target_hp=300,
-    )
-    obj.opponent.prize = [h.Card(9100)]
-
-    assert len(obj.opponent.prize) == 1
-    assert obj._continuity_draw_needed()
-    assert obj._score_ability(ability) > 0
+def _keys(*specs):
+    """(semantic, class) pairs shaped like ``_turn_option_keys`` output."""
+    return [
+        ((option_type, card_id, -1, -1, -1), (action_type, card_id))
+        for option_type, card_id, action_type in specs
+    ]
 
 
-def test_v33_exact_powerful_hand_ko_remains_the_draw_stop():
-    policy = _install_v26_cards(h.load_policy())
-    obj, ability = _dudun_board(
-        policy,
-        hand_ids=[],
-        hand_count=10,
-        target_hp=200,
-    )
+def test_v33_model_is_the_turn_order_graded_yushin_ranker():
+    model = json.loads((HERE / "ranker_model.json").read_text("utf-8"))
 
-    assert obj._dudun_draw_satisfied()
-    assert not obj._continuity_draw_needed()
-    assert obj._score_ability(ability) < 0
-    assert obj.choose() == [1]
-
-
-def test_v33_g_state_prioritizes_search_cards():
-    policy = _install_v26_cards(h.load_policy())
-    hilda = _option(h.OptionType.PLAY, index=0)
-    dawn = _option(h.OptionType.PLAY, index=1)
-    poke_pad = _option(h.OptionType.PLAY, index=2)
-    obj = _main_board(
-        policy,
-        hand_ids=[policy.C.HILDA, policy.C.DAWN, policy.C.POKE_PAD],
-        hand_count=7,
-        active=h.Pokemon(policy.C.DUNSPARCE, serial=10),
-        bench=[h.Pokemon(policy.C.KADABRA, serial=11)],
-        opponent_active=h.Pokemon(
-            9000,
-            hp=200,
-            maxHp=200,
-            playerIndex=1,
-            serial=20,
-        ),
-        options=[hilda, dawn, poke_pad, _option(h.OptionType.END)],
-    )
-
-    assert obj._rebuild_search_mode()
-    assert obj._score_play(dawn) >= 25000
-    assert obj._score_play(hilda) >= 25500
-    assert obj._score_play(poke_pad) >= 24000
-    assert obj.choose() == [0]
+    assert model["runtime_scope"] == "v33_yushin_turn_order_ranker"
+    assert model["label_definition"] == "turn_order_graded_relevance"
+    assert model["teacher_team"] == "Yushin Ito"
+    assert model["teacher_submission_id"] == 54773249
+    # v32 trained on 999 usable episodes; v33 recovers 289 more of the same
+    # submission from two archives that had never been indexed.
+    assert model["teacher_trajectories"] == 1284
+    assert model["training_recency_weight"]["floor"] == 0.25
+    assert model["training_recency_weight"]["power"] == 2.0
+    assert len(model["feature_names"]) > 600
+    assert "v29_ranker_score" in model["feature_names"]
 
 
-def test_v33_f_state_uses_poffin_to_create_an_evolution_body():
-    policy = _install_v26_cards(h.load_policy())
-    hilda = _option(h.OptionType.PLAY, index=0)
-    poffin = _option(h.OptionType.PLAY, index=1)
-    obj = _main_board(
-        policy,
-        hand_ids=[policy.C.HILDA, policy.C.BUDDY_POFFIN, policy.C.ALAKAZAM],
-        hand_count=7,
-        active=h.Pokemon(policy.C.FEZANDIPITI_EX, serial=10),
-        opponent_active=h.Pokemon(
-            9000,
-            hp=200,
-            maxHp=200,
-            playerIndex=1,
-            serial=20,
-        ),
-        options=[hilda, poffin, _option(h.OptionType.END)],
-    )
+def test_v33_deploys_a_single_gated_ensemble_member():
+    runtime = HybridRanker()
+    snapshot = runtime.snapshot()
 
-    assert obj._rebuild_search_mode()
-    assert not obj._evolution_target_on_board()
-    assert obj._score_play(poffin) > obj._score_play(hilda)
-    assert obj.choose() == [1]
+    assert snapshot["model_loaded"]
+    assert snapshot["ensemble_size"] == len(runtime.ensemble)
+    assert snapshot["ensemble_weights"][0] == 1.0
+    # A further member is only shipped when it clears the validation gate, so
+    # the intra-turn tracker stays inert unless a deployed model needs it.
+    assert snapshot["uses_turn_features"] == runtime.uses_turn_features
+    for name in ("ranker_model_1.json", "ranker_model_2.json"):
+        if not (HERE / name).exists():
+            assert f"{name}" not in snapshot["errors"]
 
 
-def test_v33_poffin_still_builds_width_from_four_core_bodies():
-    policy = _install_v26_cards(h.load_policy())
-    poffin = _option(h.OptionType.PLAY, index=0)
-    obj = _main_board(
-        policy,
-        hand_ids=[policy.C.BUDDY_POFFIN],
-        hand_count=8,
-        active=_attacking_alakazam(policy),
-        bench=[
-            h.Pokemon(policy.C.ABRA, serial=11),
-            h.Pokemon(policy.C.DUNSPARCE, serial=12),
-            h.Pokemon(policy.C.DUDUNSPARCE, serial=13),
-        ],
-        opponent_active=h.Pokemon(
-            9000,
-            hp=300,
-            maxHp=300,
-            playerIndex=1,
-            serial=20,
-        ),
-        options=[poffin, _option(h.OptionType.END)],
-    )
+def test_turn_history_counts_offers_and_pass_overs():
+    history = _TurnHistory()
+    current = {"turn": 4, "yourIndex": 0}
+    keys = _keys((8, 1225, 10), (7, 1079, 10), (9, 742, 6))
 
-    assert obj._board_body_count() == 4
-    assert obj._score_play(poffin) == 16000
-    assert obj.choose() == [0]
+    first = history.columns(current, keys)
+    assert [row["turn_candidate_offer_count"] for row in first] == [0, 0, 0]
+    assert [row["turn_new_candidate"] for row in first] == [1, 1, 1]
+    assert all(row["turn_decision_index"] == 0 for row in first)
+
+    history.record(current, keys, 0)
+    second = history.columns(current, keys)
+    assert [row["turn_candidate_offer_count"] for row in second] == [1, 1, 1]
+    # Only the two candidates that were declined count as passed over.
+    assert [row["turn_candidate_passed_over"] for row in second] == [0, 1, 1]
+    assert all(row["turn_candidate_offered_previous"] == 1 for row in second)
+    assert all(row["turn_decision_index"] == 1 for row in second)
 
 
-def test_v33_compact_tree_matches_lightgbm_missing_category_rule():
-    h.load_policy()
-    runtime = importlib.import_module("ml_runtime")
-    model = {
-        "trees": [{
-            "f": 0,
-            "d": "==",
-            "c": [7],
-            "x": True,
-            "l": {"v": 2.0},
-            "r": {"v": -1.0},
-        }],
+def test_turn_history_counts_interchangeable_copies_once():
+    history = _TurnHistory()
+    current = {"turn": 2, "yourIndex": 1}
+    duplicated = _keys((8, 1225, 10), (8, 1225, 10), (7, 1079, 10))
+
+    history.record(current, duplicated, 2)
+    columns = history.columns(current, duplicated)
+
+    # Both copies are the same semantic candidate, so a single decision may
+    # only advance its counters once.
+    assert columns[0]["turn_candidate_offer_count"] == 1
+    assert columns[0]["turn_candidate_passed_over"] == 1
+    assert columns[2]["turn_candidate_passed_over"] == 0
+
+
+def test_turn_history_resets_on_a_new_turn():
+    history = _TurnHistory()
+    keys = _keys((8, 1225, 10))
+    history.record({"turn": 3, "yourIndex": 0}, keys, 0)
+
+    later = history.columns({"turn": 5, "yourIndex": 0}, keys)
+
+    assert later[0]["turn_candidate_offer_count"] == 0
+    assert later[0]["turn_decision_index"] == 0
+    assert later[0]["turn_new_candidate"] == 1
+
+
+def test_note_decision_ignores_decisions_outside_the_learned_scope():
+    runtime = HybridRanker()
+    runtime.uses_turn_features = True
+    runtime.turn_history.reset()
+    nested = {
+        "current": {"turn": 1, "yourIndex": 0},
+        "select": {
+            "type": 0, "context": 3, "minCount": 1, "maxCount": 1,
+            "option": [{"type": 8}, {"type": 8}],
+        },
     }
 
-    assert runtime._selector_tree_score([-1.0], model) == 2.0
-    assert runtime._selector_tree_score([7.0], model) == 2.0
-    assert runtime._selector_tree_score([8.0], model) == -1.0
+    runtime.note_decision(nested, [0])
+
+    assert runtime.turn_history.position == 0
+    assert not runtime.turn_history.candidates
 
 
-def test_v33_does_not_treat_shaymin_as_froslass_protection():
-    policy = _install_v26_cards(h.load_policy())
-    active = _attacking_alakazam(policy)
-    exposed = h.Pokemon(policy.C.DUNSPARCE, hp=30, maxHp=70)
-    second = h.Pokemon(policy.C.KADABRA, hp=80, maxHp=80)
-    grimmsnarl = h.Pokemon(
-        policy.GRIMMSNARL_EX_ID,
-        playerIndex=1,
-    )
-    froslass = h.Pokemon(
-        policy.FROSLASS_ID,
-        playerIndex=1,
-    )
-    obj = _main_board(
-        policy,
-        hand_ids=[policy.C.SHAYMIN],
-        hand_count=8,
-        active=active,
-        bench=[exposed, second],
-        opponent_active=grimmsnarl,
-        opponent_bench=[froslass],
-        options=[_option(h.OptionType.PLAY, index=0)],
-    )
+def test_turn_feature_names_match_the_trained_columns():
+    model = json.loads((HERE / "ranker_model.json").read_text("utf-8"))
+    names = set(model["feature_names"])
 
-    assert obj._opp_threatens_bench()
-    assert obj._opp_has_froslass()
-    assert obj._score_play_poke(h.Card(policy.C.SHAYMIN)) < 0
+    if model.get("uses_turn_features"):
+        assert set(TURN_FEATURE_NAMES) <= names
+    else:
+        assert not set(TURN_FEATURE_NAMES) & names

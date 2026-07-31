@@ -38,22 +38,22 @@ def _choose(observation):
     """Internal entry implementation; public ``agent`` is deliberately last."""
     if observation.get("select") is None:
         return list(_fallback_agent(observation))
-    deterministic = list(_fallback_agent(observation))
-    if fallback_policy.v33_force_priority_action(
-        observation,
-        deterministic,
-    ) is not None:
-        return deterministic
     recalled = _RUNTIME.recall(observation)
     if recalled is not None:
+        # The intra-turn history has to see memory hits too, otherwise the
+        # offer and pass-over counts drift away from the training corpus.
+        _RUNTIME.note_decision(observation, recalled)
         return recalled
+    deterministic = list(_fallback_agent(observation))
     baseline = _V29_RUNTIME.choose(observation, deterministic)
-    return _RUNTIME.choose(
+    action = _RUNTIME.choose(
         observation,
         baseline,
         deterministic,
         memory_checked=True,
     )
+    _RUNTIME.note_decision(observation, action)
+    return action
 
 
 def diag_reset():

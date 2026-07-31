@@ -1,0 +1,1088 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v33\\yushin_v33_arrays.npz",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v33",
+  "split_decisions": {
+    "train": 53454,
+    "validation": 5038,
+    "test": 8848
+  },
+  "train_episodes": 984,
+  "graded_label_counts": {
+    "played_next": 35793,
+    "chosen": 67340,
+    "not_played": 407156,
+    "played_later": 76824
+  },
+  "recency": {
+    "floor": 0.25,
+    "power": 2.0
+  },
+  "variants": {
+    "large_leaf": {
+      "model_name": "large_leaf",
+      "use_turn_features": false,
+      "use_graded_labels": false,
+      "seed": 1091,
+      "best_iteration": 404,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7701468836840016,
+        "top2": 0.9098848749503772,
+        "top3": 0.9533545057562525,
+        "turn_set": 0.907899960301707,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8688271604938271
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8131699846860643
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.8530734632683659
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.47619047619047616
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.7107438016528925
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6568265682656826
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.899090909090909
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.7763157894736842
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.5510204081632653
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.6124744376278118
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5151515151515151
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7752034358047016,
+        "top2": 0.9153481012658228,
+        "top3": 0.9595388788426763,
+        "turn_set": 0.9129746835443038,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.8481818181818181
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8528896672504378
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.807802093244529
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.4876847290640394
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7922077922077922
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.6888888888888889
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.9033105622700999
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8758620689655172
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.6287519747235387
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.5534591194968553
+          }
+        }
+      }
+    },
+    "large_leaf_graded": {
+      "model_name": "large_leaf",
+      "use_turn_features": false,
+      "use_graded_labels": true,
+      "seed": 1091,
+      "best_iteration": 1005,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7897975387058357,
+        "top2": 0.9243747518856689,
+        "top3": 0.9618896387455339,
+        "turn_set": 0.9184200079396586,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8734567901234568
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8499234303215927
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.8665667166416792
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.5047619047619047
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.7024793388429752
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6715867158671587
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.9127272727272727
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.7631578947368421
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.6122448979591837
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.6441717791411042
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5656565656565656
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7950949367088608,
+        "top2": 0.9310578661844484,
+        "top3": 0.9711799276672695,
+        "turn_set": 0.9230334538878843,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.8645454545454545
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8739054290718039
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.840152235965747
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.49261083743842365
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7965367965367965
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.7185185185185186
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.9138202837624803
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8758620689655172
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.6535018430753028
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.5723270440251572
+          }
+        }
+      }
+    },
+    "large_leaf_turn": {
+      "model_name": "large_leaf",
+      "use_turn_features": true,
+      "use_graded_labels": false,
+      "seed": 1091,
+      "best_iteration": 719,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7824533545057563,
+        "top2": 0.9154426359666534,
+        "top3": 0.9595077411671298,
+        "turn_set": 0.9110758237395792,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8672839506172839
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8330781010719756
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.8605697151424287
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.5047619047619047
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.7107438016528925
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6697416974169742
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.9090909090909091
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.7631578947368421
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.6122448979591837
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.6298568507157464
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5656565656565656
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7880877034358047,
+        "top2": 0.9263110307414105,
+        "top3": 0.9689195298372514,
+        "turn_set": 0.9154611211573237,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.87
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8651488616462347
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.8182683158896289
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.5123152709359606
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7619047619047619
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.7185185185185186
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.9075144508670521
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8827586206896552
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.6434965771458663
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.5660377358490566
+          }
+        }
+      }
+    },
+    "large_leaf_turn_graded": {
+      "model_name": "large_leaf",
+      "use_turn_features": true,
+      "use_graded_labels": true,
+      "seed": 1091,
+      "best_iteration": 667,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7830488289003573,
+        "top2": 0.9174275506153236,
+        "top3": 0.9606986899563319,
+        "turn_set": 0.9136562127828504,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8688271604938271
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8376722817764165
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.8575712143928036
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.5142857142857142
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.7024793388429752
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6623616236162362
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.9109090909090909
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.8157894736842105
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.6326530612244898
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.6267893660531697
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5757575757575758
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7877486437613019,
+        "top2": 0.9237115732368897,
+        "top3": 0.9677893309222423,
+        "turn_set": 0.9199819168173599,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.8563636363636363
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8800350262697023
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.8258801141769743
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.47783251231527096
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7922077922077922
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.7185185185185186
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.9033105622700999
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8896551724137931
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6142857142857143
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.640337019483939
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.559748427672956
+          }
+        }
+      }
+    },
+    "numeric_ids": {
+      "model_name": "numeric_ids",
+      "use_turn_features": false,
+      "use_graded_labels": false,
+      "seed": 1091,
+      "best_iteration": 542,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7693529178245335,
+        "top2": 0.9063120285827709,
+        "top3": 0.9547439460103215,
+        "turn_set": 0.9057165541881699,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8734567901234568
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8269525267993875
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.8455772113943029
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.49523809523809526
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.7107438016528925
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6476014760147601
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.9027272727272727
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.7631578947368421
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.5714285714285714
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.5940695296523517
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5757575757575758
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7763336347197106,
+        "top2": 0.9142179023508138,
+        "top3": 0.9612341772151899,
+        "turn_set": 0.9120705244122965,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.8618181818181818
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8555166374781086
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.8220742150333016
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.5123152709359606
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7878787878787878
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.7047619047619048
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.9022595901208618
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8413793103448276
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6142857142857143
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.6129541864139021
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.5157232704402516
+          }
+        }
+      }
+    },
+    "numeric_ids_graded": {
+      "model_name": "numeric_ids",
+      "use_turn_features": false,
+      "use_graded_labels": true,
+      "seed": 1091,
+      "best_iteration": 683,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7794759825327511,
+        "top2": 0.9104803493449781,
+        "top3": 0.9563318777292577,
+        "turn_set": 0.9112743152044462,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8688271604938271
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8376722817764165
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.856071964017991
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.49523809523809526
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.7272727272727273
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6715867158671587
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.9090909090909091
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.7631578947368421
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.6122448979591837
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.6104294478527608
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5757575757575758
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7859403254972875,
+        "top2": 0.921112115732369,
+        "top3": 0.9636075949367089,
+        "turn_set": 0.9196428571428571,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.87
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8712784588441331
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.8382492863939106
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.4876847290640394
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7922077922077922
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.7121693121693121
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.9106673673147662
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8413793103448276
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6142857142857143
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.6229594523433386
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.5345911949685535
+          }
+        }
+      }
+    },
+    "numeric_ids_turn": {
+      "model_name": "numeric_ids",
+      "use_turn_features": true,
+      "use_graded_labels": false,
+      "seed": 1091,
+      "best_iteration": 348,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7725287812624058,
+        "top2": 0.9053195712584359,
+        "top3": 0.9531560142913855,
+        "turn_set": 0.9100833664152441,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8657407407407407
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8437978560490046
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.8515742128935532
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.44761904761904764
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.7024793388429752
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6789667896678967
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.9054545454545454
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.7631578947368421
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.5714285714285714
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.591002044989775
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5252525252525253
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7697784810126582,
+        "top2": 0.9099231464737794,
+        "top3": 0.9589737793851718,
+        "turn_set": 0.9085669077757685,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.8581818181818182
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8485113835376532
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.8058991436726927
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.458128078817734
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7575757575757576
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.707936507936508
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.905937992643195
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8344827586206897
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6142857142857143
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.6050552922590837
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.48427672955974843
+          }
+        }
+      }
+    },
+    "numeric_ids_turn_graded": {
+      "model_name": "numeric_ids",
+      "use_turn_features": true,
+      "use_graded_labels": true,
+      "seed": 1091,
+      "best_iteration": 364,
+      "validation": {
+        "decisions": 5038,
+        "top1": 0.7735212385867408,
+        "top2": 0.906907502977372,
+        "top3": 0.9537514886859865,
+        "turn_set": 0.9164350932909885,
+        "by_teacher_action": {
+          "ability": {
+            "count": 648,
+            "top1": 0.8595679012345679
+          },
+          "attack": {
+            "count": 653,
+            "top1": 0.8591117917304747
+          },
+          "bench": {
+            "count": 667,
+            "top1": 0.8500749625187406
+          },
+          "boss": {
+            "count": 105,
+            "top1": 0.47619047619047616
+          },
+          "end": {
+            "count": 121,
+            "top1": 0.71900826446281
+          },
+          "energy": {
+            "count": 542,
+            "top1": 0.6623616236162362
+          },
+          "evolve": {
+            "count": 1100,
+            "top1": 0.9027272727272727
+          },
+          "hammer": {
+            "count": 76,
+            "top1": 0.7631578947368421
+          },
+          "retreat": {
+            "count": 49,
+            "top1": 0.5714285714285714
+          },
+          "trainer": {
+            "count": 978,
+            "top1": 0.598159509202454
+          },
+          "xerosic": {
+            "count": 99,
+            "top1": 0.5252525252525253
+          }
+        }
+      },
+      "test": {
+        "decisions": 8848,
+        "top1": 0.7704566003616636,
+        "top2": 0.9126356238698011,
+        "top3": 0.9597649186256781,
+        "turn_set": 0.911618444846293,
+        "by_teacher_action": {
+          "ability": {
+            "count": 1100,
+            "top1": 0.8545454545454545
+          },
+          "attack": {
+            "count": 1142,
+            "top1": 0.8712784588441331
+          },
+          "bench": {
+            "count": 1051,
+            "top1": 0.8154138915318744
+          },
+          "boss": {
+            "count": 203,
+            "top1": 0.4433497536945813
+          },
+          "end": {
+            "count": 231,
+            "top1": 0.7792207792207793
+          },
+          "energy": {
+            "count": 945,
+            "top1": 0.6804232804232804
+          },
+          "evolve": {
+            "count": 1903,
+            "top1": 0.905412506568576
+          },
+          "hammer": {
+            "count": 145,
+            "top1": 0.8482758620689655
+          },
+          "retreat": {
+            "count": 70,
+            "top1": 0.6285714285714286
+          },
+          "trainer": {
+            "count": 1899,
+            "top1": 0.6045286993154292
+          },
+          "xerosic": {
+            "count": 159,
+            "top1": 0.46540880503144655
+          }
+        }
+      }
+    }
+  },
+  "blend_selection_trace": [
+    {
+      "members": [
+        [
+          "large_leaf_graded",
+          1.0
+        ]
+      ],
+      "validation_top1": 0.7897975387058357
+    },
+    {
+      "members": [
+        [
+          "large_leaf_graded",
+          1.0
+        ],
+        [
+          "large_leaf_turn",
+          0.3
+        ]
+      ],
+      "validation_top1": 0.7907899960301707
+    }
+  ],
+  "blend": {
+    "members": [
+      [
+        "large_leaf_graded",
+        1.0
+      ],
+      [
+        "large_leaf_turn",
+        0.3
+      ]
+    ],
+    "validation": {
+      "decisions": 5038,
+      "top1": 0.7907899960301707,
+      "top2": 0.9235807860262009,
+      "top3": 0.962286621675268,
+      "turn_set": 0.9178245335450576,
+      "by_teacher_action": {
+        "ability": {
+          "count": 648,
+          "top1": 0.8780864197530864
+        },
+        "attack": {
+          "count": 653,
+          "top1": 0.8468606431852986
+        },
+        "bench": {
+          "count": 667,
+          "top1": 0.8680659670164917
+        },
+        "boss": {
+          "count": 105,
+          "top1": 0.5047619047619047
+        },
+        "end": {
+          "count": 121,
+          "top1": 0.7024793388429752
+        },
+        "energy": {
+          "count": 542,
+          "top1": 0.6789667896678967
+        },
+        "evolve": {
+          "count": 1100,
+          "top1": 0.91
+        },
+        "hammer": {
+          "count": 76,
+          "top1": 0.7894736842105263
+        },
+        "retreat": {
+          "count": 49,
+          "top1": 0.6122448979591837
+        },
+        "trainer": {
+          "count": 978,
+          "top1": 0.6431492842535788
+        },
+        "xerosic": {
+          "count": 99,
+          "top1": 0.5757575757575758
+        }
+      }
+    },
+    "test": {
+      "decisions": 8848,
+      "top1": 0.7950949367088608,
+      "top2": 0.9310578661844484,
+      "top3": 0.9710669077757685,
+      "turn_set": 0.923372513562387,
+      "by_teacher_action": {
+        "ability": {
+          "count": 1100,
+          "top1": 0.8681818181818182
+        },
+        "attack": {
+          "count": 1142,
+          "top1": 0.8747810858143608
+        },
+        "bench": {
+          "count": 1051,
+          "top1": 0.8334919124643198
+        },
+        "boss": {
+          "count": 203,
+          "top1": 0.49261083743842365
+        },
+        "end": {
+          "count": 231,
+          "top1": 0.8008658008658008
+        },
+        "energy": {
+          "count": 945,
+          "top1": 0.7174603174603175
+        },
+        "evolve": {
+          "count": 1903,
+          "top1": 0.9127693116132423
+        },
+        "hammer": {
+          "count": 145,
+          "top1": 0.8758620689655172
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6
+        },
+        "trainer": {
+          "count": 1899,
+          "top1": 0.6566614007372301
+        },
+        "xerosic": {
+          "count": 159,
+          "top1": 0.559748427672956
+        }
+      }
+    }
+  },
+  "exported": [
+    {
+      "file": "ranker_model.json",
+      "role": "large_leaf_graded",
+      "weight": 1.0,
+      "iterations": 1005,
+      "bytes": 12770712,
+      "uses_turn_features": false
+    },
+    {
+      "file": "ranker_model_1.json",
+      "role": "large_leaf_turn",
+      "weight": 0.3,
+      "iterations": 719,
+      "bytes": 9159699,
+      "uses_turn_features": true
+    }
+  ],
+  "target_top1": 0.9,
+  "target_met": false
+}

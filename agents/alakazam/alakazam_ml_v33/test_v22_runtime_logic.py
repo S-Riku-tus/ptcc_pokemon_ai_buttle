@@ -40,8 +40,8 @@ def test_v27_dudun_holds_exact_ko_hand_even_when_backup_is_missing():
     obj.me.deckCount = 30
 
     assert obj._backup_eta() == 99
-    assert not obj._continuity_draw_needed()
-    assert obj._dudun_draw_satisfied()
+    assert obj._continuity_draw_needed()
+    assert not obj._dudun_draw_satisfied()
     # v27 deliberately keeps the unused ability as next-turn recovery instead
     # of putting surplus cards into a hand that can be reset by the opponent.
     assert obj._score_ability(ability) == -1

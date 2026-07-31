@@ -29,14 +29,14 @@ def test_v15_rich_uses_hand_and_fuel_gate_but_never_blocks_active_attack():
     assert obj._enriching_attach_score(dunsparce) < 0
 
 
-def test_v33_rich_no_longer_stops_at_eight_cards_with_dudunsparce():
+def test_v15_rich_stops_when_dudunsparce_engine_and_large_hand_exist():
     policy = h.load_policy()
     dudunsparce = h.Pokemon(policy.C.DUDUNSPARCE)
     obj = h.bare_policy(policy, hand_count=8, bench=[dudunsparce],
                         opp_active=h.Pokemon(9000, playerIndex=1))
     obj._deck_spend_ok = lambda *args, **kwargs: True
     obj._active_alakazam_can_be_fueled = lambda: False
-    assert obj._enriching_attach_score(dudunsparce) > 0
+    assert obj._enriching_attach_score(dudunsparce) < 0
 
 
 def test_v15_projected_active_ko_does_not_block_immediate_key_role_boss():
@@ -59,8 +59,9 @@ def test_v15_projected_active_ko_does_not_block_immediate_key_role_boss():
 def test_v32_ml_scope_is_memory_first_v29_residual_and_safety_guarded():
     source = (Path(__file__).resolve().parent / "ml_runtime.py").read_text(encoding="utf-8")
     main_source = (Path(__file__).resolve().parent / "main.py").read_text(encoding="utf-8")
-    assert "ALAKAZAM_ML_V32_ENABLE_OVERRIDE" in source
-    assert "ALAKAZAM_ML_V31_ENABLE_OVERRIDE" in source
+    assert "ALAKAZAM_ML_V33_" in source
+    assert "ALAKAZAM_ML_V32_" in source
+    assert "ALAKAZAM_ML_V31_" in source
     assert "teacher_memory_keys" in source
     assert "v29_ranker_score" in source
     assert "fallback_selected" in source
@@ -68,5 +69,6 @@ def test_v32_ml_scope_is_memory_first_v29_residual_and_safety_guarded():
     assert "lethal_guard" in source
     assert "_candidate_safety_reason" in source
     assert "_V29_RUNTIME" in main_source
+    assert "ALAKAZAM_ML_V33_THRESHOLD" in main_source
     assert "ALAKAZAM_ML_V32_THRESHOLD" in main_source
     assert "ALAKAZAM_ML_V31_THRESHOLD" in main_source

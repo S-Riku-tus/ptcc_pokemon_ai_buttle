@@ -1,12 +1,4 @@
-# alakazam_ml_v33 - OOF selector shell plus measured attack-rebuild fixes.
-# v33 ladder-log changes:
-#   [P0] Run Away Draw is a damage engine as well as an attacker search. Keep
-#        cycling unless the current turn already has a deterministic Powerful
-#        Hand KO, the cycle would board out, or the deck cannot survive it.
-#   [P1] F/G rebuild states explicitly prioritize Dawn/Poke Pad/Hilda and the
-#        Dudunsparce cycle until an Alakazam attack route is public.
-#   [P2] Keep using Buddy-Buddy Poffin until the line + engine board is broad
-#        enough to support repeated Dudunsparce cycles.
+# alakazam_ml_v28 - asset-safe end turns and metagame-aware target priorities.
 # Keep v24's action order intact; repair only repeated, directly observed route errors.
 # This file remains self-contained for the official Kaggle runtime.
 #   [P0] A legal Boss's Orders that takes the last 2/3 prizes is an absolute action gate.
@@ -262,12 +254,6 @@ def _diag_template():
         "v27_strategic_line_gusts": 0,
         # v28 asset-safe end-turn switching
         "v28_end_turn_asset_blocks": 0,
-        # v33 measured rebuild / hand-as-damage changes
-        "v33_run_away_damage_cycles": 0,
-        "v33_rebuild_search_actions": 0,
-        "v33_runtime_logic_forces": 0,
-        "v33_poffin_width_actions": 0,
-        "v33_enriching_cycle_forces": 0,
         "v25_dudun_net_safe_cycles": 0,
         "v25_dudun_refill_cycles": 0,
     }
@@ -3385,7 +3371,6 @@ class AlakazamPolicy:
                     and option.area == AreaType.BENCH):
                 if self._continuity_draw_needed():
                     _DIAG["v22_continuity_draws"] += 1
-                    _DIAG["v33_run_away_damage_cycles"] += 1
 
         if option.type == OptionType.EVOLVE and getattr(card, "id", None) == C.KADABRA:
             if (self._same_evolution_area_available(C.KADABRA, AreaType.ACTIVE)
@@ -3640,26 +3625,36 @@ class AlakazamPolicy:
             # deck is low, stop filtering ourselves out of a won game (real-ladder bug).
             if self._deck_preserve() and not refills_deck:
                 return -1
-            # An already-complete same-turn KO is the only hand-size stop. The
-            # v31 ladder sample showed that a fixed 10-card threshold suppressed
-            # the deck's damage engine: every extra card is +20 Powerful Hand.
+            # v27: the chosen target owns the hand budget.  If a deterministic
+            # KO route already excludes this cycle, hold Run Away Draw for the
+            # next turn instead of padding an exact hand into overkill.  This is
+            # evaluated before continuity: the unused engine itself is future
+            # recovery after an opponent hand reset.
             if self._optional_draw_budget_met("dudun") and not refills_deck:
                 _DIAG["v27_exact_hand_draw_blocks"] += 1
                 return -1
+            # v22: a secured KO is not enough by itself; keep cycling if no public
+            # replacement attacker exists.  Conversely, when both current attack
+            # and one-turn backup are secured, stop surplus hand growth.
             continuity_needed = self._continuity_draw_needed()
+            if (self._draw_redundant_for_chosen_target("dudun")
+                    and not continuity_needed and not refills_deck):
+                return -1
             if (self._dudun_draw_satisfied()
                     and not continuity_needed and not refills_deck):
                 return -1
-            # Preserve only the measured deck-out guard. A high hand on a healthy
-            # deck is still damage and future attacker access, not surplus.
+            # NB: top pilots activate Run Away Draw ~1/4 as often as we did (MAIN ABILITY 163 vs
+            # our 622) — but a blunt hand-cap gave ~0 divergence gain here and risks the documented
+            # cabt regression (deck-out guards hurt cabt), so we keep the aggressive-draw identity
+            # and leave "draw less" as a separate real-ladder A/B. Only the high-hand floor stays.
+            # v3 P0-2: 高手札×低山札ガードを強化(14/12→12/14)。手札12枚=240ダメは
+            # 既にワンパン圏。これ以上の圧縮はデッキ切れリスクだけが増える。
             if (self.me.handCount >= 12 and self.me.deckCount <= 14
                     and not refills_deck):
                 return -1
-            if self._rebuild_search_mode():
-                return 26500
             if continuity_needed:
-                return 23000
-            return 18000
+                return 20500
+            return 15000
         return 9000
 
     # — play —
@@ -3720,11 +3715,6 @@ class AlakazamPolicy:
             # bench-damage (spread/snipe) opponent; otherwise it just clogs a bench slot.
             # (The v26 body-count floor above already overrides this when Shaymin is
             #  the difference between one body and two.)
-            # It does not prevent Froslass damage counters. In the measured
-            # Grimmsnarl games, treating it as protection on a live Froslass
-            # board merely consumed the slot needed by the line/engine.
-            if self._opp_has_froslass():
-                return -1
             return 17000 if (n == 0 and self._opp_threatens_bench()) else -1
         if cid == C.PSYDUCK:
             # Damp only locks self-KO abilities (almost nothing in this meta) -> bench it
@@ -3740,28 +3730,6 @@ class AlakazamPolicy:
 
     def _need_pieces(self):
         return self.field[C.ALAKAZAM] < 1
-
-    def _rebuild_search_mode(self):
-        """Whether this turn is in the measured F/G attacker-rebuild bucket.
-
-        F has an Alakazam in hand but no evolution body. G has an Abra/Kadabra
-        body but no Alakazam in hand. Both need to spend search/draw resources
-        now rather than value those cards only as retained hand damage.
-        """
-        if self._ready_alakazam_count() > 0:
-            return False
-        alakazam_on_board = (
-            self.field[C.ALAKAZAM] + self.field[C.ALAKAZAM_PSY]
-        ) > 0
-        if alakazam_on_board:
-            return False
-        alakazam_in_hand = (
-            self.hand[C.ALAKAZAM] + self.hand[C.ALAKAZAM_PSY]
-        ) > 0
-        evolution_body = (
-            self.field[C.ABRA] + self.field[C.KADABRA]
-        ) > 0
-        return (not alakazam_in_hand) or (not evolution_body)
 
     def _open_bench(self):
         return sum(1 for p in self.me.bench if p is not None) < getattr(self.me, "benchMax", 5)
@@ -3837,24 +3805,29 @@ class AlakazamPolicy:
         )
 
     def _continuity_draw_needed(self):
-        """Use Dudunsparce for both attacker access and Powerful Hand damage."""
+        """Use Dudunsparce to find the *next* attacker, not merely a larger hand."""
+        if self._backup_eta() <= 1:
+            return False
         if not self._dudun_cycle_deck_ok() and not self._emergency_energy_draw(3):
             return False
-        return not self._dudun_draw_satisfied()
+        # Once the opponent is on its last prize, a speculative shuffle/draw is
+        # too slow unless it is also a same-turn KO route (handled before this).
+        if len(self.opponent.prize) <= 1:
+            return False
+        return True
 
     def _dudun_draw_satisfied(self):
-        """Stop only when the current hand already completes this turn's KO."""
-        active = self.me.active[0] if self.me.active else None
-        opponent = self.opponent.active[0] if self.opponent.active else None
-        if (
-                active is None
-                or active.id != C.ALAKAZAM
-                or not self._can_attack(active)
-                or opponent is None
-                or self._effect_prevented(opponent)
-                or self._temporary_attack_immunity_applies(opponent)):
+        """A soft stop for surplus Run Away Draw cycles.
+
+        v20 only stopped at hand 12 when the deck was already low.  The new stop
+        also requires a current attack and a deterministic replacement, so it
+        cannot reproduce v21's broad exact-KO draw suppression.
+        """
+        if not self._attack_chain_stable():
             return False
-        return self.me.handCount >= self._attack_hand_required(opponent)
+        opponent = self.opponent.active[0] if self.opponent.active else None
+        required = self._attack_hand_required(opponent) if opponent is not None else 0
+        return self.me.handCount >= max(10, required + 2)
 
     def _backup_prefuel_score(self, pokemon, source):
         """Reserve the once-per-turn attachment for the next Alakazam line."""
@@ -4108,10 +4081,6 @@ class AlakazamPolicy:
             if dead_evolution_search:
                 _DIAG["v26_hilda_dead_search_demotions"] += 1
                 return 2000
-            if self._rebuild_search_mode():
-                # A live Hilda fetches both the missing Evolution and its
-                # Psychic Energy, so it is the strongest G-state supporter.
-                return 25500
             if self._draw_redundant_for_chosen_target("hilda"):
                 return 5000 if self._need_pieces() else 2200
             if draw_for_ko:
@@ -4120,8 +4089,6 @@ class AlakazamPolicy:
         if cid == C.DAWN:
             if self.state.supporterPlayed:
                 return -1
-            if self._rebuild_search_mode():
-                return 25000
             if dead_evolution_search and self._open_bench():
                 _DIAG["v26_dawn_body_searches"] += 1
                 return 19000
@@ -4135,23 +4102,12 @@ class AlakazamPolicy:
             bodies = (self.field[C.ABRA] + self.field[C.KADABRA] + self.field[C.ALAKAZAM]
                       + self.field[C.ALAKAZAM_PSY] + self.field[C.DUNSPARCE]
                       + self.field[C.DUDUNSPARCE])
-            if bodies >= 5 or not self._open_bench():
+            if bodies >= 4 or not self._open_bench():
                 return 600   # board is set — a Poffin now is -20 Powerful Hand for nothing
-            missing_line = (
-                self.field[C.ABRA] + self.field[C.KADABRA]
-                + self.field[C.ALAKAZAM] + self.field[C.ALAKAZAM_PSY]
-            ) < 2
-            missing_engine = (
-                self.field[C.DUNSPARCE] + self.field[C.DUDUNSPARCE]
-            ) < 1
-            if self._rebuild_search_mode() or missing_line or missing_engine:
-                return 22000
-            return 16000
+            return 13000
         if cid == C.POKE_PAD:
             # Majkel keeps digging with it after setup too — every deck→hand card
             # is +20 Powerful Hand (but below Poffin/supporters)
-            if self._rebuild_search_mode():
-                return 24000
             return 8500 if self._need_pieces() else 3500
         if cid == C.BOSS_ORDERS:
             if self.state.supporterPlayed:
@@ -4394,6 +4350,8 @@ class AlakazamPolicy:
         if pokemon is None or not self._deck_spend_ok(cost=4, allow_lethal=False):
             return -1
         if self._active_alakazam_can_be_fueled():
+            return -1
+        if self.field[C.DUDUNSPARCE] >= 1 and self.me.handCount >= 8:
             return -1
         if not self._enrich_draw_needed():
             return -1
@@ -5299,85 +5257,6 @@ def _update_v9_state(obs):
         _V9_STATE.update({"fez_active_serial": serial, "fez_active_turns": 1})
     if _V9_STATE["fez_active_turns"] > 2:
         _DIAG["fez_active_stall_turns"] += 1
-
-
-def v33_force_priority_action(obs_dict, action):
-    """Return the measured v33 priority name when ML must not override it.
-
-    Teacher memory and the learned ranker were fitted before the v31 ladder
-    autopsy.  This narrow bridge makes the directly measured correction own
-    only Run Away Draw and F/G rebuild actions; all other decisions remain
-    available to memory and ML.
-    """
-    try:
-        if not isinstance(action, (list, tuple)) or len(action) != 1:
-            return None
-        obs = to_observation_class(obs_dict)
-        if (
-                obs.select is None
-                or obs.select.context != SelectContext.MAIN
-                or not 0 <= int(action[0]) < len(obs.select.option)):
-            return None
-        policy = AlakazamPolicy(obs)
-        option = obs.select.option[int(action[0])]
-        if option.type == OptionType.ABILITY:
-            card = get_card(
-                obs,
-                option.area,
-                option.index,
-                policy.my_index,
-            )
-            if (
-                    card is not None
-                    and card.id == C.DUDUNSPARCE
-                    and option.area == AreaType.BENCH
-                    and policy._score_ability(option) > 0
-                    and not policy._dudun_draw_satisfied()):
-                _DIAG["v33_runtime_logic_forces"] += 1
-                return "run_away_draw"
-        if option.type in (OptionType.ATTACH, OptionType.ENERGY):
-            source = get_card(
-                obs,
-                AreaType.HAND,
-                option.index,
-                policy.my_index,
-            )
-            target = get_card(
-                obs,
-                option.inPlayArea,
-                option.inPlayIndex,
-                policy.my_index,
-            )
-            if (
-                    source is not None
-                    and source.id == C.ENRICHING_ENERGY
-                    and target is not None
-                    and target.id in (C.DUNSPARCE, C.DUDUNSPARCE)
-                    and policy._score_attach(option) > 0):
-                _DIAG["v33_enriching_cycle_forces"] += 1
-                _DIAG["v33_runtime_logic_forces"] += 1
-                return "enriching_cycle"
-        if option.type != OptionType.PLAY:
-            return None
-        card = get_card(obs, AreaType.HAND, option.index, policy.my_index)
-        if card is None:
-            return None
-        if (
-                card.id in (C.DAWN, C.HILDA, C.POKE_PAD)
-                and policy._rebuild_search_mode()
-                and policy._score_play(option) >= 22000):
-            _DIAG["v33_rebuild_search_actions"] += 1
-            _DIAG["v33_runtime_logic_forces"] += 1
-            return "rebuild_search"
-        if (
-                card.id == C.BUDDY_POFFIN
-                and policy._score_play(option) >= 20000):
-            _DIAG["v33_poffin_width_actions"] += 1
-            _DIAG["v33_runtime_logic_forces"] += 1
-            return "poffin_width"
-    except Exception:
-        return None
-    return None
 
 
 def agent(obs_dict):

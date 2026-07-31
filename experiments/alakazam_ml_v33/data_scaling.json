@@ -1,0 +1,131 @@
+{
+  "cache": "experiments\\alakazam_ml_v32\\yushin_arrays.npz",
+  "points": [
+    {
+      "fraction": 0.125,
+      "episodes": 88,
+      "decisions": 3987,
+      "best_iteration": 84,
+      "train": {
+        "top1": 0.8873839979934788,
+        "top2": 0.9671432154502132,
+        "top3": 0.9867067970905443,
+        "decisions": 3987
+      },
+      "validation": {
+        "top1": 0.7058356490670901,
+        "top2": 0.8664152441445018,
+        "top3": 0.925764192139738,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7023056057866185,
+        "top2": 0.8737567811934901,
+        "top3": 0.9355786618444847,
+        "decisions": 8848
+      }
+    },
+    {
+      "fraction": 0.25,
+      "episodes": 175,
+      "decisions": 10169,
+      "best_iteration": 403,
+      "train": {
+        "top1": 0.98711771068935,
+        "top2": 0.9974432097551381,
+        "top3": 0.9992132953092733,
+        "decisions": 10169
+      },
+      "validation": {
+        "top1": 0.741167129813418,
+        "top2": 0.88844779674474,
+        "top3": 0.9406510520047638,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.740506329113924,
+        "top2": 0.8950045207956601,
+        "top3": 0.9474457504520796,
+        "decisions": 8848
+      }
+    },
+    {
+      "fraction": 0.5,
+      "episodes": 350,
+      "decisions": 18008,
+      "best_iteration": 429,
+      "train": {
+        "top1": 0.9716237227898712,
+        "top2": 0.9934473567303421,
+        "top3": 0.9976121723678365,
+        "decisions": 18008
+      },
+      "validation": {
+        "top1": 0.7570464470027789,
+        "top2": 0.8977768955934895,
+        "top3": 0.9473997618102422,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7592676311030742,
+        "top2": 0.9061934900542495,
+        "top3": 0.9571654611211573,
+        "decisions": 8848
+      }
+    },
+    {
+      "fraction": 0.75,
+      "episodes": 525,
+      "decisions": 27797,
+      "best_iteration": 581,
+      "train": {
+        "top1": 0.9748893765514264,
+        "top2": 0.9948555599525128,
+        "top3": 0.998417095370004,
+        "decisions": 27797
+      },
+      "validation": {
+        "top1": 0.7669710202461294,
+        "top2": 0.9025406907502977,
+        "top3": 0.9559348947995236,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7729430379746836,
+        "top2": 0.9155741410488246,
+        "top3": 0.9613471971066908,
+        "decisions": 8848
+      }
+    },
+    {
+      "fraction": 1.0,
+      "episodes": 699,
+      "decisions": 35704,
+      "best_iteration": 627,
+      "train": {
+        "top1": 0.9690230786466503,
+        "top2": 0.9931660318171633,
+        "top3": 0.9978993950257674,
+        "decisions": 35704
+      },
+      "validation": {
+        "top1": 0.7761016276300119,
+        "top2": 0.9112743152044462,
+        "top3": 0.9559348947995236,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7810804701627486,
+        "top2": 0.9181735985533453,
+        "top3": 0.9649638336347197,
+        "decisions": 8848
+      }
+    }
+  ],
+  "projection": {
+    "log10_slope_per_decade": 0.08470168781134312,
+    "intercept": 0.5429184084474287,
+    "episodes_needed_for_top1_0.90": 16434.45575357146,
+    "caveat": "Log-linear extrapolation from five points; it estimates the order of magnitude of missing same-teacher games, not an exact requirement."
+  }
+}

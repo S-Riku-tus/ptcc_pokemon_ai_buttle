@@ -33,23 +33,25 @@ def _context(
     }
 
 
-def test_v32_model_records_yushin_large_leaf_ranker():
+def test_v33_model_records_the_enlarged_yushin_corpus():
     model = json.loads((HERE / "ranker_model.json").read_text("utf-8"))
 
-    assert model["runtime_scope"] == "v32_yushin_recency_large_leaf"
-    assert model["teacher_trajectories"] == 999
-    assert model["training_decisions"] == 49590
+    assert model["runtime_scope"] == "v33_yushin_turn_order_ranker"
+    assert model["teacher_trajectories"] == 1284
+    assert model["training_decisions"] == 67340
     assert model["teacher_cohorts"] == {
-        "yushin_full_recency": 999
+        "yushin_20260717": 180,
+        "yushin_current_top": 109,
+        "yushin_20260726": 1000,
     }
-    assert model["ensemble_role"] == "categorical_large_leaf"
+    assert model["ensemble_role"].startswith("large_leaf")
     assert not (HERE / "ranker_numeric_model.json").exists()
     assert len(model["feature_names"]) > 600
     assert "v29_ranker_score" in model["feature_names"]
     assert "recent_log_0_card_id" in model["feature_names"]
 
 
-def test_v32_runtime_cleanly_omits_rejected_numeric_model():
+def test_v33_runtime_cleanly_omits_rejected_numeric_model():
     runtime = HybridRanker()
     snapshot = runtime.snapshot()
 

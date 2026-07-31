@@ -1,0 +1,41 @@
+{
+  "best_iteration": 412,
+  "cohorts": [
+    {
+      "path": "experiments\\alakazam_ml_v32\\yushin_arrays.npz",
+      "teacher_id": 3,
+      "role": "primary",
+      "decisions": 35704
+    },
+    {
+      "path": "experiments/alakazam_ml_v31/rmy_arrays.npz",
+      "teacher_id": 4,
+      "role": "auxiliary",
+      "decisions": 29871
+    },
+    {
+      "path": "experiments/alakazam_ml_v31/majkel_previous_arrays.npz",
+      "teacher_id": 2,
+      "role": "auxiliary",
+      "decisions": 20297
+    }
+  ],
+  "train": {
+    "top1": 0.878332959892449,
+    "top2": 0.9564194488012547,
+    "top3": 0.9796941519157517,
+    "decisions": 35704
+  },
+  "validation": {
+    "top1": 0.7479158396188964,
+    "top2": 0.8947995236204843,
+    "top3": 0.944422389837237,
+    "decisions": 5038
+  },
+  "test": {
+    "top1": 0.7458182640144665,
+    "top2": 0.8966998191681737,
+    "top3": 0.9517405063291139,
+    "decisions": 8848
+  }
+}

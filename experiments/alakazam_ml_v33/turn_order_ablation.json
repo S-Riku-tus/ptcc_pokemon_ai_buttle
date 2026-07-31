@@ -1,0 +1,135 @@
+{
+  "cache": "experiments\\alakazam_ml_v32\\yushin_arrays.npz",
+  "turn_features": [
+    "turn_decision_index",
+    "turn_candidate_offer_count",
+    "turn_candidate_passed_over",
+    "turn_candidate_offered_previous",
+    "turn_candidate_first_offer_index",
+    "turn_class_passed_over",
+    "turn_class_offer_count",
+    "turn_new_candidate"
+  ],
+  "graded_label_counts": {
+    "later": 58139,
+    "chosen": 49590,
+    "later_next": 26718,
+    "never": 309267
+  },
+  "passed_over_prior": {
+    "0": {
+      "rows": 92050,
+      "p_chosen": 0.17377512221618685
+    },
+    "1": {
+      "rows": 59545,
+      "p_chosen": 0.09446636997228987
+    },
+    "2": {
+      "rows": 47468,
+      "p_chosen": 0.09058734305216146
+    },
+    "3": {
+      "rows": 34853,
+      "p_chosen": 0.09161334748802112
+    },
+    "4": {
+      "rows": 75446,
+      "p_chosen": 0.08734724173581104
+    }
+  },
+  "hyperparameters": {
+    "num_leaves": 127,
+    "min_child_samples": 40,
+    "learning_rate": 0.03,
+    "seed": 1091,
+    "recency_floor": 0.25,
+    "recency_power": 2.0
+  },
+  "results": {
+    "baseline": {
+      "best_iteration": 627,
+      "train": {
+        "top1": 0.9690230786466503,
+        "top2": 0.9931660318171633,
+        "top3": 0.9978993950257674,
+        "decisions": 35704
+      },
+      "validation": {
+        "top1": 0.7761016276300119,
+        "top2": 0.9112743152044462,
+        "top3": 0.9559348947995236,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7810804701627486,
+        "top2": 0.9181735985533453,
+        "top3": 0.9649638336347197,
+        "decisions": 8848
+      }
+    },
+    "turnstate": {
+      "best_iteration": 672,
+      "train": {
+        "top1": 0.9741765628501008,
+        "top2": 0.9950705803271342,
+        "top3": 0.9986276047501681,
+        "decisions": 35704
+      },
+      "validation": {
+        "top1": 0.7749106788408099,
+        "top2": 0.9092894005557761,
+        "top3": 0.9603017070265979,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7833408679927667,
+        "top2": 0.9181735985533453,
+        "top3": 0.963381555153707,
+        "decisions": 8848
+      }
+    },
+    "graded": {
+      "best_iteration": 678,
+      "train": {
+        "top1": 0.9709556352229443,
+        "top2": 0.9939502576742102,
+        "top3": 0.9984875644185526,
+        "decisions": 35704
+      },
+      "validation": {
+        "top1": 0.7786820166732831,
+        "top2": 0.9142516871774514,
+        "top3": 0.9581183009130607,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7832278481012658,
+        "top2": 0.9220162748643761,
+        "top3": 0.966998191681736,
+        "decisions": 8848
+      }
+    },
+    "turnstate_graded": {
+      "best_iteration": 559,
+      "train": {
+        "top1": 0.9591922473672417,
+        "top2": 0.9910374187766077,
+        "top3": 0.9970031369034282,
+        "decisions": 35704
+      },
+      "validation": {
+        "top1": 0.7751091703056768,
+        "top2": 0.9112743152044462,
+        "top3": 0.9579198094481938,
+        "decisions": 5038
+      },
+      "test": {
+        "top1": 0.7835669077757685,
+        "top2": 0.917382459312839,
+        "top3": 0.9623643761301989,
+        "decisions": 8848
+      }
+    }
+  }
+}

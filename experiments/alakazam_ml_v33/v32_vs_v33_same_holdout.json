@@ -1,0 +1,46 @@
+{
+  "holdout_episodes": 200,
+  "holdout_decisions": 8848,
+  "held_out": {
+    "note": "Both rows come from models fitted on training episodes only.",
+    "v32_deployed": {
+      "decisions": 8848,
+      "top1": 0.7870705244122965,
+      "top2": 0.9188517179023508,
+      "top3": 0.9624773960216998,
+      "turn_set": 0.9178345388788427
+    },
+    "v33_deployed": {
+      "decisions": 8848,
+      "top1": 0.7950949367088608,
+      "top2": 0.9310578661844484,
+      "top3": 0.9711799276672695,
+      "turn_set": 0.9230334538878843
+    },
+    "delta_points": {
+      "top1": 0.8024412296564254,
+      "top2": 1.220614828209765,
+      "top3": 0.8702531645569667,
+      "turn_set": 0.5198915009041571
+    }
+  },
+  "shipped_artifact_integrity": {
+    "note": "In-sample by construction; confirms the exported JSON and the pure-Python walker agree with the trained model.",
+    "episodes": 25,
+    "decisions": 1028,
+    "top1": 0.9970817120622568,
+    "top2": 1.0,
+    "top3": 1.0,
+    "turn_set": 0.9990272373540856
+  },
+  "v33_members": [
+    {
+      "file": "ranker_model.json",
+      "weight": 1.0,
+      "role": "large_leaf_graded",
+      "trees": 1005
+    }
+  ],
+  "target_top1": 0.9,
+  "target_met": false
+}
