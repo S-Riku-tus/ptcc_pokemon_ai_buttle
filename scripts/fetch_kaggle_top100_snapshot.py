@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -72,9 +73,29 @@ def safe_decimal(text: str | None) -> Decimal | None:
 
 
 def parse_submission_time(value: str | None) -> datetime | None:
+    """Parse a Kaggle timestamp, tolerating nanosecond fractional seconds.
+
+    Kaggle mixes millisecond precision (``dateSubmitted``) with nanosecond
+    precision (``lastSubmissionDate``) in the same API family, and
+    ``datetime.fromisoformat`` accepts at most 6 fractional digits before
+    Python 3.11, so the extra digits are truncated instead of raising.
+    """
     if not value:
         return None
-    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+    text = value.strip().replace("Z", "+00:00").replace("z", "+00:00")
+    match = re.match(r"^(?P<head>.*\.\d{6})\d+(?P<tail>.*)$", text)
+    if match:
+        text = match.group("head") + match.group("tail")
+
+    try:
+        parsed = datetime.fromisoformat(text)
+    except ValueError:
+        return None
+
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=UTC)
+    return parsed
 
 
 def jst_string(value: str | None) -> str:

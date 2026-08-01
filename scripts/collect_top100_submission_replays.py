@@ -17,6 +17,7 @@ import argparse
 import csv
 import json
 import os
+import re
 import sys
 import threading
 import time
@@ -128,6 +129,34 @@ def load_submission_rows(path: Path) -> list[dict[str, str]]:
         return list(reader)
 
 
+def is_truthy_flag(value: Any) -> bool:
+    return str(value or "").strip().lower() in {"true", "1", "yes", "y"}
+
+
+def filter_submission_rows(
+    rows: list[dict[str, str]],
+    *,
+    max_rank: int,
+    representative_only: bool,
+) -> list[dict[str, str]]:
+    """Restrict the source CSV rows by leaderboard rank and representativeness.
+
+    The snapshot CSV lists every public submission per team, so a team can
+    contribute several rows (its current best plus older/weaker ones).
+    """
+    filtered: list[dict[str, str]] = []
+    for row in rows:
+        if max_rank > 0:
+            rank = parse_int(row.get("rank"))
+            if rank is None or rank > max_rank:
+                continue
+        if representative_only and "is_representative" in row:
+            if not is_truthy_flag(row.get("is_representative")):
+                continue
+        filtered.append(row)
+    return filtered
+
+
 def dedupe_submission_rows(rows: list[dict[str, str]]) -> list[dict[str, Any]]:
     deduped: dict[int, dict[str, Any]] = {}
     for row in rows:
@@ -171,13 +200,30 @@ def parse_int(value: Any) -> int | None:
 
 
 def parse_iso_datetime(value: str) -> datetime | None:
+    """Parse a Kaggle timestamp, tolerating nanosecond fractional seconds.
+
+    Kaggle episode timestamps carry 9 fractional digits
+    (``2026-07-21T06:41:25.092846400Z``) but ``datetime.fromisoformat`` accepts
+    at most 6 before Python 3.11, so the extra digits are truncated. Results are
+    always timezone-aware so callers can sort mixed inputs safely.
+    """
     text = (value or "").strip()
     if not text:
         return None
+
+    text = text.replace("Z", "+00:00").replace("z", "+00:00")
+    match = re.match(r"^(?P<head>.*\.\d{6})\d+(?P<tail>.*)$", text)
+    if match:
+        text = match.group("head") + match.group("tail")
+
     try:
-        return datetime.fromisoformat(text.replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(text)
     except ValueError:
         return None
+
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=timezone.utc)
+    return parsed
 
 
 def sort_episodes_oldest_first(episodes: list[Any]) -> list[Any]:
@@ -462,6 +508,7 @@ def process_submission(
     logs_dir: Path,
     submission_team_lookup: dict[int, dict[str, Any]],
     max_episodes_per_submission: int,
+    newest_episodes_first: bool,
     sleep_seconds: float,
     list_retries: int,
     download_retries: int,
@@ -557,7 +604,13 @@ def process_submission(
 
     episodes = sort_episodes_oldest_first(episodes)
     if max_episodes_per_submission > 0:
-        episodes = episodes[:max_episodes_per_submission]
+        # Truncating the oldest-first list keeps the earliest games, which is the
+        # wrong end of the ladder when the goal is the submission's newest play.
+        episodes = (
+            episodes[-max_episodes_per_submission:]
+            if newest_episodes_first
+            else episodes[:max_episodes_per_submission]
+        )
 
     write_json(
         submission_dir / "episodes.json",
@@ -844,10 +897,35 @@ def main() -> None:
         help="Process only the first N deduped submission IDs. 0 means all.",
     )
     parser.add_argument(
+        "--max-rank",
+        type=int,
+        default=0,
+        help=(
+            "Keep only submissions whose leaderboard rank is <= N "
+            "(e.g. 40 for the current top 40). 0 means no rank limit."
+        ),
+    )
+    parser.add_argument(
+        "--representative-only",
+        action="store_true",
+        help=(
+            "Keep only each team's representative submission "
+            "(is_representative=True), skipping their older public submissions."
+        ),
+    )
+    parser.add_argument(
         "--max-episodes-per-submission",
         type=int,
         default=0,
         help="Process only the oldest N episodes per submission by create_time. 0 means all.",
+    )
+    parser.add_argument(
+        "--newest-episodes-first",
+        action="store_true",
+        help=(
+            "Make --max-episodes-per-submission keep the NEWEST N episodes "
+            "instead of the oldest N. No effect when that limit is 0."
+        ),
     )
     parser.add_argument(
         "--sleep",
@@ -898,7 +976,18 @@ def main() -> None:
         required_deck_card_ids.update(ALAKAZAM_DECK_CARD_IDS)
 
     input_csv = discover_input_csv(args.input)
-    source_rows = load_submission_rows(input_csv)
+    all_source_rows = load_submission_rows(input_csv)
+    source_rows = filter_submission_rows(
+        all_source_rows,
+        max_rank=args.max_rank,
+        representative_only=args.representative_only,
+    )
+    if not source_rows:
+        raise SystemExit(
+            f"No rows left in {input_csv} after applying "
+            f"--max-rank={args.max_rank} / --representative-only="
+            f"{args.representative_only}."
+        )
     submissions = dedupe_submission_rows(source_rows)
     if args.max_submissions > 0:
         submissions = submissions[: args.max_submissions]
@@ -910,6 +999,11 @@ def main() -> None:
     indexes_dir = ensure_dir(output_root / "indexes")
 
     thread_print(f"Input CSV: {input_csv}")
+    thread_print(
+        f"Source rows: {len(source_rows)}/{len(all_source_rows)} kept "
+        f"(max_rank={args.max_rank or 'all'}, "
+        f"representative_only={args.representative_only})"
+    )
     thread_print(f"Submission IDs to process: {len(submissions)}")
     thread_print(f"Output root: {output_root}")
     thread_print(f"Workers: {max(1, args.workers)}")
@@ -952,6 +1046,7 @@ def main() -> None:
                 logs_dir=logs_dir,
                 submission_team_lookup=submission_team_lookup,
                 max_episodes_per_submission=args.max_episodes_per_submission,
+                newest_episodes_first=args.newest_episodes_first,
                 sleep_seconds=args.sleep,
                 list_retries=args.list_retries,
                 download_retries=args.download_retries,
@@ -1106,6 +1201,12 @@ def main() -> None:
         },
         "deck_filter": {
             "required_deck_card_ids": sorted(required_deck_card_ids),
+        },
+        "submission_filter": {
+            "max_rank": args.max_rank,
+            "representative_only": args.representative_only,
+            "source_rows_total": len(all_source_rows),
+            "source_rows_kept": len(source_rows),
         },
         "missing_submission_ids": missing_submission_ids,
         "indexes": {
