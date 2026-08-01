@@ -1,0 +1,1916 @@
+{
+  "v34_default": {
+    "note": "deployed: gains 127/7/1/0",
+    "gain": [
+      0,
+      1,
+      3,
+      7,
+      15,
+      31,
+      63,
+      127
+    ],
+    "label_map": {
+      "7": 7,
+      "3": 3,
+      "1": 1,
+      "0": 0
+    },
+    "fit_seconds": 319.54960700002266,
+    "selected_trees": 2000,
+    "validation_curve": [
+      {
+        "trees": 200,
+        "top1": 0.7836527360886631,
+        "turn_set": 0.9270376356499653
+      },
+      {
+        "trees": 400,
+        "top1": 0.8055876241052875,
+        "turn_set": 0.9341953359501269
+      },
+      {
+        "trees": 600,
+        "top1": 0.8134380050796582,
+        "turn_set": 0.9351189101824059
+      },
+      {
+        "trees": 800,
+        "top1": 0.8173631955668437,
+        "turn_set": 0.9378896328792427
+      },
+      {
+        "trees": 1000,
+        "top1": 0.8217501731701685,
+        "turn_set": 0.9404294620180097
+      },
+      {
+        "trees": 1200,
+        "top1": 0.824751789425075,
+        "turn_set": 0.9408912491341491
+      },
+      {
+        "trees": 1400,
+        "top1": 0.8240591087508659,
+        "turn_set": 0.9411221426922188
+      },
+      {
+        "trees": 1600,
+        "top1": 0.8277534056799816,
+        "turn_set": 0.9415839298083584
+      },
+      {
+        "trees": 1800,
+        "top1": 0.8268298314477026,
+        "turn_set": 0.9406603555760794
+      },
+      {
+        "trees": 2000,
+        "top1": 0.8296005541445394,
+        "turn_set": 0.9418148233664281
+      },
+      {
+        "trees": 2200,
+        "top1": 0.8296005541445394,
+        "turn_set": 0.9422766104825675
+      }
+    ],
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "top1": 0.8296005541445394,
+        "turn_set": 0.9418148233664281,
+        "ordering_error_rate": 0.11221426922188871,
+        "divergence_rate": 0.05818517663357192,
+        "top3": 0.9847610251673978,
+        "mean_candidates": 9.407758023551143
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 953,
+          "top1": 0.70199370409234,
+          "turn_set": 0.9013641133263379,
+          "ordering_error_rate": 0.1993704092339979,
+          "divergence_rate": 0.09863588667366212,
+          "top3": 0.9716684155299056,
+          "mean_candidates": 8.353620146904513
+        },
+        "attack": {
+          "count": 515,
+          "top1": 0.8776699029126214,
+          "turn_set": 0.8990291262135922,
+          "ordering_error_rate": 0.021359223300970873,
+          "divergence_rate": 0.10097087378640776,
+          "top3": 0.9941747572815534,
+          "mean_candidates": 7.353398058252427
+        },
+        "energy": {
+          "count": 454,
+          "top1": 0.7819383259911894,
+          "turn_set": 0.9162995594713657,
+          "ordering_error_rate": 0.1343612334801762,
+          "divergence_rate": 0.08370044052863436,
+          "top3": 0.9779735682819384,
+          "mean_candidates": 11.176211453744493
+        },
+        "boss": {
+          "count": 114,
+          "top1": 0.5877192982456141,
+          "turn_set": 0.8596491228070176,
+          "ordering_error_rate": 0.2719298245614035,
+          "divergence_rate": 0.14035087719298245,
+          "top3": 0.9649122807017544,
+          "mean_candidates": 10.807017543859649
+        },
+        "bench": {
+          "count": 558,
+          "top1": 0.8691756272401434,
+          "turn_set": 0.9767025089605734,
+          "ordering_error_rate": 0.10752688172043011,
+          "divergence_rate": 0.023297491039426525,
+          "top3": 0.9838709677419355,
+          "mean_candidates": 9.442652329749103
+        },
+        "ability": {
+          "count": 620,
+          "top1": 0.8838709677419355,
+          "turn_set": 0.9806451612903225,
+          "ordering_error_rate": 0.0967741935483871,
+          "divergence_rate": 0.01935483870967742,
+          "top3": 0.9919354838709677,
+          "mean_candidates": 9.798387096774194
+        },
+        "xerosic": {
+          "count": 63,
+          "top1": 0.7142857142857143,
+          "turn_set": 0.8253968253968254,
+          "ordering_error_rate": 0.1111111111111111,
+          "divergence_rate": 0.1746031746031746,
+          "top3": 0.9365079365079365,
+          "mean_candidates": 9.317460317460318
+        },
+        "evolve": {
+          "count": 904,
+          "top1": 0.9247787610619469,
+          "turn_set": 0.9889380530973452,
+          "ordering_error_rate": 0.06415929203539823,
+          "divergence_rate": 0.011061946902654867,
+          "top3": 0.995575221238938,
+          "mean_candidates": 10.731194690265486
+        },
+        "retreat": {
+          "count": 40,
+          "top1": 0.85,
+          "turn_set": 0.9,
+          "ordering_error_rate": 0.05,
+          "divergence_rate": 0.1,
+          "top3": 1.0,
+          "mean_candidates": 6.1
+        },
+        "end": {
+          "count": 61,
+          "top1": 0.9672131147540983,
+          "turn_set": 0.9672131147540983,
+          "ordering_error_rate": 0.0,
+          "divergence_rate": 0.03278688524590164,
+          "top3": 1.0,
+          "mean_candidates": 2.377049180327869
+        },
+        "hammer": {
+          "count": 49,
+          "top1": 0.8775510204081632,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.12244897959183673,
+          "divergence_rate": 0.0,
+          "top3": 1.0,
+          "mean_candidates": 13.673469387755102
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 3593,
+        "1": 537,
+        "2": 135,
+        "3": 43,
+        "4": 12,
+        "5": 8,
+        "6": 3
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "top1": 0.8298085596872807,
+        "turn_set": 0.9514884233737596,
+        "ordering_error_rate": 0.1216798636864789,
+        "divergence_rate": 0.04851157662624035,
+        "top3": 0.9848651899368548,
+        "mean_candidates": 9.066553072065751
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 1843,
+          "top1": 0.705371676614216,
+          "turn_set": 0.909386869234943,
+          "ordering_error_rate": 0.20401519262072706,
+          "divergence_rate": 0.09061313076505698,
+          "top3": 0.9603906673901248,
+          "mean_candidates": 8.493217580032555
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.8648648648648649,
+          "turn_set": 0.88,
+          "ordering_error_rate": 0.015135135135135135,
+          "divergence_rate": 0.12,
+          "top3": 0.9956756756756757,
+          "mean_candidates": 6.915675675675676
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7757437070938215,
+          "turn_set": 0.9336384439359268,
+          "ordering_error_rate": 0.15789473684210525,
+          "divergence_rate": 0.06636155606407322,
+          "top3": 0.977116704805492,
+          "mean_candidates": 11.392448512585812
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.4793814432989691,
+          "turn_set": 0.865979381443299,
+          "ordering_error_rate": 0.3865979381443299,
+          "divergence_rate": 0.13402061855670103,
+          "top3": 0.9381443298969072,
+          "mean_candidates": 11.525773195876289
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8890356671070013,
+          "turn_set": 0.9841479524438573,
+          "ordering_error_rate": 0.095112285336856,
+          "divergence_rate": 0.015852047556142668,
+          "top3": 0.9933949801849405,
+          "mean_candidates": 8.737120211360635
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.6296296296296297,
+          "turn_set": 0.837037037037037,
+          "ordering_error_rate": 0.2074074074074074,
+          "divergence_rate": 0.16296296296296298,
+          "top3": 0.9407407407407408,
+          "mean_candidates": 9.548148148148147
+        },
+        "ability": {
+          "count": 1587,
+          "top1": 0.7996219281663516,
+          "turn_set": 0.9873976055450535,
+          "ordering_error_rate": 0.18777567737870196,
+          "divergence_rate": 0.01260239445494644,
+          "top3": 0.9936988027725268,
+          "mean_candidates": 9.282923755513547
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9415887850467289,
+          "turn_set": 0.9532710280373832,
+          "ordering_error_rate": 0.011682242990654205,
+          "divergence_rate": 0.04672897196261682,
+          "top3": 0.9929906542056075,
+          "mean_candidates": 4.623831775700935
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.9435201401050788,
+          "turn_set": 0.9921190893169878,
+          "ordering_error_rate": 0.04859894921190893,
+          "divergence_rate": 0.00788091068301226,
+          "top3": 0.9969352014010507,
+          "mean_candidates": 10.103765323992995
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6571428571428571,
+          "turn_set": 0.7857142857142857,
+          "ordering_error_rate": 0.12857142857142856,
+          "divergence_rate": 0.21428571428571427,
+          "top3": 0.9714285714285714,
+          "mean_candidates": 5.942857142857143
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8455284552845529,
+          "turn_set": 0.975609756097561,
+          "ordering_error_rate": 0.13008130081300814,
+          "divergence_rate": 0.024390243902439025,
+          "top3": 0.983739837398374,
+          "mean_candidates": 12.138211382113822
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 8279,
+        "1": 1237,
+        "2": 310,
+        "3": 93,
+        "4": 34,
+        "5": 17,
+        "6": 4,
+        "7": 3
+      }
+    }
+  },
+  "compressed": {
+    "note": "gains 7/3/1/0",
+    "gain": [
+      0,
+      1,
+      3,
+      7
+    ],
+    "label_map": {
+      "7": 3,
+      "3": 2,
+      "1": 1,
+      "0": 0
+    },
+    "fit_seconds": 354.17393980000634,
+    "selected_trees": 2200,
+    "validation_curve": [
+      {
+        "trees": 200,
+        "top1": 0.7670283999076426,
+        "turn_set": 0.9404294620180097
+      },
+      {
+        "trees": 400,
+        "top1": 0.7926575848533826,
+        "turn_set": 0.9436619718309859
+      },
+      {
+        "trees": 600,
+        "top1": 0.7993534980374047,
+        "turn_set": 0.9455091202955438
+      },
+      {
+        "trees": 800,
+        "top1": 0.811129069498961,
+        "turn_set": 0.9457400138536135
+      },
+      {
+        "trees": 1000,
+        "top1": 0.8129762179635188,
+        "turn_set": 0.9459709074116832
+      },
+      {
+        "trees": 1200,
+        "top1": 0.8155160471022859,
+        "turn_set": 0.9464326945278226
+      },
+      {
+        "trees": 1400,
+        "top1": 0.8145924728700069,
+        "turn_set": 0.9462018009697529
+      },
+      {
+        "trees": 1600,
+        "top1": 0.8152851535442162,
+        "turn_set": 0.9464326945278226
+      },
+      {
+        "trees": 1800,
+        "top1": 0.8182867697991226,
+        "turn_set": 0.9473562687601016
+      },
+      {
+        "trees": 2000,
+        "top1": 0.818748556915262,
+        "turn_set": 0.9482798429923806
+      },
+      {
+        "trees": 2200,
+        "top1": 0.8194412375894713,
+        "turn_set": 0.947818055876241
+      }
+    ],
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "top1": 0.8194412375894713,
+        "turn_set": 0.947818055876241,
+        "ordering_error_rate": 0.1283768182867698,
+        "divergence_rate": 0.05218194412375895,
+        "top3": 0.980374047564073,
+        "mean_candidates": 9.407758023551143
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 953,
+          "top1": 0.6852046169989506,
+          "turn_set": 0.912906610703043,
+          "ordering_error_rate": 0.22770199370409233,
+          "divergence_rate": 0.08709338929695698,
+          "top3": 0.9601259181532005,
+          "mean_candidates": 8.353620146904513
+        },
+        "attack": {
+          "count": 515,
+          "top1": 0.887378640776699,
+          "turn_set": 0.9087378640776699,
+          "ordering_error_rate": 0.021359223300970873,
+          "divergence_rate": 0.0912621359223301,
+          "top3": 0.9980582524271845,
+          "mean_candidates": 7.353398058252427
+        },
+        "energy": {
+          "count": 454,
+          "top1": 0.7599118942731278,
+          "turn_set": 0.9295154185022027,
+          "ordering_error_rate": 0.1696035242290749,
+          "divergence_rate": 0.07048458149779736,
+          "top3": 0.9691629955947136,
+          "mean_candidates": 11.176211453744493
+        },
+        "boss": {
+          "count": 114,
+          "top1": 0.5701754385964912,
+          "turn_set": 0.8771929824561403,
+          "ordering_error_rate": 0.30701754385964913,
+          "divergence_rate": 0.12280701754385964,
+          "top3": 0.9210526315789473,
+          "mean_candidates": 10.807017543859649
+        },
+        "bench": {
+          "count": 558,
+          "top1": 0.8584229390681004,
+          "turn_set": 0.978494623655914,
+          "ordering_error_rate": 0.12007168458781362,
+          "divergence_rate": 0.021505376344086023,
+          "top3": 0.985663082437276,
+          "mean_candidates": 9.442652329749103
+        },
+        "ability": {
+          "count": 620,
+          "top1": 0.8774193548387097,
+          "turn_set": 0.9822580645161291,
+          "ordering_error_rate": 0.10483870967741936,
+          "divergence_rate": 0.017741935483870968,
+          "top3": 0.9887096774193549,
+          "mean_candidates": 9.798387096774194
+        },
+        "xerosic": {
+          "count": 63,
+          "top1": 0.6666666666666666,
+          "turn_set": 0.8412698412698413,
+          "ordering_error_rate": 0.1746031746031746,
+          "divergence_rate": 0.15873015873015872,
+          "top3": 0.9523809523809523,
+          "mean_candidates": 9.317460317460318
+        },
+        "evolve": {
+          "count": 904,
+          "top1": 0.9214601769911505,
+          "turn_set": 0.9900442477876106,
+          "ordering_error_rate": 0.06858407079646017,
+          "divergence_rate": 0.00995575221238938,
+          "top3": 0.9944690265486725,
+          "mean_candidates": 10.731194690265486
+        },
+        "end": {
+          "count": 61,
+          "top1": 0.9344262295081968,
+          "turn_set": 0.9344262295081968,
+          "ordering_error_rate": 0.0,
+          "divergence_rate": 0.06557377049180328,
+          "top3": 1.0,
+          "mean_candidates": 2.377049180327869
+        },
+        "retreat": {
+          "count": 40,
+          "top1": 0.85,
+          "turn_set": 0.9,
+          "ordering_error_rate": 0.05,
+          "divergence_rate": 0.1,
+          "top3": 1.0,
+          "mean_candidates": 6.1
+        },
+        "hammer": {
+          "count": 49,
+          "top1": 0.8163265306122449,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.1836734693877551,
+          "divergence_rate": 0.0,
+          "top3": 1.0,
+          "mean_candidates": 13.673469387755102
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 3549,
+        "1": 543,
+        "2": 154,
+        "3": 53,
+        "4": 20,
+        "5": 7,
+        "6": 4,
+        "8": 1
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "top1": 0.8121679863686478,
+        "turn_set": 0.9597073268517591,
+        "ordering_error_rate": 0.14753934048311115,
+        "divergence_rate": 0.040292673148240955,
+        "top3": 0.979352510774782,
+        "mean_candidates": 9.066553072065751
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 1843,
+          "top1": 0.6983179598480738,
+          "turn_set": 0.9207813347802496,
+          "ordering_error_rate": 0.2224633749321758,
+          "divergence_rate": 0.0792186652197504,
+          "top3": 0.9511665762344005,
+          "mean_candidates": 8.493217580032555
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.9037837837837838,
+          "turn_set": 0.9124324324324324,
+          "ordering_error_rate": 0.008648648648648649,
+          "divergence_rate": 0.08756756756756756,
+          "top3": 0.9989189189189189,
+          "mean_candidates": 6.915675675675676
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7414187643020596,
+          "turn_set": 0.9462242562929062,
+          "ordering_error_rate": 0.2048054919908467,
+          "divergence_rate": 0.05377574370709382,
+          "top3": 0.9588100686498856,
+          "mean_candidates": 11.392448512585812
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9299065420560748,
+          "turn_set": 0.9439252336448598,
+          "ordering_error_rate": 0.014018691588785047,
+          "divergence_rate": 0.056074766355140186,
+          "top3": 0.9953271028037384,
+          "mean_candidates": 4.623831775700935
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.44329896907216493,
+          "turn_set": 0.8814432989690721,
+          "ordering_error_rate": 0.4381443298969072,
+          "divergence_rate": 0.11855670103092783,
+          "top3": 0.8917525773195877,
+          "mean_candidates": 11.525773195876289
+        },
+        "ability": {
+          "count": 1587,
+          "top1": 0.7781978575929427,
+          "turn_set": 0.9861373660995589,
+          "ordering_error_rate": 0.20793950850661624,
+          "divergence_rate": 0.013862633900441084,
+          "top3": 0.9886578449905482,
+          "mean_candidates": 9.282923755513547
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.880449141347424,
+          "turn_set": 0.9887714663143989,
+          "ordering_error_rate": 0.1083223249669749,
+          "divergence_rate": 0.011228533685601057,
+          "top3": 0.9887714663143989,
+          "mean_candidates": 8.737120211360635
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.5851851851851851,
+          "turn_set": 0.8740740740740741,
+          "ordering_error_rate": 0.28888888888888886,
+          "divergence_rate": 0.1259259259259259,
+          "top3": 0.9333333333333333,
+          "mean_candidates": 9.548148148148147
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6571428571428571,
+          "turn_set": 0.8,
+          "ordering_error_rate": 0.14285714285714285,
+          "divergence_rate": 0.2,
+          "top3": 0.9714285714285714,
+          "mean_candidates": 5.942857142857143
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.8975481611208407,
+          "turn_set": 0.9956217162872154,
+          "ordering_error_rate": 0.09807355516637478,
+          "divergence_rate": 0.0043782837127845885,
+          "top3": 0.9964973730297724,
+          "mean_candidates": 10.103765323992995
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8536585365853658,
+          "turn_set": 0.991869918699187,
+          "ordering_error_rate": 0.13821138211382114,
+          "divergence_rate": 0.008130081300813009,
+          "top3": 0.983739837398374,
+          "mean_candidates": 12.138211382113822
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 8103,
+        "1": 1340,
+        "2": 328,
+        "3": 110,
+        "4": 62,
+        "5": 21,
+        "6": 8,
+        "7": 3,
+        "8": 2
+      }
+    }
+  },
+  "linear": {
+    "note": "gains 3/2/1/0",
+    "gain": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "label_map": {
+      "7": 3,
+      "3": 2,
+      "1": 1,
+      "0": 0
+    },
+    "fit_seconds": 392.29669170000125,
+    "selected_trees": 2000,
+    "validation_curve": [
+      {
+        "trees": 200,
+        "top1": 0.750404063726622,
+        "turn_set": 0.9496652043407989
+      },
+      {
+        "trees": 400,
+        "top1": 0.7771877164627107,
+        "turn_set": 0.9554375432925422
+      },
+      {
+        "trees": 600,
+        "top1": 0.7921957977372431,
+        "turn_set": 0.9565920110828908
+      },
+      {
+        "trees": 800,
+        "top1": 0.799122604479335,
+        "turn_set": 0.9554375432925422
+      },
+      {
+        "trees": 1000,
+        "top1": 0.799122604479335,
+        "turn_set": 0.9558993304086816
+      },
+      {
+        "trees": 1200,
+        "top1": 0.8030477949665205,
+        "turn_set": 0.9556684368506119
+      },
+      {
+        "trees": 1400,
+        "top1": 0.8069729854537059,
+        "turn_set": 0.9561302239667513
+      },
+      {
+        "trees": 1600,
+        "top1": 0.8083583468021243,
+        "turn_set": 0.9547448626183329
+      },
+      {
+        "trees": 1800,
+        "top1": 0.8097437081505426,
+        "turn_set": 0.9540521819441238
+      },
+      {
+        "trees": 2000,
+        "top1": 0.8122835372893096,
+        "turn_set": 0.9554375432925422
+      },
+      {
+        "trees": 2200,
+        "top1": 0.8122835372893096,
+        "turn_set": 0.9549757561764026
+      }
+    ],
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "top1": 0.8122835372893096,
+        "turn_set": 0.9554375432925422,
+        "ordering_error_rate": 0.1431540060032325,
+        "divergence_rate": 0.04456245670745786,
+        "top3": 0.9741399214961902,
+        "mean_candidates": 9.407758023551143
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 953,
+          "top1": 0.6736621196222455,
+          "turn_set": 0.9223504721930745,
+          "ordering_error_rate": 0.24868835257082897,
+          "divergence_rate": 0.0776495278069255,
+          "top3": 0.9569779643231899,
+          "mean_candidates": 8.353620146904513
+        },
+        "attack": {
+          "count": 515,
+          "top1": 0.9145631067961165,
+          "turn_set": 0.9281553398058252,
+          "ordering_error_rate": 0.013592233009708738,
+          "divergence_rate": 0.07184466019417475,
+          "top3": 1.0,
+          "mean_candidates": 7.353398058252427
+        },
+        "energy": {
+          "count": 454,
+          "top1": 0.7334801762114538,
+          "turn_set": 0.933920704845815,
+          "ordering_error_rate": 0.20044052863436124,
+          "divergence_rate": 0.06607929515418502,
+          "top3": 0.9581497797356828,
+          "mean_candidates": 11.176211453744493
+        },
+        "bench": {
+          "count": 558,
+          "top1": 0.8422939068100358,
+          "turn_set": 0.9802867383512545,
+          "ordering_error_rate": 0.13799283154121864,
+          "divergence_rate": 0.01971326164874552,
+          "top3": 0.978494623655914,
+          "mean_candidates": 9.442652329749103
+        },
+        "boss": {
+          "count": 114,
+          "top1": 0.5614035087719298,
+          "turn_set": 0.9035087719298246,
+          "ordering_error_rate": 0.34210526315789475,
+          "divergence_rate": 0.09649122807017543,
+          "top3": 0.8596491228070176,
+          "mean_candidates": 10.807017543859649
+        },
+        "ability": {
+          "count": 620,
+          "top1": 0.8741935483870967,
+          "turn_set": 0.9838709677419355,
+          "ordering_error_rate": 0.10967741935483871,
+          "divergence_rate": 0.016129032258064516,
+          "top3": 0.9758064516129032,
+          "mean_candidates": 9.798387096774194
+        },
+        "xerosic": {
+          "count": 63,
+          "top1": 0.6190476190476191,
+          "turn_set": 0.8412698412698413,
+          "ordering_error_rate": 0.2222222222222222,
+          "divergence_rate": 0.15873015873015872,
+          "top3": 0.9523809523809523,
+          "mean_candidates": 9.317460317460318
+        },
+        "evolve": {
+          "count": 904,
+          "top1": 0.9103982300884956,
+          "turn_set": 0.9922566371681416,
+          "ordering_error_rate": 0.08185840707964602,
+          "divergence_rate": 0.007743362831858407,
+          "top3": 0.9933628318584071,
+          "mean_candidates": 10.731194690265486
+        },
+        "retreat": {
+          "count": 40,
+          "top1": 0.9,
+          "turn_set": 0.95,
+          "ordering_error_rate": 0.05,
+          "divergence_rate": 0.05,
+          "top3": 1.0,
+          "mean_candidates": 6.1
+        },
+        "end": {
+          "count": 61,
+          "top1": 0.9836065573770492,
+          "turn_set": 0.9836065573770492,
+          "ordering_error_rate": 0.0,
+          "divergence_rate": 0.01639344262295082,
+          "top3": 1.0,
+          "mean_candidates": 2.377049180327869
+        },
+        "hammer": {
+          "count": 49,
+          "top1": 0.7755102040816326,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.22448979591836735,
+          "divergence_rate": 0.0,
+          "top3": 1.0,
+          "mean_candidates": 13.673469387755102
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 3518,
+        "1": 537,
+        "2": 164,
+        "3": 72,
+        "4": 21,
+        "5": 12,
+        "6": 4,
+        "7": 1,
+        "9": 2
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "top1": 0.7888142728275033,
+        "turn_set": 0.9606094016237345,
+        "ordering_error_rate": 0.17179512879623132,
+        "divergence_rate": 0.039390598376265414,
+        "top3": 0.9759446727473189,
+        "mean_candidates": 9.066553072065751
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 1843,
+          "top1": 0.6744438415626696,
+          "turn_set": 0.9224091155724362,
+          "ordering_error_rate": 0.24796527400976667,
+          "divergence_rate": 0.07759088442756376,
+          "top3": 0.9451980466630494,
+          "mean_candidates": 8.493217580032555
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.9135135135135135,
+          "turn_set": 0.9210810810810811,
+          "ordering_error_rate": 0.0075675675675675675,
+          "divergence_rate": 0.07891891891891892,
+          "top3": 0.9989189189189189,
+          "mean_candidates": 6.915675675675676
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7208237986270023,
+          "turn_set": 0.9450800915331807,
+          "ordering_error_rate": 0.2242562929061785,
+          "divergence_rate": 0.05491990846681922,
+          "top3": 0.948512585812357,
+          "mean_candidates": 11.392448512585812
+        },
+        "ability": {
+          "count": 1587,
+          "top1": 0.7718966603654694,
+          "turn_set": 0.984247006931317,
+          "ordering_error_rate": 0.2123503465658475,
+          "divergence_rate": 0.01575299306868305,
+          "top3": 0.9861373660995589,
+          "mean_candidates": 9.282923755513547
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9345794392523364,
+          "turn_set": 0.9462616822429907,
+          "ordering_error_rate": 0.011682242990654205,
+          "divergence_rate": 0.053738317757009345,
+          "top3": 0.9929906542056075,
+          "mean_candidates": 4.623831775700935
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.4175257731958763,
+          "turn_set": 0.8917525773195877,
+          "ordering_error_rate": 0.4742268041237113,
+          "divergence_rate": 0.10824742268041238,
+          "top3": 0.8711340206185567,
+          "mean_candidates": 11.525773195876289
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8745046235138706,
+          "turn_set": 0.988110964332893,
+          "ordering_error_rate": 0.11360634081902246,
+          "divergence_rate": 0.011889035667107,
+          "top3": 0.988110964332893,
+          "mean_candidates": 8.737120211360635
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.8327495621716288,
+          "turn_set": 0.9938704028021016,
+          "ordering_error_rate": 0.16112084063047286,
+          "divergence_rate": 0.006129597197898424,
+          "top3": 0.9964973730297724,
+          "mean_candidates": 10.103765323992995
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.5555555555555556,
+          "turn_set": 0.8962962962962963,
+          "ordering_error_rate": 0.34074074074074073,
+          "divergence_rate": 0.1037037037037037,
+          "top3": 0.9185185185185185,
+          "mean_candidates": 9.548148148148147
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6571428571428571,
+          "turn_set": 0.8,
+          "ordering_error_rate": 0.14285714285714285,
+          "divergence_rate": 0.2,
+          "top3": 0.9714285714285714,
+          "mean_candidates": 5.942857142857143
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8048780487804879,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.1951219512195122,
+          "divergence_rate": 0.0,
+          "top3": 0.967479674796748,
+          "mean_candidates": 12.138211382113822
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 7870,
+        "1": 1513,
+        "2": 354,
+        "3": 134,
+        "4": 68,
+        "5": 22,
+        "6": 10,
+        "7": 6
+      }
+    }
+  },
+  "set_weighted": {
+    "note": "large step out of the turn set, small steps inside it",
+    "gain": [
+      0,
+      4,
+      5,
+      7
+    ],
+    "label_map": {
+      "7": 3,
+      "3": 2,
+      "1": 1,
+      "0": 0
+    },
+    "fit_seconds": 428.3672456999775,
+    "selected_trees": 2000,
+    "validation_curve": [
+      {
+        "trees": 200,
+        "top1": 0.7222350496421149,
+        "turn_set": 0.9586700531055183
+      },
+      {
+        "trees": 400,
+        "top1": 0.7561764026783653,
+        "turn_set": 0.9593627337797276
+      },
+      {
+        "trees": 600,
+        "top1": 0.776033248672362,
+        "turn_set": 0.9593627337797276
+      },
+      {
+        "trees": 800,
+        "top1": 0.7866543523435696,
+        "turn_set": 0.9593627337797276
+      },
+      {
+        "trees": 1000,
+        "top1": 0.7935811590856615,
+        "turn_set": 0.9593627337797276
+      },
+      {
+        "trees": 1200,
+        "top1": 0.795659201108289,
+        "turn_set": 0.9591318402216578
+      },
+      {
+        "trees": 1400,
+        "top1": 0.8005079658277534,
+        "turn_set": 0.959824520895867
+      },
+      {
+        "trees": 1600,
+        "top1": 0.8021242207342415,
+        "turn_set": 0.9602863080120064
+      },
+      {
+        "trees": 1800,
+        "top1": 0.8037404756407296,
+        "turn_set": 0.9602863080120064
+      },
+      {
+        "trees": 2000,
+        "top1": 0.8046640498730085,
+        "turn_set": 0.9593627337797276
+      },
+      {
+        "trees": 2200,
+        "top1": 0.8039713691987993,
+        "turn_set": 0.9582082659893789
+      }
+    ],
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "top1": 0.8046640498730085,
+        "turn_set": 0.9593627337797276,
+        "ordering_error_rate": 0.154698683906719,
+        "divergence_rate": 0.04063726622027245,
+        "top3": 0.9672131147540983,
+        "mean_candidates": 9.407758023551143
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 953,
+          "top1": 0.6589716684155299,
+          "turn_set": 0.9244491080797481,
+          "ordering_error_rate": 0.2654774396642183,
+          "divergence_rate": 0.07555089192025184,
+          "top3": 0.9391395592864638,
+          "mean_candidates": 8.353620146904513
+        },
+        "attack": {
+          "count": 515,
+          "top1": 0.9184466019417475,
+          "turn_set": 0.9339805825242719,
+          "ordering_error_rate": 0.015533980582524271,
+          "divergence_rate": 0.06601941747572816,
+          "top3": 0.9980582524271845,
+          "mean_candidates": 7.353398058252427
+        },
+        "energy": {
+          "count": 454,
+          "top1": 0.7136563876651982,
+          "turn_set": 0.9449339207048458,
+          "ordering_error_rate": 0.23127753303964757,
+          "divergence_rate": 0.05506607929515418,
+          "top3": 0.9427312775330396,
+          "mean_candidates": 11.176211453744493
+        },
+        "bench": {
+          "count": 558,
+          "top1": 0.8279569892473119,
+          "turn_set": 0.9802867383512545,
+          "ordering_error_rate": 0.15232974910394265,
+          "divergence_rate": 0.01971326164874552,
+          "top3": 0.9802867383512545,
+          "mean_candidates": 9.442652329749103
+        },
+        "boss": {
+          "count": 114,
+          "top1": 0.5701754385964912,
+          "turn_set": 0.9035087719298246,
+          "ordering_error_rate": 0.3333333333333333,
+          "divergence_rate": 0.09649122807017543,
+          "top3": 0.868421052631579,
+          "mean_candidates": 10.807017543859649
+        },
+        "ability": {
+          "count": 620,
+          "top1": 0.8516129032258064,
+          "turn_set": 0.9870967741935484,
+          "ordering_error_rate": 0.13548387096774195,
+          "divergence_rate": 0.012903225806451613,
+          "top3": 0.9725806451612903,
+          "mean_candidates": 9.798387096774194
+        },
+        "xerosic": {
+          "count": 63,
+          "top1": 0.6031746031746031,
+          "turn_set": 0.873015873015873,
+          "ordering_error_rate": 0.2698412698412698,
+          "divergence_rate": 0.12698412698412698,
+          "top3": 0.9523809523809523,
+          "mean_candidates": 9.317460317460318
+        },
+        "evolve": {
+          "count": 904,
+          "top1": 0.9214601769911505,
+          "turn_set": 0.9966814159292036,
+          "ordering_error_rate": 0.0752212389380531,
+          "divergence_rate": 0.00331858407079646,
+          "top3": 0.9900442477876106,
+          "mean_candidates": 10.731194690265486
+        },
+        "retreat": {
+          "count": 40,
+          "top1": 0.9,
+          "turn_set": 0.925,
+          "ordering_error_rate": 0.025,
+          "divergence_rate": 0.075,
+          "top3": 0.975,
+          "mean_candidates": 6.1
+        },
+        "end": {
+          "count": 61,
+          "top1": 0.9836065573770492,
+          "turn_set": 0.9836065573770492,
+          "ordering_error_rate": 0.0,
+          "divergence_rate": 0.01639344262295082,
+          "top3": 1.0,
+          "mean_candidates": 2.377049180327869
+        },
+        "hammer": {
+          "count": 49,
+          "top1": 0.7755102040816326,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.22448979591836735,
+          "divergence_rate": 0.0,
+          "top3": 0.9795918367346939,
+          "mean_candidates": 13.673469387755102
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 3485,
+        "1": 535,
+        "2": 169,
+        "3": 87,
+        "4": 32,
+        "5": 14,
+        "6": 2,
+        "7": 5,
+        "9": 2
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "top1": 0.7800942166984063,
+        "turn_set": 0.9648190838929538,
+        "ordering_error_rate": 0.18472486719454745,
+        "divergence_rate": 0.035180916107046205,
+        "top3": 0.9727372957802947,
+        "mean_candidates": 9.066553072065751
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 1843,
+          "top1": 0.6635919696147585,
+          "turn_set": 0.9305480195333695,
+          "ordering_error_rate": 0.26695604991861094,
+          "divergence_rate": 0.0694519804666305,
+          "top3": 0.9365165491047206,
+          "mean_candidates": 8.493217580032555
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.9243243243243243,
+          "turn_set": 0.9318918918918919,
+          "ordering_error_rate": 0.0075675675675675675,
+          "divergence_rate": 0.0681081081081081,
+          "top3": 0.9989189189189189,
+          "mean_candidates": 6.915675675675676
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.683066361556064,
+          "turn_set": 0.9473684210526315,
+          "ordering_error_rate": 0.2643020594965675,
+          "divergence_rate": 0.05263157894736842,
+          "top3": 0.9473684210526315,
+          "mean_candidates": 11.392448512585812
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9369158878504673,
+          "turn_set": 0.9462616822429907,
+          "ordering_error_rate": 0.009345794392523364,
+          "divergence_rate": 0.053738317757009345,
+          "top3": 0.9929906542056075,
+          "mean_candidates": 4.623831775700935
+        },
+        "ability": {
+          "count": 1587,
+          "top1": 0.7618147448015122,
+          "turn_set": 0.9886578449905482,
+          "ordering_error_rate": 0.22684310018903592,
+          "divergence_rate": 0.011342155009451797,
+          "top3": 0.9829867674858223,
+          "mean_candidates": 9.282923755513547
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.422680412371134,
+          "turn_set": 0.9072164948453608,
+          "ordering_error_rate": 0.4845360824742268,
+          "divergence_rate": 0.09278350515463918,
+          "top3": 0.8247422680412371,
+          "mean_candidates": 11.525773195876289
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8672391017173051,
+          "turn_set": 0.9894319682959049,
+          "ordering_error_rate": 0.12219286657859973,
+          "divergence_rate": 0.010568031704095112,
+          "top3": 0.9854689564068693,
+          "mean_candidates": 8.737120211360635
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.8274956217162872,
+          "turn_set": 0.9938704028021016,
+          "ordering_error_rate": 0.16637478108581435,
+          "divergence_rate": 0.006129597197898424,
+          "top3": 0.9960595446584939,
+          "mean_candidates": 10.103765323992995
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6714285714285714,
+          "turn_set": 0.8142857142857143,
+          "ordering_error_rate": 0.14285714285714285,
+          "divergence_rate": 0.18571428571428572,
+          "top3": 0.9714285714285714,
+          "mean_candidates": 5.942857142857143
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.48148148148148145,
+          "turn_set": 0.9111111111111111,
+          "ordering_error_rate": 0.42962962962962964,
+          "divergence_rate": 0.08888888888888889,
+          "top3": 0.9407407407407408,
+          "mean_candidates": 9.548148148148147
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8211382113821138,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.17886178861788618,
+          "divergence_rate": 0.0,
+          "top3": 0.975609756097561,
+          "mean_candidates": 12.138211382113822
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 7783,
+        "1": 1539,
+        "2": 383,
+        "3": 144,
+        "4": 78,
+        "5": 33,
+        "6": 13,
+        "7": 4
+      }
+    }
+  },
+  "set_flat_control": {
+    "note": "control: order-blind, expected to end turns early",
+    "gain": [
+      0,
+      1
+    ],
+    "label_map": {
+      "7": 1,
+      "3": 1,
+      "1": 1,
+      "0": 0
+    },
+    "fit_seconds": 409.9418832999654,
+    "selected_trees": 2000,
+    "validation_curve": [
+      {
+        "trees": 200,
+        "top1": 0.42830755021934885,
+        "turn_set": 0.9824520895867005
+      },
+      {
+        "trees": 400,
+        "top1": 0.42876933733548833,
+        "turn_set": 0.9840683444931886
+      },
+      {
+        "trees": 600,
+        "top1": 0.4306164858000462,
+        "turn_set": 0.9861463865158162
+      },
+      {
+        "trees": 800,
+        "top1": 0.43269452782267376,
+        "turn_set": 0.9863772800738859
+      },
+      {
+        "trees": 1000,
+        "top1": 0.43407988917109214,
+        "turn_set": 0.9868390671900253
+      },
+      {
+        "trees": 1200,
+        "top1": 0.4347725698453013,
+        "turn_set": 0.9863772800738859
+      },
+      {
+        "trees": 1400,
+        "top1": 0.4356961440775802,
+        "turn_set": 0.9866081736319556
+      },
+      {
+        "trees": 1600,
+        "top1": 0.4370815054259986,
+        "turn_set": 0.9868390671900253
+      },
+      {
+        "trees": 1800,
+        "top1": 0.43661971830985913,
+        "turn_set": 0.9861463865158162
+      },
+      {
+        "trees": 2000,
+        "top1": 0.438466866774417,
+        "turn_set": 0.9866081736319556
+      },
+      {
+        "trees": 2200,
+        "top1": 0.4377741861002078,
+        "turn_set": 0.9866081736319556
+      }
+    ],
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "top1": 0.438466866774417,
+        "turn_set": 0.9866081736319556,
+        "ordering_error_rate": 0.5481413068575387,
+        "divergence_rate": 0.013391826368044332,
+        "top3": 0.9244978065111983,
+        "mean_candidates": 9.407758023551143
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 953,
+          "top1": 0.3242392444910808,
+          "turn_set": 0.9727177334732424,
+          "ordering_error_rate": 0.6484784889821616,
+          "divergence_rate": 0.02728226652675761,
+          "top3": 0.8803777544596013,
+          "mean_candidates": 8.353620146904513
+        },
+        "energy": {
+          "count": 454,
+          "top1": 0.3502202643171806,
+          "turn_set": 0.9757709251101322,
+          "ordering_error_rate": 0.6255506607929515,
+          "divergence_rate": 0.024229074889867842,
+          "top3": 0.8634361233480177,
+          "mean_candidates": 11.176211453744493
+        },
+        "attack": {
+          "count": 515,
+          "top1": 0.9825242718446602,
+          "turn_set": 0.9844660194174757,
+          "ordering_error_rate": 0.001941747572815534,
+          "divergence_rate": 0.015533980582524271,
+          "top3": 0.9980582524271845,
+          "mean_candidates": 7.353398058252427
+        },
+        "ability": {
+          "count": 620,
+          "top1": 0.36129032258064514,
+          "turn_set": 0.9935483870967742,
+          "ordering_error_rate": 0.632258064516129,
+          "divergence_rate": 0.0064516129032258064,
+          "top3": 0.9161290322580645,
+          "mean_candidates": 9.798387096774194
+        },
+        "end": {
+          "count": 61,
+          "top1": 0.9672131147540983,
+          "turn_set": 0.9672131147540983,
+          "ordering_error_rate": 0.0,
+          "divergence_rate": 0.03278688524590164,
+          "top3": 1.0,
+          "mean_candidates": 2.377049180327869
+        },
+        "evolve": {
+          "count": 904,
+          "top1": 0.45464601769911506,
+          "turn_set": 0.9977876106194691,
+          "ordering_error_rate": 0.543141592920354,
+          "divergence_rate": 0.0022123893805309734,
+          "top3": 0.9701327433628318,
+          "mean_candidates": 10.731194690265486
+        },
+        "bench": {
+          "count": 558,
+          "top1": 0.30824372759856633,
+          "turn_set": 0.996415770609319,
+          "ordering_error_rate": 0.6881720430107527,
+          "divergence_rate": 0.0035842293906810036,
+          "top3": 0.9480286738351255,
+          "mean_candidates": 9.442652329749103
+        },
+        "xerosic": {
+          "count": 63,
+          "top1": 0.06349206349206349,
+          "turn_set": 0.9682539682539683,
+          "ordering_error_rate": 0.9047619047619048,
+          "divergence_rate": 0.031746031746031744,
+          "top3": 0.9682539682539683,
+          "mean_candidates": 9.317460317460318
+        },
+        "retreat": {
+          "count": 40,
+          "top1": 0.775,
+          "turn_set": 0.975,
+          "ordering_error_rate": 0.2,
+          "divergence_rate": 0.025,
+          "top3": 0.975,
+          "mean_candidates": 6.1
+        },
+        "boss": {
+          "count": 114,
+          "top1": 0.05263157894736842,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.9473684210526315,
+          "divergence_rate": 0.0,
+          "top3": 0.6842105263157895,
+          "mean_candidates": 10.807017543859649
+        },
+        "hammer": {
+          "count": 49,
+          "top1": 0.3673469387755102,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.6326530612244898,
+          "divergence_rate": 0.0,
+          "top3": 0.9387755102040817,
+          "mean_candidates": 13.673469387755102
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 1899,
+        "1": 1632,
+        "2": 473,
+        "3": 198,
+        "4": 82,
+        "5": 28,
+        "6": 6,
+        "7": 9,
+        "8": 1,
+        "9": 3
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "top1": 0.4985466573118172,
+        "turn_set": 0.9837626541044402,
+        "ordering_error_rate": 0.485215996792623,
+        "divergence_rate": 0.016237345895559786,
+        "top3": 0.9361531522501754,
+        "mean_candidates": 9.066553072065751
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 1843,
+          "top1": 0.3564839934888768,
+          "turn_set": 0.9690721649484536,
+          "ordering_error_rate": 0.6125881714595768,
+          "divergence_rate": 0.030927835051546393,
+          "top3": 0.8762886597938144,
+          "mean_candidates": 8.493217580032555
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.34782608695652173,
+          "turn_set": 0.965675057208238,
+          "ordering_error_rate": 0.6178489702517163,
+          "divergence_rate": 0.034324942791762014,
+          "top3": 0.8524027459954233,
+          "mean_candidates": 11.392448512585812
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9485981308411215,
+          "turn_set": 0.9579439252336449,
+          "ordering_error_rate": 0.009345794392523364,
+          "divergence_rate": 0.04205607476635514,
+          "top3": 0.9976635514018691,
+          "mean_candidates": 4.623831775700935
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.5857142857142857,
+          "turn_set": 0.7857142857142857,
+          "ordering_error_rate": 0.2,
+          "divergence_rate": 0.21428571428571427,
+          "top3": 0.9571428571428572,
+          "mean_candidates": 5.942857142857143
+        },
+        "ability": {
+          "count": 1587,
+          "top1": 0.42785129174543163,
+          "turn_set": 0.9924385633270322,
+          "ordering_error_rate": 0.5645872715816005,
+          "divergence_rate": 0.007561436672967864,
+          "top3": 0.9376181474480151,
+          "mean_candidates": 9.282923755513547
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.47942206654991243,
+          "turn_set": 0.9964973730297724,
+          "ordering_error_rate": 0.5170753064798599,
+          "divergence_rate": 0.0035026269702276708,
+          "top3": 0.9811733800350263,
+          "mean_candidates": 10.103765323992995
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.5336856010568032,
+          "turn_set": 0.9947159841479525,
+          "ordering_error_rate": 0.4610303830911493,
+          "divergence_rate": 0.005284015852047556,
+          "top3": 0.9702774108322325,
+          "mean_candidates": 8.737120211360635
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.9945945945945946,
+          "turn_set": 0.9945945945945946,
+          "ordering_error_rate": 0.0,
+          "divergence_rate": 0.005405405405405406,
+          "top3": 1.0,
+          "mean_candidates": 6.915675675675676
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.03608247422680412,
+          "turn_set": 0.9742268041237113,
+          "ordering_error_rate": 0.9381443298969072,
+          "divergence_rate": 0.02577319587628866,
+          "top3": 0.6288659793814433,
+          "mean_candidates": 11.525773195876289
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.0962962962962963,
+          "turn_set": 0.9851851851851852,
+          "ordering_error_rate": 0.8888888888888888,
+          "divergence_rate": 0.014814814814814815,
+          "top3": 0.9333333333333333,
+          "mean_candidates": 9.548148148148147
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.35772357723577236,
+          "turn_set": 0.983739837398374,
+          "ordering_error_rate": 0.6260162601626016,
+          "divergence_rate": 0.016260162601626018,
+          "top3": 0.9349593495934959,
+          "mean_candidates": 12.138211382113822
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 4974,
+        "1": 3470,
+        "2": 896,
+        "3": 355,
+        "4": 180,
+        "5": 58,
+        "6": 29,
+        "7": 11,
+        "8": 4
+      }
+    }
+  },
+  "binary": {
+    "note": "chosen action only",
+    "gain": [
+      0,
+      1
+    ],
+    "label_map": {
+      "7": 1,
+      "3": 0,
+      "1": 0,
+      "0": 0
+    },
+    "fit_seconds": 366.2350800000131,
+    "selected_trees": 2200,
+    "validation_curve": [
+      {
+        "trees": 200,
+        "top1": 0.7861925652274302,
+        "turn_set": 0.9279612098822443
+      },
+      {
+        "trees": 400,
+        "top1": 0.8023551142923112,
+        "turn_set": 0.9344262295081968
+      },
+      {
+        "trees": 600,
+        "top1": 0.8113599630570307,
+        "turn_set": 0.9365042715308243
+      },
+      {
+        "trees": 800,
+        "top1": 0.813668898637728,
+        "turn_set": 0.9365042715308243
+      },
+      {
+        "trees": 1000,
+        "top1": 0.8205957053798199,
+        "turn_set": 0.9371969522050335
+      },
+      {
+        "trees": 1200,
+        "top1": 0.8229046409605172,
+        "turn_set": 0.9395058877857307
+      },
+      {
+        "trees": 1400,
+        "top1": 0.824751789425075,
+        "turn_set": 0.9404294620180097
+      },
+      {
+        "trees": 1600,
+        "top1": 0.827291618563842,
+        "turn_set": 0.9411221426922188
+      },
+      {
+        "trees": 1800,
+        "top1": 0.8275225121219117,
+        "turn_set": 0.9404294620180097
+      },
+      {
+        "trees": 2000,
+        "top1": 0.8277534056799816,
+        "turn_set": 0.9408912491341491
+      },
+      {
+        "trees": 2200,
+        "top1": 0.8284460863541907,
+        "turn_set": 0.9411221426922188
+      }
+    ],
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "top1": 0.8284460863541907,
+        "turn_set": 0.9411221426922188,
+        "ordering_error_rate": 0.11267605633802817,
+        "divergence_rate": 0.05887785730778111,
+        "top3": 0.9833756638189795,
+        "mean_candidates": 9.407758023551143
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 953,
+          "top1": 0.7009443861490031,
+          "turn_set": 0.9013641133263379,
+          "ordering_error_rate": 0.20041972717733472,
+          "divergence_rate": 0.09863588667366212,
+          "top3": 0.968520461699895,
+          "mean_candidates": 8.353620146904513
+        },
+        "attack": {
+          "count": 515,
+          "top1": 0.8699029126213592,
+          "turn_set": 0.8932038834951457,
+          "ordering_error_rate": 0.02330097087378641,
+          "divergence_rate": 0.10679611650485436,
+          "top3": 0.9922330097087378,
+          "mean_candidates": 7.353398058252427
+        },
+        "energy": {
+          "count": 454,
+          "top1": 0.7863436123348018,
+          "turn_set": 0.9162995594713657,
+          "ordering_error_rate": 0.1299559471365639,
+          "divergence_rate": 0.08370044052863436,
+          "top3": 0.9779735682819384,
+          "mean_candidates": 11.176211453744493
+        },
+        "xerosic": {
+          "count": 63,
+          "top1": 0.6984126984126984,
+          "turn_set": 0.7619047619047619,
+          "ordering_error_rate": 0.06349206349206349,
+          "divergence_rate": 0.23809523809523808,
+          "top3": 0.9365079365079365,
+          "mean_candidates": 9.317460317460318
+        },
+        "boss": {
+          "count": 114,
+          "top1": 0.6140350877192983,
+          "turn_set": 0.8771929824561403,
+          "ordering_error_rate": 0.2631578947368421,
+          "divergence_rate": 0.12280701754385964,
+          "top3": 0.9385964912280702,
+          "mean_candidates": 10.807017543859649
+        },
+        "bench": {
+          "count": 558,
+          "top1": 0.8637992831541219,
+          "turn_set": 0.9767025089605734,
+          "ordering_error_rate": 0.11290322580645161,
+          "divergence_rate": 0.023297491039426525,
+          "top3": 0.982078853046595,
+          "mean_candidates": 9.442652329749103
+        },
+        "evolve": {
+          "count": 904,
+          "top1": 0.9280973451327433,
+          "turn_set": 0.9900442477876106,
+          "ordering_error_rate": 0.061946902654867256,
+          "divergence_rate": 0.00995575221238938,
+          "top3": 0.9977876106194691,
+          "mean_candidates": 10.731194690265486
+        },
+        "ability": {
+          "count": 620,
+          "top1": 0.8790322580645161,
+          "turn_set": 0.9854838709677419,
+          "ordering_error_rate": 0.1064516129032258,
+          "divergence_rate": 0.014516129032258065,
+          "top3": 0.9919354838709677,
+          "mean_candidates": 9.798387096774194
+        },
+        "end": {
+          "count": 61,
+          "top1": 0.9180327868852459,
+          "turn_set": 0.9180327868852459,
+          "ordering_error_rate": 0.0,
+          "divergence_rate": 0.08196721311475409,
+          "top3": 1.0,
+          "mean_candidates": 2.377049180327869
+        },
+        "retreat": {
+          "count": 40,
+          "top1": 0.9,
+          "turn_set": 0.925,
+          "ordering_error_rate": 0.025,
+          "divergence_rate": 0.075,
+          "top3": 1.0,
+          "mean_candidates": 6.1
+        },
+        "hammer": {
+          "count": 49,
+          "top1": 0.8775510204081632,
+          "turn_set": 1.0,
+          "ordering_error_rate": 0.12244897959183673,
+          "divergence_rate": 0.0,
+          "top3": 1.0,
+          "mean_candidates": 13.673469387755102
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 3588,
+        "1": 538,
+        "2": 133,
+        "3": 54,
+        "4": 10,
+        "5": 2,
+        "6": 5,
+        "7": 1
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "top1": 0.8310113260499148,
+        "turn_set": 0.9474792021649795,
+        "ordering_error_rate": 0.11646787611506465,
+        "divergence_rate": 0.05252079783502055,
+        "top3": 0.9835621930440012,
+        "mean_candidates": 9.066553072065751
+      },
+      "by_teacher_action": {
+        "trainer": {
+          "count": 1843,
+          "top1": 0.7091698317959848,
+          "turn_set": 0.9023331524688009,
+          "ordering_error_rate": 0.19316332067281605,
+          "divergence_rate": 0.09766684753119913,
+          "top3": 0.9593054801953337,
+          "mean_candidates": 8.493217580032555
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.8594594594594595,
+          "turn_set": 0.8713513513513513,
+          "ordering_error_rate": 0.011891891891891892,
+          "divergence_rate": 0.12864864864864864,
+          "top3": 0.985945945945946,
+          "mean_candidates": 6.915675675675676
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7860411899313501,
+          "turn_set": 0.9267734553775744,
+          "ordering_error_rate": 0.14073226544622425,
+          "divergence_rate": 0.07322654462242563,
+          "top3": 0.9805491990846682,
+          "mean_candidates": 11.392448512585812
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8910171730515192,
+          "turn_set": 0.9821664464993395,
+          "ordering_error_rate": 0.09114927344782034,
+          "divergence_rate": 0.0178335535006605,
+          "top3": 0.9933949801849405,
+          "mean_candidates": 8.737120211360635
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.6296296296296297,
+          "turn_set": 0.8,
+          "ordering_error_rate": 0.17037037037037037,
+          "divergence_rate": 0.2,
+          "top3": 0.9481481481481482,
+          "mean_candidates": 9.548148148148147
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.5103092783505154,
+          "turn_set": 0.8711340206185567,
+          "ordering_error_rate": 0.36082474226804123,
+          "divergence_rate": 0.12886597938144329,
+          "top3": 0.9432989690721649,
+          "mean_candidates": 11.525773195876289
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9299065420560748,
+          "turn_set": 0.9439252336448598,
+          "ordering_error_rate": 0.014018691588785047,
+          "divergence_rate": 0.056074766355140186,
+          "top3": 0.9929906542056075,
+          "mean_candidates": 4.623831775700935
+        },
+        "ability": {
+          "count": 1587,
+          "top1": 0.8015122873345936,
+          "turn_set": 0.9867674858223062,
+          "ordering_error_rate": 0.18525519848771266,
+          "divergence_rate": 0.013232514177693762,
+          "top3": 0.9892879647132955,
+          "mean_candidates": 9.282923755513547
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.9395796847635727,
+          "turn_set": 0.9912434325744308,
+          "ordering_error_rate": 0.05166374781085814,
+          "divergence_rate": 0.008756567425569177,
+          "top3": 0.9973730297723292,
+          "mean_candidates": 10.103765323992995
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6571428571428571,
+          "turn_set": 0.7857142857142857,
+          "ordering_error_rate": 0.12857142857142856,
+          "divergence_rate": 0.21428571428571427,
+          "top3": 0.9714285714285714,
+          "mean_candidates": 5.942857142857143
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8699186991869918,
+          "turn_set": 0.983739837398374,
+          "ordering_error_rate": 0.11382113821138211,
+          "divergence_rate": 0.016260162601626018,
+          "top3": 0.975609756097561,
+          "mean_candidates": 12.138211382113822
+        }
+      },
+      "teacher_rank_histogram": {
+        "0": 8291,
+        "1": 1209,
+        "2": 313,
+        "3": 102,
+        "4": 43,
+        "5": 13,
+        "6": 4,
+        "7": 1,
+        "8": 1
+      }
+    }
+  }
+}

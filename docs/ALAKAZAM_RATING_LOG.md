@@ -100,3 +100,23 @@ opponent-conditioned win rate, and frozen-holdout Top-1 (79.51% versus v32's
 opponents (900+: v33 40% vs v31 30%). That agreement, not any single number, is
 what justifies the promotion. The pooled 800+ intervals still overlap
 (v33 38.3%-63.4%, v31 31.2%-55.9%), so a second v33 run is the way to confirm.
+
+### The Top-1 Column Above Is The Ranker's, Not The Agent's
+
+Added 2026-08-02. Every Top-1 figure recorded for v31 through v34 scores the
+imitation ranker in isolation. The agent does not play the ranker's pick on
+16.3% of scoped decisions: the v31 safety shell replaces it with the v29
+baseline. Scored on the action actually returned, the v34 holdout reads 77.85%
+rather than 83.01%, and all six guards are net negative against the teacher
+(`scripts/experiment_alakazam_v35_shell_audit.py`).
+
+That is the most likely reason v34's +5.79 offline gain did not separate from
+v33 on the ladder, and v35 is the version that tests it: it narrows the two
+worst guards and changes nothing else. From here on, quote the *played*
+agreement when comparing versions.
+
+One consequence for the behaviour diagnosis: v34's shell forced attacks so
+often that the agent swung 1.6x as much as the teacher on identical boards
+(1,481 versus 925 over 9,977 decisions) and played Boss's Orders 2.3x as much.
+Powerful Hand count per game is therefore inflated by the guard, and v35 will
+read *lower* on it by design. Do not treat that drop as a regression.

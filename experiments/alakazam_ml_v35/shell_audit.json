@@ -1,0 +1,1580 @@
+{
+  "v34": {
+    "config": {
+      "lethal": "always",
+      "boss": "always",
+      "ko": true,
+      "note": "deployed v31-v34 shell"
+    },
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "model_top1": 0.8312168090510275,
+        "played_top1": 0.7672592934657123,
+        "played_turn_set": 0.9429692911567767,
+        "baseline_top1": 0.655506811359963,
+        "blocked_rate": 0.19672131147540983,
+        "regret": 319,
+        "save": 42,
+        "net": -277
+      },
+      "by_guard": {
+        "lethal_guard": {
+          "count": 699,
+          "model_would_have_matched": 0.7997138769670958,
+          "played_matched": 0.530758226037196,
+          "no_op_share": 0.592274678111588,
+          "net_decisions": -188
+        },
+        "preserve_fallback_boss_route": {
+          "count": 120,
+          "model_would_have_matched": 0.7416666666666667,
+          "played_matched": 0.14166666666666666,
+          "no_op_share": 0.0,
+          "net_decisions": -72
+        },
+        "breaks_current_ko": {
+          "count": 25,
+          "model_would_have_matched": 0.84,
+          "played_matched": 0.32,
+          "no_op_share": 0.36,
+          "net_decisions": -13
+        },
+        "dudunsparce_body_floor": {
+          "count": 8,
+          "model_would_have_matched": 0.875,
+          "played_matched": 0.375,
+          "no_op_share": 0.375,
+          "net_decisions": -4
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "model_top1": 0.8838709677419355,
+          "played_top1": 0.8225806451612904,
+          "played_turn_set": 0.9741935483870968,
+          "baseline_top1": 0.7564516129032258,
+          "blocked_rate": 0.09193548387096774,
+          "regret": 38,
+          "save": 0,
+          "net": -38
+        },
+        "attack": {
+          "count": 515,
+          "model_top1": 0.8776699029126214,
+          "played_top1": 0.9184466019417475,
+          "played_turn_set": 0.9300970873786408,
+          "baseline_top1": 0.8524271844660194,
+          "blocked_rate": 0.7262135922330097,
+          "regret": 3,
+          "save": 24,
+          "net": 21
+        },
+        "bench": {
+          "count": 558,
+          "model_top1": 0.8691756272401434,
+          "played_top1": 0.7956989247311828,
+          "played_turn_set": 0.9767025089605734,
+          "baseline_top1": 0.6863799283154122,
+          "blocked_rate": 0.10931899641577061,
+          "regret": 41,
+          "save": 0,
+          "net": -41
+        },
+        "boss": {
+          "count": 114,
+          "model_top1": 0.6052631578947368,
+          "played_top1": 0.7368421052631579,
+          "played_turn_set": 0.9210526315789473,
+          "baseline_top1": 0.5263157894736842,
+          "blocked_rate": 0.21929824561403508,
+          "regret": 2,
+          "save": 17,
+          "net": 15
+        },
+        "end": {
+          "count": 61,
+          "model_top1": 0.9672131147540983,
+          "played_top1": 0.9672131147540983,
+          "played_turn_set": 0.9672131147540983,
+          "baseline_top1": 0.7213114754098361,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "energy": {
+          "count": 454,
+          "model_top1": 0.7841409691629956,
+          "played_top1": 0.7202643171806168,
+          "played_turn_set": 0.9162995594713657,
+          "baseline_top1": 0.5638766519823789,
+          "blocked_rate": 0.0947136563876652,
+          "regret": 29,
+          "save": 0,
+          "net": -29
+        },
+        "evolve": {
+          "count": 904,
+          "model_top1": 0.9269911504424779,
+          "played_top1": 0.8252212389380531,
+          "played_turn_set": 0.9789823008849557,
+          "baseline_top1": 0.7400442477876106,
+          "blocked_rate": 0.11061946902654868,
+          "regret": 92,
+          "save": 0,
+          "net": -92
+        },
+        "hammer": {
+          "count": 49,
+          "model_top1": 0.8775510204081632,
+          "played_top1": 0.8163265306122449,
+          "played_turn_set": 0.9795918367346939,
+          "baseline_top1": 0.7755102040816326,
+          "blocked_rate": 0.061224489795918366,
+          "regret": 3,
+          "save": 0,
+          "net": -3
+        },
+        "retreat": {
+          "count": 40,
+          "model_top1": 0.85,
+          "played_top1": 0.85,
+          "played_turn_set": 0.9,
+          "baseline_top1": 0.575,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 953,
+          "model_top1": 0.7040923399790137,
+          "played_top1": 0.6075550891920252,
+          "played_turn_set": 0.8961175236096537,
+          "baseline_top1": 0.459601259181532,
+          "blocked_rate": 0.17628541448058763,
+          "regret": 93,
+          "save": 1,
+          "net": -92
+        },
+        "xerosic": {
+          "count": 63,
+          "model_top1": 0.7142857142857143,
+          "played_top1": 0.42857142857142855,
+          "played_turn_set": 0.8412698412698413,
+          "baseline_top1": 0.31746031746031744,
+          "blocked_rate": 0.3333333333333333,
+          "regret": 18,
+          "save": 0,
+          "net": -18
+        }
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "model_top1": 0.8301092512779392,
+        "played_top1": 0.7784905282148943,
+        "played_turn_set": 0.9445725167886138,
+        "baseline_top1": 0.6529016738498546,
+        "blocked_rate": 0.1627743810764759,
+        "regret": 607,
+        "save": 92,
+        "net": -515
+      },
+      "by_guard": {
+        "lethal_guard": {
+          "count": 1230,
+          "model_would_have_matched": 0.7869918699186992,
+          "played_matched": 0.5227642276422764,
+          "no_op_share": 0.5886178861788618,
+          "net_decisions": -325
+        },
+        "preserve_fallback_boss_route": {
+          "count": 326,
+          "model_would_have_matched": 0.647239263803681,
+          "played_matched": 0.13190184049079753,
+          "no_op_share": 0.0,
+          "net_decisions": -168
+        },
+        "breaks_current_ko": {
+          "count": 52,
+          "model_would_have_matched": 0.7884615384615384,
+          "played_matched": 0.40384615384615385,
+          "no_op_share": 0.34615384615384615,
+          "net_decisions": -20
+        },
+        "dudunsparce_body_floor": {
+          "count": 16,
+          "model_would_have_matched": 0.5,
+          "played_matched": 0.375,
+          "no_op_share": 0.1875,
+          "net_decisions": -2
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "model_top1": 0.8008821676118463,
+          "played_top1": 0.7649653434152489,
+          "played_turn_set": 0.9747952110901071,
+          "baseline_top1": 0.70825456836799,
+          "blocked_rate": 0.056080655324511654,
+          "regret": 57,
+          "save": 0,
+          "net": -57
+        },
+        "attack": {
+          "count": 925,
+          "model_top1": 0.8691891891891892,
+          "played_top1": 0.9048648648648648,
+          "played_turn_set": 0.9135135135135135,
+          "baseline_top1": 0.8648648648648649,
+          "blocked_rate": 0.7124324324324325,
+          "regret": 7,
+          "save": 40,
+          "net": 33
+        },
+        "bench": {
+          "count": 1514,
+          "model_top1": 0.8903566710700133,
+          "played_top1": 0.8368560105680317,
+          "played_turn_set": 0.9742404227212682,
+          "baseline_top1": 0.7569352708058125,
+          "blocked_rate": 0.08256274768824307,
+          "regret": 82,
+          "save": 1,
+          "net": -81
+        },
+        "boss": {
+          "count": 194,
+          "model_top1": 0.4793814432989691,
+          "played_top1": 0.7010309278350515,
+          "played_turn_set": 0.9278350515463918,
+          "baseline_top1": 0.5721649484536082,
+          "blocked_rate": 0.26288659793814434,
+          "regret": 3,
+          "save": 46,
+          "net": 43
+        },
+        "end": {
+          "count": 428,
+          "model_top1": 0.9415887850467289,
+          "played_top1": 0.9462616822429907,
+          "played_turn_set": 0.9579439252336449,
+          "baseline_top1": 0.8271028037383178,
+          "blocked_rate": 0.009345794392523364,
+          "regret": 1,
+          "save": 3,
+          "net": 2
+        },
+        "energy": {
+          "count": 874,
+          "model_top1": 0.7734553775743707,
+          "played_top1": 0.7219679633867276,
+          "played_turn_set": 0.9256292906178489,
+          "baseline_top1": 0.5503432494279176,
+          "blocked_rate": 0.09725400457665904,
+          "regret": 45,
+          "save": 0,
+          "net": -45
+        },
+        "evolve": {
+          "count": 2284,
+          "model_top1": 0.9426444833625219,
+          "played_top1": 0.8607705779334501,
+          "played_turn_set": 0.9711033274956217,
+          "baseline_top1": 0.6650612959719789,
+          "blocked_rate": 0.09413309982486866,
+          "regret": 187,
+          "save": 0,
+          "net": -187
+        },
+        "hammer": {
+          "count": 123,
+          "model_top1": 0.8455284552845529,
+          "played_top1": 0.7804878048780488,
+          "played_turn_set": 0.9349593495934959,
+          "baseline_top1": 0.7560975609756098,
+          "blocked_rate": 0.10569105691056911,
+          "regret": 8,
+          "save": 0,
+          "net": -8
+        },
+        "retreat": {
+          "count": 70,
+          "model_top1": 0.6571428571428571,
+          "played_top1": 0.6571428571428571,
+          "played_turn_set": 0.7857142857142857,
+          "baseline_top1": 0.4857142857142857,
+          "blocked_rate": 0.014285714285714285,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 1843,
+          "model_top1": 0.7048290830168205,
+          "played_top1": 0.6044492674986435,
+          "played_turn_set": 0.8979924036896365,
+          "baseline_top1": 0.4389582202930005,
+          "blocked_rate": 0.1806836679327184,
+          "regret": 187,
+          "save": 2,
+          "net": -185
+        },
+        "xerosic": {
+          "count": 135,
+          "model_top1": 0.6296296296296297,
+          "played_top1": 0.4074074074074074,
+          "played_turn_set": 0.8518518518518519,
+          "baseline_top1": 0.31851851851851853,
+          "blocked_rate": 0.362962962962963,
+          "regret": 30,
+          "save": 0,
+          "net": -30
+        }
+      }
+    }
+  },
+  "lethal_end_or_weak_boss_end_only": {
+    "config": {
+      "lethal": "end_or_weak",
+      "boss": "end_only",
+      "ko": true
+    },
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "model_top1": 0.8312168090510275,
+        "played_top1": 0.8192103440314015,
+        "played_turn_set": 0.942738397598707,
+        "baseline_top1": 0.655506811359963,
+        "blocked_rate": 0.023551142923112445,
+        "regret": 60,
+        "save": 8,
+        "net": -52
+      },
+      "by_guard": {
+        "breaks_current_ko": {
+          "count": 94,
+          "model_would_have_matched": 0.6702127659574468,
+          "played_matched": 0.1595744680851064,
+          "no_op_share": 0.09574468085106383,
+          "net_decisions": -48
+        },
+        "dudunsparce_body_floor": {
+          "count": 8,
+          "model_would_have_matched": 0.875,
+          "played_matched": 0.375,
+          "no_op_share": 0.375,
+          "net_decisions": -4
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "model_top1": 0.8838709677419355,
+          "played_top1": 0.8774193548387097,
+          "played_turn_set": 0.9790322580645161,
+          "baseline_top1": 0.7564516129032258,
+          "blocked_rate": 0.017741935483870968,
+          "regret": 4,
+          "save": 0,
+          "net": -4
+        },
+        "attack": {
+          "count": 515,
+          "model_top1": 0.8776699029126214,
+          "played_top1": 0.8912621359223301,
+          "played_turn_set": 0.9106796116504854,
+          "baseline_top1": 0.8524271844660194,
+          "blocked_rate": 0.013592233009708738,
+          "regret": 0,
+          "save": 7,
+          "net": 7
+        },
+        "bench": {
+          "count": 558,
+          "model_top1": 0.8691756272401434,
+          "played_top1": 0.8494623655913979,
+          "played_turn_set": 0.9767025089605734,
+          "baseline_top1": 0.6863799283154122,
+          "blocked_rate": 0.03942652329749104,
+          "regret": 11,
+          "save": 0,
+          "net": -11
+        },
+        "boss": {
+          "count": 114,
+          "model_top1": 0.6052631578947368,
+          "played_top1": 0.5964912280701754,
+          "played_turn_set": 0.868421052631579,
+          "baseline_top1": 0.5263157894736842,
+          "blocked_rate": 0.017543859649122806,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        },
+        "end": {
+          "count": 61,
+          "model_top1": 0.9672131147540983,
+          "played_top1": 0.9672131147540983,
+          "played_turn_set": 0.9672131147540983,
+          "baseline_top1": 0.7213114754098361,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "energy": {
+          "count": 454,
+          "model_top1": 0.7841409691629956,
+          "played_top1": 0.775330396475771,
+          "played_turn_set": 0.9185022026431718,
+          "baseline_top1": 0.5638766519823789,
+          "blocked_rate": 0.01762114537444934,
+          "regret": 4,
+          "save": 0,
+          "net": -4
+        },
+        "evolve": {
+          "count": 904,
+          "model_top1": 0.9269911504424779,
+          "played_top1": 0.9015486725663717,
+          "played_turn_set": 0.9823008849557522,
+          "baseline_top1": 0.7400442477876106,
+          "blocked_rate": 0.025442477876106196,
+          "regret": 23,
+          "save": 0,
+          "net": -23
+        },
+        "hammer": {
+          "count": 49,
+          "model_top1": 0.8775510204081632,
+          "played_top1": 0.8571428571428571,
+          "played_turn_set": 1.0,
+          "baseline_top1": 0.7755102040816326,
+          "blocked_rate": 0.02040816326530612,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        },
+        "retreat": {
+          "count": 40,
+          "model_top1": 0.85,
+          "played_top1": 0.85,
+          "played_turn_set": 0.9,
+          "baseline_top1": 0.575,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 953,
+          "model_top1": 0.7040923399790137,
+          "played_top1": 0.689401888772298,
+          "played_turn_set": 0.9034627492130115,
+          "baseline_top1": 0.459601259181532,
+          "blocked_rate": 0.02833158447009444,
+          "regret": 15,
+          "save": 1,
+          "net": -14
+        },
+        "xerosic": {
+          "count": 63,
+          "model_top1": 0.7142857142857143,
+          "played_top1": 0.6984126984126984,
+          "played_turn_set": 0.8412698412698413,
+          "baseline_top1": 0.31746031746031744,
+          "blocked_rate": 0.015873015873015872,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        }
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "model_top1": 0.8301092512779392,
+        "played_top1": 0.8213891951488423,
+        "played_turn_set": 0.9521900370852961,
+        "baseline_top1": 0.6529016738498546,
+        "blocked_rate": 0.01774080384885236,
+        "regret": 106,
+        "save": 19,
+        "net": -87
+      },
+      "by_guard": {
+        "breaks_current_ko": {
+          "count": 159,
+          "model_would_have_matched": 0.7169811320754716,
+          "played_matched": 0.1949685534591195,
+          "no_op_share": 0.11320754716981132,
+          "net_decisions": -83
+        },
+        "dudunsparce_body_floor": {
+          "count": 17,
+          "model_would_have_matched": 0.5294117647058824,
+          "played_matched": 0.35294117647058826,
+          "no_op_share": 0.17647058823529413,
+          "net_decisions": -3
+        },
+        "preserve_fallback_boss_route": {
+          "count": 1,
+          "model_would_have_matched": 1.0,
+          "played_matched": 0.0,
+          "no_op_share": 0.0,
+          "net_decisions": -1
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "model_top1": 0.8008821676118463,
+          "played_top1": 0.7958412098298677,
+          "played_turn_set": 0.9836168872085697,
+          "baseline_top1": 0.70825456836799,
+          "blocked_rate": 0.006931316950220542,
+          "regret": 8,
+          "save": 0,
+          "net": -8
+        },
+        "attack": {
+          "count": 925,
+          "model_top1": 0.8691891891891892,
+          "played_top1": 0.88,
+          "played_turn_set": 0.8918918918918919,
+          "baseline_top1": 0.8648648648648649,
+          "blocked_rate": 0.010810810810810811,
+          "regret": 0,
+          "save": 10,
+          "net": 10
+        },
+        "bench": {
+          "count": 1514,
+          "model_top1": 0.8903566710700133,
+          "played_top1": 0.8751651254953765,
+          "played_turn_set": 0.9841479524438573,
+          "baseline_top1": 0.7569352708058125,
+          "blocked_rate": 0.022457067371202115,
+          "regret": 24,
+          "save": 1,
+          "net": -23
+        },
+        "boss": {
+          "count": 194,
+          "model_top1": 0.4793814432989691,
+          "played_top1": 0.4896907216494845,
+          "played_turn_set": 0.865979381443299,
+          "baseline_top1": 0.5721649484536082,
+          "blocked_rate": 0.020618556701030927,
+          "regret": 1,
+          "save": 3,
+          "net": 2
+        },
+        "end": {
+          "count": 428,
+          "model_top1": 0.9415887850467289,
+          "played_top1": 0.9462616822429907,
+          "played_turn_set": 0.9579439252336449,
+          "baseline_top1": 0.8271028037383178,
+          "blocked_rate": 0.009345794392523364,
+          "regret": 1,
+          "save": 3,
+          "net": 2
+        },
+        "energy": {
+          "count": 874,
+          "model_top1": 0.7734553775743707,
+          "played_top1": 0.7631578947368421,
+          "played_turn_set": 0.9267734553775744,
+          "baseline_top1": 0.5503432494279176,
+          "blocked_rate": 0.02288329519450801,
+          "regret": 9,
+          "save": 0,
+          "net": -9
+        },
+        "evolve": {
+          "count": 2284,
+          "model_top1": 0.9426444833625219,
+          "played_top1": 0.9286339754816112,
+          "played_turn_set": 0.9912434325744308,
+          "baseline_top1": 0.6650612959719789,
+          "blocked_rate": 0.01576182136602452,
+          "regret": 32,
+          "save": 0,
+          "net": -32
+        },
+        "hammer": {
+          "count": 123,
+          "model_top1": 0.8455284552845529,
+          "played_top1": 0.8373983739837398,
+          "played_turn_set": 0.975609756097561,
+          "baseline_top1": 0.7560975609756098,
+          "blocked_rate": 0.016260162601626018,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        },
+        "retreat": {
+          "count": 70,
+          "model_top1": 0.6571428571428571,
+          "played_top1": 0.6571428571428571,
+          "played_turn_set": 0.7857142857142857,
+          "baseline_top1": 0.4857142857142857,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 1843,
+          "model_top1": 0.7048290830168205,
+          "played_top1": 0.6907216494845361,
+          "played_turn_set": 0.9120998372219208,
+          "baseline_top1": 0.4389582202930005,
+          "blocked_rate": 0.027672273467173086,
+          "regret": 28,
+          "save": 2,
+          "net": -26
+        },
+        "xerosic": {
+          "count": 135,
+          "model_top1": 0.6296296296296297,
+          "played_top1": 0.6148148148148148,
+          "played_turn_set": 0.8592592592592593,
+          "baseline_top1": 0.31851851851851853,
+          "blocked_rate": 0.037037037037037035,
+          "regret": 2,
+          "save": 0,
+          "net": -2
+        }
+      }
+    }
+  },
+  "ko_reachable_only": {
+    "config": {
+      "lethal": "end_or_weak",
+      "boss": "end_only",
+      "ko": "reachable"
+    },
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "model_top1": 0.8312168090510275,
+        "played_top1": 0.819672131147541,
+        "played_turn_set": 0.9429692911567767,
+        "baseline_top1": 0.655506811359963,
+        "blocked_rate": 0.021242207342415147,
+        "regret": 57,
+        "save": 7,
+        "net": -50
+      },
+      "by_guard": {
+        "breaks_current_ko": {
+          "count": 84,
+          "model_would_have_matched": 0.6666666666666666,
+          "played_matched": 0.11904761904761904,
+          "no_op_share": 0.03571428571428571,
+          "net_decisions": -46
+        },
+        "dudunsparce_body_floor": {
+          "count": 8,
+          "model_would_have_matched": 0.875,
+          "played_matched": 0.375,
+          "no_op_share": 0.375,
+          "net_decisions": -4
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "model_top1": 0.8838709677419355,
+          "played_top1": 0.8774193548387097,
+          "played_turn_set": 0.9790322580645161,
+          "baseline_top1": 0.7564516129032258,
+          "blocked_rate": 0.016129032258064516,
+          "regret": 4,
+          "save": 0,
+          "net": -4
+        },
+        "attack": {
+          "count": 515,
+          "model_top1": 0.8776699029126214,
+          "played_top1": 0.8912621359223301,
+          "played_turn_set": 0.9106796116504854,
+          "baseline_top1": 0.8524271844660194,
+          "blocked_rate": 0.013592233009708738,
+          "regret": 0,
+          "save": 7,
+          "net": 7
+        },
+        "bench": {
+          "count": 558,
+          "model_top1": 0.8691756272401434,
+          "played_top1": 0.8512544802867383,
+          "played_turn_set": 0.9767025089605734,
+          "baseline_top1": 0.6863799283154122,
+          "blocked_rate": 0.035842293906810034,
+          "regret": 10,
+          "save": 0,
+          "net": -10
+        },
+        "boss": {
+          "count": 114,
+          "model_top1": 0.6052631578947368,
+          "played_top1": 0.5964912280701754,
+          "played_turn_set": 0.868421052631579,
+          "baseline_top1": 0.5263157894736842,
+          "blocked_rate": 0.017543859649122806,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        },
+        "end": {
+          "count": 61,
+          "model_top1": 0.9672131147540983,
+          "played_top1": 0.9672131147540983,
+          "played_turn_set": 0.9672131147540983,
+          "baseline_top1": 0.7213114754098361,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "energy": {
+          "count": 454,
+          "model_top1": 0.7841409691629956,
+          "played_top1": 0.775330396475771,
+          "played_turn_set": 0.9185022026431718,
+          "baseline_top1": 0.5638766519823789,
+          "blocked_rate": 0.00881057268722467,
+          "regret": 4,
+          "save": 0,
+          "net": -4
+        },
+        "evolve": {
+          "count": 904,
+          "model_top1": 0.9269911504424779,
+          "played_top1": 0.9015486725663717,
+          "played_turn_set": 0.9823008849557522,
+          "baseline_top1": 0.7400442477876106,
+          "blocked_rate": 0.025442477876106196,
+          "regret": 23,
+          "save": 0,
+          "net": -23
+        },
+        "hammer": {
+          "count": 49,
+          "model_top1": 0.8775510204081632,
+          "played_top1": 0.8571428571428571,
+          "played_turn_set": 1.0,
+          "baseline_top1": 0.7755102040816326,
+          "blocked_rate": 0.02040816326530612,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        },
+        "retreat": {
+          "count": 40,
+          "model_top1": 0.85,
+          "played_top1": 0.85,
+          "played_turn_set": 0.9,
+          "baseline_top1": 0.575,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 953,
+          "model_top1": 0.7040923399790137,
+          "played_top1": 0.6904512067156349,
+          "played_turn_set": 0.9045120671563484,
+          "baseline_top1": 0.459601259181532,
+          "blocked_rate": 0.025183630640083946,
+          "regret": 13,
+          "save": 0,
+          "net": -13
+        },
+        "xerosic": {
+          "count": 63,
+          "model_top1": 0.7142857142857143,
+          "played_top1": 0.6984126984126984,
+          "played_turn_set": 0.8412698412698413,
+          "baseline_top1": 0.31746031746031744,
+          "blocked_rate": 0.015873015873015872,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        }
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "model_top1": 0.8301092512779392,
+        "played_top1": 0.8227924225719154,
+        "played_turn_set": 0.9528916507968327,
+        "baseline_top1": 0.6529016738498546,
+        "blocked_rate": 0.01463365741204771,
+        "regret": 92,
+        "save": 19,
+        "net": -73
+      },
+      "by_guard": {
+        "breaks_current_ko": {
+          "count": 128,
+          "model_would_have_matched": 0.6875,
+          "played_matched": 0.1484375,
+          "no_op_share": 0.0390625,
+          "net_decisions": -69
+        },
+        "dudunsparce_body_floor": {
+          "count": 17,
+          "model_would_have_matched": 0.5294117647058824,
+          "played_matched": 0.35294117647058826,
+          "no_op_share": 0.17647058823529413,
+          "net_decisions": -3
+        },
+        "preserve_fallback_boss_route": {
+          "count": 1,
+          "model_would_have_matched": 1.0,
+          "played_matched": 0.0,
+          "no_op_share": 0.0,
+          "net_decisions": -1
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "model_top1": 0.8008821676118463,
+          "played_top1": 0.7958412098298677,
+          "played_turn_set": 0.984247006931317,
+          "baseline_top1": 0.70825456836799,
+          "blocked_rate": 0.00630119722747322,
+          "regret": 8,
+          "save": 0,
+          "net": -8
+        },
+        "attack": {
+          "count": 925,
+          "model_top1": 0.8691891891891892,
+          "played_top1": 0.88,
+          "played_turn_set": 0.8918918918918919,
+          "baseline_top1": 0.8648648648648649,
+          "blocked_rate": 0.010810810810810811,
+          "regret": 0,
+          "save": 10,
+          "net": 10
+        },
+        "bench": {
+          "count": 1514,
+          "model_top1": 0.8903566710700133,
+          "played_top1": 0.8758256274768824,
+          "played_turn_set": 0.9841479524438573,
+          "baseline_top1": 0.7569352708058125,
+          "blocked_rate": 0.01915455746367239,
+          "regret": 23,
+          "save": 1,
+          "net": -22
+        },
+        "boss": {
+          "count": 194,
+          "model_top1": 0.4793814432989691,
+          "played_top1": 0.4896907216494845,
+          "played_turn_set": 0.865979381443299,
+          "baseline_top1": 0.5721649484536082,
+          "blocked_rate": 0.020618556701030927,
+          "regret": 1,
+          "save": 3,
+          "net": 2
+        },
+        "end": {
+          "count": 428,
+          "model_top1": 0.9415887850467289,
+          "played_top1": 0.9462616822429907,
+          "played_turn_set": 0.9579439252336449,
+          "baseline_top1": 0.8271028037383178,
+          "blocked_rate": 0.009345794392523364,
+          "regret": 1,
+          "save": 3,
+          "net": 2
+        },
+        "energy": {
+          "count": 874,
+          "model_top1": 0.7734553775743707,
+          "played_top1": 0.7700228832951945,
+          "played_turn_set": 0.9324942791762014,
+          "baseline_top1": 0.5503432494279176,
+          "blocked_rate": 0.006864988558352402,
+          "regret": 3,
+          "save": 0,
+          "net": -3
+        },
+        "evolve": {
+          "count": 2284,
+          "model_top1": 0.9426444833625219,
+          "played_top1": 0.9295096322241682,
+          "played_turn_set": 0.9912434325744308,
+          "baseline_top1": 0.6650612959719789,
+          "blocked_rate": 0.014010507880910683,
+          "regret": 30,
+          "save": 0,
+          "net": -30
+        },
+        "hammer": {
+          "count": 123,
+          "model_top1": 0.8455284552845529,
+          "played_top1": 0.8373983739837398,
+          "played_turn_set": 0.975609756097561,
+          "baseline_top1": 0.7560975609756098,
+          "blocked_rate": 0.016260162601626018,
+          "regret": 1,
+          "save": 0,
+          "net": -1
+        },
+        "retreat": {
+          "count": 70,
+          "model_top1": 0.6571428571428571,
+          "played_top1": 0.6571428571428571,
+          "played_turn_set": 0.7857142857142857,
+          "baseline_top1": 0.4857142857142857,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 1843,
+          "model_top1": 0.7048290830168205,
+          "played_top1": 0.6934346174715138,
+          "played_turn_set": 0.9126424308193163,
+          "baseline_top1": 0.4389582202930005,
+          "blocked_rate": 0.02387411828540423,
+          "regret": 23,
+          "save": 2,
+          "net": -21
+        },
+        "xerosic": {
+          "count": 135,
+          "model_top1": 0.6296296296296297,
+          "played_top1": 0.6148148148148148,
+          "played_turn_set": 0.8592592592592593,
+          "baseline_top1": 0.31851851851851853,
+          "blocked_rate": 0.037037037037037035,
+          "regret": 2,
+          "save": 0,
+          "net": -2
+        }
+      }
+    }
+  },
+  "no_ko_guard": {
+    "config": {
+      "lethal": "end_or_weak",
+      "boss": "end_only",
+      "ko": false
+    },
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "model_top1": 0.8312168090510275,
+        "played_top1": 0.8302932348187485,
+        "played_turn_set": 0.942738397598707,
+        "baseline_top1": 0.655506811359963,
+        "blocked_rate": 0.0018471484645578389,
+        "regret": 4,
+        "save": 0,
+        "net": -4
+      },
+      "by_guard": {
+        "dudunsparce_body_floor": {
+          "count": 8,
+          "model_would_have_matched": 0.875,
+          "played_matched": 0.375,
+          "no_op_share": 0.375,
+          "net_decisions": -4
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "model_top1": 0.8838709677419355,
+          "played_top1": 0.8774193548387097,
+          "played_turn_set": 0.9790322580645161,
+          "baseline_top1": 0.7564516129032258,
+          "blocked_rate": 0.01129032258064516,
+          "regret": 4,
+          "save": 0,
+          "net": -4
+        },
+        "attack": {
+          "count": 515,
+          "model_top1": 0.8776699029126214,
+          "played_top1": 0.8776699029126214,
+          "played_turn_set": 0.8990291262135922,
+          "baseline_top1": 0.8524271844660194,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "bench": {
+          "count": 558,
+          "model_top1": 0.8691756272401434,
+          "played_top1": 0.8691756272401434,
+          "played_turn_set": 0.974910394265233,
+          "baseline_top1": 0.6863799283154122,
+          "blocked_rate": 0.0017921146953405018,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "boss": {
+          "count": 114,
+          "model_top1": 0.6052631578947368,
+          "played_top1": 0.6052631578947368,
+          "played_turn_set": 0.8771929824561403,
+          "baseline_top1": 0.5263157894736842,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "end": {
+          "count": 61,
+          "model_top1": 0.9672131147540983,
+          "played_top1": 0.9672131147540983,
+          "played_turn_set": 0.9672131147540983,
+          "baseline_top1": 0.7213114754098361,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "energy": {
+          "count": 454,
+          "model_top1": 0.7841409691629956,
+          "played_top1": 0.7841409691629956,
+          "played_turn_set": 0.9185022026431718,
+          "baseline_top1": 0.5638766519823789,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "evolve": {
+          "count": 904,
+          "model_top1": 0.9269911504424779,
+          "played_top1": 0.9269911504424779,
+          "played_turn_set": 0.9889380530973452,
+          "baseline_top1": 0.7400442477876106,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "hammer": {
+          "count": 49,
+          "model_top1": 0.8775510204081632,
+          "played_top1": 0.8775510204081632,
+          "played_turn_set": 1.0,
+          "baseline_top1": 0.7755102040816326,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "retreat": {
+          "count": 40,
+          "model_top1": 0.85,
+          "played_top1": 0.85,
+          "played_turn_set": 0.9,
+          "baseline_top1": 0.575,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 953,
+          "model_top1": 0.7040923399790137,
+          "played_top1": 0.7040923399790137,
+          "played_turn_set": 0.9034627492130115,
+          "baseline_top1": 0.459601259181532,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "xerosic": {
+          "count": 63,
+          "model_top1": 0.7142857142857143,
+          "played_top1": 0.7142857142857143,
+          "played_turn_set": 0.8412698412698413,
+          "baseline_top1": 0.31746031746031744,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        }
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "model_top1": 0.8301092512779392,
+        "played_top1": 0.8297083291570613,
+        "played_turn_set": 0.9512879623133207,
+        "baseline_top1": 0.6529016738498546,
+        "blocked_rate": 0.0018041495439510874,
+        "regret": 9,
+        "save": 5,
+        "net": -4
+      },
+      "by_guard": {
+        "dudunsparce_body_floor": {
+          "count": 17,
+          "model_would_have_matched": 0.5294117647058824,
+          "played_matched": 0.35294117647058826,
+          "no_op_share": 0.17647058823529413,
+          "net_decisions": -3
+        },
+        "preserve_fallback_boss_route": {
+          "count": 1,
+          "model_would_have_matched": 1.0,
+          "played_matched": 0.0,
+          "no_op_share": 0.0,
+          "net_decisions": -1
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "model_top1": 0.8008821676118463,
+          "played_top1": 0.7958412098298677,
+          "played_turn_set": 0.984247006931317,
+          "baseline_top1": 0.70825456836799,
+          "blocked_rate": 0.00630119722747322,
+          "regret": 8,
+          "save": 0,
+          "net": -8
+        },
+        "attack": {
+          "count": 925,
+          "model_top1": 0.8691891891891892,
+          "played_top1": 0.8691891891891892,
+          "played_turn_set": 0.8832432432432432,
+          "baseline_top1": 0.8648648648648649,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "bench": {
+          "count": 1514,
+          "model_top1": 0.8903566710700133,
+          "played_top1": 0.8910171730515192,
+          "played_turn_set": 0.9841479524438573,
+          "baseline_top1": 0.7569352708058125,
+          "blocked_rate": 0.001321003963011889,
+          "regret": 0,
+          "save": 1,
+          "net": 1
+        },
+        "boss": {
+          "count": 194,
+          "model_top1": 0.4793814432989691,
+          "played_top1": 0.4793814432989691,
+          "played_turn_set": 0.865979381443299,
+          "baseline_top1": 0.5721649484536082,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "end": {
+          "count": 428,
+          "model_top1": 0.9415887850467289,
+          "played_top1": 0.9462616822429907,
+          "played_turn_set": 0.9579439252336449,
+          "baseline_top1": 0.8271028037383178,
+          "blocked_rate": 0.009345794392523364,
+          "regret": 1,
+          "save": 3,
+          "net": 2
+        },
+        "energy": {
+          "count": 874,
+          "model_top1": 0.7734553775743707,
+          "played_top1": 0.7734553775743707,
+          "played_turn_set": 0.9324942791762014,
+          "baseline_top1": 0.5503432494279176,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "evolve": {
+          "count": 2284,
+          "model_top1": 0.9426444833625219,
+          "played_top1": 0.9426444833625219,
+          "played_turn_set": 0.9921190893169878,
+          "baseline_top1": 0.6650612959719789,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "hammer": {
+          "count": 123,
+          "model_top1": 0.8455284552845529,
+          "played_top1": 0.8455284552845529,
+          "played_turn_set": 0.975609756097561,
+          "baseline_top1": 0.7560975609756098,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "retreat": {
+          "count": 70,
+          "model_top1": 0.6571428571428571,
+          "played_top1": 0.6571428571428571,
+          "played_turn_set": 0.7857142857142857,
+          "baseline_top1": 0.4857142857142857,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 1843,
+          "model_top1": 0.7048290830168205,
+          "played_top1": 0.705371676614216,
+          "played_turn_set": 0.9088442756375474,
+          "baseline_top1": 0.4389582202930005,
+          "blocked_rate": 0.0010851871947911015,
+          "regret": 0,
+          "save": 1,
+          "net": 1
+        },
+        "xerosic": {
+          "count": 135,
+          "model_top1": 0.6296296296296297,
+          "played_top1": 0.6296296296296297,
+          "played_turn_set": 0.837037037037037,
+          "baseline_top1": 0.31851851851851853,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        }
+      }
+    }
+  },
+  "unguarded": {
+    "config": {
+      "lethal": "off",
+      "boss": "off",
+      "ko": false,
+      "note": "upper bound: the ranker plays every decision"
+    },
+    "validation": {
+      "overall": {
+        "count": 4331,
+        "model_top1": 0.8312168090510275,
+        "played_top1": 0.8302932348187485,
+        "played_turn_set": 0.942738397598707,
+        "baseline_top1": 0.655506811359963,
+        "blocked_rate": 0.0018471484645578389,
+        "regret": 4,
+        "save": 0,
+        "net": -4
+      },
+      "by_guard": {
+        "dudunsparce_body_floor": {
+          "count": 8,
+          "model_would_have_matched": 0.875,
+          "played_matched": 0.375,
+          "no_op_share": 0.375,
+          "net_decisions": -4
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "model_top1": 0.8838709677419355,
+          "played_top1": 0.8774193548387097,
+          "played_turn_set": 0.9790322580645161,
+          "baseline_top1": 0.7564516129032258,
+          "blocked_rate": 0.01129032258064516,
+          "regret": 4,
+          "save": 0,
+          "net": -4
+        },
+        "attack": {
+          "count": 515,
+          "model_top1": 0.8776699029126214,
+          "played_top1": 0.8776699029126214,
+          "played_turn_set": 0.8990291262135922,
+          "baseline_top1": 0.8524271844660194,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "bench": {
+          "count": 558,
+          "model_top1": 0.8691756272401434,
+          "played_top1": 0.8691756272401434,
+          "played_turn_set": 0.974910394265233,
+          "baseline_top1": 0.6863799283154122,
+          "blocked_rate": 0.0017921146953405018,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "boss": {
+          "count": 114,
+          "model_top1": 0.6052631578947368,
+          "played_top1": 0.6052631578947368,
+          "played_turn_set": 0.8771929824561403,
+          "baseline_top1": 0.5263157894736842,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "end": {
+          "count": 61,
+          "model_top1": 0.9672131147540983,
+          "played_top1": 0.9672131147540983,
+          "played_turn_set": 0.9672131147540983,
+          "baseline_top1": 0.7213114754098361,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "energy": {
+          "count": 454,
+          "model_top1": 0.7841409691629956,
+          "played_top1": 0.7841409691629956,
+          "played_turn_set": 0.9185022026431718,
+          "baseline_top1": 0.5638766519823789,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "evolve": {
+          "count": 904,
+          "model_top1": 0.9269911504424779,
+          "played_top1": 0.9269911504424779,
+          "played_turn_set": 0.9889380530973452,
+          "baseline_top1": 0.7400442477876106,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "hammer": {
+          "count": 49,
+          "model_top1": 0.8775510204081632,
+          "played_top1": 0.8775510204081632,
+          "played_turn_set": 1.0,
+          "baseline_top1": 0.7755102040816326,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "retreat": {
+          "count": 40,
+          "model_top1": 0.85,
+          "played_top1": 0.85,
+          "played_turn_set": 0.9,
+          "baseline_top1": 0.575,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 953,
+          "model_top1": 0.7040923399790137,
+          "played_top1": 0.7040923399790137,
+          "played_turn_set": 0.9034627492130115,
+          "baseline_top1": 0.459601259181532,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "xerosic": {
+          "count": 63,
+          "model_top1": 0.7142857142857143,
+          "played_top1": 0.7142857142857143,
+          "played_turn_set": 0.8412698412698413,
+          "baseline_top1": 0.31746031746031744,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        }
+      }
+    },
+    "test": {
+      "overall": {
+        "count": 9977,
+        "model_top1": 0.8301092512779392,
+        "played_top1": 0.8298085596872807,
+        "played_turn_set": 0.9513881928435401,
+        "baseline_top1": 0.6529016738498546,
+        "blocked_rate": 0.0017039190137315826,
+        "regret": 8,
+        "save": 5,
+        "net": -3
+      },
+      "by_guard": {
+        "dudunsparce_body_floor": {
+          "count": 17,
+          "model_would_have_matched": 0.5294117647058824,
+          "played_matched": 0.35294117647058826,
+          "no_op_share": 0.17647058823529413,
+          "net_decisions": -3
+        }
+      },
+      "by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "model_top1": 0.8008821676118463,
+          "played_top1": 0.7958412098298677,
+          "played_turn_set": 0.984247006931317,
+          "baseline_top1": 0.70825456836799,
+          "blocked_rate": 0.00630119722747322,
+          "regret": 8,
+          "save": 0,
+          "net": -8
+        },
+        "attack": {
+          "count": 925,
+          "model_top1": 0.8691891891891892,
+          "played_top1": 0.8691891891891892,
+          "played_turn_set": 0.8832432432432432,
+          "baseline_top1": 0.8648648648648649,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "bench": {
+          "count": 1514,
+          "model_top1": 0.8903566710700133,
+          "played_top1": 0.8910171730515192,
+          "played_turn_set": 0.9841479524438573,
+          "baseline_top1": 0.7569352708058125,
+          "blocked_rate": 0.001321003963011889,
+          "regret": 0,
+          "save": 1,
+          "net": 1
+        },
+        "boss": {
+          "count": 194,
+          "model_top1": 0.4793814432989691,
+          "played_top1": 0.4793814432989691,
+          "played_turn_set": 0.865979381443299,
+          "baseline_top1": 0.5721649484536082,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "end": {
+          "count": 428,
+          "model_top1": 0.9415887850467289,
+          "played_top1": 0.9485981308411215,
+          "played_turn_set": 0.9602803738317757,
+          "baseline_top1": 0.8271028037383178,
+          "blocked_rate": 0.007009345794392523,
+          "regret": 0,
+          "save": 3,
+          "net": 3
+        },
+        "energy": {
+          "count": 874,
+          "model_top1": 0.7734553775743707,
+          "played_top1": 0.7734553775743707,
+          "played_turn_set": 0.9324942791762014,
+          "baseline_top1": 0.5503432494279176,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "evolve": {
+          "count": 2284,
+          "model_top1": 0.9426444833625219,
+          "played_top1": 0.9426444833625219,
+          "played_turn_set": 0.9921190893169878,
+          "baseline_top1": 0.6650612959719789,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "hammer": {
+          "count": 123,
+          "model_top1": 0.8455284552845529,
+          "played_top1": 0.8455284552845529,
+          "played_turn_set": 0.975609756097561,
+          "baseline_top1": 0.7560975609756098,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "retreat": {
+          "count": 70,
+          "model_top1": 0.6571428571428571,
+          "played_top1": 0.6571428571428571,
+          "played_turn_set": 0.7857142857142857,
+          "baseline_top1": 0.4857142857142857,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        },
+        "trainer": {
+          "count": 1843,
+          "model_top1": 0.7048290830168205,
+          "played_top1": 0.705371676614216,
+          "played_turn_set": 0.9088442756375474,
+          "baseline_top1": 0.4389582202930005,
+          "blocked_rate": 0.0010851871947911015,
+          "regret": 0,
+          "save": 1,
+          "net": 1
+        },
+        "xerosic": {
+          "count": 135,
+          "model_top1": 0.6296296296296297,
+          "played_top1": 0.6296296296296297,
+          "played_turn_set": 0.837037037037037,
+          "baseline_top1": 0.31851851851851853,
+          "blocked_rate": 0.0,
+          "regret": 0,
+          "save": 0,
+          "net": 0
+        }
+      }
+    }
+  }
+}
