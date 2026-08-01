@@ -1,0 +1,379 @@
+{
+  "name": "alakazam_ml_v35",
+  "version": "35.0.0",
+  "role": "challenger",
+  "status": "offline_challenger_not_yet_submitted",
+  "archetype": "alakazam_dudunsparce",
+  "parent_agent": "alakazam_ml_v34",
+  "created_at": "2026-08-02T00:00:00+09:00",
+  "runtime_revision": "v35_narrowed_lethal_and_boss_guards_20260802",
+  "model_version": "v34-yushin-recent-corpus-2050-tree-lambdarank",
+  "model": "Unchanged from v34: the v31 exact-memory shell and a 657-feature large-leaf LambdaRank model of 2,050 trees. v35 changes only the two safety guards that an end-to-end audit showed were discarding the ranker's pick far more often than they were rescuing it.",
+  "model_scope": "The learned policy covers unseen single-choice MAIN decisions. Exact Majkel memory answers previously recorded boards; v29 and the deterministic policy remain the fallbacks for unsupported, unsafe, low-time, or illegal cases.",
+  "confidence_threshold": 0.0,
+  "ranker_model_sha256": "0a19b5cd564fbd4d08224c2efc9f3167a50bbd26ec9fc374aa12add6f5b7a03b",
+  "v29_ranker_model_sha256": "9724331c95ee88abd98b3531af862fa4fea2c399d1c1eadca8a7ef19e6811db4",
+  "legacy_ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "target_ranker_model_sha256": "a58d27eabbfd638debf893cf584ec2d2a680f7953282b47331735bb39b9af5c4",
+  "teacher_memory_sha256": "5dd73b13b92ef6ba403e4fc3b50df1ec7badc7cdf26f6a6b6a21c18790d30bb3",
+  "fallback_policy_sha256": "267abbd261fc3b98a98368a48cdf38944c4da7f6f1c3746e6817210843d60cc1",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
+  "deck_cards": 60,
+  "unique_cards": 22,
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v31": true,
+  "teacher_corpus": {
+    "index": "experiments/alakazam_ml_v34/teacher_index.csv",
+    "primary_teacher": "Yushin Ito",
+    "primary_submission_id": 54773249,
+    "leaderboard_rank_at_snapshot": 3,
+    "archives": {
+      "yushin_20260717": 180,
+      "yushin_current_top": 115,
+      "yushin_20260726": 994,
+      "yushin_20260801": 980
+    },
+    "indexed_episodes": 2268,
+    "usable_episodes": 2264,
+    "recovered_versus_v33": 980,
+    "recovered_seat_verified_by_replay_team_names": 980,
+    "seat_verification_mismatches": 0,
+    "main_decisions": 115169,
+    "candidate_rows": 1018082,
+    "episode_split": "Fixed episode-ID boundaries; validation >= 88885178, test >= 89039056.",
+    "train_episodes": 1968,
+    "train_decisions": 100861,
+    "validation_decisions": 4331,
+    "test_decisions": 9977
+  },
+  "holdout_identity": {
+    "shared_with": "alakazam_ml_v34",
+    "note": "Identical corpus and boundaries as v34, so every number here is directly comparable with the v34 report."
+  },
+  "teacher_training": {
+    "features": 657,
+    "label_definition": "turn_order_graded_relevance: chosen 7, played at the next decision 3, played later in the same turn 1, not played 0",
+    "recency_floor": 0.25,
+    "recency_power": 2.0,
+    "seed": 1091,
+    "episode_fraction_kept": 0.875,
+    "held_out_fit_episodes": 1718,
+    "held_out_fit_decisions": 87644,
+    "trees": 2050,
+    "tree_count_selected_by": "validation_top1",
+    "validation_top1": 0.8312,
+    "validation_top2": 0.9541,
+    "validation_top3": 0.985,
+    "validation_turn_set": 0.9432,
+    "heldout_test_top1": 0.8301,
+    "heldout_test_top2": 0.9533,
+    "heldout_test_top3": 0.9848,
+    "heldout_test_turn_set": 0.9515,
+    "target_top1": 0.9,
+    "target_met": false
+  },
+  "test_top1_by_teacher_action": {
+    "evolve": {
+      "n": 2284,
+      "v33_baseline": 0.8236,
+      "v34": 0.9426
+    },
+    "trainer": {
+      "n": 1843,
+      "v33_baseline": 0.6337,
+      "v34": 0.7048
+    },
+    "ability": {
+      "n": 1587,
+      "v33_baseline": 0.7801,
+      "v34": 0.8009
+    },
+    "bench": {
+      "n": 1514,
+      "v33_baseline": 0.8633,
+      "v34": 0.8904
+    },
+    "attack": {
+      "n": 925,
+      "v33_baseline": 0.8476,
+      "v34": 0.8692
+    },
+    "energy": {
+      "n": 874,
+      "v33_baseline": 0.7265,
+      "v34": 0.7735
+    },
+    "end": {
+      "n": 428,
+      "v33_baseline": 0.9112,
+      "v34": 0.9416
+    },
+    "boss": {
+      "n": 194,
+      "v33_baseline": 0.4588,
+      "v34": 0.4794
+    },
+    "xerosic": {
+      "n": 135,
+      "v33_baseline": 0.5037,
+      "v34": 0.6296
+    },
+    "hammer": {
+      "n": 123,
+      "v33_baseline": 0.8618,
+      "v34": 0.8455
+    },
+    "retreat": {
+      "n": 70,
+      "v33_baseline": 0.5429,
+      "v34": 0.6571
+    }
+  },
+  "rejected": {
+    "teacher_corpus_refetch": "Submission 54773249 yielded 13 new games in 5.5 hours (2,268 -> 2,281, +0.6%). The teacher has essentially stopped laddering, so data is no longer a lever.",
+    "label_gain_reshaping": {
+      "note": "The deployed graded labels map to gains 127/7/1/0, so LambdaRank spends 120 of every 127 units of pair weight on intra-turn order and 1 on set membership. Flatter gains trade Top-1 for divergence monotonically, and the order-blind control collapses to 49.85% Top-1 because 'end' belongs to every turn's action set. v34's shape is kept; it also wins on validation.",
+      "validation_top1_test_top1_test_divergence": {
+        "v34_default": [
+          0.8296,
+          0.8298,
+          0.0485
+        ],
+        "compressed": [
+          0.8194,
+          0.8122,
+          0.0403
+        ],
+        "linear": [
+          0.8123,
+          0.7888,
+          0.0394
+        ],
+        "set_weighted": [
+          0.8047,
+          0.7801,
+          0.0352
+        ],
+        "set_flat_control": [
+          0.4385,
+          0.4985,
+          0.0162
+        ],
+        "binary": [
+          0.8284,
+          0.831,
+          0.0525
+        ]
+      }
+    },
+    "two_stage_cascade": {
+      "note": "Stage two re-ranks the top-K on out-of-fold stage-one scores. Validation separates K=3 and K=5 by 0.02 points while test separates them by 1.26, so the selection signal is far below the outcome variance and the effect cannot be distinguished from zero.",
+      "stage1_oof_top1": 0.8269,
+      "k3_validation_test": [
+        0.8333,
+        0.8222
+      ],
+      "k5_validation_test": [
+        0.8335,
+        0.8348
+      ]
+    },
+    "ko_guard_narrowing": "Firing breaks_current_ko only when an attack option exists gains 0.14 points on test (0.8214 -> 0.8228). Not worth complicating the guard that makes the lethal narrowing safe.",
+    "more_trees": "The validation curve is flat from 1,900 to 2,200 trees and a refit reselects 2,050. No headroom."
+  },
+  "safety_guards": [
+    "Refuse to end the turn or swing non-lethally while a lethal Powerful Hand is available (narrowed in v35 from 'take it now').",
+    "Reject candidates that destroy a currently available KO. Powerful Hand deals 20 per card in hand, so this is what makes waiting safe.",
+    "Never end the turn while the Active Alakazam can attack.",
+    "Preserve the deterministic Boss route only against ending the turn (narrowed in v35 from 'against every other action').",
+    "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
+    "Reject unmodelled 'other' actions.",
+    "Use the frozen v29 policy for unsupported, nested, low-time or illegal cases."
+  ],
+  "local_validation": {
+    "note": "40 games cannot separate strength at this level: v33 itself went 19-21 against v32 locally and then +45 rating on the ladder. Treat these as crash, legality and latency checks.",
+    "matches": [
+      {
+        "opponent": "alakazam_ml_v34",
+        "games": 40,
+        "seed": 3350,
+        "record": "19-20-1",
+        "win_rate_excluding_draws": 0.487,
+        "crashes": 0,
+        "illegal_selects": 0,
+        "ms_per_move": [
+          69.46,
+          50.6
+        ]
+      },
+      {
+        "opponent": "alakazam_ml_v33",
+        "games": 40,
+        "seed": 3351,
+        "record": "21-19-0",
+        "win_rate_excluding_draws": 0.525,
+        "crashes": 0,
+        "illegal_selects": 0,
+        "ms_per_move": [
+          54.8,
+          54.5
+        ]
+      }
+    ]
+  },
+  "inference_cost": {
+    "note": "The same 289 scoped decisions as the v34 measurement, re-run for both agents in one session so the comparison is internal. The model now answers 95.8% of scoped decisions instead of 81.7%, which is where the extra time goes.",
+    "v34_mean_ms": 98.93,
+    "v34_median_ms": 93.14,
+    "v34_p95_ms": 193.09,
+    "v34_max_ms": 242.28,
+    "v34_model_rate": 0.8166,
+    "v34_fallback_rate": 0.1834,
+    "v35_mean_ms": 106.25,
+    "v35_median_ms": 101.06,
+    "v35_p95_ms": 184.2,
+    "v35_max_ms": 225.51,
+    "v35_model_rate": 0.9585,
+    "v35_fallback_rate": 0.0415
+  },
+  "ladder_behaviour_diagnosis": {
+    "source": "All replays of the existing v31/v32/v33 ladder runs",
+    "script": "scripts/analyze_alakazam_v34_behaviour.py",
+    "artifact": "experiments/alakazam_ml_v34/behaviour_by_run.json",
+    "powerful_hand_per_game": {
+      "v31": 3.75,
+      "v32": 3.78,
+      "v33": 4.15
+    },
+    "share_of_games_with_4plus_powerful_hand": {
+      "v31": 0.5217,
+      "v32": 0.5385,
+      "v33": 0.5833
+    },
+    "v33_win_rate_by_powerful_hand": {
+      "0-3": "8/30",
+      "4+": "34/42"
+    },
+    "dudunsparce_per_game": {
+      "v31": 2.2174,
+      "v32": 2.8154,
+      "v33": 2.4583
+    },
+    "v33_win_rate_by_dudunsparce": {
+      "0": "6/11",
+      "1": "10/15",
+      "2": "11/16",
+      "3+": "15/30"
+    },
+    "reading": "Powerful Hand count is the only measure that separates wins from losses (27% below four, 81% at four or more). The Dudunsparce usage gap recorded earlier is closed: win rate is now flat across usage buckets, so that lever is spent. v34's largest offline gain is the evolve class (+11.91 points), which is the class that puts Alakazam on the board, but the causal link to Powerful Hand count on the ladder is unproven."
+  },
+  "known_limitations": [
+    "Not yet submitted. Every claim here is agreement with the teacher on held-out states, which is closer to the ladder than the ranker-only agreement v31-v34 reported, but is still a proxy.",
+    "The premise that v34's offline gain did not reach the ladder rests on a provisional 'around 900' reading. The gap to v33's 916.9 sits inside the band an identical agent has already shown (842.8 versus 804.0), so it must be re-checked once v34 settles.",
+    "Keeping breaks_current_ko costs 0.84 points against the unguarded upper bound. That is a deliberate payment for the property that lets the lethal guard be narrowed.",
+    "The ranker is unchanged, so the 90% strict Top-1 target is still unmet at 83.01% and the 672 unrecoverable holdout errors are untouched.",
+    "Boss's Orders remains the lowest-agreement class at 47.94%, though the new taxonomy shows 34 of those 52 points are recoverable ordering.",
+    "The ladder's noise floor is about 40 rating points at n~60, so one run cannot confirm this change."
+  ],
+  "change_summary": "Runtime only. The lethal guard and the Boss-route guard are narrowed from compulsions into prohibitions. No model, feature, corpus, deck or hyperparameter changed.",
+  "changed_versus_v34": [
+    "lethal_guard: was an unconditional pre-ranking veto whenever the v29 baseline held an estimated-lethal Powerful Hand, on 1,122 of 9,977 holdout decisions. Now fires only when the ranker would end the turn or swing with a non-lethal attack.",
+    "preserve_fallback_boss_route: was an unconditional veto whenever the v29 baseline wanted Boss's Orders and the ranker did not, on 326 decisions. Now fires only when the ranker would end the turn.",
+    "ALAKAZAM_ML_V35_SHELL=v34 restores the previous shell for A/B runs."
+  ],
+  "unchanged_from_v34": [
+    "ranker_model.json is byte-identical: 2,050 trees, seed 1091, 657 features.",
+    "Corpus, holdout boundaries, graded labels, recency weights.",
+    "breaks_current_ko, end_with_ready_attack, dudunsparce_body_floor and unmodelled_other guards; v29 baseline; board memory; deck.",
+    "v29_runtime._candidate_safety_reason is untouched, because the v29 baseline's own pick is an input feature of the ranker."
+  ],
+  "shell_audit": {
+    "method": "Every guard reads columns the corpus already stores, so the shell is replayed exactly from the cached candidate matrix plus held-out ranker scores. Verified against the packaged agent: the model-independent lethal guard fires 149 times on the first 25 test episodes in both the simulation and the real runtime.",
+    "holdout": "test block, 200 episodes, 9,977 decisions",
+    "ranker_top1": 0.8301,
+    "v29_baseline_top1": 0.6529,
+    "v34_played_top1": 0.7785,
+    "v35_played_top1": 0.8214,
+    "v34_played_turn_set": 0.9446,
+    "v35_played_turn_set": 0.9522,
+    "v34_blocked_rate": 0.1628,
+    "v35_blocked_rate": 0.0177,
+    "unguarded_upper_bound_played_top1": 0.8298,
+    "v34_guard_net_decisions": {
+      "lethal_guard": -325,
+      "preserve_fallback_boss_route": -168,
+      "breaks_current_ko": -20,
+      "dudunsparce_body_floor": -2
+    },
+    "validation_played_top1": {
+      "v34": 0.7673,
+      "v35": 0.8192
+    }
+  },
+  "runtime_agreement_ab": {
+    "method": "The packaged v35 agent replayed over the teacher's own observations with only ALAKAZAM_ML_V35_SHELL differing. Absolute levels are inflated because the shipped model was refitted on every episode including these; the difference between the two arms is the signal.",
+    "episodes": 60,
+    "decisions": 4113,
+    "v34_shell_played_top1": 0.8779,
+    "v35_shell_played_top1": 0.9271,
+    "v34_shell_fallback_rate": 0.1075,
+    "v35_shell_fallback_rate": 0.0143
+  },
+  "residual_taxonomy": {
+    "note": "Top-1 errors split by whether the turn can still converge. An ordering error picks an action the teacher also plays this turn; a premature error does that with a turn-ending action and skips the rest; a divergence picks an action the teacher never plays.",
+    "test": {
+      "top1": 0.8301,
+      "ordering_error_rate": 0.1025,
+      "premature_rate": 0.0188,
+      "divergence_rate": 0.0485,
+      "unrecoverable_rate": 0.0674,
+      "turn_set": 0.9515
+    },
+    "unrecoverable_by_teacher_action": {
+      "trainer": {
+        "count": 1843,
+        "unrecoverable_rate": 0.1362
+      },
+      "attack": {
+        "count": 925,
+        "unrecoverable_rate": 0.1168
+      },
+      "energy": {
+        "count": 874,
+        "unrecoverable_rate": 0.0892
+      },
+      "ability": {
+        "count": 1587,
+        "unrecoverable_rate": 0.029
+      },
+      "bench": {
+        "count": 1514,
+        "unrecoverable_rate": 0.0277
+      },
+      "evolve": {
+        "count": 2284,
+        "unrecoverable_rate": 0.0162
+      },
+      "boss": {
+        "count": 194,
+        "unrecoverable_rate": 0.1804
+      },
+      "xerosic": {
+        "count": 135,
+        "unrecoverable_rate": 0.2519
+      },
+      "end": {
+        "count": 428,
+        "unrecoverable_rate": 0.0467
+      },
+      "retreat": {
+        "count": 70,
+        "unrecoverable_rate": 0.2286
+      },
+      "hammer": {
+        "count": 123,
+        "unrecoverable_rate": 0.0407
+      }
+    }
+  }
+}
