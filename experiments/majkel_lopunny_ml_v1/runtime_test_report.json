@@ -1,0 +1,30 @@
+{
+  "scope": "test",
+  "interpretation": "deployment-refit runtime parity/resubstitution; not holdout evidence",
+  "episodes": 50,
+  "decisions": 3892,
+  "legal_rate": 1.0,
+  "semantic_exact": 0.9021068859198356,
+  "raw_exact": 0.880781089414183,
+  "count_accuracy": 0.9904933196300103,
+  "latency_ms": {
+    "mean": 22.320744707103735,
+    "median": 17.323150008451194,
+    "p95": 60.416200023610145,
+    "max": 162.0258999755606
+  },
+  "diagnostics": {
+    "decisions": 77,
+    "model_selected": 74,
+    "inference_us": 1687822,
+    "all_mandatory": 3,
+    "lethal_guard": 2,
+    "runtime_scope": "all_select_contexts",
+    "ranker_loaded": true,
+    "count_model_loaded": true,
+    "ranker_trees": 900,
+    "count_trees": 200,
+    "average_inference_ms": 21.919766233766232,
+    "errors": {}
+  }
+}

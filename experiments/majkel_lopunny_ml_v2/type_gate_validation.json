@@ -1,0 +1,181 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v1\\corpus.npz",
+  "test_read": false,
+  "train_type_decisions": 16777,
+  "base_feature_count": 543,
+  "type_feature_count": 389,
+  "base_validation": {
+    "decisions": 3398,
+    "semantic_exact": 0.7704532077692761,
+    "raw_exact": 0.7460270747498529,
+    "count_accuracy": 1.0,
+    "forced_decisions": 171,
+    "nonforced_decisions": 3227,
+    "nonforced_semantic_exact": 0.7582894329098233,
+    "nonforced_raw_exact": 0.7325689494886892,
+    "nonforced_count_accuracy": 1.0,
+    "variable_count_decisions": 459,
+    "variable_count_accuracy": 1.0,
+    "single_choice_decisions": 2994,
+    "single_choice_semantic_top1": 0.7621910487641951,
+    "single_choice_semantic_top2": 0.9128256513026052,
+    "single_choice_semantic_top3": 0.9592518370073481,
+    "single_choice_turn_set": 0.8857715430861723,
+    "main_single_choice_decisions": 2215,
+    "main_single_choice_semantic_top1": 0.7205417607223477,
+    "by_context": {
+      "type_0_context_0": {
+        "decisions": 2231,
+        "semantic_exact": 0.7225459435230838,
+        "nonforced_decisions": 2215,
+        "nonforced_semantic_exact": 0.7205417607223477,
+        "single_choice_decisions": 2215,
+        "single_choice_semantic_top1": 0.7205417607223477
+      },
+      "type_1_context_1": {
+        "decisions": 40,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 18,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 18,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_17": {
+        "decisions": 76,
+        "semantic_exact": 0.9605263157894737,
+        "nonforced_decisions": 34,
+        "nonforced_semantic_exact": 0.9117647058823529,
+        "single_choice_decisions": 34,
+        "single_choice_semantic_top1": 0.9117647058823529
+      },
+      "type_1_context_2": {
+        "decisions": 18,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 18,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 13,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_3": {
+        "decisions": 223,
+        "semantic_exact": 0.874439461883408,
+        "nonforced_decisions": 201,
+        "nonforced_semantic_exact": 0.8606965174129353,
+        "single_choice_decisions": 201,
+        "single_choice_semantic_top1": 0.8606965174129353
+      },
+      "type_1_context_4": {
+        "decisions": 97,
+        "semantic_exact": 0.7216494845360825,
+        "nonforced_decisions": 97,
+        "nonforced_semantic_exact": 0.7216494845360825,
+        "single_choice_decisions": 97,
+        "single_choice_semantic_top1": 0.7216494845360825
+      },
+      "type_1_context_5": {
+        "decisions": 86,
+        "semantic_exact": 0.8953488372093024,
+        "nonforced_decisions": 86,
+        "nonforced_semantic_exact": 0.8953488372093024,
+        "single_choice_decisions": 28,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_7": {
+        "decisions": 470,
+        "semantic_exact": 0.9063829787234042,
+        "nonforced_decisions": 447,
+        "nonforced_semantic_exact": 0.901565995525727,
+        "single_choice_decisions": 361,
+        "single_choice_semantic_top1": 0.9058171745152355
+      },
+      "type_1_context_8": {
+        "decisions": 86,
+        "semantic_exact": 0.4186046511627907,
+        "nonforced_decisions": 85,
+        "nonforced_semantic_exact": 0.4117647058823529,
+        "single_choice_decisions": 1,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_4_context_30": {
+        "decisions": 31,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 1,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 1,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_5_context_34": {
+        "decisions": 15,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 0,
+        "nonforced_semantic_exact": 0.0,
+        "single_choice_decisions": 0,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_8_context_38": {
+        "decisions": 6,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 6,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 6,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_9_context_41": {
+        "decisions": 19,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 19,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 19,
+        "single_choice_semantic_top1": 1.0
+      }
+    }
+  },
+  "experiments": [
+    {
+      "config": "small",
+      "fit_seconds": 44.39707509998698,
+      "best_if_global_at_completion": {
+        "config": "small",
+        "trees": 200,
+        "alpha": 0.1,
+        "confidence": 0.35,
+        "validation_nonforced_semantic_exact": 0.7607685156492098,
+        "validation_main_top1": 0.7241534988713318,
+        "applied_main_decisions": 2210,
+        "masked_type_accuracy": 0.7610936799641417,
+        "main_decisions": 2231
+      }
+    },
+    {
+      "config": "medium",
+      "fit_seconds": 52.401416400040034,
+      "best_if_global_at_completion": {
+        "config": "medium",
+        "trees": 100,
+        "alpha": 0.35,
+        "confidence": 0.75,
+        "validation_nonforced_semantic_exact": 0.7607685156492098,
+        "validation_main_top1": 0.7241534988713318,
+        "applied_main_decisions": 1082,
+        "masked_type_accuracy": 0.7561631555356343,
+        "main_decisions": 2231
+      }
+    },
+    {
+      "config": "large",
+      "fit_seconds": 62.64006549998885,
+      "best_if_global_at_completion": null
+    }
+  ],
+  "selected_on_validation": {
+    "config": "medium",
+    "trees": 100,
+    "alpha": 0.35,
+    "confidence": 0.75,
+    "validation_nonforced_semantic_exact": 0.7607685156492098,
+    "validation_main_top1": 0.7241534988713318,
+    "applied_main_decisions": 1082,
+    "masked_type_accuracy": 0.7561631555356343,
+    "main_decisions": 2231
+  }
+}
