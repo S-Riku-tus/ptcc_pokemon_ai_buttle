@@ -1,0 +1,2063 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v1\\corpus.npz",
+  "test_read": false,
+  "pair_rows": 176082,
+  "pair_features": 829,
+  "fit_seconds": 140.7237107999972,
+  "base_validation": {
+    "decisions": 3398,
+    "semantic_exact": 0.7704532077692761,
+    "raw_exact": 0.7460270747498529,
+    "count_accuracy": 1.0,
+    "forced_decisions": 171,
+    "nonforced_decisions": 3227,
+    "nonforced_semantic_exact": 0.7582894329098233,
+    "nonforced_raw_exact": 0.7325689494886892,
+    "nonforced_count_accuracy": 1.0,
+    "variable_count_decisions": 459,
+    "variable_count_accuracy": 1.0,
+    "single_choice_decisions": 2994,
+    "single_choice_semantic_top1": 0.7621910487641951,
+    "single_choice_semantic_top2": 0.9128256513026052,
+    "single_choice_semantic_top3": 0.9592518370073481,
+    "single_choice_turn_set": 0.8857715430861723,
+    "main_single_choice_decisions": 2215,
+    "main_single_choice_semantic_top1": 0.7205417607223477,
+    "by_context": {
+      "type_0_context_0": {
+        "decisions": 2231,
+        "semantic_exact": 0.7225459435230838,
+        "nonforced_decisions": 2215,
+        "nonforced_semantic_exact": 0.7205417607223477,
+        "single_choice_decisions": 2215,
+        "single_choice_semantic_top1": 0.7205417607223477
+      },
+      "type_1_context_1": {
+        "decisions": 40,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 18,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 18,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_17": {
+        "decisions": 76,
+        "semantic_exact": 0.9605263157894737,
+        "nonforced_decisions": 34,
+        "nonforced_semantic_exact": 0.9117647058823529,
+        "single_choice_decisions": 34,
+        "single_choice_semantic_top1": 0.9117647058823529
+      },
+      "type_1_context_2": {
+        "decisions": 18,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 18,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 13,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_3": {
+        "decisions": 223,
+        "semantic_exact": 0.874439461883408,
+        "nonforced_decisions": 201,
+        "nonforced_semantic_exact": 0.8606965174129353,
+        "single_choice_decisions": 201,
+        "single_choice_semantic_top1": 0.8606965174129353
+      },
+      "type_1_context_4": {
+        "decisions": 97,
+        "semantic_exact": 0.7216494845360825,
+        "nonforced_decisions": 97,
+        "nonforced_semantic_exact": 0.7216494845360825,
+        "single_choice_decisions": 97,
+        "single_choice_semantic_top1": 0.7216494845360825
+      },
+      "type_1_context_5": {
+        "decisions": 86,
+        "semantic_exact": 0.8953488372093024,
+        "nonforced_decisions": 86,
+        "nonforced_semantic_exact": 0.8953488372093024,
+        "single_choice_decisions": 28,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_7": {
+        "decisions": 470,
+        "semantic_exact": 0.9063829787234042,
+        "nonforced_decisions": 447,
+        "nonforced_semantic_exact": 0.901565995525727,
+        "single_choice_decisions": 361,
+        "single_choice_semantic_top1": 0.9058171745152355
+      },
+      "type_1_context_8": {
+        "decisions": 86,
+        "semantic_exact": 0.4186046511627907,
+        "nonforced_decisions": 85,
+        "nonforced_semantic_exact": 0.4117647058823529,
+        "single_choice_decisions": 1,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_4_context_30": {
+        "decisions": 31,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 1,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 1,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_5_context_34": {
+        "decisions": 15,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 0,
+        "nonforced_semantic_exact": 0.0,
+        "single_choice_decisions": 0,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_8_context_38": {
+        "decisions": 6,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 6,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 6,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_9_context_41": {
+        "decisions": 19,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 19,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 19,
+        "single_choice_semantic_top1": 1.0
+      }
+    }
+  },
+  "selected": {
+    "trees": 700,
+    "top_k": 8,
+    "alpha": 2.0,
+    "nonforced_semantic_exact": 0.7595289742795166,
+    "single_top1": 0.7635270541082164,
+    "main_top1": 0.7223476297968398
+  },
+  "experiments": [
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.713975828943291,
+      "single_top1": 0.7144288577154309,
+      "main_top1": 0.6559819413092551
+    },
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7217229625038736,
+      "single_top1": 0.7227788911155645,
+      "main_top1": 0.6672686230248307
+    },
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7307096374341494,
+      "single_top1": 0.7324649298597194,
+      "main_top1": 0.6803611738148985
+    },
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.737527114967462,
+      "single_top1": 0.739812959251837,
+      "main_top1": 0.6902934537246049
+    },
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7403160830492718,
+      "single_top1": 0.7428189712758851,
+      "main_top1": 0.6943566591422122
+    },
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7449643631856213,
+      "single_top1": 0.7478289913159653,
+      "main_top1": 0.7011286681715576
+    },
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7465137898977379,
+      "single_top1": 0.749498997995992,
+      "main_top1": 0.7033860045146727
+    },
+    {
+      "trees": 100,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.748682987294701,
+      "single_top1": 0.7518370073480294,
+      "main_top1": 0.7065462753950339
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7052990393554385,
+      "single_top1": 0.7050768203072812,
+      "main_top1": 0.6433408577878104
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7083978927796715,
+      "single_top1": 0.7084168336673347,
+      "main_top1": 0.6478555304740407
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7130461729160211,
+      "single_top1": 0.7134268537074149,
+      "main_top1": 0.654627539503386
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7161450263402541,
+      "single_top1": 0.7167668670674683,
+      "main_top1": 0.6591422121896162
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7214130771614503,
+      "single_top1": 0.7224448897795591,
+      "main_top1": 0.6668171557562077
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7297799814068795,
+      "single_top1": 0.7314629258517034,
+      "main_top1": 0.6790067720090294
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7322590641462658,
+      "single_top1": 0.7341349365397462,
+      "main_top1": 0.6826185101580136
+    },
+    {
+      "trees": 100,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7390765416795786,
+      "single_top1": 0.7414829659318637,
+      "main_top1": 0.6925507900677201
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7046792686705918,
+      "single_top1": 0.7044088176352705,
+      "main_top1": 0.6424379232505644
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7052990393554385,
+      "single_top1": 0.7050768203072812,
+      "main_top1": 0.6433408577878104
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7080880074372482,
+      "single_top1": 0.7080828323313293,
+      "main_top1": 0.6474040632054177
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7111868608614813,
+      "single_top1": 0.7114228456913828,
+      "main_top1": 0.6519187358916478
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7158351409978309,
+      "single_top1": 0.7164328657314629,
+      "main_top1": 0.6586907449209932
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7204834211341804,
+      "single_top1": 0.7214428857715431,
+      "main_top1": 0.6654627539503386
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7238921599008367,
+      "single_top1": 0.7251169004676019,
+      "main_top1": 0.6704288939051919
+    },
+    {
+      "trees": 100,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7288503253796096,
+      "single_top1": 0.7304609218436874,
+      "main_top1": 0.6776523702031603
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7260613572977999,
+      "single_top1": 0.7274549098196392,
+      "main_top1": 0.6735891647855531
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7310195227765727,
+      "single_top1": 0.7327989311957248,
+      "main_top1": 0.6808126410835215
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7347381468856523,
+      "single_top1": 0.7368069472277889,
+      "main_top1": 0.6862302483069977
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7415556244189649,
+      "single_top1": 0.7441549766199065,
+      "main_top1": 0.6961625282167043
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7427951657886582,
+      "single_top1": 0.7454909819639278,
+      "main_top1": 0.6979683972911964
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7480632166098543,
+      "single_top1": 0.7511690046760187,
+      "main_top1": 0.7056433408577878
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.747753331267431,
+      "single_top1": 0.7508350033400134,
+      "main_top1": 0.7051918735891648
+    },
+    {
+      "trees": 200,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7520917260613573,
+      "single_top1": 0.7555110220440882,
+      "main_top1": 0.7115124153498872
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7220328478462968,
+      "single_top1": 0.7231128924515698,
+      "main_top1": 0.6677200902934537
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7260613572977999,
+      "single_top1": 0.7274549098196392,
+      "main_top1": 0.6735891647855531
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7291602107220329,
+      "single_top1": 0.7307949231796927,
+      "main_top1": 0.6781038374717833
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7307096374341494,
+      "single_top1": 0.7324649298597194,
+      "main_top1": 0.6803611738148985
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7331887201735358,
+      "single_top1": 0.7351369405477622,
+      "main_top1": 0.6839729119638827
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7362875735977689,
+      "single_top1": 0.7384769539078156,
+      "main_top1": 0.6884875846501128
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7400061977068485,
+      "single_top1": 0.7424849699398798,
+      "main_top1": 0.6939051918735891
+    },
+    {
+      "trees": 200,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7427951657886582,
+      "single_top1": 0.7454909819639278,
+      "main_top1": 0.6979683972911964
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7223427331887202,
+      "single_top1": 0.7234468937875751,
+      "main_top1": 0.6681715575620768
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7238921599008367,
+      "single_top1": 0.7251169004676019,
+      "main_top1": 0.6704288939051919
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7245119305856833,
+      "single_top1": 0.7257849031396125,
+      "main_top1": 0.6713318284424379
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7260613572977999,
+      "single_top1": 0.7274549098196392,
+      "main_top1": 0.6735891647855531
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7288503253796096,
+      "single_top1": 0.7304609218436874,
+      "main_top1": 0.6776523702031603
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7310195227765727,
+      "single_top1": 0.7327989311957248,
+      "main_top1": 0.6808126410835215
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7319491788038426,
+      "single_top1": 0.7338009352037408,
+      "main_top1": 0.6821670428893906
+    },
+    {
+      "trees": 200,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7372172296250388,
+      "single_top1": 0.7394789579158316,
+      "main_top1": 0.6898419864559819
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7334986055159591,
+      "single_top1": 0.7354709418837675,
+      "main_top1": 0.6844243792325057
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7378370003098853,
+      "single_top1": 0.7401469605878424,
+      "main_top1": 0.690744920993228
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7431050511310815,
+      "single_top1": 0.7458249832999332,
+      "main_top1": 0.6984198645598194
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.745584133870468,
+      "single_top1": 0.748496993987976,
+      "main_top1": 0.7020316027088036
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.748682987294701,
+      "single_top1": 0.7518370073480294,
+      "main_top1": 0.7065462753950339
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7489928726371242,
+      "single_top1": 0.7521710086840347,
+      "main_top1": 0.7069977426636569
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7502324140068175,
+      "single_top1": 0.7535070140280561,
+      "main_top1": 0.708803611738149
+    },
+    {
+      "trees": 300,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7527114967462039,
+      "single_top1": 0.7561790247160989,
+      "main_top1": 0.7124153498871332
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.734428261543229,
+      "single_top1": 0.7364729458917836,
+      "main_top1": 0.6857787810383748
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7362875735977689,
+      "single_top1": 0.7384769539078156,
+      "main_top1": 0.6884875846501128
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.738456770994732,
+      "single_top1": 0.7408149632598531,
+      "main_top1": 0.691647855530474
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7390765416795786,
+      "single_top1": 0.7414829659318637,
+      "main_top1": 0.6925507900677201
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7412457390765417,
+      "single_top1": 0.7438209752839011,
+      "main_top1": 0.6957110609480812
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7440347071583514,
+      "single_top1": 0.7468269873079493,
+      "main_top1": 0.6997742663656885
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.745584133870468,
+      "single_top1": 0.748496993987976,
+      "main_top1": 0.7020316027088036
+    },
+    {
+      "trees": 300,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7483731019522777,
+      "single_top1": 0.751503006012024,
+      "main_top1": 0.7060948081264108
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.734428261543229,
+      "single_top1": 0.7364729458917836,
+      "main_top1": 0.6857787810383748
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7362875735977689,
+      "single_top1": 0.7384769539078156,
+      "main_top1": 0.6884875846501128
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.738456770994732,
+      "single_top1": 0.7408149632598531,
+      "main_top1": 0.691647855530474
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7396963123644251,
+      "single_top1": 0.7421509686038744,
+      "main_top1": 0.6934537246049661
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7412457390765417,
+      "single_top1": 0.7438209752839011,
+      "main_top1": 0.6957110609480812
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7418655097613883,
+      "single_top1": 0.7444889779559118,
+      "main_top1": 0.6966139954853273
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7434149364735048,
+      "single_top1": 0.7461589846359385,
+      "main_top1": 0.6988713318284424
+    },
+    {
+      "trees": 300,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7462039045553145,
+      "single_top1": 0.7491649966599866,
+      "main_top1": 0.7029345372460497
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7412457390765417,
+      "single_top1": 0.7438209752839011,
+      "main_top1": 0.6957110609480812
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7437248218159281,
+      "single_top1": 0.7464929859719439,
+      "main_top1": 0.6993227990970655
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7449643631856213,
+      "single_top1": 0.7478289913159653,
+      "main_top1": 0.7011286681715576
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.748682987294701,
+      "single_top1": 0.7518370073480294,
+      "main_top1": 0.7065462753950339
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7502324140068175,
+      "single_top1": 0.7535070140280561,
+      "main_top1": 0.708803611738149
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7524016114037806,
+      "single_top1": 0.7558450233800935,
+      "main_top1": 0.7119638826185102
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7520917260613573,
+      "single_top1": 0.7555110220440882,
+      "main_top1": 0.7115124153498872
+    },
+    {
+      "trees": 400,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.754880694143167,
+      "single_top1": 0.7585170340681363,
+      "main_top1": 0.7155756207674944
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.740625968391695,
+      "single_top1": 0.7431529726118904,
+      "main_top1": 0.6948081264108352
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7415556244189649,
+      "single_top1": 0.7441549766199065,
+      "main_top1": 0.6961625282167043
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7427951657886582,
+      "single_top1": 0.7454909819639278,
+      "main_top1": 0.6979683972911964
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7443445925007747,
+      "single_top1": 0.7471609886439545,
+      "main_top1": 0.7002257336343115
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7449643631856213,
+      "single_top1": 0.7478289913159653,
+      "main_top1": 0.7011286681715576
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7437248218159281,
+      "single_top1": 0.7464929859719439,
+      "main_top1": 0.6993227990970655
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7449643631856213,
+      "single_top1": 0.7478289913159653,
+      "main_top1": 0.7011286681715576
+    },
+    {
+      "trees": 400,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.748682987294701,
+      "single_top1": 0.7518370073480294,
+      "main_top1": 0.7065462753950339
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7403160830492718,
+      "single_top1": 0.7428189712758851,
+      "main_top1": 0.6943566591422122
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7415556244189649,
+      "single_top1": 0.7441549766199065,
+      "main_top1": 0.6961625282167043
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7434149364735048,
+      "single_top1": 0.7461589846359385,
+      "main_top1": 0.6988713318284424
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7437248218159281,
+      "single_top1": 0.7464929859719439,
+      "main_top1": 0.6993227990970655
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7437248218159281,
+      "single_top1": 0.7464929859719439,
+      "main_top1": 0.6993227990970655
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7480632166098543,
+      "single_top1": 0.7511690046760187,
+      "main_top1": 0.7056433408577878
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7483731019522777,
+      "single_top1": 0.751503006012024,
+      "main_top1": 0.7060948081264108
+    },
+    {
+      "trees": 400,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7505422993492408,
+      "single_top1": 0.7538410153640615,
+      "main_top1": 0.709255079006772
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7440347071583514,
+      "single_top1": 0.7468269873079493,
+      "main_top1": 0.6997742663656885
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.744654477843198,
+      "single_top1": 0.7474949899799599,
+      "main_top1": 0.7006772009029345
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7483731019522777,
+      "single_top1": 0.751503006012024,
+      "main_top1": 0.7060948081264108
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7502324140068175,
+      "single_top1": 0.7535070140280561,
+      "main_top1": 0.708803611738149
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7505422993492408,
+      "single_top1": 0.7538410153640615,
+      "main_top1": 0.709255079006772
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.754880694143167,
+      "single_top1": 0.7585170340681363,
+      "main_top1": 0.7155756207674944
+    },
+    {
+      "trees": 500,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7437248218159281,
+      "single_top1": 0.7464929859719439,
+      "main_top1": 0.6993227990970655
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7452742485280446,
+      "single_top1": 0.7481629926519706,
+      "main_top1": 0.7015801354401806
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7465137898977379,
+      "single_top1": 0.749498997995992,
+      "main_top1": 0.7033860045146727
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.747753331267431,
+      "single_top1": 0.7508350033400134,
+      "main_top1": 0.7051918735891648
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.748682987294701,
+      "single_top1": 0.7518370073480294,
+      "main_top1": 0.7065462753950339
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7493027579795476,
+      "single_top1": 0.7525050100200401,
+      "main_top1": 0.7074492099322799
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7502324140068175,
+      "single_top1": 0.7535070140280561,
+      "main_top1": 0.708803611738149
+    },
+    {
+      "trees": 500,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7524016114037806,
+      "single_top1": 0.7558450233800935,
+      "main_top1": 0.7119638826185102
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7474434459250078,
+      "single_top1": 0.750501002004008,
+      "main_top1": 0.7047404063205418
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7489928726371242,
+      "single_top1": 0.7521710086840347,
+      "main_top1": 0.7069977426636569
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7502324140068175,
+      "single_top1": 0.7535070140280561,
+      "main_top1": 0.708803611738149
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7514719553765107,
+      "single_top1": 0.7548430193720775,
+      "main_top1": 0.7106094808126411
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.754880694143167,
+      "single_top1": 0.7585170340681363,
+      "main_top1": 0.7155756207674944
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7561202355128602,
+      "single_top1": 0.7598530394121576,
+      "main_top1": 0.7173814898419865
+    },
+    {
+      "trees": 500,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7573597768825534,
+      "single_top1": 0.761189044756179,
+      "main_top1": 0.7191873589164786
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7462039045553145,
+      "single_top1": 0.7491649966599866,
+      "main_top1": 0.7029345372460497
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7489928726371242,
+      "single_top1": 0.7521710086840347,
+      "main_top1": 0.7069977426636569
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.751781840718934,
+      "single_top1": 0.7551770207080828,
+      "main_top1": 0.7110609480812641
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.750852184691664,
+      "single_top1": 0.7541750167000668,
+      "main_top1": 0.7097065462753951
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7524016114037806,
+      "single_top1": 0.7558450233800935,
+      "main_top1": 0.7119638826185102
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7539510381158971,
+      "single_top1": 0.7575150300601202,
+      "main_top1": 0.7142212189616253
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7551905794855903,
+      "single_top1": 0.7588510354041417,
+      "main_top1": 0.7160270880361174
+    },
+    {
+      "trees": 600,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7570498915401301,
+      "single_top1": 0.7608550434201736,
+      "main_top1": 0.7187358916478556
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7483731019522777,
+      "single_top1": 0.751503006012024,
+      "main_top1": 0.7060948081264108
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7489928726371242,
+      "single_top1": 0.7521710086840347,
+      "main_top1": 0.7069977426636569
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7505422993492408,
+      "single_top1": 0.7538410153640615,
+      "main_top1": 0.709255079006772
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.750852184691664,
+      "single_top1": 0.7541750167000668,
+      "main_top1": 0.7097065462753951
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7520917260613573,
+      "single_top1": 0.7555110220440882,
+      "main_top1": 0.7115124153498872
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7533312674310505,
+      "single_top1": 0.7568470273881096,
+      "main_top1": 0.7133182844243793
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7520917260613573,
+      "single_top1": 0.7555110220440882,
+      "main_top1": 0.7115124153498872
+    },
+    {
+      "trees": 600,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7496126433219709,
+      "single_top1": 0.7528390113560455,
+      "main_top1": 0.7079006772009029
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7527114967462039,
+      "single_top1": 0.7561790247160989,
+      "main_top1": 0.7124153498871332
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7539510381158971,
+      "single_top1": 0.7575150300601202,
+      "main_top1": 0.7142212189616253
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7533312674310505,
+      "single_top1": 0.7568470273881096,
+      "main_top1": 0.7133182844243793
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7542609234583204,
+      "single_top1": 0.7578490313961256,
+      "main_top1": 0.7146726862302483
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7567400061977069,
+      "single_top1": 0.7605210420841684,
+      "main_top1": 0.7182844243792325
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7570498915401301,
+      "single_top1": 0.7608550434201736,
+      "main_top1": 0.7187358916478556
+    },
+    {
+      "trees": 600,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7576696622249768,
+      "single_top1": 0.7615230460921844,
+      "main_top1": 0.7196388261851016
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.745584133870468,
+      "single_top1": 0.748496993987976,
+      "main_top1": 0.7020316027088036
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7493027579795476,
+      "single_top1": 0.7525050100200401,
+      "main_top1": 0.7074492099322799
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7505422993492408,
+      "single_top1": 0.7538410153640615,
+      "main_top1": 0.709255079006772
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7524016114037806,
+      "single_top1": 0.7558450233800935,
+      "main_top1": 0.7119638826185102
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.755810350170437,
+      "single_top1": 0.7595190380761523,
+      "main_top1": 0.7169300225733635
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 700,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7499225286643941,
+      "single_top1": 0.7531730126920507,
+      "main_top1": 0.708352144469526
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7514719553765107,
+      "single_top1": 0.7548430193720775,
+      "main_top1": 0.7106094808126411
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7520917260613573,
+      "single_top1": 0.7555110220440882,
+      "main_top1": 0.7115124153498872
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7561202355128602,
+      "single_top1": 0.7598530394121576,
+      "main_top1": 0.7173814898419865
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 700,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7527114967462039,
+      "single_top1": 0.7561790247160989,
+      "main_top1": 0.7124153498871332
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.754880694143167,
+      "single_top1": 0.7585170340681363,
+      "main_top1": 0.7155756207674944
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.755810350170437,
+      "single_top1": 0.7595190380761523,
+      "main_top1": 0.7169300225733635
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7551905794855903,
+      "single_top1": 0.7588510354041417,
+      "main_top1": 0.7160270880361174
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7579795475674,
+      "single_top1": 0.7618570474281897,
+      "main_top1": 0.7200902934537246
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7595289742795166,
+      "single_top1": 0.7635270541082164,
+      "main_top1": 0.7223476297968398
+    },
+    {
+      "trees": 700,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7582894329098233,
+      "single_top1": 0.7621910487641951,
+      "main_top1": 0.7205417607223477
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7465137898977379,
+      "single_top1": 0.749498997995992,
+      "main_top1": 0.7033860045146727
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7502324140068175,
+      "single_top1": 0.7535070140280561,
+      "main_top1": 0.708803611738149
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7561202355128602,
+      "single_top1": 0.7598530394121576,
+      "main_top1": 0.7173814898419865
+    },
+    {
+      "trees": 800,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7502324140068175,
+      "single_top1": 0.7535070140280561,
+      "main_top1": 0.708803611738149
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7527114967462039,
+      "single_top1": 0.7561790247160989,
+      "main_top1": 0.7124153498871332
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7542609234583204,
+      "single_top1": 0.7578490313961256,
+      "main_top1": 0.7146726862302483
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7551905794855903,
+      "single_top1": 0.7588510354041417,
+      "main_top1": 0.7160270880361174
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.754880694143167,
+      "single_top1": 0.7585170340681363,
+      "main_top1": 0.7155756207674944
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7539510381158971,
+      "single_top1": 0.7575150300601202,
+      "main_top1": 0.7142212189616253
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 800,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.755810350170437,
+      "single_top1": 0.7595190380761523,
+      "main_top1": 0.7169300225733635
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7561202355128602,
+      "single_top1": 0.7598530394121576,
+      "main_top1": 0.7173814898419865
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.755810350170437,
+      "single_top1": 0.7595190380761523,
+      "main_top1": 0.7169300225733635
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 800,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7579795475674,
+      "single_top1": 0.7618570474281897,
+      "main_top1": 0.7200902934537246
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7471335605825844,
+      "single_top1": 0.7501670006680027,
+      "main_top1": 0.7042889390519187
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7530213820886272,
+      "single_top1": 0.7565130260521042,
+      "main_top1": 0.7128668171557562
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7536411527734738,
+      "single_top1": 0.7571810287241149,
+      "main_top1": 0.7137697516930023
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7573597768825534,
+      "single_top1": 0.761189044756179,
+      "main_top1": 0.7191873589164786
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 900,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7573597768825534,
+      "single_top1": 0.761189044756179,
+      "main_top1": 0.7191873589164786
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7511620700340874,
+      "single_top1": 0.7545090180360722,
+      "main_top1": 0.7101580135440181
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7536411527734738,
+      "single_top1": 0.7571810287241149,
+      "main_top1": 0.7137697516930023
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.755810350170437,
+      "single_top1": 0.7595190380761523,
+      "main_top1": 0.7169300225733635
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7539510381158971,
+      "single_top1": 0.7575150300601202,
+      "main_top1": 0.7142212189616253
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7536411527734738,
+      "single_top1": 0.7571810287241149,
+      "main_top1": 0.7137697516930023
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 900,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.754880694143167,
+      "single_top1": 0.7585170340681363,
+      "main_top1": 0.7155756207674944
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7551905794855903,
+      "single_top1": 0.7588510354041417,
+      "main_top1": 0.7160270880361174
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7561202355128602,
+      "single_top1": 0.7598530394121576,
+      "main_top1": 0.7173814898419865
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7573597768825534,
+      "single_top1": 0.761189044756179,
+      "main_top1": 0.7191873589164786
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7570498915401301,
+      "single_top1": 0.7608550434201736,
+      "main_top1": 0.7187358916478556
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7564301208552835,
+      "single_top1": 0.760187040748163,
+      "main_top1": 0.7178329571106095
+    },
+    {
+      "trees": 900,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7567400061977069,
+      "single_top1": 0.7605210420841684,
+      "main_top1": 0.7182844243792325
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.750852184691664,
+      "single_top1": 0.7541750167000668,
+      "main_top1": 0.7097065462753951
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7527114967462039,
+      "single_top1": 0.7561790247160989,
+      "main_top1": 0.7124153498871332
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7536411527734738,
+      "single_top1": 0.7571810287241149,
+      "main_top1": 0.7137697516930023
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7576696622249768,
+      "single_top1": 0.7615230460921844,
+      "main_top1": 0.7196388261851016
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7576696622249768,
+      "single_top1": 0.7615230460921844,
+      "main_top1": 0.7196388261851016
+    },
+    {
+      "trees": 1000,
+      "top_k": 3,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7579795475674,
+      "single_top1": 0.7618570474281897,
+      "main_top1": 0.7200902934537246
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7539510381158971,
+      "single_top1": 0.7575150300601202,
+      "main_top1": 0.7142212189616253
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.7551905794855903,
+      "single_top1": 0.7588510354041417,
+      "main_top1": 0.7160270880361174
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7551905794855903,
+      "single_top1": 0.7588510354041417,
+      "main_top1": 0.7160270880361174
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.7545708088007437,
+      "single_top1": 0.758183032732131,
+      "main_top1": 0.7151241534988714
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7555004648280136,
+      "single_top1": 0.7591850367401469,
+      "main_top1": 0.7164785553047404
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7542609234583204,
+      "single_top1": 0.7578490313961256,
+      "main_top1": 0.7146726862302483
+    },
+    {
+      "trees": 1000,
+      "top_k": 5,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7570498915401301,
+      "single_top1": 0.7608550434201736,
+      "main_top1": 0.7187358916478556
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.7539510381158971,
+      "single_top1": 0.7575150300601202,
+      "main_top1": 0.7142212189616253
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.7539510381158971,
+      "single_top1": 0.7575150300601202,
+      "main_top1": 0.7142212189616253
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.754880694143167,
+      "single_top1": 0.7585170340681363,
+      "main_top1": 0.7155756207674944
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.7551905794855903,
+      "single_top1": 0.7588510354041417,
+      "main_top1": 0.7160270880361174
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.755810350170437,
+      "single_top1": 0.7595190380761523,
+      "main_top1": 0.7169300225733635
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7576696622249768,
+      "single_top1": 0.7615230460921844,
+      "main_top1": 0.7196388261851016
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7573597768825534,
+      "single_top1": 0.761189044756179,
+      "main_top1": 0.7191873589164786
+    },
+    {
+      "trees": 1000,
+      "top_k": 8,
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7573597768825534,
+      "single_top1": 0.761189044756179,
+      "main_top1": 0.7191873589164786
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "test",
+  "interpretation": "deployment-refit runtime parity/resubstitution; not holdout evidence",
+  "episodes": 50,
+  "decisions": 3892,
+  "legal_rate": 1.0,
+  "semantic_exact": 0.9044193216855088,
+  "raw_exact": 0.8825796505652621,
+  "count_accuracy": 0.9904933196300103,
+  "latency_ms": {
+    "mean": 38.259309480775684,
+    "median": 29.98994998051785,
+    "p95": 108.07069996371865,
+    "max": 232.89819998899475
+  },
+  "diagnostics": {
+    "mode": "ml",
+    "ml": {
+      "decisions": 77,
+      "model_selected": 74,
+      "inference_us": 2437122,
+      "deepset_selected": 47,
+      "all_mandatory": 3,
+      "lethal_guard": 2,
+      "runtime_scope": "all_select_contexts",
+      "ranker_loaded": true,
+      "count_model_loaded": true,
+      "deepset_loaded": true,
+      "ranker_trees": 900,
+      "count_trees": 200,
+      "deepset_parameters": 75809,
+      "average_inference_ms": 31.650935064935062,
+      "errors": {}
+    },
+    "fallback": {
+      "decisions": 0,
+      "policy_ok": 0,
+      "policy_fallback": 0,
+      "obs_fallback": 0,
+      "deck_returns": 50,
+      "errors": {},
+      "chosen": {},
+      "retreat_routes": 0,
+      "dudun_cycles": 0
+    }
+  }
+}

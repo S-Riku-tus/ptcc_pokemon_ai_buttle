@@ -1,0 +1,49 @@
+{
+  "name": "majkel_lopunny_ml_v2",
+  "version": "2.0.0",
+  "archetype": "Mega Lopunny ex / Dudunsparce",
+  "role": "offline imitation candidate",
+  "status": "holdout_target_not_met",
+  "created_at": "2026-08-02",
+  "teacher": {
+    "team_name": "Majkel1337",
+    "submission_id": 55137818,
+    "source_run": "data/runs/leaderboard_top1/non_alakazam/20260801_rank01_sub55137818",
+    "valid_replays": 386,
+    "deck_verified_replays": 386
+  },
+  "split": {
+    "policy": "chronological episode split",
+    "train_episodes": 296,
+    "validation_episodes": 40,
+    "test_episodes": 50
+  },
+  "model": {
+    "ranker": "LightGBM LambdaRank, 900 trees",
+    "main_residual": "DeepSets listwise network, 75809 parameters, 11 epochs",
+    "blend": "deep_z + 2.0 * ranker_z at confidence >= 0.20",
+    "pick_count": "LightGBM L1 regressor, 200 trees",
+    "runtime_dependencies": "Python standard library only",
+    "default_policy_mode": "ml"
+  },
+  "honest_holdout": {
+    "nonforced_semantic_exact": 0.7748380129589633,
+    "single_choice_top1": 0.7810324825986079,
+    "single_choice_top3": 0.9683874709976799,
+    "main_single_choice_top1": 0.739558707643814,
+    "variable_count_accuracy": 0.9962962962962963,
+    "v1_nonforced_semantic_exact": 0.771328293736501,
+    "target": 0.85,
+    "target_met": false
+  },
+  "known_log_refit_replay": {
+    "semantic_exact": 0.9044193216855088,
+    "interpretation": "resubstitution/runtime parity only; not unseen evidence"
+  },
+  "safety": {
+    "runtime_replay_legal_rate": 1.0,
+    "runtime_p95_ms": 108.07069996371865,
+    "arena_crashes": 0,
+    "arena_illegal_actions": 0
+  }
+}
