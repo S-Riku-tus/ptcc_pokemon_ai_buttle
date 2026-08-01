@@ -21,8 +21,11 @@ _RUNTIME = HybridRanker(
         os.environ.get(
             "ALAKAZAM_ML_V34_THRESHOLD",
             os.environ.get(
-                "ALAKAZAM_ML_V32_THRESHOLD",
-                os.environ.get("ALAKAZAM_ML_V31_THRESHOLD", "0.0"),
+                "ALAKAZAM_ML_V33_THRESHOLD",
+                os.environ.get(
+                    "ALAKAZAM_ML_V32_THRESHOLD",
+                    os.environ.get("ALAKAZAM_ML_V31_THRESHOLD", "0.0"),
+                ),
             ),
         )
     ),
@@ -37,12 +40,12 @@ _DIAG = fallback_policy._DIAG
 def _choose(observation):
     """Internal entry implementation; public ``agent`` is deliberately last."""
     if observation.get("select") is None:
-        action = list(_fallback_agent(observation))
-        _RUNTIME.record_choice(observation, action)
-        return action
+        return list(_fallback_agent(observation))
     recalled = _RUNTIME.recall(observation)
     if recalled is not None:
-        _RUNTIME.record_choice(observation, recalled)
+        # The intra-turn history has to see memory hits too, otherwise the
+        # offer and pass-over counts drift away from the training corpus.
+        _RUNTIME.note_decision(observation, recalled)
         return recalled
     deterministic = list(_fallback_agent(observation))
     baseline = _V29_RUNTIME.choose(observation, deterministic)
@@ -52,7 +55,7 @@ def _choose(observation):
         deterministic,
         memory_checked=True,
     )
-    _RUNTIME.record_choice(observation, action)
+    _RUNTIME.note_decision(observation, action)
     return action
 
 

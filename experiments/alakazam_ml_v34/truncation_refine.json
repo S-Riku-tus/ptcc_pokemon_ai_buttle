@@ -1,0 +1,253 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v34\\yushin_v34_arrays.npz",
+  "model": "large_leaf",
+  "seed": 1091,
+  "train_episodes_available": 1964,
+  "split_decisions": {
+    "train": 100861,
+    "validation": 4331,
+    "test": 9977
+  },
+  "data_scaling": {
+    "0.625": {
+      "train_episodes": 1228,
+      "train_decisions": 60867,
+      "recency_floor": 0.25,
+      "recency_power": 2.0,
+      "label": "graded",
+      "best_iteration": 470,
+      "validation_top1": 0.8069729854537059,
+      "test_top1": 0.7780896060940162,
+      "test_top2": 0.9387591460358825,
+      "test_top3": 0.9759446727473189,
+      "test_turn_set": 0.93926029868698,
+      "test_by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "top1": 0.77882797731569
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.8572972972972973
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8672391017173051
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.4639175257731959
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9369158878504673
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7208237986270023
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.8218038528896673
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8373983739837398
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6285714285714286
+        },
+        "trainer": {
+          "count": 1843,
+          "top1": 0.6494845360824743
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.5851851851851851
+        }
+      }
+    },
+    "0.7": {
+      "train_episodes": 1375,
+      "train_decisions": 67462,
+      "recency_floor": 0.25,
+      "recency_power": 2.0,
+      "label": "graded",
+      "best_iteration": 888,
+      "validation_top1": 0.8150542599861463,
+      "test_top1": 0.7947278741104541,
+      "test_top2": 0.9462764358023454,
+      "test_top3": 0.9808559687280746,
+      "test_turn_set": 0.9454745915605893,
+      "test_by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "top1": 0.7920604914933838
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.867027027027027
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8791281373844122
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.5257731958762887
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9205607476635514
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7517162471395881
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.8314360770577933
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8536585365853658
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6428571428571429
+        },
+        "trainer": {
+          "count": 1843,
+          "top1": 0.6787845903418339
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.6370370370370371
+        }
+      }
+    },
+    "0.8": {
+      "train_episodes": 1571,
+      "train_decisions": 78193,
+      "recency_floor": 0.25,
+      "recency_power": 2.0,
+      "label": "graded",
+      "best_iteration": 589,
+      "validation_top1": 0.8152851535442162,
+      "test_top1": 0.7874110454044302,
+      "test_top2": 0.9424676756540042,
+      "test_top3": 0.9772476696401724,
+      "test_turn_set": 0.9431692893655408,
+      "test_by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "top1": 0.7794580970384373
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.867027027027027
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8784676354029062
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.4742268041237113
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9299065420560748
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7391304347826086
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.8226795096322241
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8455284552845529
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6571428571428571
+        },
+        "trainer": {
+          "count": 1843,
+          "top1": 0.6733586543678785
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.6
+        }
+      }
+    },
+    "0.875": {
+      "train_episodes": 1718,
+      "train_decisions": 87644,
+      "recency_floor": 0.25,
+      "recency_power": 2.0,
+      "label": "graded",
+      "best_iteration": 962,
+      "validation_top1": 0.8226737474024475,
+      "test_top1": 0.8118672947779894,
+      "test_top2": 0.9476796632254184,
+      "test_top3": 0.9819585045604892,
+      "test_turn_set": 0.9480805853462965,
+      "test_by_teacher_action": {
+        "ability": {
+          "count": 1587,
+          "top1": 0.7908002520478891
+        },
+        "attack": {
+          "count": 925,
+          "top1": 0.8691891891891892
+        },
+        "bench": {
+          "count": 1514,
+          "top1": 0.8844121532364597
+        },
+        "boss": {
+          "count": 194,
+          "top1": 0.4793814432989691
+        },
+        "end": {
+          "count": 428,
+          "top1": 0.9299065420560748
+        },
+        "energy": {
+          "count": 874,
+          "top1": 0.7631578947368421
+        },
+        "evolve": {
+          "count": 2284,
+          "top1": 0.8931698774080561
+        },
+        "hammer": {
+          "count": 123,
+          "top1": 0.8455284552845529
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6571428571428571
+        },
+        "trainer": {
+          "count": 1843,
+          "top1": 0.6907216494845361
+        },
+        "xerosic": {
+          "count": 135,
+          "top1": 0.6
+        }
+      }
+    }
+  },
+  "recency": {},
+  "label": {},
+  "v33_baseline": {},
+  "sweep_fraction": 1.0
+}

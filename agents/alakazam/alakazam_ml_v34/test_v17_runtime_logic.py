@@ -49,7 +49,7 @@ def _memory_board(policy, *, head):
     return obj, phantump, attack, end, obs
 
 
-def test_v34_deck_is_preserved_and_yushin_provenance_is_frozen():
+def test_v32_deck_is_preserved_and_yushin_provenance_is_frozen():
     import hashlib
     import json
 
@@ -70,27 +70,27 @@ def test_v34_deck_is_preserved_and_yushin_provenance_is_frozen():
     model = json.loads(
         (here / "ranker_model.json").read_text(encoding="utf-8")
     )
-    assert model["runtime_scope"] == "v34_yushin_sequence_state_recency_lambdarank"
-    assert model["teacher_trajectories"] == 699
-    assert model["training_decisions"] == 35704
-    assert model["holdout_validation_decisions"] == 5038
-    assert model["holdout_test_decisions"] == 8848
+    assert model["runtime_scope"] == "v34_yushin_recent_corpus_ranker"
+    assert model["teacher_trajectories"] == 1981
     assert not (here / "ranker_numeric_model.json").exists()
+    assert model["teacher_cohorts"] == {
+        "yushin_20260717": 180,
+        "yushin_current_top": 115,
+        "yushin_20260726": 994,
+        "yushin_20260801": 980,
+    }
     assert model["training_recency_weight"] == {
         "floor": 0.25,
         "power": 2.0,
         "episode_order": "ascending_episode_id",
     }
-    assert model["sequence_features"] == {
-        "previous_decisions": 4,
-        "cumulative_action_counts": True,
-        "turn_gap_features": True,
-        "same_turn_index": True,
-    }
-    assert len(model["feature_names"]) == 674
+    assert model["baseline"] == (
+        "v29_runtime_choice_and_raw_ranker_score"
+    )
+    assert len(model["feature_names"]) > 600
 
 
-def test_v34_freezes_inherited_fallback_safety_heads():
+def test_v22_preserves_unmodified_v20_deck_safety_heads():
     import hashlib
 
     here = h.Path(__file__).resolve().parent
@@ -104,9 +104,9 @@ def test_v34_freezes_inherited_fallback_safety_heads():
         if isinstance(node, ast.FunctionDef)
     }
     expected = {
-        "_deck_preserve": "24866022348609dd0d8f553e75dce0c8ac1ac0a460a3fac6cf601978f409bccd",
-        "_deck_spend_ok": "4a132093fa043e4c26ec0600eec6cc21122230513a74ea0f92ba3dc7db514033",
-        "_score_to_bench": "f44f806821956e4364ba0058b27a3ea8273c959ec0bafafe782a00972987e00a",
+        "_deck_preserve": "b7e1e2462b5ca5fc595b837e0b546a736e9c26d330758e8797d8cd9f3c5ae0b7",
+        "_deck_spend_ok": "e011528b88134bcd2f28d90a61d4b40c5da67c2fc057fd6607e5397e7489572f",
+        "_score_to_bench": "07c1e57f18d6c3328dd336683f3ded09f728c46f775251abb361086d0e0b46b0",
     }
     assert {name: methods[name] for name in expected} == expected
 

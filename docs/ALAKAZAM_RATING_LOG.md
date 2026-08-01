@@ -1,6 +1,6 @@
 # Alakazam Rating Log
 
-Last updated: 2026-07-17 JST
+Last updated: 2026-08-01 JST
 
 ## Final Ratings
 
@@ -61,3 +61,42 @@ That keeps the current conclusion unchanged: use v2 or v3 as the base, and treat
 
 `alakazam_ml_v2_expanded` finished at 691.7. Since `alakazam_ml_v1` was not submitted, there is no v1-to-v2 ladder comparison inside the ML series.
 The result should be interpreted separately from the deterministic `alakazam741_v*` line: the current ML runtime needs failure analysis and guarded/retrained follow-up before it can replace the stronger deterministic baselines.
+
+## Teacher-Imitation Line (ml_v31 onwards)
+
+Updated 2026-08-01 JST. These three runs share the same 60-card deck and the
+same v29 safety shell; only the imitation ranker differs.
+
+| Agent | Submission | Final rating | Public record | Win rate | Opponent mean | Win rate vs 800+ |
+| --- | ---: | ---: | --- | ---: | ---: | ---: |
+| `alakazam_ml_v31` | 55076863 | 881.2 | 35-33 | 51.5% | 866.1 | 25/58 (43.1%) |
+| `alakazam_ml_v32` | 55094510 | 871.9 | 36-28 | 56.2% | 836.0 | 23/49 (46.9%) |
+| `alakazam_ml_v33` | 55129390 | **916.9** | **42-29** | **59.2%** | 860.8 | **29/57 (50.9%)** |
+
+`alakazam_ml_v33` is the current champion and the best result recorded for the
+Alakazam line.
+
+### How To Read These
+
+Do not rank versions on the headline rating. The identical `alakazam_ml_v20`
+agent scored 842.8 and 804.0 on two runs, so ~40 points at n≈60 is inside the
+noise floor, and v33's +35.7 over v31 is inside that band on its own.
+
+Raw win rate has the same defect because matchmaking hands each run a different
+pool. Regenerate the opponent-conditioned table instead:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\compare_alakazam_ladder_runs.py `
+  --run v31:55076863 --run v32:55094510 --run v33:55129390 `
+  --output .\experiments\alakazam_ml_v33\ladder_opponent_buckets.json
+```
+
+It re-queries `EpisodeService/ListEpisodes` for each episode's opponent
+`initialScore`, which `fetch_submission_logs.py` does not persist.
+
+For v33 the four available measures agree — rating, raw win rate,
+opponent-conditioned win rate, and frozen-holdout Top-1 (79.51% versus v32's
+78.71% on a bit-identical holdout) — and the margin widens against stronger
+opponents (900+: v33 40% vs v31 30%). That agreement, not any single number, is
+what justifies the promotion. The pooled 800+ intervals still overlap
+(v33 38.3%-63.4%, v31 31.2%-55.9%), so a second v33 run is the way to confirm.

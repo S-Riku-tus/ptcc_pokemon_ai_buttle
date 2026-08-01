@@ -1,0 +1,50 @@
+{
+  "target_top1": 0.9,
+  "target_met": false,
+  "data": {
+    "episodes": 999,
+    "decisions": 49590,
+    "candidates": 443714,
+    "split": "chronological 70/10/20"
+  },
+  "v1": {
+    "test_top1": 0.8062839059674503,
+    "test_top2": 0.9329792043399638
+  },
+  "v2": {
+    "validation_type": 0.8443826915442636,
+    "test_type": 0.8487793851717902,
+    "test_top1": 0.816003616636528,
+    "correct": 7220
+  },
+  "v3": {
+    "validation_type": 0.8463676061929337,
+    "validation_top1": 0.8169908693926161,
+    "test_type": 0.8485533453887885,
+    "test_top1": 0.8162296564195298,
+    "correct": 7222,
+    "runtime_representation": 1052,
+    "selected_features": 356,
+    "trees": 2497
+  },
+  "parity": {
+    "rich_rows": 300,
+    "row_max_abs_error": 4.76837158203125e-07,
+    "model_rows": 500,
+    "argmax_mismatch": 0,
+    "probability_max_abs_error": 6.092758804143728e-07
+  },
+  "tests": {
+    "passed": 184,
+    "failed": 0
+  },
+  "rejected": [
+    "type-level LambdaRank",
+    "CatBoost",
+    "quantized signature memory",
+    "Majkel low-weight augmentation",
+    "multitask planner MLP",
+    "Type-Set neural model",
+    "stacker/blends"
+  ]
+}

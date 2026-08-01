@@ -2,112 +2,210 @@
   "name": "alakazam_ml_v34",
   "version": "34.0.0",
   "role": "challenger",
-  "status": "finalized_offline_challenger_target_not_met",
+  "status": "offline_challenger_not_yet_submitted_target_not_met",
   "archetype": "alakazam_dudunsparce",
-  "parent_agent": "alakazam_ml_v32",
-  "ladder_champion": "alakazam_ml_v31",
-  "created_at": "2026-07-31T13:32:00+09:00",
-  "runtime_revision": "v34_sequence_state_ranker_20260731",
-  "model_version": "v34-yushin-sequence-state-recency-lambdarank",
-  "deployed_model": "312-tree, 674-feature sequence-state LambdaRank distilled to standard-library JSON.",
-  "model_scope": "v31/v32 deterministic safety, Majkel teacher memory and v29 residual are preserved; v34 replaces only the main unseen-board ranker and records past own MAIN decisions as policy state.",
+  "parent_agent": "alakazam_ml_v33",
+  "created_at": "2026-08-01T00:00:00+09:00",
+  "runtime_revision": "v34_v31_safety_memory_recent_corpus_validation_selected_trees_20260801",
+  "model_version": "v34-yushin-recent-corpus-2050-tree-lambdarank",
+  "model": "The unchanged v31 safety and exact-memory shell followed by a 657-feature large-leaf LambdaRank model. The teacher submission was refetched for 980 further games, the oldest eighth of the enlarged corpus is dropped, and the deployed tree count is chosen by validation Top-1 instead of by NDCG early stopping.",
+  "model_scope": "The learned policy covers unseen single-choice MAIN decisions. Exact Majkel memory answers previously recorded boards; v29 and the deterministic policy remain the fallbacks for unsupported, unsafe, low-time, or illegal cases.",
+  "confidence_threshold": 0.0,
+  "ranker_model_sha256": "0a19b5cd564fbd4d08224c2efc9f3167a50bbd26ec9fc374aa12add6f5b7a03b",
+  "v29_ranker_model_sha256": "9724331c95ee88abd98b3531af862fa4fea2c399d1c1eadca8a7ef19e6811db4",
+  "legacy_ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
+  "target_ranker_model_sha256": "a58d27eabbfd638debf893cf584ec2d2a680f7953282b47331735bb39b9af5c4",
+  "teacher_memory_sha256": "5dd73b13b92ef6ba403e4fc3b50df1ec7badc7cdf26f6a6b6a21c18790d30bb3",
+  "fallback_policy_sha256": "267abbd261fc3b98a98368a48cdf38944c4da7f6f1c3746e6817210843d60cc1",
+  "deck_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
   "deck_cards": 60,
   "unique_cards": 22,
-  "deck_unchanged_from_v31_v32": true,
-  "hashes": {
-    "deck_csv": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe",
-    "ranker_model": "e00f482127411bbaecdf856b3e45ec31808ca158cdf6ad0a2129da1dbc309001",
-    "legacy_ranker_model": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
-    "v29_ranker_model": "9724331c95ee88abd98b3531af862fa4fea2c399d1c1eadca8a7ef19e6811db4",
-    "teacher_memory": "5dd73b13b92ef6ba403e4fc3b50df1ec7badc7cdf26f6a6b6a21c18790d30bb3",
-    "fallback_policy": "3fcdb252f207646cd6464e6164aeb76c6eb2c515303a39f4b7f5711af754913b",
-    "ml_runtime": "85accb3f01d607c12ff939ff466e17b7857e0a818bffccbf7c4c074b97592889",
-    "main": "74c8140c2a4e8b626d7178daa760a709b2b3ec4f5d2f32ab98600b743bfdf2d7"
-  },
+  "ace_spec_count": 1,
+  "deck_unchanged_from_v31": true,
+  "changed_versus_v33": [
+    "Teacher submission 54773249 refetched: 980 further games, corpus 1288 -> 2268 episodes.",
+    "Holdout re-cut chronologically because every new game postdates the v33 frozen holdout.",
+    "Training corpus limited to the most recent 87.5% of episodes.",
+    "Deployed tree count selected by validation Top-1 instead of LightGBM NDCG early stopping: 1005 -> 2050."
+  ],
+  "unchanged_from_v33": [
+    "Deck, 657 features, large_leaf configuration, seed 1091.",
+    "Turn-order graded relevance labels (chosen 7 / next 3 / later 1 / unplayed 0).",
+    "Recency weight floor 0.25, power 2.0.",
+    "v29 fallback, Majkel board memory, all five v31 safety guards, runtime decision logic."
+  ],
   "teacher_corpus": {
+    "index": "experiments/alakazam_ml_v34/teacher_index.csv",
     "primary_teacher": "Yushin Ito",
-    "archive_date": "2026-07-26",
-    "raw_episodes": 1000,
-    "unique_trajectories": 999,
-    "main_decisions": 49590,
-    "semantic_candidate_rows": 443714,
-    "features": 674,
-    "split_method": "ascending episode id 70/10/20",
-    "train_decisions": 35704,
-    "validation_decisions": 5038,
-    "test_decisions": 8848,
-    "train_candidates": 309362,
-    "validation_candidates": 51311,
-    "test_candidates": 83041
+    "primary_submission_id": 54773249,
+    "leaderboard_rank_at_snapshot": 3,
+    "archives": {
+      "yushin_20260717": 180,
+      "yushin_current_top": 115,
+      "yushin_20260726": 994,
+      "yushin_20260801": 980
+    },
+    "indexed_episodes": 2268,
+    "usable_episodes": 2264,
+    "recovered_versus_v33": 980,
+    "recovered_seat_verified_by_replay_team_names": 980,
+    "seat_verification_mismatches": 0,
+    "main_decisions": 115169,
+    "candidate_rows": 1018082,
+    "episode_split": "Fixed episode-ID boundaries; validation >= 88885178, test >= 89039056.",
+    "train_episodes": 1968,
+    "train_decisions": 100861,
+    "validation_decisions": 4331,
+    "test_decisions": 9977
   },
-  "offline_evaluation": {
+  "holdout_identity": {
+    "shared_with": null,
+    "note": "The 980 refetched games are all chronologically newer than the v33 frozen holdout, so that holdout cannot be reused for v34 without training on games that postdate the test block. The holdout was re-cut chronologically and the v33 configuration was refitted on its own training episodes to produce a comparable baseline on it."
+  },
+  "teacher_training": {
+    "features": 657,
+    "label_definition": "turn_order_graded_relevance: chosen 7, played at the next decision 3, played later in the same turn 1, not played 0",
+    "recency_floor": 0.25,
+    "recency_power": 2.0,
+    "seed": 1091,
+    "episode_fraction_kept": 0.875,
+    "held_out_fit_episodes": 1718,
+    "held_out_fit_decisions": 87644,
+    "trees": 2050,
+    "tree_count_selected_by": "validation_top1",
+    "validation_top1": 0.8312,
+    "validation_top2": 0.9541,
+    "validation_top3": 0.985,
+    "validation_turn_set": 0.9432,
+    "heldout_test_top1": 0.8301,
+    "heldout_test_top2": 0.9533,
+    "heldout_test_top3": 0.9848,
+    "heldout_test_turn_set": 0.9515,
     "target_top1": 0.9,
-    "target_met": false,
-    "validation_top1": 0.8080587534736007,
-    "validation_top2": 0.9327113934100834,
-    "validation_top3": 0.9716157205240175,
-    "test_top1": 0.8062839059674503,
-    "test_top2": 0.9329792043399638,
-    "test_top3": 0.9699367088607594,
-    "v32_deployed_test_top1": 0.7870705244,
-    "improvement_vs_v32_deployed_points": 1.92133815674503,
-    "v32_research_blend_test_top1": 0.8011980108,
-    "improvement_vs_v32_research_points": 0.50858951674503
+    "target_met": false
   },
-  "sequence_state": {
-    "previous_decisions": 4,
-    "cumulative_action_counts": true,
-    "same_turn_decision_index": true,
-    "last_action_turn_gaps": [
-      "attack",
-      "energy",
-      "evolve",
-      "trainer"
-    ],
-    "future_information_used": false
+  "versus_v33_same_holdout": {
+    "baseline_definition": "The v33 configuration refitted on exactly the episodes v33 could train on (its own 984 pre-boundary episodes), scored on the v34 chronological holdout.",
+    "v33_baseline_validation_top1": 0.7901,
+    "v33_baseline_test_top1": 0.7722,
+    "v34_validation_top1": 0.8312,
+    "v34_test_top1": 0.8301,
+    "test_top1_delta_points": 5.79,
+    "note": "v33's published 79.51% and v34's 83.01% are on different holdouts and are not comparable. Only the 77.22% baseline in this block is."
   },
-  "research_selectors": {
-    "top2_selector_best_validation_top1": 0.8126240571655419,
-    "top2_selector_best_test_top1": 0.8099014466546112,
-    "oof_residual_validation_top1": 0.8094481937276697,
-    "oof_residual_test_top1": 0.8109177215189873,
-    "leak_free_gru_validation_top1": 0.813815005954744,
-    "leak_free_gru_test_top1": 0.810126582278481,
-    "deployed": false,
-    "reason": "Small and inconsistent gain, PyTorch/runtime complexity, and no 90% result."
+  "test_top1_by_teacher_action": {
+    "evolve": {"n": 2284, "v33_baseline": 0.8236, "v34": 0.9426},
+    "trainer": {"n": 1843, "v33_baseline": 0.6337, "v34": 0.7048},
+    "ability": {"n": 1587, "v33_baseline": 0.7801, "v34": 0.8009},
+    "bench": {"n": 1514, "v33_baseline": 0.8633, "v34": 0.8904},
+    "attack": {"n": 925, "v33_baseline": 0.8476, "v34": 0.8692},
+    "energy": {"n": 874, "v33_baseline": 0.7265, "v34": 0.7735},
+    "end": {"n": 428, "v33_baseline": 0.9112, "v34": 0.9416},
+    "boss": {"n": 194, "v33_baseline": 0.4588, "v34": 0.4794},
+    "xerosic": {"n": 135, "v33_baseline": 0.5037, "v34": 0.6296},
+    "hammer": {"n": 123, "v33_baseline": 0.8618, "v34": 0.8455},
+    "retreat": {"n": 70, "v33_baseline": 0.5429, "v34": 0.6571}
   },
-  "validation": {
-    "pytest_passed": 181,
-    "pytest_failed": 0,
-    "python_compile_passed": true,
-    "deck_count_valid": true,
-    "compact_native_rows": 512,
-    "compact_native_max_abs_error": 0.0,
-    "feature_parity_episodes": 3,
-    "feature_parity_candidate_rows": 1251,
-    "feature_parity_max_abs_error": 0.0,
-    "official_cg_engine_games_run": 0,
-    "kaggle_validation_run": false
+  "rejected": {
+    "seed_ensemble": {
+      "seeds": [1091, 7, 42, 2024, 31337, 65535],
+      "individual_test_top1_min": 0.788,
+      "individual_test_top1_max": 0.7961,
+      "individual_test_top1_std": 0.0026,
+      "ensemble_k6_test_top1": 0.7937,
+      "seed_oracle_test_top1": 0.8422,
+      "artifact": "experiments/alakazam_ml_v34/seed_variance.json",
+      "reason": "The k=6 z-score average lands below the best single seed and barely above the seed mean, so the generalisation gap is data-sample variance rather than fitting instability. This is what redirected v34 to data acquisition."
+    },
+    "full_corpus": {
+      "validation_top1": 0.8279,
+      "test_top1": 0.8111,
+      "reason": "Ties the 87.5% corpus on validation but its validation lead over test persists across the whole tree-count curve, unlike the 87.5% corpus which agrees to 0.07 points."
+    },
+    "binary_labels": {
+      "validation_top1": 0.8284,
+      "test_top1": 0.831,
+      "reason": "0.12 points below graded on validation. Note this is within noise: v33's +1.99 point graded advantage does not survive the enlarged corpus and the corrected tree count."
+    },
+    "uniform_recency": {
+      "validation_top1": 0.8261,
+      "test_top1": 0.8283,
+      "reason": "0.35 points below the v33 recency weight on validation."
+    },
+    "ndcg_early_stopping": {
+      "correlation_iteration_validation_top1": 0.561,
+      "correlation_iteration_test_top1": 0.646,
+      "reason": "The stopping metric (NDCG over graded labels) is not the deployed metric (strict Top-1), and the stopping point is resampled per fit, so corpus comparisons were dominated by it. Removing it exposed that 1005 trees was badly undertrained."
+    }
   },
   "safety_guards": [
-    "Preserve deterministic immediate lethal attacks.",
+    "Always preserve a deterministic immediate lethal attack.",
     "Reject candidates that destroy a currently available KO.",
-    "Use teacher memory before the unseen-board ranker.",
-    "Use v29/deterministic fallback for unsupported, nested, low-time or illegal decisions.",
-    "Reset sequence state on episode turn rollback.",
-    "Record only legal multi-option MAIN decisions."
+    "Never end the turn while the Active Alakazam can attack.",
+    "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
+    "Use the frozen v29 policy for unsupported, nested, low-time, or illegal cases."
   ],
+  "local_validation": {
+    "v34_pytest_tests": 188,
+    "v34_pytest_failures": 0,
+    "static_validation_passed": true,
+    "static_validation_warnings": 0,
+    "arena_vs_v33": {
+      "games": 40,
+      "seed": 3340,
+      "record": "19-21-0",
+      "win_rate_excluding_draws": 0.475
+    },
+    "arena_vs_v31": {
+      "games": 40,
+      "seed": 3341,
+      "record": "23-16-1",
+      "win_rate_excluding_draws": 0.5897435897
+    },
+    "arena_crashes": 0,
+    "arena_illegal_actions": 0,
+    "arena_fallback_rate": 0.0,
+    "arena_caveat": "40 games per matchup cannot separate agents that agree on most decisions. v33 itself went 19-21 against v32 locally and then gained 45 rating points on the ladder. Treat these as safety checks only."
+  },
+  "inference_cost": {
+    "measured_on": "289 scoped holdout decisions with teacher memory disabled",
+    "v33_trees": 1005,
+    "v34_trees": 2050,
+    "v33_mean_ms": 92.2,
+    "v34_mean_ms": 135.0,
+    "v33_p95_ms": 195.9,
+    "v34_p95_ms": 264.2,
+    "v33_max_ms": 400.5,
+    "v34_max_ms": 374.2,
+    "increase": "46.4%",
+    "model_selection_rate": 0.8166089965,
+    "fallback_rate": 0.1833910035,
+    "note": "Trees are 2.04x but wall clock is 1.46x because feature construction is shared. Selection and fallback rates are identical to v33, so the safety behaviour is unchanged. Not yet measured on the real ladder.",
+    "artifact": "experiments/alakazam_ml_v34/inference_benchmark.json"
+  },
+  "ladder_behaviour_diagnosis": {
+    "source": "All replays of the existing v31/v32/v33 ladder runs",
+    "script": "scripts/analyze_alakazam_v34_behaviour.py",
+    "artifact": "experiments/alakazam_ml_v34/behaviour_by_run.json",
+    "powerful_hand_per_game": {"v31": 3.75, "v32": 3.78, "v33": 4.15},
+    "share_of_games_with_4plus_powerful_hand": {
+      "v31": 0.5217, "v32": 0.5385, "v33": 0.5833
+    },
+    "v33_win_rate_by_powerful_hand": {"0-3": "8/30", "4+": "34/42"},
+    "dudunsparce_per_game": {"v31": 2.2174, "v32": 2.8154, "v33": 2.4583},
+    "v33_win_rate_by_dudunsparce": {
+      "0": "6/11", "1": "10/15", "2": "11/16", "3+": "15/30"
+    },
+    "reading": "Powerful Hand count is the only measure that separates wins from losses (27% below four, 81% at four or more). The Dudunsparce usage gap recorded earlier is closed: win rate is now flat across usage buckets, so that lever is spent. v34's largest offline gain is the evolve class (+11.91 points), which is the class that puts Alakazam on the board, but the causal link to Powerful Hand count on the ladder is unproven."
+  },
   "known_limitations": [
-    "The requested 90% unseen Top-1 agreement was not reached.",
-    "The current development test has now been observed and is not a pristine final holdout.",
-    "Trainer, Energy, Boss, Xerosic and Retreat remain the weakest action families.",
-    "Official cg and the local battle harness were not included in the supplied archives, so engine matches and ladder rating were not measured.",
-    "The runtime deploys the measured train-only model; a train-plus-validation refit did not complete within this execution environment and was not substituted without evaluation."
-  ],
-  "promotion_decision": {
-    "promote_over_v31": false,
-    "keep_v31_as_champion": true,
-    "v34_role": "offline challenger",
-    "reason": "Offline imitation improved, but 90% was not met and no engine/laddder A/B has been run."
-  }
+    "The requested 90% unseen Top-1 agreement was not reached. The best deployable strict held-out Top-1 is 83.01%.",
+    "Not yet submitted to the ladder. Every strength claim here is offline agreement, and v33 demonstrated that agreement and rating are only weakly related (Top-1 +0.80 for rating +35.7).",
+    "v33's published 79.51% and v34's 83.01% are on different holdouts and cannot be compared directly. Only the 77.22% same-holdout baseline is comparable.",
+    "The 46.4% inference increase has not been measured on the real ladder.",
+    "Boss's Orders agreement is 47.94%, the lowest of any action class, on 194 decisions.",
+    "The trainer class (n=1843, 70.48%) is the largest absolute source of remaining error.",
+    "The 87.5% truncation ties the full corpus on validation to within 0.05 points; it was chosen on validation/test agreement, not on a significant single-metric difference.",
+    "The Kaggle EpisodeService returns only the most recent 1,000 episodes per submission, so teacher logs are lost unless refetched periodically."
+  ]
 }

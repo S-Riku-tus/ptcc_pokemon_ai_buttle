@@ -1,0 +1,119 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v34\\yushin_v34_arrays.npz",
+  "model": "large_leaf",
+  "label": "binary",
+  "recency": {
+    "floor": 0.25,
+    "power": 2.0
+  },
+  "n_estimators": 2200,
+  "iteration_grid": [
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200,
+    1400,
+    1600,
+    1800,
+    2000,
+    2200
+  ],
+  "curves": {
+    "0.875_s1091": {
+      "fraction": 0.875,
+      "seed": 1091,
+      "train_episodes": 1718,
+      "train_decisions": 87644,
+      "curve": [
+        {
+          "trees": 200,
+          "validation_top1": 0.7861925652274302,
+          "test_top1": 0.7614513380775785,
+          "test_top3": 0.9663225418462463,
+          "test_turn_set": 0.9299388593765661
+        },
+        {
+          "trees": 400,
+          "validation_top1": 0.8023551142923112,
+          "test_top1": 0.7807958304099428,
+          "test_top3": 0.9746416758544653,
+          "test_turn_set": 0.937656610203468
+        },
+        {
+          "trees": 600,
+          "validation_top1": 0.8113599630570307,
+          "test_top1": 0.7881126591159667,
+          "test_top3": 0.9767465169890749,
+          "test_turn_set": 0.9404630650496141
+        },
+        {
+          "trees": 800,
+          "validation_top1": 0.813668898637728,
+          "test_top1": 0.792923724566503,
+          "test_top3": 0.979152049714343,
+          "test_turn_set": 0.9411646787611506
+        },
+        {
+          "trees": 1000,
+          "validation_top1": 0.8205957053798199,
+          "test_top1": 0.8103638368246968,
+          "test_top3": 0.9814573519093917,
+          "test_turn_set": 0.9437706725468578
+        },
+        {
+          "trees": 1200,
+          "validation_top1": 0.8229046409605172,
+          "test_top1": 0.8226921920416959,
+          "test_top3": 0.9818582740302696,
+          "test_turn_set": 0.9438709030770773
+        },
+        {
+          "trees": 1400,
+          "validation_top1": 0.824751789425075,
+          "test_top1": 0.8264007216598176,
+          "test_top3": 0.9825598877418061,
+          "test_turn_set": 0.9452741305001503
+        },
+        {
+          "trees": 1600,
+          "validation_top1": 0.827291618563842,
+          "test_top1": 0.8288062543850857,
+          "test_top3": 0.9832615014533427,
+          "test_turn_set": 0.946777588453443
+        },
+        {
+          "trees": 1800,
+          "validation_top1": 0.8275225121219117,
+          "test_top1": 0.8296080986268417,
+          "test_top3": 0.9834619625137817,
+          "test_turn_set": 0.9466773579232234
+        },
+        {
+          "trees": 2000,
+          "validation_top1": 0.8277534056799816,
+          "test_top1": 0.8297083291570613,
+          "test_top3": 0.9833617319835622,
+          "test_turn_set": 0.947579432695199
+        },
+        {
+          "trees": 2200,
+          "validation_top1": 0.8284460863541907,
+          "test_top1": 0.8310113260499148,
+          "test_top3": 0.9835621930440012,
+          "test_turn_set": 0.9474792021649795
+        }
+      ],
+      "best_by_validation": {
+        "trees": 2200,
+        "validation_top1": 0.8284460863541907,
+        "test_top1": 0.8310113260499148,
+        "test_top3": 0.9835621930440012,
+        "test_turn_set": 0.9474792021649795
+      },
+      "validation_top1_at_2200": 0.8284460863541907,
+      "test_top1_at_2200": 0.8310113260499148
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "pooled_versus_strong_opponents": {
+    "floor": 800.0,
+    "runs": {
+      "v31": {
+        "wins": 25,
+        "games": 58,
+        "win_rate": 0.43103448275862066,
+        "win_rate_95ci": [
+          0.3118160080083492,
+          0.5588212329427257
+        ]
+      },
+      "v32": {
+        "wins": 23,
+        "games": 49,
+        "win_rate": 0.46938775510204084,
+        "win_rate_95ci": [
+          0.33703281897894777,
+          0.6061937298008014
+        ]
+      },
+      "v33": {
+        "wins": 29,
+        "games": 57,
+        "win_rate": 0.5087719298245614,
+        "win_rate_95ci": [
+          0.38259680329032353,
+          0.6338393193625982
+        ]
+      }
+    }
+  },
+  "runs": {
+    "v31": {
+      "submission_id": 55076863,
+      "summary": {
+        "games": 68,
+        "decided": 68,
+        "wins": 35,
+        "win_rate": 0.5147058823529411,
+        "win_rate_95ci": [
+          0.3983454954746292,
+          0.6294935281551339
+        ],
+        "opponent_initial_mean": 866.1411431987179,
+        "opponent_initial_median": 885.5469411693372,
+        "final_score": 1040.2164660008789
+      },
+      "buckets": {
+        "0-700": {
+          "wins": 6,
+          "games": 6,
+          "win_rate": 1.0
+        },
+        "700-800": {
+          "wins": 4,
+          "games": 4,
+          "win_rate": 1.0
+        },
+        "800-900": {
+          "wins": 17,
+          "games": 31,
+          "win_rate": 0.5483870967741935
+        },
+        "900-10000": {
+          "wins": 8,
+          "games": 27,
+          "win_rate": 0.2962962962962963
+        }
+      }
+    },
+    "v32": {
+      "submission_id": 55094510,
+      "summary": {
+        "games": 64,
+        "decided": 64,
+        "wins": 36,
+        "win_rate": 0.5625,
+        "win_rate_95ci": [
+          0.4408599177828787,
+          0.6770618293457267
+        ],
+        "opponent_initial_mean": 835.9634489140084,
+        "opponent_initial_median": 865.4612989233867,
+        "final_score": 925.4539122008705
+      },
+      "buckets": {
+        "0-700": {
+          "wins": 3,
+          "games": 4,
+          "win_rate": 0.75
+        },
+        "700-800": {
+          "wins": 10,
+          "games": 11,
+          "win_rate": 0.9090909090909091
+        },
+        "800-900": {
+          "wins": 18,
+          "games": 36,
+          "win_rate": 0.5
+        },
+        "900-10000": {
+          "wins": 5,
+          "games": 13,
+          "win_rate": 0.38461538461538464
+        }
+      }
+    },
+    "v33": {
+      "submission_id": 55129390,
+      "summary": {
+        "games": 71,
+        "decided": 71,
+        "wins": 42,
+        "win_rate": 0.5915492957746479,
+        "win_rate_95ci": [
+          0.4753857081544497,
+          0.6983144799762155
+        ],
+        "opponent_initial_mean": 860.8072256037605,
+        "opponent_initial_median": 877.8842661078554,
+        "final_score": 928.2082226771735
+      },
+      "buckets": {
+        "0-700": {
+          "wins": 3,
+          "games": 3,
+          "win_rate": 1.0
+        },
+        "700-800": {
+          "wins": 10,
+          "games": 11,
+          "win_rate": 0.9090909090909091
+        },
+        "800-900": {
+          "wins": 19,
+          "games": 32,
+          "win_rate": 0.59375
+        },
+        "900-10000": {
+          "wins": 10,
+          "games": 25,
+          "win_rate": 0.4
+        }
+      }
+    }
+  },
+  "bucket_edges": [
+    0,
+    700,
+    800,
+    900,
+    10000
+  ],
+  "method": "Win rate conditioned on the opponent's initialScore at match time. Headline rating and raw win rate both track the opponent pool rather than agent quality."
+}

@@ -1,0 +1,363 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v33\\yushin_v33_arrays.npz",
+  "model": "large_leaf",
+  "label": "turn_order_graded_relevance",
+  "seeds": [
+    1091,
+    7,
+    42,
+    2024,
+    31337,
+    65535
+  ],
+  "per_seed": {
+    "1091": {
+      "best_iteration": 1005,
+      "validation_top1": 0.7897975387058357,
+      "test_top1": 0.7950949367088608,
+      "test_top3": 0.9711799276672695,
+      "test_turn_set": 0.9230334538878843
+    },
+    "7": {
+      "best_iteration": 746,
+      "validation_top1": 0.7848352520841604,
+      "test_top1": 0.7915913200723327,
+      "test_top3": 0.9677893309222423,
+      "test_turn_set": 0.9207730560578662
+    },
+    "42": {
+      "best_iteration": 1048,
+      "validation_top1": 0.7888050813815006,
+      "test_top1": 0.796112115732369,
+      "test_top3": 0.9695976491862568,
+      "test_turn_set": 0.9214511754068716
+    },
+    "2024": {
+      "best_iteration": 801,
+      "validation_top1": 0.7880111155220325,
+      "test_top1": 0.7932866184448463,
+      "test_top3": 0.9679023508137432,
+      "test_turn_set": 0.9225813743218807
+    },
+    "31337": {
+      "best_iteration": 644,
+      "validation_top1": 0.7804684398570861,
+      "test_top1": 0.7879746835443038,
+      "test_top3": 0.966885171790235,
+      "test_turn_set": 0.9182866184448463
+    },
+    "65535": {
+      "best_iteration": 921,
+      "validation_top1": 0.7880111155220325,
+      "test_top1": 0.7933996383363472,
+      "test_top3": 0.9683544303797469,
+      "test_turn_set": 0.9213381555153707
+    }
+  },
+  "seed_spread": {
+    "validation": {
+      "min": 0.7804684398570861,
+      "max": 0.7897975387058357,
+      "mean": 0.7866547571787746,
+      "std": 0.003155986549619264,
+      "range_points": 0.9329098848749551
+    },
+    "test": {
+      "min": 0.7879746835443038,
+      "max": 0.796112115732369,
+      "mean": 0.7929098854731765,
+      "std": 0.0026301250264778803,
+      "range_points": 0.8137432188065175
+    }
+  },
+  "cumulative_ensemble": {
+    "1": {
+      "seeds": [
+        1091
+      ],
+      "validation_top1": 0.7897975387058357,
+      "test_top1": 0.7950949367088608,
+      "test_top2": 0.9310578661844484,
+      "test_top3": 0.9711799276672695,
+      "test_turn_set": 0.9230334538878843
+    },
+    "2": {
+      "seeds": [
+        1091,
+        7
+      ],
+      "validation_top1": 0.7860262008733624,
+      "test_top1": 0.7944168173598554,
+      "test_top2": 0.929249547920434,
+      "test_top3": 0.9701627486437613,
+      "test_turn_set": 0.9239376130198915
+    },
+    "3": {
+      "seeds": [
+        1091,
+        7,
+        42
+      ],
+      "validation_top1": 0.7880111155220325,
+      "test_top1": 0.7933996383363472,
+      "test_top2": 0.931622965641953,
+      "test_top3": 0.9702757685352622,
+      "test_turn_set": 0.9229204339963833
+    },
+    "4": {
+      "seeds": [
+        1091,
+        7,
+        42,
+        2024
+      ],
+      "validation_top1": 0.7894005557761016,
+      "test_top1": 0.7952079566003617,
+      "test_top2": 0.9313969258589512,
+      "test_top3": 0.9709538878842676,
+      "test_turn_set": 0.9232594936708861
+    },
+    "5": {
+      "seeds": [
+        1091,
+        7,
+        42,
+        2024,
+        31337
+      ],
+      "validation_top1": 0.7872171496625645,
+      "test_top1": 0.7938517179023508,
+      "test_top2": 0.9299276672694394,
+      "test_top3": 0.9699367088607594,
+      "test_turn_set": 0.922129294755877
+    },
+    "6": {
+      "seeds": [
+        1091,
+        7,
+        42,
+        2024,
+        31337,
+        65535
+      ],
+      "validation_top1": 0.7874156411274316,
+      "test_top1": 0.79373869801085,
+      "test_top2": 0.9300406871609403,
+      "test_top3": 0.9700497287522604,
+      "test_turn_set": 0.9226943942133815
+    }
+  },
+  "seed_oracle_test_top1": 0.8422242314647378,
+  "error_taxonomy": {
+    "single_seed_1091": {
+      "totals": {
+        "decisions": 8848,
+        "correct": 7035,
+        "wrong": 1813,
+        "wrong_intra_turn_reorder": 1132,
+        "wrong_but_teacher_in_top3": 1558,
+        "wrong_action_never_played": 681
+      },
+      "by_teacher_action": {
+        "evolve": {
+          "count": 1903,
+          "top1": 0.9138202837624803,
+          "wrong_reorder": 131,
+          "wrong_never_played": 33
+        },
+        "trainer": {
+          "count": 1899,
+          "top1": 0.6535018430753028,
+          "wrong_reorder": 432,
+          "wrong_never_played": 226
+        },
+        "attack": {
+          "count": 1142,
+          "top1": 0.8739054290718039,
+          "wrong_reorder": 8,
+          "wrong_never_played": 136
+        },
+        "ability": {
+          "count": 1100,
+          "top1": 0.8645454545454545,
+          "wrong_reorder": 118,
+          "wrong_never_played": 31
+        },
+        "bench": {
+          "count": 1051,
+          "top1": 0.840152235965747,
+          "wrong_reorder": 134,
+          "wrong_never_played": 34
+        },
+        "energy": {
+          "count": 945,
+          "top1": 0.7185185185185186,
+          "wrong_reorder": 178,
+          "wrong_never_played": 88
+        },
+        "end": {
+          "count": 231,
+          "top1": 0.7965367965367965,
+          "wrong_reorder": 5,
+          "wrong_never_played": 42
+        },
+        "boss": {
+          "count": 203,
+          "top1": 0.49261083743842365,
+          "wrong_reorder": 65,
+          "wrong_never_played": 38
+        },
+        "xerosic": {
+          "count": 159,
+          "top1": 0.5723270440251572,
+          "wrong_reorder": 35,
+          "wrong_never_played": 33
+        },
+        "hammer": {
+          "count": 145,
+          "top1": 0.8758620689655172,
+          "wrong_reorder": 16,
+          "wrong_never_played": 2
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6,
+          "wrong_reorder": 10,
+          "wrong_never_played": 18
+        }
+      },
+      "wrong_by_game_turn": {
+        "1": 9,
+        "2": 59,
+        "3": 144,
+        "4": 157,
+        "5": 200,
+        "6": 147,
+        "7": 189,
+        "8": 134,
+        "9": 158,
+        "10": 131,
+        "11": 121,
+        "12": 82,
+        "13": 50,
+        "14": 38,
+        "15": 22,
+        "16": 11,
+        "17": 9,
+        "18": 11,
+        "19": 9,
+        "20": 5,
+        "21": 4,
+        "22": 4,
+        "23": 4,
+        "24": 5,
+        "25": 7
+      }
+    },
+    "ensemble_k6": {
+      "totals": {
+        "decisions": 8848,
+        "correct": 7023,
+        "wrong": 1825,
+        "wrong_intra_turn_reorder": 1141,
+        "wrong_but_teacher_in_top3": 1560,
+        "wrong_action_never_played": 684
+      },
+      "by_teacher_action": {
+        "evolve": {
+          "count": 1903,
+          "top1": 0.9101418812401472,
+          "wrong_reorder": 141,
+          "wrong_never_played": 30
+        },
+        "trainer": {
+          "count": 1899,
+          "top1": 0.6519220642443391,
+          "wrong_reorder": 433,
+          "wrong_never_played": 228
+        },
+        "attack": {
+          "count": 1142,
+          "top1": 0.8765323992994746,
+          "wrong_reorder": 9,
+          "wrong_never_played": 132
+        },
+        "ability": {
+          "count": 1100,
+          "top1": 0.8681818181818182,
+          "wrong_reorder": 112,
+          "wrong_never_played": 33
+        },
+        "bench": {
+          "count": 1051,
+          "top1": 0.8344433872502379,
+          "wrong_reorder": 137,
+          "wrong_never_played": 37
+        },
+        "energy": {
+          "count": 945,
+          "top1": 0.7195767195767195,
+          "wrong_reorder": 173,
+          "wrong_never_played": 92
+        },
+        "end": {
+          "count": 231,
+          "top1": 0.7922077922077922,
+          "wrong_reorder": 5,
+          "wrong_never_played": 43
+        },
+        "boss": {
+          "count": 203,
+          "top1": 0.4876847290640394,
+          "wrong_reorder": 68,
+          "wrong_never_played": 36
+        },
+        "xerosic": {
+          "count": 159,
+          "top1": 0.5660377358490566,
+          "wrong_reorder": 36,
+          "wrong_never_played": 33
+        },
+        "hammer": {
+          "count": 145,
+          "top1": 0.8689655172413793,
+          "wrong_reorder": 17,
+          "wrong_never_played": 2
+        },
+        "retreat": {
+          "count": 70,
+          "top1": 0.6,
+          "wrong_reorder": 10,
+          "wrong_never_played": 18
+        }
+      },
+      "wrong_by_game_turn": {
+        "1": 8,
+        "2": 55,
+        "3": 138,
+        "4": 157,
+        "5": 202,
+        "6": 148,
+        "7": 192,
+        "8": 137,
+        "9": 162,
+        "10": 132,
+        "11": 126,
+        "12": 83,
+        "13": 55,
+        "14": 38,
+        "15": 22,
+        "16": 11,
+        "17": 9,
+        "18": 13,
+        "19": 9,
+        "20": 5,
+        "21": 4,
+        "22": 3,
+        "23": 3,
+        "24": 4,
+        "25": 8
+      }
+    }
+  }
+}

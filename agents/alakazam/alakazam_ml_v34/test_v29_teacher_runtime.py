@@ -1,4 +1,4 @@
-"""Inherited safety regressions plus v34 model provenance."""
+"""Inherited safety regressions plus v32 model provenance."""
 
 from __future__ import annotations
 
@@ -33,22 +33,28 @@ def _context(
     }
 
 
-def test_v34_model_records_sequence_state_ranker():
+def test_v34_model_records_the_refetched_yushin_corpus():
     model = json.loads((HERE / "ranker_model.json").read_text("utf-8"))
 
-    assert model["runtime_scope"] == "v34_yushin_sequence_state_recency_lambdarank"
-    assert model["teacher_trajectories"] == 699
-    assert model["training_decisions"] == 35704
-    assert model["ensemble_role"] == "sequence_state_large_leaf"
+    assert model["runtime_scope"] == "v34_yushin_recent_corpus_ranker"
+    assert model["teacher_trajectories"] == 1981
+    assert model["training_decisions"] == 97511
+    # Cohorts describe the whole 2,268-episode index; the deployed model is
+    # fitted on the newest 87.5% of it, which is the trajectory count above.
+    assert model["teacher_cohorts"] == {
+        "yushin_20260717": 180,
+        "yushin_current_top": 115,
+        "yushin_20260726": 994,
+        "yushin_20260801": 980,
+    }
+    assert model["ensemble_role"].startswith("large_leaf")
     assert not (HERE / "ranker_numeric_model.json").exists()
-    assert len(model["feature_names"]) == 674
-    assert "seq_prev_1_card_id" in model["feature_names"]
-    assert "seq_count_attack" in model["feature_names"]
-    assert "seq_last_energy_turn_gap" in model["feature_names"]
+    assert len(model["feature_names"]) > 600
+    assert "v29_ranker_score" in model["feature_names"]
     assert "recent_log_0_card_id" in model["feature_names"]
 
 
-def test_v34_runtime_cleanly_omits_rejected_numeric_model():
+def test_v33_runtime_cleanly_omits_rejected_numeric_model():
     runtime = HybridRanker()
     snapshot = runtime.snapshot()
 

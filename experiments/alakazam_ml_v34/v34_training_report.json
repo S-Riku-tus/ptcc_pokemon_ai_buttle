@@ -1,0 +1,325 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v34\\yushin_v34_arrays.npz",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v34",
+  "model": "large_leaf",
+  "label": "graded",
+  "seed": 1091,
+  "episode_fraction": 0.875,
+  "recency": {
+    "floor": 0.25,
+    "power": 2.0
+  },
+  "n_estimators": 2200,
+  "tree_selection": {
+    "selected_by": "validation_top1",
+    "trees": 2050,
+    "curve": [
+      {
+        "trees": 50,
+        "validation_top1": 0.7266220272454399
+      },
+      {
+        "trees": 100,
+        "validation_top1": 0.7547910413299469
+      },
+      {
+        "trees": 150,
+        "validation_top1": 0.7695682290464096
+      },
+      {
+        "trees": 200,
+        "validation_top1": 0.7836527360886631
+      },
+      {
+        "trees": 250,
+        "validation_top1": 0.7917340106211037
+      },
+      {
+        "trees": 300,
+        "validation_top1": 0.7995843915954745
+      },
+      {
+        "trees": 350,
+        "validation_top1": 0.8048949434310783
+      },
+      {
+        "trees": 400,
+        "validation_top1": 0.8055876241052875
+      },
+      {
+        "trees": 450,
+        "validation_top1": 0.8081274532440544
+      },
+      {
+        "trees": 500,
+        "validation_top1": 0.8092819210344031
+      },
+      {
+        "trees": 550,
+        "validation_top1": 0.8118217501731702
+      },
+      {
+        "trees": 600,
+        "validation_top1": 0.8134380050796582
+      },
+      {
+        "trees": 650,
+        "validation_top1": 0.8145924728700069
+      },
+      {
+        "trees": 700,
+        "validation_top1": 0.8152851535442162
+      },
+      {
+        "trees": 750,
+        "validation_top1": 0.8150542599861463
+      },
+      {
+        "trees": 800,
+        "validation_top1": 0.8173631955668437
+      },
+      {
+        "trees": 850,
+        "validation_top1": 0.818748556915262
+      },
+      {
+        "trees": 900,
+        "validation_top1": 0.8199030247056107
+      },
+      {
+        "trees": 950,
+        "validation_top1": 0.8208265989378897
+      },
+      {
+        "trees": 1000,
+        "validation_top1": 0.8217501731701685
+      },
+      {
+        "trees": 1050,
+        "validation_top1": 0.8215192796120988
+      },
+      {
+        "trees": 1100,
+        "validation_top1": 0.8210574924959594
+      },
+      {
+        "trees": 1150,
+        "validation_top1": 0.8238282151927961
+      },
+      {
+        "trees": 1200,
+        "validation_top1": 0.824751789425075
+      },
+      {
+        "trees": 1250,
+        "validation_top1": 0.8252135765412145
+      },
+      {
+        "trees": 1300,
+        "validation_top1": 0.8259062572154237
+      },
+      {
+        "trees": 1350,
+        "validation_top1": 0.824751789425075
+      },
+      {
+        "trees": 1400,
+        "validation_top1": 0.8240591087508659
+      },
+      {
+        "trees": 1450,
+        "validation_top1": 0.8245208958670053
+      },
+      {
+        "trees": 1500,
+        "validation_top1": 0.8265989378896329
+      },
+      {
+        "trees": 1550,
+        "validation_top1": 0.827291618563842
+      },
+      {
+        "trees": 1600,
+        "validation_top1": 0.8277534056799816
+      },
+      {
+        "trees": 1650,
+        "validation_top1": 0.828215192796121
+      },
+      {
+        "trees": 1700,
+        "validation_top1": 0.8254444700992842
+      },
+      {
+        "trees": 1750,
+        "validation_top1": 0.8279842992380513
+      },
+      {
+        "trees": 1800,
+        "validation_top1": 0.8268298314477026
+      },
+      {
+        "trees": 1850,
+        "validation_top1": 0.827291618563842
+      },
+      {
+        "trees": 1900,
+        "validation_top1": 0.8298314477026091
+      },
+      {
+        "trees": 1950,
+        "validation_top1": 0.8302932348187485
+      },
+      {
+        "trees": 2000,
+        "validation_top1": 0.8296005541445394
+      },
+      {
+        "trees": 2050,
+        "validation_top1": 0.8312168090510275
+      },
+      {
+        "trees": 2100,
+        "validation_top1": 0.8291387670284
+      },
+      {
+        "trees": 2150,
+        "validation_top1": 0.8293696605864697
+      },
+      {
+        "trees": 2200,
+        "validation_top1": 0.8296005541445394
+      }
+    ],
+    "max_trees_cap": 0
+  },
+  "split_decisions": {
+    "train": 100861,
+    "validation": 4331,
+    "test": 9977
+  },
+  "held_out_fit_episodes": 1718,
+  "held_out_fit_decisions": 87644,
+  "graded_label_counts": {
+    "played_next": 62068,
+    "chosen": 115169,
+    "not_played": 702482,
+    "played_later": 138363
+  },
+  "validation": {
+    "decisions": 4331,
+    "top1": 0.8312168090510275,
+    "top2": 0.9540521819441238,
+    "top3": 0.9849919187254675,
+    "turn_set": 0.9432001847148465,
+    "by_teacher_action": {
+      "ability": {
+        "count": 620,
+        "top1": 0.8838709677419355
+      },
+      "attack": {
+        "count": 515,
+        "top1": 0.8776699029126214
+      },
+      "bench": {
+        "count": 558,
+        "top1": 0.8691756272401434
+      },
+      "boss": {
+        "count": 114,
+        "top1": 0.6052631578947368
+      },
+      "end": {
+        "count": 61,
+        "top1": 0.9672131147540983
+      },
+      "energy": {
+        "count": 454,
+        "top1": 0.7841409691629956
+      },
+      "evolve": {
+        "count": 904,
+        "top1": 0.9269911504424779
+      },
+      "hammer": {
+        "count": 49,
+        "top1": 0.8775510204081632
+      },
+      "retreat": {
+        "count": 40,
+        "top1": 0.85
+      },
+      "trainer": {
+        "count": 953,
+        "top1": 0.7040923399790137
+      },
+      "xerosic": {
+        "count": 63,
+        "top1": 0.7142857142857143
+      }
+    }
+  },
+  "test": {
+    "decisions": 9977,
+    "top1": 0.8301092512779392,
+    "top2": 0.9532925729177107,
+    "top3": 0.9847649594066352,
+    "turn_set": 0.9514884233737596,
+    "by_teacher_action": {
+      "ability": {
+        "count": 1587,
+        "top1": 0.8008821676118463
+      },
+      "attack": {
+        "count": 925,
+        "top1": 0.8691891891891892
+      },
+      "bench": {
+        "count": 1514,
+        "top1": 0.8903566710700133
+      },
+      "boss": {
+        "count": 194,
+        "top1": 0.4793814432989691
+      },
+      "end": {
+        "count": 428,
+        "top1": 0.9415887850467289
+      },
+      "energy": {
+        "count": 874,
+        "top1": 0.7734553775743707
+      },
+      "evolve": {
+        "count": 2284,
+        "top1": 0.9426444833625219
+      },
+      "hammer": {
+        "count": 123,
+        "top1": 0.8455284552845529
+      },
+      "retreat": {
+        "count": 70,
+        "top1": 0.6571428571428571
+      },
+      "trainer": {
+        "count": 1843,
+        "top1": 0.7048290830168205
+      },
+      "xerosic": {
+        "count": 135,
+        "top1": 0.6296296296296297
+      }
+    }
+  },
+  "exported": [
+    {
+      "file": "ranker_model.json",
+      "role": "large_leaf_graded",
+      "trees": 2050,
+      "bytes": 25798390
+    }
+  ],
+  "target_top1": 0.9,
+  "target_met": false
+}

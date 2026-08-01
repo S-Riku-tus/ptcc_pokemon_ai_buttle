@@ -56,12 +56,12 @@ def test_v15_projected_active_ko_does_not_block_immediate_key_role_boss():
     assert obj._boss_target_score(kadabra) > 0
 
 
-def test_v34_ml_scope_is_memory_first_v29_residual_and_safety_guarded():
+def test_v32_ml_scope_is_memory_first_v29_residual_and_safety_guarded():
     source = (Path(__file__).resolve().parent / "ml_runtime.py").read_text(encoding="utf-8")
     main_source = (Path(__file__).resolve().parent / "main.py").read_text(encoding="utf-8")
-    assert "ALAKAZAM_ML_V34_ENABLE_OVERRIDE" in source
-    assert "ALAKAZAM_ML_V32_ENABLE_OVERRIDE" in source
-    assert "ALAKAZAM_ML_V31_ENABLE_OVERRIDE" in source
+    assert "ALAKAZAM_ML_V33_" in source
+    assert "ALAKAZAM_ML_V32_" in source
+    assert "ALAKAZAM_ML_V31_" in source
     assert "teacher_memory_keys" in source
     assert "v29_ranker_score" in source
     assert "fallback_selected" in source
@@ -69,6 +69,6 @@ def test_v34_ml_scope_is_memory_first_v29_residual_and_safety_guarded():
     assert "lethal_guard" in source
     assert "_candidate_safety_reason" in source
     assert "_V29_RUNTIME" in main_source
-    assert "ALAKAZAM_ML_V34_THRESHOLD" in main_source
+    assert "ALAKAZAM_ML_V33_THRESHOLD" in main_source
     assert "ALAKAZAM_ML_V32_THRESHOLD" in main_source
     assert "ALAKAZAM_ML_V31_THRESHOLD" in main_source

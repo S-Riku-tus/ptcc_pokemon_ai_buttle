@@ -4,10 +4,13 @@ import json
 import os
 import time
 import zlib
-from collections import Counter, deque
+from collections import Counter
 from typing import Any
 
 from ml_features import (
+    action_type as _option_action_type,
+    candidate_card,
+    candidate_target,
     observation_features,
     option_features,
     state_features,
@@ -49,8 +52,146 @@ def _load_memory() -> dict[str, Any]:
     return payload
 
 
+def _flag(name: str, default: str) -> str:
+    """v34 setting with v33, v32 and v31 names accepted for compatibility."""
+    return os.environ.get(
+        f"ALAKAZAM_ML_V34_{name}",
+        os.environ.get(
+            f"ALAKAZAM_ML_V33_{name}",
+            os.environ.get(
+                f"ALAKAZAM_ML_V32_{name}",
+                os.environ.get(f"ALAKAZAM_ML_V31_{name}", default),
+            ),
+        ),
+    )
+
+
+TURN_FEATURE_NAMES = (
+    "turn_decision_index",
+    "turn_candidate_offer_count",
+    "turn_candidate_passed_over",
+    "turn_candidate_offered_previous",
+    "turn_candidate_first_offer_index",
+    "turn_class_passed_over",
+    "turn_class_offer_count",
+    "turn_new_candidate",
+)
+
+
+def _turn_option_keys(
+    current: dict[str, Any],
+    select: dict[str, Any],
+    option: dict[str, Any],
+    action_map: dict[str, int],
+) -> tuple[tuple[int, ...], tuple[int, int]]:
+    """Semantic and coarse class keys used by the intra-turn history.
+
+    Derived straight from the raw option so the tracker stays cheap on the
+    memory fast path, and identical to the columns the corpus builder writes.
+    """
+    card = candidate_card(current, option, select) or {}
+    target = candidate_target(current, option) or {}
+    card_id = int(card.get("id", -1))
+    target_id = int(target.get("id", -1))
+    semantic = (
+        int(option.get("type", -1)),
+        card_id,
+        int(option.get("attackId", -1)),
+        target_id,
+        int(option.get("inPlayArea", -1)),
+    )
+    action = str(_option_action_type(current, option, select) or "other")
+    return semantic, (action_map.get(action, -1), card_id)
+
+
+class _TurnHistory:
+    """What the acting player has been offered and passed over this turn.
+
+    The v32 ranker scores each candidate as a pure function of the current
+    observation, so it cannot tell a card it has just declined twice from one
+    it is seeing for the first time. This tracker restores that context from
+    the agent's own decision stream.
+    """
+
+    def __init__(self) -> None:
+        self.reset()
+
+    def reset(self) -> None:
+        self.turn_key: tuple[int, int] | None = None
+        self.candidates: dict[tuple[int, ...], list[int]] = {}
+        self.classes: dict[tuple[int, int], list[int]] = {}
+        self.previous_offered: set[tuple[int, ...]] = set()
+        self.position = 0
+
+    def _sync(self, current: dict[str, Any]) -> None:
+        key = (
+            int(current.get("turn", -1)),
+            int(current.get("yourIndex", -1)),
+        )
+        if key != self.turn_key:
+            self.reset()
+            self.turn_key = key
+
+    def columns(
+        self,
+        current: dict[str, Any],
+        keys: list[tuple[tuple[int, ...], tuple[int, int]]],
+    ) -> list[dict[str, int]]:
+        self._sync(current)
+        rows = []
+        for semantic, class_key in keys:
+            offers, passed, first = self.candidates.get(semantic, (0, 0, -1))
+            class_offers, class_passed = self.classes.get(class_key, (0, 0))
+            rows.append({
+                "turn_decision_index": self.position,
+                "turn_candidate_offer_count": offers,
+                "turn_candidate_passed_over": passed,
+                "turn_candidate_offered_previous": int(
+                    semantic in self.previous_offered
+                ),
+                "turn_candidate_first_offer_index": (
+                    first if first >= 0 else self.position
+                ),
+                "turn_class_passed_over": class_passed,
+                "turn_class_offer_count": class_offers,
+                "turn_new_candidate": int(offers == 0),
+            })
+        return rows
+
+    def record(
+        self,
+        current: dict[str, Any],
+        keys: list[tuple[tuple[int, ...], tuple[int, int]]],
+        chosen: int,
+    ) -> None:
+        self._sync(current)
+        if not 0 <= chosen < len(keys):
+            return
+        chosen_semantic, chosen_class = keys[chosen]
+        # One increment per distinct semantic candidate, matching the corpus
+        # builder. Raw option lists repeat interchangeable copies and would
+        # otherwise inflate every counter.
+        offered_now: dict[tuple[int, ...], tuple[int, int]] = {}
+        for semantic, class_key in keys:
+            offered_now.setdefault(semantic, class_key)
+        for semantic, class_key in offered_now.items():
+            offers, passed, first = self.candidates.get(semantic, (0, 0, -1))
+            self.candidates[semantic] = (
+                offers + 1,
+                passed + int(semantic != chosen_semantic),
+                first if first >= 0 else self.position,
+            )
+            class_offers, class_passed = self.classes.get(class_key, (0, 0))
+            self.classes[class_key] = (
+                class_offers + 1,
+                class_passed + int(class_key != chosen_class),
+            )
+        self.previous_offered = set(offered_now)
+        self.position += 1
+
+
 class HybridRanker:
-    """v31 safety/memory shell plus the v32 Yushin ranker."""
+    """v31 safety/memory shell plus the v33 turn-order Yushin ranker."""
 
     def __init__(
         self,
@@ -60,33 +201,21 @@ class HybridRanker:
         del attacks
         self.threshold_override = float(threshold)
         self.enable_override = (
-            os.environ.get(
-                "ALAKAZAM_ML_V34_ENABLE_OVERRIDE",
-                os.environ.get(
-                    "ALAKAZAM_ML_V32_ENABLE_OVERRIDE",
-                    os.environ.get("ALAKAZAM_ML_V31_ENABLE_OVERRIDE", "1"),
-                ),
-            )
-            == "1"
+            _flag("ENABLE_OVERRIDE", "1") == "1"
         )
         self.enable_memory = (
-            os.environ.get(
-                "ALAKAZAM_ML_V34_ENABLE_MEMORY",
-                os.environ.get(
-                    "ALAKAZAM_ML_V32_ENABLE_MEMORY",
-                    os.environ.get("ALAKAZAM_ML_V31_ENABLE_MEMORY", "1"),
-                ),
-            )
-            == "1"
+            _flag("ENABLE_MEMORY", "1") == "1"
         )
         self.model: dict[str, Any] | None = None
+        # v31 shipped a separate numeric-ID ranker. v32 rejected it and v33
+        # blends through ``self.ensemble`` instead, so this stays None and is
+        # only reported so the inherited diagnostics keep their shape.
         self.numeric_model: dict[str, Any] | None = None
         self.v29_model: dict[str, Any] | None = None
         self.legacy_model: dict[str, Any] | None = None
         self.memory: dict[str, Any] = {}
         self.errors: dict[str, str] = {}
         self.diag = Counter()
-        self._reset_sequence_state()
         for attribute, artifact in (
             ("model", "ranker_model.json"),
             ("v29_model", "v29_ranker_model.json"),
@@ -96,116 +225,54 @@ class HybridRanker:
                 setattr(self, attribute, _load_model(artifact))
             except Exception as exc:
                 self.errors[attribute] = f"{type(exc).__name__}: {exc}"
+
+        # v33 may deploy a small validation-selected blend. Every member is a
+        # plain JSON tree, so the submission runtime stays standard library
+        # only. Extra members are optional and silently skipped when absent.
+        self.ensemble: list[tuple[dict[str, Any], float]] = []
+        if self.model is not None:
+            self.ensemble.append((
+                self.model,
+                float(self.model.get("ensemble_weight", 1.0)),
+            ))
+        for index in (1, 2):
+            name = f"ranker_model_{index}.json"
+            try:
+                extra = _load_model(name)
+            except FileNotFoundError:
+                continue
+            except Exception as exc:
+                self.errors[name] = f"{type(exc).__name__}: {exc}"
+                continue
+            self.ensemble.append((
+                extra, float(extra.get("ensemble_weight", 1.0))
+            ))
+        self.uses_turn_features = any(
+            bool(member.get("uses_turn_features"))
+            for member, _ in self.ensemble
+        )
+        self.turn_history = _TurnHistory()
+
         try:
             self.memory = _load_memory()
         except Exception as exc:
             self.errors["memory"] = f"{type(exc).__name__}: {exc}"
 
-    def _reset_sequence_state(self) -> None:
-        self.sequence_history = deque(maxlen=4)
-        self.sequence_counts = Counter()
-        self.sequence_decision_index = 0
-        self.sequence_turn = None
-        self.sequence_same_turn_index = 0
-        self.sequence_last_turn_by_kind = {
-            "attack": -999,
-            "energy": -999,
-            "evolve": -999,
-            "trainer": -999,
-        }
-
     def reset(self) -> None:
         self.diag.clear()
-        self._reset_sequence_state()
-
-    def _ensure_sequence_turn(self, current: dict[str, Any]) -> int:
-        turn = int(current.get("turn", 0))
-        if self.sequence_turn is not None and turn < self.sequence_turn:
-            self._reset_sequence_state()
-        if turn != self.sequence_turn:
-            self.sequence_turn = turn
-            self.sequence_same_turn_index = 0
-        return turn
-
-    def _sequence_features(self, current: dict[str, Any]) -> dict[str, int]:
-        turn = self._ensure_sequence_turn(current)
-        history = list(self.sequence_history)
-        out: dict[str, int] = {}
-        for offset in range(1, 5):
-            item = history[-offset] if offset <= len(history) else (-1, -1, -1, -1)
-            out[f"seq_prev_{offset}_action_type"] = int(item[0])
-            out[f"seq_prev_{offset}_card_id"] = int(item[1])
-            out[f"seq_prev_{offset}_attack_id"] = int(item[2])
-            out[f"seq_prev_{offset}_target_id"] = int(item[3])
-        for name in (
-            "ability", "attack", "bench", "boss", "end", "energy",
-            "evolve", "hammer", "other", "retreat", "trainer", "xerosic",
-        ):
-            out[f"seq_count_{name}"] = int(self.sequence_counts[name])
-        out["seq_decision_index"] = int(self.sequence_decision_index)
-        out["seq_same_turn_decision_index"] = int(self.sequence_same_turn_index)
-        for name in ("attack", "energy", "evolve", "trainer"):
-            previous = int(self.sequence_last_turn_by_kind[name])
-            out[f"seq_last_{name}_turn_gap"] = (
-                min(99, max(0, turn - previous)) if previous >= 0 else 99
-            )
-        return out
-
-    def record_choice(
-        self, observation: dict[str, Any], action: list[int]
-    ) -> None:
-        select = observation.get("select") or {}
-        options = list(select.get("option") or [])
-        if (
-            int(select.get("type", -1)) != 0
-            or int(select.get("context", -1)) != 0
-            or int(select.get("minCount") or 0) != 1
-            or int(select.get("maxCount") or 0) != 1
-            or len(options) < 2
-            or len(action) != 1
-            or not 0 <= action[0] < len(options)
-        ):
-            return
-        current = observation.get("current") or {}
-        turn = self._ensure_sequence_turn(current)
-        option = options[action[0]]
-        feature = dict(option_features(
-            current,
-            select,
-            option,
-            base_state=state_features(current),
-            observation=observation,
-            option_position=action[0],
-        ))
-        action_name = str(feature.get("action_type") or "other")
-        action_map = {
-            str(key): int(value)
-            for key, value in ((self.model or {}).get("action_type_map") or {}).items()
-        }
-        action_type_id = action_map.get(action_name, -1)
-        chosen = (
-            action_type_id,
-            int(feature.get("candidate_card_id", -1)),
-            int(feature.get("candidate_attack_id", -1)),
-            int(feature.get("candidate_target_id", -1)),
-        )
-        self.sequence_history.append(chosen)
-        self.sequence_counts[action_name] += 1
-        if action_name in self.sequence_last_turn_by_kind:
-            self.sequence_last_turn_by_kind[action_name] = turn
-        if action_name in {"boss", "xerosic", "hammer"}:
-            self.sequence_last_turn_by_kind["trainer"] = turn
-        self.sequence_decision_index += 1
-        self.sequence_same_turn_index += 1
+        self.turn_history.reset()
 
     def snapshot(self) -> dict[str, Any]:
         decisions = max(1, self.diag["decisions"])
         return {
             **dict(self.diag),
-            "runtime_scope": "v34_v31_safety_memory_plus_sequence_state_ranker",
+            "runtime_scope": "v34_v31_safety_memory_plus_recent_corpus_ranker",
             "override_enabled": self.enable_override,
             "memory_enabled": self.enable_memory,
             "model_loaded": self.model is not None,
+            "ensemble_size": len(self.ensemble),
+            "ensemble_weights": [weight for _, weight in self.ensemble],
+            "uses_turn_features": self.uses_turn_features,
             "numeric_model_loaded": self.numeric_model is not None,
             "v29_model_loaded": self.v29_model is not None,
             "legacy_model_loaded": self.legacy_model is not None,
@@ -218,6 +285,55 @@ class HybridRanker:
                 self.diag["inference_us"] / decisions / 1000.0
             ),
         }
+
+    def note_decision(
+        self,
+        observation: dict[str, Any],
+        action: list[int] | None,
+    ) -> None:
+        """Record the action actually returned for a MAIN single-choice.
+
+        Called for every scoped decision, including the ones answered from
+        teacher memory or by a fallback, so the intra-turn history matches
+        what the corpus builder saw.
+        """
+        if not self.uses_turn_features or not action or len(action) != 1:
+            return
+        select = observation.get("select") or {}
+        options = list(select.get("option") or [])
+        if (
+            int(select.get("type", -1)) != 0
+            or int(select.get("context", -1)) != 0
+            or int(select.get("minCount") or 0) != 1
+            or int(select.get("maxCount") or 0) != 1
+            or len(options) < 2
+            or not 0 <= action[0] < len(options)
+        ):
+            return
+        current = observation.get("current") or {}
+        try:
+            keys = self._turn_keys(current, select, options)
+            self.turn_history.record(current, keys, action[0])
+        except Exception as exc:
+            self.diag["turn_history_error"] += 1
+            self.diag[f"turn_history_{type(exc).__name__}"] += 1
+
+    def _turn_keys(
+        self,
+        current: dict[str, Any],
+        select: dict[str, Any],
+        options: list[dict[str, Any]],
+    ) -> list[tuple[tuple[int, ...], tuple[int, int]]]:
+        action_map = {
+            str(key): int(value)
+            for key, value in (
+                (self.model or {}).get("action_type_map") or {}
+            ).items()
+        }
+        return [
+            _turn_option_keys(current, select, option, action_map)
+            for option in options
+        ]
 
     def _fallback(
         self,
@@ -298,6 +414,7 @@ class HybridRanker:
 
         if (
             self.model is None
+            or not self.ensemble
             or self.v29_model is None
             or self.legacy_model is None
             or not options
@@ -343,7 +460,6 @@ class HybridRanker:
             }
             base_state = state_features(current)
             base_state.update(observation_features(observation))
-            base_state.update(self._sequence_features(current))
             features: list[dict[str, Any]] = []
             contexts: list[dict[str, Any]] = []
             for option_position, option in enumerate(options):
@@ -357,9 +473,15 @@ class HybridRanker:
                 action_name = str(feature.get("action_type") or "other")
                 feature["_action_name"] = action_name
                 feature["action_type"] = action_map.get(action_name, -1)
-                feature["action_type_id"] = action_map.get(action_name, -1)
                 features.append(feature)
                 contexts.append(_context_from_feature(option, feature))
+
+            if self.uses_turn_features:
+                keys = self._turn_keys(current, select, options)
+                for feature, columns in zip(
+                    features, self.turn_history.columns(current, keys)
+                ):
+                    feature.update(columns)
 
             baseline_index = baseline_action[0]
             deterministic_index = deterministic[0]
@@ -462,16 +584,6 @@ class HybridRanker:
                     continue
                 seen.add(key)
                 representatives.append(index)
-            rows = [
-                [
-                    float(features[index].get(name, -1))
-                    for name in self.model["feature_names"]
-                ]
-                for index in representatives
-            ]
-            primary_scores = [
-                _tree_score(row, self.model) for row in rows
-            ]
 
             def normalized(values):
                 mean = sum(values) / max(1, len(values))
@@ -481,34 +593,24 @@ class HybridRanker:
                 scale = max(variance ** 0.5, 1e-5)
                 return [(value - mean) / scale for value in values]
 
-            primary_normalized = normalized(primary_scores)
-            numeric_weight = (
-                float(self.numeric_model.get("ensemble_weight", 0.0))
-                if self.numeric_model is not None
-                else 0.0
-            )
-            if numeric_weight:
-                numeric_rows = [
-                    [
-                        float(features[index].get(name, -1))
-                        for name in self.numeric_model["feature_names"]
-                    ]
+            # Each ensemble member is standardised inside the candidate set
+            # before weighting, exactly as the blend was selected offline.
+            scores = [0.0] * len(representatives)
+            for member, weight in self.ensemble:
+                if not weight:
+                    continue
+                member_scores = [
+                    _tree_score(
+                        [
+                            float(features[index].get(name, -1))
+                            for name in member["feature_names"]
+                        ],
+                        member,
+                    )
                     for index in representatives
                 ]
-                numeric_scores = [
-                    _tree_score(row, self.numeric_model)
-                    for row in numeric_rows
-                ]
-                numeric_normalized = normalized(numeric_scores)
-                scores = [
-                    primary + numeric_weight * numeric
-                    for primary, numeric in zip(
-                        primary_normalized,
-                        numeric_normalized,
-                    )
-                ]
-            else:
-                scores = primary_normalized
+                for position, value in enumerate(normalized(member_scores)):
+                    scores[position] += weight * value
             order = sorted(
                 range(len(scores)),
                 key=lambda index: scores[index],

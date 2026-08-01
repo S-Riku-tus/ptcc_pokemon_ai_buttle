@@ -67,3 +67,8 @@ Thumbs.db
 
 # Regeneratable ML matrix feature arrays (exceed GitHub LFS 2GB limit)
 data/ml/**/processed/matrix/features.npy
+
+# Teacher corpus caches. Regenerate with scripts/build_alakazam_v33_corpus.py
+# from the teacher index, which is committed. These exceed GitHub's 100 MB
+# hard push limit (v34's is 102 MB) and this repo does not use Git LFS.
+experiments/**/*.npz

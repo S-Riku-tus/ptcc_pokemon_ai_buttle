@@ -1,0 +1,78 @@
+{
+  "name": "alakazam_gpt_v2",
+  "axis": "alakazam_gpt",
+  "axis_origin": "Externally built line (ChatGPT app), kept on its own version axis and numbered from v1. It is not a continuation of the alakazam_ml numbering.",
+  "version": "2.0.0",
+  "role": "challenger",
+  "status": "finalized_hierarchical_type_challenger_target_unmet",
+  "parent_agent": "alakazam_gpt_v1",
+  "ladder_champion": "alakazam_ml_v31",
+  "created_at": "2026-07-31T15:58:00+09:00",
+  "deck_cards": 60,
+  "deck_unchanged_from_gpt_v1": true,
+  "teacher_corpus": {
+    "teacher": "Yushin Ito",
+    "unique_episodes": 999,
+    "decisions": 49590,
+    "semantic_candidates": 443714,
+    "split": "chronological_episode_70_10_20"
+  },
+  "v1_candidate_ranker": {
+    "features": 674,
+    "trees": 312,
+    "validation_top1": 0.8080587534736007,
+    "test_top1": 0.8062839059674503,
+    "test_top2": 0.9329792043399638
+  },
+  "v2_action_type_model": {
+    "model": "XGBoost multiclass compact pure-python",
+    "input_features": 276,
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "trees": 2420,
+    "train_decisions": 40742,
+    "test_type_accuracy": 0.8487793851717902,
+    "confidence_threshold": 0.5
+  },
+  "v2_policy": {
+    "test_top1": 0.816003616636528,
+    "improvement_vs_v1": 0.0097197106690777,
+    "correct_type_conditional_candidate_top1": 0.9559222423146474,
+    "target_top1": 0.9,
+    "target_met": false
+  },
+  "safety": {
+    "inherits_ml_v31_and_gpt_v1_guards": true,
+    "teacher_memory": true,
+    "ml_v29_fallback": true,
+    "deterministic_lethal_guard": true
+  },
+  "validation": {
+    "pytest_passed": 181,
+    "pytest_failed": 0,
+    "xgb_parity_rows": 100,
+    "xgb_argmax_match": 1.0,
+    "xgb_probability_max_abs_error": 5.456302993867013e-07
+  },
+  "known_limitations": [
+    "90% unseen Top-1 was not reached.",
+    "Existing chronological test was used in prior v1 research and is not a pristine new holdout.",
+    "The type classifier is the remaining bottleneck; correct-type conditional candidate accuracy is already above 95%."
+  ],
+  "ranker_model_json_sha256": "0684d01f2feb7c4aa1fb7f9d067317f27b86f95f503a75c39224a24b29fb2fff",
+  "type_model_json_sha256": "c5ff95cf1d81793c0046623ca824b8c2ddb12916df632af94bed4b8a0b2f4006",
+  "teacher_memory_bin_sha256": "5dd73b13b92ef6ba403e4fc3b50df1ec7badc7cdf26f6a6b6a21c18790d30bb3",
+  "fallback_policy_py_sha256": "3fcdb252f207646cd6464e6164aeb76c6eb2c515303a39f4b7f5711af754913b",
+  "deck_csv_sha256": "57c7d4800cfc0f36581077a40b24912d33056cafcc14cca3783094ce6c122bfe"
+}
