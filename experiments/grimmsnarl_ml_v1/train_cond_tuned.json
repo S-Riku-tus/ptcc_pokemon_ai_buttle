@@ -1,0 +1,610 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v1.npz",
+  "teams": "all",
+  "leave_out_team": null,
+  "params": {
+    "objective": "lambdarank",
+    "num_leaves": 383,
+    "learning_rate": 0.03,
+    "min_data_in_leaf": 25,
+    "feature_fraction": 0.4,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "seed": 17,
+    "verbosity": -1,
+    "num_threads": 20,
+    "metric": "None",
+    "lambdarank_truncation_level": 12,
+    "label_gain": [
+      0,
+      1
+    ]
+  },
+  "best_iteration": 1231,
+  "num_boost_round": 6000,
+  "team_feature": true,
+  "split_decisions": {
+    "train": 112592,
+    "validation": 17627,
+    "test": 17809
+  },
+  "split_episodes": {
+    "train": 2779,
+    "validation": 438,
+    "test": 438
+  },
+  "validation": {
+    "decisions": 17627,
+    "top1": 0.7931,
+    "top1_wilson95": [
+      0.7871,
+      0.799
+    ],
+    "top2": 0.94,
+    "top3": 0.981,
+    "taxonomy": {
+      "counts": {
+        "same_turn_ordering": 2546,
+        "correct": 13980,
+        "divergence": 979,
+        "same_action_type_divergence": 122
+      },
+      "rates": {
+        "same_turn_ordering": 0.1444,
+        "correct": 0.7931,
+        "divergence": 0.0555,
+        "same_action_type_divergence": 0.0069
+      },
+      "order_insensitive_top1": 0.9375,
+      "top_action_confusions": [
+        {
+          "teacher": 0,
+          "predicted": 0,
+          "count": 224
+        },
+        {
+          "teacher": 7,
+          "predicted": 0,
+          "count": 201
+        },
+        {
+          "teacher": 12,
+          "predicted": 0,
+          "count": 145
+        },
+        {
+          "teacher": 0,
+          "predicted": 7,
+          "count": 127
+        },
+        {
+          "teacher": 7,
+          "predicted": 7,
+          "count": 116
+        },
+        {
+          "teacher": 1,
+          "predicted": 7,
+          "count": 110
+        },
+        {
+          "teacher": 7,
+          "predicted": 2,
+          "count": 92
+        },
+        {
+          "teacher": 0,
+          "predicted": 6,
+          "count": 89
+        },
+        {
+          "teacher": 1,
+          "predicted": 0,
+          "count": 88
+        },
+        {
+          "teacher": 12,
+          "predicted": 7,
+          "count": 85
+        },
+        {
+          "teacher": 5,
+          "predicted": 0,
+          "count": 80
+        },
+        {
+          "teacher": 5,
+          "predicted": 7,
+          "count": 78
+        }
+      ]
+    },
+    "top1_by_teacher_action": {
+      "0": {
+        "decisions": 4452,
+        "top1": 0.8457
+      },
+      "1": {
+        "decisions": 1685,
+        "top1": 0.781
+      },
+      "2": {
+        "decisions": 1946,
+        "top1": 0.8731
+      },
+      "3": {
+        "decisions": 265,
+        "top1": 0.5321
+      },
+      "4": {
+        "decisions": 427,
+        "top1": 0.6042
+      },
+      "5": {
+        "decisions": 1630,
+        "top1": 0.7601
+      },
+      "6": {
+        "decisions": 1747,
+        "top1": 0.8414
+      },
+      "7": {
+        "decisions": 2841,
+        "top1": 0.7652
+      },
+      "9": {
+        "decisions": 404,
+        "top1": 0.5743
+      },
+      "10": {
+        "decisions": 490,
+        "top1": 0.8633
+      },
+      "11": {
+        "decisions": 275,
+        "top1": 0.8655
+      },
+      "12": {
+        "decisions": 1465,
+        "top1": 0.6997
+      }
+    },
+    "top1_by_team": {
+      "16421840": {
+        "decisions": 145,
+        "top1": 0.9034
+      },
+      "16462035": {
+        "decisions": 505,
+        "top1": 0.901
+      },
+      "16556346": {
+        "decisions": 992,
+        "top1": 0.8942
+      },
+      "16494330": {
+        "decisions": 864,
+        "top1": 0.8866
+      },
+      "16461850": {
+        "decisions": 942,
+        "top1": 0.8854
+      },
+      "16385817": {
+        "decisions": 883,
+        "top1": 0.8573
+      },
+      "16376653": {
+        "decisions": 1062,
+        "top1": 0.8475
+      },
+      "16407282": {
+        "decisions": 1000,
+        "top1": 0.816
+      },
+      "16388364": {
+        "decisions": 190,
+        "top1": 0.8
+      },
+      "16388654": {
+        "decisions": 1039,
+        "top1": 0.7988
+      },
+      "16463316": {
+        "decisions": 1152,
+        "top1": 0.7977
+      },
+      "16561259": {
+        "decisions": 1100,
+        "top1": 0.7845
+      },
+      "16452116": {
+        "decisions": 1056,
+        "top1": 0.7708
+      },
+      "16375320": {
+        "decisions": 1144,
+        "top1": 0.7649
+      },
+      "16531269": {
+        "decisions": 1206,
+        "top1": 0.7322
+      },
+      "16431331": {
+        "decisions": 302,
+        "top1": 0.7285
+      },
+      "16514272": {
+        "decisions": 852,
+        "top1": 0.7218
+      },
+      "16422241": {
+        "decisions": 1406,
+        "top1": 0.7112
+      },
+      "16381904": {
+        "decisions": 909,
+        "top1": 0.7096
+      },
+      "16371703": {
+        "decisions": 878,
+        "top1": 0.7039
+      }
+    }
+  },
+  "test": {
+    "decisions": 17809,
+    "top1": 0.775,
+    "top1_wilson95": [
+      0.7688,
+      0.7811
+    ],
+    "top2": 0.9344,
+    "top3": 0.9796,
+    "taxonomy": {
+      "counts": {
+        "correct": 13802,
+        "divergence": 926,
+        "same_turn_ordering": 2961,
+        "same_action_type_divergence": 120
+      },
+      "rates": {
+        "correct": 0.775,
+        "divergence": 0.052,
+        "same_turn_ordering": 0.1663,
+        "same_action_type_divergence": 0.0067
+      },
+      "order_insensitive_top1": 0.9413,
+      "top_action_confusions": [
+        {
+          "teacher": 7,
+          "predicted": 0,
+          "count": 285
+        },
+        {
+          "teacher": 0,
+          "predicted": 0,
+          "count": 269
+        },
+        {
+          "teacher": 12,
+          "predicted": 0,
+          "count": 135
+        },
+        {
+          "teacher": 0,
+          "predicted": 7,
+          "count": 134
+        },
+        {
+          "teacher": 7,
+          "predicted": 7,
+          "count": 107
+        },
+        {
+          "teacher": 7,
+          "predicted": 2,
+          "count": 104
+        },
+        {
+          "teacher": 2,
+          "predicted": 0,
+          "count": 92
+        },
+        {
+          "teacher": 5,
+          "predicted": 0,
+          "count": 90
+        },
+        {
+          "teacher": 1,
+          "predicted": 0,
+          "count": 89
+        },
+        {
+          "teacher": 6,
+          "predicted": 0,
+          "count": 86
+        },
+        {
+          "teacher": 5,
+          "predicted": 7,
+          "count": 80
+        },
+        {
+          "teacher": 7,
+          "predicted": 1,
+          "count": 78
+        }
+      ]
+    },
+    "top1_by_teacher_action": {
+      "0": {
+        "decisions": 4457,
+        "top1": 0.8239
+      },
+      "1": {
+        "decisions": 1787,
+        "top1": 0.8025
+      },
+      "2": {
+        "decisions": 1888,
+        "top1": 0.822
+      },
+      "3": {
+        "decisions": 271,
+        "top1": 0.4871
+      },
+      "4": {
+        "decisions": 383,
+        "top1": 0.6475
+      },
+      "5": {
+        "decisions": 1621,
+        "top1": 0.7656
+      },
+      "6": {
+        "decisions": 1732,
+        "top1": 0.8118
+      },
+      "7": {
+        "decisions": 3023,
+        "top1": 0.7287
+      },
+      "9": {
+        "decisions": 393,
+        "top1": 0.5369
+      },
+      "10": {
+        "decisions": 526,
+        "top1": 0.8764
+      },
+      "11": {
+        "decisions": 298,
+        "top1": 0.8356
+      },
+      "12": {
+        "decisions": 1430,
+        "top1": 0.6944
+      }
+    },
+    "top1_by_team": {
+      "16421840": {
+        "decisions": 409,
+        "top1": 0.912
+      },
+      "16494330": {
+        "decisions": 336,
+        "top1": 0.9077
+      },
+      "16462035": {
+        "decisions": 331,
+        "top1": 0.8882
+      },
+      "16556346": {
+        "decisions": 696,
+        "top1": 0.8836
+      },
+      "16388364": {
+        "decisions": 298,
+        "top1": 0.8624
+      },
+      "16461850": {
+        "decisions": 447,
+        "top1": 0.8591
+      },
+      "16385817": {
+        "decisions": 804,
+        "top1": 0.8532
+      },
+      "16376653": {
+        "decisions": 493,
+        "top1": 0.8276
+      },
+      "16407282": {
+        "decisions": 355,
+        "top1": 0.8169
+      },
+      "16375320": {
+        "decisions": 455,
+        "top1": 0.811
+      },
+      "16430670": {
+        "decisions": 2245,
+        "top1": 0.8022
+      },
+      "16452116": {
+        "decisions": 713,
+        "top1": 0.7896
+      },
+      "16463316": {
+        "decisions": 935,
+        "top1": 0.785
+      },
+      "16514272": {
+        "decisions": 425,
+        "top1": 0.7812
+      },
+      "16388654": {
+        "decisions": 370,
+        "top1": 0.7757
+      },
+      "16561259": {
+        "decisions": 920,
+        "top1": 0.7609
+      },
+      "16531269": {
+        "decisions": 922,
+        "top1": 0.7473
+      },
+      "16431331": {
+        "decisions": 324,
+        "top1": 0.7469
+      },
+      "16422241": {
+        "decisions": 2207,
+        "top1": 0.7213
+      },
+      "16381904": {
+        "decisions": 443,
+        "top1": 0.7111
+      },
+      "16371703": {
+        "decisions": 3681,
+        "top1": 0.6971
+      }
+    }
+  },
+  "top_features": [
+    {
+      "name": "action_type_id",
+      "gain": 319458.2
+    },
+    {
+      "name": "candidate_card_id",
+      "gain": 308008.8
+    },
+    {
+      "name": "energy_enables_munkidori",
+      "gain": 191852.9
+    },
+    {
+      "name": "option_type",
+      "gain": 186267.3
+    },
+    {
+      "name": "teacher_team_id",
+      "gain": 165253.4
+    },
+    {
+      "name": "opp_active_id",
+      "gain": 113030.8
+    },
+    {
+      "name": "offered_card_112_count",
+      "gain": 107966.6
+    },
+    {
+      "name": "candidate_same_card_preceding",
+      "gain": 99305.0
+    },
+    {
+      "name": "candidate_option_reverse_position",
+      "gain": 96111.2
+    },
+    {
+      "name": "candidate_is_only_end",
+      "gain": 70907.5
+    },
+    {
+      "name": "turn_class_passed_over",
+      "gain": 54579.1
+    },
+    {
+      "name": "candidate_option_position",
+      "gain": 53146.2
+    },
+    {
+      "name": "legal_option_count",
+      "gain": 51430.5
+    },
+    {
+      "name": "candidate_raw_index",
+      "gain": 51013.5
+    },
+    {
+      "name": "candidate_target_dark_energy",
+      "gain": 46427.7
+    },
+    {
+      "name": "offered_ability_count",
+      "gain": 44684.5
+    },
+    {
+      "name": "turn_self_log_type_4",
+      "gain": 39560.8
+    },
+    {
+      "name": "candidate_target_id",
+      "gain": 38130.6
+    },
+    {
+      "name": "offered_item_count",
+      "gain": 37836.3
+    },
+    {
+      "name": "self_total_hp",
+      "gain": 34852.1
+    },
+    {
+      "name": "recent_log_0_type",
+      "gain": 33718.0
+    },
+    {
+      "name": "candidate_target_energy",
+      "gain": 33292.9
+    },
+    {
+      "name": "same_card_option_count",
+      "gain": 33215.2
+    },
+    {
+      "name": "candidate_is_first_card_copy",
+      "gain": 32678.8
+    },
+    {
+      "name": "retreat_to_ready_backup_value",
+      "gain": 32137.0
+    },
+    {
+      "name": "public_log_count",
+      "gain": 32078.2
+    },
+    {
+      "name": "self_deck_count",
+      "gain": 31722.0
+    },
+    {
+      "name": "target_is_munkidori",
+      "gain": 29059.6
+    },
+    {
+      "name": "candidate_hand_cost",
+      "gain": 28920.2
+    },
+    {
+      "name": "self_active_hp",
+      "gain": 28918.4
+    }
+  ],
+  "validation_curve_tail": {
+    "top1": [
+      0.7915,
+      0.7916,
+      0.7916,
+      0.7919,
+      0.7919
+    ]
+  }
+}

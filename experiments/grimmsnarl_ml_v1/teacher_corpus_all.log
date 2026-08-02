@@ -1,0 +1,43 @@
+trajectories=4772 teams=25
+{
+  "deck_hash": "",
+  "trajectories": 4772,
+  "teams": 25,
+  "episodes": 4772,
+  "win_rate": 0.5826,
+  "main_decisions": 193618,
+  "levels": {
+    "full": {
+      "distinct_signatures": 193616,
+      "signatures_with_repeats": 2,
+      "signatures_shared_across_teams": 2,
+      "self_pairs": 0,
+      "self_agreement": null,
+      "cross_pairs": 2,
+      "cross_agreement": 0.0
+    },
+    "coarse": {
+      "distinct_signatures": 193616,
+      "signatures_with_repeats": 2,
+      "signatures_shared_across_teams": 2,
+      "self_pairs": 0,
+      "self_agreement": null,
+      "cross_pairs": 2,
+      "cross_agreement": 0.0
+    },
+    "menu": {
+      "distinct_signatures": 134430,
+      "signatures_with_repeats": 14053,
+      "signatures_shared_across_teams": 13135,
+      "self_pairs": 29174,
+      "self_agreement": 0.8106,
+      "cross_pairs": 432766,
+      "cross_agreement": 0.7554
+    }
+  },
+  "extraction_stats": {
+    "episodes": 4772,
+    "wins": 2780,
+    "decisions": 193618
+  }
+}

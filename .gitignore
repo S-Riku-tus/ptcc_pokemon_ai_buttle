@@ -72,3 +72,16 @@ data/ml/**/processed/matrix/features.npy
 # from the teacher index, which is committed. These exceed GitHub's 100 MB
 # hard push limit (v34's is 102 MB) and this repo does not use Git LFS.
 experiments/**/*.npz
+
+# Grimmsnarl top-50 replay archive: ~24 GB of raw episode JSON. Refetch with
+# scripts/collect_top100_submission_replays.py from the submission list in
+# data/kaggle_top50_meta/analysis/submissions_grimmsnarl.csv.
+data/kaggle_grimmsnarl_top50/
+
+# Grimmsnarl training intermediates. The corpus cache is 69 MB and the raw
+# LightGBM boosters are 8-52 MB each; all are regenerable with
+# scripts/build_grimmsnarl_v1_corpus.py and scripts/train_grimmsnarl_v1_teacher.py.
+# The distilled runtime model that the agent actually loads IS committed, at
+# agents/grimmsnarl/grimmsnarl_ml_v1/ranker_model.json.
+data/ml/grimmsnarl/processed/
+data/ml/grimmsnarl/models/
