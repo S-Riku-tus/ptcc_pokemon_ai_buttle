@@ -1,0 +1,30 @@
+decisions train=5633 validation=992 test=696 features=622
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+Training until validation scores don't improve for 150 rounds
+[100]	validation's top1: 0.86996
+[200]	validation's top1: 0.856855
+Early stopping, best iteration is:
+[102]	validation's top1: 0.871976
+{
+  "best_iteration": 102,
+  "validation_top1": 0.872,
+  "test_top1": 0.8218,
+  "test_top1_wilson95": [
+    0.7917,
+    0.8485
+  ],
+  "test_top3": 0.9842,
+  "test_order_insensitive_top1": 0.9497,
+  "test_taxonomy": {
+    "correct": 0.8218,
+    "same_turn_ordering": 0.1279,
+    "divergence": 0.0431,
+    "same_action_type_divergence": 0.0072
+  }
+}

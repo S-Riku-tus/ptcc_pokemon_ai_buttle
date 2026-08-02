@@ -1,0 +1,657 @@
+{
+  "deck_hash": "9714ab5c3996f6cc",
+  "trajectories": 3655,
+  "teams": 21,
+  "episodes": 3655,
+  "win_rate": 0.5891,
+  "main_decisions": 148028,
+  "levels": {
+    "full": {
+      "team_agreement_with_field": [],
+      "distinct_signatures": 148028,
+      "signatures_with_repeats": 0,
+      "signatures_shared_across_teams": 0,
+      "self_pairs": 0,
+      "self_agreement": null,
+      "cross_pairs": 0,
+      "cross_agreement": null,
+      "worst_team_pairs": [],
+      "best_team_pairs": []
+    },
+    "coarse": {
+      "team_agreement_with_field": [],
+      "distinct_signatures": 148028,
+      "signatures_with_repeats": 0,
+      "signatures_shared_across_teams": 0,
+      "self_pairs": 0,
+      "self_agreement": null,
+      "cross_pairs": 0,
+      "cross_agreement": null,
+      "worst_team_pairs": [],
+      "best_team_pairs": []
+    },
+    "menu": {
+      "team_agreement_with_field": [
+        {
+          "team_id": 16561259,
+          "collisions": 14764,
+          "agreement_with_field": 0.7234
+        },
+        {
+          "team_id": 16463316,
+          "collisions": 44479,
+          "agreement_with_field": 0.7423
+        },
+        {
+          "team_id": 16371703,
+          "collisions": 38792,
+          "agreement_with_field": 0.7435
+        },
+        {
+          "team_id": 16381904,
+          "collisions": 34011,
+          "agreement_with_field": 0.7488
+        },
+        {
+          "team_id": 16422241,
+          "collisions": 17199,
+          "agreement_with_field": 0.7548
+        },
+        {
+          "team_id": 16431331,
+          "collisions": 14333,
+          "agreement_with_field": 0.7575
+        },
+        {
+          "team_id": 16452116,
+          "collisions": 48004,
+          "agreement_with_field": 0.7629
+        },
+        {
+          "team_id": 16531269,
+          "collisions": 51339,
+          "agreement_with_field": 0.7672
+        },
+        {
+          "team_id": 16375320,
+          "collisions": 21189,
+          "agreement_with_field": 0.7686
+        },
+        {
+          "team_id": 16388654,
+          "collisions": 46045,
+          "agreement_with_field": 0.7707
+        },
+        {
+          "team_id": 16376653,
+          "collisions": 36172,
+          "agreement_with_field": 0.7742
+        },
+        {
+          "team_id": 16556346,
+          "collisions": 33169,
+          "agreement_with_field": 0.782
+        },
+        {
+          "team_id": 16461850,
+          "collisions": 23646,
+          "agreement_with_field": 0.7907
+        },
+        {
+          "team_id": 16514272,
+          "collisions": 21189,
+          "agreement_with_field": 0.7933
+        },
+        {
+          "team_id": 16494330,
+          "collisions": 27671,
+          "agreement_with_field": 0.797
+        },
+        {
+          "team_id": 16421840,
+          "collisions": 15106,
+          "agreement_with_field": 0.7981
+        },
+        {
+          "team_id": 16388364,
+          "collisions": 16657,
+          "agreement_with_field": 0.8004
+        },
+        {
+          "team_id": 16462035,
+          "collisions": 48933,
+          "agreement_with_field": 0.8034
+        },
+        {
+          "team_id": 16407282,
+          "collisions": 49941,
+          "agreement_with_field": 0.8042
+        },
+        {
+          "team_id": 16385817,
+          "collisions": 9753,
+          "agreement_with_field": 0.8048
+        },
+        {
+          "team_id": 16430670,
+          "collisions": 9992,
+          "agreement_with_field": 0.8207
+        }
+      ],
+      "distinct_signatures": 104776,
+      "signatures_with_repeats": 10897,
+      "signatures_shared_across_teams": 10230,
+      "self_pairs": 24067,
+      "self_agreement": 0.8174,
+      "cross_pairs": 311192,
+      "cross_agreement": 0.7745,
+      "worst_team_pairs": [
+        {
+          "teams": [
+            16422241,
+            16431331
+          ],
+          "collisions": 417,
+          "agreement": 0.6835
+        },
+        {
+          "teams": [
+            16463316,
+            16561259
+          ],
+          "collisions": 1136,
+          "agreement": 0.6937
+        },
+        {
+          "teams": [
+            16431331,
+            16561259
+          ],
+          "collisions": 304,
+          "agreement": 0.6941
+        },
+        {
+          "teams": [
+            16422241,
+            16561259
+          ],
+          "collisions": 359,
+          "agreement": 0.7019
+        },
+        {
+          "teams": [
+            16430670,
+            16463316
+          ],
+          "collisions": 660,
+          "agreement": 0.703
+        },
+        {
+          "teams": [
+            16371703,
+            16463316
+          ],
+          "collisions": 2730,
+          "agreement": 0.7044
+        },
+        {
+          "teams": [
+            16556346,
+            16561259
+          ],
+          "collisions": 828,
+          "agreement": 0.7065
+        },
+        {
+          "teams": [
+            16371703,
+            16422241
+          ],
+          "collisions": 1135,
+          "agreement": 0.7075
+        },
+        {
+          "teams": [
+            16381904,
+            16561259
+          ],
+          "collisions": 850,
+          "agreement": 0.7118
+        },
+        {
+          "teams": [
+            16463316,
+            16556346
+          ],
+          "collisions": 2418,
+          "agreement": 0.7122
+        }
+      ],
+      "best_team_pairs": [
+        {
+          "teams": [
+            16461850,
+            16462035
+          ],
+          "collisions": 2289,
+          "agreement": 0.8637
+        },
+        {
+          "teams": [
+            16421840,
+            16556346
+          ],
+          "collisions": 920,
+          "agreement": 0.8641
+        },
+        {
+          "teams": [
+            16421840,
+            16461850
+          ],
+          "collisions": 626,
+          "agreement": 0.8642
+        },
+        {
+          "teams": [
+            16430670,
+            16556346
+          ],
+          "collisions": 597,
+          "agreement": 0.8727
+        },
+        {
+          "teams": [
+            16430670,
+            16494330
+          ],
+          "collisions": 480,
+          "agreement": 0.8729
+        },
+        {
+          "teams": [
+            16430670,
+            16462035
+          ],
+          "collisions": 839,
+          "agreement": 0.8749
+        },
+        {
+          "teams": [
+            16421840,
+            16462035
+          ],
+          "collisions": 1385,
+          "agreement": 0.8773
+        },
+        {
+          "teams": [
+            16430670,
+            16461850
+          ],
+          "collisions": 461,
+          "agreement": 0.8915
+        },
+        {
+          "teams": [
+            16421840,
+            16430670
+          ],
+          "collisions": 257,
+          "agreement": 0.8988
+        },
+        {
+          "teams": [
+            16388364,
+            16430670
+          ],
+          "collisions": 251,
+          "agreement": 0.9124
+        }
+      ]
+    }
+  },
+  "teams_detail": [
+    {
+      "team_id": 16407282,
+      "leaderboard_rank": 38,
+      "submission_score": 1063.4,
+      "decisions": 11861,
+      "action_mix": {
+        "ability:112": 0.1517,
+        "ability:-1": 0.1148,
+        "attack:937": 0.0905,
+        "energy:5:112": 0.0678,
+        "play:112": 0.0638,
+        "play:1152": 0.0534,
+        "evolve:647": 0.0481,
+        "play:1227": 0.0395
+      }
+    },
+    {
+      "team_id": 16531269,
+      "leaderboard_rank": 13,
+      "submission_score": 1121.6,
+      "decisions": 11803,
+      "action_mix": {
+        "ability:112": 0.1599,
+        "ability:-1": 0.1028,
+        "attack:937": 0.0846,
+        "energy:5:112": 0.0679,
+        "play:112": 0.0647,
+        "play:1152": 0.0526,
+        "evolve:647": 0.0418,
+        "play:1086": 0.0401
+      }
+    },
+    {
+      "team_id": 16462035,
+      "leaderboard_rank": 36,
+      "submission_score": 1064.7,
+      "decisions": 11555,
+      "action_mix": {
+        "ability:112": 0.1494,
+        "ability:-1": 0.1153,
+        "attack:937": 0.0886,
+        "energy:5:112": 0.0621,
+        "play:112": 0.06,
+        "play:1152": 0.0552,
+        "evolve:647": 0.047,
+        "play:646": 0.0419
+      }
+    },
+    {
+      "team_id": 16452116,
+      "leaderboard_rank": 17,
+      "submission_score": 1101.8,
+      "decisions": 11415,
+      "action_mix": {
+        "ability:112": 0.1517,
+        "ability:-1": 0.0958,
+        "attack:937": 0.0823,
+        "energy:5:112": 0.062,
+        "play:112": 0.0613,
+        "play:1152": 0.0544,
+        "evolve:647": 0.0452,
+        "play:1086": 0.0428
+      }
+    },
+    {
+      "team_id": 16463316,
+      "leaderboard_rank": 9,
+      "submission_score": 1141.3,
+      "decisions": 11167,
+      "action_mix": {
+        "ability:112": 0.1504,
+        "ability:-1": 0.1033,
+        "attack:937": 0.0871,
+        "energy:5:112": 0.0634,
+        "play:112": 0.0617,
+        "evolve:647": 0.05,
+        "play:1152": 0.0493,
+        "play:1227": 0.0408
+      }
+    },
+    {
+      "team_id": 16388654,
+      "leaderboard_rank": 25,
+      "submission_score": 1085.9,
+      "decisions": 11119,
+      "action_mix": {
+        "ability:112": 0.1572,
+        "ability:-1": 0.1076,
+        "attack:937": 0.0865,
+        "energy:5:112": 0.0671,
+        "play:112": 0.0657,
+        "play:1152": 0.0536,
+        "play:1227": 0.0428,
+        "evolve:647": 0.0422
+      }
+    },
+    {
+      "team_id": 16371703,
+      "leaderboard_rank": 4,
+      "submission_score": 1220.2,
+      "decisions": 10789,
+      "action_mix": {
+        "ability:112": 0.1387,
+        "ability:-1": 0.1017,
+        "attack:937": 0.0943,
+        "energy:5:112": 0.0602,
+        "play:112": 0.0591,
+        "play:1152": 0.052,
+        "play:1086": 0.0448,
+        "evolve:647": 0.0447
+      }
+    },
+    {
+      "team_id": 16376653,
+      "leaderboard_rank": 32,
+      "submission_score": 1073.8,
+      "decisions": 7683,
+      "action_mix": {
+        "ability:112": 0.14,
+        "ability:-1": 0.1106,
+        "attack:937": 0.0862,
+        "play:112": 0.064,
+        "energy:5:112": 0.0622,
+        "play:1152": 0.0538,
+        "evolve:647": 0.0459,
+        "play:1086": 0.0433
+      }
+    },
+    {
+      "team_id": 16381904,
+      "leaderboard_rank": 29,
+      "submission_score": 1080.3,
+      "decisions": 7560,
+      "action_mix": {
+        "ability:112": 0.1478,
+        "ability:-1": 0.1017,
+        "attack:937": 0.0882,
+        "energy:5:112": 0.0651,
+        "play:112": 0.0573,
+        "play:1152": 0.0554,
+        "evolve:647": 0.0459,
+        "play:646": 0.0384
+      }
+    },
+    {
+      "team_id": 16556346,
+      "leaderboard_rank": 24,
+      "submission_score": 1086.7,
+      "decisions": 7321,
+      "action_mix": {
+        "ability:112": 0.1538,
+        "ability:-1": 0.1082,
+        "attack:937": 0.0869,
+        "energy:5:112": 0.0656,
+        "play:112": 0.0638,
+        "play:1152": 0.0546,
+        "evolve:647": 0.0448,
+        "play:1097": 0.0422
+      }
+    },
+    {
+      "team_id": 16494330,
+      "leaderboard_rank": 30,
+      "submission_score": 1077.6,
+      "decisions": 5916,
+      "action_mix": {
+        "ability:112": 0.144,
+        "ability:-1": 0.1048,
+        "attack:937": 0.0923,
+        "energy:5:112": 0.0632,
+        "play:112": 0.06,
+        "play:1152": 0.057,
+        "evolve:647": 0.0477,
+        "play:1097": 0.0424
+      }
+    },
+    {
+      "team_id": 16461850,
+      "leaderboard_rank": 45,
+      "submission_score": 1050.6,
+      "decisions": 5783,
+      "action_mix": {
+        "ability:112": 0.1536,
+        "ability:-1": 0.1076,
+        "attack:937": 0.0823,
+        "play:112": 0.0597,
+        "energy:5:112": 0.0595,
+        "play:1152": 0.0567,
+        "evolve:647": 0.0488,
+        "play:1097": 0.0405
+      }
+    },
+    {
+      "team_id": 16375320,
+      "leaderboard_rank": 20,
+      "submission_score": 1094.8,
+      "decisions": 5515,
+      "action_mix": {
+        "ability:112": 0.1393,
+        "ability:-1": 0.0963,
+        "attack:937": 0.0956,
+        "play:112": 0.0655,
+        "energy:5:112": 0.0635,
+        "play:1152": 0.0544,
+        "evolve:647": 0.0484,
+        "play:646": 0.039
+      }
+    },
+    {
+      "team_id": 16514272,
+      "leaderboard_rank": 31,
+      "submission_score": 1073.9,
+      "decisions": 4841,
+      "action_mix": {
+        "ability:112": 0.1603,
+        "ability:-1": 0.1062,
+        "attack:937": 0.0874,
+        "energy:5:112": 0.0644,
+        "play:112": 0.062,
+        "play:1152": 0.0543,
+        "evolve:647": 0.0436,
+        "play:646": 0.0401
+      }
+    },
+    {
+      "team_id": 16561259,
+      "leaderboard_rank": 11,
+      "submission_score": 1126.3,
+      "decisions": 4447,
+      "action_mix": {
+        "ability:112": 0.1468,
+        "ability:-1": 0.1068,
+        "attack:937": 0.0922,
+        "play:112": 0.065,
+        "energy:5:112": 0.0609,
+        "play:1152": 0.0504,
+        "evolve:647": 0.0472,
+        "play:1086": 0.0371
+      }
+    },
+    {
+      "team_id": 16422241,
+      "leaderboard_rank": 5,
+      "submission_score": 1172.6,
+      "decisions": 4201,
+      "action_mix": {
+        "ability:112": 0.1538,
+        "ability:-1": 0.0966,
+        "attack:937": 0.0878,
+        "energy:5:112": 0.0626,
+        "play:112": 0.0586,
+        "play:1152": 0.0507,
+        "evolve:647": 0.045,
+        "play:1227": 0.0381
+      }
+    },
+    {
+      "team_id": 16388364,
+      "leaderboard_rank": 50,
+      "submission_score": 1046.3,
+      "decisions": 3636,
+      "action_mix": {
+        "ability:112": 0.1381,
+        "ability:-1": 0.1136,
+        "attack:937": 0.088,
+        "play:1152": 0.0589,
+        "energy:5:112": 0.0589,
+        "play:112": 0.0558,
+        "evolve:647": 0.0506,
+        "play:1097": 0.0429
+      }
+    },
+    {
+      "team_id": 16421840,
+      "leaderboard_rank": 48,
+      "submission_score": 1048.5,
+      "decisions": 3633,
+      "action_mix": {
+        "ability:112": 0.1445,
+        "ability:-1": 0.1096,
+        "attack:937": 0.0875,
+        "energy:5:112": 0.0619,
+        "play:112": 0.0614,
+        "play:1152": 0.0597,
+        "play:1097": 0.0515,
+        "evolve:647": 0.0479
+      }
+    },
+    {
+      "team_id": 16431331,
+      "leaderboard_rank": 49,
+      "submission_score": 1046.4,
+      "decisions": 3040,
+      "action_mix": {
+        "ability:112": 0.1562,
+        "ability:-1": 0.0951,
+        "attack:937": 0.0947,
+        "energy:5:112": 0.0773,
+        "play:112": 0.0674,
+        "play:1152": 0.0546,
+        "play:1227": 0.0418,
+        "evolve:647": 0.0414
+      }
+    },
+    {
+      "team_id": 16385817,
+      "leaderboard_rank": 27,
+      "submission_score": 1082.1,
+      "decisions": 2498,
+      "action_mix": {
+        "ability:112": 0.1433,
+        "ability:-1": 0.1133,
+        "attack:937": 0.0909,
+        "energy:5:112": 0.0629,
+        "play:1152": 0.062,
+        "play:112": 0.0588,
+        "evolve:647": 0.0512,
+        "play:1097": 0.0436
+      }
+    },
+    {
+      "team_id": 16430670,
+      "leaderboard_rank": 39,
+      "submission_score": 1062.3,
+      "decisions": 2245,
+      "action_mix": {
+        "ability:112": 0.1599,
+        "ability:-1": 0.11,
+        "attack:937": 0.0833,
+        "energy:5:112": 0.0641,
+        "play:112": 0.0615,
+        "play:1152": 0.0561,
+        "evolve:647": 0.0468,
+        "play:1097": 0.0405
+      }
+    }
+  ],
+  "extraction_stats": {
+    "episodes": 3655,
+    "wins": 2153,
+    "decisions": 148028
+  }
+}

@@ -1,0 +1,33 @@
+episodes=9 teacher_team=16421840 pinned_code=8
+{
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v1",
+  "teacher_team": 16421840,
+  "pinned_teacher_code": 8,
+  "min_episode": 89423940,
+  "episodes": 9,
+  "main_decisions": 409,
+  "runtime_top1": 0.9022,
+  "runtime_top1_wilson95": [
+    0.8696,
+    0.9274
+  ],
+  "counts": {
+    "episodes": 9,
+    "non_main_decisions": 606,
+    "main_decisions": 409,
+    "correct": 369,
+    "correct_via_duplicate": 26
+  },
+  "ranker_stats": {
+    "main_decisions": 52,
+    "ranker_used": 52,
+    "feature_errors": 0,
+    "score_errors": 0
+  },
+  "latency_ms": {
+    "mean": 30.41,
+    "p50": 27.66,
+    "p95": 59.99,
+    "max": 160.37
+  }
+}
