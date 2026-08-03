@@ -135,8 +135,11 @@ def main():
     deck_a = load_deck_override(args.deck_a, agent_a({"select": None}))
     deck_b = load_deck_override(args.deck_b, agent_b({"select": None}))
 
-    wins = {args.agent_a: 0, args.agent_b: 0, "draw": 0}
-    first_wins = {args.agent_a: 0, args.agent_b: 0}
+    # Keyed by side, not by spec: running an agent against itself as a
+    # seat-bias control collided both sides into one counter and printed
+    # "A: 60 B: 60" over 60 games.
+    wins = {"A": 0, "B": 0, "draw": 0}
+    first_wins = {"A": 0, "B": 0}
     stats = {"agent_error": [0, 0], "illegal": [0, 0], "time": [0.0, 0.0], "moves": [0, 0]}
 
     for g in range(args.games):
@@ -149,21 +152,22 @@ def main():
             label = "draw"
         else:
             winner_is_a = (result == 0) == a_first
+            side = "A" if winner_is_a else "B"
             label = args.agent_a if winner_is_a else args.agent_b
-            wins[label] += 1
+            wins[side] += 1
             if result == 0:
-                first_wins[label] += 1
+                first_wins[side] += 1
         if not args.quiet:
             print(f"game {g + 1:>3}: seat0={'A' if a_first else 'B'} -> {label}")
 
     total = args.games
     played = total - wins["draw"]
     print("\n== RESULT ==")
-    print(f"A {args.agent_a}: {wins[args.agent_a]}  "
-          f"B {args.agent_b}: {wins[args.agent_b]}  draw: {wins['draw']}")
+    print(f"A {args.agent_a}: {wins['A']}  "
+          f"B {args.agent_b}: {wins['B']}  draw: {wins['draw']}")
     if played:
-        print(f"A win rate (excl. draws): {wins[args.agent_a] / played:.1%}")
-    print(f"first-seat wins: A={first_wins[args.agent_a]} B={first_wins[args.agent_b]}")
+        print(f"A win rate (excl. draws): {wins['A'] / played:.1%}")
+    print(f"first-seat wins: A={first_wins['A']} B={first_wins['B']}")
     print(f"errors (crash): {stats['agent_error']}  illegal selects: {stats['illegal']}")
     for i, name in enumerate(("seat-pool-0", "seat-pool-1")):
         if stats["moves"][i]:

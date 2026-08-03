@@ -72,7 +72,131 @@ def ex_damage_blockers(card_table) -> set[int]:
     return blockers
 
 
-def render(card_table, energy_dark) -> str:
+def ability_pokemon(card_table, froslass_id: int = 104) -> set[int]:
+    """Every Pokemon Freezing Shroud puts a damage counter on.
+
+    v2 counted three card ids - Froslass, Munkidori, Grimmsnarl ex - so the
+    "who does Freezing Shroud hurt more" comparison only worked in the mirror.
+    The card reads "each Pokemon that has an Ability (both yours and your
+    opponent's), except any Froslass", so the real set is every Pokemon card
+    with a non-empty skill list, minus the Froslass line itself.
+    """
+    return {
+        int(card_id)
+        for card_id, data in card_table.items()
+        if getattr(data, "cardType", -1) == 0
+        and (getattr(data, "skills", None) or [])
+        and int(card_id) != froslass_id
+    }
+
+
+def attack_cost_damage(card_table, attack_table) -> dict[int, tuple]:
+    """Pokemon card id -> Pareto frontier of (energy cost, printed damage).
+
+    Used to estimate what the opponent's board can do to us next turn, which
+    is what turns "heal 30" into "heal enough to survive". Printed damage only:
+    conditional bonuses, damage-counter placement and "for each" scaling are
+    not modelled, so this is a floor on the real number for scaling attacks and
+    exact for the flat ones that decide most turns.
+    """
+    out: dict[int, tuple] = {}
+    for card_id, data in card_table.items():
+        if getattr(data, "cardType", -1) != 0:
+            continue
+        pairs: list[tuple[int, int]] = []
+        for attack_id in (getattr(data, "attacks", None) or []):
+            attack = attack_table.get(attack_id)
+            if attack is None:
+                continue
+            damage = int(getattr(attack, "damage", 0) or 0)
+            if damage <= 0:
+                continue
+            cost = len(getattr(attack, "energies", None) or [])
+            pairs.append((cost, damage))
+        frontier = []
+        for cost, damage in sorted(pairs):
+            if any(c <= cost and d >= damage for c, d in frontier):
+                continue
+            frontier.append((cost, damage))
+        if frontier:
+            out[int(card_id)] = tuple(frontier)
+    return out
+
+
+def type_map(card_table, attribute: str) -> dict[int, int]:
+    out: dict[int, int] = {}
+    for card_id, data in card_table.items():
+        if getattr(data, "cardType", -1) != 0:
+            continue
+        value = getattr(data, attribute, None)
+        if isinstance(value, int) and value:
+            out[int(card_id)] = int(value)
+    return out
+
+
+def dict_block(name: str, mapping: dict, comment: str) -> str:
+    """Render a mapping as wrapped source, values already repr-able."""
+    if not mapping:
+        return f"# {comment}\n{name} = {{}}\n"
+    tokens = [f"{key}:{value!r}," for key, value in sorted(mapping.items())]
+    tokens = [token.replace(" ", "") for token in tokens]
+    lines: list[str] = []
+    line = "    "
+    for token in tokens:
+        if len(line) + len(token) > 78:
+            lines.append(line.rstrip())
+            line = "    "
+        line += token
+    lines.append(line.rstrip())
+    inner = "\n".join(lines)
+    return f"# {comment}\n{name} = {{\n{inner}\n}}\n"
+
+
+def render_v3_extra(card_table, attack_table) -> list[str]:
+    return [
+        block_frozenset(
+            "ABILITY_POKEMON_IDS", sorted(ability_pokemon(card_table)),
+            "Every Pokemon with an Ability except the Froslass line: exactly"
+            "\n# the bodies Freezing Shroud puts a counter on, both sides.",
+        ),
+        dict_block(
+            "POKEMON_TYPE_IDS", type_map(card_table, "energyType"),
+            "Pokemon card id -> its own energy type, for Weakness matching.",
+        ),
+        dict_block(
+            "POKEMON_WEAKNESS_IDS", type_map(card_table, "weakness"),
+            "Pokemon card id -> Weakness energy type (doubles damage).",
+        ),
+        dict_block(
+            "POKEMON_RESISTANCE_IDS", type_map(card_table, "resistance"),
+            "Pokemon card id -> Resistance energy type (-30 damage).",
+        ),
+        dict_block(
+            "ATTACK_COST_DAMAGE", attack_cost_damage(card_table, attack_table),
+            "Pokemon card id -> ((energy cost, printed damage), ...), Pareto"
+            "\n# frontier. Printed damage only; scaling attacks read low.",
+        ),
+    ]
+
+
+def block_frozenset(name: str, values: list[int], comment: str) -> str:
+    if not values:
+        return f"# {comment}\n{name} = frozenset()\n"
+    lines: list[str] = []
+    line = "    "
+    for value in values:
+        token = f"{value},"
+        if len(line) + len(token) + 1 > 79:
+            lines.append(line.rstrip())
+            line = "    "
+        line += token + " "
+    lines.append(line.rstrip())
+    inner = "\n".join(lines)
+    return f"# {comment}\n{name} = frozenset({{\n{inner}\n}})\n"
+
+
+def render(card_table, energy_dark, attack_table=None,
+           variant: str = "v2") -> str:
     blockers = sorted(ex_damage_blockers(card_table))
     rule_box = sorted(
         int(card_id) for card_id, data in card_table.items()
@@ -141,30 +265,41 @@ def render(card_table, energy_dark) -> str:
         ),
         f"NEUTRALIZATION_ZONE_ID = {NEUTRALIZATION_ZONE}",
         f"BATTLE_CAGE_ID = {BATTLE_CAGE}",
-        END,
     ]
+    if variant == "v3":
+        parts.append("")
+        parts.extend(render_v3_extra(card_table, attack_table or {}))
+    parts.append(END)
     return "\n".join(parts) + "\n"
+
+
+DEFAULT_TARGETS = {
+    "v2": ["agents/grimmsnarl/grimmsnarl_ml_v2/ml_features.py"],
+    "v3": ["agents/grimmsnarl/grimmsnarl_ml_v3/ml_features.py"],
+}
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--targets", nargs="*",
-        default=["agents/grimmsnarl/grimmsnarl_ml_v2/ml_features.py"],
-    )
+    parser.add_argument("--variant", choices=["v2", "v3"], default="v2")
+    parser.add_argument("--targets", nargs="*")
     args = parser.parse_args()
+    targets = args.targets or DEFAULT_TARGETS[args.variant]
 
     # policy_base needs to resolve from an agent directory that ships it.
     agent_dir = ROOT / "agents" / "grimmsnarl" / "grimmsnarl_ml_v2"
     sys.path.insert(0, str(agent_dir))
     from cg.api import EnergyType  # noqa: E402
-    from policy_base import card_table  # noqa: E402
+    from policy_base import attack_table, card_table  # noqa: E402
 
-    generated = render(card_table, EnergyType.DARKNESS)
+    generated = render(
+        card_table, EnergyType.DARKNESS,
+        attack_table=attack_table, variant=args.variant,
+    )
     pattern = re.compile(
         re.escape(BEGIN) + r".*?" + re.escape(END) + r"\n", re.DOTALL
     )
-    for target in args.targets:
+    for target in targets:
         path = ROOT / target
         source = path.read_text(encoding="utf-8")
         if BEGIN not in source:

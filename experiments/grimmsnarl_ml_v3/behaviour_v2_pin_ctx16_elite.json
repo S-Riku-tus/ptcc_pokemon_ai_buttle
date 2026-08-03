@@ -1,0 +1,90 @@
+{
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v2",
+  "source": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\runs\\grimmsnarl\\20260803_grimmsnarl_ml_v2_sub55205556",
+  "teams": null,
+  "pin_team": null,
+  "pin_context": "16:16371703",
+  "baseline_code": 16,
+  "totals": {
+    "episodes": 59,
+    "decisions": 5154,
+    "agreements": 5063
+  },
+  "agreement_with_replay": 0.9823,
+  "groups": {
+    "boss_play": {
+      "counts": {
+        "offered": 316,
+        "offered_with_snipe_lethal": 48,
+        "played_played_boss": 24,
+        "played_played_boss_with_snipe_lethal": 7,
+        "agent_played_boss": 25,
+        "agent_played_boss_with_snipe_lethal": 9
+      },
+      "played_play_rate": 0.0759,
+      "played_play_rate_with_snipe_lethal": 0.1458,
+      "agent_play_rate": 0.0791,
+      "agent_play_rate_with_snipe_lethal": 0.1875
+    },
+    "boss_target": {
+      "counts": {
+        "decisions": 9,
+        "snipe_lethal_existed": 2
+      },
+      "played_snipe_lethal_rate": 0.0,
+      "agent_snipe_lethal_rate": 0.0
+    },
+    "counter_count": {
+      "counts": {
+        "decisions": 300,
+        "played_chose_max": 300,
+        "agent_chose_max": 300
+      },
+      "played_max_rate": 1.0,
+      "agent_max_rate": 1.0
+    },
+    "froslass_evolve": {
+      "counts": {
+        "opportunities": 74,
+        "played_evolved": 62,
+        "agent_evolved": 62,
+        "negative_opportunities": 22,
+        "played_negative_evolved": 18,
+        "agent_negative_evolved": 18
+      },
+      "played_evolve_rate": 0.8378,
+      "played_negative_evolve_rate": 0.8182,
+      "agent_evolve_rate": 0.8378,
+      "agent_negative_evolve_rate": 0.8182
+    },
+    "munkidori_source": {
+      "counts": {
+        "decisions": 323,
+        "grimmsnarl_offered": 181,
+        "played_passed_grimmsnarl": 77,
+        "agent_passed_grimmsnarl": 81,
+        "differed": 7
+      },
+      "played_pass_rate": 0.4254,
+      "agent_pass_rate": 0.4475,
+      "offered_wilson95": [
+        0.3769,
+        0.5203
+      ]
+    },
+    "snipe_target": {
+      "counts": {
+        "decisions": 201,
+        "ko_available": 48,
+        "played_chose_ko": 48,
+        "played_chose_best_prize_ko": 48,
+        "agent_chose_ko": 48,
+        "agent_chose_best_prize_ko": 48
+      },
+      "played_ko_rate": 1.0,
+      "played_best_prize_rate": 1.0,
+      "agent_ko_rate": 1.0,
+      "agent_best_prize_rate": 1.0
+    }
+  }
+}

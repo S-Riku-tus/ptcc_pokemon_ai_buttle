@@ -54,6 +54,15 @@ class EpisodeRecord:
     episode_type: str = ""
     agent_0_submission_id: str = ""
     agent_1_submission_id: str = ""
+    # Ratings as they stood when the match was paired. Without these, the only
+    # way to bucket opponents by strength is to join the *current* public
+    # leaderboard, which for the 59-game Grimmsnarl v2 run matched 12 of 59
+    # opponents and could not say what any of them was rated at the time. The
+    # EpisodeService returns them per agent; blank when it does not.
+    agent_0_initial_score: str = ""
+    agent_1_initial_score: str = ""
+    agent_0_updated_score: str = ""
+    agent_1_updated_score: str = ""
 
 
 @dataclass
@@ -213,22 +222,42 @@ def write_run_metadata(
 
 
 def get_agent_submission_ids(episode: dict[str, object]) -> dict[int, str]:
-    ids: dict[int, str] = {}
+    return {
+        index: str(agent.get("submissionId"))
+        for index, agent in _agents_by_index(episode).items()
+        if agent.get("submissionId") is not None
+    }
+
+
+def _agents_by_index(episode: dict[str, object]) -> dict[int, dict]:
     agents = episode.get("agents")
     if not isinstance(agents, list):
-        return ids
-
+        return {}
+    out: dict[int, dict] = {}
     for position, agent in enumerate(agents[:2]):
         if not isinstance(agent, dict):
             continue
         index = agent.get("index")
-        if not isinstance(index, int):
-            index = position
-        submission_id = agent.get("submissionId")
-        if submission_id is not None:
-            ids[index] = str(submission_id)
+        out[index if isinstance(index, int) else position] = agent
+    return out
 
-    return ids
+
+def get_agent_scores(episode: dict[str, object], field: str) -> dict[int, str]:
+    """Per-seat rating field, as a string so a missing value stays blank.
+
+    Kaggle has used both ``initialScore``/``updatedScore`` and nested score
+    objects here, so anything non-scalar is read through its ``value``.
+    """
+    out: dict[int, str] = {}
+    for index, agent in _agents_by_index(episode).items():
+        value = agent.get(field)
+        if isinstance(value, dict):
+            value = value.get("value")
+        if isinstance(value, (int, float)):
+            out[index] = f"{float(value):.4f}"
+        elif isinstance(value, str) and value.strip():
+            out[index] = value.strip()
+    return out
 
 
 def list_submission_episodes(submission_id: int) -> list[EpisodeRecord]:
@@ -251,6 +280,8 @@ def list_submission_episodes(submission_id: int) -> list[EpisodeRecord]:
             continue
 
         submission_ids = get_agent_submission_ids(episode)
+        initial = get_agent_scores(episode, "initialScore")
+        updated = get_agent_scores(episode, "updatedScore")
         records.append(
             EpisodeRecord(
                 episode_id=int(raw_id),
@@ -260,6 +291,10 @@ def list_submission_episodes(submission_id: int) -> list[EpisodeRecord]:
                 episode_type=str(episode.get("type") or ""),
                 agent_0_submission_id=submission_ids.get(0, ""),
                 agent_1_submission_id=submission_ids.get(1, ""),
+                agent_0_initial_score=initial.get(0, ""),
+                agent_1_initial_score=initial.get(1, ""),
+                agent_0_updated_score=updated.get(0, ""),
+                agent_1_updated_score=updated.get(1, ""),
             )
         )
 

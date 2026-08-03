@@ -219,6 +219,7 @@ def main() -> int:
         # fire and the intra-turn columns advance twice per decision, so the
         # model reads features it was never fitted on.
         ranker.teacher_forced = True
+    observe_hook = getattr(module, "observe_external", None)
     print(f"episodes={len(index)} team={args.team}", flush=True)
 
     per_context: dict[tuple, list[int]] = defaultdict(lambda: [0, 0])
@@ -351,7 +352,13 @@ def main() -> int:
             # just MAIN: v2 scores them all, and the corpus builder advanced
             # the same set when it wrote the training columns.
             if ranker is not None and len(action) == 1:
-                ranker.observe_external(observation, action[0])
+                # v3 exposes a module-level hook so the planner's per-turn
+                # heal budget follows the teacher as well as the ranker's
+                # intra-turn columns; v2 and v1 have only the ranker's.
+                if observe_hook is not None:
+                    observe_hook(observation, action[0])
+                else:
+                    ranker.observe_external(observation, action[0])
 
     rows = []
     for bucket, (total, agree) in sorted(
