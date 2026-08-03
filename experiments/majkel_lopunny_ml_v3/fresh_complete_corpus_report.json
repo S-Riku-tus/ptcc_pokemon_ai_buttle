@@ -1,0 +1,145 @@
+{
+  "run_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\runs\\leaderboard_refresh\\majkel_55137818_20260802",
+  "output": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\fresh_complete_corpus.npz",
+  "teacher": "Majkel1337",
+  "submission_id": 55137818,
+  "source_manifest": "episodes.csv submission-seat derivation",
+  "seat_verification": "manifest detected_submission_agent_index + replay TeamNames",
+  "deck_verified_trajectories": 342,
+  "deck": [
+    {
+      "card_id": 11,
+      "name": "Mist Energy",
+      "count": 4
+    },
+    {
+      "card_id": 13,
+      "name": "Enriching Energy",
+      "count": 1
+    },
+    {
+      "card_id": 14,
+      "name": "Spiky Energy",
+      "count": 3
+    },
+    {
+      "card_id": 66,
+      "name": "Dudunsparce",
+      "count": 4
+    },
+    {
+      "card_id": 174,
+      "name": "Fan Rotom",
+      "count": 1
+    },
+    {
+      "card_id": 305,
+      "name": "Dunsparce",
+      "count": 4
+    },
+    {
+      "card_id": 848,
+      "name": "Buneary",
+      "count": 4
+    },
+    {
+      "card_id": 849,
+      "name": "Mega Lopunny ex",
+      "count": 3
+    },
+    {
+      "card_id": 1086,
+      "name": "Buddy-Buddy Poffin",
+      "count": 4
+    },
+    {
+      "card_id": 1121,
+      "name": "Ultra Ball",
+      "count": 4
+    },
+    {
+      "card_id": 1122,
+      "name": "Pokégear 3.0",
+      "count": 4
+    },
+    {
+      "card_id": 1152,
+      "name": "Poké Pad",
+      "count": 4
+    },
+    {
+      "card_id": 1174,
+      "name": "Air Balloon",
+      "count": 4
+    },
+    {
+      "card_id": 1182,
+      "name": "Boss’s Orders",
+      "count": 3
+    },
+    {
+      "card_id": 1197,
+      "name": "Xerosic’s Machinations",
+      "count": 1
+    },
+    {
+      "card_id": 1225,
+      "name": "Hilda",
+      "count": 4
+    },
+    {
+      "card_id": 1227,
+      "name": "Lillie's Determination",
+      "count": 4
+    },
+    {
+      "card_id": 1229,
+      "name": "Wally's Compassion",
+      "count": 4
+    }
+  ],
+  "stats": {
+    "manifest_rows": 342,
+    "validated_trajectories": 342,
+    "decisions": 28299,
+    "candidate_rows": 238558,
+    "forced_decisions": 1459,
+    "nonforced_decisions": 26840,
+    "multi_pick_decisions": 1922,
+    "variable_count_decisions": 3845
+  },
+  "split_episodes": {
+    "train": 162,
+    "validation": 80,
+    "test": 100
+  },
+  "split_decisions": {
+    "train": 12608,
+    "validation": 6739,
+    "test": 8952
+  },
+  "split_policy": {
+    "order": "ascending episode_id",
+    "validation_games": 80,
+    "test_games": 100
+  },
+  "context_counts": {
+    "type_0_context_0": 18684,
+    "type_1_context_7": 3982,
+    "type_1_context_3": 1766,
+    "type_1_context_4": 772,
+    "type_1_context_5": 684,
+    "type_1_context_8": 664,
+    "type_1_context_17": 624,
+    "type_1_context_1": 342,
+    "type_4_context_30": 326,
+    "type_9_context_41": 166,
+    "type_1_context_2": 151,
+    "type_5_context_34": 71,
+    "type_8_context_38": 67
+  },
+  "feature_count": 749,
+  "count_feature_count": 611,
+  "deck_signature_count": 1,
+  "deck_mismatch_count": 0
+}

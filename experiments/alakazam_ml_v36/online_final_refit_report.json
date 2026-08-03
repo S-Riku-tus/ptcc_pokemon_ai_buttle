@@ -1,0 +1,87 @@
+{
+  "method": "validation-selected final refit on train+validation",
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v36\\yushin_v36_online_arrays.npz",
+  "selection_provenance": "configuration and tree count selected before this run on the chronological validation split",
+  "configuration": {
+    "model": "large_leaf",
+    "trees": 1400,
+    "seed": 1091,
+    "label": "graded",
+    "episode_fraction": 1.0,
+    "recency_floor": 0.25,
+    "recency_power": 2.0,
+    "recent_min_episode": 0,
+    "recent_boost": 1.0,
+    "lambdarank_truncation_level": 0,
+    "include_turn_features": false
+  },
+  "fit_episodes": 2408,
+  "fit_decisions": 121039,
+  "fit_seconds": 412.870474299998,
+  "graded_label_counts": {
+    "played_next": 67613,
+    "chosen": 125127,
+    "not_played": 764521,
+    "played_later": 151796
+  },
+  "test": {
+    "decisions": 4088,
+    "top1": 0.8084637964774951,
+    "top2": 0.9395792563600783,
+    "top3": 0.9774951076320939,
+    "turn_set": 0.9366438356164384,
+    "by_teacher_action": {
+      "ability": {
+        "count": 525,
+        "top1": 0.8914285714285715
+      },
+      "attack": {
+        "count": 428,
+        "top1": 0.8504672897196262
+      },
+      "bench": {
+        "count": 536,
+        "top1": 0.8059701492537313
+      },
+      "boss": {
+        "count": 76,
+        "top1": 0.5526315789473685
+      },
+      "end": {
+        "count": 79,
+        "top1": 0.8607594936708861
+      },
+      "energy": {
+        "count": 432,
+        "top1": 0.7754629629629629
+      },
+      "evolve": {
+        "count": 859,
+        "top1": 0.9115250291036089
+      },
+      "hammer": {
+        "count": 118,
+        "top1": 0.847457627118644
+      },
+      "retreat": {
+        "count": 48,
+        "top1": 0.8541666666666666
+      },
+      "trainer": {
+        "count": 918,
+        "top1": 0.6797385620915033
+      },
+      "xerosic": {
+        "count": 69,
+        "top1": 0.6956521739130435
+      }
+    },
+    "top1_correct": 3305,
+    "top1_wilson_95": [
+      0.796113587460492,
+      0.8202348281320474
+    ]
+  },
+  "target_top1": 0.9,
+  "target_met": false
+}

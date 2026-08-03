@@ -1,0 +1,442 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\corpus_majkel_707.npz",
+  "test_read": false,
+  "fit_train_episodes": 422,
+  "calibration_episodes": 105,
+  "calibration_main_decisions": 5500,
+  "base_validation": {
+    "decisions": 6739,
+    "semantic_exact": 0.7612405401394866,
+    "raw_exact": 0.7282979670574269,
+    "count_accuracy": 0.9907998219320374,
+    "forced_decisions": 340,
+    "nonforced_decisions": 6399,
+    "nonforced_semantic_exact": 0.7485544616346305,
+    "nonforced_raw_exact": 0.7138615408657603,
+    "nonforced_count_accuracy": 0.9903109860915769,
+    "variable_count_decisions": 879,
+    "variable_count_accuracy": 0.9294653014789533,
+    "single_choice_decisions": 5984,
+    "single_choice_semantic_top1": 0.7605280748663101,
+    "single_choice_semantic_top2": 0.9065842245989305,
+    "single_choice_semantic_top3": 0.9613970588235294,
+    "single_choice_turn_set": 0.8806818181818182,
+    "main_single_choice_decisions": 4460,
+    "main_single_choice_semantic_top1": 0.7188340807174888,
+    "by_context": {
+      "type_0_context_0": {
+        "decisions": 4496,
+        "semantic_exact": 0.7210854092526691,
+        "nonforced_decisions": 4460,
+        "nonforced_semantic_exact": 0.7188340807174888,
+        "single_choice_decisions": 4460,
+        "single_choice_semantic_top1": 0.7188340807174888
+      },
+      "type_1_context_1": {
+        "decisions": 80,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 36,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 36,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_17": {
+        "decisions": 154,
+        "semantic_exact": 0.9805194805194806,
+        "nonforced_decisions": 51,
+        "nonforced_semantic_exact": 0.9411764705882353,
+        "single_choice_decisions": 51,
+        "single_choice_semantic_top1": 0.9411764705882353
+      },
+      "type_1_context_2": {
+        "decisions": 37,
+        "semantic_exact": 0.9459459459459459,
+        "nonforced_decisions": 37,
+        "nonforced_semantic_exact": 0.9459459459459459,
+        "single_choice_decisions": 27,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_3": {
+        "decisions": 428,
+        "semantic_exact": 0.8855140186915887,
+        "nonforced_decisions": 398,
+        "nonforced_semantic_exact": 0.8768844221105527,
+        "single_choice_decisions": 398,
+        "single_choice_semantic_top1": 0.8768844221105527
+      },
+      "type_1_context_4": {
+        "decisions": 187,
+        "semantic_exact": 0.6631016042780749,
+        "nonforced_decisions": 181,
+        "nonforced_semantic_exact": 0.6519337016574586,
+        "single_choice_decisions": 181,
+        "single_choice_semantic_top1": 0.6519337016574586
+      },
+      "type_1_context_5": {
+        "decisions": 158,
+        "semantic_exact": 0.8227848101265823,
+        "nonforced_decisions": 158,
+        "nonforced_semantic_exact": 0.8227848101265823,
+        "single_choice_decisions": 52,
+        "single_choice_semantic_top1": 0.9423076923076923
+      },
+      "type_1_context_7": {
+        "decisions": 903,
+        "semantic_exact": 0.8693244739756367,
+        "nonforced_decisions": 861,
+        "nonforced_semantic_exact": 0.8629500580720093,
+        "single_choice_decisions": 715,
+        "single_choice_semantic_top1": 0.9188811188811189
+      },
+      "type_1_context_8": {
+        "decisions": 155,
+        "semantic_exact": 0.41935483870967744,
+        "nonforced_decisions": 154,
+        "nonforced_semantic_exact": 0.4155844155844156,
+        "single_choice_decisions": 1,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_4_context_30": {
+        "decisions": 64,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 3,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 3,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_5_context_34": {
+        "decisions": 17,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 0,
+        "nonforced_semantic_exact": 0.0,
+        "single_choice_decisions": 0,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_8_context_38": {
+        "decisions": 16,
+        "semantic_exact": 0.875,
+        "nonforced_decisions": 16,
+        "nonforced_semantic_exact": 0.875,
+        "single_choice_decisions": 16,
+        "single_choice_semantic_top1": 0.875
+      },
+      "type_9_context_41": {
+        "decisions": 44,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 44,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 44,
+        "single_choice_semantic_top1": 1.0
+      }
+    }
+  },
+  "selected": {
+    "trees": 100,
+    "base_z_alpha": 2.0,
+    "nonforced_semantic_exact": 0.7499609313955306,
+    "single_top1": 0.7620320855614974,
+    "main_top1": 0.7208520179372198
+  },
+  "fit_seconds": 334.1525215000147,
+  "target": {
+    "metric": "validation_nonforced_semantic_exact",
+    "value": 0.85,
+    "met": false
+  },
+  "experiments": [
+    {
+      "trees": 100,
+      "base_z_alpha": 0.0,
+      "nonforced_semantic_exact": 0.7354274105328957,
+      "single_top1": 0.7464906417112299,
+      "main_top1": 0.7
+    },
+    {
+      "trees": 100,
+      "base_z_alpha": 0.25,
+      "nonforced_semantic_exact": 0.7377715268010626,
+      "single_top1": 0.7489973262032086,
+      "main_top1": 0.7033632286995516
+    },
+    {
+      "trees": 100,
+      "base_z_alpha": 0.5,
+      "nonforced_semantic_exact": 0.739021722144085,
+      "single_top1": 0.7503342245989305,
+      "main_top1": 0.7051569506726457
+    },
+    {
+      "trees": 100,
+      "base_z_alpha": 0.75,
+      "nonforced_semantic_exact": 0.7410532895764963,
+      "single_top1": 0.7525066844919787,
+      "main_top1": 0.7080717488789238
+    },
+    {
+      "trees": 100,
+      "base_z_alpha": 1.0,
+      "nonforced_semantic_exact": 0.7444913267698078,
+      "single_top1": 0.7561831550802139,
+      "main_top1": 0.7130044843049327
+    },
+    {
+      "trees": 100,
+      "base_z_alpha": 1.5,
+      "nonforced_semantic_exact": 0.7473042662916081,
+      "single_top1": 0.7591911764705882,
+      "main_top1": 0.7170403587443946
+    },
+    {
+      "trees": 100,
+      "base_z_alpha": 2.0,
+      "nonforced_semantic_exact": 0.7499609313955306,
+      "single_top1": 0.7620320855614974,
+      "main_top1": 0.7208520179372198
+    },
+    {
+      "trees": 200,
+      "base_z_alpha": 0.0,
+      "nonforced_semantic_exact": 0.729957805907173,
+      "single_top1": 0.7406417112299465,
+      "main_top1": 0.692152466367713
+    },
+    {
+      "trees": 200,
+      "base_z_alpha": 0.25,
+      "nonforced_semantic_exact": 0.7318330989217066,
+      "single_top1": 0.7426470588235294,
+      "main_top1": 0.6948430493273543
+    },
+    {
+      "trees": 200,
+      "base_z_alpha": 0.5,
+      "nonforced_semantic_exact": 0.7349585872792623,
+      "single_top1": 0.7459893048128342,
+      "main_top1": 0.6993273542600897
+    },
+    {
+      "trees": 200,
+      "base_z_alpha": 0.75,
+      "nonforced_semantic_exact": 0.7362087826222847,
+      "single_top1": 0.7473262032085561,
+      "main_top1": 0.7011210762331839
+    },
+    {
+      "trees": 200,
+      "base_z_alpha": 1.0,
+      "nonforced_semantic_exact": 0.7371464291295515,
+      "single_top1": 0.7483288770053476,
+      "main_top1": 0.7024663677130045
+    },
+    {
+      "trees": 200,
+      "base_z_alpha": 1.5,
+      "nonforced_semantic_exact": 0.7412095639943741,
+      "single_top1": 0.7526737967914439,
+      "main_top1": 0.7082959641255605
+    },
+    {
+      "trees": 200,
+      "base_z_alpha": 2.0,
+      "nonforced_semantic_exact": 0.7440225035161744,
+      "single_top1": 0.7556818181818182,
+      "main_top1": 0.7123318385650225
+    },
+    {
+      "trees": 300,
+      "base_z_alpha": 0.0,
+      "nonforced_semantic_exact": 0.724644475699328,
+      "single_top1": 0.7349598930481284,
+      "main_top1": 0.6845291479820628
+    },
+    {
+      "trees": 300,
+      "base_z_alpha": 0.25,
+      "nonforced_semantic_exact": 0.7269885919674949,
+      "single_top1": 0.7374665775401069,
+      "main_top1": 0.6878923766816144
+    },
+    {
+      "trees": 300,
+      "base_z_alpha": 0.5,
+      "nonforced_semantic_exact": 0.731520550085951,
+      "single_top1": 0.7423128342245989,
+      "main_top1": 0.6943946188340807
+    },
+    {
+      "trees": 300,
+      "base_z_alpha": 0.75,
+      "nonforced_semantic_exact": 0.7346460384435068,
+      "single_top1": 0.7456550802139037,
+      "main_top1": 0.6988789237668162
+    },
+    {
+      "trees": 300,
+      "base_z_alpha": 1.0,
+      "nonforced_semantic_exact": 0.7351148616971401,
+      "single_top1": 0.7461564171122995,
+      "main_top1": 0.6995515695067265
+    },
+    {
+      "trees": 300,
+      "base_z_alpha": 1.5,
+      "nonforced_semantic_exact": 0.7396468198155962,
+      "single_top1": 0.7510026737967914,
+      "main_top1": 0.7060538116591928
+    },
+    {
+      "trees": 300,
+      "base_z_alpha": 2.0,
+      "nonforced_semantic_exact": 0.7405844663228629,
+      "single_top1": 0.7520053475935828,
+      "main_top1": 0.7073991031390134
+    },
+    {
+      "trees": 400,
+      "base_z_alpha": 0.0,
+      "nonforced_semantic_exact": 0.7230817315205501,
+      "single_top1": 0.7332887700534759,
+      "main_top1": 0.682286995515695
+    },
+    {
+      "trees": 400,
+      "base_z_alpha": 0.25,
+      "nonforced_semantic_exact": 0.7241756524456946,
+      "single_top1": 0.7344585561497327,
+      "main_top1": 0.6838565022421524
+    },
+    {
+      "trees": 400,
+      "base_z_alpha": 0.5,
+      "nonforced_semantic_exact": 0.7274574152211283,
+      "single_top1": 0.7379679144385026,
+      "main_top1": 0.6885650224215246
+    },
+    {
+      "trees": 400,
+      "base_z_alpha": 0.75,
+      "nonforced_semantic_exact": 0.732145647757462,
+      "single_top1": 0.74298128342246,
+      "main_top1": 0.6952914798206278
+    },
+    {
+      "trees": 400,
+      "base_z_alpha": 1.0,
+      "nonforced_semantic_exact": 0.7340209407719956,
+      "single_top1": 0.7449866310160428,
+      "main_top1": 0.6979820627802691
+    },
+    {
+      "trees": 400,
+      "base_z_alpha": 1.5,
+      "nonforced_semantic_exact": 0.7373027035474293,
+      "single_top1": 0.7484959893048129,
+      "main_top1": 0.7026905829596413
+    },
+    {
+      "trees": 400,
+      "base_z_alpha": 2.0,
+      "nonforced_semantic_exact": 0.7396468198155962,
+      "single_top1": 0.7510026737967914,
+      "main_top1": 0.7060538116591928
+    },
+    {
+      "trees": 500,
+      "base_z_alpha": 0.0,
+      "nonforced_semantic_exact": 0.7202687919987498,
+      "single_top1": 0.7302807486631016,
+      "main_top1": 0.6782511210762332
+    },
+    {
+      "trees": 500,
+      "base_z_alpha": 0.25,
+      "nonforced_semantic_exact": 0.7227691826847945,
+      "single_top1": 0.7329545454545454,
+      "main_top1": 0.6818385650224216
+    },
+    {
+      "trees": 500,
+      "base_z_alpha": 0.5,
+      "nonforced_semantic_exact": 0.7269885919674949,
+      "single_top1": 0.7374665775401069,
+      "main_top1": 0.6878923766816144
+    },
+    {
+      "trees": 500,
+      "base_z_alpha": 0.75,
+      "nonforced_semantic_exact": 0.7304266291608064,
+      "single_top1": 0.7411430481283422,
+      "main_top1": 0.6928251121076233
+    },
+    {
+      "trees": 500,
+      "base_z_alpha": 1.0,
+      "nonforced_semantic_exact": 0.732145647757462,
+      "single_top1": 0.74298128342246,
+      "main_top1": 0.6952914798206278
+    },
+    {
+      "trees": 500,
+      "base_z_alpha": 1.5,
+      "nonforced_semantic_exact": 0.7365213314580403,
+      "single_top1": 0.7476604278074866,
+      "main_top1": 0.7015695067264573
+    },
+    {
+      "trees": 500,
+      "base_z_alpha": 2.0,
+      "nonforced_semantic_exact": 0.7401156430692296,
+      "single_top1": 0.7515040106951871,
+      "main_top1": 0.7067264573991031
+    },
+    {
+      "trees": 600,
+      "base_z_alpha": 0.0,
+      "nonforced_semantic_exact": 0.7168307548054383,
+      "single_top1": 0.7266042780748663,
+      "main_top1": 0.6733183856502242
+    },
+    {
+      "trees": 600,
+      "base_z_alpha": 0.25,
+      "nonforced_semantic_exact": 0.7213627129238943,
+      "single_top1": 0.7314505347593583,
+      "main_top1": 0.6798206278026906
+    },
+    {
+      "trees": 600,
+      "base_z_alpha": 0.5,
+      "nonforced_semantic_exact": 0.7258946710423504,
+      "single_top1": 0.7362967914438503,
+      "main_top1": 0.6863228699551569
+    },
+    {
+      "trees": 600,
+      "base_z_alpha": 0.75,
+      "nonforced_semantic_exact": 0.7296452570714174,
+      "single_top1": 0.7403074866310161,
+      "main_top1": 0.6917040358744395
+    },
+    {
+      "trees": 600,
+      "base_z_alpha": 1.0,
+      "nonforced_semantic_exact": 0.7323019221753398,
+      "single_top1": 0.7431483957219251,
+      "main_top1": 0.6955156950672646
+    },
+    {
+      "trees": 600,
+      "base_z_alpha": 1.5,
+      "nonforced_semantic_exact": 0.7357399593686513,
+      "single_top1": 0.7468248663101604,
+      "main_top1": 0.7004484304932735
+    },
+    {
+      "trees": 600,
+      "base_z_alpha": 2.0,
+      "nonforced_semantic_exact": 0.7393342709798406,
+      "single_top1": 0.7506684491978609,
+      "main_top1": 0.7056053811659193
+    }
+  ]
+}

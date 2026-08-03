@@ -1,0 +1,31 @@
+{
+  "old_corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v1\\corpus.npz",
+  "fresh_corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\fresh_partial_corpus.npz",
+  "output": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\corpus_partial_386_plus_168.npz",
+  "overlap_episode_count_removed": 0,
+  "old_episode_count": 386,
+  "genuinely_new_episode_count": 168,
+  "total_episode_count": 554,
+  "split_episodes": {
+    "train": 454,
+    "validation": 50,
+    "test": 50
+  },
+  "split_decisions": {
+    "train": 38155,
+    "validation": 4663,
+    "test": 4318
+  },
+  "split_policy": {
+    "old": "all historical episodes assigned to train",
+    "fresh": "ascending episode_id chronological split",
+    "validation_games": 50,
+    "test_games": 50,
+    "test_min_episode_id": 89452987,
+    "test_max_episode_id": 89501199
+  },
+  "candidate_rows": 418204,
+  "decisions": 47136,
+  "feature_count": 749,
+  "count_feature_count": 611
+}

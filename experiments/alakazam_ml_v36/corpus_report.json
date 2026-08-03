@@ -1,0 +1,43 @@
+{
+  "teacher_index": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v36\\teacher_index.csv",
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v36\\yushin_v36_arrays.npz",
+  "trajectories": 2512,
+  "trajectory_splits": {
+    "train": 2268,
+    "validation": 80,
+    "test": 164
+  },
+  "features": 665,
+  "base_features": 657,
+  "turn_features": [
+    "turn_decision_index",
+    "turn_candidate_offer_count",
+    "turn_candidate_passed_over",
+    "turn_candidate_offered_previous",
+    "turn_candidate_first_offer_index",
+    "turn_class_passed_over",
+    "turn_class_offer_count",
+    "turn_new_candidate"
+  ],
+  "decisions": 125127,
+  "candidate_rows": 1109057,
+  "split_decisions": {
+    "train": 115169,
+    "validation": 3191,
+    "test": 6767
+  },
+  "validation_min_episode": 89286150,
+  "test_min_episode": 89406800,
+  "extraction_stats": {
+    "decisions": 125127,
+    "candidate_rows": 1109057,
+    "rank_2_decisions": 125127,
+    "cohort_yushin_20260717_decisions": 9397,
+    "wins": 62913,
+    "duplicate_candidates_collapsed": 285904,
+    "cohort_yushin_current_top_decisions": 8630,
+    "cohort_yushin_20260726_decisions": 49313,
+    "cohort_yushin_20260801_decisions": 47829,
+    "cohort_yushin_20260802_incremental_decisions": 9958
+  }
+}

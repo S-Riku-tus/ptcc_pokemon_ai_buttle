@@ -1,0 +1,216 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\corpus_majkel_707.npz",
+  "test_read": false,
+  "future_positive_rate": 0.35201801416530054,
+  "base_validation": {
+    "decisions": 6739,
+    "semantic_exact": 0.7612405401394866,
+    "raw_exact": 0.7282979670574269,
+    "count_accuracy": 0.9907998219320374,
+    "forced_decisions": 340,
+    "nonforced_decisions": 6399,
+    "nonforced_semantic_exact": 0.7485544616346305,
+    "nonforced_raw_exact": 0.7138615408657603,
+    "nonforced_count_accuracy": 0.9903109860915769,
+    "variable_count_decisions": 879,
+    "variable_count_accuracy": 0.9294653014789533,
+    "single_choice_decisions": 5984,
+    "single_choice_semantic_top1": 0.7605280748663101,
+    "single_choice_semantic_top2": 0.9065842245989305,
+    "single_choice_semantic_top3": 0.9613970588235294,
+    "single_choice_turn_set": 0.8806818181818182,
+    "main_single_choice_decisions": 4460,
+    "main_single_choice_semantic_top1": 0.7188340807174888,
+    "by_context": {
+      "type_0_context_0": {
+        "decisions": 4496,
+        "semantic_exact": 0.7210854092526691,
+        "nonforced_decisions": 4460,
+        "nonforced_semantic_exact": 0.7188340807174888,
+        "single_choice_decisions": 4460,
+        "single_choice_semantic_top1": 0.7188340807174888
+      },
+      "type_1_context_1": {
+        "decisions": 80,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 36,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 36,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_17": {
+        "decisions": 154,
+        "semantic_exact": 0.9805194805194806,
+        "nonforced_decisions": 51,
+        "nonforced_semantic_exact": 0.9411764705882353,
+        "single_choice_decisions": 51,
+        "single_choice_semantic_top1": 0.9411764705882353
+      },
+      "type_1_context_2": {
+        "decisions": 37,
+        "semantic_exact": 0.9459459459459459,
+        "nonforced_decisions": 37,
+        "nonforced_semantic_exact": 0.9459459459459459,
+        "single_choice_decisions": 27,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_1_context_3": {
+        "decisions": 428,
+        "semantic_exact": 0.8855140186915887,
+        "nonforced_decisions": 398,
+        "nonforced_semantic_exact": 0.8768844221105527,
+        "single_choice_decisions": 398,
+        "single_choice_semantic_top1": 0.8768844221105527
+      },
+      "type_1_context_4": {
+        "decisions": 187,
+        "semantic_exact": 0.6631016042780749,
+        "nonforced_decisions": 181,
+        "nonforced_semantic_exact": 0.6519337016574586,
+        "single_choice_decisions": 181,
+        "single_choice_semantic_top1": 0.6519337016574586
+      },
+      "type_1_context_5": {
+        "decisions": 158,
+        "semantic_exact": 0.8227848101265823,
+        "nonforced_decisions": 158,
+        "nonforced_semantic_exact": 0.8227848101265823,
+        "single_choice_decisions": 52,
+        "single_choice_semantic_top1": 0.9423076923076923
+      },
+      "type_1_context_7": {
+        "decisions": 903,
+        "semantic_exact": 0.8693244739756367,
+        "nonforced_decisions": 861,
+        "nonforced_semantic_exact": 0.8629500580720093,
+        "single_choice_decisions": 715,
+        "single_choice_semantic_top1": 0.9188811188811189
+      },
+      "type_1_context_8": {
+        "decisions": 155,
+        "semantic_exact": 0.41935483870967744,
+        "nonforced_decisions": 154,
+        "nonforced_semantic_exact": 0.4155844155844156,
+        "single_choice_decisions": 1,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_4_context_30": {
+        "decisions": 64,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 3,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 3,
+        "single_choice_semantic_top1": 1.0
+      },
+      "type_5_context_34": {
+        "decisions": 17,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 0,
+        "nonforced_semantic_exact": 0.0,
+        "single_choice_decisions": 0,
+        "single_choice_semantic_top1": 0.0
+      },
+      "type_8_context_38": {
+        "decisions": 16,
+        "semantic_exact": 0.875,
+        "nonforced_decisions": 16,
+        "nonforced_semantic_exact": 0.875,
+        "single_choice_decisions": 16,
+        "single_choice_semantic_top1": 0.875
+      },
+      "type_9_context_41": {
+        "decisions": 44,
+        "semantic_exact": 1.0,
+        "nonforced_decisions": 44,
+        "nonforced_semantic_exact": 1.0,
+        "single_choice_decisions": 44,
+        "single_choice_semantic_top1": 1.0
+      }
+    }
+  },
+  "selected": {
+    "alpha": 6.0,
+    "nonforced_semantic_exact": 0.7427723081731521,
+    "single_top1": 0.7538435828877005,
+    "single_turn_set": 0.8948863636363636,
+    "main_top1": 0.7098654708520179
+  },
+  "fit_seconds": 114.14670279994607,
+  "target": {
+    "metric": "validation_nonforced_semantic_exact",
+    "value": 0.85,
+    "met": false
+  },
+  "experiments": [
+    {
+      "alpha": 0.0,
+      "nonforced_semantic_exact": 0.515861853414596,
+      "single_top1": 0.5135360962566845,
+      "single_turn_set": 0.9336564171122995,
+      "main_top1": 0.39417040358744393
+    },
+    {
+      "alpha": 0.25,
+      "nonforced_semantic_exact": 0.5797780903266135,
+      "single_top1": 0.5818850267379679,
+      "single_turn_set": 0.9306483957219251,
+      "main_top1": 0.4858744394618834
+    },
+    {
+      "alpha": 0.5,
+      "nonforced_semantic_exact": 0.6318174714799187,
+      "single_top1": 0.6368649732620321,
+      "single_turn_set": 0.9251336898395722,
+      "main_top1": 0.5594170403587444
+    },
+    {
+      "alpha": 0.75,
+      "nonforced_semantic_exact": 0.6654164713236443,
+      "single_top1": 0.6732954545454546,
+      "single_turn_set": 0.9226270053475936,
+      "main_top1": 0.6060538116591928
+    },
+    {
+      "alpha": 1.0,
+      "nonforced_semantic_exact": 0.6843256758868573,
+      "single_top1": 0.6931818181818182,
+      "single_turn_set": 0.9187834224598931,
+      "main_top1": 0.6318385650224215
+    },
+    {
+      "alpha": 1.5,
+      "nonforced_semantic_exact": 0.7080793874042819,
+      "single_top1": 0.7167446524064172,
+      "single_turn_set": 0.9122660427807486,
+      "main_top1": 0.662780269058296
+    },
+    {
+      "alpha": 2.0,
+      "nonforced_semantic_exact": 0.7219878105954055,
+      "single_top1": 0.7311163101604278,
+      "single_turn_set": 0.9095922459893048,
+      "main_top1": 0.681390134529148
+    },
+    {
+      "alpha": 3.0,
+      "nonforced_semantic_exact": 0.7349585872792623,
+      "single_top1": 0.7453208556149733,
+      "single_turn_set": 0.9034090909090909,
+      "main_top1": 0.6997757847533632
+    },
+    {
+      "alpha": 4.0,
+      "nonforced_semantic_exact": 0.7404281919049851,
+      "single_top1": 0.7513368983957219,
+      "single_turn_set": 0.8990641711229946,
+      "main_top1": 0.70695067264574
+    },
+    {
+      "alpha": 6.0,
+      "nonforced_semantic_exact": 0.7427723081731521,
+      "single_top1": 0.7538435828877005,
+      "single_turn_set": 0.8948863636363636,
+      "main_top1": 0.7098654708520179
+    }
+  ]
+}

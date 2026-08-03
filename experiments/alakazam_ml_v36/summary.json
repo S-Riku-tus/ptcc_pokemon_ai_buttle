@@ -1,0 +1,128 @@
+{
+  "status": "target_not_met_requires_new_teacher_information",
+  "agent_promoted": false,
+  "retained_agent": "alakazam_ml_v35",
+  "target": {
+    "metric": "strict_top1_teacher_agreement",
+    "threshold": 0.9,
+    "operator": ">",
+    "met": false
+  },
+  "fresh_teacher_data": {
+    "teacher": "Yushin Ito",
+    "submission_id": 54773249,
+    "new_episodes": 244,
+    "combined_unique_episodes": 2512,
+    "combined_decisions": 125127,
+    "combined_candidate_rows": 1109057,
+    "episode_id_max": 89468065
+  },
+  "prospective_refresh": {
+    "train_episodes": 2268,
+    "validation_episodes": 80,
+    "test_episodes": 164,
+    "validation_decisions": 3191,
+    "test_decisions": 6767,
+    "validation_top1": 0.8185521780006267,
+    "test_top1": 0.802423525934683,
+    "test_top3": 0.9760602925964238,
+    "test_turn_set": 0.9335008127678439,
+    "single_touch_at_first_evaluation": true,
+    "target_met": false
+  },
+  "online_adaptation": {
+    "split_episodes": {
+      "train": 2344,
+      "validation": 64,
+      "shadow_test": 100
+    },
+    "split_decisions": {
+      "train": 118360,
+      "validation": 2679,
+      "shadow_test": 4088
+    },
+    "episode_overlap": 0,
+    "candidates": {
+      "recent_fraction_0_25": {
+        "validation_top1": 0.7723030981709593,
+        "shadow_test_top1": 0.764187866927593,
+        "accepted": false
+      },
+      "full_history": {
+        "validation_top1": 0.811123553564763,
+        "shadow_test_top1": 0.8055283757338552,
+        "selected_trees": 1400,
+        "accepted_for_final_refit": true
+      },
+      "top4_recent_boost4": {
+        "validation_top1": 0.8025382605449795,
+        "shadow_test_top1": 0.8028375733855186,
+        "accepted": false
+      }
+    },
+    "final_refit": {
+      "fit_episodes": 2408,
+      "fit_decisions": 121039,
+      "shadow_test_decisions": 4088,
+      "top1_correct": 3305,
+      "top1": 0.8084637964774951,
+      "top1_wilson_95": [
+        0.796113587460492,
+        0.8202348281320474
+      ],
+      "top2": 0.9395792563600783,
+      "top3": 0.9774951076320939,
+      "turn_set": 0.9366438356164384,
+      "target_met": false
+    },
+    "shadow_test_single_touch": false,
+    "shadow_test_caveat": "The final 100 episodes had already appeared inside the initial 164-episode prospective score; they were never used for fit or validation selection."
+  },
+  "online_full_history_error_taxonomy": {
+    "decisions": 4088,
+    "correct": 3293,
+    "recoverable_ordering_errors": 430,
+    "premature_attack_or_end_errors": 97,
+    "divergences": 268,
+    "top1": 0.8055283757338552,
+    "top3": 0.976761252446184,
+    "turn_set": 0.9344422700587084,
+    "additional_correct_required_for_strict_90pct": 387,
+    "recoverable_ordering_errors_that_must_be_fixed_fraction": 0.9
+  },
+  "old_frozen_reference": {
+    "baseline_validation_top1": 0.8312168090510275,
+    "baseline_test_top1": 0.8301092512779392,
+    "baseline_test_top3": 0.9847649594066352,
+    "action_hierarchy_validation_top1": 0.8365273608866313,
+    "action_hierarchy_test_top1": 0.813170291670843,
+    "pairwise_and_priority_validation_selected_weight": 0.0
+  },
+  "ladder": {
+    "v33_submission_id": 55129390,
+    "v35_submission_id": 55166624,
+    "v33_score_max_observed": 928.2082226771735,
+    "v35_score_max_observed": 911.2698264891031,
+    "v33_versus_900_plus": {
+      "wins": 10,
+      "games": 25,
+      "win_rate": 0.4
+    },
+    "v35_versus_900_plus": {
+      "wins": 4,
+      "games": 17,
+      "win_rate": 0.23529411764705882
+    },
+    "v35_archive": {
+      "wins": 41,
+      "games": 68,
+      "attack_opportunities_taken": 305,
+      "attack_opportunities": 315
+    }
+  },
+  "next_required_information": [
+    "substantially more games from the same current teacher distribution",
+    "or teacher-policy access for active state labelling",
+    "plus a frozen high-rating matchup suite for the rating-1000 objective"
+  ]
+}

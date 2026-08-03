@@ -125,12 +125,40 @@ def main() -> int:
     parser.add_argument("--submission-id", type=int, default=EXPECTED_SUBMISSION)
     parser.add_argument("--validation-games", type=int, default=40)
     parser.add_argument("--test-games", type=int, default=50)
+    parser.add_argument(
+        "--use-episodes-csv",
+        action="store_true",
+        help=(
+            "Derive seats from episodes.csv and use every replay currently "
+            "available. Useful while a replay-only incremental pull is active."
+        ),
+    )
     args = parser.parse_args()
 
     feature_module = _load_features(args.agent_dir.resolve())
     manifest_path = args.run_dir / "manifest.csv"
-    with manifest_path.open(encoding="utf-8-sig", newline="") as handle:
-        manifest = list(csv.DictReader(handle))
+    source_manifest = "manifest.csv"
+    if args.use_episodes_csv:
+        source_manifest = "episodes.csv submission-seat derivation"
+        episodes_path = args.run_dir / "episodes.csv"
+        with episodes_path.open(encoding="utf-8-sig", newline="") as handle:
+            episode_rows = list(csv.DictReader(handle))
+        manifest = []
+        for row in episode_rows:
+            seat = ""
+            if str(row.get("agent_0_submission_id")) == str(args.submission_id):
+                seat = "0"
+            elif str(row.get("agent_1_submission_id")) == str(args.submission_id):
+                seat = "1"
+            manifest.append({
+                "submission_id": str(args.submission_id),
+                "episode_id": str(row.get("episode_id") or ""),
+                "detected_submission_agent_index": seat,
+                "error": "",
+            })
+    else:
+        with manifest_path.open(encoding="utf-8-sig", newline="") as handle:
+            manifest = list(csv.DictReader(handle))
 
     stats: Counter[str] = Counter()
     context_counts: Counter[str] = Counter()
@@ -357,6 +385,7 @@ def main() -> int:
         "output": str(args.output.resolve()),
         "teacher": args.teacher,
         "submission_id": args.submission_id,
+        "source_manifest": source_manifest,
         "seat_verification": "manifest detected_submission_agent_index + replay TeamNames",
         "deck_verified_trajectories": stats["validated_trajectories"],
         "deck": [

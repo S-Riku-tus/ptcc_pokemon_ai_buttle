@@ -1,0 +1,640 @@
+{
+  "validation": {
+    "decisions": 2679,
+    "categories": {
+      "correct": 2173,
+      "same_turn_ordering": 327,
+      "divergence": 179
+    },
+    "top_teacher_to_predicted_pairs": [
+      {
+        "teacher": "trainer",
+        "predicted_later": "attack",
+        "count": 26
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "trainer",
+        "count": 25
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "evolve",
+        "count": 18
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "bench",
+        "count": 16
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "evolve",
+        "count": 16
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "ability",
+        "count": 14
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "evolve",
+        "count": 14
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "evolve",
+        "count": 12
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "evolve",
+        "count": 11
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "energy",
+        "count": 11
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "trainer",
+        "count": 10
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "attack",
+        "count": 10
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "energy",
+        "count": 9
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "attack",
+        "count": 9
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "trainer",
+        "count": 8
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "ability",
+        "count": 8
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "ability",
+        "count": 7
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "energy",
+        "count": 7
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "trainer",
+        "count": 6
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "attack",
+        "count": 6
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "trainer",
+        "count": 5
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "bench",
+        "count": 4
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "xerosic",
+        "count": 4
+      },
+      {
+        "teacher": "attack",
+        "predicted_later": "bench",
+        "count": 4
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "evolve",
+        "count": 4
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "hammer",
+        "count": 4
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "bench",
+        "count": 3
+      },
+      {
+        "teacher": "attack",
+        "predicted_later": "trainer",
+        "count": 3
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "evolve",
+        "count": 3
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "attack",
+        "count": 3
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "bench",
+        "count": 3
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "evolve",
+        "count": 3
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "energy",
+        "count": 3
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "trainer",
+        "count": 3
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "bench",
+        "count": 3
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "ability",
+        "count": 3
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "energy",
+        "count": 3
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "attack",
+        "count": 2
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "trainer",
+        "count": 2
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "energy",
+        "count": 2
+      },
+      {
+        "teacher": "retreat",
+        "predicted_later": "trainer",
+        "count": 2
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "hammer",
+        "count": 2
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "trainer",
+        "count": 2
+      },
+      {
+        "teacher": "attack",
+        "predicted_later": "evolve",
+        "count": 2
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "boss",
+        "count": 2
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "end",
+        "count": 1
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "energy",
+        "count": 1
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "xerosic",
+        "count": 1
+      },
+      {
+        "teacher": "retreat",
+        "predicted_later": "attack",
+        "count": 1
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "end",
+        "count": 1
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "boss",
+        "count": 1
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "end",
+        "count": 1
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "ability",
+        "count": 1
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "boss",
+        "count": 1
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "bench",
+        "count": 1
+      }
+    ],
+    "ordering_errors_by_turn_position": {
+      "0": 34,
+      "1": 47,
+      "2": 39,
+      "3": 34,
+      "4": 29,
+      "5": 26,
+      "6": 43,
+      "7": 25,
+      "8": 20,
+      "9": 17,
+      "10": 4,
+      "11": 6,
+      "12": 3
+    }
+  },
+  "test": {
+    "decisions": 4088,
+    "categories": {
+      "correct": 3293,
+      "same_turn_ordering": 527,
+      "divergence": 268
+    },
+    "top_teacher_to_predicted_pairs": [
+      {
+        "teacher": "trainer",
+        "predicted_later": "trainer",
+        "count": 44
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "attack",
+        "count": 42
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "bench",
+        "count": 32
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "evolve",
+        "count": 29
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "evolve",
+        "count": 24
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "energy",
+        "count": 22
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "evolve",
+        "count": 21
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "evolve",
+        "count": 19
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "trainer",
+        "count": 19
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "attack",
+        "count": 18
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "trainer",
+        "count": 16
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "evolve",
+        "count": 14
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "bench",
+        "count": 14
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "ability",
+        "count": 12
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "energy",
+        "count": 12
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "trainer",
+        "count": 12
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "attack",
+        "count": 12
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "ability",
+        "count": 10
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "hammer",
+        "count": 9
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "ability",
+        "count": 8
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "bench",
+        "count": 8
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "attack",
+        "count": 8
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "bench",
+        "count": 8
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "xerosic",
+        "count": 7
+      },
+      {
+        "teacher": "attack",
+        "predicted_later": "bench",
+        "count": 7
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "energy",
+        "count": 7
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "evolve",
+        "count": 6
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "attack",
+        "count": 5
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "attack",
+        "count": 5
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "boss",
+        "count": 5
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "trainer",
+        "count": 5
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "hammer",
+        "count": 5
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "ability",
+        "count": 4
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "energy",
+        "count": 4
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "energy",
+        "count": 3
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "trainer",
+        "count": 3
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "energy",
+        "count": 3
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "xerosic",
+        "count": 3
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "boss",
+        "count": 3
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "attack",
+        "count": 3
+      },
+      {
+        "teacher": "attack",
+        "predicted_later": "trainer",
+        "count": 3
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "evolve",
+        "count": 3
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "retreat",
+        "count": 3
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "trainer",
+        "count": 2
+      },
+      {
+        "teacher": "end",
+        "predicted_later": "trainer",
+        "count": 2
+      },
+      {
+        "teacher": "ability",
+        "predicted_later": "attack",
+        "count": 2
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "retreat",
+        "count": 2
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "bench",
+        "count": 2
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "trainer",
+        "count": 2
+      },
+      {
+        "teacher": "boss",
+        "predicted_later": "ability",
+        "count": 2
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "bench",
+        "count": 2
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "xerosic",
+        "count": 1
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "energy",
+        "count": 1
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "boss",
+        "count": 1
+      },
+      {
+        "teacher": "evolve",
+        "predicted_later": "bench",
+        "count": 1
+      },
+      {
+        "teacher": "xerosic",
+        "predicted_later": "evolve",
+        "count": 1
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "end",
+        "count": 1
+      },
+      {
+        "teacher": "hammer",
+        "predicted_later": "bench",
+        "count": 1
+      },
+      {
+        "teacher": "energy",
+        "predicted_later": "hammer",
+        "count": 1
+      },
+      {
+        "teacher": "trainer",
+        "predicted_later": "end",
+        "count": 1
+      },
+      {
+        "teacher": "bench",
+        "predicted_later": "xerosic",
+        "count": 1
+      },
+      {
+        "teacher": "attack",
+        "predicted_later": "evolve",
+        "count": 1
+      }
+    ],
+    "ordering_errors_by_turn_position": {
+      "0": 55,
+      "1": 69,
+      "2": 57,
+      "3": 62,
+      "4": 56,
+      "5": 56,
+      "6": 44,
+      "7": 38,
+      "8": 30,
+      "9": 30,
+      "10": 17,
+      "11": 4,
+      "12": 6,
+      "13": 1,
+      "14": 1,
+      "15": 1
+    }
+  }
+}

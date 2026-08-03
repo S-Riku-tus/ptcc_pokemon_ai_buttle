@@ -1,0 +1,186 @@
+{
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v36\\yushin_v36_arrays.npz",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\alakazam\\alakazam_ml_v35",
+  "model": "large_leaf",
+  "label": "graded",
+  "seed": 1091,
+  "episode_fraction": 0.875,
+  "recency": {
+    "floor": 0.25,
+    "power": 2.0
+  },
+  "n_estimators": 2200,
+  "tree_selection": {
+    "selected_by": "validation_top1",
+    "trees": 2000,
+    "curve": [
+      {
+        "trees": 200,
+        "validation_top1": 0.7680977749921655
+      },
+      {
+        "trees": 400,
+        "validation_top1": 0.7925415230335318
+      },
+      {
+        "trees": 600,
+        "validation_top1": 0.8010028204324663
+      },
+      {
+        "trees": 800,
+        "validation_top1": 0.804763397054215
+      },
+      {
+        "trees": 1000,
+        "validation_top1": 0.8038232528987778
+      },
+      {
+        "trees": 1200,
+        "validation_top1": 0.8078972109056722
+      },
+      {
+        "trees": 1400,
+        "validation_top1": 0.8113444061422751
+      },
+      {
+        "trees": 1600,
+        "validation_top1": 0.812597931682858
+      },
+      {
+        "trees": 1800,
+        "validation_top1": 0.8141648386085867
+      },
+      {
+        "trees": 2000,
+        "validation_top1": 0.8185521780006267
+      },
+      {
+        "trees": 2200,
+        "validation_top1": 0.8166718896897525
+      }
+    ],
+    "max_trees_cap": 0
+  },
+  "split_decisions": {
+    "train": 115169,
+    "validation": 3191,
+    "test": 6767
+  },
+  "held_out_fit_episodes": 1981,
+  "held_out_fit_decisions": 97511,
+  "graded_label_counts": {
+    "played_next": 67613,
+    "chosen": 125127,
+    "not_played": 764521,
+    "played_later": 151796
+  },
+  "validation": {
+    "decisions": 3191,
+    "top1": 0.8185521780006267,
+    "top2": 0.9448448762143529,
+    "top3": 0.9790034471952366,
+    "turn_set": 0.9379504857411469,
+    "by_teacher_action": {
+      "ability": {
+        "count": 383,
+        "top1": 0.8720626631853786
+      },
+      "attack": {
+        "count": 392,
+        "top1": 0.8698979591836735
+      },
+      "bench": {
+        "count": 364,
+        "top1": 0.8516483516483516
+      },
+      "boss": {
+        "count": 61,
+        "top1": 0.6229508196721312
+      },
+      "end": {
+        "count": 57,
+        "top1": 0.8771929824561403
+      },
+      "energy": {
+        "count": 354,
+        "top1": 0.7853107344632768
+      },
+      "evolve": {
+        "count": 685,
+        "top1": 0.9153284671532846
+      },
+      "hammer": {
+        "count": 72,
+        "top1": 0.9166666666666666
+      },
+      "retreat": {
+        "count": 40,
+        "top1": 0.8
+      },
+      "trainer": {
+        "count": 731,
+        "top1": 0.6908344733242134
+      },
+      "xerosic": {
+        "count": 52,
+        "top1": 0.5961538461538461
+      }
+    }
+  },
+  "test": {
+    "decisions": 6767,
+    "top1": 0.802423525934683,
+    "top2": 0.9366041081720112,
+    "top3": 0.9760602925964238,
+    "turn_set": 0.9335008127678439,
+    "by_teacher_action": {
+      "ability": {
+        "count": 891,
+        "top1": 0.8911335578002245
+      },
+      "attack": {
+        "count": 698,
+        "top1": 0.832378223495702
+      },
+      "bench": {
+        "count": 847,
+        "top1": 0.8016528925619835
+      },
+      "boss": {
+        "count": 129,
+        "top1": 0.5271317829457365
+      },
+      "end": {
+        "count": 146,
+        "top1": 0.8493150684931506
+      },
+      "energy": {
+        "count": 716,
+        "top1": 0.7653631284916201
+      },
+      "evolve": {
+        "count": 1455,
+        "top1": 0.911340206185567
+      },
+      "hammer": {
+        "count": 203,
+        "top1": 0.8029556650246306
+      },
+      "retreat": {
+        "count": 82,
+        "top1": 0.7560975609756098
+      },
+      "trainer": {
+        "count": 1481,
+        "top1": 0.6826468602295747
+      },
+      "xerosic": {
+        "count": 119,
+        "top1": 0.6218487394957983
+      }
+    }
+  },
+  "exported": [],
+  "target_top1": 0.9,
+  "target_met": false
+}

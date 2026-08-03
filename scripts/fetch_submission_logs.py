@@ -579,6 +579,15 @@ def main() -> None:
         help="Process only the first N Episodes; 0 means all.",
     )
     parser.add_argument(
+        "--after-episode-id",
+        type=int,
+        default=0,
+        help=(
+            "Process only Episodes whose ID is greater than this value. "
+            "Useful for incremental corpus refreshes; 0 disables the filter."
+        ),
+    )
+    parser.add_argument(
         "--overwrite",
         action="store_true",
         help="Redownload files that already exist.",
@@ -635,6 +644,16 @@ def main() -> None:
     print("Discovering Episodes...")
 
     episodes = list_submission_episodes(args.submission)
+    discovered = len(episodes)
+    if args.after_episode_id > 0:
+        episodes = [
+            episode for episode in episodes
+            if episode.episode_id > args.after_episode_id
+        ]
+        print(
+            f"Incremental filter: {len(episodes)}/{discovered} Episodes have "
+            f"ID > {args.after_episode_id}"
+        )
     if args.max_episodes > 0:
         episodes = episodes[: args.max_episodes]
 

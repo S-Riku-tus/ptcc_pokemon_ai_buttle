@@ -1,0 +1,26 @@
+{
+  "base": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\corpus_majkel_707.npz",
+  "auxiliary_sources": [
+    {
+      "path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\aux_55168898_corpus.npz",
+      "episodes": 65,
+      "decisions": 5248,
+      "candidate_rows": 46479
+    },
+    {
+      "path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\aux_55172889_corpus.npz",
+      "episodes": 45,
+      "decisions": 3207,
+      "candidate_rows": 25509
+    }
+  ],
+  "output": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\majkel_lopunny_ml_v3\\corpus_majkel_707_plus_aux110.npz",
+  "auxiliary_policy": "train only; unique negative episode IDs",
+  "split_decisions": {
+    "train": 51901,
+    "validation": 6739,
+    "test": 8952
+  },
+  "decisions": 67592,
+  "candidate_rows": 588947
+}

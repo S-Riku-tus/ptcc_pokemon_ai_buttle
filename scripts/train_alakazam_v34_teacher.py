@@ -65,7 +65,10 @@ def recency_multiplier(episodes, floor, power):
     )
 
 
-def build_params(model_name, seed, n_estimators, graded):
+def build_params(
+    model_name, seed, n_estimators, graded,
+    lambdarank_truncation_level=0,
+):
     config = CONFIGS[model_name]
     params: dict[str, Any] = dict(
         objective=config["objective"], metric="ndcg",
@@ -79,14 +82,23 @@ def build_params(model_name, seed, n_estimators, graded):
     )
     if graded:
         params["label_gain"] = LABEL_GAIN
+    if (
+        lambdarank_truncation_level
+        and config["objective"] == "lambdarank"
+    ):
+        params["lambdarank_truncation_level"] = (
+            lambdarank_truncation_level
+        )
     return params
 
 
 def fit_fixed(model_name, matrix, cols, x_rows, y, group, weight, seed,
-              n_estimators, graded):
+              n_estimators, graded, lambdarank_truncation_level=0):
     """Fit to a fixed tree budget. No stopping rule, so nothing is resampled."""
-    model = lgb.LGBMRanker(**build_params(model_name, seed, n_estimators,
-                                          graded))
+    model = lgb.LGBMRanker(**build_params(
+        model_name, seed, n_estimators, graded,
+        lambdarank_truncation_level,
+    ))
     kwargs: dict[str, Any] = {
         "X": matrix[x_rows], "y": y, "group": group, "sample_weight": weight,
         "feature_name": cols,
@@ -109,11 +121,38 @@ def main() -> int:
     parser.add_argument("--model", default="large_leaf")
     parser.add_argument("--n-estimators", type=int, default=2200)
     parser.add_argument(
+        "--lambdarank-truncation-level", type=int, default=0,
+        help=(
+            "Override LightGBM's LambdaRank truncation. A small value focuses "
+            "training gradients on the first few candidates; 0 keeps the "
+            "library default."
+        ),
+    )
+    parser.add_argument(
+        "--include-turn-features", action="store_true",
+        help=(
+            "Include reproducible intra-turn offer/pass history columns. "
+            "The v34 default excludes them."
+        ),
+    )
+    parser.add_argument(
         "--episode-fraction", type=float, default=0.875,
         help="Share of the most recent episodes kept, selected on validation.",
     )
     parser.add_argument("--recency-floor", type=float, default=0.25)
     parser.add_argument("--recency-power", type=float, default=2.0)
+    parser.add_argument(
+        "--recent-min-episode", type=int, default=0,
+        help=(
+            "Optional first episode of a newly observed teacher cohort. "
+            "Rows from this episode onward receive --recent-boost in "
+            "addition to the smooth recency multiplier."
+        ),
+    )
+    parser.add_argument(
+        "--recent-boost", type=float, default=1.0,
+        help="Extra sample-weight multiplier for the explicitly recent cohort.",
+    )
     parser.add_argument("--label", default="graded", choices=("graded",
                                                               "binary"))
     parser.add_argument(
@@ -149,7 +188,11 @@ def main() -> int:
         action_types = cached["teacher_action_types"]
         names = cached["feature_names"].astype(str).tolist()
 
-    base_names = [n for n in names if n not in TURN_FEATURES]
+    base_names = (
+        names
+        if args.include_turn_features
+        else [n for n in names if n not in TURN_FEATURES]
+    )
     base_columns = [names.index(n) for n in base_names]
     base_features = np.ascontiguousarray(features[:, base_columns])
 
@@ -187,6 +230,15 @@ def main() -> int:
         ),
         fit_groups,
     )
+    if args.recent_min_episode:
+        fit_weight *= np.repeat(
+            np.where(
+                episode_ids[fit_decisions] >= args.recent_min_episode,
+                args.recent_boost,
+                1.0,
+            ).astype(np.float32),
+            fit_groups,
+        )
     print(
         f"held-out fit: {len(kept)} of {len(np.unique(train_pool))} training "
         f"episodes, {len(fit_decisions)} decisions",
@@ -197,6 +249,7 @@ def main() -> int:
         args.model, base_features, base_names, fit_rows,
         label_array[fit_rows], fit_groups, fit_weight, args.seed,
         args.n_estimators, use_graded,
+        args.lambdarank_truncation_level,
     )
 
     ceiling = args.max_trees or args.n_estimators
@@ -255,13 +308,25 @@ def main() -> int:
             ),
             all_groups,
         )
+        if args.recent_min_episode:
+            all_weight *= np.repeat(
+                np.where(
+                    episode_ids[all_decisions] >= args.recent_min_episode,
+                    args.recent_boost,
+                    1.0,
+                ).astype(np.float32),
+                all_groups,
+            )
         print(
             f"export fit: {len(all_kept)} of {len(np.unique(episode_ids))} "
             f"episodes, {len(all_decisions)} decisions",
             flush=True,
         )
         final = lgb.LGBMRanker(
-            **build_params(args.model, args.seed, best_trees, use_graded)
+            **build_params(
+                args.model, args.seed, best_trees, use_graded,
+                args.lambdarank_truncation_level,
+            )
         )
         kwargs: dict[str, Any] = {
             "X": base_features[all_rows], "y": label_array[all_rows],
@@ -291,9 +356,12 @@ def main() -> int:
             "action_type_map": ACTION_TYPE_MAP,
             "legal_option_only": True,
             "runtime_scope": "v34_yushin_recent_corpus_ranker",
-            "uses_turn_features": False,
+            "uses_turn_features": args.include_turn_features,
             "tree_count": int(best_trees),
             "tree_count_selected_by": "validation_top1",
+            "lambdarank_truncation_level": (
+                args.lambdarank_truncation_level
+            ),
             "training_decisions": int(len(all_decisions)),
             "training_candidate_rows": int(len(all_rows)),
             "teacher_team": args.teacher_team,
@@ -305,6 +373,8 @@ def main() -> int:
                 "floor": args.recency_floor,
                 "power": args.recency_power,
                 "episode_order": "ascending_episode_id",
+                "recent_min_episode": args.recent_min_episode,
+                "recent_boost": args.recent_boost,
             },
             "label_definition": (
                 "turn_order_graded_relevance" if use_graded
@@ -346,7 +416,13 @@ def main() -> int:
         "seed": args.seed,
         "episode_fraction": args.episode_fraction,
         "recency": {"floor": args.recency_floor, "power": args.recency_power},
+        "recent_cohort": {
+            "min_episode": args.recent_min_episode,
+            "boost": args.recent_boost,
+        },
         "n_estimators": args.n_estimators,
+        "lambdarank_truncation_level": args.lambdarank_truncation_level,
+        "include_turn_features": args.include_turn_features,
         "tree_selection": {
             "selected_by": "validation_top1",
             "trees": int(best_trees),

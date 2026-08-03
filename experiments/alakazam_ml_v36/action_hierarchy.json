@@ -1,0 +1,1464 @@
+{
+  "method": "OOF stage-one decision-level action hierarchy",
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\alakazam_ml_v34\\yushin_v34_arrays.npz",
+  "fit_episodes": 1718,
+  "fit_decisions": 87644,
+  "decision_features": 539,
+  "selection_rule": "maximum validation strict Top-1; test scored once",
+  "validation_runs": [
+    {
+      "config": 0,
+      "alpha": 0.0,
+      "best_iteration": 211,
+      "fit_seconds": 86.666980399983,
+      "decisions": 4331,
+      "top1": 0.8312168090510275,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8630801200646502,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8870967741935484
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8776699029126214
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.8960573476702509
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6052631578947368
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9672131147540983
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8303964757709251
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9457964601769911
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8775510204081632
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.85
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.7911857292759706
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.05,
+      "best_iteration": 211,
+      "fit_seconds": 87.0806261000107,
+      "decisions": 4331,
+      "top1": 0.8332948510736551,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8663126298776264,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8903225806451613
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8776699029126214
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9014336917562724
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5964912280701754
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8414096916299559
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9457964601769911
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8775510204081632
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.85
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.7953830010493179
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.1,
+      "best_iteration": 211,
+      "fit_seconds": 87.46509350003907,
+      "decisions": 4331,
+      "top1": 0.8330639575155853,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8660817363195566,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8903225806451613
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8776699029126214
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.899641577060932
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5964912280701754
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8392070484581498
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9435840707964602
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8775510204081632
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.875
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.7953830010493179
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.15,
+      "best_iteration": 211,
+      "fit_seconds": 87.80998359998921,
+      "decisions": 4331,
+      "top1": 0.8337566381897945,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8676979912260447,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8919354838709678
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8699029126213592
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9050179211469535
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6052631578947368
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8370044052863436
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9435840707964602
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8775510204081632
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.875
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8027282266526757
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.2,
+      "best_iteration": 211,
+      "fit_seconds": 88.11489450000226,
+      "decisions": 4331,
+      "top1": 0.8344493188640036,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8686215654583237,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8903225806451613
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8699029126213592
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9050179211469535
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6052631578947368
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8414096916299559
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9424778761061947
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8571428571428571
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.875
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8079748163693599
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.3,
+      "best_iteration": 211,
+      "fit_seconds": 88.39282509998884,
+      "decisions": 4331,
+      "top1": 0.8342184253059339,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8686215654583237,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8887096774193548
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8679611650485437
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9050179211469535
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6140350877192983
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8325991189427313
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9424778761061947
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8571428571428571
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.9
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8121720881427072
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.4,
+      "best_iteration": 211,
+      "fit_seconds": 88.68766709999181,
+      "decisions": 4331,
+      "top1": 0.8344493188640036,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8693142461325329,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8870967741935484
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8660194174757282
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9050179211469535
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6228070175438597
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8303964757709251
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9435840707964602
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8775510204081632
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.9
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8153200419727177
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.5,
+      "best_iteration": 211,
+      "fit_seconds": 89.02003280003555,
+      "decisions": 4331,
+      "top1": 0.8349111059801432,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8700069268067421,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8887096774193548
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8621359223300971
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9032258064516129
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6228070175438597
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8325991189427313
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9446902654867256
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.9
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8195173137460651
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 0.75,
+      "best_iteration": 211,
+      "fit_seconds": 89.30886280001141,
+      "decisions": 4331,
+      "top1": 0.8351419995382129,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8704687139228815,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8919354838709678
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8601941747572815
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9050179211469535
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6228070175438597
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8281938325991189
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9435840707964602
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.925
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8216159496327388
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 1.0,
+      "best_iteration": 211,
+      "fit_seconds": 89.55321420001565,
+      "decisions": 4331,
+      "top1": 0.8353728930962826,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8706996074809513,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8919354838709678
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8621359223300971
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9050179211469535
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6228070175438597
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8303964757709251
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9413716814159292
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.925
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8226652675760755
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 1.5,
+      "best_iteration": 211,
+      "fit_seconds": 89.80873610003619,
+      "decisions": 4331,
+      "top1": 0.8360655737704918,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8718540752712999,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8935483870967742
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8621359223300971
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9050179211469535
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6228070175438597
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8303964757709251
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9402654867256637
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.925
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8279118572927597
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 0,
+      "alpha": 2.0,
+      "best_iteration": 211,
+      "fit_seconds": 90.07058810000308,
+      "decisions": 4331,
+      "top1": 0.8365273608866313,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8723158623874394,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8935483870967742
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8621359223300971
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9014336917562724
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.631578947368421
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9672131147540983
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8303964757709251
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9391592920353983
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.925
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8331584470094439
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.0,
+      "best_iteration": 154,
+      "fit_seconds": 91.01973729999736,
+      "decisions": 4331,
+      "top1": 0.8312168090510275,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8630801200646502,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8870967741935484
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8776699029126214
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.8960573476702509
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6052631578947368
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9672131147540983
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8303964757709251
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9457964601769911
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8775510204081632
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.85
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.7911857292759706
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.05,
+      "best_iteration": 154,
+      "fit_seconds": 91.45302089996403,
+      "decisions": 4331,
+      "top1": 0.8328330639575156,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8658508427614869,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8903225806451613
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8757281553398059
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.899641577060932
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6052631578947368
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8414096916299559
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9435840707964602
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8571428571428571
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.85
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.7964323189926548
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7301587301587301
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.1,
+      "best_iteration": 154,
+      "fit_seconds": 91.87760139995953,
+      "decisions": 4331,
+      "top1": 0.8342184253059339,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8676979912260447,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8903225806451613
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8737864077669902
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9014336917562724
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.6052631578947368
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8436123348017621
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9413716814159292
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8571428571428571
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.875
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8037775445960126
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.15,
+      "best_iteration": 154,
+      "fit_seconds": 92.24556009995285,
+      "decisions": 4331,
+      "top1": 0.8326021703994458,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8663126298776264,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8887096774193548
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8718446601941747
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9014336917562724
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5964912280701754
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8370044052863436
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9413716814159292
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8571428571428571
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.875
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8037775445960126
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.2,
+      "best_iteration": 154,
+      "fit_seconds": 92.6318181999959,
+      "decisions": 4331,
+      "top1": 0.8326021703994458,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8665435234356962,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8887096774193548
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8679611650485437
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.9014336917562724
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5964912280701754
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8370044052863436
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9413716814159292
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.875
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8048268625393494
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.746031746031746
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.3,
+      "best_iteration": 154,
+      "fit_seconds": 92.98665869998513,
+      "decisions": 4331,
+      "top1": 0.8305241283768183,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8646963749711383,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8838709677419355
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8640776699029126
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.899641577060932
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5877192982456141
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8392070484581498
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9380530973451328
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.875
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8079748163693599
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.4,
+      "best_iteration": 154,
+      "fit_seconds": 93.35172039997997,
+      "decisions": 4331,
+      "top1": 0.8312168090510275,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8658508427614869,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.885483870967742
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8660194174757282
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.899641577060932
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5614035087719298
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8370044052863436
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9380530973451328
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.9
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8142707240293809
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.5,
+      "best_iteration": 154,
+      "fit_seconds": 93.69019079999998,
+      "decisions": 4331,
+      "top1": 0.830755021934888,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8656199492034172,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.885483870967742
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8640776699029126
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.899641577060932
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5701754385964912
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8348017621145375
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9358407079646017
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.9
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8163693599160545
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 0.75,
+      "best_iteration": 154,
+      "fit_seconds": 94.05319369997596,
+      "decisions": 4331,
+      "top1": 0.8314477026090972,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8663126298776264,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8903225806451613
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8601941747572815
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.8978494623655914
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5877192982456141
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8325991189427313
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9336283185840708
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.9
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8205666316894019
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 1.0,
+      "best_iteration": 154,
+      "fit_seconds": 94.41827480000211,
+      "decisions": 4331,
+      "top1": 0.8330639575155853,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8679288847841146,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8919354838709678
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8621359223300971
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.8978494623655914
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5964912280701754
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8392070484581498
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9336283185840708
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.9
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8216159496327388
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 1.5,
+      "best_iteration": 154,
+      "fit_seconds": 94.7600303000072,
+      "decisions": 4331,
+      "top1": 0.8339875317478642,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8690833525744631,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8919354838709678
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8660194174757282
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.8960573476702509
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5964912280701754
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9836065573770492
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8414096916299559
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9336283185840708
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.925
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8237145855194123
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "config": 1,
+      "alpha": 2.0,
+      "best_iteration": 154,
+      "fit_seconds": 95.06495929998346,
+      "decisions": 4331,
+      "top1": 0.8337566381897945,
+      "base_top1": 0.8312168090510275,
+      "action_accuracy": 0.8690833525744631,
+      "by_teacher_action": {
+        "ability": {
+          "count": 620,
+          "action_accuracy": 0.8903225806451613
+        },
+        "attack": {
+          "count": 515,
+          "action_accuracy": 0.8679611650485437
+        },
+        "bench": {
+          "count": 558,
+          "action_accuracy": 0.8960573476702509
+        },
+        "boss": {
+          "count": 114,
+          "action_accuracy": 0.5964912280701754
+        },
+        "end": {
+          "count": 61,
+          "action_accuracy": 0.9508196721311475
+        },
+        "energy": {
+          "count": 454,
+          "action_accuracy": 0.8436123348017621
+        },
+        "evolve": {
+          "count": 904,
+          "action_accuracy": 0.9336283185840708
+        },
+        "hammer": {
+          "count": 49,
+          "action_accuracy": 0.8979591836734694
+        },
+        "retreat": {
+          "count": 40,
+          "action_accuracy": 0.925
+        },
+        "trainer": {
+          "count": 953,
+          "action_accuracy": 0.8247639034627492
+        },
+        "xerosic": {
+          "count": 63,
+          "action_accuracy": 0.7142857142857143
+        }
+      }
+    }
+  ],
+  "selected": {
+    "config": 0,
+    "alpha": 2.0,
+    "best_iteration": 211,
+    "fit_seconds": 90.07058810000308,
+    "decisions": 4331,
+    "top1": 0.8365273608866313,
+    "base_top1": 0.8312168090510275,
+    "action_accuracy": 0.8723158623874394,
+    "by_teacher_action": {
+      "ability": {
+        "count": 620,
+        "action_accuracy": 0.8935483870967742
+      },
+      "attack": {
+        "count": 515,
+        "action_accuracy": 0.8621359223300971
+      },
+      "bench": {
+        "count": 558,
+        "action_accuracy": 0.9014336917562724
+      },
+      "boss": {
+        "count": 114,
+        "action_accuracy": 0.631578947368421
+      },
+      "end": {
+        "count": 61,
+        "action_accuracy": 0.9672131147540983
+      },
+      "energy": {
+        "count": 454,
+        "action_accuracy": 0.8303964757709251
+      },
+      "evolve": {
+        "count": 904,
+        "action_accuracy": 0.9391592920353983
+      },
+      "hammer": {
+        "count": 49,
+        "action_accuracy": 0.8979591836734694
+      },
+      "retreat": {
+        "count": 40,
+        "action_accuracy": 0.925
+      },
+      "trainer": {
+        "count": 953,
+        "action_accuracy": 0.8331584470094439
+      },
+      "xerosic": {
+        "count": 63,
+        "action_accuracy": 0.7142857142857143
+      }
+    }
+  },
+  "test": {
+    "decisions": 9977,
+    "top1": 0.813170291670843,
+    "base_top1": 0.8301092512779392,
+    "action_accuracy": 0.8403327653603287,
+    "by_teacher_action": {
+      "ability": {
+        "count": 1587,
+        "action_accuracy": 0.8015122873345936
+      },
+      "attack": {
+        "count": 925,
+        "action_accuracy": 0.8529729729729729
+      },
+      "bench": {
+        "count": 1514,
+        "action_accuracy": 0.9055482166446499
+      },
+      "boss": {
+        "count": 194,
+        "action_accuracy": 0.5309278350515464
+      },
+      "end": {
+        "count": 428,
+        "action_accuracy": 0.9415887850467289
+      },
+      "energy": {
+        "count": 874,
+        "action_accuracy": 0.8352402745995423
+      },
+      "evolve": {
+        "count": 2284,
+        "action_accuracy": 0.8585814360770578
+      },
+      "hammer": {
+        "count": 123,
+        "action_accuracy": 0.8780487804878049
+      },
+      "retreat": {
+        "count": 70,
+        "action_accuracy": 0.8
+      },
+      "trainer": {
+        "count": 1843,
+        "action_accuracy": 0.8171459576776994
+      },
+      "xerosic": {
+        "count": 135,
+        "action_accuracy": 0.6296296296296297
+      }
+    }
+  },
+  "target_top1": 0.9,
+  "target_met": false
+}
