@@ -1,0 +1,88 @@
+decisions train=218156 validation=35061 test=34611 features=698
+eval restricted to 16494330: validation=1561 test=1480
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+Training until validation scores don't improve for 200 rounds
+[100]	validation's top1: 0.894939
+[200]	validation's top1: 0.901345
+[300]	validation's top1: 0.907111
+[400]	validation's top1: 0.90583
+[500]	validation's top1: 0.901986
+Early stopping, best iteration is:
+[333]	validation's top1: 0.910314
+{
+  "best_iteration": 333,
+  "validation_top1": 0.9103,
+  "test_top1": 0.9216,
+  "test_top1_wilson95": [
+    0.9068,
+    0.9342
+  ],
+  "test_top3": 0.9939,
+  "test_order_insensitive_top1": 0.9649,
+  "test_taxonomy": {
+    "correct": 0.9216,
+    "same_turn_ordering": 0.0432,
+    "same_action_type_divergence": 0.0176,
+    "divergence": 0.0176
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 758,
+      "top1": 0.8852
+    },
+    "7": {
+      "decisions": 161,
+      "top1": 0.9255
+    },
+    "21": {
+      "decisions": 105,
+      "top1": 0.9905
+    },
+    "40": {
+      "decisions": 98,
+      "top1": 1.0
+    },
+    "13": {
+      "decisions": 98,
+      "top1": 0.9184
+    },
+    "16": {
+      "decisions": 71,
+      "top1": 0.9577
+    },
+    "15": {
+      "decisions": 59,
+      "top1": 0.9322
+    },
+    "43": {
+      "decisions": 44,
+      "top1": 1.0
+    },
+    "4": {
+      "decisions": 34,
+      "top1": 0.9706
+    },
+    "3": {
+      "decisions": 26,
+      "top1": 1.0
+    },
+    "37": {
+      "decisions": 11,
+      "top1": 1.0
+    },
+    "41": {
+      "decisions": 8,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 6,
+      "top1": 1.0
+    },
+    "38": {
+      "decisions": 1,
+      "top1": 1.0
+    }
+  }
+}

@@ -315,6 +315,7 @@ def _agreement(
     self_total = self_agree = 0
     cross_total = cross_agree = 0
     pairs: dict[tuple, list[int]] = defaultdict(lambda: [0, 0])
+    self_pairs: dict[Any, list[int]] = defaultdict(lambda: [0, 0])
     shared = 0
     for entries in by_sig.values():
         if len(entries) < 2:
@@ -328,6 +329,8 @@ def _agreement(
                 if entries[i][0] == entries[j][0]:
                     self_total += 1
                     self_agree += same
+                    self_pairs[entries[i][0]][0] += 1
+                    self_pairs[entries[i][0]][1] += same
                 else:
                     cross_total += 1
                     cross_agree += same
@@ -366,7 +369,23 @@ def _agreement(
         ),
         key=lambda item: item["agreement_with_field"],
     )
+    # Per-pilot determinism under this state description. If a pilot's own
+    # self-agreement is high but a model fitted to it scores far lower, the
+    # gap is model capacity, not pilot noise.
+    self_rows = sorted(
+        (
+            {
+                "team_id": int(team),
+                "self_pairs": total,
+                "self_agreement": round(agree / total, 4),
+            }
+            for team, (total, agree) in self_pairs.items()
+            if total >= MIN_PAIR_COUNT
+        ),
+        key=lambda item: item["self_agreement"],
+    )
     return {
+        "team_self_agreement": self_rows,
         "team_agreement_with_field": team_rows,
         "distinct_signatures": len(by_sig),
         "signatures_with_repeats": sum(1 for v in by_sig.values() if len(v) > 1),
@@ -488,6 +507,7 @@ def main() -> int:
         summary["levels"][level].pop("worst_team_pairs", None)
         summary["levels"][level].pop("best_team_pairs", None)
         summary["levels"][level].pop("team_agreement_with_field", None)
+        summary["levels"][level].pop("team_self_agreement", None)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 

@@ -1,0 +1,101 @@
+decisions train=218156 validation=35061 test=34611 features=698
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+Training until validation scores don't improve for 200 rounds
+[100]	validation's top1: 0.82867
+[200]	validation's top1: 0.836257
+[300]	validation's top1: 0.840136
+[400]	validation's top1: 0.841933
+[500]	validation's top1: 0.84333
+[600]	validation's top1: 0.845013
+[700]	validation's top1: 0.844728
+[800]	validation's top1: 0.84584
+[900]	validation's top1: 0.844671
+Early stopping, best iteration is:
+[737]	validation's top1: 0.846154
+{
+  "best_iteration": 737,
+  "validation_top1": 0.8462,
+  "test_top1": 0.8471,
+  "test_top1_wilson95": [
+    0.8432,
+    0.8508
+  ],
+  "test_top3": 0.9888,
+  "test_order_insensitive_top1": 0.9378,
+  "test_taxonomy": {
+    "correct": 0.8471,
+    "same_turn_ordering": 0.0907,
+    "same_action_type_divergence": 0.0376,
+    "divergence": 0.0246
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 17883,
+      "top1": 0.7972
+    },
+    "7": {
+      "decisions": 3519,
+      "top1": 0.8335
+    },
+    "13": {
+      "decisions": 2538,
+      "top1": 0.8491
+    },
+    "40": {
+      "decisions": 2498,
+      "top1": 0.9976
+    },
+    "21": {
+      "decisions": 1997,
+      "top1": 0.9564
+    },
+    "16": {
+      "decisions": 1645,
+      "top1": 0.8711
+    },
+    "15": {
+      "decisions": 1367,
+      "top1": 0.8405
+    },
+    "43": {
+      "decisions": 965,
+      "top1": 0.9834
+    },
+    "4": {
+      "decisions": 916,
+      "top1": 0.941
+    },
+    "3": {
+      "decisions": 618,
+      "top1": 0.8495
+    },
+    "41": {
+      "decisions": 227,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 161,
+      "top1": 1.0
+    },
+    "37": {
+      "decisions": 134,
+      "top1": 0.9851
+    },
+    "38": {
+      "decisions": 108,
+      "top1": 1.0
+    },
+    "5": {
+      "decisions": 26,
+      "top1": 0.9231
+    },
+    "8": {
+      "decisions": 9,
+      "top1": 0.2222
+    }
+  }
+}

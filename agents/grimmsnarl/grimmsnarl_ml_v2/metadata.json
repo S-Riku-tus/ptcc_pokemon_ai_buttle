@@ -1,0 +1,21 @@
+{
+  "name": "grimmsnarl_ml_v2",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "2.0.0",
+  "created_at": "2026-08-03T12:40:00+09:00",
+  "parent_agent": "grimmsnarl_ml_v1",
+  "deck_changed": false,
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_note": "Unchanged from v1: the list 21 of the top-50 Grimmsnarl teams run card for card.",
+  "source_corpus": "data/kaggle_grimmsnarl_top50",
+  "source_replays": 3655,
+  "source_teams": 21,
+  "teacher_team_id": 16494330,
+  "teacher_leaderboard_rank": 30,
+  "teacher_submission_score": 1077.6,
+  "teacher_selection_note": "v1 pinned the pilot that maximised agreement, which selected the weakest teacher in the corpus (rank 48, 1048.5): agreement with a pilot is inversely related to that pilot's rating, so optimising fidelity alone walks down the leaderboard. v2 selects on rating and attainable agreement together. 16494330 is 29.1 rating points stronger than v1's pin and is also imitated more accurately (92.23% vs 90.00% on the same all-context metric).",
+  "policy": "Imitation ranker over the top-50 Marnie's Grimmsnarl ex corpus, extended from MAIN-only to every single-pick select context. A LightGBM lambdarank booster (737 trees, 698 features) is fitted on 287,828 decisions from 21 top-50 pilots sharing one deck list, with the acting pilot exposed as a categorical feature and pinned at inference to team 16494330. The ranker's argmax decides MAIN, deck search (TO_HAND), Adrena-Brain damage placement (DAMAGE_COUNTER, REMOVE_DAMAGE_COUNTER and the counter-count choice), the Shadow Bullet bench-snipe target, Punk Up's attach source, switches and initial Active, with no rule veto. Multi-pick selects (Punk Up's five-energy attachment, skill order, multi-card discards) and the face-down prize picks stay with the marnies_grimmsnarl_ex_v7 rule policy; the prize zone exposes no card ids so nothing is learnable there. Early stopping is on strict Top-1 with LightGBM's built-in metrics disabled. No residual chain: the ranker reads the observation only.",
+  "validation_scope": "63 inherited golden-state tests pass against the real vendor card database. Deck validates at 60 cards, 19 unique. Offline strict Top-1 on the pinned pilot's held-out chronologically-later games, across all scorable contexts: 92.23% (n=1480, Wilson 95% 90.68-93.42%). End-to-end all-context agreement replaying those games through main.py: 91.74% (n=1331), a 0.49-point runtime gap; the runtime figure additionally includes the multi-pick contexts that remain rule-driven. For comparison, v1's shipped agent measured 81.41% on the same all-context metric against its own teacher. 20 real self-play games vs grimmsnarl_ml_v1: 17-3, 0 crashes, 0 illegal selects, 14 ms/move. Ladder rating is NOT measured; v1 rated 871 over 61 games (39-22).",
+  "description": "Re-targets imitation from the most-imitable pilot (rank 48, 1048.5) to a stronger one (rank 30, 1077.6), and extends the ranker from MAIN to every single-pick context. v1 left ~47 decisions per game to the rule policy, which agreed with its own teacher only 39.5% on deck search and 50-65% on damage placement; those blocks now score 92.5% and 91-96%."
+}
