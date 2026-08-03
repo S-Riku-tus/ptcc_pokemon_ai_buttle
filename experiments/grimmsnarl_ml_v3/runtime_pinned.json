@@ -1,0 +1,37 @@
+{
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v3",
+  "teacher_team": 16494330,
+  "pinned_teacher_code": 16,
+  "min_episode": 89418031,
+  "episodes": 18,
+  "main_decisions": 758,
+  "runtime_top1": 0.8892,
+  "runtime_top1_wilson95": [
+    0.8648,
+    0.9096
+  ],
+  "counts": {
+    "episodes": 18,
+    "non_main_decisions": 1021,
+    "main_decisions": 758,
+    "correct": 674,
+    "correct_via_duplicate": 3
+  },
+  "ranker_stats": {
+    "main_decisions": 69,
+    "non_main_decisions": 36,
+    "ranker_used": 66,
+    "feature_errors": 0,
+    "score_errors": 0,
+    "action_prior_used": 66,
+    "action_prior_errors": 0,
+    "action_prior_loaded": 1,
+    "action_prior_load_error": null
+  },
+  "latency_ms": {
+    "mean": 34.45,
+    "p50": 30.86,
+    "p95": 65.97,
+    "max": 111.62
+  }
+}
