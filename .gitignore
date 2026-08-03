@@ -85,3 +85,15 @@ data/kaggle_grimmsnarl_top50/
 # agents/grimmsnarl/grimmsnarl_ml_v1/ranker_model.json.
 data/ml/grimmsnarl/processed/
 data/ml/grimmsnarl/models/
+
+# Local Codex/Claude settings
+/.claude/settings.local.json
+
+# Regeneratable replay corpora and ladder runs
+/data/kaggle_top40_alakazam/
+/data/kaggle_top50_meta/logs/
+/data/kaggle_top50_meta/replays/
+/data/runs/grimmsnarl/
+/data/runs/leaderboard_refresh/
+/data/runs/lopunny/
+/data/runs/lopunny.zip
