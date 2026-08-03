@@ -33,16 +33,84 @@ def team_codes(corpus_path: Path) -> dict[int, int]:
     return {team: index for index, team in enumerate(teams)}
 
 
+def routed_contexts(
+    report: dict,
+    min_support: int,
+    min_top1: float,
+) -> list[int]:
+    """Contexts the ranker is allowed to decide, from measured support.
+
+    The first cut of v2 routed every context in ``SCORABLE_CONTEXTS`` through
+    the model unconditionally. Context 8 (DISCARD) had 9 held-out decisions and
+    scored 22%, which is a coin flip on a sample too small to have an opinion
+    about - shipping it means replacing a rule with noise. A context earns the
+    ranker by having enough training decisions to fit, or by scoring well
+    enough on held-out data that the thin sample is not in doubt.
+
+    Returned rather than hard-coded so the list re-derives itself every retrain
+    instead of drifting away from the corpus it describes.
+    """
+    support = {
+        int(k): int(v) for k, v in
+        (report.get("train_context_support") or {}).items()
+    }
+    scored = {
+        int(k): float(v["top1"]) for k, v in
+        ((report.get("validation") or {}).get("top1_by_context") or {}).items()
+    }
+    routed = []
+    dropped = []
+    for context in sorted(set(support) | set(scored)):
+        count = support.get(context, 0)
+        top1 = scored.get(context)
+        if count >= min_support or (top1 is not None and top1 >= min_top1
+                                    and count >= 50):
+            routed.append(context)
+        else:
+            dropped.append({
+                "context": context, "train_decisions": count,
+                "validation_top1": top1,
+            })
+    if dropped:
+        print(f"contexts left to the rule policy: {dropped}")
+    return routed
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--teacher-team", type=int)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--report", type=Path,
+        help="Training report; used to bake the routed-context allow list.",
+    )
+    parser.add_argument(
+        "--min-context-support", type=int, default=400,
+        help="Training decisions a context needs before the ranker owns it.",
+    )
+    parser.add_argument(
+        "--min-context-top1", type=float, default=0.60,
+        help="Held-out Top-1 a thin context needs before the ranker owns it.",
+    )
     args = parser.parse_args()
 
     booster = lgb.Booster(model_file=str(args.model))
     model = compact_booster(booster, kind="grimmsnarl_ranker")
+
+    if args.report and args.report.exists():
+        model["routed_contexts"] = routed_contexts(
+            json.loads(args.report.read_text(encoding="utf-8")),
+            args.min_context_support,
+            args.min_context_top1,
+        )
+        # Keep the gate reproducible in the deployed artifact.  v2.1 uses a
+        # deliberately lower threshold for context 8 after an independent
+        # wall-heavy replay set showed that its inherited rule policy was far
+        # worse than the ranker despite the tiny validation sample.
+        model["routing_min_context_support"] = args.min_context_support
+        model["routing_min_context_top1"] = args.min_context_top1
 
     if "teacher_team_id" in model["feature_names"]:
         if args.teacher_team is None:
@@ -71,6 +139,7 @@ def main() -> int:
         "features": len(model["feature_names"]),
         "teacher_team_id": model.get("teacher_team_id"),
         "teacher_team_code": model.get("teacher_team_code"),
+        "routed_contexts": model.get("routed_contexts"),
         "bytes": args.output.stat().st_size,
     }, indent=2))
     return 0

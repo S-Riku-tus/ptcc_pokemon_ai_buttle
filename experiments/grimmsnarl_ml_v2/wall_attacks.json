@@ -1,0 +1,3621 @@
+{
+  "blockers": [
+    117,
+    330,
+    345
+  ],
+  "wall_bodies_seen": {
+    "345": 6525,
+    "117": 787,
+    "743": 97,
+    "330": 53,
+    "58": 15,
+    "164": 6,
+    "742": 2,
+    "140": 1
+  },
+  "sources": {
+    "grimmsnarl_ml_v1_ladder": {
+      "episodes": 61,
+      "wins": 39,
+      "main_decisions_with_attack": 1500,
+      "attacks": 264,
+      "attacks_per_game": 4.328,
+      "walled_offers": 314,
+      "dead_attack_available": 300,
+      "dead_attack_taken": 53,
+      "dead_attack_rate": 0.1767,
+      "dead_attacks_per_game": 0.869,
+      "dead_attack_only_end": 2
+    },
+    "team_16371703": {
+      "episodes": 256,
+      "wins": 154,
+      "main_decisions_with_attack": 6781,
+      "attacks": 1110,
+      "attacks_per_game": 4.336,
+      "walled_offers": 331,
+      "dead_attack_available": 309,
+      "dead_attack_taken": 53,
+      "dead_attack_rate": 0.1715,
+      "dead_attacks_per_game": 0.207,
+      "dead_attack_only_end": 0
+    },
+    "team_16375320": {
+      "episodes": 143,
+      "wins": 86,
+      "main_decisions_with_attack": 3208,
+      "attacks": 604,
+      "attacks_per_game": 4.224,
+      "walled_offers": 146,
+      "dead_attack_available": 136,
+      "dead_attack_taken": 29,
+      "dead_attack_rate": 0.2132,
+      "dead_attacks_per_game": 0.203,
+      "dead_attack_only_end": 1
+    },
+    "team_16376653": {
+      "episodes": 181,
+      "wins": 104,
+      "main_decisions_with_attack": 4537,
+      "attacks": 705,
+      "attacks_per_game": 3.895,
+      "walled_offers": 501,
+      "dead_attack_available": 459,
+      "dead_attack_taken": 74,
+      "dead_attack_rate": 0.1612,
+      "dead_attacks_per_game": 0.409,
+      "dead_attack_only_end": 8
+    },
+    "team_16381904": {
+      "episodes": 193,
+      "wins": 114,
+      "main_decisions_with_attack": 4113,
+      "attacks": 727,
+      "attacks_per_game": 3.767,
+      "walled_offers": 329,
+      "dead_attack_available": 317,
+      "dead_attack_taken": 57,
+      "dead_attack_rate": 0.1798,
+      "dead_attacks_per_game": 0.295,
+      "dead_attack_only_end": 8
+    },
+    "team_16385817": {
+      "episodes": 63,
+      "wins": 41,
+      "main_decisions_with_attack": 1546,
+      "attacks": 244,
+      "attacks_per_game": 3.873,
+      "walled_offers": 85,
+      "dead_attack_available": 84,
+      "dead_attack_taken": 11,
+      "dead_attack_rate": 0.131,
+      "dead_attacks_per_game": 0.175,
+      "dead_attack_only_end": 0
+    },
+    "team_16388364": {
+      "episodes": 94,
+      "wins": 55,
+      "main_decisions_with_attack": 1988,
+      "attacks": 349,
+      "attacks_per_game": 3.713,
+      "walled_offers": 223,
+      "dead_attack_available": 205,
+      "dead_attack_taken": 34,
+      "dead_attack_rate": 0.1659,
+      "dead_attacks_per_game": 0.362,
+      "dead_attack_only_end": 0
+    },
+    "team_16388654": {
+      "episodes": 269,
+      "wins": 154,
+      "main_decisions_with_attack": 6733,
+      "attacks": 1042,
+      "attacks_per_game": 3.874,
+      "walled_offers": 475,
+      "dead_attack_available": 447,
+      "dead_attack_taken": 69,
+      "dead_attack_rate": 0.1544,
+      "dead_attacks_per_game": 0.257,
+      "dead_attack_only_end": 1
+    },
+    "team_16407282": {
+      "episodes": 281,
+      "wins": 152,
+      "main_decisions_with_attack": 6863,
+      "attacks": 1164,
+      "attacks_per_game": 4.142,
+      "walled_offers": 693,
+      "dead_attack_available": 638,
+      "dead_attack_taken": 138,
+      "dead_attack_rate": 0.2163,
+      "dead_attacks_per_game": 0.491,
+      "dead_attack_only_end": 6
+    },
+    "team_16421840": {
+      "episodes": 93,
+      "wins": 60,
+      "main_decisions_with_attack": 2133,
+      "attacks": 350,
+      "attacks_per_game": 3.763,
+      "walled_offers": 139,
+      "dead_attack_available": 133,
+      "dead_attack_taken": 28,
+      "dead_attack_rate": 0.2105,
+      "dead_attacks_per_game": 0.301,
+      "dead_attack_only_end": 2
+    },
+    "team_16422241": {
+      "episodes": 107,
+      "wins": 67,
+      "main_decisions_with_attack": 2269,
+      "attacks": 425,
+      "attacks_per_game": 3.972,
+      "walled_offers": 183,
+      "dead_attack_available": 182,
+      "dead_attack_taken": 35,
+      "dead_attack_rate": 0.1923,
+      "dead_attacks_per_game": 0.327,
+      "dead_attack_only_end": 0
+    },
+    "team_16430670": {
+      "episodes": 55,
+      "wins": 32,
+      "main_decisions_with_attack": 1338,
+      "attacks": 214,
+      "attacks_per_game": 3.891,
+      "walled_offers": 104,
+      "dead_attack_available": 101,
+      "dead_attack_taken": 13,
+      "dead_attack_rate": 0.1287,
+      "dead_attacks_per_game": 0.236,
+      "dead_attack_only_end": 2
+    },
+    "team_16431331": {
+      "episodes": 83,
+      "wins": 55,
+      "main_decisions_with_attack": 1573,
+      "attacks": 311,
+      "attacks_per_game": 3.747,
+      "walled_offers": 197,
+      "dead_attack_available": 183,
+      "dead_attack_taken": 27,
+      "dead_attack_rate": 0.1475,
+      "dead_attacks_per_game": 0.325,
+      "dead_attack_only_end": 2
+    },
+    "team_16452116": {
+      "episodes": 275,
+      "wins": 150,
+      "main_decisions_with_attack": 6700,
+      "attacks": 1093,
+      "attacks_per_game": 3.975,
+      "walled_offers": 698,
+      "dead_attack_available": 629,
+      "dead_attack_taken": 101,
+      "dead_attack_rate": 0.1606,
+      "dead_attacks_per_game": 0.367,
+      "dead_attack_only_end": 5
+    },
+    "team_16461850": {
+      "episodes": 143,
+      "wins": 92,
+      "main_decisions_with_attack": 3343,
+      "attacks": 558,
+      "attacks_per_game": 3.902,
+      "walled_offers": 212,
+      "dead_attack_available": 171,
+      "dead_attack_taken": 28,
+      "dead_attack_rate": 0.1637,
+      "dead_attacks_per_game": 0.196,
+      "dead_attack_only_end": 0
+    },
+    "team_16462035": {
+      "episodes": 287,
+      "wins": 156,
+      "main_decisions_with_attack": 6802,
+      "attacks": 1156,
+      "attacks_per_game": 4.028,
+      "walled_offers": 734,
+      "dead_attack_available": 651,
+      "dead_attack_taken": 129,
+      "dead_attack_rate": 0.1982,
+      "dead_attacks_per_game": 0.449,
+      "dead_attack_only_end": 4
+    },
+    "team_16463316": {
+      "episodes": 289,
+      "wins": 164,
+      "main_decisions_with_attack": 5948,
+      "attacks": 1107,
+      "attacks_per_game": 3.83,
+      "walled_offers": 559,
+      "dead_attack_available": 519,
+      "dead_attack_taken": 100,
+      "dead_attack_rate": 0.1927,
+      "dead_attacks_per_game": 0.346,
+      "dead_attack_only_end": 2
+    },
+    "team_16494330": {
+      "episodes": 147,
+      "wins": 87,
+      "main_decisions_with_attack": 3437,
+      "attacks": 587,
+      "attacks_per_game": 3.993,
+      "walled_offers": 220,
+      "dead_attack_available": 204,
+      "dead_attack_taken": 37,
+      "dead_attack_rate": 0.1814,
+      "dead_attacks_per_game": 0.252,
+      "dead_attack_only_end": 1
+    },
+    "team_16514272": {
+      "episodes": 120,
+      "wins": 84,
+      "main_decisions_with_attack": 3088,
+      "attacks": 488,
+      "attacks_per_game": 4.067,
+      "walled_offers": 258,
+      "dead_attack_available": 256,
+      "dead_attack_taken": 40,
+      "dead_attack_rate": 0.1562,
+      "dead_attacks_per_game": 0.333,
+      "dead_attack_only_end": 4
+    },
+    "team_16531269": {
+      "episodes": 286,
+      "wins": 161,
+      "main_decisions_with_attack": 7010,
+      "attacks": 1097,
+      "attacks_per_game": 3.836,
+      "walled_offers": 416,
+      "dead_attack_available": 377,
+      "dead_attack_taken": 58,
+      "dead_attack_rate": 0.1538,
+      "dead_attacks_per_game": 0.203,
+      "dead_attack_only_end": 3
+    },
+    "team_16556346": {
+      "episodes": 180,
+      "wins": 115,
+      "main_decisions_with_attack": 4316,
+      "attacks": 705,
+      "attacks_per_game": 3.917,
+      "walled_offers": 541,
+      "dead_attack_available": 479,
+      "dead_attack_taken": 80,
+      "dead_attack_rate": 0.167,
+      "dead_attacks_per_game": 0.444,
+      "dead_attack_only_end": 5
+    },
+    "team_16561259": {
+      "episodes": 110,
+      "wins": 70,
+      "main_decisions_with_attack": 2714,
+      "attacks": 453,
+      "attacks_per_game": 4.118,
+      "walled_offers": 128,
+      "dead_attack_available": 120,
+      "dead_attack_taken": 12,
+      "dead_attack_rate": 0.1,
+      "dead_attacks_per_game": 0.109,
+      "dead_attack_only_end": 0
+    }
+  },
+  "worst_episodes": [
+    {
+      "source": "team_16407282",
+      "episode_id": 89209229,
+      "seat_index": 0,
+      "dead_available": 46,
+      "dead_attacks": 27,
+      "attacks": 27,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89287246,
+      "seat_index": 1,
+      "dead_available": 49,
+      "dead_attacks": 14,
+      "attacks": 16,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89429317,
+      "seat_index": 1,
+      "dead_available": 57,
+      "dead_attacks": 14,
+      "attacks": 17,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89030310,
+      "seat_index": 0,
+      "dead_available": 37,
+      "dead_attacks": 13,
+      "attacks": 15,
+      "won": 0
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89429333,
+      "seat_index": 0,
+      "dead_available": 50,
+      "dead_attacks": 13,
+      "attacks": 15,
+      "won": 0
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89393659,
+      "seat_index": 1,
+      "dead_available": 49,
+      "dead_attacks": 12,
+      "attacks": 15,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89432015,
+      "seat_index": 0,
+      "dead_available": 58,
+      "dead_attacks": 12,
+      "attacks": 12,
+      "won": 0
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89398395,
+      "seat_index": 0,
+      "dead_available": 41,
+      "dead_attacks": 11,
+      "attacks": 13,
+      "won": 0
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89412098,
+      "seat_index": 0,
+      "dead_available": 51,
+      "dead_attacks": 11,
+      "attacks": 11,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89459456,
+      "seat_index": 1,
+      "dead_available": 33,
+      "dead_attacks": 11,
+      "attacks": 11,
+      "won": 0
+    },
+    {
+      "source": "grimmsnarl_ml_v1_ladder",
+      "episode_id": 89559744,
+      "seat_index": 0,
+      "dead_available": 49,
+      "dead_attacks": 11,
+      "attacks": 13,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89043634,
+      "seat_index": 1,
+      "dead_available": 32,
+      "dead_attacks": 10,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89424471,
+      "seat_index": 0,
+      "dead_available": 51,
+      "dead_attacks": 10,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88885672,
+      "seat_index": 0,
+      "dead_available": 37,
+      "dead_attacks": 9,
+      "attacks": 11,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89004326,
+      "seat_index": 0,
+      "dead_available": 48,
+      "dead_attacks": 9,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89358748,
+      "seat_index": 0,
+      "dead_available": 47,
+      "dead_attacks": 9,
+      "attacks": 10,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89458323,
+      "seat_index": 1,
+      "dead_available": 42,
+      "dead_attacks": 9,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89033066,
+      "seat_index": 0,
+      "dead_available": 40,
+      "dead_attacks": 8,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89037180,
+      "seat_index": 1,
+      "dead_available": 38,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89295085,
+      "seat_index": 1,
+      "dead_available": 35,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89311334,
+      "seat_index": 1,
+      "dead_available": 44,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 0
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89393115,
+      "seat_index": 0,
+      "dead_available": 49,
+      "dead_attacks": 8,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89405798,
+      "seat_index": 0,
+      "dead_available": 55,
+      "dead_attacks": 8,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89415244,
+      "seat_index": 0,
+      "dead_available": 40,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88891824,
+      "seat_index": 0,
+      "dead_available": 31,
+      "dead_attacks": 7,
+      "attacks": 8,
+      "won": 1
+    }
+  ],
+  "wall_episodes": [
+    {
+      "source": "team_16422241",
+      "episode_id": 89432015,
+      "seat_index": 0,
+      "dead_available": 58,
+      "dead_attacks": 12,
+      "attacks": 12,
+      "won": 0
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89429317,
+      "seat_index": 1,
+      "dead_available": 57,
+      "dead_attacks": 14,
+      "attacks": 17,
+      "won": 0
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89405798,
+      "seat_index": 0,
+      "dead_available": 55,
+      "dead_attacks": 8,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89412098,
+      "seat_index": 0,
+      "dead_available": 51,
+      "dead_attacks": 11,
+      "attacks": 11,
+      "won": 0
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89424471,
+      "seat_index": 0,
+      "dead_available": 51,
+      "dead_attacks": 10,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89429333,
+      "seat_index": 0,
+      "dead_available": 50,
+      "dead_attacks": 13,
+      "attacks": 15,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89287246,
+      "seat_index": 1,
+      "dead_available": 49,
+      "dead_attacks": 14,
+      "attacks": 16,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89304961,
+      "seat_index": 0,
+      "dead_available": 49,
+      "dead_attacks": 6,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89393115,
+      "seat_index": 0,
+      "dead_available": 49,
+      "dead_attacks": 8,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89393659,
+      "seat_index": 1,
+      "dead_available": 49,
+      "dead_attacks": 12,
+      "attacks": 15,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89004326,
+      "seat_index": 0,
+      "dead_available": 48,
+      "dead_attacks": 9,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89358748,
+      "seat_index": 0,
+      "dead_available": 47,
+      "dead_attacks": 9,
+      "attacks": 10,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89209229,
+      "seat_index": 0,
+      "dead_available": 46,
+      "dead_attacks": 27,
+      "attacks": 27,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89405766,
+      "seat_index": 0,
+      "dead_available": 45,
+      "dead_attacks": 6,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89311334,
+      "seat_index": 1,
+      "dead_available": 44,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89223771,
+      "seat_index": 1,
+      "dead_available": 42,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89391674,
+      "seat_index": 0,
+      "dead_available": 42,
+      "dead_attacks": 7,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89394147,
+      "seat_index": 1,
+      "dead_available": 42,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89409475,
+      "seat_index": 0,
+      "dead_available": 42,
+      "dead_attacks": 7,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89458323,
+      "seat_index": 1,
+      "dead_available": 42,
+      "dead_attacks": 9,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89398395,
+      "seat_index": 0,
+      "dead_available": 41,
+      "dead_attacks": 11,
+      "attacks": 13,
+      "won": 0
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89401036,
+      "seat_index": 0,
+      "dead_available": 41,
+      "dead_attacks": 7,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88890374,
+      "seat_index": 0,
+      "dead_available": 40,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89033066,
+      "seat_index": 0,
+      "dead_available": 40,
+      "dead_attacks": 8,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89415244,
+      "seat_index": 0,
+      "dead_available": 40,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89416854,
+      "seat_index": 1,
+      "dead_available": 40,
+      "dead_attacks": 6,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89370794,
+      "seat_index": 0,
+      "dead_available": 39,
+      "dead_attacks": 6,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89037180,
+      "seat_index": 1,
+      "dead_available": 38,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88885672,
+      "seat_index": 0,
+      "dead_available": 37,
+      "dead_attacks": 9,
+      "attacks": 11,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89030310,
+      "seat_index": 0,
+      "dead_available": 37,
+      "dead_attacks": 13,
+      "attacks": 15,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89387210,
+      "seat_index": 0,
+      "dead_available": 37,
+      "dead_attacks": 5,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89404726,
+      "seat_index": 0,
+      "dead_available": 37,
+      "dead_attacks": 7,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89406293,
+      "seat_index": 1,
+      "dead_available": 37,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89193841,
+      "seat_index": 1,
+      "dead_available": 36,
+      "dead_attacks": 5,
+      "attacks": 9,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89406814,
+      "seat_index": 0,
+      "dead_available": 36,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89042997,
+      "seat_index": 0,
+      "dead_available": 35,
+      "dead_attacks": 6,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89295085,
+      "seat_index": 1,
+      "dead_available": 35,
+      "dead_attacks": 8,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89302240,
+      "seat_index": 0,
+      "dead_available": 35,
+      "dead_attacks": 5,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89441073,
+      "seat_index": 1,
+      "dead_available": 35,
+      "dead_attacks": 6,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89224456,
+      "seat_index": 0,
+      "dead_available": 34,
+      "dead_attacks": 6,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89391513,
+      "seat_index": 0,
+      "dead_available": 34,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89381449,
+      "seat_index": 1,
+      "dead_available": 33,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89399396,
+      "seat_index": 1,
+      "dead_available": 33,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89459456,
+      "seat_index": 1,
+      "dead_available": 33,
+      "dead_attacks": 11,
+      "attacks": 11,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89043634,
+      "seat_index": 1,
+      "dead_available": 32,
+      "dead_attacks": 10,
+      "attacks": 10,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89205700,
+      "seat_index": 1,
+      "dead_available": 32,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89393624,
+      "seat_index": 1,
+      "dead_available": 32,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16561259",
+      "episode_id": 89425557,
+      "seat_index": 0,
+      "dead_available": 32,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88891824,
+      "seat_index": 0,
+      "dead_available": 31,
+      "dead_attacks": 7,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89119228,
+      "seat_index": 0,
+      "dead_available": 31,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89205199,
+      "seat_index": 0,
+      "dead_available": 31,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89289985,
+      "seat_index": 0,
+      "dead_available": 31,
+      "dead_attacks": 5,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89339464,
+      "seat_index": 1,
+      "dead_available": 31,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89407534,
+      "seat_index": 0,
+      "dead_available": 31,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16385817",
+      "episode_id": 89409798,
+      "seat_index": 0,
+      "dead_available": 31,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89411570,
+      "seat_index": 1,
+      "dead_available": 31,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89260897,
+      "seat_index": 0,
+      "dead_available": 30,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89270228,
+      "seat_index": 0,
+      "dead_available": 30,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89331635,
+      "seat_index": 1,
+      "dead_available": 30,
+      "dead_attacks": 4,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89355549,
+      "seat_index": 0,
+      "dead_available": 30,
+      "dead_attacks": 4,
+      "attacks": 9,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89362816,
+      "seat_index": 1,
+      "dead_available": 30,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16561259",
+      "episode_id": 89395569,
+      "seat_index": 1,
+      "dead_available": 30,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89398940,
+      "seat_index": 0,
+      "dead_available": 30,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89402605,
+      "seat_index": 1,
+      "dead_available": 30,
+      "dead_attacks": 6,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89408033,
+      "seat_index": 0,
+      "dead_available": 30,
+      "dead_attacks": 4,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16385817",
+      "episode_id": 89426100,
+      "seat_index": 1,
+      "dead_available": 30,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89080626,
+      "seat_index": 0,
+      "dead_available": 29,
+      "dead_attacks": 6,
+      "attacks": 9,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89343206,
+      "seat_index": 1,
+      "dead_available": 29,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89400507,
+      "seat_index": 1,
+      "dead_available": 29,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89368920,
+      "seat_index": 1,
+      "dead_available": 28,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89400513,
+      "seat_index": 1,
+      "dead_available": 28,
+      "dead_attacks": 6,
+      "attacks": 9,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89414206,
+      "seat_index": 0,
+      "dead_available": 28,
+      "dead_attacks": 6,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89421258,
+      "seat_index": 0,
+      "dead_available": 28,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89216713,
+      "seat_index": 1,
+      "dead_available": 27,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89269899,
+      "seat_index": 1,
+      "dead_available": 27,
+      "dead_attacks": 4,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89287011,
+      "seat_index": 0,
+      "dead_available": 27,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89309389,
+      "seat_index": 1,
+      "dead_available": 27,
+      "dead_attacks": 6,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89337002,
+      "seat_index": 1,
+      "dead_available": 27,
+      "dead_attacks": 4,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89342673,
+      "seat_index": 0,
+      "dead_available": 27,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89391526,
+      "seat_index": 0,
+      "dead_available": 27,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89394167,
+      "seat_index": 1,
+      "dead_available": 27,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89436562,
+      "seat_index": 0,
+      "dead_available": 27,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89448555,
+      "seat_index": 1,
+      "dead_available": 27,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89313118,
+      "seat_index": 1,
+      "dead_available": 26,
+      "dead_attacks": 4,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89409998,
+      "seat_index": 0,
+      "dead_available": 26,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89411648,
+      "seat_index": 1,
+      "dead_available": 26,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89418002,
+      "seat_index": 0,
+      "dead_available": 26,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89418977,
+      "seat_index": 0,
+      "dead_available": 26,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89462150,
+      "seat_index": 1,
+      "dead_available": 26,
+      "dead_attacks": 6,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89037649,
+      "seat_index": 1,
+      "dead_available": 25,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89118564,
+      "seat_index": 0,
+      "dead_available": 25,
+      "dead_attacks": 4,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89349771,
+      "seat_index": 1,
+      "dead_available": 25,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89359353,
+      "seat_index": 1,
+      "dead_available": 25,
+      "dead_attacks": 3,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89363581,
+      "seat_index": 0,
+      "dead_available": 25,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89415769,
+      "seat_index": 0,
+      "dead_available": 25,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89419716,
+      "seat_index": 0,
+      "dead_available": 25,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89421262,
+      "seat_index": 0,
+      "dead_available": 25,
+      "dead_attacks": 5,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89423925,
+      "seat_index": 0,
+      "dead_available": 25,
+      "dead_attacks": 4,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89429864,
+      "seat_index": 1,
+      "dead_available": 25,
+      "dead_attacks": 5,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89049182,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89239239,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89271516,
+      "seat_index": 0,
+      "dead_available": 24,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89272287,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89313689,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89321083,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 3,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89388873,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89393634,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 5,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89409042,
+      "seat_index": 0,
+      "dead_available": 24,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89409460,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 3,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89411624,
+      "seat_index": 0,
+      "dead_available": 24,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16561259",
+      "episode_id": 89424490,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89425025,
+      "seat_index": 1,
+      "dead_available": 24,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88885218,
+      "seat_index": 1,
+      "dead_available": 23,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89241173,
+      "seat_index": 0,
+      "dead_available": 23,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89259716,
+      "seat_index": 1,
+      "dead_available": 23,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89283753,
+      "seat_index": 0,
+      "dead_available": 23,
+      "dead_attacks": 4,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89315535,
+      "seat_index": 0,
+      "dead_available": 23,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89331333,
+      "seat_index": 1,
+      "dead_available": 23,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89346510,
+      "seat_index": 1,
+      "dead_available": 23,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16385817",
+      "episode_id": 89412988,
+      "seat_index": 0,
+      "dead_available": 23,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16561259",
+      "episode_id": 89431509,
+      "seat_index": 1,
+      "dead_available": 23,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89226786,
+      "seat_index": 0,
+      "dead_available": 22,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89308877,
+      "seat_index": 0,
+      "dead_available": 22,
+      "dead_attacks": 6,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89326561,
+      "seat_index": 1,
+      "dead_available": 22,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89417423,
+      "seat_index": 1,
+      "dead_available": 22,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89418138,
+      "seat_index": 1,
+      "dead_available": 22,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89430688,
+      "seat_index": 0,
+      "dead_available": 22,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88892213,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89203191,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89203693,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89213746,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89214209,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89252816,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89271940,
+      "seat_index": 1,
+      "dead_available": 21,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89275593,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89316520,
+      "seat_index": 1,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89324439,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89341682,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89402105,
+      "seat_index": 0,
+      "dead_available": 21,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89408911,
+      "seat_index": 1,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89413166,
+      "seat_index": 1,
+      "dead_available": 21,
+      "dead_attacks": 4,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89429879,
+      "seat_index": 1,
+      "dead_available": 21,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89267367,
+      "seat_index": 1,
+      "dead_available": 20,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89404213,
+      "seat_index": 1,
+      "dead_available": 20,
+      "dead_attacks": 3,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89410524,
+      "seat_index": 1,
+      "dead_available": 20,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89410530,
+      "seat_index": 1,
+      "dead_available": 20,
+      "dead_attacks": 4,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89064679,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89117312,
+      "seat_index": 1,
+      "dead_available": 19,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89235588,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89238595,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 5,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89282965,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89288892,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89314724,
+      "seat_index": 1,
+      "dead_available": 19,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89339746,
+      "seat_index": 1,
+      "dead_available": 19,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89342154,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89395289,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89415923,
+      "seat_index": 1,
+      "dead_available": 19,
+      "dead_attacks": 4,
+      "attacks": 7,
+      "won": 0
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89420175,
+      "seat_index": 1,
+      "dead_available": 19,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89427722,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 6,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89434713,
+      "seat_index": 0,
+      "dead_available": 19,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89447394,
+      "seat_index": 1,
+      "dead_available": 19,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89453430,
+      "seat_index": 1,
+      "dead_available": 19,
+      "dead_attacks": 5,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89029865,
+      "seat_index": 0,
+      "dead_available": 18,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89286173,
+      "seat_index": 0,
+      "dead_available": 18,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89286692,
+      "seat_index": 0,
+      "dead_available": 18,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89331873,
+      "seat_index": 1,
+      "dead_available": 18,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89332855,
+      "seat_index": 0,
+      "dead_available": 18,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89366779,
+      "seat_index": 1,
+      "dead_available": 18,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89381150,
+      "seat_index": 1,
+      "dead_available": 18,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89385698,
+      "seat_index": 0,
+      "dead_available": 18,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89418981,
+      "seat_index": 0,
+      "dead_available": 18,
+      "dead_attacks": 5,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89468566,
+      "seat_index": 0,
+      "dead_available": 18,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89030828,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89127174,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 5,
+      "attacks": 8,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89229916,
+      "seat_index": 0,
+      "dead_available": 17,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89231450,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89285627,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89333359,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89391386,
+      "seat_index": 0,
+      "dead_available": 17,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89392692,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89402100,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89403137,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89403146,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89403676,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89415280,
+      "seat_index": 1,
+      "dead_available": 17,
+      "dead_attacks": 5,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88888978,
+      "seat_index": 1,
+      "dead_available": 16,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89033498,
+      "seat_index": 0,
+      "dead_available": 16,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89214714,
+      "seat_index": 1,
+      "dead_available": 16,
+      "dead_attacks": 3,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89286687,
+      "seat_index": 1,
+      "dead_available": 16,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89320260,
+      "seat_index": 1,
+      "dead_available": 16,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89386976,
+      "seat_index": 0,
+      "dead_available": 16,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89410327,
+      "seat_index": 1,
+      "dead_available": 16,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89410986,
+      "seat_index": 0,
+      "dead_available": 16,
+      "dead_attacks": 4,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89417417,
+      "seat_index": 1,
+      "dead_available": 16,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89422880,
+      "seat_index": 0,
+      "dead_available": 16,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89186892,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89219221,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89231996,
+      "seat_index": 0,
+      "dead_available": 15,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89284021,
+      "seat_index": 0,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89325890,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89334308,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 1,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89344360,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89387861,
+      "seat_index": 0,
+      "dead_available": 15,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89404188,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89404902,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 1,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89407853,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89416314,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89417419,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89421265,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89449301,
+      "seat_index": 1,
+      "dead_available": 15,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89033522,
+      "seat_index": 1,
+      "dead_available": 14,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89040849,
+      "seat_index": 1,
+      "dead_available": 14,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89050365,
+      "seat_index": 1,
+      "dead_available": 14,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89292830,
+      "seat_index": 0,
+      "dead_available": 14,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89296188,
+      "seat_index": 1,
+      "dead_available": 14,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89367630,
+      "seat_index": 0,
+      "dead_available": 14,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89388402,
+      "seat_index": 1,
+      "dead_available": 14,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89398415,
+      "seat_index": 0,
+      "dead_available": 14,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89455146,
+      "seat_index": 1,
+      "dead_available": 14,
+      "dead_attacks": 3,
+      "attacks": 6,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89048208,
+      "seat_index": 0,
+      "dead_available": 13,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89076328,
+      "seat_index": 1,
+      "dead_available": 13,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89209181,
+      "seat_index": 0,
+      "dead_available": 13,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89226276,
+      "seat_index": 1,
+      "dead_available": 13,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89232451,
+      "seat_index": 1,
+      "dead_available": 13,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89233111,
+      "seat_index": 0,
+      "dead_available": 13,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89273555,
+      "seat_index": 1,
+      "dead_available": 13,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89393122,
+      "seat_index": 0,
+      "dead_available": 13,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89399342,
+      "seat_index": 0,
+      "dead_available": 13,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89041768,
+      "seat_index": 1,
+      "dead_available": 12,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89261956,
+      "seat_index": 1,
+      "dead_available": 12,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89282364,
+      "seat_index": 0,
+      "dead_available": 12,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89360356,
+      "seat_index": 0,
+      "dead_available": 12,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89384880,
+      "seat_index": 0,
+      "dead_available": 12,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89394750,
+      "seat_index": 1,
+      "dead_available": 12,
+      "dead_attacks": 4,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89399483,
+      "seat_index": 0,
+      "dead_available": 12,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89417310,
+      "seat_index": 1,
+      "dead_available": 12,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89419644,
+      "seat_index": 0,
+      "dead_available": 12,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89423398,
+      "seat_index": 0,
+      "dead_available": 12,
+      "dead_attacks": 1,
+      "attacks": 1,
+      "won": 0
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89455144,
+      "seat_index": 1,
+      "dead_available": 12,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89128652,
+      "seat_index": 0,
+      "dead_available": 11,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89307252,
+      "seat_index": 1,
+      "dead_available": 11,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89318466,
+      "seat_index": 1,
+      "dead_available": 11,
+      "dead_attacks": 3,
+      "attacks": 7,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89394685,
+      "seat_index": 0,
+      "dead_available": 11,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89400643,
+      "seat_index": 0,
+      "dead_available": 11,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89413154,
+      "seat_index": 1,
+      "dead_available": 11,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89416889,
+      "seat_index": 0,
+      "dead_available": 11,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89422863,
+      "seat_index": 1,
+      "dead_available": 11,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89429059,
+      "seat_index": 0,
+      "dead_available": 11,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89436615,
+      "seat_index": 0,
+      "dead_available": 11,
+      "dead_attacks": 2,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89449632,
+      "seat_index": 1,
+      "dead_available": 11,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89451808,
+      "seat_index": 0,
+      "dead_available": 11,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89031234,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89202697,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89206177,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89206676,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89208184,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 4,
+      "attacks": 4,
+      "won": 0
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89307897,
+      "seat_index": 0,
+      "dead_available": 10,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89400495,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89401031,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89409468,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89425034,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89425813,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 0,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89436833,
+      "seat_index": 1,
+      "dead_available": 10,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89449090,
+      "seat_index": 0,
+      "dead_available": 10,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89226309,
+      "seat_index": 1,
+      "dead_available": 9,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89284026,
+      "seat_index": 0,
+      "dead_available": 9,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89347498,
+      "seat_index": 1,
+      "dead_available": 9,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89361998,
+      "seat_index": 1,
+      "dead_available": 9,
+      "dead_attacks": 4,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89406312,
+      "seat_index": 0,
+      "dead_available": 9,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89407873,
+      "seat_index": 1,
+      "dead_available": 9,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89135977,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89271245,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 3,
+      "attacks": 8,
+      "won": 1
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89310078,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89313162,
+      "seat_index": 1,
+      "dead_available": 8,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89337872,
+      "seat_index": 1,
+      "dead_available": 8,
+      "dead_attacks": 3,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89382706,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89385880,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 0
+    },
+    {
+      "source": "team_16514272",
+      "episode_id": 89389471,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89392611,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89397876,
+      "seat_index": 1,
+      "dead_available": 8,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16561259",
+      "episode_id": 89403304,
+      "seat_index": 1,
+      "dead_available": 8,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89408398,
+      "seat_index": 1,
+      "dead_available": 8,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89419521,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 3,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89422405,
+      "seat_index": 1,
+      "dead_available": 8,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89431752,
+      "seat_index": 0,
+      "dead_available": 8,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16430670",
+      "episode_id": 89453497,
+      "seat_index": 1,
+      "dead_available": 8,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89124149,
+      "seat_index": 1,
+      "dead_available": 7,
+      "dead_attacks": 0,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89238666,
+      "seat_index": 1,
+      "dead_available": 7,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89239109,
+      "seat_index": 0,
+      "dead_available": 7,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89250851,
+      "seat_index": 1,
+      "dead_available": 7,
+      "dead_attacks": 1,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89313648,
+      "seat_index": 1,
+      "dead_available": 7,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89363053,
+      "seat_index": 1,
+      "dead_available": 7,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89406291,
+      "seat_index": 0,
+      "dead_available": 7,
+      "dead_attacks": 3,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89415123,
+      "seat_index": 1,
+      "dead_available": 7,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89417997,
+      "seat_index": 0,
+      "dead_available": 7,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89419517,
+      "seat_index": 0,
+      "dead_available": 7,
+      "dead_attacks": 1,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89208836,
+      "seat_index": 1,
+      "dead_available": 6,
+      "dead_attacks": 0,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16376653",
+      "episode_id": 89269164,
+      "seat_index": 0,
+      "dead_available": 6,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89311293,
+      "seat_index": 1,
+      "dead_available": 6,
+      "dead_attacks": 2,
+      "attacks": 6,
+      "won": 1
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89315457,
+      "seat_index": 1,
+      "dead_available": 6,
+      "dead_attacks": 2,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89389984,
+      "seat_index": 1,
+      "dead_available": 6,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89395748,
+      "seat_index": 0,
+      "dead_available": 6,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89405259,
+      "seat_index": 1,
+      "dead_available": 6,
+      "dead_attacks": 1,
+      "attacks": 1,
+      "won": 0
+    },
+    {
+      "source": "team_16422241",
+      "episode_id": 89430946,
+      "seat_index": 1,
+      "dead_available": 6,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88889892,
+      "seat_index": 1,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89035793,
+      "seat_index": 0,
+      "dead_available": 5,
+      "dead_attacks": 2,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89089538,
+      "seat_index": 1,
+      "dead_available": 5,
+      "dead_attacks": 2,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 89263343,
+      "seat_index": 0,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 0
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89294463,
+      "seat_index": 1,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16388364",
+      "episode_id": 89300382,
+      "seat_index": 0,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89347491,
+      "seat_index": 1,
+      "dead_available": 5,
+      "dead_attacks": 0,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89386176,
+      "seat_index": 1,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89411533,
+      "seat_index": 1,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89420692,
+      "seat_index": 0,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16463316",
+      "episode_id": 89424487,
+      "seat_index": 1,
+      "dead_available": 5,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89460862,
+      "seat_index": 0,
+      "dead_available": 5,
+      "dead_attacks": 0,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88927197,
+      "seat_index": 1,
+      "dead_available": 4,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89203183,
+      "seat_index": 1,
+      "dead_available": 4,
+      "dead_attacks": 0,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89235484,
+      "seat_index": 1,
+      "dead_available": 4,
+      "dead_attacks": 0,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89320550,
+      "seat_index": 0,
+      "dead_available": 4,
+      "dead_attacks": 2,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89323426,
+      "seat_index": 0,
+      "dead_available": 4,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16371703",
+      "episode_id": 89376167,
+      "seat_index": 1,
+      "dead_available": 4,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89388554,
+      "seat_index": 1,
+      "dead_available": 4,
+      "dead_attacks": 0,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89414315,
+      "seat_index": 1,
+      "dead_available": 4,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16556346",
+      "episode_id": 89419621,
+      "seat_index": 1,
+      "dead_available": 4,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16462035",
+      "episode_id": 88886132,
+      "seat_index": 1,
+      "dead_available": 3,
+      "dead_attacks": 0,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16388654",
+      "episode_id": 89124661,
+      "seat_index": 1,
+      "dead_available": 3,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89316961,
+      "seat_index": 0,
+      "dead_available": 3,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89322864,
+      "seat_index": 1,
+      "dead_available": 3,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16375320",
+      "episode_id": 89385142,
+      "seat_index": 1,
+      "dead_available": 3,
+      "dead_attacks": 1,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89401551,
+      "seat_index": 1,
+      "dead_available": 3,
+      "dead_attacks": 1,
+      "attacks": 1,
+      "won": 0
+    },
+    {
+      "source": "team_16461850",
+      "episode_id": 89405888,
+      "seat_index": 0,
+      "dead_available": 3,
+      "dead_attacks": 0,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16531269",
+      "episode_id": 89239184,
+      "seat_index": 0,
+      "dead_available": 2,
+      "dead_attacks": 0,
+      "attacks": 2,
+      "won": 0
+    },
+    {
+      "source": "team_16381904",
+      "episode_id": 89290268,
+      "seat_index": 0,
+      "dead_available": 2,
+      "dead_attacks": 1,
+      "attacks": 2,
+      "won": 1
+    },
+    {
+      "source": "team_16452116",
+      "episode_id": 89319704,
+      "seat_index": 0,
+      "dead_available": 2,
+      "dead_attacks": 1,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89327620,
+      "seat_index": 1,
+      "dead_available": 2,
+      "dead_attacks": 1,
+      "attacks": 1,
+      "won": 0
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89343765,
+      "seat_index": 0,
+      "dead_available": 2,
+      "dead_attacks": 0,
+      "attacks": 5,
+      "won": 1
+    },
+    {
+      "source": "team_16431331",
+      "episode_id": 89351266,
+      "seat_index": 1,
+      "dead_available": 2,
+      "dead_attacks": 1,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16561259",
+      "episode_id": 89419612,
+      "seat_index": 1,
+      "dead_available": 2,
+      "dead_attacks": 0,
+      "attacks": 3,
+      "won": 1
+    },
+    {
+      "source": "team_16407282",
+      "episode_id": 89228871,
+      "seat_index": 0,
+      "dead_available": 1,
+      "dead_attacks": 1,
+      "attacks": 1,
+      "won": 0
+    },
+    {
+      "source": "team_16561259",
+      "episode_id": 89390822,
+      "seat_index": 0,
+      "dead_available": 1,
+      "dead_attacks": 0,
+      "attacks": 4,
+      "won": 1
+    },
+    {
+      "source": "team_16421840",
+      "episode_id": 89407369,
+      "seat_index": 1,
+      "dead_available": 1,
+      "dead_attacks": 1,
+      "attacks": 1,
+      "won": 0
+    },
+    {
+      "source": "team_16494330",
+      "episode_id": 89407867,
+      "seat_index": 1,
+      "dead_available": 1,
+      "dead_attacks": 0,
+      "attacks": 4,
+      "won": 1
+    }
+  ]
+}

@@ -65,6 +65,50 @@ def _card_id(player: dict[str, Any], area: Any, index: Any) -> int:
     return int(cards[index].get("id", -1)) if 0 <= index < len(cards) else -1
 
 
+# Bodies whose Ability prevents all damage from a Pokemon ex, and the Bench
+# shields; kept in step with ml_features' generated tables.
+EX_BLOCKERS = {345, 330, 117}
+BENCH_SHIELDS = {74, 343}
+
+
+def _wall_tag(
+    current: dict[str, Any],
+    options: list[dict[str, Any]],
+) -> str | None:
+    """Label a MAIN decision by whether a Shadow Bullet does anything.
+
+    Only decisions where attacking is legal are labelled, so the block answers
+    "when the swing is available and worthless, do we make the same call the
+    teacher makes?" rather than mixing in turns with no attacker.
+    """
+    if not any(
+        int(o.get("type", -1)) == 13
+        and int(o.get("attackId", -1)) == 937
+        for o in options
+    ):
+        return None
+    players = current.get("players") or [{}, {}]
+    your = int(current.get("yourIndex", 0))
+    opponent = players[1 - your] if 1 - your < len(players) else {}
+    active = _cards(opponent, "active")
+    if not active:
+        return None
+    if int(active[0].get("id", -1)) not in EX_BLOCKERS:
+        return "wall_absent"
+    bench = _cards(opponent, "bench")
+    shielded = any(
+        int(c.get("id", -1)) in BENCH_SHIELDS
+        for c in (active + bench)
+    )
+    kills = [
+        c for c in bench
+        if int(c.get("id", -1)) not in EX_BLOCKERS
+        and not shielded
+        and 0 < int(c.get("hp", 0) or 0) <= 30
+    ]
+    return "wall_prize_available" if kills else "wall_dead_swing"
+
+
 def option_identity(
     current: dict[str, Any],
     select: dict[str, Any],
@@ -128,30 +172,57 @@ def main() -> int:
         "--data-root", type=Path,
         default=ROOT / "data" / "kaggle_grimmsnarl_top50",
     )
-    parser.add_argument("--team", type=int, required=True)
+    parser.add_argument("--team", type=int)
     parser.add_argument("--min-episode", type=int, default=0)
     parser.add_argument("--limit", type=int, default=60)
+    parser.add_argument(
+        "--episodes-from", type=Path,
+        help="wall_attacks.json; scores its wall_episodes block instead. The "
+             "pinned pilot's own holdout contained no wall games at all, so "
+             "the wall columns can only be measured across pilots.",
+    )
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
     index = pd.read_csv(args.data_root / "indexes" / "episodes.csv")
-    index = index[
-        (index["download_status"] == "success")
-        & (index["team_id"] == args.team)
-        & (index["episode_id"] >= args.min_episode)
-    ].drop_duplicates(subset=["episode_id", "seat_index"])
+    index = index[index["download_status"] == "success"]
+    if args.episodes_from:
+        wanted = json.loads(args.episodes_from.read_text(encoding="utf-8"))
+        pairs = {
+            (int(e["episode_id"]), int(e["seat_index"]))
+            for e in wanted.get("wall_episodes", [])
+        }
+        index = index[[
+            (int(e), int(s)) in pairs
+            for e, s in zip(index["episode_id"], index["seat_index"])
+        ]]
+    else:
+        if args.team is None:
+            raise SystemExit("pass --team or --episodes-from")
+        index = index[
+            (index["team_id"] == args.team)
+            & (index["episode_id"] >= args.min_episode)
+        ]
+    index = index.drop_duplicates(subset=["episode_id", "seat_index"])
     index = index.sort_values("episode_id")
     if args.limit:
         index = index.head(args.limit)
     if index.empty:
-        raise SystemExit("no episodes for this team")
+        raise SystemExit("no episodes selected")
 
     _, _, module = load_dir_agent(args.agent_dir)
     agent = module.agent
     ranker = getattr(module, "_RANKER", None)
+    if ranker is not None and hasattr(ranker, "teacher_forced"):
+        # Score our answer, but walk the turn along the teacher's line. Without
+        # this the agent's own commit and the evaluator's observe_external both
+        # fire and the intra-turn columns advance twice per decision, so the
+        # model reads features it was never fitted on.
+        ranker.teacher_forced = True
     print(f"episodes={len(index)} team={args.team}", flush=True)
 
     per_context: dict[tuple, list[int]] = defaultdict(lambda: [0, 0])
+    wall_buckets: dict[str, list[int]] = defaultdict(lambda: [0, 0])
     counts: Counter[str] = Counter()
     mismatch_examples: dict[int, list[dict[str, Any]]] = defaultdict(list)
 
@@ -162,6 +233,10 @@ def main() -> int:
         steps = replay.get("steps") or []
         if hasattr(module, "diag_reset"):
             module.diag_reset()
+        if ranker is not None and hasattr(ranker, "teacher_forced"):
+            # diag_reset() intentionally restores live-play defaults, so the
+            # evaluator must re-enable teacher forcing for every episode.
+            ranker.teacher_forced = True
         counts["episodes"] += 1
 
         for step_index, step in enumerate(steps[:-1]):
@@ -240,6 +315,28 @@ def main() -> int:
                 per_context[bucket][1] += int(teacher == guess)
                 counts["scored"] += 1
                 counts["scored_correct"] += int(teacher == guess)
+                # The spots the ladder logs said we were throwing away: the
+                # Active prevents all our damage. v1 and the first v2 had no
+                # feature for it, so report them as their own block.
+                if is_main:
+                    tag = _wall_tag(current, options)
+                    if tag:
+                        wall_buckets[tag][0] += 1
+                        wall_buckets[tag][1] += int(teacher == guess)
+                        counts[f"attacked_{tag}"] += int(
+                            any(
+                                int(options[i].get("type", -1)) == 13
+                                and int(options[i].get("attackId", -1)) == 937
+                                for i in answer
+                            )
+                        )
+                        counts[f"teacher_attacked_{tag}"] += int(
+                            any(
+                                int(options[i].get("type", -1)) == 13
+                                and int(options[i].get("attackId", -1)) == 937
+                                for i in action
+                            )
+                        )
                 if teacher != guess and len(mismatch_examples[context]) < 3:
                     mismatch_examples[context].append({
                         "episode": int(row.episode_id),
@@ -250,7 +347,10 @@ def main() -> int:
                         "agent": [list(map(str, g)) for g in guess],
                     })
 
-            if is_main and ranker is not None:
+            # Advance the turn history for every context the ranker owns, not
+            # just MAIN: v2 scores them all, and the corpus builder advanced
+            # the same set when it wrote the training columns.
+            if ranker is not None and len(action) == 1:
                 ranker.observe_external(observation, action[0])
 
     rows = []
@@ -280,6 +380,16 @@ def main() -> int:
         ) if scored else None,
         "all_context_wilson95": wilson(counts["scored_correct"], scored),
         "per_context": rows,
+        "wall_spots": {
+            tag: {
+                "decisions": total,
+                "agreement": round(agree / total, 4),
+                "wilson95": wilson(agree, total),
+                "agent_attacked": counts.get(f"attacked_{tag}", 0),
+                "teacher_attacked": counts.get(f"teacher_attacked_{tag}", 0),
+            }
+            for tag, (total, agree) in sorted(wall_buckets.items())
+        },
         "counts": dict(counts),
         "mismatch_examples": {
             str(k): v for k, v in sorted(mismatch_examples.items())

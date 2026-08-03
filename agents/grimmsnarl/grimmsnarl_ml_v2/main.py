@@ -44,7 +44,14 @@ def _choose(observation):
         return rule_choice
 
     select = observation.get("select") or {}
-    if not Ranker.is_scorable(select):
+    if not _RANKER.is_scorable(select):
+        chosen = (
+            rule_choice[0]
+            if isinstance(rule_choice, list) and len(rule_choice) == 1
+            else None
+        )
+        if chosen is not None and not _RANKER.teacher_forced:
+            _RANKER.observe_external(observation, chosen)
         return rule_choice
 
     index = _RANKER.choose(observation)
@@ -56,7 +63,8 @@ def _choose(observation):
             if isinstance(rule_choice, list) and rule_choice
             else 0
         )
-        _RANKER.observe_external(observation, chosen)
+        if not _RANKER.teacher_forced:
+            _RANKER.observe_external(observation, chosen)
         return rule_choice
     _RANKER.commit(index)
     return [index]

@@ -302,7 +302,10 @@ def select_decisions(corpus: Corpus, split: str,
 def make_dataset(corpus: Corpus, decisions: np.ndarray,
                  reference: lgb.Dataset | None = None,
                  focus_team: int | None = None,
-                 focus_weight: float = 1.0) -> lgb.Dataset:
+                 focus_weight: float = 1.0,
+                 win_weight: float = 1.0,
+                 rating_weight: float = 0.0,
+                 ratings: dict[int, float] | None = None) -> lgb.Dataset:
     """Optionally tilt the fit toward the pilot we intend to pin.
 
     Conditioning on pilot id already lets the model express per-pilot habits,
@@ -311,11 +314,39 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
     policy that ships. v1 showed the opposite extreme - a single-pilot corpus -
     is worse than pooling, so this is the middle of that range, and the weight
     is chosen on validation like any other hyperparameter.
+
+    Three weightings compose here, all default off:
+
+    * ``focus_weight`` on the pinned pilot's decisions.
+    * ``win_weight`` on decisions from games the teacher won. The corpus has
+      carried a ``won`` flag since v1 and nothing ever read it, so every
+      decision in a lost game counted the same as one in a won game. Kept
+      small: a loss is often a bad opening, not a bad decision, so a large
+      weight would just learn "teachers who drew well".
+    * ``rating_weight`` interpolates each pilot's weight by leaderboard rating,
+      so the shared mechanics are still fitted on all 21 pilots but the
+      stronger ones pull harder. Capped by construction at 1 + rating_weight.
     """
     rows = corpus.rows_for(decisions)
     categorical = [
         name for name in corpus.categorical if name in corpus.names
     ]
+    weights = np.ones(len(decisions), dtype=np.float32)
+    if focus_team is not None and focus_weight != 1.0:
+        weights *= np.where(
+            corpus.team_ids[decisions] == focus_team, focus_weight, 1.0
+        )
+    if win_weight != 1.0:
+        weights *= np.where(corpus.won[decisions] == 1, win_weight, 1.0)
+    if rating_weight and ratings:
+        values = np.array(
+            [ratings.get(int(t), 0.0) for t in corpus.team_ids[decisions]],
+            dtype=np.float32,
+        )
+        low, high = float(values.min()), float(values.max())
+        span = max(high - low, 1e-6)
+        weights *= 1.0 + rating_weight * (values - low) / span
+    use_weights = not np.allclose(weights, 1.0)
     # free_raw_data lets LightGBM drop the dense copy once it is binned;
     # evaluation rebuilds the block it needs one split at a time.
     return lgb.Dataset(
@@ -323,14 +354,8 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
         label=corpus.labels[rows],
         group=corpus.groups[decisions],
         weight=(
-            np.repeat(
-                np.where(
-                    corpus.team_ids[decisions] == focus_team,
-                    focus_weight, 1.0,
-                ).astype(np.float32),
-                corpus.groups[decisions],
-            )
-            if focus_team is not None and focus_weight != 1.0 else None
+            np.repeat(weights, corpus.groups[decisions])
+            if use_weights else None
         ),
         feature_name=corpus.names,
         categorical_feature=categorical,
@@ -349,6 +374,18 @@ def main() -> int:
     parser.add_argument("--focus-team", type=int,
                         help="Upweight this pilot's decisions during fitting.")
     parser.add_argument("--focus-weight", type=float, default=1.0)
+    parser.add_argument(
+        "--win-weight", type=float, default=1.0,
+        help="Weight decisions from games the teacher won.",
+    )
+    parser.add_argument(
+        "--rating-weight", type=float, default=0.0,
+        help="Scale each pilot's weight by leaderboard rating (0 = off).",
+    )
+    parser.add_argument(
+        "--ratings", default="",
+        help="team_id:rating pairs, comma separated, for --rating-weight.",
+    )
     parser.add_argument("--eval-team", type=int,
                         help="Restrict validation and test to this pilot.")
     parser.add_argument("--leave-out-team", type=int,
@@ -376,6 +413,13 @@ def main() -> int:
     parser.add_argument("--validation-fraction", type=float, default=0.12)
     parser.add_argument("--test-fraction", type=float, default=0.12)
     args = parser.parse_args()
+
+    if args.focus_weight <= 0:
+        parser.error("--focus-weight must be positive")
+    if args.win_weight <= 0:
+        parser.error("--win-weight must be positive")
+    if args.rating_weight < 0:
+        parser.error("--rating-weight cannot be negative")
 
     corpus = Corpus(args.corpus)
     split_boundaries = None
@@ -417,9 +461,24 @@ def main() -> int:
             flush=True,
         )
 
+    ratings = {
+        int(pair.split(":")[0]): float(pair.split(":")[1])
+        for pair in args.ratings.split(",") if ":" in pair
+    }
+    if args.rating_weight:
+        missing_ratings = sorted(
+            set(map(int, corpus.team_ids[train])) - set(ratings)
+        )
+        if missing_ratings:
+            raise SystemExit(
+                "--rating-weight requires a rating for every training team; "
+                f"missing={missing_ratings}"
+            )
     train_set = make_dataset(
         corpus, train,
         focus_team=args.focus_team, focus_weight=args.focus_weight,
+        win_weight=args.win_weight,
+        rating_weight=args.rating_weight, ratings=ratings,
     )
     validation_set = make_dataset(corpus, validation, reference=train_set)
 
@@ -467,7 +526,21 @@ def main() -> int:
         "leave_out_team": args.leave_out_team,
         "focus_team": args.focus_team,
         "focus_weight": args.focus_weight,
+        "win_weight": args.win_weight,
+        "rating_weight": args.rating_weight,
+        "ratings": {
+            str(team): rating for team, rating in sorted(ratings.items())
+        },
         "eval_team": args.eval_team,
+        # Support per context decides which contexts the runtime is allowed to
+        # route through the ranker: context 8 had 9 held-out decisions and
+        # scored 22%, which is noise, not a policy.
+        "train_context_support": {
+            str(int(context)): int(count)
+            for context, count in zip(
+                *np.unique(corpus.contexts[train], return_counts=True)
+            )
+        },
         "params": params,
         "best_iteration": int(booster.best_iteration),
         "num_boost_round": args.num_boost_round,

@@ -94,6 +94,15 @@ class Ranker:
         for tree in self.model["trees"]:
             _prepare(tree)
         self.names: list[str] = list(self.model["feature_names"])
+        # Contexts the export measured as worth routing. Without it every
+        # context in SCORABLE_CONTEXTS is scored, which shipped context 8 on
+        # 9 held-out decisions at 22% Top-1 - a rule replaced by noise.
+        routed = self.model.get("routed_contexts")
+        self.contexts = (
+            ml_features.SCORABLE_CONTEXTS
+            if routed is None
+            else frozenset(int(c) for c in routed)
+        )
         self.teacher_code = self.model.get("teacher_team_code")
         self.teacher_index = (
             self.names.index("teacher_team_id")
@@ -107,6 +116,12 @@ class Ranker:
         self.reset()
 
     def reset(self) -> None:
+        # Teacher-forced replay scores our answer but must advance the
+        # intra-turn history with the *teacher's* action, or the columns stop
+        # describing the turn the corpus described. The evaluator does that via
+        # observe_external, so commit has to stand down or the history advances
+        # twice per decision and every offer/pass count comes out doubled.
+        self.teacher_forced = False
         self._pending: list[dict[str, Any]] | None = None
         self._turn_key: tuple | None = None
         self._seen_candidate: dict[tuple, tuple[int, int, int]] = {}
@@ -133,20 +148,44 @@ class Ranker:
             and len(options) >= 2
         )
 
-    @staticmethod
-    def is_scorable(select: dict[str, Any] | None) -> bool:
-        """Every single-pick select the corpus was built from.
+    def is_scorable(self, select: dict[str, Any] | None) -> bool:
+        """Every single-pick select this model was measured as fit to decide.
 
         v1 answered this for MAIN only and left deck search and damage
         placement to the rule policy, which matched the pinned teacher 39.5%
         and 50-65% of the time. Optional selects count: across 3,655 games the
         teachers never declined one, so there is no decline branch.
+
+        The context must also be in the export's routed list. Routing every
+        scorable context unconditionally shipped context 8 on 9 held-out
+        decisions at 22% Top-1; a context with no data behind it is better
+        left to the rule that already handles it.
         """
         if not select:
             return False
         options = select.get("option") or []
         return (
-            int(select.get("context", -1)) in ml_features.SCORABLE_CONTEXTS
+            int(select.get("context", -1)) in self.contexts
+            and int(select.get("minCount") or 0) <= 1
+            and int(select.get("maxCount") or 0) == 1
+            and len(options) >= 2
+        )
+
+    @staticmethod
+    def is_corpus_scorable(select: dict[str, Any] | None) -> bool:
+        """Whether this decision contributed to intra-turn corpus history.
+
+        A routed-context gate may leave a thin context to the rule policy, but
+        the corpus builder still observed that decision before later choices
+        in the same turn. Runtime must therefore record the rule's choice even
+        when it deliberately does not score that context with the ranker.
+        """
+        if not select:
+            return False
+        options = select.get("option") or []
+        return (
+            int(select.get("context", -1))
+            in ml_features.SCORABLE_CONTEXTS
             and int(select.get("minCount") or 0) <= 1
             and int(select.get("maxCount") or 0) == 1
             and len(options) >= 2
@@ -303,13 +342,15 @@ class Ranker:
         """Advance the intra-turn history with the action actually taken."""
         features = self._pending
         self._pending = None
+        if self.teacher_forced:
+            return  # observe_external will advance with the teacher's action
         if features and 0 <= chosen < len(features):
             self.note_decision(features, chosen)
 
     def observe_external(self, observation: dict[str, Any],
                          chosen: int) -> None:
         """Keep the turn history aligned when the rule policy decided."""
-        if not self.is_scorable(observation.get("select")):
+        if not self.is_corpus_scorable(observation.get("select")):
             return
         try:
             features, representatives = self._rows(observation)

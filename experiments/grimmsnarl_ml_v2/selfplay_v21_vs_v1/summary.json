@@ -1,0 +1,56 @@
+{
+  "created_at": "2026-08-03T15:44:39",
+  "args": {
+    "agents": [
+      ".\\agents\\grimmsnarl\\grimmsnarl_ml_v2",
+      ".\\agents\\grimmsnarl\\grimmsnarl_ml_v1"
+    ],
+    "games": 30,
+    "seed": 20260803,
+    "reseed_each_game": true,
+    "max_steps": 8000,
+    "include_archive": false,
+    "include_mirror": false,
+    "output_dir": "experiments\\grimmsnarl_ml_v2\\selfplay_v21_vs_v1",
+    "quiet": true,
+    "save_trajectories": false
+  },
+  "matchups": [
+    {
+      "matchup": ".\\agents\\grimmsnarl\\grimmsnarl_ml_v2__vs__.\\agents\\grimmsnarl\\grimmsnarl_ml_v1",
+      "agent_a": ".\\agents\\grimmsnarl\\grimmsnarl_ml_v2",
+      "agent_b": ".\\agents\\grimmsnarl\\grimmsnarl_ml_v1",
+      "games": 30,
+      "wins_a": 25,
+      "wins_b": 5,
+      "draws": 0,
+      "errors_a": 0,
+      "errors_b": 0,
+      "illegal_a": 0,
+      "illegal_b": 0,
+      "first_seat_wins_a": 12,
+      "first_seat_wins_b": 2,
+      "moves_a": 3127,
+      "moves_b": 2445,
+      "time_a_ms": 92379.43729979452,
+      "time_b_ms": 65167.0360994176,
+      "decisions_a": 0,
+      "decisions_b": 0,
+      "policy_ok_a": 0,
+      "policy_ok_b": 0,
+      "policy_fallback_a": 0,
+      "policy_fallback_b": 0,
+      "obs_fallback_a": 0,
+      "obs_fallback_b": 0,
+      "deck_returns_a": 0,
+      "deck_returns_b": 0,
+      "fallback_rate_a": 0.0,
+      "fallback_rate_b": 0.0,
+      "errors_a_detail": {},
+      "errors_b_detail": {},
+      "win_rate_a_ex_draws": 0.8333333333333334,
+      "avg_ms_a_per_move": 29.542512727788463,
+      "avg_ms_b_per_move": 26.653184498739304
+    }
+  ]
+}
