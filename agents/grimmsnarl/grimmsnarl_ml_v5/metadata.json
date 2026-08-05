@@ -2,22 +2,96 @@
   "name": "grimmsnarl_ml_v5",
   "role": "challenger",
   "archetype": "marnies_grimmsnarl_ex",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "created_at": "2026-08-05T14:00:00+09:00",
-  "updated_at": "2026-08-05T14:00:00+09:00",
+  "updated_at": "2026-08-06T00:56:12+09:00",
   "parent_agent": "grimmsnarl_ml_v4",
   "deck_changed": false,
   "deck_hash": "9714ab5c3996f6cc",
-  "deck_note": "Unchanged from v1-v4: the list 21 of the top-50 Grimmsnarl teams run card for card. Ten Basic Darkness in 60 is the fact v5 is about.",
+  "deck_note": "Unchanged from v1-v5: the exact 60-card Grimmsnarl list used by the selected corpus.",
   "source_corpus": "data/kaggle_grimmsnarl_top50",
-  "source_replays": 3655,
+  "processed_corpus": "data/ml/grimmsnarl/processed/corpus_v5_data_refresh_candidate.npz",
+  "selection_manifest": "experiments/grimmsnarl_ml_v5/data_refresh_selection.csv",
+  "selection_manifest_sha256": "22f13bad91bc3bc3466d20c8a5469649de6572ca70afab2ec49a4b563a249df7",
+  "source_replays": 4097,
+  "source_decisions": 322975,
   "source_teams": 21,
+  "source_submissions": 21,
+  "selection_policy": "Newest 300 valid same-deck replays per team across submission versions; success and validated skipped_existing rows are eligible.",
+  "new_top_team_data": {
+    "team_id": 16422241,
+    "submission_id": 55177269,
+    "leaderboard_rank": 3,
+    "submission_score": 1146.7,
+    "selected_replays": 300
+  },
   "teacher_team_id": 16494330,
   "teacher_leaderboard_rank": 30,
   "teacher_submission_score": 1077.6,
-  "model_changed": false,
-  "teacher_selection_note": "Pin and model bytes are unchanged from v4, deliberately: nothing v5 changes is inside the ranker. The three behaviours v5 corrects are all in multi-pick selects that Ranker.is_scorable (maxCount == 1) structurally cannot route, so no pin could have reached them and no retrain was needed. The measured target for those three is not the pinned pilot but the >= 1120 rating band, because on all three the pinned pilot's band sits between us and them and the behaviour is monotone in rating - see grimmsnarl-imitability-vs-rating for why the pin cannot simply be moved to that band instead (Top-1 falls from 0.884 at 1077.6 to 0.703 at 1220.2).",
-  "policy": "Imitation ranker over the top-50 Marnie's Grimmsnarl ex corpus, plus a one-ply route planner, plus a search budget on the two multi-pick searches the ranker never sees. The LightGBM lambdarank booster is byte-identical to v4 (1,238 trees, 823 columns including teacher_team_id, 287,828 decisions, 3,655 games, 21 pilots, pinned to pilot 16494330). What v5 changes is fallback_policy: Punk Up's five-energy deck search and Buddy-Buddy Poffin's two-Basic search are multi-pick, so normalize_selection keeps every option with a positive score and score_card gives a Basic Darkness a flat 100 - which is why v1 through v4 took every card offered on 100% of 90 stored Punk Up activations and 100% of 49 Poffin activations. punk_search_budget takes the triggering Grimmsnarl ex's deficit to Shadow Bullet plus one card per other Marnie's body still below two Darkness, floored at two; poffin_budget takes one Basic when fewer than three Bench slots are open or the Marnie's line is already two bodies deep, two otherwise. ml_planner keeps v4's four dominance rules and adds _punk_allocation, which makes the promise the budget is computed against hold - the body that just evolved ends the activation able to attack - and refuses a fifth energy onto a body already holding four while a lighter one is offered. Multi-pick skill-order, discard and face-down prize choices still stay with marnies_grimmsnarl_ex_v7.",
-  "validation_scope": "144 agent tests pass: 116 inherited from v4 unchanged, plus 17 pinning the search budget against the counts the >= 1120 band actually plays and 11 pinning the planner guard's firing AND its stand-down conditions. v4's own 116 tests still pass in v4's directory. THE DEFECT, IN RATING ORDER: over 3,710 same-60 corpus replays, Punk Up takes every card the select offers on 36.9% of 1,997 activations for pilots >= 1120, 45.2% of 3,002 for 1070-1119, 63.7% of 1,875 below - and 100.0% of 90 for v4 on the ladder. Mean searched 2.65 / 2.74 / 3.03 against v4's 3.67. THE COST, ALSO IN RATING ORDER, PER OWN TURN: Darkness left in deck 4.23 / 4.13 / 4.02 against 3.69; a Darkness in hand 71.0% / 72.0% / 72.8% against 66.9%; the once-a-turn attachment made 59.6% / 59.3% / 57.7% against 50.8%. From turn 5 on: 2.71 / 2.59 / 2.44 Darkness left against 1.98 and 53.2% / 52.8% / 50.4% attachment against 40.3%. That last line is the statistic v3 and v4 each tried and failed to move with feature columns; it was never a MAIN preference, it was starvation upstream in a rule. THE FIT: the budget reproduces the >= 1120 band's own count 51.9% exactly and 90.1% within one card (mean 2.61 against their 2.65), and its accuracy degrades in rating order - 45.4%, 36.9%, 34.4% - while 'always take max' improves in rating order (36.9%, 45.2%, 63.7%, 100%). BEHAVIOUR ON IDENTICAL BOARDS: scripts/probe_grimmsnarl_v5_search_budget.py replays v4's 52 stored ladder games and asks each candidate at every search. v5 searches 2.62 Darkness against v4's 3.67 (band 2.65), takes the maximum on 34.4% against 100.0% (band 36.9%), and makes 2 five-card searches against 47. Poffin 1.60 against 1.89 (band 1.64), both taken on 70.9% against 100.0% (band 74.3%). 0 illegal selects; the instrument reproduces v4's stored counts exactly as its control. THE CHAIN CLOSES IN LIVE PLAY: 60 paired self-play games with trajectories, measured per own turn, v5 against v4 - attachment made 59.2% against 51.5% (band 59.6%), a Darkness in hand 70.8% against 62.3% (band 71.0%), Darkness left in deck 4.30 against 3.66 (band 4.23), Adrena-Brain 6.48 a game against 5.45 (field 6.07, mirror top 6.8), Punk Up mean 2.53 against 3.72, took-max 29.5% against 100%, five-card searches 4 against 56. From turn 5: attachment 51.9% against 45.6%, Darkness in deck 2.72 against 1.85. OUTCOME: paired local self-play in the mirror is 96-103-1 over 200 games (48.2%, Wilson 41.4-55.2%) and 32-28 over the 60-game trajectory run (53.3%), 128-131 combined over 259 games (49.4%) - parity, which is what every version in this line has measured in the mirror (v4 was 51.7% against v3 and 55.0% against v2 while the ladder moved 950.8/905.2 to 1031.2). 0 crashes, 0 illegal selects, 0 policy fallbacks in 519 games. Ladder rating is NOT measured. THREE ANALYSIS PRIORITIES DELIBERATELY NOT IMPLEMENTED because the corpus refutes them: a cap on the second Darkness onto Munkidori (v4 already makes zero voluntary second attachments in 126; the one two-energy Munkidori got it from the opponent's Handheld Fan), attaching before a non-lethal attack (v4 closes the turn with a legal dry-Munkidori attachment on 0 of 764 decisions, and takes that attachment on 41.2% of offers against the band's 42.6% - parity), and searching Boss's Orders off Rocket's Petrel (Petrel is itself a Supporter, so the slot is already spent and the Boss can never be played that turn; on the exact conjunction even the >= 1100 pilots take Boss on 4.1% of 363 offers). The mirror Froslass over-evolve is real (10 of 10 against the field's 70.8% / 72.5% / 82.4%) but no board condition separates the field's refusals - the prize-weighted three-checkup shroud ledger moves their rate 70.8% to 71.0%, no fuelled Munkidori moves it UP to 93.5%, and the best available signal, turn >= 7, only reaches 61.0% - so a veto would be a larger error than the current behaviour and v4's narrow guard is kept unchanged.",
-  "description": "v5 finds that the once-per-turn Dark Energy attachment rate - the metric v3 and v4 each targeted with feature columns and each failed to move, which led v4's report to conclude the next version had to abandon imitation for outcome learning - is not a MAIN preference at all. It is downstream of a multi-pick select the ranker structurally cannot route. Punk Up searches the deck for up to five Basic Darkness; maxCount is 5, so Ranker.is_scorable never sees it, the rule policy answers, and normalize_selection keeps every positively-scored option, so every version in this line has taken the maximum on 100% of activations. The deck holds ten Darkness in total and Punk Up reaches only 'your Marnie's Pokemon', so the hand attachment is the only way a Munkidori is ever fuelled: mining five at a time is how the fuel line was being emptied. The >= 1120 band takes the maximum on 36.9%, and their count is reproduced by 'the triggering body's deficit plus one per other hungry Marnie's body, floored at two' with a fit that degrades in rating order. Replayed on v4's own 52 games the change lands on the band's mean exactly (2.62 against 2.65), and in 60 paired live games it closes the attachment gap - 51.5% to 59.2% against the band's 59.6% - and raises Adrena-Brain from 5.45 to 6.48 a game, the statistic v4 identified as separating its won mirrors from its lost ones. Buddy-Buddy Poffin has the identical defect and gets the same treatment off its own discriminator, Bench space. The model bytes and the teacher pin are unchanged: nothing v5 fixes was ever inside the ranker. Mirror self-play is parity (49.4% over 259 games), as it has been for every version in this line while the ladder moved."
+  "teacher_selection_note": "The refreshed pooled model improves both the new rank-3 team and the existing pin. Pin 16494330 is retained to isolate the data refresh: pin 16422241 tied it 20-20 in direct local play and produced the same 23-17 result versus the old v5 on seed 1705, so changing the pin has no measured outcome benefit yet.",
+  "model_changed": true,
+  "model": {
+    "kind": "LightGBM lambdarank distilled to standard-library tree JSON",
+    "features": 823,
+    "trees": 2000,
+    "trained_best_iteration": 3515,
+    "bytes": 45073726,
+    "iteration_selection": "2000 trees is the measured Pareto point: 1238 trees did not show a clear gain; 2500 added only 0.0005 Top-1 over 2000 on the refreshed test; 3515 cost 79.2 MB and about 88 ms/move in the initial timing probe."
+  },
+  "offline_validation": {
+    "refreshed_test": {
+      "decisions": 38753,
+      "top1": 0.85,
+      "v4_top1": 0.8465,
+      "paired_delta": 0.0036,
+      "episode_bootstrap_delta95": [0.001, 0.0059]
+    },
+    "frozen_v4_test": {
+      "decisions": 34611,
+      "top1": 0.8523,
+      "v4_top1": 0.8503,
+      "paired_delta": 0.002,
+      "episode_bootstrap_delta95": [-0.0008, 0.0048]
+    },
+    "new_rank3_team": {
+      "team_id": 16422241,
+      "decisions": 2749,
+      "top1": 0.8127,
+      "v4_top1": 0.785,
+      "paired_delta": 0.0276,
+      "episode_bootstrap_delta95": [0.0201, 0.0356]
+    },
+    "pinned_team": {
+      "team_id": 16494330,
+      "decisions": 1587,
+      "top1": 0.9282,
+      "v4_top1": 0.9137,
+      "paired_delta": 0.0145,
+      "episode_bootstrap_delta95": [0.0007, 0.027]
+    }
+  },
+  "local_validation": {
+    "versus_previous_v5": {
+      "games": 100,
+      "wins": 61,
+      "losses": 39,
+      "draws": 0,
+      "win_rate": 0.61,
+      "wilson95": [0.512, 0.6998],
+      "crashes": 0,
+      "illegal_selects": 0,
+      "candidate_avg_ms_per_move": 38.64,
+      "previous_v5_avg_ms_per_move": 22.03
+    },
+    "rank3_pin_versus_existing_pin": {
+      "games": 40,
+      "wins": 20,
+      "losses": 20,
+      "draws": 0
+    },
+    "agent_tests_per_candidate": 144
+  },
+  "policy": "The v5 search-budget and one-ply planner rules are unchanged. MAIN and other routed single-pick contexts use the refreshed 2000-tree team-conditioned ranker; low-support context 8 remains on the rule policy.",
+  "validation_scope": "Data selection is frozen by a SHA256-recorded manifest. The candidate was compared pairwise against ranker_v4 on both refreshed and frozen chronological test blocks, checked separately on the new rank-3 team and the deployed pin, tested with 144 inherited agent tests for each pin candidate, and run for 100 alternating-seat local games against the previous v5. Ladder rating is not yet measured.",
+  "description": "v5.1 keeps v5's resource-budget fixes and refreshes its formerly byte-identical v4 ranker with newly collected same-deck logs. The promoted 2000-tree model improves agreement on the refreshed field and strongly improves the newly added rank-3 team while preserving the existing teacher pin and frozen-corpus performance."
 }

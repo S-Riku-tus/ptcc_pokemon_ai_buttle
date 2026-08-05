@@ -32,8 +32,12 @@ def _compact_node(node: dict[str, Any]) -> dict[str, Any]:
     return compact
 
 
-def compact_booster(booster, kind: str = "ranker") -> dict[str, Any]:
-    dumped = booster.dump_model()
+def compact_booster(
+    booster,
+    kind: str = "ranker",
+    num_iteration: int | None = None,
+) -> dict[str, Any]:
+    dumped = booster.dump_model(num_iteration=num_iteration)
     return {
         "format": "lightgbm_tree_v2",
         "kind": kind,

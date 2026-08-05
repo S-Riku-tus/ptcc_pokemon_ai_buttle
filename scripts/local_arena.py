@@ -81,7 +81,7 @@ def resolve(spec: str, fallback_deck: list[int]):
     raise FileNotFoundError(spec)
 
 
-def play_game(agents, decks, stats, max_steps=8000):
+def play_game(agents, decks, stats, logical_sides=None, max_steps=8000):
     """agents/decks are seat-ordered [p0, p1]. Returns 0, 1 (winner) or -1 (draw)."""
     obs, start_data = battle_start(decks[0], decks[1])
     if obs is None:
@@ -98,8 +98,13 @@ def play_game(agents, decks, stats, max_steps=8000):
             except Exception:
                 stats["agent_error"][seat] += 1
                 return 1 - seat
-            stats["time"][seat] += time.perf_counter() - t0
+            elapsed = time.perf_counter() - t0
+            stats["time"][seat] += elapsed
             stats["moves"][seat] += 1
+            if logical_sides is not None:
+                side = logical_sides[seat]
+                stats["agent_time"][side] += elapsed
+                stats["agent_moves"][side] += 1
             try:
                 obs = battle_select(list(action))
             except Exception:
@@ -118,6 +123,8 @@ def main():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--quiet", action="store_true", help="suppress per-game result lines")
     parser.add_argument("--diag-json", action="store_true", help="print complete agent diagnostics as JSON")
+    parser.add_argument("--report", type=Path,
+                        help="write a machine-readable arena summary")
     parser.add_argument("--deck-a", help="override A's engine deck with a 60-id CSV/text file")
     parser.add_argument("--deck-b", help="override B's engine deck with a 60-id CSV/text file")
     args = parser.parse_args()
@@ -140,13 +147,21 @@ def main():
     # "A: 60 B: 60" over 60 games.
     wins = {"A": 0, "B": 0, "draw": 0}
     first_wins = {"A": 0, "B": 0}
-    stats = {"agent_error": [0, 0], "illegal": [0, 0], "time": [0.0, 0.0], "moves": [0, 0]}
+    stats = {
+        "agent_error": [0, 0],
+        "illegal": [0, 0],
+        "time": [0.0, 0.0],
+        "moves": [0, 0],
+        "agent_time": {"A": 0.0, "B": 0.0},
+        "agent_moves": {"A": 0, "B": 0},
+    }
 
     for g in range(args.games):
         a_first = (g % 2 == 0)
         agents = [agent_a, agent_b] if a_first else [agent_b, agent_a]
         decks = [deck_a, deck_b] if a_first else [deck_b, deck_a]
-        result = play_game(agents, decks, stats)
+        logical_sides = ["A", "B"] if a_first else ["B", "A"]
+        result = play_game(agents, decks, stats, logical_sides)
         if result == -1:
             wins["draw"] += 1
             label = "draw"
@@ -173,6 +188,12 @@ def main():
         if stats["moves"][i]:
             print(f"{name}: {stats['moves'][i]} moves, "
                   f"avg {stats['time'][i] / stats['moves'][i] * 1000:.2f} ms/move")
+    for side, spec in (("A", args.agent_a), ("B", args.agent_b)):
+        if stats["agent_moves"][side]:
+            print(
+                f"agent {side} {spec}: {stats['agent_moves'][side]} moves, "
+                f"avg {stats['agent_time'][side] / stats['agent_moves'][side] * 1000:.2f} ms/move"
+            )
     for tag, diag in (("A", diag_a), ("B", diag_b)):
         snap = diag_snapshot(diag)
         if snap:
@@ -187,6 +208,47 @@ def main():
             )
         if args.diag_json and isinstance(diag, dict):
             print(f"diag-json {tag}: {json.dumps(diag, ensure_ascii=False, sort_keys=True)}")
+
+    if args.report:
+        report = {
+            "agent_a": args.agent_a,
+            "agent_b": args.agent_b,
+            "games": args.games,
+            "seed": args.seed,
+            "wins": wins,
+            "win_rate_a_excluding_draws": (
+                wins["A"] / played if played else None
+            ),
+            "first_wins": first_wins,
+            "agent_error_by_seat": stats["agent_error"],
+            "illegal_by_seat": stats["illegal"],
+            "seat_moves": stats["moves"],
+            "seat_avg_ms": [
+                (
+                    stats["time"][index] / stats["moves"][index] * 1000
+                    if stats["moves"][index] else None
+                )
+                for index in range(2)
+            ],
+            "agent_moves": stats["agent_moves"],
+            "agent_avg_ms": {
+                side: (
+                    stats["agent_time"][side]
+                    / stats["agent_moves"][side] * 1000
+                    if stats["agent_moves"][side] else None
+                )
+                for side in ("A", "B")
+            },
+            "diagnostics": {
+                "A": diag_snapshot(diag_a),
+                "B": diag_snapshot(diag_b),
+            },
+        }
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
 
 if __name__ == "__main__":

@@ -83,6 +83,10 @@ def main() -> int:
     parser.add_argument("--teacher-team", type=int)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
+        "--num-iteration", type=int,
+        help="Export only the first N trees of the trained booster.",
+    )
+    parser.add_argument(
         "--report", type=Path,
         help="Training report; used to bake the routed-context allow list.",
     )
@@ -97,7 +101,13 @@ def main() -> int:
     args = parser.parse_args()
 
     booster = lgb.Booster(model_file=str(args.model))
-    model = compact_booster(booster, kind="grimmsnarl_ranker")
+    if args.num_iteration is not None and args.num_iteration <= 0:
+        parser.error("--num-iteration must be positive")
+    model = compact_booster(
+        booster,
+        kind="grimmsnarl_ranker",
+        num_iteration=args.num_iteration,
+    )
 
     if args.report and args.report.exists():
         model["routed_contexts"] = routed_contexts(

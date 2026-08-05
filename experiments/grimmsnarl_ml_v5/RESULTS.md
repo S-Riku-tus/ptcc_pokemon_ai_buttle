@@ -1,5 +1,18 @@
 # Grimmsnarl ML v5 — the attachment gap was starvation, and it was upstream in a rule
 
+## 2026-08-06 data-refresh addendum
+
+The original report below describes the v5.0 rule change and correctly states
+that its ranker was byte-identical to v4 at that time. v5.1 now promotes a
+separately gated data refresh: 4,097 selected games, 322,975 decisions, 21
+teams, a 2,000-tree ranker, and the existing teacher pin 16494330. The promoted
+candidate improved paired Top-1 by +0.0036 on the refreshed test, improved the
+new rank-3 team by +0.0276, passed 144 tests, and went 61-39 against the prior
+v5 over 100 local games with no crashes or illegal selections. The detailed
+selection, iteration sweep, pin experiment, timing cost, and artifact paths are
+in `DATA_REFRESH_2026-08-06.md`. Statements below that the model bytes are
+unchanged apply to v5.0 before this refresh.
+
 Date: 2026-08-05
 Parent: `grimmsnarl_ml_v4` (ladder 1031.2 over 52 games, 61.5% win rate, peak 1137.5)
 Corpus: `data/kaggle_grimmsnarl_top50`, 3,710 same-60 replays (deck hash `9714ab5c3996f6cc`), 22 pilots
