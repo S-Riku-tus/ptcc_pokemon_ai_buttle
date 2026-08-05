@@ -38,6 +38,7 @@ rebuild them exactly.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
 import json
 import sys
@@ -83,6 +84,75 @@ CATEGORICAL = {
     "candidate_inplay_area", "self_active_id", "opp_active_id", "stadium_id",
     "select_type", "select_context",
 }
+LEGACY_DOWNLOAD_STATUSES = {"success"}
+VALIDATED_CACHE_STATUS = "skipped_existing"
+
+
+def select_training_index(
+    index: pd.DataFrame,
+    *,
+    deck_hash_value: str,
+    excluded_teams: set[int],
+    accepted_download_statuses: set[str],
+    limit_per_team: int = 0,
+    latest_per_team: int = 0,
+) -> pd.DataFrame:
+    """Return the exact replay relations eligible for corpus extraction.
+
+    Defaults intentionally reproduce the v4 selection. New corpus versions
+    can opt into validated cache hits and a newest-per-team cap without
+    silently changing any existing model or processed corpus.
+    """
+
+    if limit_per_team and latest_per_team:
+        raise ValueError("--limit-per-team and --latest-per-team are exclusive")
+
+    required = {
+        "download_status",
+        "deck_hash",
+        "team_id",
+        "submission_id",
+        "episode_id",
+        "seat_index",
+    }
+    missing = sorted(required - set(index.columns))
+    if missing:
+        raise ValueError(f"training index is missing columns: {missing}")
+
+    selected = index[
+        index["download_status"].isin(sorted(accepted_download_statuses))
+    ].copy()
+    if deck_hash_value:
+        selected = selected[selected["deck_hash"] == deck_hash_value]
+    if excluded_teams:
+        selected = selected[~selected["team_id"].isin(excluded_teams)]
+
+    selected = selected.drop_duplicates(subset=["episode_id", "seat_index"])
+    selected = selected.sort_values(
+        ["episode_id", "seat_index", "submission_id"],
+        kind="stable",
+    )
+    if limit_per_team:
+        # Preserve the legacy meaning for exact reproduction of old commands.
+        selected = selected.groupby("team_id", group_keys=False).head(
+            limit_per_team
+        )
+    elif latest_per_team:
+        selected = selected.groupby("team_id", group_keys=False).tail(
+            latest_per_team
+        )
+    return selected.sort_values(
+        ["episode_id", "seat_index", "submission_id"],
+        kind="stable",
+    ).reset_index(drop=True)
+
+
+def write_selection_manifest(index: pd.DataFrame, path: Path) -> str:
+    """Persist the exact selected replay relations and return their SHA-256."""
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    index.to_csv(path, index=False, encoding="utf-8-sig")
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def _load_features(agent_dir: Path):
@@ -113,6 +183,7 @@ def _extract_chunk(payload: tuple[str, str, list[dict[str, Any]]]) -> dict[str, 
     groups: list[int] = []
     episode_ids: list[int] = []
     team_ids: list[int] = []
+    submission_ids: list[int] = []
     seats: list[int] = []
     turns: list[int] = []
     contexts: list[int] = []
@@ -223,6 +294,7 @@ def _extract_chunk(payload: tuple[str, str, list[dict[str, Any]]]) -> dict[str, 
             groups.append(len(representatives))
             episode_ids.append(int(row["episode_id"]))
             team_ids.append(int(row["team_id"]))
+            submission_ids.append(int(row["submission_id"]))
             seats.append(seat)
             turns.append(int(current.get("turn", -1)))
             contexts.append(context)
@@ -242,6 +314,7 @@ def _extract_chunk(payload: tuple[str, str, list[dict[str, Any]]]) -> dict[str, 
         "groups": np.asarray(groups, dtype=np.int32),
         "episode_ids": np.asarray(episode_ids, dtype=np.int64),
         "team_ids": np.asarray(team_ids, dtype=np.int64),
+        "submission_ids": np.asarray(submission_ids, dtype=np.int64),
         "seats": np.asarray(seats, dtype=np.int8),
         "turns": np.asarray(turns, dtype=np.int16),
         "contexts": np.asarray(contexts, dtype=np.int16),
@@ -345,6 +418,37 @@ def main() -> int:
         help="Comma separated team ids to drop (policy outliers).",
     )
     parser.add_argument("--limit-per-team", type=int, default=0)
+    parser.add_argument(
+        "--latest-per-team",
+        type=int,
+        default=0,
+        help=(
+            "Keep only each team's newest N episode/seat relations. Unlike "
+            "legacy --limit-per-team, this selects from the recent end."
+        ),
+    )
+    parser.add_argument(
+        "--include-skipped-existing",
+        action="store_true",
+        help=(
+            "Treat collector-validated skipped_existing replay/log rows as "
+            "usable. Off by default so historical corpus commands reproduce "
+            "their original selection exactly."
+        ),
+    )
+    parser.add_argument(
+        "--selection-manifest-in",
+        type=Path,
+        help=(
+            "Use an immutable CSV selection manifest instead of filtering "
+            "the live collection index."
+        ),
+    )
+    parser.add_argument(
+        "--selection-manifest-out",
+        type=Path,
+        help="Write the exact selected replay relations to this CSV.",
+    )
     parser.add_argument("--workers", type=int, default=10)
     parser.add_argument(
         "--validation-fraction", type=float, default=0.12,
@@ -355,21 +459,53 @@ def main() -> int:
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
-    index = pd.read_csv(args.data_root / "indexes" / "episodes.csv")
-    index = index[index["download_status"] == "success"]
-    if args.deck_hash:
-        index = index[index["deck_hash"] == args.deck_hash]
     excluded = {
         int(value) for value in args.exclude_teams.split(",") if value.strip()
     }
-    if excluded:
-        index = index[~index["team_id"].isin(excluded)]
-    index = index.drop_duplicates(subset=["episode_id", "seat_index"])
-    if args.limit_per_team:
-        index = index.groupby("team_id", group_keys=False).head(
-            args.limit_per_team
+    accepted_download_statuses = set(LEGACY_DOWNLOAD_STATUSES)
+    if args.include_skipped_existing:
+        accepted_download_statuses.add(VALIDATED_CACHE_STATUS)
+
+    if args.selection_manifest_in is not None:
+        index_source = args.selection_manifest_in
+        index = pd.read_csv(index_source)
+        # A manifest is already the selected dataset. Only deterministic
+        # relation de-duplication and ordering are repeated.
+        index = index.drop_duplicates(subset=["episode_id", "seat_index"])
+        index = index.sort_values(
+            ["episode_id", "seat_index", "submission_id"],
+            kind="stable",
+        ).reset_index(drop=True)
+        selection_mode = "manifest"
+        accepted_download_statuses = set(
+            str(value) for value in index["download_status"].dropna().unique()
         )
-    index = index.sort_values("episode_id")
+        manifest_sha256 = hashlib.sha256(index_source.read_bytes()).hexdigest()
+    else:
+        index_source = args.data_root / "indexes" / "episodes.csv"
+        raw_index = pd.read_csv(index_source)
+        try:
+            index = select_training_index(
+                raw_index,
+                deck_hash_value=args.deck_hash,
+                excluded_teams=excluded,
+                accepted_download_statuses=accepted_download_statuses,
+                limit_per_team=args.limit_per_team,
+                latest_per_team=args.latest_per_team,
+            )
+        except ValueError as exc:
+            parser.error(str(exc))
+        selection_mode = "live_index"
+        manifest_sha256 = ""
+
+    if index.empty:
+        raise SystemExit("no replay relations selected")
+
+    if args.selection_manifest_out is not None:
+        manifest_sha256 = write_selection_manifest(
+            index,
+            args.selection_manifest_out,
+        )
 
     # Split on episode id so no game contributes to two splits, and so the
     # test block is strictly later than everything used for fitting.
@@ -382,7 +518,7 @@ def main() -> int:
     test_min = int(unique_episodes[train_end + validation_size])
 
     rows = index[[
-        "team_id", "episode_id", "seat_index",
+        "team_id", "submission_id", "episode_id", "seat_index",
     ]].to_dict("records")
     print(
         f"trajectories={len(rows)} teams={index['team_id'].nunique()} "
@@ -420,6 +556,7 @@ def main() -> int:
         key: np.concatenate([part[key] for part in parts])
         for key in (
             "features", "labels", "groups", "episode_ids", "team_ids",
+            "submission_ids",
             "seats", "turns", "contexts", "won",
             "teacher_action_types",
         )
@@ -434,8 +571,8 @@ def main() -> int:
         ])
         arrays["features"] = arrays["features"][row_order]
         arrays["labels"] = arrays["labels"][row_order]
-        for key in ("groups", "episode_ids", "team_ids", "seats", "turns",
-                    "contexts",
+        for key in ("groups", "episode_ids", "team_ids", "submission_ids",
+                    "seats", "turns", "contexts",
                     "won", "teacher_action_types"):
             arrays[key] = arrays[key][order]
 
@@ -461,6 +598,7 @@ def main() -> int:
         splits=splits,
         episode_ids=episode_ids,
         team_ids=arrays["team_ids"],
+        submission_ids=arrays["submission_ids"],
         seats=arrays["seats"],
         turns=arrays["turns"],
         contexts=arrays["contexts"],
@@ -475,12 +613,45 @@ def main() -> int:
         stats.update(part["stats"])
     report = {
         "data_root": str(args.data_root.resolve()),
+        "index_source": str(index_source.resolve()),
+        "selection_mode": selection_mode,
+        "accepted_download_statuses": sorted(accepted_download_statuses),
+        "limit_per_team": args.limit_per_team,
+        "latest_per_team": args.latest_per_team,
+        "selection_manifest_in": (
+            str(args.selection_manifest_in.resolve())
+            if args.selection_manifest_in is not None
+            else ""
+        ),
+        "selection_manifest_out": (
+            str(args.selection_manifest_out.resolve())
+            if args.selection_manifest_out is not None
+            else ""
+        ),
+        "selection_manifest_sha256": manifest_sha256,
         "agent_dir": agent_dir,
         "deck_hash": args.deck_hash,
         "excluded_teams": sorted(excluded),
         "cache": str(args.output.resolve()),
         "trajectories": len(rows),
         "teams": int(index["team_id"].nunique()),
+        "submissions": int(index["submission_id"].nunique()),
+        "selected_rows_by_status": {
+            str(status): int(count)
+            for status, count in sorted(
+                index["download_status"].value_counts().items()
+            )
+        },
+        "selected_rows_by_team": {
+            str(int(team)): int(count)
+            for team, count in sorted(index.groupby("team_id").size().items())
+        },
+        "selected_rows_by_submission": {
+            str(int(submission)): int(count)
+            for submission, count in sorted(
+                index.groupby("submission_id").size().items()
+            )
+        },
         "episodes": int(stats["episodes"]),
         "win_rate": round(stats["wins"] / max(1, stats["episodes"]), 4),
         "decisions": int(len(arrays["groups"])),

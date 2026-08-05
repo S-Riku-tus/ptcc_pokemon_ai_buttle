@@ -57,6 +57,11 @@ class Corpus:
         self.splits = data["splits"]
         self.episode_ids = data["episode_ids"]
         self.team_ids = data["team_ids"]
+        self.submission_ids = (
+            data["submission_ids"]
+            if "submission_ids" in data.files
+            else np.full(len(self.groups), -1, dtype=np.int64)
+        )
         self.turns = data["turns"]
         self.contexts = (
             data["contexts"] if "contexts" in data.files
@@ -554,6 +559,11 @@ def main() -> int:
         },
         "split_episodes": {
             name: int(len(np.unique(corpus.episode_ids[block])))
+            for name, block in
+            (("train", train), ("validation", validation), ("test", test))
+        },
+        "split_submissions": {
+            name: int(len(np.unique(corpus.submission_ids[block])))
             for name, block in
             (("train", train), ("validation", validation), ("test", test))
         },
