@@ -1,0 +1,155 @@
+{
+  "agent_dir": "agents\\grimmsnarl\\grimmsnarl_ml_v5",
+  "run": "data\\runs\\grimmsnarl\\20260805_grimmsnarl_ml_v4_sub55253296",
+  "replays": 52,
+  "examples": [
+    {
+      "group": "punk",
+      "replay": "episode_90081611.json",
+      "turn": 4,
+      "max": 5,
+      "played": 5,
+      "agent": 4
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90079519.json",
+      "turn": 4,
+      "max": 5,
+      "played": 5,
+      "agent": 2
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90079250.json",
+      "turn": 5,
+      "max": 5,
+      "played": 5,
+      "agent": 3
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90078810.json",
+      "turn": 3,
+      "max": 5,
+      "played": 5,
+      "agent": 4
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90078131.json",
+      "turn": 3,
+      "max": 5,
+      "played": 5,
+      "agent": 4
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90077365.json",
+      "turn": 3,
+      "max": 5,
+      "played": 5,
+      "agent": 3
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90076070.json",
+      "turn": 5,
+      "max": 5,
+      "played": 5,
+      "agent": 4
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90075393.json",
+      "turn": 5,
+      "max": 5,
+      "played": 5,
+      "agent": 2
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90075393.json",
+      "turn": 11,
+      "max": 3,
+      "played": 3,
+      "agent": 2
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90074690.json",
+      "turn": 6,
+      "max": 3,
+      "played": 3,
+      "agent": 2
+    },
+    {
+      "group": "poffin",
+      "replay": "episode_90074690.json",
+      "turn": 6,
+      "max": 2,
+      "played": 2,
+      "agent": 1
+    },
+    {
+      "group": "punk",
+      "replay": "episode_90074030.json",
+      "turn": 3,
+      "max": 5,
+      "played": 5,
+      "agent": 2
+    }
+  ],
+  "punk": {
+    "events": 90,
+    "mean_offered_max": 3.6666666666666665,
+    "mean_played": 3.6666666666666665,
+    "mean_agent": 2.6222222222222222,
+    "played_took_max_pct": 100.0,
+    "agent_took_max_pct": 34.44444444444444,
+    "agent_counts": {
+      "0": 0,
+      "1": 12,
+      "2": 34,
+      "3": 22,
+      "4": 20,
+      "5": 2
+    },
+    "played_counts": {
+      "0": 0,
+      "1": 12,
+      "2": 14,
+      "3": 13,
+      "4": 4,
+      "5": 47
+    },
+    "illegal_over_max": 0,
+    "illegal_under_min": 0
+  },
+  "poffin": {
+    "events": 55,
+    "mean_offered_max": 1.8909090909090909,
+    "mean_played": 1.8909090909090909,
+    "mean_agent": 1.6,
+    "played_took_max_pct": 100.0,
+    "agent_took_max_pct": 70.9090909090909,
+    "agent_counts": {
+      "0": 0,
+      "1": 22,
+      "2": 33,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "played_counts": {
+      "0": 0,
+      "1": 6,
+      "2": 49,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "illegal_over_max": 0,
+    "illegal_under_min": 0
+  }
+}
