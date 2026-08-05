@@ -132,6 +132,33 @@ exactly, which is the control.
 
 Both land on the elite band's own means.
 
+## 4b. And the chain closes in *live* play
+
+The probe above is teacher-forced, so it proves the count changed, not that the
+fuel arrives. 60 paired self-play games with trajectories saved
+(`data/runs/local_self_play/v5_vs_v4_traj`), measured per own turn on the games
+each agent actually played:
+
+| per own turn | v4 | **v5** | ≥1120 corpus |
+|---|---:|---:|---:|
+| attachment made | 51.5% | **59.2%** | 59.6% |
+| a Darkness in hand | 62.3% | **70.8%** | 71.0% |
+| Darkness left in deck | 3.66 | **4.30** | 4.23 |
+| Adrena-Brain per game | 5.45 | **6.48** | 6.07 field / 6.8 mirror top |
+| Punk Up mean searched | 3.72 | **2.53** | 2.65 |
+| Punk Up took every card | 100.0% | **29.5%** | 36.9% |
+| five-card searches | 56 | **4** | — |
+| Poffin mean taken | 1.75 | **1.50** | 1.64 |
+
+From turn 5 on: attachment 45.6% → **51.9%** (band 53.2%), a Darkness in hand
+59.8% → **67.9%** (67.0%), Darkness left in deck 1.85 → **2.72** (2.71).
+
+All six pre-registered behavioural targets in §7 are met. The attachment gap
+v3 and v4 could not move with 91 feature columns between them is **+7.7 points
+and now sits on the elite band's own rate**, and Adrena-Brain — which v4's
+metadata names as "the exact statistic that separates our won mirrors from our
+lost ones" — is up 1.03 uses a game.
+
 ## 5. Three analysis priorities measured and **not** implemented
 
 Same discipline as v4, which refuted two of its five inherited priorities.
@@ -158,11 +185,18 @@ on board) even the ≥1100 pilots take Boss on **4.1%** of 363 offers. v4 takes 
 on 0 of 17. A planner rule that forced Boss there would be a 96-point error in
 the opposite direction.
 
-What *is* real in that select, and is left for a future version because it is a
-ranker preference on a routed context rather than anything a shell can prove:
-when a fresh Unfair Stamp is offered off Petrel, v4 takes it on **81.0%** of 42
-offers against 46.3% for ≥1100, 65.6% for 1060–1099 and 67.9% below. Monotone
-in rating again, and v4 again off the end.
+What *is* real in that select, and is the strongest remaining lead: when a
+fresh Unfair Stamp is offered off Petrel, v4 takes it on **81.0%** of 42 offers
+against 46.3% for ≥1100, 65.6% for 1060–1099 and 67.9% below. Monotone in
+rating again, and v4 again off the end. It is left for a future version because
+it is a ranker preference on a *routed* context (ctx 7 is scored by the model,
+so the Petrel branch in `fallback_policy.score_search_target` is dead code) and
+no legality condition rescues it into a dominance rule: Unfair Stamp is an Item
+playable only if one of our Pokémon was Knocked Out during the opponent's last
+turn, and even on the turns where it is *un*playable the ≥1100 band still takes
+it on 45.3% of 976 offers against 61.2% of the 67 where it is playable. A
+45-vs-61 split is a preference, not a proof. This one needs a retrain or an
+elite re-pin, which is the natural v6.
 
 **The mirror Froslass — real, but no board condition separates the refusals.**
 v4 evolves on 10 of 10 mirror turns where it is offered; the field is 70.8%
@@ -175,18 +209,42 @@ error where the current behaviour is a 39-point one. v4's existing narrow
 guard (refuse only when the next checkup knocks out one of ours and none of
 theirs) is kept unchanged, and this stays open.
 
-## 6. Validation
+## 6. Validation, and the honest part
 
 - 144 agent tests pass: 116 inherited from v4, plus 28 new — 17 pinning the
   budget against the counts the elite band plays, 11 pinning the planner
   guard's firing *and* its stand-down conditions.
 - v4's 116 tests still pass unchanged in v4's own directory.
-- 0 illegal selects, 0 crashes in the counterfactual probe over 52 games and in
-  paired self-play.
+- `scripts/validate_agent.py` passes with no warnings.
+- 0 crashes, 0 illegal selects, 0 policy fallbacks in 539 games and the 52-game
+  counterfactual probe.
 
-**Ladder rating is not measured.** Local self-play and behavioural probes are
-what this report contains; see [[kaggle-ladder-rating-noise]] for why a 52-game
-ladder sample cannot settle a difference this size on its own.
+**Local self-play cannot see the change.**
+
+| matchup | v5 | v4 | n each |
+|---|---:|---:|---:|
+| mirror, paired | 96-103-1 / 32-28 / 20-20 → **49.5%** | — | 299 |
+| vs `alakazam_ml_v35` | 23-17 (57.5%) | 23-17 (57.5%) | 40 |
+| vs `majkel_lopunny_ml_v2` | 30-10 (75.0%) | 30-10 (75.0%) | 40 |
+
+The two cross-archetype pairs are seed-paired but genuinely diverge — only 18 of
+40 games against Alakazam end with the same winner — so the identical
+aggregates are coincidence, not a no-op. The reading is parity everywhere.
+
+That is exactly what every version in this line has measured in the mirror:
+**v4 was 51.7% against v3 and 55.0% against v2 in paired self-play, and then
+moved the ladder from 950.8 / 905.2 to 1031.2.** The mirror is symmetric in
+precisely the resource this change is about — both sides thin the same deck at
+the same rate — and it is only ~42% of the actual ladder field. Local self-play
+has no demonstrated power to rank versions of this agent.
+
+**So the strength claim here is a causal one, not an outcome one:** three
+rating-ordered behaviours with v4 off the end of the field distribution, a
+mechanism, and a measured chain from the rule to the metric two previous
+versions failed to move. Ladder rating is not measured. See
+[[kaggle-ladder-rating-noise]] — an identical agent has scored 842.8 and 804 on
+this ladder — which is why §7's targets are stated before the run rather than
+after it.
 
 ## 7. What to check on the next ladder run
 
