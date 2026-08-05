@@ -1,0 +1,132 @@
+decisions train=218156 validation=35061 test=34611 features=795
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+Training until validation scores don't improve for 700 rounds
+[100]	validation's top1: 0.830182
+[200]	validation's top1: 0.838111
+[300]	validation's top1: 0.840307
+[400]	validation's top1: 0.843872
+[500]	validation's top1: 0.84584
+[600]	validation's top1: 0.845327
+[700]	validation's top1: 0.846011
+[800]	validation's top1: 0.845897
+[900]	validation's top1: 0.846582
+[1000]	validation's top1: 0.84564
+[1100]	validation's top1: 0.845612
+[1200]	validation's top1: 0.845726
+[1300]	validation's top1: 0.84527
+[1400]	validation's top1: 0.846268
+[1500]	validation's top1: 0.846753
+[1600]	validation's top1: 0.846182
+[1700]	validation's top1: 0.846296
+[1800]	validation's top1: 0.846838
+[1900]	validation's top1: 0.847067
+[2000]	validation's top1: 0.84738
+[2100]	validation's top1: 0.847523
+[2200]	validation's top1: 0.848379
+[2300]	validation's top1: 0.848493
+[2400]	validation's top1: 0.848407
+[2500]	validation's top1: 0.848778
+[2600]	validation's top1: 0.848635
+[2700]	validation's top1: 0.848692
+[2800]	validation's top1: 0.84912
+[2900]	validation's top1: 0.849263
+[3000]	validation's top1: 0.849662
+[3100]	validation's top1: 0.849405
+[3200]	validation's top1: 0.849462
+[3300]	validation's top1: 0.849605
+[3400]	validation's top1: 0.85009
+[3500]	validation's top1: 0.849348
+[3600]	validation's top1: 0.849291
+[3700]	validation's top1: 0.849633
+[3800]	validation's top1: 0.849462
+[3900]	validation's top1: 0.849605
+[4000]	validation's top1: 0.849348
+Did not meet early stopping. Best iteration is:
+[3395]	validation's top1: 0.850375
+{
+  "best_iteration": 3395,
+  "validation_top1": 0.8504,
+  "test_top1": 0.8503,
+  "test_top1_wilson95": [
+    0.8465,
+    0.854
+  ],
+  "test_top3": 0.99,
+  "test_order_insensitive_top1": 0.9394,
+  "test_taxonomy": {
+    "correct": 0.8503,
+    "same_turn_ordering": 0.0891,
+    "same_action_type_divergence": 0.0362,
+    "divergence": 0.0244
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 17883,
+      "top1": 0.801
+    },
+    "7": {
+      "decisions": 3519,
+      "top1": 0.8448
+    },
+    "13": {
+      "decisions": 2538,
+      "top1": 0.8428
+    },
+    "40": {
+      "decisions": 2498,
+      "top1": 0.9968
+    },
+    "21": {
+      "decisions": 1997,
+      "top1": 0.9604
+    },
+    "16": {
+      "decisions": 1645,
+      "top1": 0.8784
+    },
+    "15": {
+      "decisions": 1367,
+      "top1": 0.8413
+    },
+    "43": {
+      "decisions": 965,
+      "top1": 0.9813
+    },
+    "4": {
+      "decisions": 916,
+      "top1": 0.9443
+    },
+    "3": {
+      "decisions": 618,
+      "top1": 0.8479
+    },
+    "41": {
+      "decisions": 227,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 161,
+      "top1": 1.0
+    },
+    "37": {
+      "decisions": 134,
+      "top1": 0.9851
+    },
+    "38": {
+      "decisions": 108,
+      "top1": 1.0
+    },
+    "5": {
+      "decisions": 26,
+      "top1": 0.9231
+    },
+    "8": {
+      "decisions": 9,
+      "top1": 0.2222
+    }
+  }
+}

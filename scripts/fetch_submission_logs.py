@@ -510,6 +510,10 @@ def write_episode_list(
         "episode_type",
         "agent_0_submission_id",
         "agent_1_submission_id",
+        "agent_0_initial_score",
+        "agent_1_initial_score",
+        "agent_0_updated_score",
+        "agent_1_updated_score",
     ]
     with path.open("w", newline="", encoding="utf-8-sig") as file:
         writer = csv.DictWriter(file, fieldnames=fields)

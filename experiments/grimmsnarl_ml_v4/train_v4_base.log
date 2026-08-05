@@ -1,0 +1,106 @@
+decisions train=218156 validation=35061 test=34611 features=823
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+Training until validation scores don't improve for 200 rounds
+[100]	validation's top1: 0.82924
+[200]	validation's top1: 0.838624
+[300]	validation's top1: 0.842703
+[400]	validation's top1: 0.844271
+[500]	validation's top1: 0.845669
+[600]	validation's top1: 0.84604
+[700]	validation's top1: 0.846696
+[800]	validation's top1: 0.846867
+[900]	validation's top1: 0.846895
+[1000]	validation's top1: 0.847894
+[1100]	validation's top1: 0.847979
+[1200]	validation's top1: 0.849662
+[1300]	validation's top1: 0.849462
+[1400]	validation's top1: 0.849377
+Early stopping, best iteration is:
+[1238]	validation's top1: 0.850404
+{
+  "best_iteration": 1238,
+  "validation_top1": 0.8504,
+  "test_top1": 0.8503,
+  "test_top1_wilson95": [
+    0.8465,
+    0.8541
+  ],
+  "test_top3": 0.9895,
+  "test_order_insensitive_top1": 0.9406,
+  "test_taxonomy": {
+    "correct": 0.8503,
+    "same_turn_ordering": 0.0903,
+    "same_action_type_divergence": 0.0359,
+    "divergence": 0.0234
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 17883,
+      "top1": 0.8015
+    },
+    "7": {
+      "decisions": 3519,
+      "top1": 0.8377
+    },
+    "13": {
+      "decisions": 2538,
+      "top1": 0.8534
+    },
+    "40": {
+      "decisions": 2498,
+      "top1": 0.9976
+    },
+    "21": {
+      "decisions": 1997,
+      "top1": 0.9579
+    },
+    "16": {
+      "decisions": 1645,
+      "top1": 0.8748
+    },
+    "15": {
+      "decisions": 1367,
+      "top1": 0.8427
+    },
+    "43": {
+      "decisions": 965,
+      "top1": 0.9824
+    },
+    "4": {
+      "decisions": 916,
+      "top1": 0.9454
+    },
+    "3": {
+      "decisions": 618,
+      "top1": 0.8382
+    },
+    "41": {
+      "decisions": 227,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 161,
+      "top1": 1.0
+    },
+    "37": {
+      "decisions": 134,
+      "top1": 0.9851
+    },
+    "38": {
+      "decisions": 108,
+      "top1": 1.0
+    },
+    "5": {
+      "decisions": 26,
+      "top1": 0.9231
+    },
+    "8": {
+      "decisions": 9,
+      "top1": 0.3333
+    }
+  }
+}

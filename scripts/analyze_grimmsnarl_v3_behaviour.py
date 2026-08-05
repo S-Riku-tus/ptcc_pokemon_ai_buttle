@@ -401,6 +401,7 @@ def main() -> int:
         totals["episodes"] += 1
         pending_boss: dict[str, Any] | None = None
         pending_shadow: dict[str, Any] | None = None
+        tracker = TurnTracker(groups["turn_resources"])
 
         for index, step in enumerate(steps[:-1]):
             if seat >= len(step) or seat >= len(steps[index + 1]):
@@ -450,6 +451,11 @@ def main() -> int:
                 groups, context, current, select, options, me, opponent,
                 played, chosen, episode_id, pending_boss, pending_shadow,
             )
+            if context == MAIN:
+                tracker.note(
+                    int(current.get("turn", -1)), current, select, options,
+                    me, opponent, played, chosen,
+                )
             pending_boss, pending_shadow = update_pending(
                 context, current, select, options, me, opponent,
                 played, chosen, episode_id, pending_boss, pending_shadow,
@@ -463,6 +469,8 @@ def main() -> int:
                 observe_hook(observation, played)
             else:
                 ranker.observe_external(observation, played)
+
+        tracker.flush()
 
     _accumulate_planner(module, planner_totals)
     report = {
@@ -540,6 +548,27 @@ def summarise(name: str, probe: Probe) -> dict[str, Any]:
             out[f"{who}_snipe_lethal_rate"] = rate(
                 counts, f"{who}_targeted_snipe_lethal", "snipe_lethal_existed"
             )
+    elif name == "turn_resources":
+        # Per own turn: on offer at any point, and taken. The denominators are
+        # identical for the replay and the agent, so the two columns are
+        # directly comparable even though only the replay advances the game.
+        for kind in (
+            "energy", "enabling_energy", "boss", "froslass", "grimmsnarl",
+            "wall_unlock",
+        ):
+            for who in ("played", "agent"):
+                out[f"{who}_{kind}_rate"] = rate(
+                    counts, f"{who}_{kind}", f"offer_{kind}"
+                )
+            out[f"{kind}_turns"] = counts.get(f"offer_{kind}", 0)
+            out[f"agent_{kind}_wilson95"] = wilson(
+                counts.get(f"agent_{kind}", 0), counts.get(f"offer_{kind}", 0)
+            )
+        for who in ("played", "agent"):
+            out[f"{who}_wall_unlock_swing_rate"] = rate(
+                counts, f"{who}_wall_unlock_swing", "offer_wall_unlock"
+            )
+            out[f"{who}_energy_per_game"] = counts.get(f"{who}_energy", 0)
     elif name == "froslass_evolve":
         for who in ("played", "agent"):
             out[f"{who}_evolve_rate"] = rate(
@@ -572,6 +601,129 @@ def snipe_lethals(
         and mf.bench_snipe_lands(card, stadium, shield_ids)
         and 0 < float(card.get("hp", 0)) <= BENCH_SNIPE_DAMAGE
     ]
+
+
+class TurnTracker:
+    """Per-own-turn take rates for the resources v4 targets.
+
+    MAIN is re-asked after every intermediate action, so a per-decision rate
+    measures how many actions a turn contains rather than whether the player
+    took the action (the teachers read 18.9% attacking into a wall per decision
+    and 88.6% per turn on the same data). Everything is reduced to one
+    row per own turn: was it on offer at any point, and was it taken.
+
+    Under teacher forcing the agent's answer never advances the game, so both
+    sides are scored on the identical set of offered decisions: the replay took
+    it if any of its choices was that action, and the agent wanted it if any of
+    its answers on those same states was.
+    """
+
+    def __init__(self, probe: "Probe") -> None:
+        self.probe = probe
+        self.turn: int | None = None
+        self.flags: set[str] = set()
+
+    def note(
+        self,
+        turn: int,
+        current: dict[str, Any],
+        select: dict[str, Any],
+        options: list[dict[str, Any]],
+        me: dict[str, Any],
+        opponent: dict[str, Any],
+        played: int,
+        chosen: int | None,
+    ) -> None:
+        mf = sys.modules["ml_features"]
+        if turn != self.turn:
+            self.flush()
+            self.turn = turn
+        actions = [mf.action_type(current, o, select) for o in options]
+        cards = [
+            int((mf.candidate_card(current, o, select) or {}).get("id", -1))
+            for o in options
+        ]
+        stadium_id = mf._stadium_id(current)
+
+        def slots(predicate) -> list[int]:
+            return [s for s in range(len(options)) if predicate(s)]
+
+        classes = {
+            "energy": slots(
+                lambda s: actions[s] == "energy"
+                and cards[s] == mf.DARK_ENERGY_ID
+            ),
+            "boss": slots(lambda s: actions[s] == "boss"),
+            "froslass": slots(
+                lambda s: actions[s] == "evolve" and cards[s] == FROSLASS_ID
+            ),
+            "grimmsnarl": slots(
+                lambda s: actions[s] == "evolve"
+                and cards[s] == GRIMMSNARL_EX_ID
+            ),
+        }
+        for name, group in classes.items():
+            if not group:
+                continue
+            self.flags.add(f"offer_{name}")
+            if played in group:
+                self.flags.add(f"played_{name}")
+            if chosen is not None and chosen in group:
+                self.flags.add(f"agent_{name}")
+
+        # An attachment that switches Adrena-Brain on, or completes Shadow
+        # Bullet's cost. Punk Up cannot fuel a Munkidori, so this attachment is
+        # the only way one ever works.
+        for slot in classes["energy"]:
+            target = mf.candidate_target(current, options[slot]) or {}
+            target_id = int(target.get("id", -1))
+            dark = mf._dark_energy_count(target)
+            if not (
+                (target_id == mf.MUNKIDORI_ID and dark == 0)
+                or (target_id == GRIMMSNARL_EX_ID
+                    and dark == mf.SHADOW_BULLET_COST - 1)
+            ):
+                continue
+            self.flags.add("offer_enabling_energy")
+            if played == slot:
+                self.flags.add("played_enabling_energy")
+            if chosen == slot:
+                self.flags.add("agent_enabling_energy")
+
+        # The Kangaskhan/Crustle shape: swinging into a damage-immune Active
+        # while a gust that exposes a damageable body is still in hand.
+        attacks = slots(lambda s: actions[s] == "attack")
+        if attacks and classes["boss"]:
+            opp_active = (board(opponent) or [{}])[0]
+            walled = (
+                int(opp_active.get("id", -1)) >= 0
+                and mf.shadow_damage_to(opp_active, stadium_id) <= 0.0
+            )
+            routes = mf.turn_routes(current, opponent)
+            hittable = any(
+                mf.shadow_damage_to(c, stadium_id) > 0.0
+                for c in (opponent.get("bench") or [])
+                if isinstance(c, dict)
+            )
+            if walled and hittable and routes["no_boss_prizes"] == 0:
+                self.flags.add("offer_wall_unlock")
+                if played in classes["boss"]:
+                    self.flags.add("played_wall_unlock")
+                if chosen is not None and chosen in classes["boss"]:
+                    self.flags.add("agent_wall_unlock")
+                if played in attacks:
+                    self.flags.add("played_wall_unlock_swing")
+                if chosen is not None and chosen in attacks:
+                    self.flags.add("agent_wall_unlock_swing")
+
+    def flush(self) -> None:
+        if self.turn is None:
+            return
+        self.probe.add("turns")
+        for flag in sorted(self.flags):
+            self.probe.add(flag)
+        self.flags = set()
+        self.turn = None
 
 
 def record_decision(

@@ -266,7 +266,10 @@ def render(card_table, energy_dark, attack_table=None,
         f"NEUTRALIZATION_ZONE_ID = {NEUTRALIZATION_ZONE}",
         f"BATTLE_CAGE_ID = {BATTLE_CAGE}",
     ]
-    if variant == "v3":
+    if variant in ("v3", "v4"):
+        # v4 needs the same generated tables as v3: the ability set, the
+        # attack-cost frontier and the type/weakness maps. Its new work is in
+        # the hand-written ledger that reads them, not in the tables.
         parts.append("")
         parts.extend(render_v3_extra(card_table, attack_table or {}))
     parts.append(END)
@@ -276,12 +279,15 @@ def render(card_table, energy_dark, attack_table=None,
 DEFAULT_TARGETS = {
     "v2": ["agents/grimmsnarl/grimmsnarl_ml_v2/ml_features.py"],
     "v3": ["agents/grimmsnarl/grimmsnarl_ml_v3/ml_features.py"],
+    "v4": ["agents/grimmsnarl/grimmsnarl_ml_v4/ml_features.py"],
 }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variant", choices=["v2", "v3"], default="v2")
+    parser.add_argument(
+        "--variant", choices=["v2", "v3", "v4"], default="v2"
+    )
     parser.add_argument("--targets", nargs="*")
     args = parser.parse_args()
     targets = args.targets or DEFAULT_TARGETS[args.variant]
