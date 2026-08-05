@@ -248,7 +248,9 @@ after it.
 
 ## 7. What to check on the next ladder run
 
-The behavioural targets, in the order the causal chain runs:
+Stated before the run. Targets 1–6 are already met in 60 games of live
+self-play (§4b); the ladder run is to confirm they hold against the real field
+and to see whether they convert.
 
 1. Punk Up takes every card offered on **30–45%** of activations (v4: 100%).
 2. Five-card searches ≈ **0%** (v4: 52% of `maxCount == 5` activations).
@@ -257,9 +259,36 @@ The behavioural targets, in the order the causal chain runs:
 4. A Darkness in hand on ≥ **70%** of own turns (v4: 66.9%).
 5. The attachment made on ≥ **57%** of own turns (v4: 50.8%).
 6. Adrena-Brain uses per game ≥ **6.0** in the mirror (v4: 5.50).
-7. Unchanged, and to be watched for regression: lethal-attack take rate,
-   Bench-KO target choice (100%), Unfair Stamp use rate, the Alakazam matchup,
-   and the first/second-seat balance.
+7. Unchanged, and to be watched for regression: lethal-attack take rate (v4
+   97.4%), Bench-KO target choice (v4 100% of 32), Unfair Stamp use rate (v4
+   0.68/game), the Alakazam matchup (v4 11-2), and the first/second-seat balance
+   (v4 62.5% / 60.7%).
 
-If 1 and 2 move but 3–6 do not, the fuel model in §2 is wrong and the change
-should be reverted rather than tuned.
+If 1 and 2 hold on the ladder but 3–6 do not, the fuel model in §2 is wrong and
+the change should be reverted rather than tuned.
+
+Sample size, since v4's own 52 games could not settle its 900-band win rate
+either: target **≥ 80 games with ≥ 40 in the mirror**. Below that the ladder
+cannot separate v5 from v4 at all, and the six behavioural counters above — all
+of which are deterministic properties of the agent rather than of the
+opponent — are the only readings worth acting on.
+
+## 8. The remaining route to 1150
+
+v5 is a rule fix worth what a rule fix is worth. The two levers this analysis
+leaves on the table are both inside the model:
+
+1. **The Petrel select** (§5): v4 takes a fresh Unfair Stamp on 81.0% of offers
+   against the ≥1100 band's 46.3%, monotone in rating, on a routed context.
+2. **The pin.** Every behaviour v5 corrects is monotone in pilot rating, and
+   v4 is pinned to a 1077.6-rated pilot — which caps imitation fidelity at that
+   pilot's policy. [[grimmsnarl-imitability-vs-rating]] measured the trade
+   (Top-1 0.884 at 1077.6, 0.703 at 1220.2) and
+   [[grimmsnarl-imitation-saturated]] measured that the elite pin fixes the
+   Froslass over-evolve (86.4% → 45.5% net-negative evolves) at the cost of
+   changing 12.3% of all decisions in favour of a policy the model reproduces
+   at 77.9%. That trade has never been run end to end as a paired A/B, and it is
+   the only remaining lever with a measured effect on more than one of the gaps
+   in this report.
+
+Neither is a shell. Both are v6.
