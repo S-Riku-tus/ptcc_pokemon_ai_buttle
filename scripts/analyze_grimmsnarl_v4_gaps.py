@@ -375,10 +375,15 @@ def _scan(payload: tuple[str, list[dict[str, Any]]]) -> dict[str, Any]:
             observation = record.get("observation") or {}
             select = observation.get("select") or {}
             current = observation.get("current") or {}
-            if went_first is None and current.get("firstPlayer") is not None:
+            # firstPlayer is -1 until the coin flip resolves, and the seat
+            # that acts during setup sees the sentinel on its first ACTIVE
+            # step. Accepting it (it is not None) pinned went_first=0 on 50
+            # of 96 v3_a games and 3603 of 3655 teacher games, which is what
+            # made every earlier first/second split read as ~99% "second".
+            first_player = mf._int(current.get("firstPlayer", -1))
+            if went_first is None and first_player >= 0:
                 went_first = int(
-                    int(current.get("firstPlayer", -1))
-                    == int(current.get("yourIndex", 0))
+                    first_player == int(current.get("yourIndex", 0))
                 )
             players = current.get("players") or [{}, {}]
             your = int(current.get("yourIndex", 0))
@@ -418,10 +423,20 @@ def _scan(payload: tuple[str, list[dict[str, Any]]]) -> dict[str, Any]:
         tally["wins"] = won
 
         source = str(row["source"])
-        seat_key = "first" if went_first else "second"
+        # Never fold "we could not tell" into "second" - that is exactly how
+        # the sentinel bug above stayed invisible.
+        seat_key = (
+            "seatunknown" if went_first is None
+            else "first" if went_first else "second"
+        )
         keys = [source, f"{source}|{seat_key}"]
         if mirror:
             keys += [f"{source}|mirror", f"{source}|mirror|{seat_key}"]
+        bucket = str(row.get("opp_bucket") or "")
+        if bucket:
+            keys += [f"{source}|{bucket}", f"{source}|{bucket}|{seat_key}"]
+            if mirror:
+                keys.append(f"{source}|{bucket}|mirror")
         for key in keys:
             per_source[key].update(tally)
     return {k: dict(v) for k, v in per_source.items()}
@@ -583,6 +598,29 @@ def _teacher_rows(
     return str(data_root / "replays"), rows
 
 
+RATING_BUCKETS = ((0, 800), (800, 900), (900, 1000), (1000, 9999))
+
+
+def _opponent_bucket(record: dict[str, Any], seat: int) -> str:
+    """Tag for the opponent's rating when the match was paired.
+
+    Ladder win rate tracks the opponent pool, not agent quality, so every
+    ladder slice needs this alongside the seat. Runs fetched before
+    2026-08-04 have no score columns and get no tag rather than a wrong one.
+    """
+    raw = record.get(f"agent_{1 - seat}_initial_score")
+    try:
+        score = float(raw)
+    except (TypeError, ValueError):
+        return ""
+    if score != score:  # NaN, which is what pandas gives a blank cell
+        return ""
+    for low, high in RATING_BUCKETS:
+        if low <= score < high:
+            return f"opp{low}" if high < 9999 else "opp1000up"
+    return ""
+
+
 def _ladder_rows(
     run_dir: Path, submission_id: int, label: str
 ) -> list[dict[str, Any]]:
@@ -608,6 +646,7 @@ def _ladder_rows(
             "seat_index": seat,
             "replay_name": "",
             "replay_path": str(path),
+            "opp_bucket": _opponent_bucket(record, seat),
         })
     return rows
 
@@ -656,10 +695,22 @@ def main() -> None:
     }
     raw = {source: dict(counts) for source, counts in sorted(results.items())}
 
+    # Ladder labels print every slice, teachers only the pooled headline:
+    # a ladder run is the thing being diagnosed, so its seat and
+    # opponent-rating cuts are the point, and there are only a handful.
+    ladder_labels = sorted({r["source"] for r in ladder_rows})
+    ladder_slices = [
+        source
+        for source in report
+        if any(
+            source == label or source.startswith(f"{label}|")
+            for label in ladder_labels
+        )
+    ]
     headline = [
         "teachers_all", "teachers_elite", "teachers_all|mirror",
         "teachers_all|second", "teachers_all|mirror|second",
-    ] + sorted({r["source"] for r in ladder_rows})
+    ] + ladder_slices
     for source in headline:
         stats = report.get(source)
         if not stats:

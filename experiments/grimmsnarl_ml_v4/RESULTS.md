@@ -293,9 +293,9 @@ but 2,717 missing trees.
    and the pilot that wins 84% of its mirrors takes 53.8%. The corrected ledger
    did not change it (0.8947 both). This is the strongest remaining single-shape
    divergence from our own teacher.
-3. **Going second.** 50.9% against 69.4% first. No decision-level defect has been
-   isolated for it yet; `first_player_is_self` has been a column since v2, so it
-   is not feature blindness.
+3. **Going second.** 50.6% against 69.7% first, and as of the 190-game refetch
+   two decision-level defects ARE isolated for it — see §8. `first_player_is_self`
+   has been a column since v2, so it is not feature blindness.
 
 ## Artifacts
 
@@ -309,6 +309,12 @@ but 2,717 missing trees.
 - `selfplay_v4_vs_v3.log`, `selfplay_v4_vs_v2.log`
 
 Reproduce with:
+
+> The two v3 ladder directories below were the 2026-08-04 pull, 65 + 64
+> episodes. They were deleted and refetched on 2026-08-05 as
+> `20260805_grimmsnarl_ml_v3_sub{55216787,55217233}` with 96 + 94 episodes,
+> so every number in this file that reads a v3 ladder run was computed on the
+> smaller earlier sample. Substitute the `20260805_` paths to re-run.
 
 ```powershell
 .\.venv\Scripts\python.exe .\scripts\build_grimmsnarl_damage_tables.py --variant v4
@@ -338,3 +344,64 @@ Reproduce with:
   --min-episode 89418031 --corpus data/ml/grimmsnarl/processed/corpus_v4.npz `
   --report experiments/grimmsnarl_ml_v4/behaviour_v4_pinned_holdout.json
 ```
+
+## 8. Re-measured on the 190-game v3 refetch (2026-08-05)
+
+The two v3 ladder submissions were refetched at 96 and 94 episodes (was 65 + 64),
+so this section supersedes every seat-split number above it.
+
+### 8.1 The seat split in this script was broken until now
+
+`current["firstPlayer"]` is `-1` until the coin flip resolves, and the seat that
+acts during setup sees that sentinel on its first ACTIVE step. The old code
+accepted any non-`None` value, so it locked in `went_first = (-1 == yourIndex) = 0`
+and labelled those games "second" for good: **3,603 of 3,655 teacher games and 50
+of 96 v3_a games**. Every earlier first/second row in this file was therefore
+computed on n=3 to n=52 real "first" games. Fixed by requiring `firstPlayer >= 0`,
+and an unresolved flip now lands in an explicit `seatunknown` bucket instead of
+silently in "second" (0 games hit it).
+
+### 8.2 Going second is the hole, and it is ours, not the deck's
+
+| | first | second | gap |
+|---|---:|---:|---:|
+| v3 (both subs, n=190) | **69.7%** (76/109) | **50.6%** (41/81) | **+19.1** (z=2.68, p=0.0074) |
+| teachers, same deck | 62.1% (1175/1893) | 55.5% (978/1762) | +6.6 (z=4.03, p=0.0001) |
+
+We are 7.6 points **better** than the field going first and 4.9 points **worse**
+going second. Our excess seat gap is +12.5 points (z=1.71, p=0.087 — suggestive,
+not conclusive at n=190). Worst slices: mirror going second 45.5% (15/33) against
+the teachers' 56.3%, and 900-rated opponents going second **37.8%** (17/45).
+
+### 8.3 Two significant decision defects in the losing slice
+
+Mirror, going second, per own turn, against the same slice of the teacher corpus:
+
+| decision | v3 | teachers | delta | p |
+|---|---:|---:|---:|---:|
+| Dark Energy attach | 76.3% (103/135) | 84.7% (2793/3298) | **-8.4** | **0.0085** |
+| Froslass evolve | **100.0%** (20/20) | 72.3% (183/253) | **+27.7** | **0.0064** |
+| Grimmsnarl evolve | 72.9% (43/59) | 79.2% (1045/1319) | -6.3 | 0.24 |
+| Boss's Orders | 43.9% (18/41) | 40.5% (514/1270) | +3.4 | 0.66 |
+| Adrena-Brain take | 99.1% (106/107) | 97.7% (2777/2842) | +1.4 | 0.35 |
+
+**The attachment defect has a direction, which is new.** The teachers *raise* the
+attach rate when they go second (81.0% -> 83.0%; 83.3% -> 84.7% in the mirror);
+we *lower* it (76.2% -> 74.4%; 79.5% -> 76.3%). Their response to being a tempo
+down is more energy, ours is less. Downstream in that slice: fuelled-Munkidori
+share 57.0% against 65.9%, and Adrena-Brain uses 5.03/game against **6.91**.
+
+**The Froslass over-evolve is larger than §7.2 measured.** On real ladder boards
+we take every mirror offer, 20 for 20, where the field declines better than one in
+four. v4's corrected ledger does not change it.
+
+No gap at all in lethal conversion (94.4% against 96.2%) or prize-taking swings
+(94.3% against 95.6%), so nothing is being missed for want of seeing it.
+
+### 8.4 `_wall_unlock` is still not a lever
+
+Seven turns in 190 games match the rule's trigger shape (v3_a 6, v3_b 1) and v3
+already played Boss on three of them. Maximum reach is 4 turns in 190 games,
+~0.02/game. The bigger sample does not rescue it.
+
+Artifacts: `gaps_ladder_20260805.json`, `gaps_ladder_20260805.log`.
