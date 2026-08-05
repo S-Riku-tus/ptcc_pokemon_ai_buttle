@@ -8,6 +8,7 @@ EpisodeService and replay/log extraction steps, then adds:
 * episode/replay de-duplication across submissions
 * JSON validation and resumable skip logic
 * consolidated indexes and run summary outputs
+* optional submission-scoped, non-pruning merges into an existing corpus
 * submission-level parallelism with per-episode file locks
 """
 
@@ -94,6 +95,124 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
         writer.writeheader()
         for row in rows:
             writer.writerow(row)
+
+
+def merge_rows_by_key(
+    existing_rows: list[dict[str, Any]],
+    incoming_rows: list[dict[str, Any]],
+    key_fields: tuple[str, ...],
+) -> list[dict[str, Any]]:
+    """Merge index rows, with incoming values replacing identical keys."""
+
+    merged: dict[tuple[str, ...], dict[str, Any]] = {}
+    for row in [*existing_rows, *incoming_rows]:
+        key = tuple(str(row.get(field, "")) for field in key_fields)
+        merged[key] = dict(row)
+    return list(merged.values())
+
+
+def merge_submission_rows(
+    existing_rows: list[dict[str, Any]],
+    incoming_rows: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Merge submission summaries without downgrading cached successes.
+
+    A transient EpisodeService failure or empty response during an append run
+    must not turn a previously usable corpus entry into a failed/no-data row.
+    The failure is still retained in ``failures.csv`` for diagnosis.
+    """
+
+    merged = {
+        str(row.get("submission_id", "")): dict(row) for row in existing_rows
+    }
+    for row in incoming_rows:
+        key = str(row.get("submission_id", ""))
+        previous = merged.get(key)
+        if (
+            previous is not None
+            and str(previous.get("status", "")) in {"success", "no_matching_deck"}
+            and str(row.get("status", "")) in {"failed", "no_data"}
+        ):
+            continue
+        merged[key] = dict(row)
+    return list(merged.values())
+
+
+def load_index_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    return load_submission_rows(path)
+
+
+def merge_existing_collection_indexes(
+    indexes_dir: Path,
+    *,
+    submission_rows: list[dict[str, Any]],
+    episode_rows: list[dict[str, Any]],
+    replay_index_rows: list[dict[str, Any]],
+    failure_rows: list[dict[str, Any]],
+    touched_submission_ids: set[int],
+) -> tuple[
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    dict[str, int],
+]:
+    """Append one collection run to existing consolidated indexes.
+
+    Episode relations are keyed by ``(submission_id, episode_id)`` because one
+    physical Kaggle Episode can legitimately belong to two collected
+    submissions. Existing failures for a touched submission are replaced by
+    the latest attempt; failures for every untouched submission are retained.
+    """
+
+    existing_submissions = load_index_rows(indexes_dir / "submissions.csv")
+    existing_episodes = load_index_rows(indexes_dir / "episodes.csv")
+    existing_replay_index = load_index_rows(indexes_dir / "replay_index.csv")
+    existing_failures = load_index_rows(indexes_dir / "failures.csv")
+
+    retained_failures = [
+        row
+        for row in existing_failures
+        if parse_int(row.get("submission_id")) not in touched_submission_ids
+    ]
+
+    merged_submissions = merge_submission_rows(
+        existing_submissions,
+        submission_rows,
+    )
+    merged_episodes = merge_rows_by_key(
+        existing_episodes,
+        episode_rows,
+        ("submission_id", "episode_id"),
+    )
+    merged_replay_index = merge_rows_by_key(
+        existing_replay_index,
+        replay_index_rows,
+        ("submission_id", "episode_id"),
+    )
+    merged_failures = merge_rows_by_key(
+        retained_failures,
+        failure_rows,
+        ("scope", "submission_id", "episode_id", "error"),
+    )
+
+    details = {
+        "existing_submission_rows": len(existing_submissions),
+        "existing_episode_rows": len(existing_episodes),
+        "incoming_submission_rows": len(submission_rows),
+        "incoming_episode_rows": len(episode_rows),
+        "merged_submission_rows": len(merged_submissions),
+        "merged_episode_rows": len(merged_episodes),
+    }
+    return (
+        merged_submissions,
+        merged_episodes,
+        merged_replay_index,
+        merged_failures,
+        details,
+    )
 
 
 def discover_input_csv(explicit: Path | None) -> Path:
@@ -188,6 +307,29 @@ def dedupe_submission_rows(rows: list[dict[str, str]]) -> list[dict[str, Any]]:
             int(item["submission_id"]),
         ),
     )
+
+
+def select_requested_submissions(
+    submissions: list[dict[str, Any]],
+    requested_submission_ids: set[int],
+) -> list[dict[str, Any]]:
+    if not requested_submission_ids:
+        return submissions
+
+    available_submission_ids = {
+        int(submission["submission_id"]) for submission in submissions
+    }
+    missing_requested = sorted(requested_submission_ids - available_submission_ids)
+    if missing_requested:
+        raise ValueError(
+            "Requested submission IDs are not present in the filtered input "
+            f"CSV: {missing_requested}"
+        )
+    return [
+        submission
+        for submission in submissions
+        if int(submission["submission_id"]) in requested_submission_ids
+    ]
 
 
 def parse_int(value: Any) -> int | None:
@@ -515,11 +657,15 @@ def process_submission(
     retry_delay: float,
     episode_locks: EpisodeLockRegistry,
     required_deck_card_ids: set[int],
+    merge_existing: bool,
 ) -> dict[str, Any]:
     submission_id = int(submission["submission_id"])
     submission_dir = ensure_dir(submissions_dir / str(submission_id))
     ensure_dir(submission_dir / "replays")
     ensure_dir(submission_dir / "logs")
+    episodes_path = submission_dir / "episodes.json"
+    replay_refs_path = submission_dir / "replays" / "index.json"
+    log_refs_path = submission_dir / "logs" / "index.json"
 
     thread_print(
         f"\n[{index}/{total}] Submission {submission_id} "
@@ -598,7 +744,8 @@ def process_submission(
                 "recorded_at": utc_now(),
             }
         )
-        write_json(submission_dir / "episodes.json", {"episodes": [], "error": error_text})
+        if not merge_existing or not episodes_path.exists():
+            write_json(episodes_path, {"episodes": [], "error": error_text})
         thread_print(f"  FAILED: {error_text}")
         return result
 
@@ -612,12 +759,26 @@ def process_submission(
             else episodes[:max_episodes_per_submission]
         )
 
+    episode_payload_rows = [asdict(episode) for episode in episodes]
+    if merge_existing and episodes_path.exists():
+        existing_payload = read_json(episodes_path)
+        existing_episode_rows = (
+            list(existing_payload.get("episodes") or [])
+            if isinstance(existing_payload, dict)
+            else []
+        )
+        episode_payload_rows = merge_rows_by_key(
+            existing_episode_rows,
+            episode_payload_rows,
+            ("episode_id",),
+        )
+
     write_json(
-        submission_dir / "episodes.json",
+        episodes_path,
         {
             "submission_id": submission_id,
-            "episode_count": len(episodes),
-            "episodes": [asdict(episode) for episode in episodes],
+            "episode_count": len(episode_payload_rows),
+            "episodes": episode_payload_rows,
         },
     )
 
@@ -849,8 +1010,26 @@ def process_submission(
         if sleep_seconds > 0:
             time.sleep(sleep_seconds)
 
-    write_json(submission_dir / "replays" / "index.json", per_submission_replay_refs)
-    write_json(submission_dir / "logs" / "index.json", per_submission_log_refs)
+    if merge_existing:
+        existing_replay_refs = (
+            list(read_json(replay_refs_path)) if replay_refs_path.exists() else []
+        )
+        existing_log_refs = (
+            list(read_json(log_refs_path)) if log_refs_path.exists() else []
+        )
+        per_submission_replay_refs = merge_rows_by_key(
+            existing_replay_refs,
+            per_submission_replay_refs,
+            ("episode_id",),
+        )
+        per_submission_log_refs = merge_rows_by_key(
+            existing_log_refs,
+            per_submission_log_refs,
+            ("episode_id",),
+        )
+
+    write_json(replay_refs_path, per_submission_replay_refs)
+    write_json(log_refs_path, per_submission_log_refs)
 
     result["counts"]["submission_success"] += 1
     submission_status = "success"
@@ -895,6 +1074,25 @@ def main() -> None:
         type=int,
         default=0,
         help="Process only the first N deduped submission IDs. 0 means all.",
+    )
+    parser.add_argument(
+        "--submission",
+        type=int,
+        action="append",
+        default=[],
+        help=(
+            "Process only this submission ID from --input. Repeat to select "
+            "multiple IDs. Missing IDs are rejected."
+        ),
+    )
+    parser.add_argument(
+        "--merge-existing",
+        action="store_true",
+        help=(
+            "Merge processed submissions into existing indexes instead of "
+            "replacing them. Existing replay/log files and untouched index "
+            "rows are retained; deck-filter cleanup is disabled."
+        ),
     )
     parser.add_argument(
         "--max-rank",
@@ -989,6 +1187,14 @@ def main() -> None:
             f"{args.representative_only}."
         )
     submissions = dedupe_submission_rows(source_rows)
+    requested_submission_ids = set(args.submission)
+    try:
+        submissions = select_requested_submissions(
+            submissions,
+            requested_submission_ids,
+        )
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     if args.max_submissions > 0:
         submissions = submissions[: args.max_submissions]
 
@@ -1007,6 +1213,7 @@ def main() -> None:
     thread_print(f"Submission IDs to process: {len(submissions)}")
     thread_print(f"Output root: {output_root}")
     thread_print(f"Workers: {max(1, args.workers)}")
+    thread_print(f"Merge existing indexes: {args.merge_existing}")
 
     input_submission_ids = {int(item["submission_id"]) for item in submissions}
     submission_team_lookup = {int(item["submission_id"]): item for item in submissions}
@@ -1053,6 +1260,7 @@ def main() -> None:
                 retry_delay=args.retry_delay,
                 episode_locks=episode_locks,
                 required_deck_card_ids=required_deck_card_ids,
+                merge_existing=args.merge_existing,
             )
             for index, submission in enumerate(submissions, start=1)
         ]
@@ -1083,6 +1291,23 @@ def main() -> None:
                 "error": "missing_from_final_index",
                 "recorded_at": utc_now(),
             }
+        )
+
+    merge_details: dict[str, int] = {}
+    if args.merge_existing:
+        (
+            submission_rows_out,
+            episode_rows_out,
+            replay_index_rows,
+            failures_rows,
+            merge_details,
+        ) = merge_existing_collection_indexes(
+            indexes_dir,
+            submission_rows=submission_rows_out,
+            episode_rows=episode_rows_out,
+            replay_index_rows=replay_index_rows,
+            failure_rows=failures_rows,
+            touched_submission_ids=input_submission_ids,
         )
 
     submission_rows_out.sort(
@@ -1146,8 +1371,15 @@ def main() -> None:
     write_csv(indexes_dir / "replay_index.csv", replay_index_rows, episode_fieldnames)
     write_csv(indexes_dir / "failures.csv", failures_rows, failures_fieldnames)
 
+    unique_episode_to_submission_ids = defaultdict(set)
+    for row in episode_rows_out:
+        episode_id = parse_int(row.get("episode_id"))
+        submission_id = parse_int(row.get("submission_id"))
+        if episode_id is not None and submission_id is not None:
+            unique_episode_to_submission_ids[episode_id].add(submission_id)
+
     unique_episode_count = len(unique_episode_to_submission_ids)
-    if required_deck_card_ids:
+    if required_deck_card_ids and not args.merge_existing:
         kept_episode_ids = set(unique_episode_to_submission_ids)
         for path in replays_dir.glob("episode_*.json"):
             episode_id = parse_int(path.stem.split("_")[-1])
@@ -1173,6 +1405,9 @@ def main() -> None:
     )
     unique_log_count = len([path for path in logs_dir.glob("*/*.json") if path.is_file()])
     duplicate_episode_relations = max(0, len(episode_rows_out) - unique_episode_count)
+    submission_status_counts: defaultdict[str, int] = defaultdict(int)
+    for row in submission_rows_out:
+        submission_status_counts[str(row.get("status", ""))] += 1
 
     run_summary = {
         "input_csv": str(input_csv),
@@ -1181,9 +1416,12 @@ def main() -> None:
         "counts": {
             "input_submission_ids": len(input_submission_ids),
             "processed_submission_rows": len(submission_rows_out),
-            "submission_success": counts["submission_success"],
-            "submission_no_data": counts["submission_no_data"],
-            "submission_failed": counts["submission_failed"],
+            "submission_success": (
+                submission_status_counts["success"]
+                + submission_status_counts["no_matching_deck"]
+            ),
+            "submission_no_data": submission_status_counts["no_data"],
+            "submission_failed": submission_status_counts["failed"],
             "submission_missing_from_final_index": len(missing_submission_ids),
             "episode_relations": len(episode_rows_out),
             "unique_episodes": unique_episode_count,
@@ -1205,9 +1443,13 @@ def main() -> None:
         "submission_filter": {
             "max_rank": args.max_rank,
             "representative_only": args.representative_only,
+            "requested_submission_ids": sorted(requested_submission_ids),
             "source_rows_total": len(all_source_rows),
             "source_rows_kept": len(source_rows),
         },
+        "merge_existing": args.merge_existing,
+        "merge_details": merge_details,
+        "current_run_counts": counts,
         "missing_submission_ids": missing_submission_ids,
         "indexes": {
             "submissions_csv": str((indexes_dir / "submissions.csv").relative_to(output_root)),
