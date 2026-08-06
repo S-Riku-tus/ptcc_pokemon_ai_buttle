@@ -1,21 +1,11 @@
-"""Marnie's Grimmsnarl ex v7 ML: class-conditioned imitation plus planner.
+"""Marnie's Grimmsnarl ex v7: imitation candidates plus learned value search.
 
-v7 is intentionally based on v6, not on the higher/noisier-rated v4-v5 runs.
-It enables the one decision class v6 pre-registered: when Team Rocket's Petrel
-offers an Unfair Stamp that cannot be played on the same turn, score the whole
-choice as team 16561259 (dense teacher code 20). On v5's 66 stored games this
-teacher sees 39 offers, changes 6 decisions, refuses 5 Stamp picks and changes
-one non-Stamp preference. The incumbent pin takes the dead Stamp on 71.3% of
-its own offers; 16561259 takes it on 33.0%, and this is the only measured gap
-whose pilot rate has a significant rating gradient (rho -0.626, p=0.0029).
-
-The v6 Froslass class remains assigned to team 16371703. The two classes use
-different teacher codes but never mix codes inside one argmax. The model,
-deck, fallback policy, features, search budgets and one-ply planner are
-byte-identical to v6. In particular, v7 does not add an unvalidated
-Mega-Lopunny-specific preference: the new local opponent has only 56.6%
-unseen semantic agreement and is suitable for safety screening, not for
-claiming an outcome improvement.
+v7 keeps v6's verified ranker, Froslass teacher route, resource budgets and
+arithmetic planner.  On an ambiguous MAIN decision from turn five onward, its
+top candidates are advanced through the remainder of the turn with cabt's
+real Search API.  A public state-only outcome model trained on 1,014 current
+top-pilot relations may override imitation only for a six-point value gain.
+Candidate, action and private-hand columns are absent from that model.
 
 Inherited from v6:
 
@@ -191,6 +181,18 @@ _PLANNER_DISABLED = (
     _PLANNER is None or os.environ.get("GRIMMSNARL_PLANNER_DISABLE") == "1"
 )
 
+# Value search is optional for failure containment, just like the arithmetic
+# planner.  v6 remains a complete legal policy if the official Search API is
+# unavailable or the compact value model cannot be loaded.
+try:
+    from search_planner import SearchPlanner
+
+    _SEARCH = SearchPlanner() if _RANKER is not None else None
+    _SEARCH_ERROR: str | None = None
+except Exception as error:  # noqa: BLE001
+    _SEARCH = None
+    _SEARCH_ERROR = f"{type(error).__name__}: {error}"
+
 
 def _choose(observation):
     if not isinstance(observation, dict) or observation.get("select") is None:
@@ -231,6 +233,10 @@ def _choose(observation):
         index = _PLANNER.adjust(
             observation, select, index, _RANKER.last_scores
         )
+    if _SEARCH is not None:
+        index = _SEARCH.adjust(
+            observation, index, _RANKER.last_scores, _RANKER
+        )
     _RANKER.commit(index)
     if _PLANNER is not None and not _RANKER.teacher_forced:
         _PLANNER.note(observation, select, index)
@@ -258,6 +264,8 @@ def diag_reset():
         _RANKER.reset()
     if _PLANNER is not None:
         _PLANNER.reset()
+    if _SEARCH is not None:
+        _SEARCH.reset()
 
 
 def diag_snapshot():
@@ -265,8 +273,10 @@ def diag_snapshot():
         "fallback": dict(fallback_policy.DIAG),
         "ml": _RANKER.snapshot() if _RANKER is not None else {},
         "planner": _PLANNER.snapshot() if _PLANNER is not None else {},
+        "value_search": _SEARCH.snapshot() if _SEARCH is not None else {},
         "load_error": _LOAD_ERROR,
         "planner_load_error": _PLANNER_ERROR,
+        "value_search_load_error": _SEARCH_ERROR,
     }
 
 

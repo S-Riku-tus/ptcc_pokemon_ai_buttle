@@ -48,6 +48,7 @@ a single scale. Every other decision in the game is byte-for-byte v5.
 
 from __future__ import annotations
 
+import copy
 import json
 import os
 from typing import Any
@@ -85,26 +86,13 @@ MAIN_CONTEXT = 0
 ESCALATION_TEACHER_TEAM = 16371703
 ESCALATION_TEACHER_CODE = 0
 # A decision class is a context plus one column that identifies the option the
-# class is about.  v7 keeps v6's Froslass class and enables the pre-registered
-# Petrel -> dead Unfair Stamp class with its own measured teacher.
-#
-# ``petrel_stamp`` is the gap with the strongest evidence behind it - taking
-# an Unfair Stamp that cannot be
-# played this turn runs with pilot rating at Spearman rho -0.626, p = 0.0029
-# over the 21 pilots, where the Froslass rate only reaches -0.355, p = 0.116 -
-# and the deployed pin is the worst pilot in the corpus on it, 71.3% against a
-# weighted field 56.0%. v6 held it back to keep that run single-variable; v7
-# enables it with team 16561259 (code 20), whose deployed counterfactual refuses
-# 7 of the pin's Stamp picks on 39 stored offers. See
-# experiments/v7_lopunny_matchup/RESULTS.md.
+# class is about.  The new v7 deliberately restores v6's routing table.  Its
+# broader change is the state-value search layer, not a second teacher pin.
 ESCALATION_CLASSES = (
     {"name": "froslass_evolve", "context": MAIN_CONTEXT,
      "column": "evolve_froslass", "value": 1,
      "teacher_team": ESCALATION_TEACHER_TEAM,
      "teacher_code": ESCALATION_TEACHER_CODE},
-    {"name": "petrel_stamp", "context": 7,
-     "column": "candidate_card_id", "value": 1080,
-     "teacher_team": 16561259, "teacher_code": 20},
 )
 AVAILABLE_ESCALATION_CLASSES = ESCALATION_CLASSES
 # "class"   - every select in the class is scored as the escalation pilot. This
@@ -601,6 +589,31 @@ class Ranker:
                 self.note_decision(features, chosen)
         except Exception:
             self.stats["feature_errors"] += 1
+
+    def save_dynamic_state(self) -> dict[str, Any]:
+        """Snapshot only mutable per-game state for counterfactual rollouts.
+
+        The 45 MB tree ensemble is intentionally not copied.  Search branches
+        may advance the same-turn history as if their candidate had been
+        played, then restore this compact snapshot before the real action is
+        committed.
+        """
+        return copy.deepcopy({
+            "teacher_forced": self.teacher_forced,
+            "_pending": self._pending,
+            "_turn_key": self._turn_key,
+            "_seen_candidate": self._seen_candidate,
+            "_seen_class": self._seen_class,
+            "_previous_offered": self._previous_offered,
+            "_position": self._position,
+            "last_scores": self.last_scores,
+            "stats": self.stats,
+        })
+
+    def restore_dynamic_state(self, state: dict[str, Any]) -> None:
+        """Restore a snapshot returned by :meth:`save_dynamic_state`."""
+        for name, value in state.items():
+            setattr(self, name, copy.deepcopy(value))
 
     def snapshot(self) -> dict[str, int]:
         return dict(self.stats)

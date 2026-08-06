@@ -3,120 +3,117 @@
   "role": "challenger",
   "archetype": "marnies_grimmsnarl_ex",
   "version": "7.0.0",
-  "created_at": "2026-08-06T18:00:00+09:00",
-  "updated_at": "2026-08-06T18:00:00+09:00",
+  "created_at": "2026-08-06T21:00:00+09:00",
+  "updated_at": "2026-08-06T21:00:00+09:00",
   "parent_agent": "grimmsnarl_ml_v6",
+  "replaces_previous_v7": true,
   "deck_changed": false,
   "deck_hash": "9714ab5c3996f6cc",
-  "deck_note": "Unchanged from v1-v7: the exact 60-card Grimmsnarl list used by the selected corpus.",
-  "model_changed": false,
-  "model_sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79",
-  "model_note": "Byte-identical to grimmsnarl_ml_v5 and v6: the same refreshed 2000-tree team-conditioned ranker, 823 features, 4,097 games, 322,975 decisions, 21 teams. v7 changes the teacher routing table, not the weights.",
-  "runtime_changed": true,
-  "rules_changed": false,
-  "rules_note": "fallback_policy.py, ml_planner.py, ml_features.py and policy_base.py are byte-identical to v5, including the v5 Punk Up and Buddy-Buddy Poffin search budgets and all five planner dominance rules.",
+  "deck_note": "The exact 60-card list is unchanged from v6.",
+  "ranker_changed": false,
+  "ranker_model_sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79",
+  "ranker_note": "Byte-identical to v6: the refreshed 2000-tree, 823-feature, 21-teacher imitation ranker. It remains the candidate generator.",
   "teacher_team_id": 16494330,
-  "teacher_leaderboard_rank": 30,
-  "teacher_submission_score": 1077.6,
+  "teacher_team_code": 16,
   "policy_escalation": {
     "mode": "class",
-    "trigger_feature": "evolve_froslass",
-    "trigger_context": 0,
     "teacher_team_id": 16371703,
     "teacher_code": 0,
-    "teacher_leaderboard_rank": 4,
-    "teacher_submission_score": 1220.2,
-    "code_source": "Dense 0..20 code from sorted team ids in corpus_v5_data_refresh_candidate.npz; asserted in tests/test_v6_teacher_escalation.py.",
-    "rationale": "The deployed pin 16494330 has the highest Froslass evolve rate of the 21 pilots in the corpus (95.7% of the turns it is offered, against 52.6% in the mirror for 16371703). v5 plays it on 59 of 59 offered turns, so the behaviour is faithful imitation of an outlier rather than a modelling error, and three previous versions failed to move a MAIN preference with feature columns. A MAIN select that offers the Froslass evolve is therefore scored end to end as pilot 16371703; every other decision keeps the pin.",
-    "scope_note": "One teacher code per argmax. The pin's answer on the escalated decisions is also computed, purely so the deployed change rate is a counted number in diag_snapshot rather than an assumption.",
-    "counters": [
-      "escalation_offered",
-      "escalation_scored",
-      "escalation_moved",
-      "escalation_refused_trigger"
-    ],
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "trigger_value": 1,
     "classes": [
       {
         "name": "froslass_evolve",
         "context": 0,
-        "trigger_feature": "evolve_froslass",
-        "trigger_value": 1,
         "teacher_team_id": 16371703,
-        "teacher_code": 0,
-        "introduced_in": "v6"
-      },
-      {
-        "name": "petrel_stamp",
-        "context": 7,
-        "trigger_feature": "candidate_card_id",
-        "trigger_value": 1080,
-        "teacher_team_id": 16561259,
-        "teacher_code": 20,
-        "introduced_in": "v7",
-        "evidence": "Dead Unfair Stamp take rate is the only measured pilot gap with a significant rating gradient (Spearman rho -0.626, permutation p 0.0029). Team 16561259 takes it on 33.0% of its own 103 dead offers versus 71.3% for the deployed pin. On the corrected teacher-forced 66-game v5 board probe it sees 39 offers, moves 6 decisions and refuses 5 Stamp picks, with one unrelated move."
+        "teacher_code": 0
       }
-    ]
+    ],
+    "note": "Exactly v6's routing table. The previous v7 Petrel/Stamp teacher route was removed."
   },
-  "policy": "v6's search budgets, one-ply planner and Froslass class are unchanged. Routed single-pick contexts use the refreshed 2000-tree ranker pinned to 16494330, except a MAIN select offering a Froslass evolve is scored as 16371703 and a Petrel search offering Unfair Stamp is scored as 16561259. Low-support context 8 remains on the rule policy. Multi-pick selects and face-down prize picks remain with the marnies_grimmsnarl_ex_v7 rule policy.",
-  "stored_board_validation": {
-    "instrument": "scripts/analyze_grimmsnarl_v3_behaviour.py",
-    "source_run": "data/runs/grimmsnarl/20260806_grimmsnarl_ml_v5_sub55275642",
-    "games": 66,
-    "mode": "escalation-only scoring with every replay action teacher-forced once",
-    "class_decisions": 122,
-    "class_agreement_with_replay": "96/122",
-    "escalation_moved": 23,
-    "escalation_refused_trigger": 18,
-    "classes": {
-      "froslass_evolve": {
-        "offered": 83,
-        "moved": 17,
-        "refused_trigger": 13,
-        "agent_evolved": "48/83",
-        "agent_evolved_on_net_negative": "11/25",
-        "parity_with_corrected_v6_probe": true
-      },
-      "petrel_stamp": {
-        "offered": 39,
-        "moved": 6,
-        "refused_trigger": 5,
-        "unrelated_moves": 1
-      }
+  "value_model": {
+    "file": "value_model.json",
+    "sha256": "3762129046b6a25eea8b154253d796d4956c2bb1621fcd9b5f3c301c8d89227d",
+    "kind": "grimmsnarl_state_value",
+    "target": "eventual_win",
+    "features": 381,
+    "private_hand_features": false,
+    "candidate_features": false,
+    "action_features": false,
+    "source": "corpus_v8_current_top4.npz",
+    "source_relations": 1014,
+    "source_unique_episodes": 991,
+    "source_teams": [16422241, 16452116, 16541765, 16561259],
+    "chronological_test": {
+      "states": 9495,
+      "episodes": 118,
+      "auc": 0.7849,
+      "logloss": 0.5414,
+      "turn_1_4_auc": 0.6299,
+      "turn_5_8_auc": 0.8139,
+      "turn_9_plus_auc": 0.8582
     },
-    "feature_errors": 0,
-    "score_errors": 0,
-    "evaluator_correction": "The earlier v6 full probe did not set ranker.teacher_forced and therefore entered candidate then replay actions into intra-turn history. The evaluator now suppresses candidate commits and advances only with the stored action. This changes the v6 Froslass counters from 16/12 to 17/13; v7 exactly matches the corrected v6 result on that inherited class."
+    "deployment_gate": "Disabled before turn 5 because early-turn test AUC is materially weaker."
+  },
+  "counterfactual_search": {
+    "engine": "cabt SearchBegin/SearchStep/SearchEnd",
+    "context": 0,
+    "minimum_turn": 5,
+    "maximum_searches_per_turn": 1,
+    "candidate_source": "top imitation-ranker representatives",
+    "maximum_candidates": 3,
+    "maximum_ranker_score_gap": 3.0,
+    "minimum_value_gain": 0.06,
+    "maximum_rollout_steps": 48,
+    "rollout_policy": "v6 ranker plus a fresh v6 fallback-policy tracker",
+    "leaf": "terminal result or next player's public board",
+    "planner_guard": "Never overrides an action already changed by the arithmetic dominance planner.",
+    "failure_mode": "Any load/search/branch failure returns the v6 action."
   },
   "imitation_fidelity": {
-    "target": 0.9,
-    "target_met": true,
-    "metric": "Exact raw action-index agreement of the complete v7 runtime under teacher forcing; stricter than semantic Top-1 because an interchangeable duplicate at another index remains a miss.",
     "teacher_team_id": 16494330,
-    "source": "The teacher's 18 per-team chronological held-out games beginning at episode 89418031.",
     "episodes": 18,
     "single_pick_decisions": 1706,
-    "exact_top1": 0.9127,
-    "decision_level_wilson95": [0.8983, 0.9251],
-    "uncertainty_note": "The 0.90 gate is met by the held-out point estimate; its decision-level 95% lower bound is 0.8983. The audit artifact is experiments/grimmsnarl_ml_v8_imitation/runtime_v7_teacher16494330.json.",
-    "pooled_85_percent_note": "The 0.8500 offline figure averages 21 distinct policies while scoring each row with its own teacher code; it is a representation benchmark, not the fidelity of the deployed fixed-teacher runtime.",
-    "base_pin_offline_top1": 0.9282,
-    "production_model_replaced": false,
-    "rejection_note": "A dedicated current-top-teacher ranker scored 0.8311, an offered-set next-action reranker scored 0.8417 (no test gain), and a fresh current-top-four ranker scored 0.8222 pooled. None was eligible to replace the verified runtime."
+    "exact_action_index_agreement": 0.9138,
+    "target": 0.9,
+    "target_met": true,
+    "searches": 70,
+    "branches": 180,
+    "value_overrides": 1,
+    "branch_errors": 0,
+    "incomplete_branches": 0,
+    "report": "experiments/grimmsnarl_ml_v7_value/pinned_teacher_runtime.json"
   },
   "local_validation": {
-    "versus_v6": {
-      "games": 20, "seed": 7001, "wins": 9, "losses": 11, "draws": 0,
-      "win_rate": 0.45, "crashes": 0, "illegal_selects": 0,
-      "candidate_avg_ms_per_move": 73.83, "v6_avg_ms_per_move": 71.08,
-      "note": "Safety/large-regression screen only; 20 mirror games cannot resolve this narrow class change. The two arenas ran concurrently, so timing is comparable within this match only."
+    "mirror_enabled": {
+      "games": 8,
+      "wins": 2,
+      "losses": 6,
+      "crashes": 0,
+      "illegal_selects": 0,
+      "average_ms_per_move": 117.21,
+      "interpretation": "Small unpaired outcome screen, not evidence of a causal regression. A separate online teacher-forced game produced 0 action differences over 191 decisions while search executed 8 times."
     },
-    "versus_a7ee2991_sparring_panel": {
-      "games": 20, "seed": 7001, "wins": 14, "losses": 6, "draws": 0,
-      "win_rate": 0.7, "v6_control_same_seed": {"wins": 10, "losses": 10},
-      "crashes": 0, "illegal_selects": 0,
-      "interpretation": "Not outcome evidence: the opponent model has only 56.65% non-forced semantic agreement on its chronological 20-game test. It is retained as a board-generation and safety instrument."
+    "mirror_search_disabled": {
+      "games": 4,
+      "wins": 2,
+      "losses": 2,
+      "crashes": 0,
+      "illegal_selects": 0,
+      "average_ms_per_move": 73.81
     },
-    "agent_tests": 164
+    "a7_safety_panel": {
+      "games": 8,
+      "wins": 6,
+      "losses": 2,
+      "crashes": 0,
+      "illegal_selects": 0,
+      "average_ms_per_move": 105.05,
+      "interpretation": "Safety only: the opponent imitation model has 56.65% unseen semantic agreement, so this win rate is not matchup efficacy evidence."
+    },
+    "tests": 167
   },
-  "description": "v7 is the single-variable successor to v6: it retains the Froslass class and enables the pre-registered Petrel-to-dead-Unfair-Stamp class with a separate measured teacher. The deck, model, features, fallback policy and planner are unchanged. A local Mega Lopunny ex / Mega Froslass ex sparring agent was also built from 106 opponent-seat replays, but its 56.6% unseen semantic agreement is below the gate for using its win rate to justify a matchup-specific production rule."
+  "policy": "v6 generates and protects actions. From turn five, once per turn, only an ambiguous top-three MAIN candidate set is rolled to the end of the turn in the real engine. The public outcome value head may replace v6 only when its predicted gain is at least 0.06.",
+  "description": "A replacement v7 that preserves v6's high-fidelity imitation and adds a conservative, actual-transition outcome-value layer instead of another narrow teacher pin."
 }

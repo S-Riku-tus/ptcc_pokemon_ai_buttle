@@ -30,7 +30,6 @@ from ml_runtime import Ranker  # noqa: E402
 PIN_CODE = 16
 ELITE_CODE = ml_runtime.ESCALATION_TEACHER_CODE
 FROSLASS_CLASS = ml_runtime.ESCALATION_CLASSES[0]
-PETREL_CLASS = ml_runtime.ESCALATION_CLASSES[1]
 TRIGGER = FROSLASS_CLASS["column"]
 NAMES = ["candidate_card_id", TRIGGER, "teacher_team_id"]
 
@@ -312,7 +311,6 @@ def test_escalation_code_is_the_corpus_dense_code_for_that_team() -> None:
     codes = {team: index for index, team in enumerate(teams)}
     assert codes[ml_runtime.ESCALATION_TEACHER_TEAM] == ELITE_CODE
     assert codes[16494330] == PIN_CODE
-    assert codes[PETREL_CLASS["teacher_team"]] == PETREL_CLASS["teacher_code"]
 
 
 def test_metadata_records_the_escalation() -> None:
@@ -328,55 +326,27 @@ def test_metadata_records_the_escalation() -> None:
 # ----- the class table -------------------------------------------------------
 
 
-def test_v7_ships_the_froslass_and_petrel_classes() -> None:
-    """v7 retains v6's class and adds the pre-registered Petrel class."""
+def test_v7_keeps_only_the_v6_froslass_teacher_class() -> None:
+    """The replacement v7 changes search/value, not teacher routing."""
     assert [spec["name"] for spec in ml_runtime.ESCALATION_CLASSES] == [
-        "froslass_evolve", "petrel_stamp"
+        "froslass_evolve"
     ]
     assert FROSLASS_CLASS["context"] == 0
     assert FROSLASS_CLASS["column"] == "evolve_froslass"
     assert FROSLASS_CLASS["value"] == 1
 
 
-def test_the_petrel_class_uses_its_measured_teacher() -> None:
+def test_petrel_teacher_route_was_removed_from_the_replacement_v7() -> None:
     names = [spec["name"] for spec in ml_runtime.AVAILABLE_ESCALATION_CLASSES]
-    assert names == ["froslass_evolve", "petrel_stamp"]
-    petrel = ml_runtime.AVAILABLE_ESCALATION_CLASSES[1]
-    assert petrel["context"] == 7 and petrel["value"] == 1080
-    assert petrel in ml_runtime.ESCALATION_CLASSES
-    assert petrel["teacher_team"] == 16561259
-    assert petrel["teacher_code"] == 20
-
-
-def test_petrel_class_scores_one_argmax_as_its_own_teacher(
-    _stub_tree_score,
-) -> None:
-    scores = {
-        (PIN_CODE, 1080): 9.0, (PIN_CODE, 1182): 1.0,
-        (20, 1080): 1.0, (20, 1182): 9.0,
-    }
-    ranker = build("class", scores)
-    ranker.escalation_classes = (dict(PETREL_CLASS),)
-    ranker.contexts = frozenset({0, 5, 7})
-    ranker.reset()
-    obs = observation([1080, 1182], trigger=[], context=7)
-    wire(ranker, _stub_tree_score, obs)
-
-    assert ranker.choose(obs) == 1
-    assert set(ranker.calls) == {
-        (PIN_CODE, 1080), (PIN_CODE, 1182),
-        (20, 1080), (20, 1182),
-    }
-    assert ranker.stats["escalation_moved_petrel_stamp"] == 1
-    assert ranker.stats["escalation_refused_trigger_petrel_stamp"] == 1
+    assert names == ["froslass_evolve"]
 
 
 def test_env_selects_measured_classes_and_never_an_unknown_one(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setenv("GRIMMSNARL_ESCALATION_CLASSES", "petrel_stamp")
+    monkeypatch.setenv("GRIMMSNARL_ESCALATION_CLASSES", "froslass_evolve")
     assert [s["name"] for s in ml_runtime.escalation_classes()] == [
-        "petrel_stamp"
+        "froslass_evolve"
     ]
     monkeypatch.setenv("GRIMMSNARL_ESCALATION_CLASSES", "nonsense")
     assert ml_runtime.escalation_classes() == ml_runtime.ESCALATION_CLASSES
