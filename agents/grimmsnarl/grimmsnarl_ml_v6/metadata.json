@@ -1,0 +1,90 @@
+{
+  "name": "grimmsnarl_ml_v6",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "6.0.0",
+  "created_at": "2026-08-06T14:00:00+09:00",
+  "updated_at": "2026-08-06T14:00:00+09:00",
+  "parent_agent": "grimmsnarl_ml_v5",
+  "deck_changed": false,
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_note": "Unchanged from v1-v6: the exact 60-card Grimmsnarl list used by the selected corpus.",
+  "model_changed": false,
+  "model_sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79",
+  "model_note": "Byte-identical to grimmsnarl_ml_v5: the same refreshed 2000-tree team-conditioned ranker, 823 features, 4,097 games, 322,975 decisions, 21 teams. v6 changes which pilot the model is asked about on one decision class, not the weights.",
+  "rules_changed": false,
+  "rules_note": "fallback_policy.py, ml_planner.py, ml_features.py and policy_base.py are byte-identical to v5, including the v5 Punk Up and Buddy-Buddy Poffin search budgets and all five planner dominance rules.",
+  "teacher_team_id": 16494330,
+  "teacher_leaderboard_rank": 30,
+  "teacher_submission_score": 1077.6,
+  "policy_escalation": {
+    "mode": "class",
+    "trigger_feature": "evolve_froslass",
+    "trigger_context": 0,
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "teacher_leaderboard_rank": 4,
+    "teacher_submission_score": 1220.2,
+    "code_source": "Dense 0..20 code from sorted team ids in corpus_v5_data_refresh_candidate.npz; asserted in tests/test_v6_teacher_escalation.py.",
+    "rationale": "The deployed pin 16494330 has the highest Froslass evolve rate of the 21 pilots in the corpus (95.7% of the turns it is offered, against 52.6% in the mirror for 16371703). v5 plays it on 59 of 59 offered turns, so the behaviour is faithful imitation of an outlier rather than a modelling error, and three previous versions failed to move a MAIN preference with feature columns. A MAIN select that offers the Froslass evolve is therefore scored end to end as pilot 16371703; every other decision keeps the pin.",
+    "scope_note": "One teacher code per argmax. The pin's answer on the escalated decisions is also computed, purely so the deployed change rate is a counted number in diag_snapshot rather than an assumption.",
+    "counters": [
+      "escalation_offered",
+      "escalation_scored",
+      "escalation_moved",
+      "escalation_refused_trigger"
+    ]
+  },
+  "policy": "v5's search budgets and one-ply planner are unchanged. MAIN and the other routed single-pick contexts use the refreshed 2000-tree team-conditioned ranker pinned to 16494330, except that a MAIN select offering a Froslass evolve is scored as 16371703. Low-support context 8 remains on the rule policy. Multi-pick selects and face-down prize picks remain with the marnies_grimmsnarl_ex_v7 rule policy.",
+  "stored_board_validation": {
+    "instrument": "scripts/analyze_grimmsnarl_v3_behaviour.py",
+    "source_run": "data/runs/grimmsnarl/20260806_grimmsnarl_ml_v5_sub55275642",
+    "games": 66,
+    "decisions": 6095,
+    "agreement_with_v5_play": 0.9782,
+    "v5_self_agreement_floor": 0.9811,
+    "decisions_changed": 18,
+    "escalation_offered": 83,
+    "escalation_offered_share_of_decisions": 0.0131,
+    "escalation_moved": 16,
+    "escalation_refused_trigger": 12,
+    "froslass_evolve_own_turns": {"v5": "58/59", "v6": "46/59", "global_elite_pin": "46/59"},
+    "froslass_evolve_decisions": {"v5": "62/83", "v6": "49/83"},
+    "froslass_evolve_net_negative": {"v5": "19/25", "v6": "11/25"},
+    "unchanged": {
+      "grimmsnarl_evolve_own_turns": "81/130",
+      "dark_attachment_own_turns": "230/316",
+      "enabling_attachment_own_turns": "186/195",
+      "adrena_brain_passes_damaged_grimmsnarl": "92/256",
+      "bench30_best_prize_ko": "52/52",
+      "counters_moved_maximum": "385/385"
+    },
+    "boss_played_own_turns": {"v5": "42/118", "v6": "41/118"},
+    "changed_decisions_that_gave_up_an_attack": 0,
+    "feature_errors": 0,
+    "score_errors": 0,
+    "global_pin_rejected_because": "Pinning every context to 16371703 reproduces the same Froslass numbers but changes 712 decisions and drops the Grimmsnarl ex evolve from 81/130 to 56/130, Boss from 42/118 to 28/118, and the best-prize Bench-30 kill from 52/52 to 51/52."
+  },
+  "local_validation": {
+    "mirror_versus_v5": {
+      "games": 60, "seed": 1705, "wins": 29, "losses": 31, "draws": 0,
+      "win_rate": 0.4833, "crashes": 0, "illegal_selects": 0,
+      "candidate_avg_ms_per_move": 45.06, "v5_avg_ms_per_move": 43.08,
+      "note": "Read for safety and timing only; 299 paired mirror games could not separate v5 from v4."
+    },
+    "versus_alakazam_ml_v35": {
+      "games": 40, "seed": 314159,
+      "candidate": {"wins": 24, "losses": 16, "win_rate": 0.6},
+      "v5_control_same_seed": {"wins": 22, "losses": 18, "win_rate": 0.55},
+      "crashes": 0, "illegal_selects": 0
+    },
+    "live_escalation_rate": {
+      "opponent": "alakazam_ml_v35", "games": 24,
+      "scored_decisions": 1649, "escalation_offered": 46,
+      "offered_share": 0.0279, "moved": 8, "moved_share_of_offered": 0.1739,
+      "note": "Higher than the teacher-forced 1.52% because refusing the evolve leaves the Snorunt benched with the Froslass in hand, so the class re-fires on later turns."
+    },
+    "agent_tests": 159
+  },
+  "description": "v6 keeps every v5 behaviour and swaps the teacher for one decision class. The v5 ladder run met all six of its pre-registered resource targets and left the Froslass over-evolve at 100% of offered turns; that behaviour is the deployed pin's own policy, so v6 asks the 1220.2-rated pilot about that class instead of adding a rule or a feature."
+}

@@ -1,0 +1,154 @@
+episodes=66 baseline_code=16 context_pins={}
+{
+  "totals": {
+    "episodes": 66,
+    "decisions": 6095,
+    "agreements": 5966
+  },
+  "agreement": 0.9788,
+  "groups": {
+    "boss_play": {
+      "counts": {
+        "offered": 439,
+        "played_played_boss": 42,
+        "agent_played_boss": 42,
+        "offered_with_snipe_lethal": 47,
+        "played_played_boss_with_snipe_lethal": 5,
+        "agent_played_boss_with_snipe_lethal": 5
+      },
+      "played_play_rate": 0.0957,
+      "played_play_rate_with_snipe_lethal": 0.1064,
+      "agent_play_rate": 0.0957,
+      "agent_play_rate_with_snipe_lethal": 0.1064
+    },
+    "boss_target": {
+      "counts": {
+        "decisions": 42,
+        "snipe_lethal_existed": 5
+      },
+      "played_snipe_lethal_rate": 0.0,
+      "agent_snipe_lethal_rate": 0.0
+    },
+    "counter_count": {
+      "counts": {
+        "decisions": 385,
+        "played_chose_max": 385,
+        "agent_chose_max": 385
+      },
+      "played_max_rate": 1.0,
+      "agent_max_rate": 1.0
+    },
+    "froslass_evolve": {
+      "counts": {
+        "opportunities": 83,
+        "played_evolved": 63,
+        "agent_evolved": 56,
+        "negative_opportunities": 25,
+        "played_negative_evolved": 19,
+        "agent_negative_evolved": 12
+      },
+      "played_evolve_rate": 0.759,
+      "played_negative_evolve_rate": 0.76,
+      "agent_evolve_rate": 0.6747,
+      "agent_negative_evolve_rate": 0.48
+    },
+    "munkidori_source": {
+      "counts": {
+        "decisions": 408,
+        "grimmsnarl_offered": 256,
+        "played_passed_grimmsnarl": 76,
+        "agent_passed_grimmsnarl": 92,
+        "differed": 18
+      },
+      "played_pass_rate": 0.2969,
+      "agent_pass_rate": 0.3594,
+      "offered_wilson95": [
+        0.3031,
+        0.4198
+      ]
+    },
+    "snipe_target": {
+      "counts": {
+        "decisions": 234,
+        "ko_available": 52,
+        "played_chose_ko": 52,
+        "played_chose_best_prize_ko": 52,
+        "agent_chose_ko": 52,
+        "agent_chose_best_prize_ko": 52
+      },
+      "played_ko_rate": 1.0,
+      "played_best_prize_rate": 1.0,
+      "agent_ko_rate": 1.0,
+      "agent_best_prize_rate": 1.0
+    },
+    "turn_resources": {
+      "counts": {
+        "turns": 417,
+        "agent_enabling_energy": 185,
+        "agent_energy": 229,
+        "offer_enabling_energy": 195,
+        "offer_energy": 316,
+        "played_enabling_energy": 187,
+        "played_energy": 233,
+        "agent_grimmsnarl": 81,
+        "offer_grimmsnarl": 130,
+        "played_grimmsnarl": 82,
+        "offer_boss": 118,
+        "agent_boss": 41,
+        "played_boss": 42,
+        "agent_froslass": 52,
+        "offer_froslass": 59,
+        "played_froslass": 59,
+        "agent_wall_unlock": 4,
+        "offer_wall_unlock": 4,
+        "played_wall_unlock": 3
+      },
+      "played_energy_rate": 0.7373,
+      "agent_energy_rate": 0.7247,
+      "energy_turns": 316,
+      "agent_energy_wilson95": [
+        0.673,
+        0.771
+      ],
+      "played_enabling_energy_rate": 0.959,
+      "agent_enabling_energy_rate": 0.9487,
+      "enabling_energy_turns": 195,
+      "agent_enabling_energy_wilson95": [
+        0.9082,
+        0.9719
+      ],
+      "played_boss_rate": 0.3559,
+      "agent_boss_rate": 0.3475,
+      "boss_turns": 118,
+      "agent_boss_wilson95": [
+        0.2676,
+        0.437
+      ],
+      "played_froslass_rate": 1.0,
+      "agent_froslass_rate": 0.8814,
+      "froslass_turns": 59,
+      "agent_froslass_wilson95": [
+        0.7748,
+        0.9413
+      ],
+      "played_grimmsnarl_rate": 0.6308,
+      "agent_grimmsnarl_rate": 0.6231,
+      "grimmsnarl_turns": 130,
+      "agent_grimmsnarl_wilson95": [
+        0.5374,
+        0.7017
+      ],
+      "played_wall_unlock_rate": 0.75,
+      "agent_wall_unlock_rate": 1.0,
+      "wall_unlock_turns": 4,
+      "agent_wall_unlock_wilson95": [
+        0.5101,
+        1.0
+      ],
+      "played_wall_unlock_swing_rate": 0.0,
+      "played_energy_per_game": 233,
+      "agent_wall_unlock_swing_rate": 0.0,
+      "agent_energy_per_game": 229
+    }
+  }
+}

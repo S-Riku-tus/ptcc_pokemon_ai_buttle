@@ -1,0 +1,52 @@
+{
+  "agent_a": "grimmsnarl_ml_v6",
+  "agent_b": "alakazam_ml_v35",
+  "games": 40,
+  "seed": 314159,
+  "wins": {
+    "A": 24,
+    "B": 16,
+    "draw": 0
+  },
+  "win_rate_a_excluding_draws": 0.6,
+  "first_wins": {
+    "A": 14,
+    "B": 10
+  },
+  "agent_error_by_seat": [
+    0,
+    0
+  ],
+  "illegal_by_seat": [
+    0,
+    0
+  ],
+  "seat_moves": [
+    2979,
+    2896
+  ],
+  "seat_avg_ms": [
+    49.076455152520396,
+    52.75129827322471
+  ],
+  "agent_moves": {
+    "A": 3236,
+    "B": 2639
+  },
+  "agent_avg_ms": {
+    "A": 37.789609116392455,
+    "B": 66.94935376959873
+  },
+  "diagnostics": {
+    "A": null,
+    "B": {
+      "decisions": 2619,
+      "policy_ok": 2619,
+      "policy_fallback": 0,
+      "obs_fallback": 0,
+      "deck_returns": 1,
+      "errors": {},
+      "fallback_rate": 0.0
+    }
+  }
+}

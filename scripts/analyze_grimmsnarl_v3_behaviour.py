@@ -169,6 +169,38 @@ def episode_paths(args: argparse.Namespace) -> list[tuple[Path, int, int]]:
     return out
 
 
+def configure_escalation(
+    ranker, args, codes: dict[int, int]
+) -> dict[str, Any] | None:
+    """Point a v6+ agent's conditional escalation at a chosen pilot and mode.
+
+    The agent decides this for itself; the flags exist so the escalation
+    teacher and the class/confirm choice can be A/B'd on identical stored
+    boards without editing and reloading a 45 MB model each time. Agents older
+    than v6 have no escalation and the flags must then be refused rather than
+    silently ignored.
+    """
+    asked = args.escalation_mode is not None or args.escalation_team is not None
+    if not hasattr(ranker, "escalation_mode"):
+        if asked:
+            raise SystemExit("this agent has no conditional teacher escalation")
+        return None
+    if args.escalation_mode is not None:
+        ranker.escalation_mode = args.escalation_mode
+    if args.escalation_team is not None:
+        ranker.escalation_code = codes[args.escalation_team]
+    if ranker.escalation_mode == "off":
+        ranker.escalation_code = None
+    elif ranker.escalation_code is None:
+        raise SystemExit("escalation mode is on but no escalation code is set")
+    return {
+        "mode": ranker.escalation_mode,
+        "code": ranker.escalation_code,
+        "team": args.escalation_team,
+        "overridden": asked,
+    }
+
+
 def team_code_map(corpus: Path) -> dict[int, int]:
     import numpy as np
 
@@ -360,6 +392,15 @@ def main() -> int:
         help="context:team pairs, e.g. '16:16371703,4:16371703'. Applies on "
              "top of --pin-team.",
     )
+    parser.add_argument(
+        "--escalation-mode", choices=("class", "confirm", "off"),
+        help="v6+: override the agent's conditional teacher escalation mode.",
+    )
+    parser.add_argument(
+        "--escalation-team", type=int,
+        help="v6+: score the escalated decision class as this pilot instead "
+             "of the one the agent ships with.",
+    )
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
@@ -370,6 +411,7 @@ def main() -> int:
 
     observe_hook = getattr(module, "observe_external", None)
     codes = team_code_map(args.corpus)
+    escalation = configure_escalation(ranker, args, codes)
     baseline_code = ranker.teacher_code
     if args.pin_team is not None:
         baseline_code = codes[args.pin_team]
@@ -384,6 +426,7 @@ def main() -> int:
     # harvested before each reset and once more at the end. Without this the
     # report would show only the last game's overrides.
     planner_totals: Counter[str] = Counter()
+    ranker_totals: Counter[str] = Counter()
     episodes = episode_paths(args)
     if not episodes:
         raise SystemExit("no episodes found")
@@ -397,6 +440,7 @@ def main() -> int:
         replay = json.loads(path.read_text(encoding="utf-8"))
         steps = replay.get("steps") or []
         _accumulate_planner(module, planner_totals)
+        _accumulate_section(module, "ml", ranker_totals)
         module.diag_reset()
         totals["episodes"] += 1
         pending_boss: dict[str, Any] | None = None
@@ -473,6 +517,7 @@ def main() -> int:
         tracker.flush()
 
     _accumulate_planner(module, planner_totals)
+    _accumulate_section(module, "ml", ranker_totals)
     report = {
         "agent_dir": str(args.agent_dir.resolve()),
         "source": str((args.run_dir or args.data_root).resolve()),
@@ -480,6 +525,8 @@ def main() -> int:
         "pin_team": args.pin_team,
         "pin_context": args.pin_context or None,
         "baseline_code": baseline_code,
+        "escalation": escalation,
+        "ranker": dict(ranker_totals),
         "totals": dict(totals),
         "agreement_with_replay": rate(totals, "agreements", "decisions"),
         "planner": dict(planner_totals),
@@ -504,6 +551,24 @@ def main() -> int:
         ensure_ascii=False, indent=2,
     ))
     return 0
+
+
+def _accumulate_section(module, section: str, totals: Counter[str]) -> None:
+    """Sum one ``diag_snapshot`` section across episodes.
+
+    ``diag_reset()`` clears the runtime's counters per episode, so a section
+    read only at the end would report the last game rather than the run.
+    """
+    snapshot = getattr(module, "diag_snapshot", None)
+    if snapshot is None:
+        return
+    try:
+        values = (snapshot() or {}).get(section) or {}
+    except Exception:
+        return
+    for key, value in values.items():
+        if isinstance(value, (int, float)):
+            totals[key] += int(value)
 
 
 def _accumulate_planner(module, totals: Counter[str]) -> None:
@@ -577,6 +642,7 @@ def summarise(name: str, probe: Probe) -> dict[str, Any]:
             out[f"{who}_negative_evolve_rate"] = rate(
                 counts, f"{who}_negative_evolved", "negative_opportunities"
             )
+        out["changed_decisions"] = probe.examples
     elif name == "boss_play":
         for who in ("played", "agent"):
             out[f"{who}_play_rate"] = rate(
@@ -858,6 +924,20 @@ def record_decision(
                     probe.add(f"{who}_evolved")
                     if net < 0:
                         probe.add(f"{who}_negative_evolved")
+            # This select is the v6 escalated class, so every decision the
+            # candidate changes here is the candidate's entire footprint. An
+            # aggregate rate cannot show whether one of those swapped an attack
+            # away; the ledger can, and it is short enough to read.
+            if chosen is not None and chosen != played:
+                probe.examples.append({
+                    "episode": episode_id,
+                    "turn": int(current.get("turn", -1)),
+                    "shroud_net": net,
+                    "played_action": actions[played],
+                    "played_card": cards[played],
+                    "agent_action": actions[chosen],
+                    "agent_card": cards[chosen],
+                })
 
         boss_slots = [
             slot for slot, action in enumerate(actions)

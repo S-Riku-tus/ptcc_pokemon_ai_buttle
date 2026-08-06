@@ -134,3 +134,32 @@ trigger is at least 200-500 new same-deck games overall, at least 100 new games
 for a strategically important top team, a roughly 10% corpus increase, or a
 material leaderboard/metagame shift. A trigger starts an experiment; it does
 not automatically promote its model.
+
+## Deciding whether a refresh is due
+
+"Collect continuously" is not automatic, and the archive cannot tell you it has
+gone stale: the EpisodeService only serves episodes for a *submission id*, so
+when a pilot replaces their submission our tracked ids simply stop returning new
+games and the index looks like a static meta. On 2026-08-06 the archive had zero
+new same-deck games since the previous day's refresh while 559 were in fact
+available.
+
+Measure it before deciding, with a throwaway leaderboard snapshot and one replay
+per submission - read-only, nothing written into the corpus:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\fetch_kaggle_top100_snapshot.py `
+  --top-n 60 --output-root .\.tmp\lb_snapshot
+
+.\.venv\Scripts\python.exe `
+  .\experiments\grimmsnarl_ml_v6\measure_refresh_opportunity.py `
+  --submissions .\.tmp\lb_snapshot\latest\public_submissions_top60.csv `
+  --scratch .\.tmp\deck_probe --top 40 `
+  --out .\experiments\grimmsnarl_ml_v6\refresh_opportunity.json
+```
+
+It reports which current submissions still play deck hash `9714ab5c3996f6cc`,
+which of those are new to the frozen selection, and how many episodes they have.
+It also answers a question no corpus metric does: whether the archetype is still
+worth training on at all. On 2026-08-06 only 6 of the top 40 played this list,
+against 51% of the top 50 four days earlier.
