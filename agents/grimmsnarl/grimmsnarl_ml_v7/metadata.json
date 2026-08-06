@@ -87,6 +87,22 @@
     "score_errors": 0,
     "evaluator_correction": "The earlier v6 full probe did not set ranker.teacher_forced and therefore entered candidate then replay actions into intra-turn history. The evaluator now suppresses candidate commits and advances only with the stored action. This changes the v6 Froslass counters from 16/12 to 17/13; v7 exactly matches the corrected v6 result on that inherited class."
   },
+  "imitation_fidelity": {
+    "target": 0.9,
+    "target_met": true,
+    "metric": "Exact raw action-index agreement of the complete v7 runtime under teacher forcing; stricter than semantic Top-1 because an interchangeable duplicate at another index remains a miss.",
+    "teacher_team_id": 16494330,
+    "source": "The teacher's 18 per-team chronological held-out games beginning at episode 89418031.",
+    "episodes": 18,
+    "single_pick_decisions": 1706,
+    "exact_top1": 0.9127,
+    "decision_level_wilson95": [0.8983, 0.9251],
+    "uncertainty_note": "The 0.90 gate is met by the held-out point estimate; its decision-level 95% lower bound is 0.8983. The audit artifact is experiments/grimmsnarl_ml_v8_imitation/runtime_v7_teacher16494330.json.",
+    "pooled_85_percent_note": "The 0.8500 offline figure averages 21 distinct policies while scoring each row with its own teacher code; it is a representation benchmark, not the fidelity of the deployed fixed-teacher runtime.",
+    "base_pin_offline_top1": 0.9282,
+    "production_model_replaced": false,
+    "rejection_note": "A dedicated current-top-teacher ranker scored 0.8311, an offered-set next-action reranker scored 0.8417 (no test gain), and a fresh current-top-four ranker scored 0.8222 pooled. None was eligible to replace the verified runtime."
+  },
   "local_validation": {
     "versus_v6": {
       "games": 20, "seed": 7001, "wins": 9, "losses": 11, "draws": 0,

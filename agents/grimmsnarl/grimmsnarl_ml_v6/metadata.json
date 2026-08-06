@@ -86,5 +86,46 @@
     },
     "agent_tests": 159
   },
+  "ladder_run": {
+    "submission_id": 55290882,
+    "fetched_at_local": "2026-08-06T19:05:00+09:00",
+    "rating": 996.6,
+    "episodes": 55,
+    "rated_games": 54,
+    "wins": 38,
+    "losses": 16,
+    "win_rate": 0.7037,
+    "mean_opponent_rating": 865.6,
+    "win_rate_under_900": 0.8261,
+    "win_rate_900_1000": 0.6207,
+    "win_rate_900_plus": 0.6129,
+    "went_first": 0.75,
+    "went_second": 0.6522,
+    "v5_control": {
+      "submission_id": 55275642, "rating": 963.7, "rated_games": 65,
+      "win_rate": 0.6615, "mean_opponent_rating": 859.6,
+      "win_rate_900_plus": 0.5333
+    },
+    "significance": "Fisher exact v6 vs v5: p=0.695 overall, p=0.609 at 900+.",
+    "gates": {
+      "froslass_evolve_own_turns": "41/56 = 0.732, target 0.60-0.85: pass",
+      "froslass_negative_decisions": "13/31 = 0.419, target <=0.55: pass",
+      "escalation_offered_share": "135/4866 = 0.0277, target 0.015-0.040: pass",
+      "escalation_moved_share": "49/135 = 0.363, target 0.10-0.30: MISS high",
+      "grimmsnarl_evolve_per_turn": "72/111 = 0.649: pass",
+      "dark_attachment_per_turn": "208/268 = 0.776: pass",
+      "enabling_attachment": "167/172 = 0.971: pass",
+      "boss_per_turn": "35/89 = 0.393: pass",
+      "adrena_brain_damaged_pass": "85/238 = 0.357: pass",
+      "counters_moved_maximum": "375/375: pass",
+      "bench30_best_prize_ko": "37/38 = 0.974: marginal miss, agent and replay agree",
+      "darkness_left_in_deck": "4.09 overall, 2.56 from turn 5: pass",
+      "errors": "0 crashes, 0 illegal selects, 0 feature/score/planner errors"
+    },
+    "probe_self_agreement": 0.9818,
+    "probe_self_agreement_floor": 0.9811,
+    "open_gap": "Unfair Stamp that cannot be played this turn rose to 29/33 = 0.879 against the current top pilots' 0.330-0.495; the petrel_stamp class is implemented and held behind GRIMMSNARL_ESCALATION_CLASSES.",
+    "report": "experiments/grimmsnarl_ml_v6/LADDER_RUN_sub55290882.md"
+  },
   "description": "v6 keeps every v5 behaviour and swaps the teacher for one decision class. The v5 ladder run met all six of its pre-registered resource targets and left the Froslass over-evolve at 100% of offered turns; that behaviour is the deployed pin's own policy, so v6 asks the 1220.2-rated pilot about that class instead of adding a rule or a feature."
 }
