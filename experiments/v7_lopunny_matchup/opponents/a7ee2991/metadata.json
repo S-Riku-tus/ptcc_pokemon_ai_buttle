@@ -1,0 +1,34 @@
+{
+  "name": "a7ee2991_sparring_v1",
+  "role": "local_sparring_only",
+  "deck_hash": "a7ee29914c1dce64",
+  "archetype": "Mega Lopunny ex / Mega Froslass ex / Dudunsparce",
+  "source": "Opponent seats in 106 exact-deck replays from data/kaggle_grimmsnarl_top50",
+  "seat_verification": "Opposite of replay_index submitted seat, then exact replay-header deck-hash verification",
+  "corpus": {
+    "games": 106,
+    "decisions": 9233,
+    "candidate_rows": 82734,
+    "train_games": 66,
+    "validation_games": 20,
+    "test_games": 20,
+    "deck_signatures": 1,
+    "deck_mismatches": 0
+  },
+  "model": {
+    "ranker": "LightGBM LambdaRank distilled to standard-library JSON",
+    "ranker_trees": 800,
+    "count_model_trees": 300,
+    "runtime_deepset": false
+  },
+  "chronological_test": {
+    "nonforced_semantic_exact": 0.5664634146341463,
+    "single_choice_top1": 0.5643889618922471,
+    "single_choice_top3": 0.8764783180026281,
+    "main_single_choice_top1": 0.48512173128944996,
+    "variable_count_accuracy": 0.9758064516129032,
+    "outcome_gate_met": false
+  },
+  "allowed_use": "Generate realistic mixed-archetype boards, detect crashes/illegal actions, and reject large regressions.",
+  "forbidden_interpretation": "Its arena win rate is not an estimate of the real matchup and cannot justify a production planner preference until unseen semantic agreement or an independent outcome calibration improves materially."
+}

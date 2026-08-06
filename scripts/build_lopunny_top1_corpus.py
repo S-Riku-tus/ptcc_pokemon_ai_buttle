@@ -1,4 +1,4 @@
-"""Build a leakage-audited imitation corpus from the rank-1 Lopunny logs.
+"""Build a leakage-audited all-context imitation corpus.
 
 The replay stores an observation at step ``t`` and the action produced from it
 on the same seat at step ``t + 1``.  This is the alignment already validated by
@@ -10,7 +10,9 @@ Unlike the Alakazam corpus, this dataset keeps every selection context and
 supports multiple selected options.  Candidate rows carry binary membership
 labels; a separate per-decision matrix is exported for variable pick-count
 learning.  Episode-level chronological splits prevent adjacent decisions from
-the same game leaking across train, validation, and test.
+the same game leaking across train, validation, and test.  The optional
+``--opponent-deck-hash`` mode learns from the opposite replay seat after exact
+header/deck verification, turning saved opponents into sparring teachers.
 """
 
 from __future__ import annotations
@@ -26,8 +28,12 @@ from typing import Any
 
 import numpy as np
 
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from ml.core.replay_io import extract_fast_header_from_file  # noqa: E402
+
+
 DEFAULT_RUN = (
     ROOT
     / "data"
@@ -126,6 +132,23 @@ def main() -> int:
     parser.add_argument("--validation-games", type=int, default=40)
     parser.add_argument("--test-games", type=int, default=50)
     parser.add_argument(
+        "--opponent-deck-hash",
+        help=(
+            "Build from the opposite seat of every replay-index row whose "
+            "submitted seat used the indexed deck and whose opponent used "
+            "this exact deck hash. This turns saved opponents into local "
+            "sparring teachers without guessing their seat or team name."
+        ),
+    )
+    parser.add_argument(
+        "--source-index",
+        type=Path,
+        help=(
+            "replay_index.csv used with --opponent-deck-hash. Relative "
+            "replay_path values are resolved from the index's grandparent."
+        ),
+    )
+    parser.add_argument(
         "--use-episodes-csv",
         action="store_true",
         help=(
@@ -138,7 +161,24 @@ def main() -> int:
     feature_module = _load_features(args.agent_dir.resolve())
     manifest_path = args.run_dir / "manifest.csv"
     source_manifest = "manifest.csv"
-    if args.use_episodes_csv:
+    if args.opponent_deck_hash:
+        if args.use_episodes_csv:
+            parser.error(
+                "--opponent-deck-hash and --use-episodes-csv are mutually exclusive"
+            )
+        source_index = args.source_index
+        if source_index is None:
+            source_index = (
+                ROOT
+                / "data"
+                / "kaggle_grimmsnarl_top50"
+                / "indexes"
+                / "replay_index.csv"
+            )
+        source_manifest = f"opponent seat from {source_index}"
+        with source_index.open(encoding="utf-8-sig", newline="") as handle:
+            manifest = list(csv.DictReader(handle))
+    elif args.use_episodes_csv:
         source_manifest = "episodes.csv submission-seat derivation"
         episodes_path = args.run_dir / "episodes.csv"
         with episodes_path.open(encoding="utf-8-sig", newline="") as handle:
@@ -165,9 +205,67 @@ def main() -> int:
     deck_signatures: Counter[str] = Counter()
     trajectories: list[dict[str, Any]] = []
     valid_episode_ids: list[int] = []
+    expected_deck = EXPECTED_DECK
+    seen_trajectories: set[tuple[str, int]] = set()
 
     for row in manifest:
         stats["manifest_rows"] += 1
+        if args.opponent_deck_hash:
+            try:
+                indexed_seat = int(row["seat_index"])
+                episode_id = int(row["episode_id"])
+                replay_path = (
+                    source_index.parent.parent
+                    / Path(str(row["replay_path"]).replace(chr(92), "/"))
+                )
+            except (KeyError, TypeError, ValueError):
+                stats["invalid_manifest_identity"] += 1
+                continue
+            if indexed_seat not in (0, 1) or not replay_path.exists():
+                stats["missing_replay"] += 1
+                continue
+            seat = 1 - indexed_seat
+            identity = (str(replay_path.resolve()), seat)
+            if identity in seen_trajectories:
+                stats["duplicate_trajectory"] += 1
+                continue
+            try:
+                header = extract_fast_header_from_file(replay_path)
+            except Exception:
+                stats["invalid_replay_header"] += 1
+                continue
+            hashes = header.get("deck_hashes") or ["", ""]
+            if len(hashes) < 2 or hashes[seat] != args.opponent_deck_hash:
+                stats["opponent_deck_mismatch"] += 1
+                continue
+            try:
+                replay = json.loads(replay_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                stats["invalid_replay"] += 1
+                continue
+            deck = _initial_deck(replay, seat)
+            if not deck:
+                stats["deck_mismatch"] += 1
+                continue
+            if expected_deck == EXPECTED_DECK:
+                # The explicit deck hash is the identity. Its first verified
+                # 60-card list becomes the exact-list assertion for every
+                # subsequent trajectory in this corpus.
+                expected_deck = deck
+            signature = " ".join(map(str, deck))
+            deck_signatures[signature] += 1
+            if deck != expected_deck:
+                stats["deck_mismatch"] += 1
+                continue
+            seen_trajectories.add(identity)
+            trajectories.append({
+                "episode_id": episode_id,
+                "seat": seat,
+                "replay": replay,
+            })
+            valid_episode_ids.append(episode_id)
+            stats["validated_trajectories"] += 1
+            continue
         if str(row.get("submission_id")) != str(args.submission_id):
             stats["wrong_submission"] += 1
             continue
@@ -202,7 +300,7 @@ def main() -> int:
         deck = _initial_deck(replay, seat)
         signature = " ".join(map(str, deck or []))
         deck_signatures[signature] += 1
-        if deck != EXPECTED_DECK:
+        if deck != expected_deck:
             stats["deck_mismatch"] += 1
             continue
         trajectories.append({
@@ -379,14 +477,27 @@ def main() -> int:
     if cards_path.exists():
         for card in json.loads(cards_path.read_text(encoding="utf-8")):
             card_names[int(card["cardId"])] = str(card["name"])
-    deck_counts = Counter(EXPECTED_DECK)
+    deck_counts = Counter(expected_deck)
     report = {
-        "run_dir": str(args.run_dir.resolve()),
+        "run_dir": (
+            None if args.opponent_deck_hash else str(args.run_dir.resolve())
+        ),
+        "source_index": (
+            str(source_index.resolve()) if args.opponent_deck_hash else None
+        ),
         "output": str(args.output.resolve()),
-        "teacher": args.teacher,
-        "submission_id": args.submission_id,
+        "teacher": (
+            f"opponent deck {args.opponent_deck_hash}"
+            if args.opponent_deck_hash else args.teacher
+        ),
+        "submission_id": None if args.opponent_deck_hash else args.submission_id,
+        "opponent_deck_hash": args.opponent_deck_hash,
         "source_manifest": source_manifest,
-        "seat_verification": "manifest detected_submission_agent_index + replay TeamNames",
+        "seat_verification": (
+            "opposite of indexed submitted seat + replay header exact deck hash"
+            if args.opponent_deck_hash
+            else "manifest detected_submission_agent_index + replay TeamNames"
+        ),
         "deck_verified_trajectories": stats["validated_trajectories"],
         "deck": [
             {"card_id": card_id, "name": card_names.get(card_id, ""), "count": count}

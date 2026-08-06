@@ -1,0 +1,106 @@
+{
+  "name": "grimmsnarl_ml_v7",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "version": "7.0.0",
+  "created_at": "2026-08-06T18:00:00+09:00",
+  "updated_at": "2026-08-06T18:00:00+09:00",
+  "parent_agent": "grimmsnarl_ml_v6",
+  "deck_changed": false,
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_note": "Unchanged from v1-v7: the exact 60-card Grimmsnarl list used by the selected corpus.",
+  "model_changed": false,
+  "model_sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79",
+  "model_note": "Byte-identical to grimmsnarl_ml_v5 and v6: the same refreshed 2000-tree team-conditioned ranker, 823 features, 4,097 games, 322,975 decisions, 21 teams. v7 changes the teacher routing table, not the weights.",
+  "runtime_changed": true,
+  "rules_changed": false,
+  "rules_note": "fallback_policy.py, ml_planner.py, ml_features.py and policy_base.py are byte-identical to v5, including the v5 Punk Up and Buddy-Buddy Poffin search budgets and all five planner dominance rules.",
+  "teacher_team_id": 16494330,
+  "teacher_leaderboard_rank": 30,
+  "teacher_submission_score": 1077.6,
+  "policy_escalation": {
+    "mode": "class",
+    "trigger_feature": "evolve_froslass",
+    "trigger_context": 0,
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "teacher_leaderboard_rank": 4,
+    "teacher_submission_score": 1220.2,
+    "code_source": "Dense 0..20 code from sorted team ids in corpus_v5_data_refresh_candidate.npz; asserted in tests/test_v6_teacher_escalation.py.",
+    "rationale": "The deployed pin 16494330 has the highest Froslass evolve rate of the 21 pilots in the corpus (95.7% of the turns it is offered, against 52.6% in the mirror for 16371703). v5 plays it on 59 of 59 offered turns, so the behaviour is faithful imitation of an outlier rather than a modelling error, and three previous versions failed to move a MAIN preference with feature columns. A MAIN select that offers the Froslass evolve is therefore scored end to end as pilot 16371703; every other decision keeps the pin.",
+    "scope_note": "One teacher code per argmax. The pin's answer on the escalated decisions is also computed, purely so the deployed change rate is a counted number in diag_snapshot rather than an assumption.",
+    "counters": [
+      "escalation_offered",
+      "escalation_scored",
+      "escalation_moved",
+      "escalation_refused_trigger"
+    ],
+    "classes": [
+      {
+        "name": "froslass_evolve",
+        "context": 0,
+        "trigger_feature": "evolve_froslass",
+        "trigger_value": 1,
+        "teacher_team_id": 16371703,
+        "teacher_code": 0,
+        "introduced_in": "v6"
+      },
+      {
+        "name": "petrel_stamp",
+        "context": 7,
+        "trigger_feature": "candidate_card_id",
+        "trigger_value": 1080,
+        "teacher_team_id": 16561259,
+        "teacher_code": 20,
+        "introduced_in": "v7",
+        "evidence": "Dead Unfair Stamp take rate is the only measured pilot gap with a significant rating gradient (Spearman rho -0.626, permutation p 0.0029). Team 16561259 takes it on 33.0% of its own 103 dead offers versus 71.3% for the deployed pin. On the corrected teacher-forced 66-game v5 board probe it sees 39 offers, moves 6 decisions and refuses 5 Stamp picks, with one unrelated move."
+      }
+    ]
+  },
+  "policy": "v6's search budgets, one-ply planner and Froslass class are unchanged. Routed single-pick contexts use the refreshed 2000-tree ranker pinned to 16494330, except a MAIN select offering a Froslass evolve is scored as 16371703 and a Petrel search offering Unfair Stamp is scored as 16561259. Low-support context 8 remains on the rule policy. Multi-pick selects and face-down prize picks remain with the marnies_grimmsnarl_ex_v7 rule policy.",
+  "stored_board_validation": {
+    "instrument": "scripts/analyze_grimmsnarl_v3_behaviour.py",
+    "source_run": "data/runs/grimmsnarl/20260806_grimmsnarl_ml_v5_sub55275642",
+    "games": 66,
+    "mode": "escalation-only scoring with every replay action teacher-forced once",
+    "class_decisions": 122,
+    "class_agreement_with_replay": "96/122",
+    "escalation_moved": 23,
+    "escalation_refused_trigger": 18,
+    "classes": {
+      "froslass_evolve": {
+        "offered": 83,
+        "moved": 17,
+        "refused_trigger": 13,
+        "agent_evolved": "48/83",
+        "agent_evolved_on_net_negative": "11/25",
+        "parity_with_corrected_v6_probe": true
+      },
+      "petrel_stamp": {
+        "offered": 39,
+        "moved": 6,
+        "refused_trigger": 5,
+        "unrelated_moves": 1
+      }
+    },
+    "feature_errors": 0,
+    "score_errors": 0,
+    "evaluator_correction": "The earlier v6 full probe did not set ranker.teacher_forced and therefore entered candidate then replay actions into intra-turn history. The evaluator now suppresses candidate commits and advances only with the stored action. This changes the v6 Froslass counters from 16/12 to 17/13; v7 exactly matches the corrected v6 result on that inherited class."
+  },
+  "local_validation": {
+    "versus_v6": {
+      "games": 20, "seed": 7001, "wins": 9, "losses": 11, "draws": 0,
+      "win_rate": 0.45, "crashes": 0, "illegal_selects": 0,
+      "candidate_avg_ms_per_move": 73.83, "v6_avg_ms_per_move": 71.08,
+      "note": "Safety/large-regression screen only; 20 mirror games cannot resolve this narrow class change. The two arenas ran concurrently, so timing is comparable within this match only."
+    },
+    "versus_a7ee2991_sparring_panel": {
+      "games": 20, "seed": 7001, "wins": 14, "losses": 6, "draws": 0,
+      "win_rate": 0.7, "v6_control_same_seed": {"wins": 10, "losses": 10},
+      "crashes": 0, "illegal_selects": 0,
+      "interpretation": "Not outcome evidence: the opponent model has only 56.65% non-forced semantic agreement on its chronological 20-game test. It is retained as a board-generation and safety instrument."
+    },
+    "agent_tests": 164
+  },
+  "description": "v7 is the single-variable successor to v6: it retains the Froslass class and enables the pre-registered Petrel-to-dead-Unfair-Stamp class with a separate measured teacher. The deck, model, features, fallback policy and planner are unchanged. A local Mega Lopunny ex / Mega Froslass ex sparring agent was also built from 106 opponent-seat replays, but its 56.6% unseen semantic agreement is below the gate for using its win rate to justify a matchup-specific production rule."
+}

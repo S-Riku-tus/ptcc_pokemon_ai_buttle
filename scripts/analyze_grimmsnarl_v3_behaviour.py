@@ -189,6 +189,7 @@ def configure_escalation(
         ranker.escalation_mode = args.escalation_mode
     if args.escalation_team is not None:
         ranker.escalation_code = codes[args.escalation_team]
+        ranker.escalation_code_overridden = True
     if ranker.escalation_mode == "off":
         ranker.escalation_code = None
     elif ranker.escalation_code is None:
@@ -401,6 +402,16 @@ def main() -> int:
         help="v6+: score the escalated decision class as this pilot instead "
              "of the one the agent ships with.",
     )
+    parser.add_argument(
+        "--escalation-only",
+        action="store_true",
+        help=(
+            "Score only decisions that match an enabled escalation class, "
+            "while still teacher-forcing every decision to preserve history. "
+            "This avoids walking thousands of trees on unrelated decisions "
+            "when validating a class-table-only version."
+        ),
+    )
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
@@ -408,6 +419,13 @@ def main() -> int:
     ranker = getattr(module, "_RANKER", None)
     if ranker is None:
         raise SystemExit("agent has no ranker loaded")
+    # ``agent(observation)`` normally commits its own answer.  A
+    # counterfactual replay must not do that: the stored action is committed by
+    # ``observe_external`` below.  Without this flag every scored decision is
+    # entered twice (candidate, then teacher), so later intra-turn features no
+    # longer describe the replay despite the evaluator calling itself
+    # teacher-forced.
+    ranker.teacher_forced = True
 
     observe_hook = getattr(module, "observe_external", None)
     codes = team_code_map(args.corpus)
@@ -471,12 +489,33 @@ def main() -> int:
             context = int(select.get("context", -1))
 
             ranker.teacher_code = context_codes.get(context, baseline_code)
-            try:
-                answer = agent(observation)
-            except Exception as error:  # noqa: BLE001
-                totals["agent_exception"] += 1
-                totals[f"exception_{type(error).__name__}"] += 1
-                answer = None
+            evaluate_decision = True
+            if args.escalation_only:
+                evaluate_decision = False
+                class_contexts = {
+                    int(spec["context"])
+                    for spec in getattr(ranker, "escalation_classes", ())
+                }
+                if context in class_contexts:
+                    try:
+                        features, representatives = ranker._rows(observation)
+                        evaluate_decision = ranker._escalated_class(
+                            select, features, representatives
+                        ) is not None
+                    except Exception:  # the normal agent path counts the error
+                        evaluate_decision = True
+            if evaluate_decision:
+                try:
+                    answer = agent(observation)
+                except Exception as error:  # noqa: BLE001
+                    totals["agent_exception"] += 1
+                    totals[f"exception_{type(error).__name__}"] += 1
+                    answer = None
+            else:
+                # The answer is deliberately not measured. Following the
+                # teacher here keeps generic trackers neutral while the hook
+                # below advances the runtime with the real action.
+                answer = action
             chosen = (
                 answer[0]
                 if isinstance(answer, list) and len(answer) == 1
@@ -485,11 +524,12 @@ def main() -> int:
                 else None
             )
             played = action[0]
-            totals["decisions"] += 1
-            if chosen is None:
-                totals["unusable_answer"] += 1
-            else:
-                totals["agreements"] += int(chosen == played)
+            if evaluate_decision:
+                totals["decisions"] += 1
+                if chosen is None:
+                    totals["unusable_answer"] += 1
+                else:
+                    totals["agreements"] += int(chosen == played)
 
             record_decision(
                 groups, context, current, select, options, me, opponent,
@@ -524,6 +564,7 @@ def main() -> int:
         "teams": args.teams or None,
         "pin_team": args.pin_team,
         "pin_context": args.pin_context or None,
+        "escalation_only": args.escalation_only,
         "baseline_code": baseline_code,
         "escalation": escalation,
         "ranker": dict(ranker_totals),
