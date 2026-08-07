@@ -40,6 +40,10 @@ FORBIDDEN_ARCHIVE_SUFFIXES = {
     ".gz",
     ".zip",
 }
+# Kaggle runs the agent on Linux, and a Windows build would otherwise ship CRLF
+# (git autocrlf checkout) where a Kaggle-side clone ships LF.  Normalize so an
+# archive built locally is byte-identical to one built in the notebook.
+NEWLINE_NORMALIZED_SUFFIXES = {".py", ".csv", ".json", ".md", ".txt"}
 
 
 def is_forbidden_archive_member(path: Path) -> bool:
@@ -113,6 +117,19 @@ def should_copy(path: Path) -> bool:
     return True
 
 
+def copy_normalized(source: str | Path, destination: str | Path) -> str:
+    source = Path(source)
+    destination = Path(destination)
+    if source.suffix.lower() in NEWLINE_NORMALIZED_SUFFIXES:
+        raw = source.read_bytes()
+        destination.write_bytes(
+            raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        )
+        shutil.copystat(source, destination)
+        return str(destination)
+    return str(shutil.copy2(source, destination))
+
+
 def copy_runtime_files(agent_dir: Path, stage: Path) -> None:
     selector_enabled = False
     selector_path = agent_dir / "selector_model.json"
@@ -138,7 +155,7 @@ def copy_runtime_files(agent_dir: Path, stage: Path) -> None:
             continue
         destination = stage / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, destination)
+        copy_normalized(source, destination)
 
     # Local loading already falls back to agents/_base/policy_base.py.  Mirror that
     # behavior in submission archives so a new rule-based agent can stay small while
@@ -146,7 +163,7 @@ def copy_runtime_files(agent_dir: Path, stage: Path) -> None:
     if not (stage / "policy_base.py").exists():
         if not SHARED_POLICY_BASE.exists():
             raise FileNotFoundError(SHARED_POLICY_BASE)
-        shutil.copy2(SHARED_POLICY_BASE, stage / "policy_base.py")
+        copy_normalized(SHARED_POLICY_BASE, stage / "policy_base.py")
 
 
 def build(agent_dir: Path, output: Path, cg_source: Path) -> None:
@@ -155,7 +172,7 @@ def build(agent_dir: Path, output: Path, cg_source: Path) -> None:
     with tempfile.TemporaryDirectory(prefix="ptcg_submission_") as tmp:
         stage = Path(tmp)
         copy_runtime_files(agent_dir, stage)
-        shutil.copytree(cg_source, stage / "cg")
+        shutil.copytree(cg_source, stage / "cg", copy_function=copy_normalized)
 
         if output.exists():
             output.unlink()

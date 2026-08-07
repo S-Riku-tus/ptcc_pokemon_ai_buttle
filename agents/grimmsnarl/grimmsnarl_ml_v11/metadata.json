@@ -1,0 +1,28 @@
+{
+  "name": "grimmsnarl_ml_v11",
+  "version": "11.0.0",
+  "role": "experimental_challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v10",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Outcome-tilted distillation of pilot 16561259: decisions from its won games receive twice the fitting weight.",
+  "ranker": {
+    "teacher_team_id": 16561259,
+    "win_weight": 2.0,
+    "source_games": 299,
+    "trees": 144,
+    "features": 822,
+    "teacher_conditioned": false,
+    "sha256": "81b2bc2555afbf771dc338e73df8c3be1b07c696f477327395768ea6e20d400f"
+  },
+  "offline": {
+    "validation_top1": 0.8311,
+    "test_top1": 0.8079,
+    "test_order_insensitive_top1": 0.8924,
+    "test_top3": 0.9733,
+    "warning": "Lower imitation is expected; ladder evidence is required to determine whether winner weighting improves outcomes."
+  },
+  "submission_priority": 5,
+  "description": "The intentionally orthogonal offline-policy-improvement probe. It must not replace v8 without ladder evidence."
+}

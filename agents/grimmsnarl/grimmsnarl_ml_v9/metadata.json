@@ -1,0 +1,28 @@
+{
+  "name": "grimmsnarl_ml_v9",
+  "version": "9.0.0",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v8",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Unconditioned current-top-four consensus ranker with the v6 rule policy, resource budgets and arithmetic planner.",
+  "ranker": {
+    "source": "corpus_v8_current_top4.npz",
+    "source_relations": 1014,
+    "source_teams": [16422241, 16452116, 16541765, 16561259],
+    "trees": 1485,
+    "features": 822,
+    "teacher_conditioned": false,
+    "sha256": "b0397a4a0270e2c8d3bb5088c759a173307f4446c8577c68895214493b91836c"
+  },
+  "offline": {
+    "validation_top1": 0.8056,
+    "test_top1": 0.7964,
+    "test_order_insensitive_top1": 0.9096,
+    "test_top3": 0.9788,
+    "note": "This is deployable without knowing which teacher generated the state."
+  },
+  "submission_priority": 2,
+  "description": "The clean policy-drift challenger: current teachers replace the old fixed pilot, without value search or teacher-id oracle information."
+}

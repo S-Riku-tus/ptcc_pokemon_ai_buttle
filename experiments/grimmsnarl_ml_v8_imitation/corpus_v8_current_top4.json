@@ -1,0 +1,91 @@
+{
+  "data_root": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\kaggle_grimmsnarl_v8",
+  "index_source": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\kaggle_grimmsnarl_v8\\indexes\\episodes.csv",
+  "selection_mode": "manifest",
+  "accepted_download_statuses": [
+    "failed",
+    "skipped_existing",
+    "success"
+  ],
+  "limit_per_team": 0,
+  "latest_per_team": 0,
+  "selection_manifest_in": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\kaggle_grimmsnarl_v8\\indexes\\episodes.csv",
+  "selection_manifest_out": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\grimmsnarl_ml_v8_imitation\\current_top4_selection.csv",
+  "selection_manifest_sha256": "a450119ccf3fd801cd8b85bb6dfedb81acf4e436fc530af78145459ad6e989d2",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v7",
+  "deck_hash": "9714ab5c3996f6cc",
+  "excluded_teams": [],
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v8_current_top4.npz",
+  "trajectories": 1014,
+  "teams": 4,
+  "submissions": 4,
+  "selected_rows_by_status": {
+    "failed": 5,
+    "skipped_existing": 369,
+    "success": 640
+  },
+  "selected_rows_by_team": {
+    "16422241": 300,
+    "16452116": 300,
+    "16541765": 115,
+    "16561259": 299
+  },
+  "selected_rows_by_submission": {
+    "55138264": 300,
+    "55177269": 300,
+    "55187358": 299,
+    "55249896": 115
+  },
+  "episodes": 1014,
+  "win_rate": 0.5651,
+  "decisions": 76947,
+  "candidate_rows": 375798,
+  "features": 822,
+  "base_features": 814,
+  "turn_features": [
+    "turn_decision_index",
+    "turn_candidate_offer_count",
+    "turn_candidate_passed_over",
+    "turn_candidate_offered_previous",
+    "turn_candidate_first_offer_index",
+    "turn_class_passed_over",
+    "turn_class_offer_count",
+    "turn_new_candidate"
+  ],
+  "validation_min_episode": 90248697,
+  "test_min_episode": 90286551,
+  "split_decisions": {
+    "train": 58885,
+    "validation": 8567,
+    "test": 9495
+  },
+  "split_episodes": {
+    "train": 755,
+    "validation": 118,
+    "test": 118
+  },
+  "mean_candidates_per_decision": 4.884,
+  "extraction_stats": {
+    "episodes": 1014,
+    "wins": 573,
+    "decisions": 76947,
+    "decisions_ctx41": 472,
+    "decisions_ctx0": 40222,
+    "duplicate_candidates_collapsed": 96223,
+    "decisions_ctx7": 7785,
+    "decisions_ctx37": 270,
+    "decisions_ctx43": 2026,
+    "decisions_ctx21": 4900,
+    "decisions_single_distinct_option": 4637,
+    "decisions_ctx15": 3120,
+    "decisions_ctx16": 3163,
+    "decisions_ctx40": 5242,
+    "decisions_ctx13": 5373,
+    "decisions_ctx1": 339,
+    "decisions_ctx3": 1543,
+    "decisions_ctx4": 2141,
+    "decisions_ctx8": 51,
+    "decisions_ctx38": 237,
+    "decisions_ctx5": 63
+  }
+}

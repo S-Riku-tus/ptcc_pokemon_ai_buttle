@@ -440,11 +440,14 @@ def main() -> int:
 
     groups: dict[str, Probe] = defaultdict(Probe)
     totals: Counter[str] = Counter()
+    context_totals: defaultdict[int, Counter[str]] = defaultdict(Counter)
+    scorable_totals: Counter[str] = Counter()
     # diag_reset() clears the planner's counters per episode, so they are
     # harvested before each reset and once more at the end. Without this the
     # report would show only the last game's overrides.
     planner_totals: Counter[str] = Counter()
     ranker_totals: Counter[str] = Counter()
+    value_search_totals: Counter[str] = Counter()
     episodes = episode_paths(args)
     if not episodes:
         raise SystemExit("no episodes found")
@@ -459,6 +462,7 @@ def main() -> int:
         steps = replay.get("steps") or []
         _accumulate_planner(module, planner_totals)
         _accumulate_section(module, "ml", ranker_totals)
+        _accumulate_section(module, "value_search", value_search_totals)
         module.diag_reset()
         totals["episodes"] += 1
         pending_boss: dict[str, Any] | None = None
@@ -487,6 +491,10 @@ def main() -> int:
                 continue
             me, opponent = players[seat], players[1 - seat]
             context = int(select.get("context", -1))
+            try:
+                is_scorable = bool(ranker.is_scorable(select))
+            except (AttributeError, TypeError, ValueError):
+                is_scorable = False
 
             ranker.teacher_code = context_codes.get(context, baseline_code)
             evaluate_decision = True
@@ -526,10 +534,20 @@ def main() -> int:
             played = action[0]
             if evaluate_decision:
                 totals["decisions"] += 1
+                context_totals[context]["decisions"] += 1
+                context_totals[context]["options"] += len(options)
+                if is_scorable:
+                    scorable_totals["decisions"] += 1
                 if chosen is None:
                     totals["unusable_answer"] += 1
+                    context_totals[context]["unusable_answer"] += 1
+                    if is_scorable:
+                        scorable_totals["unusable_answer"] += 1
                 else:
                     totals["agreements"] += int(chosen == played)
+                    context_totals[context]["agreements"] += int(chosen == played)
+                    if is_scorable:
+                        scorable_totals["agreements"] += int(chosen == played)
 
             record_decision(
                 groups, context, current, select, options, me, opponent,
@@ -558,6 +576,7 @@ def main() -> int:
 
     _accumulate_planner(module, planner_totals)
     _accumulate_section(module, "ml", ranker_totals)
+    _accumulate_section(module, "value_search", value_search_totals)
     report = {
         "agent_dir": str(args.agent_dir.resolve()),
         "source": str((args.run_dir or args.data_root).resolve()),
@@ -570,7 +589,23 @@ def main() -> int:
         "ranker": dict(ranker_totals),
         "totals": dict(totals),
         "agreement_with_replay": rate(totals, "agreements", "decisions"),
+        "scorable": {
+            **dict(scorable_totals),
+            "agreement_with_replay": rate(
+                scorable_totals, "agreements", "decisions"
+            ),
+        },
+        "contexts": {
+            str(context): {
+                **dict(counts),
+                "agreement_with_replay": rate(
+                    counts, "agreements", "decisions"
+                ),
+            }
+            for context, counts in sorted(context_totals.items())
+        },
         "planner": dict(planner_totals),
+        "value_search": dict(value_search_totals),
         "run_outcomes": outcome_summary(
             run_outcomes(args.run_dir, args.submission)
             if args.run_dir else {}

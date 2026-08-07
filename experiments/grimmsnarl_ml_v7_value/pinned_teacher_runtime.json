@@ -1,0 +1,328 @@
+{
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v7",
+  "source": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\kaggle_grimmsnarl_top50",
+  "teams": "16494330",
+  "pin_team": null,
+  "pin_context": null,
+  "escalation_only": false,
+  "baseline_code": 16,
+  "escalation": {
+    "mode": "class",
+    "code": 0,
+    "team": null,
+    "overridden": false
+  },
+  "ranker": {
+    "main_decisions": 1549,
+    "non_main_decisions": 791,
+    "ranker_used": 1480,
+    "feature_errors": 0,
+    "score_errors": 0,
+    "escalation_offered": 24,
+    "escalation_scored": 24,
+    "escalation_moved": 10,
+    "escalation_refused_trigger": 9,
+    "escalation_offered_froslass_evolve": 24,
+    "escalation_scored_froslass_evolve": 24,
+    "escalation_moved_froslass_evolve": 10,
+    "escalation_refused_trigger_froslass_evolve": 9
+  },
+  "totals": {
+    "episodes": 18,
+    "decisions": 1706,
+    "agreements": 1559
+  },
+  "agreement_with_replay": 0.9138,
+  "planner": {
+    "considered": 1480,
+    "boss_route_considered": 1,
+    "boss_route_overrides": 1,
+    "heal_considered": 71,
+    "heal_overrides": 1,
+    "froslass_considered": 11,
+    "froslass_overrides": 0,
+    "wall_unlock_considered": 0,
+    "wall_unlock_overrides": 0,
+    "punk_alloc_considered": 105,
+    "punk_alloc_trigger_overrides": 0,
+    "punk_alloc_stack_overrides": 1,
+    "errors": 0
+  },
+  "value_search": {
+    "considered": 758,
+    "searched": 70,
+    "branches": 180,
+    "overrides": 1,
+    "branch_errors": 0,
+    "incomplete_branches": 0,
+    "skip_early": 246,
+    "skip_confident": 36,
+    "skip_already_searched_turn": 406,
+    "skip_planner_guard": 0,
+    "skip_small_gain": 69,
+    "value_gain_sum": 0,
+    "positive_gain_count": 1,
+    "positive_gain_sum": 0,
+    "best_gain_max": 0,
+    "nonzero_value_spread_count": 1,
+    "value_spread_max": 0,
+    "enabled": 19,
+    "min_turn": 95,
+    "max_rank_margin": 57,
+    "min_value_gain": 0
+  },
+  "run_outcomes": {},
+  "groups": {
+    "boss_play": {
+      "counts": {
+        "offered": 114,
+        "offered_with_snipe_lethal": 12,
+        "agent_played_boss": 9,
+        "played_played_boss": 8,
+        "played_played_boss_with_snipe_lethal": 2,
+        "agent_played_boss_with_snipe_lethal": 1
+      },
+      "played_play_rate": 0.0702,
+      "played_play_rate_with_snipe_lethal": 0.1667,
+      "agent_play_rate": 0.0789,
+      "agent_play_rate_with_snipe_lethal": 0.0833
+    },
+    "boss_target": {
+      "counts": {
+        "decisions": 8,
+        "snipe_lethal_existed": 2,
+        "played_targeted_snipe_lethal": 1
+      },
+      "played_snipe_lethal_rate": 0.5,
+      "agent_snipe_lethal_rate": 0.0
+    },
+    "counter_count": {
+      "counts": {
+        "decisions": 98,
+        "played_chose_max": 98,
+        "agent_chose_max": 98
+      },
+      "played_max_rate": 1.0,
+      "agent_max_rate": 1.0
+    },
+    "froslass_evolve": {
+      "counts": {
+        "opportunities": 24,
+        "played_evolved": 20,
+        "agent_evolved": 11,
+        "negative_opportunities": 3,
+        "played_negative_evolved": 3,
+        "agent_negative_evolved": 2
+      },
+      "played_evolve_rate": 0.8333,
+      "played_negative_evolve_rate": 1.0,
+      "agent_evolve_rate": 0.4583,
+      "agent_negative_evolve_rate": 0.6667,
+      "changed_decisions": [
+        {
+          "episode": 89418578,
+          "turn": 3,
+          "shroud_net": 1,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "evolve",
+          "agent_card": 647
+        },
+        {
+          "episode": 89418578,
+          "turn": 9,
+          "shroud_net": 2,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "bench",
+          "agent_card": 112
+        },
+        {
+          "episode": 89420776,
+          "turn": 4,
+          "shroud_net": 2,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "stadium",
+          "agent_card": 1259
+        },
+        {
+          "episode": 89420776,
+          "turn": 4,
+          "shroud_net": 1,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "item",
+          "agent_card": 1152
+        },
+        {
+          "episode": 89421352,
+          "turn": 7,
+          "shroud_net": 1,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "evolve",
+          "agent_card": 648
+        },
+        {
+          "episode": 89422312,
+          "turn": 4,
+          "shroud_net": -1,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "ability",
+          "agent_card": -1
+        },
+        {
+          "episode": 89431223,
+          "turn": 4,
+          "shroud_net": 2,
+          "played_action": "ability",
+          "played_card": -1,
+          "agent_action": "energy",
+          "agent_card": 7
+        },
+        {
+          "episode": 89431223,
+          "turn": 4,
+          "shroud_net": 2,
+          "played_action": "item",
+          "played_card": 1079,
+          "agent_action": "energy",
+          "agent_card": 7
+        },
+        {
+          "episode": 89431223,
+          "turn": 4,
+          "shroud_net": 1,
+          "played_action": "evolve",
+          "played_card": 647,
+          "agent_action": "energy",
+          "agent_card": 7
+        },
+        {
+          "episode": 89431223,
+          "turn": 4,
+          "shroud_net": 1,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "end",
+          "agent_card": -1
+        },
+        {
+          "episode": 89431250,
+          "turn": 6,
+          "shroud_net": 5,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "stadium",
+          "agent_card": 1259
+        },
+        {
+          "episode": 89446617,
+          "turn": 5,
+          "shroud_net": 1,
+          "played_action": "evolve",
+          "played_card": 104,
+          "agent_action": "ability",
+          "agent_card": -1
+        }
+      ]
+    },
+    "munkidori_source": {
+      "counts": {
+        "decisions": 100,
+        "grimmsnarl_offered": 62,
+        "played_passed_grimmsnarl": 24,
+        "agent_passed_grimmsnarl": 25,
+        "differed": 3
+      },
+      "played_pass_rate": 0.3871,
+      "agent_pass_rate": 0.4032,
+      "offered_wilson95": [
+        0.2902,
+        0.5275
+      ]
+    },
+    "snipe_target": {
+      "counts": {
+        "decisions": 66,
+        "ko_available": 13,
+        "played_chose_ko": 13,
+        "played_chose_best_prize_ko": 13,
+        "agent_chose_ko": 13,
+        "agent_chose_best_prize_ko": 13
+      },
+      "played_ko_rate": 1.0,
+      "played_best_prize_rate": 1.0,
+      "agent_ko_rate": 1.0,
+      "agent_best_prize_rate": 1.0
+    },
+    "turn_resources": {
+      "counts": {
+        "turns": 107,
+        "agent_enabling_energy": 50,
+        "agent_energy": 57,
+        "offer_enabling_energy": 54,
+        "offer_energy": 75,
+        "played_enabling_energy": 53,
+        "played_energy": 64,
+        "offer_grimmsnarl": 33,
+        "agent_grimmsnarl": 23,
+        "played_grimmsnarl": 24,
+        "offer_boss": 33,
+        "offer_froslass": 19,
+        "played_froslass": 19,
+        "agent_boss": 9,
+        "agent_froslass": 11,
+        "played_boss": 8
+      },
+      "played_energy_rate": 0.8533,
+      "agent_energy_rate": 0.76,
+      "energy_turns": 75,
+      "agent_energy_wilson95": [
+        0.6522,
+        0.8425
+      ],
+      "played_enabling_energy_rate": 0.9815,
+      "agent_enabling_energy_rate": 0.9259,
+      "enabling_energy_turns": 54,
+      "agent_enabling_energy_wilson95": [
+        0.8245,
+        0.9708
+      ],
+      "played_boss_rate": 0.2424,
+      "agent_boss_rate": 0.2727,
+      "boss_turns": 33,
+      "agent_boss_wilson95": [
+        0.1507,
+        0.4422
+      ],
+      "played_froslass_rate": 1.0,
+      "agent_froslass_rate": 0.5789,
+      "froslass_turns": 19,
+      "agent_froslass_wilson95": [
+        0.3628,
+        0.7686
+      ],
+      "played_grimmsnarl_rate": 0.7273,
+      "agent_grimmsnarl_rate": 0.697,
+      "grimmsnarl_turns": 33,
+      "agent_grimmsnarl_wilson95": [
+        0.5266,
+        0.8262
+      ],
+      "played_wall_unlock_rate": null,
+      "agent_wall_unlock_rate": null,
+      "wall_unlock_turns": 0,
+      "agent_wall_unlock_wilson95": [
+        0.0,
+        0.0
+      ],
+      "played_wall_unlock_swing_rate": null,
+      "played_energy_per_game": 64,
+      "agent_wall_unlock_swing_rate": null,
+      "agent_energy_per_game": 57
+    }
+  }
+}

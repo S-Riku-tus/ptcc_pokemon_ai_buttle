@@ -1,0 +1,27 @@
+{
+  "name": "grimmsnarl_ml_v10",
+  "version": "10.0.0",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v8",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Single-teacher distillation of current search-heavy pilot 16561259, retaining v6's proven non-ML and dominance layers.",
+  "ranker": {
+    "teacher_team_id": 16561259,
+    "teacher_compute_ms_per_decision": 954.75,
+    "source_games": 299,
+    "trees": 505,
+    "features": 822,
+    "teacher_conditioned": false,
+    "sha256": "a679aa821061dcf50dec41f8e176bbc9a65e24a25172019e202f9cc0e10512f1"
+  },
+  "offline": {
+    "validation_top1": 0.8346,
+    "test_top1": 0.8143,
+    "test_order_insensitive_top1": 0.8987,
+    "test_top3": 0.9719
+  },
+  "submission_priority": 3,
+  "description": "A compact attempt to reproduce the current pilot that spends the most compute, rather than averaging four distinct policies."
+}

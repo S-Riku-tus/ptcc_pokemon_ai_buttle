@@ -1,0 +1,580 @@
+{
+  "method": "validation-fitted teacher-code router",
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v8_current_top4.npz",
+  "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\models\\ranker_v5_data_refresh_base.txt",
+  "model_iterations": 2000,
+  "target_team": 16422241,
+  "baseline_code": 9,
+  "candidate_codes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "split_boundaries": {
+    "16422241": [
+      90265735,
+      90287266
+    ],
+    "16452116": [
+      90269344,
+      90288074
+    ],
+    "16541765": [
+      90257978,
+      90310399
+    ],
+    "16561259": [
+      90076796,
+      90279343
+    ]
+  },
+  "prior_strength": 80.0,
+  "minimum_support": 30,
+  "per_code": {
+    "0": {
+      "team": 16371703,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1833,
+        "top1": 0.7574,
+        "wilson95": [
+          0.74,
+          0.7741
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 1991,
+        "top1": 0.7323,
+        "wilson95": [
+          0.7153,
+          0.7486
+        ]
+      }
+    },
+    "1": {
+      "team": 16375320,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1887,
+        "top1": 0.7798,
+        "wilson95": [
+          0.7628,
+          0.7958
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2064,
+        "top1": 0.7591,
+        "wilson95": [
+          0.7427,
+          0.7748
+        ]
+      }
+    },
+    "2": {
+      "team": 16376653,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1795,
+        "top1": 0.7417,
+        "wilson95": [
+          0.7239,
+          0.7588
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 1963,
+        "top1": 0.722,
+        "wilson95": [
+          0.7048,
+          0.7385
+        ]
+      }
+    },
+    "3": {
+      "team": 16381904,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1852,
+        "top1": 0.7653,
+        "wilson95": [
+          0.748,
+          0.7817
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2044,
+        "top1": 0.7517,
+        "wilson95": [
+          0.7352,
+          0.7676
+        ]
+      }
+    },
+    "4": {
+      "team": 16385817,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1809,
+        "top1": 0.7475,
+        "wilson95": [
+          0.7298,
+          0.7644
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 1995,
+        "top1": 0.7337,
+        "wilson95": [
+          0.7168,
+          0.75
+        ]
+      }
+    },
+    "5": {
+      "team": 16388364,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1859,
+        "top1": 0.7682,
+        "wilson95": [
+          0.751,
+          0.7846
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2034,
+        "top1": 0.7481,
+        "wilson95": [
+          0.7314,
+          0.764
+        ]
+      }
+    },
+    "6": {
+      "team": 16388654,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1797,
+        "top1": 0.7426,
+        "wilson95": [
+          0.7248,
+          0.7596
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 1957,
+        "top1": 0.7197,
+        "wilson95": [
+          0.7026,
+          0.7363
+        ]
+      }
+    },
+    "7": {
+      "team": 16407282,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1823,
+        "top1": 0.7533,
+        "wilson95": [
+          0.7357,
+          0.7701
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2011,
+        "top1": 0.7396,
+        "wilson95": [
+          0.7228,
+          0.7558
+        ]
+      }
+    },
+    "8": {
+      "team": 16421840,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1830,
+        "top1": 0.7562,
+        "wilson95": [
+          0.7387,
+          0.7729
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2000,
+        "top1": 0.7356,
+        "wilson95": [
+          0.7187,
+          0.7518
+        ]
+      }
+    },
+    "9": {
+      "team": 16422241,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1957,
+        "top1": 0.8087,
+        "wilson95": [
+          0.7925,
+          0.8239
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2145,
+        "top1": 0.7889,
+        "wilson95": [
+          0.7732,
+          0.8038
+        ]
+      }
+    },
+    "10": {
+      "team": 16430670,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1816,
+        "top1": 0.7504,
+        "wilson95": [
+          0.7328,
+          0.7672
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2000,
+        "top1": 0.7356,
+        "wilson95": [
+          0.7187,
+          0.7518
+        ]
+      }
+    },
+    "11": {
+      "team": 16431331,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1854,
+        "top1": 0.7661,
+        "wilson95": [
+          0.7488,
+          0.7826
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2049,
+        "top1": 0.7536,
+        "wilson95": [
+          0.737,
+          0.7694
+        ]
+      }
+    },
+    "12": {
+      "team": 16452116,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1862,
+        "top1": 0.7694,
+        "wilson95": [
+          0.7522,
+          0.7858
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2023,
+        "top1": 0.744,
+        "wilson95": [
+          0.7273,
+          0.7601
+        ]
+      }
+    },
+    "13": {
+      "team": 16461850,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1824,
+        "top1": 0.7537,
+        "wilson95": [
+          0.7362,
+          0.7705
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 1992,
+        "top1": 0.7326,
+        "wilson95": [
+          0.7157,
+          0.7489
+        ]
+      }
+    },
+    "14": {
+      "team": 16462035,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1798,
+        "top1": 0.743,
+        "wilson95": [
+          0.7252,
+          0.76
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 1960,
+        "top1": 0.7209,
+        "wilson95": [
+          0.7037,
+          0.7374
+        ]
+      }
+    },
+    "15": {
+      "team": 16463316,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1857,
+        "top1": 0.7674,
+        "wilson95": [
+          0.7501,
+          0.7838
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2023,
+        "top1": 0.744,
+        "wilson95": [
+          0.7273,
+          0.7601
+        ]
+      }
+    },
+    "16": {
+      "team": 16494330,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1842,
+        "top1": 0.7612,
+        "wilson95": [
+          0.7438,
+          0.7777
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2017,
+        "top1": 0.7418,
+        "wilson95": [
+          0.725,
+          0.7579
+        ]
+      }
+    },
+    "17": {
+      "team": 16514272,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1849,
+        "top1": 0.764,
+        "wilson95": [
+          0.7467,
+          0.7805
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2030,
+        "top1": 0.7466,
+        "wilson95": [
+          0.7299,
+          0.7626
+        ]
+      }
+    },
+    "18": {
+      "team": 16531269,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1806,
+        "top1": 0.7463,
+        "wilson95": [
+          0.7286,
+          0.7632
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 1986,
+        "top1": 0.7304,
+        "wilson95": [
+          0.7134,
+          0.7468
+        ]
+      }
+    },
+    "19": {
+      "team": 16556346,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1812,
+        "top1": 0.7488,
+        "wilson95": [
+          0.7311,
+          0.7656
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2007,
+        "top1": 0.7381,
+        "wilson95": [
+          0.7213,
+          0.7543
+        ]
+      }
+    },
+    "20": {
+      "team": 16561259,
+      "validation": {
+        "decisions": 2420,
+        "hits": 1834,
+        "top1": 0.7579,
+        "wilson95": [
+          0.7404,
+          0.7745
+        ]
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2015,
+        "top1": 0.7411,
+        "wilson95": [
+          0.7243,
+          0.7572
+        ]
+      }
+    }
+  },
+  "routers": {
+    "context": {
+      "route": {
+        "7": 0,
+        "4": 12,
+        "21": 11
+      },
+      "validation": {
+        "decisions": 2420,
+        "hits": 1962,
+        "top1": 0.8107,
+        "wilson95": [
+          0.7946,
+          0.8259
+        ],
+        "decisions_by_code": {
+          "0": 238,
+          "9": 1938,
+          "11": 158,
+          "12": 86
+        }
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2138,
+        "top1": 0.7863,
+        "wilson95": [
+          0.7705,
+          0.8013
+        ],
+        "decisions_by_code": {
+          "0": 287,
+          "9": 2187,
+          "11": 177,
+          "12": 68
+        }
+      }
+    },
+    "menu": {
+      "route": {
+        "7|0|12": 0,
+        "21|1|12": 2,
+        "7|1|12": 8,
+        "15|1|12": 4,
+        "13|2|12": 20,
+        "4|2|12": 12,
+        "7|2|12": 20
+      },
+      "validation": {
+        "decisions": 2420,
+        "hits": 1968,
+        "top1": 0.8132,
+        "wilson95": [
+          0.7972,
+          0.8283
+        ],
+        "decisions_by_code": {
+          "0": 109,
+          "2": 101,
+          "4": 54,
+          "8": 82,
+          "9": 1903,
+          "12": 32,
+          "20": 139
+        }
+      },
+      "test": {
+        "decisions": 2719,
+        "hits": 2124,
+        "top1": 0.7812,
+        "wilson95": [
+          0.7652,
+          0.7963
+        ],
+        "decisions_by_code": {
+          "0": 100,
+          "2": 93,
+          "4": 51,
+          "8": 96,
+          "9": 2157,
+          "12": 27,
+          "20": 195
+        }
+      }
+    }
+  }
+}

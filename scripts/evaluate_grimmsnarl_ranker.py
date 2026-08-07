@@ -97,6 +97,14 @@ def main() -> int:
         "--pin-team", type=int,
         help="Use this team feature for every row instead of the label team.",
     )
+    parser.add_argument(
+        "--pin-team-code", type=int,
+        help=(
+            "Override the dense categorical code used for --pin-team. This "
+            "is required when evaluating an old model on a corpus whose "
+            "teacher set (and therefore automatic dense mapping) changed."
+        ),
+    )
     parser.add_argument("--team-feature", action="store_true")
     parser.add_argument("--split-mode", default="per-team",
                         choices=["global", "per-team"])
@@ -124,8 +132,14 @@ def main() -> int:
     if args.pin_team is not None:
         if not args.team_feature:
             parser.error("--pin-team requires --team-feature")
-        if args.pin_team not in corpus.team_codes:
+        if args.pin_team not in corpus.team_codes and args.pin_team_code is None:
             parser.error(f"--pin-team {args.pin_team} is absent from corpus")
+        if args.pin_team_code is not None:
+            if args.pin_team_code < 0:
+                parser.error("--pin-team-code cannot be negative")
+            corpus.team_codes[args.pin_team] = args.pin_team_code
+    elif args.pin_team_code is not None:
+        parser.error("--pin-team-code requires --pin-team")
 
     def load_model(path: Path) -> lgb.Booster:
         model = lgb.Booster(model_file=str(path))
@@ -174,6 +188,10 @@ def main() -> int:
         "split_boundaries": boundaries,
         "label_teams": sorted(teams) if teams else "all",
         "pin_team": args.pin_team,
+        "pin_team_code": (
+            corpus.team_codes[args.pin_team]
+            if args.pin_team is not None else None
+        ),
         "team_feature": args.team_feature,
         "episodes": int(len(np.unique(corpus.episode_ids[decisions]))),
         "submissions": int(len(np.unique(corpus.submission_ids[decisions]))),

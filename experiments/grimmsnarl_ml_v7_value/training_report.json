@@ -1,0 +1,262 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v8_current_top4.npz",
+  "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v7\\value_model.json",
+  "model_sha256": "3762129046b6a25eea8b154253d796d4956c2bb1621fcd9b5f3c301c8d89227d",
+  "state_features": 381,
+  "categorical_features": [
+    "opp_active_id",
+    "self_active_id",
+    "stadium_id"
+  ],
+  "decisions": 76947,
+  "episodes": 991,
+  "teams": [
+    16422241,
+    16452116,
+    16541765,
+    16561259
+  ],
+  "split_states": {
+    "train": 58885,
+    "validation": 8567,
+    "test": 9495
+  },
+  "split_episodes": {
+    "train": 755,
+    "validation": 118,
+    "test": 118
+  },
+  "params": {
+    "objective": "binary",
+    "n_estimators": 900,
+    "learning_rate": 0.025,
+    "num_leaves": 31,
+    "max_depth": 8,
+    "min_child_samples": 180,
+    "subsample": 0.85,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.75,
+    "reg_alpha": 0.25,
+    "reg_lambda": 3.0,
+    "random_state": 7007,
+    "n_jobs": 16,
+    "verbosity": -1
+  },
+  "best_iteration": 241,
+  "validation": {
+    "states": 8567,
+    "episodes": 118,
+    "win_rate": 0.4849,
+    "auc": 0.8451,
+    "logloss": 0.4964,
+    "accuracy": 0.7543,
+    "episode_mean_auc": 0.9257
+  },
+  "test": {
+    "states": 9495,
+    "episodes": 118,
+    "win_rate": 0.6245,
+    "auc": 0.7849,
+    "logloss": 0.5414,
+    "accuracy": 0.7123,
+    "episode_mean_auc": 0.8713
+  },
+  "test_by_turn": {
+    "turn_1_4": {
+      "states": 2248,
+      "episodes": 118,
+      "win_rate": 0.6294,
+      "auc": 0.6299,
+      "logloss": 0.6817,
+      "accuracy": 0.6353,
+      "episode_mean_auc": 0.6109
+    },
+    "turn_5_8": {
+      "states": 3467,
+      "episodes": 118,
+      "win_rate": 0.6277,
+      "auc": 0.8139,
+      "logloss": 0.5117,
+      "accuracy": 0.7283,
+      "episode_mean_auc": 0.8109
+    },
+    "turn_9_plus": {
+      "states": 3655,
+      "episodes": 107,
+      "win_rate": 0.6175,
+      "auc": 0.8582,
+      "logloss": 0.4584,
+      "accuracy": 0.7591,
+      "episode_mean_auc": 0.9282
+    }
+  },
+  "test_calibration": [
+    {
+      "range": [
+        0.0,
+        0.2
+      ],
+      "states": 1229,
+      "mean_prediction": 0.1138,
+      "win_rate": 0.2474
+    },
+    {
+      "range": [
+        0.2,
+        0.4
+      ],
+      "states": 1612,
+      "mean_prediction": 0.3066,
+      "win_rate": 0.5341
+    },
+    {
+      "range": [
+        0.4,
+        0.6
+      ],
+      "states": 1767,
+      "mean_prediction": 0.5069,
+      "win_rate": 0.6038
+    },
+    {
+      "range": [
+        0.6,
+        0.8
+      ],
+      "states": 2251,
+      "mean_prediction": 0.7032,
+      "win_rate": 0.7046
+    },
+    {
+      "range": [
+        0.8,
+        1.0
+      ],
+      "states": 2636,
+      "mean_prediction": 0.9054,
+      "win_rate": 0.8832
+    }
+  ],
+  "top_gain_features": [
+    {
+      "name": "prize_lead",
+      "gain": 224198.35
+    },
+    {
+      "name": "opp_active_id",
+      "gain": 162147.37
+    },
+    {
+      "name": "opp_total_hp",
+      "gain": 39977.21
+    },
+    {
+      "name": "opp_bench_slot_0_id",
+      "gain": 17247.18
+    },
+    {
+      "name": "opp_deck_count",
+      "gain": 17092.69
+    },
+    {
+      "name": "stadium_id",
+      "gain": 14077.76
+    },
+    {
+      "name": "marnie_body_count",
+      "gain": 13113.58
+    },
+    {
+      "name": "opp_prize_count",
+      "gain": 12592.87
+    },
+    {
+      "name": "munkidori_ready_count",
+      "gain": 12588.5
+    },
+    {
+      "name": "opp_bench_slot_0_hp",
+      "gain": 12023.65
+    },
+    {
+      "name": "opp_hand_count",
+      "gain": 10503.78
+    },
+    {
+      "name": "opp_bench_slot_3_hp",
+      "gain": 8847.57
+    },
+    {
+      "name": "self_prize_count",
+      "gain": 7978.96
+    },
+    {
+      "name": "opp_bench_slot_2_hp",
+      "gain": 7295.08
+    },
+    {
+      "name": "turn",
+      "gain": 7147.07
+    },
+    {
+      "name": "self_total_hp",
+      "gain": 6951.6
+    },
+    {
+      "name": "self_active_id",
+      "gain": 6917.28
+    },
+    {
+      "name": "opp_bench_slot_1_id",
+      "gain": 6875.2
+    },
+    {
+      "name": "deck_runway_margin",
+      "gain": 6595.53
+    },
+    {
+      "name": "opp_bench_min_hp",
+      "gain": 6465.11
+    },
+    {
+      "name": "opp_bench_slot_3_dark_energy",
+      "gain": 5915.32
+    },
+    {
+      "name": "self_total_dark_energy",
+      "gain": 5902.47
+    },
+    {
+      "name": "discard_7",
+      "gain": 5890.3
+    },
+    {
+      "name": "self_hand_count",
+      "gain": 5860.34
+    },
+    {
+      "name": "opp_bench_slot_1_hp",
+      "gain": 5623.04
+    },
+    {
+      "name": "opp_active_hp",
+      "gain": 5562.65
+    },
+    {
+      "name": "field_860",
+      "gain": 5556.74
+    },
+    {
+      "name": "discard_1086",
+      "gain": 5299.79
+    },
+    {
+      "name": "opp_bench_total_energy",
+      "gain": 5199.21
+    },
+    {
+      "name": "opp_active_survives_shadow_bullet_by",
+      "gain": 5025.19
+    }
+  ]
+}
