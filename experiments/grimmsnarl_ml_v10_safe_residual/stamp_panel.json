@@ -1,0 +1,1053 @@
+{
+  "decisions_file": "experiments\\grimmsnarl_ml_v10_safe_residual\\advisors_v8_ladder.jsonl",
+  "panel": [
+    "v9",
+    "t16422241",
+    "t16452116",
+    "t16561259",
+    "t16371703"
+  ],
+  "petrel_stamp_offers": 37,
+  "dead_offers": 35,
+  "live_offers": 2,
+  "petrel_boss_offers": 64,
+  "per_advisor": {
+    "v8": {
+      "dead_take_rate": 0.7429,
+      "live_take_rate": 0.0,
+      "petrel_boss_take_rate": 0.0
+    },
+    "v9": {
+      "dead_take_rate": 0.5143,
+      "live_take_rate": 0.5,
+      "petrel_boss_take_rate": 0.0625
+    },
+    "t16422241": {
+      "dead_take_rate": 0.6571,
+      "live_take_rate": 0.0,
+      "petrel_boss_take_rate": 0.0938
+    },
+    "t16452116": {
+      "dead_take_rate": 0.5714,
+      "live_take_rate": 0.0,
+      "petrel_boss_take_rate": 0.0781
+    },
+    "t16561259": {
+      "dead_take_rate": 0.5143,
+      "live_take_rate": 0.0,
+      "petrel_boss_take_rate": 0.0156
+    },
+    "t16371703": {
+      "dead_take_rate": 0.6,
+      "live_take_rate": 0.0,
+      "petrel_boss_take_rate": 0.1094
+    }
+  },
+  "consensus_thresholds": {
+    "1": {
+      "fires": 10,
+      "of_dead_stamp_takes": 26,
+      "alternatives": {
+        "1227": 5,
+        "1152": 4,
+        "1097": 1
+      }
+    },
+    "2": {
+      "fires": 6,
+      "of_dead_stamp_takes": 26,
+      "alternatives": {
+        "1227": 4,
+        "1152": 2
+      }
+    },
+    "3": {
+      "fires": 5,
+      "of_dead_stamp_takes": 26,
+      "alternatives": {
+        "1227": 4,
+        "1152": 1
+      }
+    },
+    "4": {
+      "fires": 5,
+      "of_dead_stamp_takes": 26,
+      "alternatives": {
+        "1227": 4,
+        "1152": 1
+      }
+    },
+    "5": {
+      "fires": 3,
+      "of_dead_stamp_takes": 26,
+      "alternatives": {
+        "1227": 2,
+        "1152": 1
+      }
+    }
+  },
+  "events": [
+    {
+      "episode_id": 90643283,
+      "turn": 10,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "e02593e469e20c6b",
+      "live": false,
+      "options": 14,
+      "v8_card": 1080,
+      "v8_margin": 2.958277,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 0,
+        "t16422241": 0,
+        "t16452116": 0,
+        "t16561259": 0,
+        "t16371703": 0
+      },
+      "v8_slot": 0
+    },
+    {
+      "episode_id": 90644079,
+      "turn": 11,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "662fd75531c8a26a",
+      "live": false,
+      "options": 21,
+      "v8_card": 1080,
+      "v8_margin": 2.078057,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 16,
+        "t16422241": 16,
+        "t16452116": 16,
+        "t16561259": 16,
+        "t16371703": 16
+      },
+      "v8_slot": 16
+    },
+    {
+      "episode_id": 90645654,
+      "turn": 3,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "cc38cb450b86770a",
+      "live": false,
+      "options": 25,
+      "v8_card": 1080,
+      "v8_margin": 1.14121,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1080,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 5,
+        "t16422241": 3,
+        "t16452116": 5,
+        "t16561259": 5,
+        "t16371703": 5
+      },
+      "v8_slot": 3
+    },
+    {
+      "episode_id": 90645654,
+      "turn": 9,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "cc38cb450b86770a",
+      "live": false,
+      "options": 13,
+      "v8_card": 1080,
+      "v8_margin": 2.872019,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 0,
+        "t16422241": 0,
+        "t16452116": 0,
+        "t16561259": 0,
+        "t16371703": 0
+      },
+      "v8_slot": 0
+    },
+    {
+      "episode_id": 90646462,
+      "turn": 7,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "2b6a7dd699d2b6a5",
+      "live": false,
+      "options": 18,
+      "v8_card": 1080,
+      "v8_margin": 1.189401,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1152,
+        "t16561259": 1152,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 16,
+        "t16422241": 16,
+        "t16452116": 0,
+        "t16561259": 0,
+        "t16371703": 16
+      },
+      "v8_slot": 16
+    },
+    {
+      "episode_id": 90647259,
+      "turn": 4,
+      "won": true,
+      "went_first": false,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 22,
+      "v8_card": 1080,
+      "v8_margin": 1.2481,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1080,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 4,
+        "t16422241": 10,
+        "t16452116": 4,
+        "t16561259": 4,
+        "t16371703": 4
+      },
+      "v8_slot": 10
+    },
+    {
+      "episode_id": 90648067,
+      "turn": 7,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "20bc24847121c967",
+      "live": false,
+      "options": 17,
+      "v8_card": 1080,
+      "v8_margin": 2.545959,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 3,
+        "t16422241": 3,
+        "t16452116": 3,
+        "t16561259": 3,
+        "t16371703": 3
+      },
+      "v8_slot": 3
+    },
+    {
+      "episode_id": 90648314,
+      "turn": 5,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 22,
+      "v8_card": 1080,
+      "v8_margin": 3.888928,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 1,
+        "t16422241": 1,
+        "t16452116": 1,
+        "t16561259": 1,
+        "t16371703": 1
+      },
+      "v8_slot": 1
+    },
+    {
+      "episode_id": 90648872,
+      "turn": 2,
+      "won": true,
+      "went_first": false,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 23,
+      "v8_card": 1227,
+      "v8_margin": 2.43915,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 7,
+        "t16422241": 7,
+        "t16452116": 7,
+        "t16561259": 7,
+        "t16371703": 7
+      },
+      "v8_slot": 7
+    },
+    {
+      "episode_id": 90649659,
+      "turn": 7,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "d05bff224d40b9c6",
+      "live": false,
+      "options": 19,
+      "v8_card": 1080,
+      "v8_margin": 3.006156,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 15,
+        "t16422241": 15,
+        "t16452116": 15,
+        "t16561259": 15,
+        "t16371703": 15
+      },
+      "v8_slot": 15
+    },
+    {
+      "episode_id": 90650567,
+      "turn": 3,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "05f854e1b3b3ba0f",
+      "live": false,
+      "options": 23,
+      "v8_card": 1079,
+      "v8_margin": 1.734386,
+      "panel_cards": {
+        "v9": 1079,
+        "t16422241": 1079,
+        "t16452116": 1079,
+        "t16561259": 1079,
+        "t16371703": 1079
+      },
+      "panel_slots": {
+        "v9": 5,
+        "t16422241": 5,
+        "t16452116": 5,
+        "t16561259": 5,
+        "t16371703": 5
+      },
+      "v8_slot": 5
+    },
+    {
+      "episode_id": 90651246,
+      "turn": 7,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "8055443275c86105",
+      "live": false,
+      "options": 21,
+      "v8_card": 1080,
+      "v8_margin": 1.464564,
+      "panel_cards": {
+        "v9": 1097,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 6,
+        "t16422241": 12,
+        "t16452116": 12,
+        "t16561259": 12,
+        "t16371703": 12
+      },
+      "v8_slot": 12
+    },
+    {
+      "episode_id": 90652037,
+      "turn": 7,
+      "won": false,
+      "went_first": true,
+      "opponent_deck_hash": "6fa64c0e3b2eb67c",
+      "live": false,
+      "options": 19,
+      "v8_card": 1080,
+      "v8_margin": 2.659893,
+      "panel_cards": {
+        "v9": 1152,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 6,
+        "t16422241": 5,
+        "t16452116": 5,
+        "t16561259": 5,
+        "t16371703": 5
+      },
+      "v8_slot": 5
+    },
+    {
+      "episode_id": 90652837,
+      "turn": 3,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 24,
+      "v8_card": 1227,
+      "v8_margin": 2.23373,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 15,
+        "t16422241": 15,
+        "t16452116": 15,
+        "t16561259": 15,
+        "t16371703": 15
+      },
+      "v8_slot": 15
+    },
+    {
+      "episode_id": 90654424,
+      "turn": 5,
+      "won": false,
+      "went_first": true,
+      "opponent_deck_hash": "97df7a2a423da1d8",
+      "live": false,
+      "options": 20,
+      "v8_card": 1080,
+      "v8_margin": 0.360562,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 6,
+        "t16422241": 6,
+        "t16452116": 6,
+        "t16561259": 6,
+        "t16371703": 6
+      },
+      "v8_slot": 6
+    },
+    {
+      "episode_id": 90656818,
+      "turn": 2,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "37a318e22674d8ac",
+      "live": false,
+      "options": 23,
+      "v8_card": 1227,
+      "v8_margin": 1.251507,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 2,
+        "t16422241": 2,
+        "t16452116": 2,
+        "t16561259": 2,
+        "t16371703": 2
+      },
+      "v8_slot": 2
+    },
+    {
+      "episode_id": 90657577,
+      "turn": 4,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 22,
+      "v8_card": 1080,
+      "v8_margin": 0.087372,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 18,
+        "t16422241": 18,
+        "t16452116": 18,
+        "t16561259": 18,
+        "t16371703": 18
+      },
+      "v8_slot": 18
+    },
+    {
+      "episode_id": 90660045,
+      "turn": 11,
+      "won": false,
+      "went_first": true,
+      "opponent_deck_hash": "c76ac05c2c741180",
+      "live": false,
+      "options": 19,
+      "v8_card": 1080,
+      "v8_margin": 1.422151,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 5,
+        "t16422241": 5,
+        "t16452116": 5,
+        "t16561259": 5,
+        "t16371703": 5
+      },
+      "v8_slot": 5
+    },
+    {
+      "episode_id": 90662543,
+      "turn": 3,
+      "won": false,
+      "went_first": true,
+      "opponent_deck_hash": "9b415cc6bbdf6fd5",
+      "live": false,
+      "options": 23,
+      "v8_card": 1227,
+      "v8_margin": 0.643641,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 6,
+        "t16422241": 6,
+        "t16452116": 6,
+        "t16561259": 6,
+        "t16371703": 6
+      },
+      "v8_slot": 6
+    },
+    {
+      "episode_id": 90663282,
+      "turn": 7,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 18,
+      "v8_card": 1080,
+      "v8_margin": 1.511474,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 7,
+        "t16422241": 7,
+        "t16452116": 7,
+        "t16561259": 7,
+        "t16371703": 7
+      },
+      "v8_slot": 7
+    },
+    {
+      "episode_id": 90664094,
+      "turn": 10,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "cc38cb450b86770a",
+      "live": false,
+      "options": 21,
+      "v8_card": 1080,
+      "v8_margin": 3.848998,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 0,
+        "t16422241": 0,
+        "t16452116": 0,
+        "t16561259": 0,
+        "t16371703": 0
+      },
+      "v8_slot": 0
+    },
+    {
+      "episode_id": 90666503,
+      "turn": 5,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 22,
+      "v8_card": 1080,
+      "v8_margin": 2.472268,
+      "panel_cards": {
+        "v9": 1152,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1227,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 0,
+        "t16422241": 18,
+        "t16452116": 18,
+        "t16561259": 10,
+        "t16371703": 18
+      },
+      "v8_slot": 18
+    },
+    {
+      "episode_id": 90668114,
+      "turn": 9,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "57961e5f51c03eaf",
+      "live": true,
+      "options": 17,
+      "v8_card": 1097,
+      "v8_margin": 0.151802,
+      "panel_cards": {
+        "v9": 1097,
+        "t16422241": 1097,
+        "t16452116": 1097,
+        "t16561259": 1097,
+        "t16371703": 1097
+      },
+      "panel_slots": {
+        "v9": 3,
+        "t16422241": 3,
+        "t16452116": 3,
+        "t16561259": 3,
+        "t16371703": 3
+      },
+      "v8_slot": 3
+    },
+    {
+      "episode_id": 90668913,
+      "turn": 5,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "b957f91298535456",
+      "live": false,
+      "options": 23,
+      "v8_card": 1080,
+      "v8_margin": 4.566049,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 5,
+        "t16422241": 5,
+        "t16452116": 5,
+        "t16561259": 5,
+        "t16371703": 5
+      },
+      "v8_slot": 5
+    },
+    {
+      "episode_id": 90669698,
+      "turn": 2,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "cc38cb450b86770a",
+      "live": false,
+      "options": 23,
+      "v8_card": 1227,
+      "v8_margin": 0.713028,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 2,
+        "t16422241": 2,
+        "t16452116": 2,
+        "t16561259": 2,
+        "t16371703": 2
+      },
+      "v8_slot": 2
+    },
+    {
+      "episode_id": 90670500,
+      "turn": 6,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "a7ee29914c1dce64",
+      "live": false,
+      "options": 23,
+      "v8_card": 1080,
+      "v8_margin": 2.913233,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 2,
+        "t16422241": 2,
+        "t16452116": 2,
+        "t16561259": 2,
+        "t16371703": 2
+      },
+      "v8_slot": 2
+    },
+    {
+      "episode_id": 90671313,
+      "turn": 4,
+      "won": true,
+      "went_first": false,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 25,
+      "v8_card": 1080,
+      "v8_margin": 0.169592,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 15,
+        "t16422241": 15,
+        "t16452116": 15,
+        "t16561259": 15,
+        "t16371703": 15
+      },
+      "v8_slot": 21
+    },
+    {
+      "episode_id": 90672052,
+      "turn": 2,
+      "won": true,
+      "went_first": false,
+      "opponent_deck_hash": "c3c16f0e65487ad6",
+      "live": false,
+      "options": 23,
+      "v8_card": 1079,
+      "v8_margin": 0.455454,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 2,
+        "t16422241": 2,
+        "t16452116": 2,
+        "t16561259": 2,
+        "t16371703": 2
+      },
+      "v8_slot": 8
+    },
+    {
+      "episode_id": 90672052,
+      "turn": 4,
+      "won": true,
+      "went_first": false,
+      "opponent_deck_hash": "c3c16f0e65487ad6",
+      "live": false,
+      "options": 22,
+      "v8_card": 1080,
+      "v8_margin": 2.434975,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1227,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 15,
+        "t16422241": 15,
+        "t16452116": 15,
+        "t16561259": 9,
+        "t16371703": 15
+      },
+      "v8_slot": 15
+    },
+    {
+      "episode_id": 90673719,
+      "turn": 3,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "10fc83264fd70470",
+      "live": false,
+      "options": 25,
+      "v8_card": 1080,
+      "v8_margin": 0.527234,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 4,
+        "t16422241": 4,
+        "t16452116": 4,
+        "t16561259": 4,
+        "t16371703": 4
+      },
+      "v8_slot": 8
+    },
+    {
+      "episode_id": 90673719,
+      "turn": 9,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "10fc83264fd70470",
+      "live": false,
+      "options": 24,
+      "v8_card": 1080,
+      "v8_margin": 2.942731,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 16,
+        "t16422241": 16,
+        "t16452116": 16,
+        "t16561259": 16,
+        "t16371703": 16
+      },
+      "v8_slot": 16
+    },
+    {
+      "episode_id": 90674481,
+      "turn": 11,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 15,
+      "v8_card": 1097,
+      "v8_margin": 0.772898,
+      "panel_cards": {
+        "v9": 1097,
+        "t16422241": 1097,
+        "t16452116": 1097,
+        "t16561259": 1097,
+        "t16371703": 1097
+      },
+      "panel_slots": {
+        "v9": 2,
+        "t16422241": 2,
+        "t16452116": 2,
+        "t16561259": 2,
+        "t16371703": 2
+      },
+      "v8_slot": 2
+    },
+    {
+      "episode_id": 90675339,
+      "turn": 6,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "live": false,
+      "options": 22,
+      "v8_card": 1080,
+      "v8_margin": 0.994455,
+      "panel_cards": {
+        "v9": 1152,
+        "t16422241": 1152,
+        "t16452116": 1152,
+        "t16561259": 1152,
+        "t16371703": 1152
+      },
+      "panel_slots": {
+        "v9": 1,
+        "t16422241": 1,
+        "t16452116": 1,
+        "t16561259": 1,
+        "t16371703": 1
+      },
+      "v8_slot": 3
+    },
+    {
+      "episode_id": 90676143,
+      "turn": 10,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "202ee2cec6cbe8b4",
+      "live": true,
+      "options": 16,
+      "v8_card": 1097,
+      "v8_margin": 0.022049,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1097,
+        "t16452116": 1097,
+        "t16561259": 1097,
+        "t16371703": 1097
+      },
+      "panel_slots": {
+        "v9": 13,
+        "t16422241": 5,
+        "t16452116": 5,
+        "t16561259": 5,
+        "t16371703": 5
+      },
+      "v8_slot": 5
+    },
+    {
+      "episode_id": 90676928,
+      "turn": 2,
+      "won": false,
+      "went_first": false,
+      "opponent_deck_hash": "21c3f20980827cb2",
+      "live": false,
+      "options": 25,
+      "v8_card": 1227,
+      "v8_margin": 1.96683,
+      "panel_cards": {
+        "v9": 1227,
+        "t16422241": 1227,
+        "t16452116": 1227,
+        "t16561259": 1227,
+        "t16371703": 1227
+      },
+      "panel_slots": {
+        "v9": 3,
+        "t16422241": 3,
+        "t16452116": 3,
+        "t16561259": 3,
+        "t16371703": 3
+      },
+      "v8_slot": 3
+    },
+    {
+      "episode_id": 90677720,
+      "turn": 4,
+      "won": true,
+      "went_first": false,
+      "opponent_deck_hash": "504b91f7a078d9b5",
+      "live": false,
+      "options": 18,
+      "v8_card": 1080,
+      "v8_margin": 3.703647,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 1,
+        "t16422241": 1,
+        "t16452116": 1,
+        "t16561259": 1,
+        "t16371703": 1
+      },
+      "v8_slot": 1
+    },
+    {
+      "episode_id": 90679313,
+      "turn": 5,
+      "won": true,
+      "went_first": true,
+      "opponent_deck_hash": "a233298ee750b57c",
+      "live": false,
+      "options": 19,
+      "v8_card": 1080,
+      "v8_margin": 4.613991,
+      "panel_cards": {
+        "v9": 1080,
+        "t16422241": 1080,
+        "t16452116": 1080,
+        "t16561259": 1080,
+        "t16371703": 1080
+      },
+      "panel_slots": {
+        "v9": 14,
+        "t16422241": 14,
+        "t16452116": 14,
+        "t16561259": 14,
+        "t16371703": 14
+      },
+      "v8_slot": 14
+    }
+  ]
+}

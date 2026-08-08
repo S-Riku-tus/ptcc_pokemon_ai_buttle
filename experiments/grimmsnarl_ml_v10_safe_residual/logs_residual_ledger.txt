@@ -1,0 +1,84 @@
+90682401 decisions=78 differences=0
+90680151 decisions=131 differences=0
+90679313 decisions=212 differences=0
+90678524 decisions=278 differences=0
+90677720 decisions=367 differences=0
+90676928 decisions=462 differences=0
+90676143 decisions=535 differences=0
+90675339 decisions=622 differences=1
+90674481 decisions=732 differences=1
+90673719 decisions=810 differences=2
+90672919 decisions=828 differences=2
+90672052 decisions=893 differences=2
+90670500 decisions=1029 differences=2
+90671313 decisions=1157 differences=3
+90669698 decisions=1241 differences=3
+90668913 decisions=1319 differences=3
+90668114 decisions=1421 differences=3
+90667282 decisions=1562 differences=3
+90666503 decisions=1648 differences=4
+90665683 decisions=1683 differences=4
+90664891 decisions=1760 differences=4
+90664094 decisions=1828 differences=4
+90663282 decisions=1940 differences=4
+90662543 decisions=2037 differences=4
+90661666 decisions=2133 differences=4
+90660851 decisions=2207 differences=4
+90660045 decisions=2298 differences=4
+90659238 decisions=2405 differences=4
+90658444 decisions=2527 differences=4
+90657685 decisions=2608 differences=4
+90657577 decisions=2670 differences=4
+90656818 decisions=2727 differences=4
+90656032 decisions=2849 differences=4
+90655232 decisions=2972 differences=4
+90654424 decisions=3038 differences=4
+90653635 decisions=3104 differences=4
+90652837 decisions=3227 differences=4
+90652037 decisions=3364 differences=4
+90651246 decisions=3437 differences=4
+90650567 decisions=3509 differences=4
+90649659 decisions=3593 differences=4
+90648872 decisions=3705 differences=4
+90648314 decisions=3820 differences=4
+90648067 decisions=3937 differences=4
+90647259 decisions=4058 differences=5
+90646462 decisions=4116 differences=5
+90645654 decisions=4209 differences=6
+90644858 decisions=4280 differences=6
+90644079 decisions=4393 differences=6
+90643283 decisions=4480 differences=6
+{
+  "base": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "candidate": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v10",
+  "episodes": 50,
+  "decisions": 4480,
+  "differences": 6,
+  "difference_rate": 0.001339,
+  "distinct_episodes_changed": 6,
+  "changed_in_lost_games": 1,
+  "contexts_changed": {
+    "7": 6
+  },
+  "residual_counters": {
+    "considered": 3805,
+    "petrel_searches": 69,
+    "stamp_offered": 37,
+    "stamp_already_in_hand": 0,
+    "stamp_live_kept": 0,
+    "dead_stamp_chosen": 26,
+    "panel_scored": 104,
+    "panel_short": 2,
+    "panel_agreed_with_v8": 18,
+    "panel_alternative_was_stamp": 0,
+    "overrides": 6,
+    "errors": 0,
+    "new_game_detected": 0
+  }
+}
+  ep=90675339 turn=6 ctx=7 v8={'slot': 3, 'card': 1080} v10={'slot': 1, 'card': 1152}
+  ep=90673719 turn=3 ctx=7 v8={'slot': 8, 'card': 1080} v10={'slot': 4, 'card': 1227}
+  ep=90671313 turn=4 ctx=7 v8={'slot': 21, 'card': 1080} v10={'slot': 15, 'card': 1227}
+  ep=90666503 turn=5 ctx=7 v8={'slot': 18, 'card': 1080} v10={'slot': 10, 'card': 1227}
+  ep=90647259 turn=4 ctx=7 v8={'slot': 10, 'card': 1080} v10={'slot': 4, 'card': 1227}
+  ep=90645654 turn=3 ctx=7 v8={'slot': 3, 'card': 1080} v10={'slot': 5, 'card': 1227}

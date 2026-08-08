@@ -1,0 +1,5684 @@
+{
+  "decisions_file": "experiments\\grimmsnarl_ml_v10_safe_residual\\advisors_v8_ladder.jsonl",
+  "episodes": 50,
+  "rows": 4480,
+  "base": "v8",
+  "panel": [
+    "v9",
+    "t16422241",
+    "t16452116",
+    "t16561259",
+    "t16371703"
+  ],
+  "need": 3,
+  "by_context": {
+    "0": {
+      "decisions": 2026,
+      "overrides": 245,
+      "name": "MAIN",
+      "override_rate": 0.1209
+    },
+    "1": {
+      "decisions": 50,
+      "name": "setup_active",
+      "override_rate": 0.0
+    },
+    "2": {
+      "decisions": 18,
+      "name": "setup_bench",
+      "override_rate": 0.0
+    },
+    "3": {
+      "decisions": 58,
+      "overrides": 3,
+      "name": "switch",
+      "override_rate": 0.0517
+    },
+    "4": {
+      "decisions": 107,
+      "overrides": 7,
+      "name": "to_active",
+      "override_rate": 0.0654
+    },
+    "5": {
+      "decisions": 20,
+      "name": "mulligan_bench",
+      "override_rate": 0.0
+    },
+    "7": {
+      "decisions": 642,
+      "overrides": 31,
+      "name": "to_hand/search",
+      "override_rate": 0.0483
+    },
+    "8": {
+      "decisions": 2,
+      "name": "unknown8",
+      "override_rate": 0.0
+    },
+    "13": {
+      "decisions": 310,
+      "overrides": 16,
+      "name": "damage_counter",
+      "override_rate": 0.0516
+    },
+    "15": {
+      "decisions": 166,
+      "overrides": 6,
+      "name": "damage_target",
+      "override_rate": 0.0361
+    },
+    "16": {
+      "decisions": 310,
+      "overrides": 16,
+      "name": "remove_damage_counter",
+      "override_rate": 0.0516
+    },
+    "21": {
+      "decisions": 239,
+      "overrides": 5,
+      "name": "attach_from",
+      "override_rate": 0.0209
+    },
+    "22": {
+      "decisions": 6,
+      "name": "attach_to",
+      "override_rate": 0.0
+    },
+    "27": {
+      "decisions": 9,
+      "name": "ctx27",
+      "override_rate": 0.0
+    },
+    "30": {
+      "decisions": 50,
+      "name": "ctx30",
+      "override_rate": 0.0
+    },
+    "37": {
+      "decisions": 40,
+      "name": "ctx37",
+      "override_rate": 0.0
+    },
+    "38": {
+      "decisions": 9,
+      "name": "ctx38",
+      "override_rate": 0.0
+    },
+    "40": {
+      "decisions": 298,
+      "name": "remove_counter_count",
+      "override_rate": 0.0
+    },
+    "41": {
+      "decisions": 24,
+      "name": "ctx41",
+      "override_rate": 0.0
+    },
+    "43": {
+      "decisions": 96,
+      "name": "activate",
+      "override_rate": 0.0
+    }
+  },
+  "by_outcome_cell": {
+    "lost/first": {
+      "decisions": 686,
+      "overrides": 47,
+      "override_rate": 0.0685
+    },
+    "lost/second": {
+      "decisions": 1043,
+      "overrides": 68,
+      "override_rate": 0.0652
+    },
+    "won/first": {
+      "decisions": 1892,
+      "overrides": 142,
+      "override_rate": 0.0751
+    },
+    "won/second": {
+      "decisions": 859,
+      "overrides": 72,
+      "override_rate": 0.0838
+    }
+  },
+  "shapes": [
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 11,
+      "episodes": 9,
+      "lost_games": 2,
+      "second_games": 3,
+      "examples": [
+        {
+          "episode_id": 90643283,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "e02593e469e20c6b",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.170819,
+          "options": 8
+        },
+        {
+          "episode_id": 90648872,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.088804,
+          "options": 6
+        },
+        {
+          "episode_id": 90648872,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.048121,
+          "options": 5
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.237414,
+          "options": 4
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.914365,
+          "options": 7
+        },
+        {
+          "episode_id": 90661666,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.830669,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 648,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 10,
+      "episodes": 9,
+      "lost_games": 3,
+      "second_games": 4,
+      "examples": [
+        {
+          "episode_id": 90643283,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "e02593e469e20c6b",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.068092,
+          "options": 7
+        },
+        {
+          "episode_id": 90646462,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "2b6a7dd699d2b6a5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.224206,
+          "options": 3
+        },
+        {
+          "episode_id": 90647259,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.692331,
+          "options": 4
+        },
+        {
+          "episode_id": 90648314,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.686798,
+          "options": 7
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.694694,
+          "options": 3
+        },
+        {
+          "episode_id": 90668114,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "57961e5f51c03eaf",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.180951,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 9,
+      "episodes": 9,
+      "lost_games": 3,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90645654,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.60661,
+          "options": 11
+        },
+        {
+          "episode_id": 90646462,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "2b6a7dd699d2b6a5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.715287,
+          "options": 8
+        },
+        {
+          "episode_id": 90648872,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.320821,
+          "options": 7
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.098169,
+          "options": 3
+        },
+        {
+          "episode_id": 90660045,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.042464,
+          "options": 9
+        },
+        {
+          "episode_id": 90661666,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.26037,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 16,
+      "context_name": "remove_damage_counter",
+      "v8_action": "select",
+      "v8_card": 648,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 13,
+      "episodes": 8,
+      "lost_games": 1,
+      "second_games": 4,
+      "examples": [
+        {
+          "episode_id": 90647259,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.21003,
+          "options": 6
+        },
+        {
+          "episode_id": 90648314,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.575435,
+          "options": 2
+        },
+        {
+          "episode_id": 90648314,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.853574,
+          "options": 3
+        },
+        {
+          "episode_id": 90648872,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.385312,
+          "options": 2
+        },
+        {
+          "episode_id": 90661666,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.941089,
+          "options": 2
+        },
+        {
+          "episode_id": 90667282,
+          "turn": 12,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "d8e9c2a36e0e4dea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.30003,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "evolve",
+      "panel_card": 647,
+      "count": 7,
+      "episodes": 7,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90644079,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "662fd75531c8a26a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.058206,
+          "options": 7
+        },
+        {
+          "episode_id": 90649659,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "d05bff224d40b9c6",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.991335,
+          "options": 6
+        },
+        {
+          "episode_id": 90650567,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "05f854e1b3b3ba0f",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.801941,
+          "options": 12
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.316478,
+          "options": 10
+        },
+        {
+          "episode_id": 90656032,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.467289,
+          "options": 20
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.872312,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "evolve",
+      "panel_card": 648,
+      "count": 7,
+      "episodes": 7,
+      "lost_games": 2,
+      "second_games": 3,
+      "examples": [
+        {
+          "episode_id": 90644079,
+          "turn": 13,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "662fd75531c8a26a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.022389,
+          "options": 7
+        },
+        {
+          "episode_id": 90657685,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "15a06bda3357d295",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.212552,
+          "options": 10
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.716024,
+          "options": 19
+        },
+        {
+          "episode_id": 90660851,
+          "turn": 11,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.676928,
+          "options": 10
+        },
+        {
+          "episode_id": 90670500,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.02517,
+          "options": 9
+        },
+        {
+          "episode_id": 90677720,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.174807,
+          "options": 17
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 6,
+      "episodes": 6,
+      "lost_games": 0,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90644858,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.041886,
+          "options": 16
+        },
+        {
+          "episode_id": 90648872,
+          "turn": 12,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.143292,
+          "options": 13
+        },
+        {
+          "episode_id": 90650567,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "05f854e1b3b3ba0f",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.019054,
+          "options": 16
+        },
+        {
+          "episode_id": 90663282,
+          "turn": 13,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.800613,
+          "options": 12
+        },
+        {
+          "episode_id": 90672052,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "c3c16f0e65487ad6",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.497623,
+          "options": 17
+        },
+        {
+          "episode_id": 90679313,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "a233298ee750b57c",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.280653,
+          "options": 15
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 6,
+      "episodes": 6,
+      "lost_games": 2,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 1.788807,
+          "options": 8
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.545054,
+          "options": 5
+        },
+        {
+          "episode_id": 90668114,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "57961e5f51c03eaf",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.382033,
+          "options": 6
+        },
+        {
+          "episode_id": 90673719,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "10fc83264fd70470",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.565289,
+          "options": 5
+        },
+        {
+          "episode_id": 90675339,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.039731,
+          "options": 7
+        },
+        {
+          "episode_id": 90676928,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "21c3f20980827cb2",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.118815,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "attack",
+      "v8_card": -1,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 8,
+      "episodes": 5,
+      "lost_games": 1,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90648872,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.228668,
+          "options": 9
+        },
+        {
+          "episode_id": 90657685,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "15a06bda3357d295",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.111962,
+          "options": 10
+        },
+        {
+          "episode_id": 90657685,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "15a06bda3357d295",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.04266,
+          "options": 8
+        },
+        {
+          "episode_id": 90660045,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.2982,
+          "options": 5
+        },
+        {
+          "episode_id": 90660045,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.86174,
+          "options": 5
+        },
+        {
+          "episode_id": 90661666,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.338334,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1086,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 6,
+      "episodes": 5,
+      "lost_games": 1,
+      "second_games": 3,
+      "examples": [
+        {
+          "episode_id": 90643283,
+          "turn": 2,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "e02593e469e20c6b",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.535213,
+          "options": 10
+        },
+        {
+          "episode_id": 90644858,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.301289,
+          "options": 6
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.024257,
+          "options": 8
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.211794,
+          "options": 3
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.392503,
+          "options": 6
+        },
+        {
+          "episode_id": 90667282,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "d8e9c2a36e0e4dea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.097331,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "ability",
+      "panel_card": 112,
+      "count": 6,
+      "episodes": 5,
+      "lost_games": 2,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.234522,
+          "options": 7
+        },
+        {
+          "episode_id": 90652837,
+          "turn": 13,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.554681,
+          "options": 12
+        },
+        {
+          "episode_id": 90662543,
+          "turn": 13,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "9b415cc6bbdf6fd5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.656564,
+          "options": 5
+        },
+        {
+          "episode_id": 90662543,
+          "turn": 17,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "9b415cc6bbdf6fd5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.263542,
+          "options": 8
+        },
+        {
+          "episode_id": 90667282,
+          "turn": 18,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "d8e9c2a36e0e4dea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.149571,
+          "options": 15
+        },
+        {
+          "episode_id": 90670500,
+          "turn": 14,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.094849,
+          "options": 17
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 5,
+      "episodes": 5,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90644079,
+          "turn": 15,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "662fd75531c8a26a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.220184,
+          "options": 5
+        },
+        {
+          "episode_id": 90644858,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.102381,
+          "options": 18
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.239479,
+          "options": 4
+        },
+        {
+          "episode_id": 90666503,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.297004,
+          "options": 3
+        },
+        {
+          "episode_id": 90677720,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.066213,
+          "options": 16
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "bench",
+      "panel_card": 112,
+      "count": 5,
+      "episodes": 5,
+      "lost_games": 2,
+      "second_games": 3,
+      "examples": [
+        {
+          "episode_id": 90645654,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.630002,
+          "options": 7
+        },
+        {
+          "episode_id": 90647259,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.646096,
+          "options": 11
+        },
+        {
+          "episode_id": 90664891,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "0dede7cb8026e473",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.081255,
+          "options": 9
+        },
+        {
+          "episode_id": 90667282,
+          "turn": 12,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "d8e9c2a36e0e4dea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.261889,
+          "options": 14
+        },
+        {
+          "episode_id": 90669698,
+          "turn": 12,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.205886,
+          "options": 12
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1079,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 5,
+      "episodes": 5,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90645654,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.46519,
+          "options": 5
+        },
+        {
+          "episode_id": 90648872,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.753542,
+          "options": 13
+        },
+        {
+          "episode_id": 90652837,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.723157,
+          "options": 6
+        },
+        {
+          "episode_id": 90654424,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "97df7a2a423da1d8",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.49751,
+          "options": 13
+        },
+        {
+          "episode_id": 90663282,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.337423,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 21,
+      "context_name": "attach_from",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 5,
+      "episodes": 5,
+      "lost_games": 3,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.169528,
+          "options": 3
+        },
+        {
+          "episode_id": 90656818,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.831595,
+          "options": 4
+        },
+        {
+          "episode_id": 90668114,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "57961e5f51c03eaf",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.07563,
+          "options": 3
+        },
+        {
+          "episode_id": 90676928,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "21c3f20980827cb2",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.415601,
+          "options": 3
+        },
+        {
+          "episode_id": 90682401,
+          "turn": 5,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 1.127572,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": -1,
+      "panel_action": "ability",
+      "panel_card": 112,
+      "count": 5,
+      "episodes": 4,
+      "lost_games": 2,
+      "second_games": 3,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.154016,
+          "options": 18
+        },
+        {
+          "episode_id": 90657577,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.342264,
+          "options": 10
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.297575,
+          "options": 18
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.000396,
+          "options": 10
+        },
+        {
+          "episode_id": 90677720,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.518559,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 4,
+      "episodes": 4,
+      "lost_games": 2,
+      "second_games": 3,
+      "examples": [
+        {
+          "episode_id": 90643283,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "e02593e469e20c6b",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.801578,
+          "options": 5
+        },
+        {
+          "episode_id": 90644858,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.158674,
+          "options": 7
+        },
+        {
+          "episode_id": 90657685,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "15a06bda3357d295",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.193385,
+          "options": 5
+        },
+        {
+          "episode_id": 90678524,
+          "turn": 2,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.044513,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 1080,
+      "panel_action": "select",
+      "panel_card": 1227,
+      "count": 4,
+      "episodes": 4,
+      "lost_games": 0,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90645654,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.14121,
+          "options": 25
+        },
+        {
+          "episode_id": 90647259,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.2481,
+          "options": 22
+        },
+        {
+          "episode_id": 90671313,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.169592,
+          "options": 25
+        },
+        {
+          "episode_id": 90673719,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "10fc83264fd70470",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.527234,
+          "options": 25
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 4,
+      "episodes": 4,
+      "lost_games": 2,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.663509,
+          "options": 6
+        },
+        {
+          "episode_id": 90657685,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "15a06bda3357d295",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.908437,
+          "options": 6
+        },
+        {
+          "episode_id": 90660851,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.337526,
+          "options": 4
+        },
+        {
+          "episode_id": 90664094,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.268139,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 646,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 4,
+      "episodes": 4,
+      "lost_games": 2,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90648872,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.173236,
+          "options": 5
+        },
+        {
+          "episode_id": 90652037,
+          "turn": 11,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.264453,
+          "options": 4
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.266334,
+          "options": 6
+        },
+        {
+          "episode_id": 90675339,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.508094,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "attack",
+      "v8_card": -1,
+      "panel_action": "retreat",
+      "panel_card": -1,
+      "count": 4,
+      "episodes": 4,
+      "lost_games": 3,
+      "second_games": 3,
+      "examples": [
+        {
+          "episode_id": 90652837,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.132946,
+          "options": 7
+        },
+        {
+          "episode_id": 90656032,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.227723,
+          "options": 3
+        },
+        {
+          "episode_id": 90675339,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.023063,
+          "options": 8
+        },
+        {
+          "episode_id": 90676928,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "21c3f20980827cb2",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.206425,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 104,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 4,
+      "episodes": 3,
+      "lost_games": 2,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90643283,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "e02593e469e20c6b",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.291122,
+          "options": 4
+        },
+        {
+          "episode_id": 90650567,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "05f854e1b3b3ba0f",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.5304,
+          "options": 10
+        },
+        {
+          "episode_id": 90656818,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.037788,
+          "options": 10
+        },
+        {
+          "episode_id": 90656818,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.092882,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 4,
+      "episodes": 3,
+      "lost_games": 2,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.716179,
+          "options": 5
+        },
+        {
+          "episode_id": 90656032,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.597206,
+          "options": 5
+        },
+        {
+          "episode_id": 90656032,
+          "turn": 12,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.186126,
+          "options": 3
+        },
+        {
+          "episode_id": 90661666,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.808554,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 3,
+      "episodes": 3,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90644079,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "662fd75531c8a26a",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 1.180274,
+          "options": 7
+        },
+        {
+          "episode_id": 90652837,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.724,
+          "options": 7
+        },
+        {
+          "episode_id": 90680151,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.931027,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 3,
+      "episodes": 3,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90644079,
+          "turn": 13,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "662fd75531c8a26a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.585202,
+          "options": 5
+        },
+        {
+          "episode_id": 90645654,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.453719,
+          "options": 6
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 12,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.55538,
+          "options": 16
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "evolve",
+      "panel_card": 647,
+      "count": 3,
+      "episodes": 3,
+      "lost_games": 2,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90644858,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.191732,
+          "options": 17
+        },
+        {
+          "episode_id": 90656818,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.570861,
+          "options": 14
+        },
+        {
+          "episode_id": 90665683,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.117935,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 3,
+      "episodes": 3,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.205257,
+          "options": 17
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.915307,
+          "options": 18
+        },
+        {
+          "episode_id": 90664891,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "0dede7cb8026e473",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.161653,
+          "options": 11
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 3,
+      "episodes": 3,
+      "lost_games": 2,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.786291,
+          "options": 7
+        },
+        {
+          "episode_id": 90664094,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.462634,
+          "options": 6
+        },
+        {
+          "episode_id": 90668913,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "b957f91298535456",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.61627,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "stamp",
+      "panel_card": 1080,
+      "count": 3,
+      "episodes": 3,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90652837,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.321557,
+          "options": 3
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.622943,
+          "options": 8
+        },
+        {
+          "episode_id": 90671313,
+          "turn": 14,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.298639,
+          "options": 11
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 648,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 5,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90647259,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.712723,
+          "options": 5
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.887358,
+          "options": 3
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.902944,
+          "options": 3
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 3.964722,
+          "options": 3
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 12,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.383194,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 3,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.38873,
+          "options": 12
+        },
+        {
+          "episode_id": 90652037,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.201287,
+          "options": 16
+        },
+        {
+          "episode_id": 90677720,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.182921,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1122,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90643283,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "e02593e469e20c6b",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.92189,
+          "options": 5
+        },
+        {
+          "episode_id": 90647259,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.127506,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90644079,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "662fd75531c8a26a",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.697098,
+          "options": 7
+        },
+        {
+          "episode_id": 90668913,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "b957f91298535456",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.245123,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1227,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90644858,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.172085,
+          "options": 16
+        },
+        {
+          "episode_id": 90679313,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "a233298ee750b57c",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.167068,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90645654,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.964492,
+          "options": 11
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.054282,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 647,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90645654,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.232621,
+          "options": 5
+        },
+        {
+          "episode_id": 90648314,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.609456,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1079,
+      "panel_action": "evolve",
+      "panel_card": 647,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90647259,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.793662,
+          "options": 9
+        },
+        {
+          "episode_id": 90678524,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.668962,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "bench",
+      "panel_card": 860,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90648067,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "20bc24847121c967",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.750255,
+          "options": 10
+        },
+        {
+          "episode_id": 90680151,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.275772,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "boss",
+      "v8_card": 1182,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90648067,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "20bc24847121c967",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.978111,
+          "options": 6
+        },
+        {
+          "episode_id": 90671313,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.012685,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": -1,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648067,
+          "turn": 13,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "20bc24847121c967",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.180785,
+          "options": 3
+        },
+        {
+          "episode_id": 90662543,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "9b415cc6bbdf6fd5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.307526,
+          "options": 12
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "item",
+      "panel_card": 1137,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90648067,
+          "turn": 15,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "20bc24847121c967",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.400465,
+          "options": 19
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 12,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.777922,
+          "options": 23
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 112,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 13,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.018565,
+          "options": 11
+        },
+        {
+          "episode_id": 90649659,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "d05bff224d40b9c6",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.239096,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90648872,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.24619,
+          "options": 9
+        },
+        {
+          "episode_id": 90667282,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "d8e9c2a36e0e4dea",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.166778,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1227,
+      "panel_action": "retreat",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90648872,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.885687,
+          "options": 6
+        },
+        {
+          "episode_id": 90655232,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.252745,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90650567,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "05f854e1b3b3ba0f",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.095459,
+          "options": 8
+        },
+        {
+          "episode_id": 90670500,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.216906,
+          "options": 12
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "supporter",
+      "panel_card": 1227,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90651246,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "8055443275c86105",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.357355,
+          "options": 5
+        },
+        {
+          "episode_id": 90654424,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "97df7a2a423da1d8",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.608774,
+          "options": 12
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1227,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90651246,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "8055443275c86105",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.424864,
+          "options": 6
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.148813,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "boss",
+      "panel_card": 1182,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90651246,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "8055443275c86105",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.138998,
+          "options": 21
+        },
+        {
+          "episode_id": 90677720,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.814088,
+          "options": 21
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 104,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 2,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.498841,
+          "options": 4
+        },
+        {
+          "episode_id": 90660045,
+          "turn": 5,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.120073,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1227,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90652837,
+          "turn": 13,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.153367,
+          "options": 8
+        },
+        {
+          "episode_id": 90675339,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.747737,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "supporter",
+      "panel_card": 1231,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 2,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90653635,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "48dd99dd2b5aba68",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.253201,
+          "options": 6
+        },
+        {
+          "episode_id": 90660851,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 1.310299,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 2,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90653635,
+          "turn": 5,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "48dd99dd2b5aba68",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.16737,
+          "options": 8
+        },
+        {
+          "episode_id": 90660851,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.446825,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1086,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90654424,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "97df7a2a423da1d8",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.787188,
+          "options": 6
+        },
+        {
+          "episode_id": 90677720,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.01802,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 647,
+      "panel_action": "evolve",
+      "panel_card": 648,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90655232,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.507589,
+          "options": 8
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.633263,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1219,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90655232,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.488845,
+          "options": 7
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.160334,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 1137,
+      "panel_action": "select",
+      "panel_card": 1182,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90656032,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.525445,
+          "options": 20
+        },
+        {
+          "episode_id": 90658444,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.436926,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "evolve",
+      "panel_card": 647,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90656818,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.580919,
+          "options": 15
+        },
+        {
+          "episode_id": 90661666,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.685554,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 112,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90656818,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.523718,
+          "options": 11
+        },
+        {
+          "episode_id": 90659238,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.498761,
+          "options": 15
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1227,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660045,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.81505,
+          "options": 6
+        },
+        {
+          "episode_id": 90668913,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "b957f91298535456",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.021217,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 646,
+      "panel_action": "evolve",
+      "panel_card": 648,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660045,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.948608,
+          "options": 7
+        },
+        {
+          "episode_id": 90663282,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.022065,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 1097,
+      "panel_action": "select",
+      "panel_card": 1182,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90661666,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 1.525998,
+          "options": 19
+        },
+        {
+          "episode_id": 90671313,
+          "turn": 16,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.354756,
+          "options": 15
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": -1,
+      "panel_action": "supporter",
+      "panel_card": 1231,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90670500,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.593725,
+          "options": 4
+        },
+        {
+          "episode_id": 90671313,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.880896,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 1079,
+      "panel_action": "select",
+      "panel_card": 1227,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 0,
+      "second_games": 2,
+      "examples": [
+        {
+          "episode_id": 90671313,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.198377,
+          "options": 23
+        },
+        {
+          "episode_id": 90672052,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "c3c16f0e65487ad6",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.455454,
+          "options": 23
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1122,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 2,
+      "episodes": 2,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90674481,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.208299,
+          "options": 7
+        },
+        {
+          "episode_id": 90676143,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "202ee2cec6cbe8b4",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.719383,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 16,
+      "context_name": "remove_damage_counter",
+      "v8_action": "select",
+      "v8_card": 648,
+      "panel_action": "select",
+      "panel_card": 648,
+      "count": 2,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.983304,
+          "options": 2
+        },
+        {
+          "episode_id": 90652037,
+          "turn": 7,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.544118,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 112,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 2,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90656032,
+          "turn": 2,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.003927,
+          "options": 5
+        },
+        {
+          "episode_id": 90656032,
+          "turn": 2,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.442637,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 4,
+      "context_name": "to_active",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 2,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90657577,
+          "turn": 7,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.787462,
+          "options": 4
+        },
+        {
+          "episode_id": 90657577,
+          "turn": 9,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.14253,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 104,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 2,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90670500,
+          "turn": 14,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.111136,
+          "options": 4
+        },
+        {
+          "episode_id": 90670500,
+          "turn": 14,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.840032,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "attack",
+      "v8_card": -1,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90643283,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "e02593e469e20c6b",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.29326,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "evolve",
+      "panel_card": 648,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90644079,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "662fd75531c8a26a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.094225,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 646,
+      "panel_action": "item",
+      "panel_card": 1079,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90644858,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.070152,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 860,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90644858,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "65980f1c1e35b45d",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.039014,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "retreat",
+      "v8_card": -1,
+      "panel_action": "energy",
+      "panel_card": 7,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90646462,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "2b6a7dd699d2b6a5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.120538,
+          "options": 19
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "supporter",
+      "panel_card": 1231,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90646462,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "2b6a7dd699d2b6a5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.069262,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1231,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90647259,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.180164,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 16,
+      "context_name": "remove_damage_counter",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648067,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "20bc24847121c967",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.347638,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 4,
+      "context_name": "to_active",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648067,
+          "turn": 14,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "20bc24847121c967",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.407321,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 646,
+      "panel_action": "evolve",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.396003,
+          "options": 14
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "end",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 1.0639,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1231,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.389641,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "boss",
+      "v8_card": 1182,
+      "panel_action": "evolve",
+      "panel_card": 648,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.767698,
+          "options": 13
+        }
+      ]
+    },
+    {
+      "context": 3,
+      "context_name": "switch",
+      "v8_action": "select",
+      "v8_card": 647,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90648314,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.042981,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1079,
+      "panel_action": "item",
+      "panel_card": 1152,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90649659,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "d05bff224d40b9c6",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.620277,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "stamp",
+      "v8_card": 1080,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90649659,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "d05bff224d40b9c6",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.44164,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90649659,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "d05bff224d40b9c6",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.855617,
+          "options": 11
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90651246,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "8055443275c86105",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.082818,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 860,
+      "panel_action": "end",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90651246,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "8055443275c86105",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.831325,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 647,
+      "panel_action": "select",
+      "panel_card": 648,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90651246,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "8055443275c86105",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.156208,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "boss",
+      "v8_card": 1182,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90651246,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "8055443275c86105",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.424753,
+          "options": 19
+        }
+      ]
+    },
+    {
+      "context": 15,
+      "context_name": "damage_target",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.134853,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 104,
+      "panel_action": "ability",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.065683,
+          "options": 17
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 647,
+      "panel_action": "item",
+      "panel_card": 1152,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90652037,
+          "turn": 13,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "6fa64c0e3b2eb67c",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.250485,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "end",
+      "v8_card": -1,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90652837,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.354552,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "item",
+      "panel_card": 1152,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90652837,
+          "turn": 5,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.599748,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 4,
+      "context_name": "to_active",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 860,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90653635,
+          "turn": 4,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "48dd99dd2b5aba68",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.11292,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 1152,
+      "panel_action": "select",
+      "panel_card": 1259,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90653635,
+          "turn": 5,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "48dd99dd2b5aba68",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.119237,
+          "options": 19
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 860,
+      "panel_action": "select",
+      "panel_card": 646,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90654424,
+          "turn": 1,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "97df7a2a423da1d8",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.128812,
+          "options": 13
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "retreat",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90654424,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "97df7a2a423da1d8",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.558,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90656032,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.162423,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90656032,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "1350508087c01043",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.625869,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 4,
+      "context_name": "to_active",
+      "v8_action": "select",
+      "v8_card": 647,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90656818,
+          "turn": 5,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.783374,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 647,
+      "panel_action": "select",
+      "panel_card": 648,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90657577,
+          "turn": 2,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.416233,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1219,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90657577,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.349628,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1079,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90657685,
+          "turn": 4,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "15a06bda3357d295",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.024718,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "stamp",
+      "panel_card": 1080,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90657685,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "15a06bda3357d295",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.767728,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 648,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90658444,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.861599,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "attack",
+      "v8_card": -1,
+      "panel_action": "item",
+      "panel_card": 1122,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90658444,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.240312,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "retreat",
+      "v8_card": -1,
+      "panel_action": "ability",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90658444,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.016499,
+          "options": 15
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 648,
+      "panel_action": "select",
+      "panel_card": 648,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90658444,
+          "turn": 8,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.199363,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "ability",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90658444,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.057519,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 104,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90658444,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.962831,
+          "options": 11
+        }
+      ]
+    },
+    {
+      "context": 15,
+      "context_name": "damage_target",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90658444,
+          "turn": 12,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.466234,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 104,
+      "panel_action": "select",
+      "panel_card": 860,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90659238,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "062d2bd9de2d4fea",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.514419,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1079,
+      "panel_action": "energy",
+      "panel_card": 7,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660045,
+          "turn": 3,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.632308,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "end",
+      "v8_card": -1,
+      "panel_action": "bench",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660045,
+          "turn": 5,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.238824,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 15,
+      "context_name": "damage_target",
+      "v8_action": "select",
+      "v8_card": 648,
+      "panel_action": "select",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660045,
+          "turn": 13,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "c76ac05c2c741180",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.031583,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "energy",
+      "panel_card": 7,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660851,
+          "turn": 5,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.583219,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 646,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660851,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.205649,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 647,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90660851,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.329353,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 15,
+      "context_name": "damage_target",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90661666,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.879217,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 4,
+      "context_name": "to_active",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 646,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90663282,
+          "turn": 4,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.765377,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "stamp",
+      "v8_card": 1080,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90663282,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.008473,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 860,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90664094,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.17525,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 7,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90664891,
+          "turn": 9,
+          "won": false,
+          "went_first": true,
+          "opponent_deck_hash": "0dede7cb8026e473",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.258671,
+          "options": 8
+        }
+      ]
+    },
+    {
+      "context": 4,
+      "context_name": "to_active",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90665683,
+          "turn": 7,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "37a318e22674d8ac",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.877556,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "supporter",
+      "v8_card": 1227,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90666503,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.135116,
+          "options": 11
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1086,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90666503,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.58327,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 1097,
+      "panel_action": "select",
+      "panel_card": 1152,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90666503,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.184351,
+          "options": 17
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": -1,
+      "panel_action": "attack",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90668114,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "57961e5f51c03eaf",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.41281,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 860,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90668913,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "b957f91298535456",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.134726,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "stamp",
+      "v8_card": 1080,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90668913,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "b957f91298535456",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.021084,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "supporter",
+      "panel_card": 1231,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90669698,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.873152,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "stamp",
+      "v8_card": 1080,
+      "panel_action": "energy",
+      "panel_card": 7,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90669698,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.385363,
+          "options": 15
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90670500,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 1.335943,
+          "options": 17
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1097,
+      "panel_action": "evolve",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90670500,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.179207,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 3,
+      "context_name": "switch",
+      "v8_action": "select",
+      "v8_card": 104,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90670500,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.629503,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 646,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90670500,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.560584,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1137,
+      "panel_action": "stadium",
+      "panel_card": 1259,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90670500,
+          "turn": 10,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "a7ee29914c1dce64",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.141545,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 646,
+      "panel_action": "supporter",
+      "panel_card": 1231,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90671313,
+          "turn": 2,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.520157,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 3,
+      "context_name": "switch",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90671313,
+          "turn": 10,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.956826,
+          "options": 4
+        }
+      ]
+    },
+    {
+      "context": 13,
+      "context_name": "damage_counter",
+      "v8_action": "select",
+      "v8_card": 112,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90671313,
+          "turn": 14,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.035985,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 112,
+      "panel_action": "item",
+      "panel_card": 1097,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90673719,
+          "turn": 7,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "10fc83264fd70470",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.09269,
+          "options": 6
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "bench",
+      "v8_card": 646,
+      "panel_action": "energy",
+      "panel_card": 7,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90673719,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "10fc83264fd70470",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 1.347718,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 648,
+      "panel_action": "supporter",
+      "panel_card": 1219,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90673719,
+          "turn": 9,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "10fc83264fd70470",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.072164,
+          "options": 3
+        }
+      ]
+    },
+    {
+      "context": 15,
+      "context_name": "damage_target",
+      "v8_action": "select",
+      "v8_card": 648,
+      "panel_action": "select",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90673719,
+          "turn": 11,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "10fc83264fd70470",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.253465,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "item",
+      "v8_card": 1152,
+      "panel_action": "energy",
+      "panel_card": 7,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90674481,
+          "turn": 1,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 2.016831,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 7,
+      "context_name": "to_hand/search",
+      "v8_action": "select",
+      "v8_card": 1080,
+      "panel_action": "select",
+      "panel_card": 1152,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90675339,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "9714ab5c3996f6cc",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.994455,
+          "options": 22
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "boss",
+      "v8_card": 1182,
+      "panel_action": "end",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90676143,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "202ee2cec6cbe8b4",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.257754,
+          "options": 2
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 648,
+      "panel_action": "ability",
+      "panel_card": -1,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90676928,
+          "turn": 6,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "21c3f20980827cb2",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.755711,
+          "options": 12
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "energy",
+      "v8_card": 7,
+      "panel_action": "item",
+      "panel_card": 1086,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90676928,
+          "turn": 12,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "21c3f20980827cb2",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 0.150278,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "boss",
+      "v8_card": 1182,
+      "panel_action": "ability",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90677720,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.685935,
+          "options": 10
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "evolve",
+      "v8_card": 648,
+      "panel_action": "ability",
+      "panel_card": 112,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90677720,
+          "turn": 6,
+          "won": true,
+          "went_first": false,
+          "opponent_deck_hash": "504b91f7a078d9b5",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.007709,
+          "options": 7
+        }
+      ]
+    },
+    {
+      "context": 15,
+      "context_name": "damage_target",
+      "v8_action": "select",
+      "v8_card": 646,
+      "panel_action": "select",
+      "panel_card": 647,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90678524,
+          "turn": 4,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 5,
+          "scored": 5,
+          "base_margin": 0.125105,
+          "options": 5
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": 112,
+      "panel_action": "item",
+      "panel_card": 1097,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 1,
+      "second_games": 1,
+      "examples": [
+        {
+          "episode_id": 90678524,
+          "turn": 8,
+          "won": false,
+          "went_first": false,
+          "opponent_deck_hash": "cc38cb450b86770a",
+          "votes": 4,
+          "scored": 5,
+          "base_margin": 2.367549,
+          "options": 9
+        }
+      ]
+    },
+    {
+      "context": 0,
+      "context_name": "MAIN",
+      "v8_action": "ability",
+      "v8_card": -1,
+      "panel_action": "evolve",
+      "panel_card": 104,
+      "count": 1,
+      "episodes": 1,
+      "lost_games": 0,
+      "second_games": 0,
+      "examples": [
+        {
+          "episode_id": 90679313,
+          "turn": 3,
+          "won": true,
+          "went_first": true,
+          "opponent_deck_hash": "a233298ee750b57c",
+          "votes": 3,
+          "scored": 5,
+          "base_margin": 0.407232,
+          "options": 14
+        }
+      ]
+    }
+  ]
+}

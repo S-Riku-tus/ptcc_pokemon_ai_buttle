@@ -1,0 +1,126 @@
+{
+  "base": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "candidate": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v10",
+  "episodes": 50,
+  "decisions": 4480,
+  "differences": 6,
+  "difference_rate": 0.001339,
+  "distinct_episodes_changed": 6,
+  "changed_in_lost_games": 1,
+  "contexts_changed": {
+    "7": 6
+  },
+  "residual_counters": {
+    "considered": 3805,
+    "petrel_searches": 69,
+    "stamp_offered": 37,
+    "stamp_already_in_hand": 0,
+    "stamp_live_kept": 0,
+    "dead_stamp_chosen": 26,
+    "panel_scored": 104,
+    "panel_short": 2,
+    "panel_agreed_with_v8": 18,
+    "panel_alternative_was_stamp": 0,
+    "overrides": 6,
+    "errors": 0,
+    "new_game_detected": 0
+  },
+  "ledger": [
+    {
+      "episode_id": 90675339,
+      "won": false,
+      "turn": 6,
+      "context": 7,
+      "options": 22,
+      "v8": {
+        "slot": 3,
+        "card": 1080
+      },
+      "v10": {
+        "slot": 1,
+        "card": 1152
+      },
+      "played": 3
+    },
+    {
+      "episode_id": 90673719,
+      "won": true,
+      "turn": 3,
+      "context": 7,
+      "options": 25,
+      "v8": {
+        "slot": 8,
+        "card": 1080
+      },
+      "v10": {
+        "slot": 4,
+        "card": 1227
+      },
+      "played": 8
+    },
+    {
+      "episode_id": 90671313,
+      "won": true,
+      "turn": 4,
+      "context": 7,
+      "options": 25,
+      "v8": {
+        "slot": 21,
+        "card": 1080
+      },
+      "v10": {
+        "slot": 15,
+        "card": 1227
+      },
+      "played": 21
+    },
+    {
+      "episode_id": 90666503,
+      "won": true,
+      "turn": 5,
+      "context": 7,
+      "options": 22,
+      "v8": {
+        "slot": 18,
+        "card": 1080
+      },
+      "v10": {
+        "slot": 10,
+        "card": 1227
+      },
+      "played": 18
+    },
+    {
+      "episode_id": 90647259,
+      "won": true,
+      "turn": 4,
+      "context": 7,
+      "options": 22,
+      "v8": {
+        "slot": 10,
+        "card": 1080
+      },
+      "v10": {
+        "slot": 4,
+        "card": 1227
+      },
+      "played": 10
+    },
+    {
+      "episode_id": 90645654,
+      "won": true,
+      "turn": 3,
+      "context": 7,
+      "options": 25,
+      "v8": {
+        "slot": 3,
+        "card": 1080
+      },
+      "v10": {
+        "slot": 5,
+        "card": 1227
+      },
+      "played": 3
+    }
+  ]
+}
