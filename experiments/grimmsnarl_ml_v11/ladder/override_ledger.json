@@ -1,0 +1,2945 @@
+{
+  "base": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "candidate": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v11",
+  "episodes": 89,
+  "decisions": 7873,
+  "overrides": 70,
+  "override_rate_per_decision": 0.008891,
+  "override_rate_per_game": 0.7865,
+  "games_with_override": 49,
+  "games_without_override": 40,
+  "outcome_split": {
+    "with_override": {
+      "games": 49,
+      "wins": 32,
+      "losses": 17,
+      "win_rate": 0.6531,
+      "mean_opponent_rating": 843.7,
+      "mean_overrides": 1.429
+    },
+    "without_override": {
+      "games": 40,
+      "wins": 22,
+      "losses": 18,
+      "win_rate": 0.55,
+      "mean_opponent_rating": 847.7,
+      "mean_overrides": 0.0
+    },
+    "fisher_p": 0.38534
+  },
+  "search_counters": {
+    "considered": 3488,
+    "searched": 542,
+    "determinizations": 645,
+    "branches": 1844,
+    "overrides": 66,
+    "branch_errors": 0,
+    "incomplete_branches": 0,
+    "skip_early": 0,
+    "skip_already_searched_turn": 2946,
+    "skip_planner_guard": 0,
+    "skip_no_search_state": 0,
+    "skip_no_candidates": 0,
+    "skip_incomplete_matrix": 0,
+    "skip_nonrobust": 476,
+    "robust_candidates": 75,
+    "utility_gain_sum": 26332303,
+    "utility_gain_max": 23696180
+  },
+  "search_config": {
+    "enabled": true,
+    "min_turn": 1,
+    "top_k": 3,
+    "determinizations_per_search": 2,
+    "max_rank_margin": 8.0,
+    "min_mean_utility_gain": 1000,
+    "override_records": []
+  },
+  "reproduction": {
+    "decisions": 7873,
+    "v8_matches_played": 7622,
+    "v11_matches_played": 7586,
+    "v8_rate": 0.9681,
+    "v11_rate": 0.9635,
+    "note": "v11 is the deployed policy, so its rate is the probe's fidelity ceiling. A rate well below 1.0 means the replayed layer is not reproducing deployed behaviour and the ledger under-counts."
+  },
+  "contexts_changed": {
+    "0": 69,
+    "16": 1
+  },
+  "turns_changed": {
+    "2": 4,
+    "3": 7,
+    "4": 2,
+    "5": 9,
+    "6": 6,
+    "7": 11,
+    "8": 1,
+    "9": 5,
+    "10": 5,
+    "11": 7,
+    "12": 5,
+    "13": 5,
+    "15": 3
+  },
+  "cards_v8_would_play": {
+    "Munkidori": 36,
+    "": 23,
+    "Froslass": 4,
+    "Marnie's Morgrem": 4,
+    "Basic {D} Energy": 3
+  },
+  "cards_v11_plays": {
+    "": 48,
+    "Basic {D} Energy": 11,
+    "Marnie's Grimmsnarl ex": 9,
+    "Froslass": 1,
+    "Munkidori": 1
+  },
+  "by_opponent": {
+    "MIRROR": {
+      "all": {
+        "games": 22,
+        "wins": 17,
+        "losses": 5,
+        "win_rate": 0.7727,
+        "mean_opponent_rating": 851.4,
+        "mean_overrides": 0.864
+      },
+      "with_override": {
+        "games": 16,
+        "wins": 13,
+        "losses": 3,
+        "win_rate": 0.8125,
+        "mean_opponent_rating": 837.4,
+        "mean_overrides": 1.188
+      },
+      "without_override": {
+        "games": 6,
+        "wins": 4,
+        "losses": 2,
+        "win_rate": 0.6667,
+        "mean_opponent_rating": 889.0,
+        "mean_overrides": 0.0
+      }
+    },
+    "Alakazam": {
+      "all": {
+        "games": 20,
+        "wins": 9,
+        "losses": 11,
+        "win_rate": 0.45,
+        "mean_opponent_rating": 865.5,
+        "mean_overrides": 0.3
+      },
+      "with_override": {
+        "games": 6,
+        "wins": 3,
+        "losses": 3,
+        "win_rate": 0.5,
+        "mean_opponent_rating": 853.1,
+        "mean_overrides": 1.0
+      },
+      "without_override": {
+        "games": 14,
+        "wins": 6,
+        "losses": 8,
+        "win_rate": 0.4286,
+        "mean_opponent_rating": 870.9,
+        "mean_overrides": 0.0
+      }
+    },
+    "Marnie's Grimmsnarl ex": {
+      "all": {
+        "games": 11,
+        "wins": 6,
+        "losses": 5,
+        "win_rate": 0.5455,
+        "mean_opponent_rating": 882.7,
+        "mean_overrides": 0.818
+      },
+      "with_override": {
+        "games": 4,
+        "wins": 3,
+        "losses": 1,
+        "win_rate": 0.75,
+        "mean_opponent_rating": 851.9,
+        "mean_overrides": 2.25
+      },
+      "without_override": {
+        "games": 7,
+        "wins": 3,
+        "losses": 4,
+        "win_rate": 0.4286,
+        "mean_opponent_rating": 900.3,
+        "mean_overrides": 0.0
+      }
+    },
+    "Mega Lucario ex": {
+      "all": {
+        "games": 7,
+        "wins": 6,
+        "losses": 1,
+        "win_rate": 0.8571,
+        "mean_opponent_rating": 804.9,
+        "mean_overrides": 1.571
+      },
+      "with_override": {
+        "games": 6,
+        "wins": 5,
+        "losses": 1,
+        "win_rate": 0.8333,
+        "mean_opponent_rating": 802.0,
+        "mean_overrides": 1.833
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 822.1,
+        "mean_overrides": 0.0
+      }
+    },
+    "Mega Kangaskhan ex": {
+      "all": {
+        "games": 6,
+        "wins": 3,
+        "losses": 3,
+        "win_rate": 0.5,
+        "mean_opponent_rating": 862.8,
+        "mean_overrides": 1.167
+      },
+      "with_override": {
+        "games": 4,
+        "wins": 1,
+        "losses": 3,
+        "win_rate": 0.25,
+        "mean_opponent_rating": 924.8,
+        "mean_overrides": 1.75
+      },
+      "without_override": {
+        "games": 2,
+        "wins": 2,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 738.8,
+        "mean_overrides": 0.0
+      }
+    },
+    "Cinderace": {
+      "all": {
+        "games": 6,
+        "wins": 6,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 777.4,
+        "mean_overrides": 0.667
+      },
+      "with_override": {
+        "games": 4,
+        "wins": 4,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 782.8,
+        "mean_overrides": 1.0
+      },
+      "without_override": {
+        "games": 2,
+        "wins": 2,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 766.5,
+        "mean_overrides": 0.0
+      }
+    },
+    "Mega Lopunny ex": {
+      "all": {
+        "games": 4,
+        "wins": 2,
+        "losses": 2,
+        "win_rate": 0.5,
+        "mean_opponent_rating": 852.2,
+        "mean_overrides": 1.25
+      },
+      "with_override": {
+        "games": 3,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 0.3333,
+        "mean_opponent_rating": 833.5,
+        "mean_overrides": 1.667
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 908.3,
+        "mean_overrides": 0.0
+      }
+    },
+    "Dragapult ex": {
+      "all": {
+        "games": 2,
+        "wins": 2,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 852.3,
+        "mean_overrides": 1.0
+      },
+      "with_override": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 870.6,
+        "mean_overrides": 2.0
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 834.0,
+        "mean_overrides": 0.0
+      }
+    },
+    "Team Rocket's Mewtwo ex": {
+      "all": {
+        "games": 2,
+        "wins": 1,
+        "losses": 1,
+        "win_rate": 0.5,
+        "mean_opponent_rating": 847.7,
+        "mean_overrides": 1.0
+      },
+      "with_override": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 717.6,
+        "mean_overrides": 2.0
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 977.8,
+        "mean_overrides": 0.0
+      }
+    },
+    "Teal Mask Ogerpon ex": {
+      "all": {
+        "games": 2,
+        "wins": 0,
+        "losses": 2,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 923.7,
+        "mean_overrides": 1.0
+      },
+      "with_override": {
+        "games": 2,
+        "wins": 0,
+        "losses": 2,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 923.7,
+        "mean_overrides": 1.0
+      },
+      "without_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      }
+    },
+    "Thwackey": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 637.2,
+        "mean_overrides": 0.0
+      },
+      "with_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 637.2,
+        "mean_overrides": 0.0
+      }
+    },
+    "Cornerstone Mask Ogerpon ex": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 764.4,
+        "mean_overrides": 0.0
+      },
+      "with_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 764.4,
+        "mean_overrides": 0.0
+      }
+    },
+    "Iono’s Bellibolt ex": {
+      "all": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 369.0,
+        "mean_overrides": 0.0
+      },
+      "with_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 369.0,
+        "mean_overrides": 0.0
+      }
+    },
+    "Crustle": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 923.5,
+        "mean_overrides": 2.0
+      },
+      "with_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 923.5,
+        "mean_overrides": 2.0
+      },
+      "without_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      }
+    },
+    "Chandelure": {
+      "all": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 802.1,
+        "mean_overrides": 0.0
+      },
+      "with_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "mean_opponent_rating": 802.1,
+        "mean_overrides": 0.0
+      }
+    },
+    "Hydrapple ex": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 953.8,
+        "mean_overrides": 0.0
+      },
+      "with_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 953.8,
+        "mean_overrides": 0.0
+      }
+    },
+    "Conkeldurr": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 914.6,
+        "mean_overrides": 1.0
+      },
+      "with_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 914.6,
+        "mean_overrides": 1.0
+      },
+      "without_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      }
+    }
+  },
+  "games": [
+    {
+      "episode_id": 90966998,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 532.1133,
+      "decisions": 27,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90967002,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 507.4199,
+      "decisions": 78,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90967834,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 675.1604,
+      "decisions": 76,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90967833,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 730.394,
+      "decisions": 92,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90968659,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 911.6589,
+      "decisions": 93,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90968664,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 788.9377,
+      "decisions": 99,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90969500,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "Dragapult ex",
+      "opponent_score": 834.0184,
+      "decisions": 75,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90969502,
+      "submission": "55346539",
+      "won": false,
+      "went_first": false,
+      "opponent": "Mega Lopunny ex",
+      "opponent_score": 705.7654,
+      "decisions": 83,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90970334,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 979.9063,
+      "decisions": 74,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90970351,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "Mega Lucario ex",
+      "opponent_score": 644.859,
+      "decisions": 40,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90971178,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Thwackey",
+      "opponent_score": 637.1539,
+      "decisions": 69,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90971188,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Cinderace",
+      "opponent_score": 712.9656,
+      "decisions": 83,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90972020,
+      "submission": "55346548",
+      "won": false,
+      "went_first": true,
+      "opponent": "Cornerstone Mask Ogerpon ex",
+      "opponent_score": 764.3528,
+      "decisions": 133,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90972023,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Cinderace",
+      "opponent_score": 735.2076,
+      "decisions": 81,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90972876,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 767.0162,
+      "decisions": 95,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90972881,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 726.0548,
+      "decisions": 102,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90973721,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Team Rocket's Mewtwo ex",
+      "opponent_score": 717.6337,
+      "decisions": 96,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90973722,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 777.5179,
+      "decisions": 86,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90974765,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 823.7092,
+      "decisions": 90,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90974662,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 852.284,
+      "decisions": 68,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90975418,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "Mega Lucario ex",
+      "opponent_score": 846.4337,
+      "decisions": 98,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90975423,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 910.1969,
+      "decisions": 104,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90976232,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 870.6202,
+      "decisions": 85,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90976238,
+      "submission": "55346548",
+      "won": false,
+      "went_first": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 915.0074,
+      "decisions": 91,
+      "overrides": 4,
+      "searches": 0,
+      "search_overrides": 4
+    },
+    {
+      "episode_id": 90976396,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 826.7939,
+      "decisions": 84,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90977098,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 824.7166,
+      "decisions": 106,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90977106,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Cinderace",
+      "opponent_score": 797.6965,
+      "decisions": 94,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90977934,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 834.3579,
+      "decisions": 102,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90977936,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 877.8908,
+      "decisions": 85,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90978769,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 917.3613,
+      "decisions": 77,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90978791,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 827.489,
+      "decisions": 90,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90979617,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 865.2072,
+      "decisions": 105,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90979636,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 792.8589,
+      "decisions": 54,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90980731,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 906.8529,
+      "decisions": 91,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90980482,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 856.2116,
+      "decisions": 94,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90981288,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 905.5773,
+      "decisions": 89,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90981306,
+      "submission": "55346539",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 883.2678,
+      "decisions": 72,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90982129,
+      "submission": "55346548",
+      "won": false,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 975.1248,
+      "decisions": 86,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90982153,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 885.5526,
+      "decisions": 78,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90982965,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 869.8942,
+      "decisions": 51,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90982985,
+      "submission": "55346539",
+      "won": false,
+      "went_first": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 876.5095,
+      "decisions": 98,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90983185,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 953.7091,
+      "decisions": 84,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90983793,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 904.4461,
+      "decisions": 87,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90983845,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 813.697,
+      "decisions": 74,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90984671,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 909.7487,
+      "decisions": 123,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90984738,
+      "submission": "55346539",
+      "won": false,
+      "went_first": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 752.6309,
+      "decisions": 62,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90985526,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 872.6149,
+      "decisions": 125,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90985549,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 882.8318,
+      "decisions": 105,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90986355,
+      "submission": "55346548",
+      "won": false,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 923.6941,
+      "decisions": 70,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90986385,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Iono’s Bellibolt ex",
+      "opponent_score": 368.9866,
+      "decisions": 37,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90987181,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Crustle",
+      "opponent_score": 923.4987,
+      "decisions": 142,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90987243,
+      "submission": "55346548",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 943.5528,
+      "decisions": 69,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90988032,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 827.5246,
+      "decisions": 101,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90988050,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 819.9415,
+      "decisions": 97,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90988176,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Cinderace",
+      "opponent_score": 765.5301,
+      "decisions": 87,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90988870,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 847.5636,
+      "decisions": 105,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90988895,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "MIRROR",
+      "opponent_score": 735.5578,
+      "decisions": 92,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90989700,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 985.2466,
+      "decisions": 110,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90989719,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Mega Lucario ex",
+      "opponent_score": 792.3505,
+      "decisions": 71,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90990539,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 885.2556,
+      "decisions": 77,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90990571,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Chandelure",
+      "opponent_score": 802.069,
+      "decisions": 40,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90991369,
+      "submission": "55346548",
+      "won": false,
+      "went_first": true,
+      "opponent": "Hydrapple ex",
+      "opponent_score": 953.7996,
+      "decisions": 64,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90991395,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 898.2692,
+      "decisions": 152,
+      "overrides": 3,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90992238,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 940.5476,
+      "decisions": 141,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90992262,
+      "submission": "55346539",
+      "won": false,
+      "went_first": false,
+      "opponent": "Teal Mask Ogerpon ex",
+      "opponent_score": 886.84,
+      "decisions": 70,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90992939,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Team Rocket's Mewtwo ex",
+      "opponent_score": 977.766,
+      "decisions": 101,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90993168,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Mega Lucario ex",
+      "opponent_score": 777.8113,
+      "decisions": 103,
+      "overrides": 3,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90993900,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 978.7245,
+      "decisions": 135,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90993937,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Cinderace",
+      "opponent_score": 767.7479,
+      "decisions": 119,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90994738,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Mega Lopunny ex",
+      "opponent_score": 908.3339,
+      "decisions": 118,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90994747,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Lucario ex",
+      "opponent_score": 796.2745,
+      "decisions": 56,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90995569,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Cinderace",
+      "opponent_score": 884.9943,
+      "decisions": 91,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90995594,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "Mega Lopunny ex",
+      "opponent_score": 841.2098,
+      "decisions": 115,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90996380,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 975.4136,
+      "decisions": 62,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90996414,
+      "submission": "55346539",
+      "won": false,
+      "went_first": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 906.2089,
+      "decisions": 66,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90997252,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 833.8442,
+      "decisions": 76,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90997276,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Conkeldurr",
+      "opponent_score": 914.5989,
+      "decisions": 30,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90997291,
+      "submission": "55346539",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 944.3306,
+      "decisions": 97,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90998006,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "Dragapult ex",
+      "opponent_score": 870.6112,
+      "decisions": 66,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90998110,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 1009.0216,
+      "decisions": 102,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90998140,
+      "submission": "55346539",
+      "won": true,
+      "went_first": false,
+      "opponent": "Mega Lucario ex",
+      "opponent_score": 822.1095,
+      "decisions": 80,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 90998942,
+      "submission": "55346548",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Lopunny ex",
+      "opponent_score": 953.5377,
+      "decisions": 136,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 90998973,
+      "submission": "55346539",
+      "won": true,
+      "went_first": true,
+      "opponent": "MIRROR",
+      "opponent_score": 909.4571,
+      "decisions": 121,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90999700,
+      "submission": "55346539",
+      "won": false,
+      "went_first": false,
+      "opponent": "Teal Mask Ogerpon ex",
+      "opponent_score": 960.5943,
+      "decisions": 18,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    },
+    {
+      "episode_id": 90999851,
+      "submission": "55346548",
+      "won": true,
+      "went_first": false,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 945.5581,
+      "decisions": 163,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91000625,
+      "submission": "55346548",
+      "won": true,
+      "went_first": true,
+      "opponent": "Mega Lucario ex",
+      "opponent_score": 954.3223,
+      "decisions": 109,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 2
+    },
+    {
+      "episode_id": 91001515,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "opponent_score": 935.3278,
+      "decisions": 69,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91002409,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 982.3944,
+      "decisions": 90,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91003155,
+      "submission": "55346548",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 918.3291,
+      "decisions": 91,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 1
+    }
+  ],
+  "ledger": [
+    {
+      "episode_id": 90967834,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 12,
+      "context": 0,
+      "options": 17,
+      "v8": {
+        "slot": 12,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 10,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 3
+    },
+    {
+      "episode_id": 90967833,
+      "won": true,
+      "opponent": "Alakazam",
+      "turn": 11,
+      "context": 0,
+      "options": 13,
+      "v8": {
+        "slot": 7,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 10,
+        "card": -1,
+        "name": ""
+      },
+      "played": 7
+    },
+    {
+      "episode_id": 90968659,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 10,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 2,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90968659,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 10,
+      "context": 16,
+      "options": 2,
+      "v8": {
+        "slot": 1,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90969502,
+      "won": false,
+      "opponent": "Mega Lopunny ex",
+      "turn": 2,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90969502,
+      "won": false,
+      "opponent": "Mega Lopunny ex",
+      "turn": 6,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 3,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90970351,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 4,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 8,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 8
+    },
+    {
+      "episode_id": 90971188,
+      "won": true,
+      "opponent": "Cinderace",
+      "turn": 5,
+      "context": 0,
+      "options": 15,
+      "v8": {
+        "slot": 10,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 8,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 10
+    },
+    {
+      "episode_id": 90972876,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 11,
+      "context": 0,
+      "options": 15,
+      "v8": {
+        "slot": 8,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 12,
+        "card": -1,
+        "name": ""
+      },
+      "played": 8
+    },
+    {
+      "episode_id": 90972881,
+      "won": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 10,
+      "context": 0,
+      "options": 13,
+      "v8": {
+        "slot": 7,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 6,
+        "card": -1,
+        "name": ""
+      },
+      "played": 5
+    },
+    {
+      "episode_id": 90972881,
+      "won": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 12,
+      "context": 0,
+      "options": 17,
+      "v8": {
+        "slot": 9,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90973721,
+      "won": true,
+      "opponent": "Team Rocket's Mewtwo ex",
+      "turn": 9,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 0,
+        "card": 104,
+        "name": "Froslass"
+      },
+      "v11": {
+        "slot": 3,
+        "card": -1,
+        "name": ""
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90973721,
+      "won": true,
+      "opponent": "Team Rocket's Mewtwo ex",
+      "turn": 11,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 2,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90973722,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 6,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 2,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90974662,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 3,
+      "context": 0,
+      "options": 11,
+      "v8": {
+        "slot": 8,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 9,
+        "card": -1,
+        "name": ""
+      },
+      "played": 8
+    },
+    {
+      "episode_id": 90975418,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 10,
+      "context": 0,
+      "options": 30,
+      "v8": {
+        "slot": 24,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 2,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 24
+    },
+    {
+      "episode_id": 90975418,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 12,
+      "context": 0,
+      "options": 25,
+      "v8": {
+        "slot": 19,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 2,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 19
+    },
+    {
+      "episode_id": 90975423,
+      "won": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 7,
+      "context": 0,
+      "options": 12,
+      "v8": {
+        "slot": 3,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "v11": {
+        "slot": 6,
+        "card": -1,
+        "name": ""
+      },
+      "played": 3
+    },
+    {
+      "episode_id": 90975423,
+      "won": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 9,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 5,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 5
+    },
+    {
+      "episode_id": 90976232,
+      "won": false,
+      "opponent": "MIRROR",
+      "turn": 5,
+      "context": 0,
+      "options": 5,
+      "v8": {
+        "slot": 3,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90976232,
+      "won": false,
+      "opponent": "MIRROR",
+      "turn": 9,
+      "context": 0,
+      "options": 9,
+      "v8": {
+        "slot": 4,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 4
+    },
+    {
+      "episode_id": 90976238,
+      "won": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 5,
+      "context": 0,
+      "options": 19,
+      "v8": {
+        "slot": 15,
+        "card": 647,
+        "name": "Marnie's Morgrem"
+      },
+      "v11": {
+        "slot": 1,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 15
+    },
+    {
+      "episode_id": 90976238,
+      "won": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 11,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 6,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 6
+    },
+    {
+      "episode_id": 90976238,
+      "won": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 13,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 4,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 4
+    },
+    {
+      "episode_id": 90976238,
+      "won": false,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 15,
+      "context": 0,
+      "options": 5,
+      "v8": {
+        "slot": 3,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 3
+    },
+    {
+      "episode_id": 90976396,
+      "won": false,
+      "opponent": "Alakazam",
+      "turn": 7,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 3,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "played": 3
+    },
+    {
+      "episode_id": 90977098,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 5,
+      "context": 0,
+      "options": 3,
+      "v8": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": 104,
+        "name": "Froslass"
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 90977936,
+      "won": false,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 7,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 6,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 7,
+        "card": -1,
+        "name": ""
+      },
+      "played": 6
+    },
+    {
+      "episode_id": 90977936,
+      "won": false,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 7,
+      "context": 0,
+      "options": 9,
+      "v8": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 6,
+        "card": -1,
+        "name": ""
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90978791,
+      "won": false,
+      "opponent": "MIRROR",
+      "turn": 5,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 3,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 5
+    },
+    {
+      "episode_id": 90979617,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 12,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 1,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "played": 5
+    },
+    {
+      "episode_id": 90979636,
+      "won": true,
+      "opponent": "Alakazam",
+      "turn": 7,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 4,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "played": 4
+    },
+    {
+      "episode_id": 90980731,
+      "won": true,
+      "opponent": "Alakazam",
+      "turn": 7,
+      "context": 0,
+      "options": 19,
+      "v8": {
+        "slot": 2,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "v11": {
+        "slot": 15,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90980482,
+      "won": true,
+      "opponent": "Marnie's Grimmsnarl ex",
+      "turn": 6,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 2,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 1,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90982153,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 2,
+      "context": 0,
+      "options": 5,
+      "v8": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 1,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90982153,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 10,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 2,
+        "card": 647,
+        "name": "Marnie's Morgrem"
+      },
+      "v11": {
+        "slot": 3,
+        "card": -1,
+        "name": ""
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90983793,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 5,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 2,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 90986355,
+      "won": false,
+      "opponent": "MIRROR",
+      "turn": 7,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 4,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 4
+    },
+    {
+      "episode_id": 90987181,
+      "won": false,
+      "opponent": "Crustle",
+      "turn": 5,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 4,
+        "card": -1,
+        "name": ""
+      },
+      "played": 4
+    },
+    {
+      "episode_id": 90987181,
+      "won": false,
+      "opponent": "Crustle",
+      "turn": 15,
+      "context": 0,
+      "options": 13,
+      "v8": {
+        "slot": 7,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 11,
+        "card": -1,
+        "name": ""
+      },
+      "played": 7
+    },
+    {
+      "episode_id": 90987243,
+      "won": false,
+      "opponent": "Alakazam",
+      "turn": 7,
+      "context": 0,
+      "options": 5,
+      "v8": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90988050,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 6,
+      "context": 0,
+      "options": 14,
+      "v8": {
+        "slot": 9,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 7
+    },
+    {
+      "episode_id": 90988176,
+      "won": true,
+      "opponent": "Cinderace",
+      "turn": 7,
+      "context": 0,
+      "options": 22,
+      "v8": {
+        "slot": 16,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 15,
+        "card": -1,
+        "name": ""
+      },
+      "played": 16
+    },
+    {
+      "episode_id": 90988870,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 6,
+      "context": 0,
+      "options": 25,
+      "v8": {
+        "slot": 20,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 6,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 19
+    },
+    {
+      "episode_id": 90988895,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 2,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 90989719,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 3,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 1,
+        "card": 104,
+        "name": "Froslass"
+      },
+      "v11": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 90989719,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 5,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 8,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 3,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 3
+    },
+    {
+      "episode_id": 90991395,
+      "won": true,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 11,
+      "context": 0,
+      "options": 11,
+      "v8": {
+        "slot": 8,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "played": 5
+    },
+    {
+      "episode_id": 90991395,
+      "won": true,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 11,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 7,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "played": 7
+    },
+    {
+      "episode_id": 90991395,
+      "won": true,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 13,
+      "context": 0,
+      "options": 18,
+      "v8": {
+        "slot": 13,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 12,
+        "card": -1,
+        "name": ""
+      },
+      "played": 13
+    },
+    {
+      "episode_id": 90992262,
+      "won": false,
+      "opponent": "Teal Mask Ogerpon ex",
+      "turn": 8,
+      "context": 0,
+      "options": 10,
+      "v8": {
+        "slot": 8,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 5
+    },
+    {
+      "episode_id": 90993168,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 3,
+      "context": 0,
+      "options": 6,
+      "v8": {
+        "slot": 4,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "played": 4
+    },
+    {
+      "episode_id": 90993168,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 3,
+      "context": 0,
+      "options": 5,
+      "v8": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90993168,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 13,
+      "context": 0,
+      "options": 25,
+      "v8": {
+        "slot": 18,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 22,
+        "card": -1,
+        "name": ""
+      },
+      "played": 4
+    },
+    {
+      "episode_id": 90993900,
+      "won": false,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 12,
+      "context": 0,
+      "options": 11,
+      "v8": {
+        "slot": 8,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 4,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 3
+    },
+    {
+      "episode_id": 90993937,
+      "won": true,
+      "opponent": "Cinderace",
+      "turn": 9,
+      "context": 0,
+      "options": 6,
+      "v8": {
+        "slot": 0,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "v11": {
+        "slot": 3,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90994747,
+      "won": false,
+      "opponent": "Mega Lucario ex",
+      "turn": 9,
+      "context": 0,
+      "options": 13,
+      "v8": {
+        "slot": 10,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "played": 10
+    },
+    {
+      "episode_id": 90995569,
+      "won": true,
+      "opponent": "Cinderace",
+      "turn": 3,
+      "context": 0,
+      "options": 4,
+      "v8": {
+        "slot": 2,
+        "card": 104,
+        "name": "Froslass"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90995594,
+      "won": true,
+      "opponent": "Mega Lopunny ex",
+      "turn": 2,
+      "context": 0,
+      "options": 7,
+      "v8": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90997276,
+      "won": false,
+      "opponent": "Conkeldurr",
+      "turn": 3,
+      "context": 0,
+      "options": 4,
+      "v8": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 90997291,
+      "won": false,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 13,
+      "context": 0,
+      "options": 22,
+      "v8": {
+        "slot": 18,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 18
+    },
+    {
+      "episode_id": 90998006,
+      "won": true,
+      "opponent": "Dragapult ex",
+      "turn": 3,
+      "context": 0,
+      "options": 12,
+      "v8": {
+        "slot": 1,
+        "card": 647,
+        "name": "Marnie's Morgrem"
+      },
+      "v11": {
+        "slot": 7,
+        "card": -1,
+        "name": ""
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 90998006,
+      "won": true,
+      "opponent": "Dragapult ex",
+      "turn": 5,
+      "context": 0,
+      "options": 23,
+      "v8": {
+        "slot": 16,
+        "card": 647,
+        "name": "Marnie's Morgrem"
+      },
+      "v11": {
+        "slot": 17,
+        "card": -1,
+        "name": ""
+      },
+      "played": 16
+    },
+    {
+      "episode_id": 90998942,
+      "won": false,
+      "opponent": "Mega Lopunny ex",
+      "turn": 7,
+      "context": 0,
+      "options": 18,
+      "v8": {
+        "slot": 13,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 6,
+        "card": -1,
+        "name": ""
+      },
+      "played": 13
+    },
+    {
+      "episode_id": 90998942,
+      "won": false,
+      "opponent": "Mega Lopunny ex",
+      "turn": 13,
+      "context": 0,
+      "options": 13,
+      "v8": {
+        "slot": 5,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 90998973,
+      "won": true,
+      "opponent": "MIRROR",
+      "turn": 15,
+      "context": 0,
+      "options": 14,
+      "v8": {
+        "slot": 9,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 7,
+        "card": -1,
+        "name": ""
+      },
+      "played": 7
+    },
+    {
+      "episode_id": 90999700,
+      "won": false,
+      "opponent": "Teal Mask Ogerpon ex",
+      "turn": 6,
+      "context": 0,
+      "options": 4,
+      "v8": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 3,
+        "card": -1,
+        "name": ""
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 91000625,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 7,
+      "context": 0,
+      "options": 11,
+      "v8": {
+        "slot": 5,
+        "card": 112,
+        "name": "Munkidori"
+      },
+      "v11": {
+        "slot": 2,
+        "card": -1,
+        "name": ""
+      },
+      "played": 5
+    },
+    {
+      "episode_id": 91000625,
+      "won": true,
+      "opponent": "Mega Lucario ex",
+      "turn": 11,
+      "context": 0,
+      "options": 12,
+      "v8": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 5,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 91003155,
+      "won": false,
+      "opponent": "Alakazam",
+      "turn": 4,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 3,
+        "card": 104,
+        "name": "Froslass"
+      },
+      "v11": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "played": 3
+    }
+  ]
+}

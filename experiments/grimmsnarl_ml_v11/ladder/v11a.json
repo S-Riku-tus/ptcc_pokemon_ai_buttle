@@ -1,0 +1,1546 @@
+{
+  "run_dir": "data\\runs\\grimmsnarl\\20260808_grimmsnarl_ml_v11_a_sub55346539",
+  "submission": "55346539",
+  "episodes_total": 45,
+  "episodes_rated": 44,
+  "excluded": [
+    {
+      "episode_id": 90966902,
+      "type": "EPISODE_TYPE_VALIDATION"
+    }
+  ],
+  "our_deck_hashes": [
+    "9714ab5c3996f6cc"
+  ],
+  "overall": {
+    "games": 44,
+    "wins": 27,
+    "losses": 17,
+    "win_rate": 0.6136,
+    "wilson95": [
+      0.4662,
+      0.7428
+    ],
+    "mean_opponent_rating": 805.86,
+    "episodes": [
+      90966998,
+      90967834,
+      90968664,
+      90969502,
+      90970351,
+      90971188,
+      90972023,
+      90972876,
+      90973722,
+      90974765,
+      90975418,
+      90976232,
+      90976396,
+      90977106,
+      90977936,
+      90978791,
+      90979636,
+      90980482,
+      90981306,
+      90982153,
+      90982985,
+      90983845,
+      90984738,
+      90985549,
+      90986385,
+      90987181,
+      90988050,
+      90988176,
+      90988895,
+      90989719,
+      90990571,
+      90991395,
+      90992262,
+      90993168,
+      90993937,
+      90994747,
+      90995594,
+      90996414,
+      90997276,
+      90997291,
+      90998006,
+      90998140,
+      90998973,
+      90999700
+    ]
+  },
+  "mean_opponent_rating": 805.8576,
+  "rating_first": 600.0,
+  "rating_last": 874.1646,
+  "first_10": {
+    "games": 10,
+    "wins": 8,
+    "losses": 2,
+    "win_rate": 0.8,
+    "wilson95": [
+      0.4902,
+      0.9433
+    ],
+    "mean_opponent_rating": 716.33,
+    "episodes": [
+      90966998,
+      90967834,
+      90968664,
+      90969502,
+      90970351,
+      90971188,
+      90972023,
+      90972876,
+      90973722,
+      90974765
+    ]
+  },
+  "after_10": {
+    "games": 34,
+    "wins": 19,
+    "losses": 15,
+    "win_rate": 0.5588,
+    "wilson95": [
+      0.3945,
+      0.7112
+    ],
+    "mean_opponent_rating": 832.19,
+    "episodes": [
+      90975418,
+      90976232,
+      90976396,
+      90977106,
+      90977936,
+      90978791,
+      90979636,
+      90980482,
+      90981306,
+      90982153,
+      90982985,
+      90983845,
+      90984738,
+      90985549,
+      90986385,
+      90987181,
+      90988050,
+      90988176,
+      90988895,
+      90989719,
+      90990571,
+      90991395,
+      90992262,
+      90993168,
+      90993937,
+      90994747,
+      90995594,
+      90996414,
+      90997276,
+      90997291,
+      90998006,
+      90998140,
+      90998973,
+      90999700
+    ]
+  },
+  "by_opponent_rating": {
+    "900_999": {
+      "games": 6,
+      "wins": 1,
+      "losses": 5,
+      "win_rate": 0.1667,
+      "wilson95": [
+        0.0301,
+        0.5635
+      ],
+      "mean_opponent_rating": 926.45,
+      "episodes": [
+        90987181,
+        90996414,
+        90997276,
+        90997291,
+        90998973,
+        90999700
+      ]
+    },
+    "under_900": {
+      "games": 38,
+      "wins": 26,
+      "losses": 12,
+      "win_rate": 0.6842,
+      "wilson95": [
+        0.5254,
+        0.8092
+      ],
+      "mean_opponent_rating": 786.82,
+      "episodes": [
+        90966998,
+        90967834,
+        90968664,
+        90969502,
+        90970351,
+        90971188,
+        90972023,
+        90972876,
+        90973722,
+        90974765,
+        90975418,
+        90976232,
+        90976396,
+        90977106,
+        90977936,
+        90978791,
+        90979636,
+        90980482,
+        90981306,
+        90982153,
+        90982985,
+        90983845,
+        90984738,
+        90985549,
+        90986385,
+        90988050,
+        90988176,
+        90988895,
+        90989719,
+        90990571,
+        90991395,
+        90992262,
+        90993168,
+        90993937,
+        90994747,
+        90995594,
+        90998006,
+        90998140
+      ]
+    }
+  },
+  "by_turn_order": {
+    "first": {
+      "games": 26,
+      "wins": 16,
+      "losses": 10,
+      "win_rate": 0.6154,
+      "wilson95": [
+        0.4253,
+        0.7757
+      ],
+      "mean_opponent_rating": 809.59,
+      "episodes": [
+        90968664,
+        90971188,
+        90972023,
+        90972876,
+        90974765,
+        90976232,
+        90976396,
+        90977106,
+        90977936,
+        90978791,
+        90979636,
+        90983845,
+        90985549,
+        90986385,
+        90987181,
+        90988176,
+        90989719,
+        90990571,
+        90991395,
+        90993168,
+        90993937,
+        90994747,
+        90997276,
+        90997291,
+        90998006,
+        90998973
+      ]
+    },
+    "second": {
+      "games": 18,
+      "wins": 11,
+      "losses": 7,
+      "win_rate": 0.6111,
+      "wilson95": [
+        0.3862,
+        0.7969
+      ],
+      "mean_opponent_rating": 800.47,
+      "episodes": [
+        90966998,
+        90967834,
+        90969502,
+        90970351,
+        90973722,
+        90975418,
+        90980482,
+        90981306,
+        90982153,
+        90982985,
+        90984738,
+        90988050,
+        90988895,
+        90992262,
+        90995594,
+        90996414,
+        90998140,
+        90999700
+      ]
+    },
+    "unknown": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": null,
+      "wilson95": [
+        0.0,
+        0.0
+      ],
+      "mean_opponent_rating": null,
+      "episodes": []
+    }
+  },
+  "by_opponent_deck": {
+    "9714ab5c3996f6cc": {
+      "games": 11,
+      "wins": 9,
+      "losses": 2,
+      "win_rate": 0.8182,
+      "wilson95": [
+        0.523,
+        0.9486
+      ],
+      "mean_opponent_rating": 815.9,
+      "episodes": [
+        90967834,
+        90972876,
+        90973722,
+        90974765,
+        90976232,
+        90978791,
+        90982153,
+        90985549,
+        90988050,
+        90988895,
+        90998973
+      ],
+      "label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass",
+      "archetype": "Marnie's Grimmsnarl ex"
+    },
+    "7fa65817cc79c36c": {
+      "games": 3,
+      "wins": 1,
+      "losses": 2,
+      "win_rate": 0.3333,
+      "wilson95": [
+        0.0615,
+        0.7923
+      ],
+      "mean_opponent_rating": 798.5,
+      "episodes": [
+        90968664,
+        90979636,
+        90983845
+      ],
+      "label": "Dudunsparce + Alakazam + Kadabra",
+      "archetype": "Alakazam"
+    },
+    "c3c16f0e65487ad6": {
+      "games": 3,
+      "wins": 2,
+      "losses": 1,
+      "win_rate": 0.6667,
+      "wilson95": [
+        0.2077,
+        0.9385
+      ],
+      "mean_opponent_rating": 803.58,
+      "episodes": [
+        90989719,
+        90994747,
+        90998140
+      ],
+      "label": "Mega Lucario ex + Hariyama",
+      "archetype": "Mega Lucario ex"
+    },
+    "a7ee29914c1dce64": {
+      "games": 2,
+      "wins": 1,
+      "losses": 1,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.0945,
+        0.9055
+      ],
+      "mean_opponent_rating": 773.49,
+      "episodes": [
+        90969502,
+        90995594
+      ],
+      "label": "Dudunsparce + Mega Lopunny ex + Mega Froslass ex",
+      "archetype": "Mega Lopunny ex"
+    },
+    "57961e5f51c03eaf": {
+      "games": 2,
+      "wins": 1,
+      "losses": 1,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.0945,
+        0.9055
+      ],
+      "mean_opponent_rating": 881.21,
+      "episodes": [
+        90980482,
+        90996414
+      ],
+      "label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass",
+      "archetype": "Marnie's Grimmsnarl ex"
+    },
+    "97df7a2a423da1d8": {
+      "games": 2,
+      "wins": 0,
+      "losses": 2,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576
+      ],
+      "mean_opponent_rating": 923.72,
+      "episodes": [
+        90992262,
+        90999700
+      ],
+      "label": "Teal Mask Ogerpon ex",
+      "archetype": "Teal Mask Ogerpon ex"
+    },
+    "3af28d62ce913c80": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 532.11,
+      "episodes": [
+        90966998
+      ],
+      "label": "Mega Kangaskhan ex + Crustle",
+      "archetype": "Mega Kangaskhan ex"
+    },
+    "d05bff224d40b9c6": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 644.86,
+      "episodes": [
+        90970351
+      ],
+      "label": "Mega Lucario ex + Hariyama",
+      "archetype": "Mega Lucario ex"
+    },
+    "0bef8b29715ae7d8": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 712.97,
+      "episodes": [
+        90971188
+      ],
+      "label": "Archaludon ex + Cinderace",
+      "archetype": "Cinderace"
+    },
+    "2b6a7dd699d2b6a5": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 735.21,
+      "episodes": [
+        90972023
+      ],
+      "label": "Archaludon ex + Cinderace",
+      "archetype": "Cinderace"
+    },
+    "ab25dc60e2d87774": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 846.43,
+      "episodes": [
+        90975418
+      ],
+      "label": "Mega Lucario ex",
+      "archetype": "Mega Lucario ex"
+    },
+    "062d2bd9de2d4fea": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 826.79,
+      "episodes": [
+        90976396
+      ],
+      "label": "Kadabra + Alakazam + Dudunsparce",
+      "archetype": "Alakazam"
+    },
+    "b06eff2c4c282fc8": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 797.7,
+      "episodes": [
+        90977106
+      ],
+      "label": "Archaludon ex + Cinderace",
+      "archetype": "Cinderace"
+    },
+    "4717e5f31ba694d4": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 877.89,
+      "episodes": [
+        90977936
+      ],
+      "label": "Mega Kangaskhan ex + Crustle",
+      "archetype": "Mega Kangaskhan ex"
+    },
+    "cc38cb450b86770a": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 883.27,
+      "episodes": [
+        90981306
+      ],
+      "label": "Alakazam + Kadabra + Dudunsparce",
+      "archetype": "Alakazam"
+    },
+    "7e3c0462a3e618ac": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 876.51,
+      "episodes": [
+        90982985
+      ],
+      "label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass",
+      "archetype": "Marnie's Grimmsnarl ex"
+    },
+    "e6b03a4ec86a5aa7": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 752.63,
+      "episodes": [
+        90984738
+      ],
+      "label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass",
+      "archetype": "Marnie's Grimmsnarl ex"
+    },
+    "282504e445a4d4fc": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 368.99,
+      "episodes": [
+        90986385
+      ],
+      "label": "Iono’s Bellibolt ex + Iono’s Kilowattrel",
+      "archetype": "Iono’s Bellibolt ex"
+    },
+    "2f5a73c606b3d6fb": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 923.5,
+      "episodes": [
+        90987181
+      ],
+      "label": "Crustle",
+      "archetype": "Crustle"
+    },
+    "8a91ac9615393b02": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 765.53,
+      "episodes": [
+        90988176
+      ],
+      "label": "Cinderace + Crustle",
+      "archetype": "Cinderace"
+    },
+    "f7143e7fe5d85257": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 802.07,
+      "episodes": [
+        90990571
+      ],
+      "label": "Chandelure + Lampent",
+      "archetype": "Chandelure"
+    },
+    "1eda048ea3581634": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 898.27,
+      "episodes": [
+        90991395
+      ],
+      "label": "Mega Kangaskhan ex + Crustle",
+      "archetype": "Mega Kangaskhan ex"
+    },
+    "f40057d67efd0dc4": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 777.81,
+      "episodes": [
+        90993168
+      ],
+      "label": "Mega Lucario ex + Cornerstone Mask Ogerpon ex",
+      "archetype": "Mega Lucario ex"
+    },
+    "ebd4dbb270dce6a2": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 767.75,
+      "episodes": [
+        90993937
+      ],
+      "label": "Archaludon ex + Cinderace",
+      "archetype": "Cinderace"
+    },
+    "d9f935d23302a6f4": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 914.6,
+      "episodes": [
+        90997276
+      ],
+      "label": "Slowking + Mega Kangaskhan ex + Latias ex",
+      "archetype": "Conkeldurr"
+    },
+    "9b415cc6bbdf6fd5": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 944.33,
+      "episodes": [
+        90997291
+      ],
+      "label": "Crustle + Mega Kangaskhan ex + Cornerstone Mask Ogerpon ex",
+      "archetype": "Mega Kangaskhan ex"
+    },
+    "b07472198a708613": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 870.61,
+      "episodes": [
+        90998006
+      ],
+      "label": "Drakloak + Dragapult ex + Latias ex",
+      "archetype": "Dragapult ex"
+    }
+  },
+  "games": [
+    {
+      "episode_id": 90966998,
+      "create_time": "2026-08-08T09:27:43.901117900Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 53,
+      "opponent_submission": "55195808",
+      "opponent_score": 532.1133,
+      "our_score_before": 600.0,
+      "our_score_after": 689.5587,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "3af28d62ce913c80",
+      "opponent_archetype": "Mega Kangaskhan ex",
+      "opponent_deck_label": "Mega Kangaskhan ex + Crustle"
+    },
+    {
+      "episode_id": 90967834,
+      "create_time": "2026-08-08T09:31:44.606299100Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 144,
+      "opponent_submission": "55265293",
+      "opponent_score": 675.1604,
+      "our_score_before": 689.5587,
+      "our_score_after": 782.0636,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90968664,
+      "create_time": "2026-08-08T09:35:44.174255300Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": true,
+      "turns": 207,
+      "opponent_submission": "55266495",
+      "opponent_score": 788.9377,
+      "our_score_before": 782.0636,
+      "our_score_after": 699.5278,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "7fa65817cc79c36c",
+      "opponent_archetype": "Alakazam",
+      "opponent_deck_label": "Dudunsparce + Alakazam + Kadabra"
+    },
+    {
+      "episode_id": 90969502,
+      "create_time": "2026-08-08T09:39:44.157141600Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": false,
+      "turns": 175,
+      "opponent_submission": "55345263",
+      "opponent_score": 705.7654,
+      "our_score_before": 699.5278,
+      "our_score_after": 629.8792,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "a7ee29914c1dce64",
+      "opponent_archetype": "Mega Lopunny ex",
+      "opponent_deck_label": "Dudunsparce + Mega Lopunny ex + Mega Froslass ex"
+    },
+    {
+      "episode_id": 90970351,
+      "create_time": "2026-08-08T09:43:43.835520100Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 61,
+      "opponent_submission": "53797313",
+      "opponent_score": 644.859,
+      "our_score_before": 629.8792,
+      "our_score_after": 693.7634,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "d05bff224d40b9c6",
+      "opponent_archetype": "Mega Lucario ex",
+      "opponent_deck_label": "Mega Lucario ex + Hariyama"
+    },
+    {
+      "episode_id": 90971188,
+      "create_time": "2026-08-08T09:47:43.812049500Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": true,
+      "turns": 132,
+      "opponent_submission": "55340720",
+      "opponent_score": 712.9656,
+      "our_score_before": 693.7634,
+      "our_score_after": 747.2569,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "0bef8b29715ae7d8",
+      "opponent_archetype": "Cinderace",
+      "opponent_deck_label": "Archaludon ex + Cinderace"
+    },
+    {
+      "episode_id": 90972023,
+      "create_time": "2026-08-08T09:51:44.857623300Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": true,
+      "turns": 136,
+      "opponent_submission": "55335826",
+      "opponent_score": 735.2076,
+      "our_score_before": 747.2569,
+      "our_score_after": 788.6559,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "2b6a7dd699d2b6a5",
+      "opponent_archetype": "Cinderace",
+      "opponent_deck_label": "Archaludon ex + Cinderace"
+    },
+    {
+      "episode_id": 90972876,
+      "create_time": "2026-08-08T09:55:43.848683900Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 165,
+      "opponent_submission": "55322078",
+      "opponent_score": 767.0162,
+      "our_score_before": 788.6559,
+      "our_score_after": 823.8191,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90973722,
+      "create_time": "2026-08-08T09:59:44.174090300Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 166,
+      "opponent_submission": "54996997",
+      "opponent_score": 777.5179,
+      "our_score_before": 823.8191,
+      "our_score_after": 852.4379,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90974765,
+      "create_time": "2026-08-08T10:03:44.436331100Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 168,
+      "opponent_submission": "55299977",
+      "opponent_score": 823.7092,
+      "our_score_before": 852.4379,
+      "our_score_after": 879.9542,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90975418,
+      "create_time": "2026-08-08T10:07:44.071642800Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 185,
+      "opponent_submission": "55341460",
+      "opponent_score": 846.4337,
+      "our_score_before": 879.9542,
+      "our_score_after": 904.3986,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "ab25dc60e2d87774",
+      "opponent_archetype": "Mega Lucario ex",
+      "opponent_deck_label": "Mega Lucario ex"
+    },
+    {
+      "episode_id": 90976232,
+      "create_time": "2026-08-08T10:11:44.520767900Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 181,
+      "opponent_submission": "55310866",
+      "opponent_score": 870.6202,
+      "our_score_before": 904.3986,
+      "our_score_after": 876.0329,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90976396,
+      "create_time": "2026-08-08T10:11:44.788243400Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 182,
+      "opponent_submission": "55345107",
+      "opponent_score": 826.7939,
+      "our_score_before": 876.0329,
+      "our_score_after": 849.2085,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "062d2bd9de2d4fea",
+      "opponent_archetype": "Alakazam",
+      "opponent_deck_label": "Kadabra + Alakazam + Dudunsparce"
+    },
+    {
+      "episode_id": 90977106,
+      "create_time": "2026-08-08T10:15:44.099499400Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 166,
+      "opponent_submission": "55057099",
+      "opponent_score": 797.6965,
+      "our_score_before": 849.2085,
+      "our_score_after": 866.8759,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "b06eff2c4c282fc8",
+      "opponent_archetype": "Cinderace",
+      "opponent_deck_label": "Archaludon ex + Cinderace"
+    },
+    {
+      "episode_id": 90977936,
+      "create_time": "2026-08-08T10:19:43.974657500Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 145,
+      "opponent_submission": "54828762",
+      "opponent_score": 877.8908,
+      "our_score_before": 866.8759,
+      "our_score_after": 847.6711,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "4717e5f31ba694d4",
+      "opponent_archetype": "Mega Kangaskhan ex",
+      "opponent_deck_label": "Mega Kangaskhan ex + Crustle"
+    },
+    {
+      "episode_id": 90978791,
+      "create_time": "2026-08-08T10:23:44.030785100Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 194,
+      "opponent_submission": "55285726",
+      "opponent_score": 827.489,
+      "our_score_before": 847.6711,
+      "our_score_after": 827.6616,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90979636,
+      "create_time": "2026-08-08T10:27:44.079583800Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": true,
+      "turns": 136,
+      "opponent_submission": "55335391",
+      "opponent_score": 792.8589,
+      "our_score_before": 827.6616,
+      "our_score_after": 842.9867,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "7fa65817cc79c36c",
+      "opponent_archetype": "Alakazam",
+      "opponent_deck_label": "Dudunsparce + Alakazam + Kadabra"
+    },
+    {
+      "episode_id": 90980482,
+      "create_time": "2026-08-08T10:31:45.259161400Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 186,
+      "opponent_submission": "55338162",
+      "opponent_score": 856.2116,
+      "our_score_before": 842.9867,
+      "our_score_after": 860.2154,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "57961e5f51c03eaf",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90981306,
+      "create_time": "2026-08-08T10:35:44.122469100Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": false,
+      "turns": 139,
+      "opponent_submission": "55342980",
+      "opponent_score": 883.2678,
+      "our_score_before": 860.2154,
+      "our_score_after": 845.9627,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "cc38cb450b86770a",
+      "opponent_archetype": "Alakazam",
+      "opponent_deck_label": "Alakazam + Kadabra + Dudunsparce"
+    },
+    {
+      "episode_id": 90982153,
+      "create_time": "2026-08-08T10:39:44.119251400Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 179,
+      "opponent_submission": "55125289",
+      "opponent_score": 885.5526,
+      "our_score_before": 845.9627,
+      "our_score_after": 862.8852,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90982985,
+      "create_time": "2026-08-08T10:43:44.092220600Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": false,
+      "turns": 192,
+      "opponent_submission": "55339815",
+      "opponent_score": 876.5095,
+      "our_score_before": 862.8852,
+      "our_score_after": 849.6126,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "7e3c0462a3e618ac",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90983845,
+      "create_time": "2026-08-08T10:47:43.919861400Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 168,
+      "opponent_submission": "55210263",
+      "opponent_score": 813.697,
+      "our_score_before": 849.6126,
+      "our_score_after": 834.5168,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "7fa65817cc79c36c",
+      "opponent_archetype": "Alakazam",
+      "opponent_deck_label": "Dudunsparce + Alakazam + Kadabra"
+    },
+    {
+      "episode_id": 90984738,
+      "create_time": "2026-08-08T10:51:45.594778Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": false,
+      "turns": 155,
+      "opponent_submission": "55300836",
+      "opponent_score": 752.6309,
+      "our_score_before": 834.5168,
+      "our_score_after": 817.886,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "e6b03a4ec86a5aa7",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90985549,
+      "create_time": "2026-08-08T10:55:44.301066900Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 191,
+      "opponent_submission": "55325991",
+      "opponent_score": 882.8318,
+      "our_score_before": 817.886,
+      "our_score_after": 832.9034,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90986385,
+      "create_time": "2026-08-08T10:59:44.092746800Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 50,
+      "opponent_submission": "53768154",
+      "opponent_score": 368.9866,
+      "our_score_before": 832.9034,
+      "our_score_after": 833.569,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "282504e445a4d4fc",
+      "opponent_archetype": "Iono’s Bellibolt ex",
+      "opponent_deck_label": "Iono’s Bellibolt ex + Iono’s Kilowattrel"
+    },
+    {
+      "episode_id": 90987181,
+      "create_time": "2026-08-08T11:03:44.082511200Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 195,
+      "opponent_submission": "55165806",
+      "opponent_score": 923.4987,
+      "our_score_before": 833.569,
+      "our_score_after": 825.5392,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "2f5a73c606b3d6fb",
+      "opponent_archetype": "Crustle",
+      "opponent_deck_label": "Crustle"
+    },
+    {
+      "episode_id": 90988050,
+      "create_time": "2026-08-08T11:07:44.078040600Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 178,
+      "opponent_submission": "55299977",
+      "opponent_score": 819.9415,
+      "our_score_before": 825.5392,
+      "our_score_after": 836.3835,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90988176,
+      "create_time": "2026-08-08T11:07:44.277396900Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": true,
+      "turns": 134,
+      "opponent_submission": "55302772",
+      "opponent_score": 765.5301,
+      "our_score_before": 836.3835,
+      "our_score_after": 844.4702,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "8a91ac9615393b02",
+      "opponent_archetype": "Cinderace",
+      "opponent_deck_label": "Cinderace + Crustle"
+    },
+    {
+      "episode_id": 90988895,
+      "create_time": "2026-08-08T11:11:49.788965300Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 154,
+      "opponent_submission": "55312390",
+      "opponent_score": 735.5578,
+      "our_score_before": 844.4702,
+      "our_score_after": 851.0951,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90989719,
+      "create_time": "2026-08-08T11:15:44.407491800Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 119,
+      "opponent_submission": "54115062",
+      "opponent_score": 792.3505,
+      "our_score_before": 851.0951,
+      "our_score_after": 859.0732,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "c3c16f0e65487ad6",
+      "opponent_archetype": "Mega Lucario ex",
+      "opponent_deck_label": "Mega Lucario ex + Hariyama"
+    },
+    {
+      "episode_id": 90990571,
+      "create_time": "2026-08-08T11:19:44.201436700Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 55,
+      "opponent_submission": "54766334",
+      "opponent_score": 802.069,
+      "our_score_before": 859.0732,
+      "our_score_after": 866.8522,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "f7143e7fe5d85257",
+      "opponent_archetype": "Chandelure",
+      "opponent_deck_label": "Chandelure + Lampent"
+    },
+    {
+      "episode_id": 90991395,
+      "create_time": "2026-08-08T11:23:44.074896500Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 221,
+      "opponent_submission": "55327758",
+      "opponent_score": 898.2692,
+      "our_score_before": 866.8522,
+      "our_score_after": 877.3159,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "1eda048ea3581634",
+      "opponent_archetype": "Mega Kangaskhan ex",
+      "opponent_deck_label": "Mega Kangaskhan ex + Crustle"
+    },
+    {
+      "episode_id": 90992262,
+      "create_time": "2026-08-08T11:27:44.105360300Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": false,
+      "turns": 159,
+      "opponent_submission": "55285747",
+      "opponent_score": 886.84,
+      "our_score_before": 877.3159,
+      "our_score_after": 868.5698,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "97df7a2a423da1d8",
+      "opponent_archetype": "Teal Mask Ogerpon ex",
+      "opponent_deck_label": "Teal Mask Ogerpon ex"
+    },
+    {
+      "episode_id": 90993168,
+      "create_time": "2026-08-08T11:31:45.711532400Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": true,
+      "turns": 149,
+      "opponent_submission": "55302405",
+      "opponent_score": 777.8113,
+      "our_score_before": 868.5698,
+      "our_score_after": 874.6785,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "f40057d67efd0dc4",
+      "opponent_archetype": "Mega Lucario ex",
+      "opponent_deck_label": "Mega Lucario ex + Cornerstone Mask Ogerpon ex"
+    },
+    {
+      "episode_id": 90993937,
+      "create_time": "2026-08-08T11:35:44.018166Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 190,
+      "opponent_submission": "54972308",
+      "opponent_score": 767.7479,
+      "our_score_before": 874.6785,
+      "our_score_after": 880.2114,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "ebd4dbb270dce6a2",
+      "opponent_archetype": "Cinderace",
+      "opponent_deck_label": "Archaludon ex + Cinderace"
+    },
+    {
+      "episode_id": 90994747,
+      "create_time": "2026-08-08T11:39:44.179378Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 132,
+      "opponent_submission": "55338472",
+      "opponent_score": 796.2745,
+      "our_score_before": 880.2114,
+      "our_score_after": 869.2582,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "c3c16f0e65487ad6",
+      "opponent_archetype": "Mega Lucario ex",
+      "opponent_deck_label": "Mega Lucario ex + Hariyama"
+    },
+    {
+      "episode_id": 90995594,
+      "create_time": "2026-08-08T11:43:45.400101800Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 200,
+      "opponent_submission": "55337756",
+      "opponent_score": 841.2098,
+      "our_score_before": 869.2582,
+      "our_score_after": 876.4928,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "a7ee29914c1dce64",
+      "opponent_archetype": "Mega Lopunny ex",
+      "opponent_deck_label": "Dudunsparce + Mega Lopunny ex + Mega Froslass ex"
+    },
+    {
+      "episode_id": 90996414,
+      "create_time": "2026-08-08T11:47:43.993497100Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": false,
+      "turns": 163,
+      "opponent_submission": "55340711",
+      "opponent_score": 906.2089,
+      "our_score_before": 876.4928,
+      "our_score_after": 869.4976,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "57961e5f51c03eaf",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90997276,
+      "create_time": "2026-08-08T11:51:45.287139500Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 81,
+      "opponent_submission": "55343066",
+      "opponent_score": 914.5989,
+      "our_score_before": 869.4976,
+      "our_score_after": 863.0861,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "d9f935d23302a6f4",
+      "opponent_archetype": "Conkeldurr",
+      "opponent_deck_label": "Slowking + Mega Kangaskhan ex + Latias ex"
+    },
+    {
+      "episode_id": 90997291,
+      "create_time": "2026-08-08T11:51:45.289943300Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": false,
+      "went_first": true,
+      "turns": 154,
+      "opponent_submission": "55346274",
+      "opponent_score": 944.3306,
+      "our_score_before": 863.0861,
+      "our_score_after": 857.7193,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9b415cc6bbdf6fd5",
+      "opponent_archetype": "Mega Kangaskhan ex",
+      "opponent_deck_label": "Crustle + Mega Kangaskhan ex + Cornerstone Mask Ogerpon ex"
+    },
+    {
+      "episode_id": 90998006,
+      "create_time": "2026-08-08T11:55:43.912719900Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": true,
+      "turns": 177,
+      "opponent_submission": "55348215",
+      "opponent_score": 870.6112,
+      "our_score_before": 864.0825,
+      "our_score_after": 871.1513,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "b07472198a708613",
+      "opponent_archetype": "Dragapult ex",
+      "opponent_deck_label": "Drakloak + Dragapult ex + Latias ex"
+    },
+    {
+      "episode_id": 90998140,
+      "create_time": "2026-08-08T11:55:44.131549Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": true,
+      "went_first": false,
+      "turns": 165,
+      "opponent_submission": "55116102",
+      "opponent_score": 822.1095,
+      "our_score_before": 857.7193,
+      "our_score_after": 864.0825,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "c3c16f0e65487ad6",
+      "opponent_archetype": "Mega Lucario ex",
+      "opponent_deck_label": "Mega Lucario ex + Hariyama"
+    },
+    {
+      "episode_id": 90998973,
+      "create_time": "2026-08-08T11:59:44.182365700Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 0,
+      "won": true,
+      "went_first": true,
+      "turns": 262,
+      "opponent_submission": "55338494",
+      "opponent_score": 909.4571,
+      "our_score_before": 871.1513,
+      "our_score_after": 879.0465,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "9714ab5c3996f6cc",
+      "opponent_archetype": "Marnie's Grimmsnarl ex",
+      "opponent_deck_label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass"
+    },
+    {
+      "episode_id": 90999700,
+      "create_time": "2026-08-08T12:03:44.304156600Z",
+      "rated": true,
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "seat": 1,
+      "won": false,
+      "went_first": false,
+      "turns": 66,
+      "opponent_submission": "55282758",
+      "opponent_score": 960.5943,
+      "our_score_before": 879.0465,
+      "our_score_after": 874.1646,
+      "our_deck_hash": "9714ab5c3996f6cc",
+      "opponent_deck_hash": "97df7a2a423da1d8",
+      "opponent_archetype": "Teal Mask Ogerpon ex",
+      "opponent_deck_label": "Teal Mask Ogerpon ex"
+    }
+  ]
+}
