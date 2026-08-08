@@ -1,0 +1,421 @@
+{
+  "activations": 6835,
+  "elite_threshold": 1100.0,
+  "matchup": {
+    "alakazam_mean": 3.016,
+    "alakazam_n": 556,
+    "other_mean": 2.772,
+    "other_n": 6279,
+    "welch": {
+      "t": 3.753,
+      "df": 639.2,
+      "p": 0.00019
+    }
+  },
+  "outcome_alakazam": {
+    "won_mean": 3.072,
+    "won_n": 414,
+    "lost_mean": 2.852,
+    "lost_n": 142,
+    "welch": {
+      "t": 1.552,
+      "df": 250.7,
+      "p": 0.12182
+    }
+  },
+  "outcome_alakazam_second": {
+    "won_mean": 3.051,
+    "won_n": 196,
+    "lost_mean": 2.925,
+    "lost_n": 80,
+    "welch": {
+      "t": 0.657,
+      "df": 148.7,
+      "p": 0.51195
+    }
+  },
+  "outcome_non_alakazam": {
+    "won_mean": 2.763,
+    "won_n": 3756,
+    "lost_mean": 2.785,
+    "lost_n": 2523,
+    "welch": {
+      "t": -0.625,
+      "df": 5386.3,
+      "p": 0.5322
+    }
+  },
+  "rating_gradient_alakazam": {
+    "pilots": 21,
+    "spearman": {
+      "rho": -0.2338,
+      "p": 0.30779,
+      "n": 21
+    },
+    "per_pilot": {
+      "16371703": {
+        "rating": 1220.2,
+        "n": 39,
+        "mean_taken": 2.513
+      },
+      "16422241": {
+        "rating": 1172.6,
+        "n": 16,
+        "mean_taken": 3.562
+      },
+      "16463316": {
+        "rating": 1141.3,
+        "n": 20,
+        "mean_taken": 4.25
+      },
+      "16561259": {
+        "rating": 1126.3,
+        "n": 25,
+        "mean_taken": 3.04
+      },
+      "16531269": {
+        "rating": 1121.6,
+        "n": 40,
+        "mean_taken": 1.95
+      },
+      "16452116": {
+        "rating": 1101.8,
+        "n": 11,
+        "mean_taken": 3.455
+      },
+      "16375320": {
+        "rating": 1094.8,
+        "n": 18,
+        "mean_taken": 3.944
+      },
+      "16556346": {
+        "rating": 1086.7,
+        "n": 34,
+        "mean_taken": 3.294
+      },
+      "16388654": {
+        "rating": 1085.9,
+        "n": 43,
+        "mean_taken": 1.744
+      },
+      "16385817": {
+        "rating": 1082.1,
+        "n": 17,
+        "mean_taken": 3.588
+      },
+      "16381904": {
+        "rating": 1080.3,
+        "n": 22,
+        "mean_taken": 3.0
+      },
+      "16494330": {
+        "rating": 1077.6,
+        "n": 23,
+        "mean_taken": 3.652
+      },
+      "16514272": {
+        "rating": 1073.9,
+        "n": 26,
+        "mean_taken": 2.846
+      },
+      "16376653": {
+        "rating": 1073.8,
+        "n": 37,
+        "mean_taken": 2.892
+      },
+      "16462035": {
+        "rating": 1064.7,
+        "n": 35,
+        "mean_taken": 3.971
+      },
+      "16407282": {
+        "rating": 1063.4,
+        "n": 56,
+        "mean_taken": 2.0
+      },
+      "16430670": {
+        "rating": 1062.3,
+        "n": 7,
+        "mean_taken": 4.143
+      },
+      "16461850": {
+        "rating": 1050.6,
+        "n": 26,
+        "mean_taken": 3.731
+      },
+      "16421840": {
+        "rating": 1048.5,
+        "n": 22,
+        "mean_taken": 3.727
+      },
+      "16431331": {
+        "rating": 1046.4,
+        "n": 20,
+        "mean_taken": 3.1
+      },
+      "16388364": {
+        "rating": 1046.3,
+        "n": 19,
+        "mean_taken": 3.895
+      }
+    }
+  },
+  "band_alakazam": {
+    "elite_mean": 2.861,
+    "elite_n": 151,
+    "rest_mean": 3.074,
+    "rest_n": 405,
+    "welch": {
+      "t": -1.642,
+      "df": 320.7,
+      "p": 0.10162
+    }
+  },
+  "rating_gradient_alakazam_second": {
+    "pilots": 20,
+    "spearman": {
+      "rho": -0.2415,
+      "p": 0.30493,
+      "n": 20
+    },
+    "per_pilot": {
+      "16371703": {
+        "rating": 1220.2,
+        "n": 23,
+        "mean_taken": 2.478
+      },
+      "16422241": {
+        "rating": 1172.6,
+        "n": 11,
+        "mean_taken": 3.545
+      },
+      "16463316": {
+        "rating": 1141.3,
+        "n": 6,
+        "mean_taken": 4.333
+      },
+      "16561259": {
+        "rating": 1126.3,
+        "n": 11,
+        "mean_taken": 2.909
+      },
+      "16531269": {
+        "rating": 1121.6,
+        "n": 22,
+        "mean_taken": 2.0
+      },
+      "16452116": {
+        "rating": 1101.8,
+        "n": 5,
+        "mean_taken": 3.0
+      },
+      "16375320": {
+        "rating": 1094.8,
+        "n": 5,
+        "mean_taken": 3.8
+      },
+      "16556346": {
+        "rating": 1086.7,
+        "n": 17,
+        "mean_taken": 3.353
+      },
+      "16388654": {
+        "rating": 1085.9,
+        "n": 18,
+        "mean_taken": 1.833
+      },
+      "16385817": {
+        "rating": 1082.1,
+        "n": 7,
+        "mean_taken": 3.714
+      },
+      "16381904": {
+        "rating": 1080.3,
+        "n": 9,
+        "mean_taken": 3.444
+      },
+      "16494330": {
+        "rating": 1077.6,
+        "n": 14,
+        "mean_taken": 3.643
+      },
+      "16514272": {
+        "rating": 1073.9,
+        "n": 10,
+        "mean_taken": 3.1
+      },
+      "16376653": {
+        "rating": 1073.8,
+        "n": 21,
+        "mean_taken": 2.81
+      },
+      "16462035": {
+        "rating": 1064.7,
+        "n": 20,
+        "mean_taken": 4.25
+      },
+      "16407282": {
+        "rating": 1063.4,
+        "n": 32,
+        "mean_taken": 1.938
+      },
+      "16461850": {
+        "rating": 1050.6,
+        "n": 14,
+        "mean_taken": 3.714
+      },
+      "16421840": {
+        "rating": 1048.5,
+        "n": 14,
+        "mean_taken": 3.643
+      },
+      "16431331": {
+        "rating": 1046.4,
+        "n": 11,
+        "mean_taken": 3.182
+      },
+      "16388364": {
+        "rating": 1046.3,
+        "n": 5,
+        "mean_taken": 4.4
+      }
+    }
+  },
+  "band_alakazam_second": {
+    "elite_mean": 2.731,
+    "elite_n": 78,
+    "rest_mean": 3.117,
+    "rest_n": 197,
+    "welch": {
+      "t": -2.138,
+      "df": 163.5,
+      "p": 0.03404
+    }
+  },
+  "rating_gradient_non_alakazam": {
+    "pilots": 21,
+    "spearman": {
+      "rho": -0.2662,
+      "p": 0.2434,
+      "n": 21
+    },
+    "per_pilot": {
+      "16371703": {
+        "rating": 1220.2,
+        "n": 504,
+        "mean_taken": 2.337
+      },
+      "16422241": {
+        "rating": 1172.6,
+        "n": 178,
+        "mean_taken": 2.798
+      },
+      "16463316": {
+        "rating": 1141.3,
+        "n": 404,
+        "mean_taken": 3.76
+      },
+      "16561259": {
+        "rating": 1126.3,
+        "n": 187,
+        "mean_taken": 2.914
+      },
+      "16531269": {
+        "rating": 1121.6,
+        "n": 575,
+        "mean_taken": 1.965
+      },
+      "16452116": {
+        "rating": 1101.8,
+        "n": 507,
+        "mean_taken": 2.753
+      },
+      "16375320": {
+        "rating": 1094.8,
+        "n": 226,
+        "mean_taken": 2.969
+      },
+      "16556346": {
+        "rating": 1086.7,
+        "n": 284,
+        "mean_taken": 3.141
+      },
+      "16388654": {
+        "rating": 1085.9,
+        "n": 530,
+        "mean_taken": 1.949
+      },
+      "16385817": {
+        "rating": 1082.1,
+        "n": 91,
+        "mean_taken": 3.363
+      },
+      "16381904": {
+        "rating": 1080.3,
+        "n": 324,
+        "mean_taken": 2.79
+      },
+      "16494330": {
+        "rating": 1077.6,
+        "n": 235,
+        "mean_taken": 3.472
+      },
+      "16514272": {
+        "rating": 1073.9,
+        "n": 213,
+        "mean_taken": 2.718
+      },
+      "16376653": {
+        "rating": 1073.8,
+        "n": 341,
+        "mean_taken": 2.584
+      },
+      "16462035": {
+        "rating": 1064.7,
+        "n": 401,
+        "mean_taken": 3.825
+      },
+      "16407282": {
+        "rating": 1063.4,
+        "n": 596,
+        "mean_taken": 1.963
+      },
+      "16430670": {
+        "rating": 1062.3,
+        "n": 78,
+        "mean_taken": 3.628
+      },
+      "16461850": {
+        "rating": 1050.6,
+        "n": 216,
+        "mean_taken": 3.63
+      },
+      "16421840": {
+        "rating": 1048.5,
+        "n": 132,
+        "mean_taken": 3.742
+      },
+      "16431331": {
+        "rating": 1046.4,
+        "n": 126,
+        "mean_taken": 2.429
+      },
+      "16388364": {
+        "rating": 1046.3,
+        "n": 131,
+        "mean_taken": 3.702
+      }
+    }
+  },
+  "band_non_alakazam": {
+    "elite_mean": 2.661,
+    "elite_n": 2355,
+    "rest_mean": 2.838,
+    "rest_n": 3924,
+    "welch": {
+      "t": -5.225,
+      "df": 5456.8,
+      "p": 0.0
+    }
+  }
+}

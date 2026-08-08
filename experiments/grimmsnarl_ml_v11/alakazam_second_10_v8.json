@@ -1,0 +1,278 @@
+{
+  "agent": "agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "max_turn": 8,
+  "games": {
+    "alakazam_second": 10
+  },
+  "overall": {
+    "alakazam_second": {
+      "decisions": 676,
+      "scored": 675,
+      "agree": 603,
+      "top1": 0.8933
+    }
+  },
+  "by_turn": {
+    "alakazam_second": {
+      "0": {
+        "decisions": 17,
+        "scored": 17,
+        "agree": 17,
+        "top1": 1.0
+      },
+      "2": {
+        "decisions": 93,
+        "scored": 93,
+        "agree": 81,
+        "top1": 0.871
+      },
+      "3": {
+        "decisions": 2,
+        "scored": 2,
+        "agree": 2,
+        "top1": 1.0
+      },
+      "4": {
+        "decisions": 141,
+        "scored": 141,
+        "agree": 127,
+        "top1": 0.9007
+      },
+      "5": {
+        "decisions": 7,
+        "scored": 7,
+        "agree": 7,
+        "top1": 1.0
+      },
+      "6": {
+        "decisions": 215,
+        "scored": 215,
+        "agree": 200,
+        "top1": 0.9302
+      },
+      "7": {
+        "decisions": 6,
+        "scored": 6,
+        "agree": 6,
+        "top1": 1.0
+      },
+      "8": {
+        "decisions": 195,
+        "scored": 194,
+        "agree": 163,
+        "top1": 0.8402
+      }
+    }
+  },
+  "by_context": {
+    "alakazam_second": {
+      "0": {
+        "decisions": 334,
+        "scored": 334,
+        "agree": 286,
+        "top1": 0.8563
+      },
+      "1": {
+        "decisions": 10,
+        "scored": 10,
+        "agree": 10,
+        "top1": 1.0
+      },
+      "2": {
+        "decisions": 5,
+        "scored": 5,
+        "agree": 5,
+        "top1": 1.0
+      },
+      "3": {
+        "decisions": 8,
+        "scored": 8,
+        "agree": 8,
+        "top1": 1.0
+      },
+      "4": {
+        "decisions": 14,
+        "scored": 14,
+        "agree": 14,
+        "top1": 1.0
+      },
+      "5": {
+        "decisions": 1,
+        "scored": 1,
+        "agree": 1,
+        "top1": 1.0
+      },
+      "7": {
+        "decisions": 124,
+        "scored": 124,
+        "agree": 102,
+        "top1": 0.8226
+      },
+      "13": {
+        "decisions": 30,
+        "scored": 30,
+        "agree": 30,
+        "top1": 1.0
+      },
+      "15": {
+        "decisions": 19,
+        "scored": 19,
+        "agree": 19,
+        "top1": 1.0
+      },
+      "16": {
+        "decisions": 30,
+        "scored": 30,
+        "agree": 28,
+        "top1": 0.9333
+      },
+      "21": {
+        "decisions": 51,
+        "scored": 51,
+        "agree": 51,
+        "top1": 1.0
+      },
+      "22": {
+        "decisions": 1,
+        "scored": 0,
+        "agree": 0,
+        "top1": null
+      },
+      "30": {
+        "decisions": 2,
+        "scored": 2,
+        "agree": 2,
+        "top1": 1.0
+      },
+      "37": {
+        "decisions": 5,
+        "scored": 5,
+        "agree": 5,
+        "top1": 1.0
+      },
+      "38": {
+        "decisions": 2,
+        "scored": 2,
+        "agree": 2,
+        "top1": 1.0
+      },
+      "40": {
+        "decisions": 26,
+        "scored": 26,
+        "agree": 26,
+        "top1": 1.0
+      },
+      "43": {
+        "decisions": 14,
+        "scored": 14,
+        "agree": 14,
+        "top1": 1.0
+      }
+    }
+  },
+  "substitutions": {
+    "alakazam_second": [
+      {
+        "pilot": "select",
+        "v8": "select",
+        "n": 24
+      },
+      {
+        "pilot": "supporter",
+        "v8": "supporter",
+        "n": 8
+      },
+      {
+        "pilot": "energy",
+        "v8": "energy",
+        "n": 7
+      },
+      {
+        "pilot": "ability",
+        "v8": "ability",
+        "n": 5
+      },
+      {
+        "pilot": "item",
+        "v8": "ability",
+        "n": 4
+      },
+      {
+        "pilot": "bench",
+        "v8": "bench",
+        "n": 3
+      },
+      {
+        "pilot": "stadium",
+        "v8": "stadium",
+        "n": 3
+      },
+      {
+        "pilot": "item",
+        "v8": "bench",
+        "n": 2
+      },
+      {
+        "pilot": "item",
+        "v8": "stadium",
+        "n": 2
+      },
+      {
+        "pilot": "ability",
+        "v8": "evolve",
+        "n": 2
+      },
+      {
+        "pilot": "ability",
+        "v8": "supporter",
+        "n": 2
+      },
+      {
+        "pilot": "evolve",
+        "v8": "evolve",
+        "n": 2
+      },
+      {
+        "pilot": "ability",
+        "v8": "stadium",
+        "n": 1
+      },
+      {
+        "pilot": "ability",
+        "v8": "item",
+        "n": 1
+      },
+      {
+        "pilot": "item",
+        "v8": "item",
+        "n": 1
+      }
+    ]
+  },
+  "played_but_v8_would_not": {
+    "alakazam_second": {
+      "select": 0.375,
+      "ability": 0.1875,
+      "item": 0.1562,
+      "supporter": 0.1562,
+      "energy": 0.1094,
+      "bench": 0.0469,
+      "stadium": 0.0469,
+      "evolve": 0.0312,
+      "boss": 0.0156,
+      "_own_turns": 64
+    }
+  },
+  "bodies_by_turn": {
+    "alakazam_second": {
+      "0": 0.0,
+      "2": 3.82,
+      "3": 4.0,
+      "4": 5.0,
+      "5": 4.57,
+      "6": 5.25,
+      "7": 4.67,
+      "8": 5.19
+    }
+  }
+}

@@ -1,0 +1,580 @@
+{
+  "agent": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "max_turn": 8,
+  "games": {
+    "alakazam_second": 162,
+    "other_second": 160
+  },
+  "overall": {
+    "alakazam_second": {
+      "decisions": 9659,
+      "scored": 9641,
+      "agree": 8169,
+      "top1": 0.8473
+    },
+    "other_second": {
+      "decisions": 9306,
+      "scored": 9293,
+      "agree": 8336,
+      "top1": 0.897
+    }
+  },
+  "by_turn": {
+    "alakazam_second": {
+      "0": {
+        "decisions": 257,
+        "scored": 252,
+        "agree": 244,
+        "top1": 0.9683
+      },
+      "2": {
+        "decisions": 1489,
+        "scored": 1489,
+        "agree": 1202,
+        "top1": 0.8073
+      },
+      "3": {
+        "decisions": 58,
+        "scored": 58,
+        "agree": 56,
+        "top1": 0.9655
+      },
+      "4": {
+        "decisions": 2209,
+        "scored": 2208,
+        "agree": 1890,
+        "top1": 0.856
+      },
+      "5": {
+        "decisions": 116,
+        "scored": 116,
+        "agree": 108,
+        "top1": 0.931
+      },
+      "6": {
+        "decisions": 2806,
+        "scored": 2801,
+        "agree": 2400,
+        "top1": 0.8568
+      },
+      "7": {
+        "decisions": 104,
+        "scored": 104,
+        "agree": 96,
+        "top1": 0.9231
+      },
+      "8": {
+        "decisions": 2620,
+        "scored": 2613,
+        "agree": 2173,
+        "top1": 0.8316
+      }
+    },
+    "other_second": {
+      "0": {
+        "decisions": 263,
+        "scored": 262,
+        "agree": 260,
+        "top1": 0.9924
+      },
+      "1": {
+        "decisions": 2,
+        "scored": 2,
+        "agree": 0,
+        "top1": 0.0
+      },
+      "2": {
+        "decisions": 1492,
+        "scored": 1489,
+        "agree": 1290,
+        "top1": 0.8664
+      },
+      "3": {
+        "decisions": 55,
+        "scored": 55,
+        "agree": 53,
+        "top1": 0.9636
+      },
+      "4": {
+        "decisions": 2185,
+        "scored": 2181,
+        "agree": 1986,
+        "top1": 0.9106
+      },
+      "5": {
+        "decisions": 82,
+        "scored": 82,
+        "agree": 80,
+        "top1": 0.9756
+      },
+      "6": {
+        "decisions": 2655,
+        "scored": 2652,
+        "agree": 2391,
+        "top1": 0.9016
+      },
+      "7": {
+        "decisions": 71,
+        "scored": 71,
+        "agree": 67,
+        "top1": 0.9437
+      },
+      "8": {
+        "decisions": 2501,
+        "scored": 2499,
+        "agree": 2209,
+        "top1": 0.884
+      }
+    }
+  },
+  "by_context": {
+    "alakazam_second": {
+      "0": {
+        "decisions": 4795,
+        "scored": 4795,
+        "agree": 3869,
+        "top1": 0.8069
+      },
+      "1": {
+        "decisions": 162,
+        "scored": 162,
+        "agree": 154,
+        "top1": 0.9506
+      },
+      "2": {
+        "decisions": 52,
+        "scored": 47,
+        "agree": 47,
+        "top1": 1.0
+      },
+      "3": {
+        "decisions": 120,
+        "scored": 120,
+        "agree": 111,
+        "top1": 0.925
+      },
+      "4": {
+        "decisions": 261,
+        "scored": 261,
+        "agree": 250,
+        "top1": 0.9579
+      },
+      "5": {
+        "decisions": 38,
+        "scored": 38,
+        "agree": 38,
+        "top1": 1.0
+      },
+      "7": {
+        "decisions": 1684,
+        "scored": 1684,
+        "agree": 1312,
+        "top1": 0.7791
+      },
+      "8": {
+        "decisions": 8,
+        "scored": 8,
+        "agree": 2,
+        "top1": 0.25
+      },
+      "13": {
+        "decisions": 349,
+        "scored": 349,
+        "agree": 324,
+        "top1": 0.9284
+      },
+      "15": {
+        "decisions": 307,
+        "scored": 307,
+        "agree": 279,
+        "top1": 0.9088
+      },
+      "16": {
+        "decisions": 349,
+        "scored": 349,
+        "agree": 317,
+        "top1": 0.9083
+      },
+      "21": {
+        "decisions": 733,
+        "scored": 733,
+        "agree": 697,
+        "top1": 0.9509
+      },
+      "22": {
+        "decisions": 30,
+        "scored": 17,
+        "agree": 17,
+        "top1": 1.0
+      },
+      "30": {
+        "decisions": 63,
+        "scored": 63,
+        "agree": 61,
+        "top1": 0.9683
+      },
+      "37": {
+        "decisions": 124,
+        "scored": 124,
+        "agree": 117,
+        "top1": 0.9435
+      },
+      "38": {
+        "decisions": 43,
+        "scored": 43,
+        "agree": 43,
+        "top1": 1.0
+      },
+      "40": {
+        "decisions": 286,
+        "scored": 286,
+        "agree": 284,
+        "top1": 0.993
+      },
+      "43": {
+        "decisions": 255,
+        "scored": 255,
+        "agree": 247,
+        "top1": 0.9686
+      }
+    },
+    "other_second": {
+      "0": {
+        "decisions": 4560,
+        "scored": 4560,
+        "agree": 3914,
+        "top1": 0.8583
+      },
+      "1": {
+        "decisions": 160,
+        "scored": 160,
+        "agree": 158,
+        "top1": 0.9875
+      },
+      "2": {
+        "decisions": 58,
+        "scored": 57,
+        "agree": 57,
+        "top1": 1.0
+      },
+      "3": {
+        "decisions": 115,
+        "scored": 115,
+        "agree": 110,
+        "top1": 0.9565
+      },
+      "4": {
+        "decisions": 203,
+        "scored": 203,
+        "agree": 196,
+        "top1": 0.9655
+      },
+      "5": {
+        "decisions": 50,
+        "scored": 46,
+        "agree": 42,
+        "top1": 0.913
+      },
+      "7": {
+        "decisions": 1423,
+        "scored": 1423,
+        "agree": 1237,
+        "top1": 0.8693
+      },
+      "8": {
+        "decisions": 5,
+        "scored": 5,
+        "agree": 2,
+        "top1": 0.4
+      },
+      "9": {
+        "decisions": 4,
+        "scored": 4,
+        "agree": 4,
+        "top1": 1.0
+      },
+      "13": {
+        "decisions": 430,
+        "scored": 430,
+        "agree": 406,
+        "top1": 0.9442
+      },
+      "15": {
+        "decisions": 301,
+        "scored": 301,
+        "agree": 282,
+        "top1": 0.9369
+      },
+      "16": {
+        "decisions": 430,
+        "scored": 430,
+        "agree": 415,
+        "top1": 0.9651
+      },
+      "21": {
+        "decisions": 634,
+        "scored": 634,
+        "agree": 629,
+        "top1": 0.9921
+      },
+      "22": {
+        "decisions": 17,
+        "scored": 9,
+        "agree": 9,
+        "top1": 1.0
+      },
+      "27": {
+        "decisions": 16,
+        "scored": 16,
+        "agree": 16,
+        "top1": 1.0
+      },
+      "30": {
+        "decisions": 93,
+        "scored": 93,
+        "agree": 78,
+        "top1": 0.8387
+      },
+      "37": {
+        "decisions": 119,
+        "scored": 119,
+        "agree": 115,
+        "top1": 0.9664
+      },
+      "38": {
+        "decisions": 45,
+        "scored": 45,
+        "agree": 45,
+        "top1": 1.0
+      },
+      "40": {
+        "decisions": 403,
+        "scored": 403,
+        "agree": 403,
+        "top1": 1.0
+      },
+      "43": {
+        "decisions": 240,
+        "scored": 240,
+        "agree": 218,
+        "top1": 0.9083
+      }
+    }
+  },
+  "substitutions": {
+    "alakazam_second": [
+      {
+        "pilot": "select",
+        "v8": "select",
+        "n": 527
+      },
+      {
+        "pilot": "ability",
+        "v8": "ability",
+        "n": 63
+      },
+      {
+        "pilot": "evolve",
+        "v8": "evolve",
+        "n": 60
+      },
+      {
+        "pilot": "energy",
+        "v8": "energy",
+        "n": 59
+      },
+      {
+        "pilot": "item",
+        "v8": "item",
+        "n": 57
+      },
+      {
+        "pilot": "item",
+        "v8": "ability",
+        "n": 46
+      },
+      {
+        "pilot": "supporter",
+        "v8": "ability",
+        "n": 38
+      },
+      {
+        "pilot": "supporter",
+        "v8": "supporter",
+        "n": 34
+      },
+      {
+        "pilot": "energy",
+        "v8": "item",
+        "n": 27
+      },
+      {
+        "pilot": "bench",
+        "v8": "bench",
+        "n": 25
+      },
+      {
+        "pilot": "evolve",
+        "v8": "ability",
+        "n": 25
+      },
+      {
+        "pilot": "item",
+        "v8": "bench",
+        "n": 24
+      },
+      {
+        "pilot": "ability",
+        "v8": "item",
+        "n": 24
+      },
+      {
+        "pilot": "energy",
+        "v8": "ability",
+        "n": 22
+      },
+      {
+        "pilot": "supporter",
+        "v8": "item",
+        "n": 20
+      }
+    ],
+    "other_second": [
+      {
+        "pilot": "select",
+        "v8": "select",
+        "n": 270
+      },
+      {
+        "pilot": "energy",
+        "v8": "energy",
+        "n": 66
+      },
+      {
+        "pilot": "ability",
+        "v8": "ability",
+        "n": 65
+      },
+      {
+        "pilot": "item",
+        "v8": "item",
+        "n": 61
+      },
+      {
+        "pilot": "item",
+        "v8": "ability",
+        "n": 36
+      },
+      {
+        "pilot": "supporter",
+        "v8": "supporter",
+        "n": 34
+      },
+      {
+        "pilot": "evolve",
+        "v8": "ability",
+        "n": 32
+      },
+      {
+        "pilot": "ability",
+        "v8": "energy",
+        "n": 26
+      },
+      {
+        "pilot": "flag",
+        "v8": "flag",
+        "n": 22
+      },
+      {
+        "pilot": "item",
+        "v8": "energy",
+        "n": 20
+      },
+      {
+        "pilot": "evolve",
+        "v8": "evolve",
+        "n": 18
+      },
+      {
+        "pilot": "ability",
+        "v8": "supporter",
+        "n": 16
+      },
+      {
+        "pilot": "item",
+        "v8": "bench",
+        "n": 16
+      },
+      {
+        "pilot": "supporter",
+        "v8": "ability",
+        "n": 16
+      },
+      {
+        "pilot": "other",
+        "v8": "other",
+        "n": 15
+      }
+    ]
+  },
+  "played_but_v8_would_not": {
+    "alakazam_second": {
+      "select": 0.4907,
+      "item": 0.1508,
+      "energy": 0.1443,
+      "ability": 0.1341,
+      "supporter": 0.1285,
+      "evolve": 0.1127,
+      "bench": 0.068,
+      "stadium": 0.041,
+      "attack": 0.0354,
+      "boss": 0.0233,
+      "end": 0.0205,
+      "flag": 0.0074,
+      "retreat": 0.0065,
+      "stamp": 0.0037,
+      "other": 0.0019,
+      "_own_turns": 1074
+    },
+    "other_second": {
+      "select": 0.2727,
+      "item": 0.1677,
+      "ability": 0.1364,
+      "evolve": 0.0798,
+      "energy": 0.0788,
+      "supporter": 0.0727,
+      "attack": 0.0343,
+      "bench": 0.0303,
+      "flag": 0.0222,
+      "stadium": 0.0202,
+      "end": 0.0162,
+      "other": 0.0152,
+      "boss": 0.0141,
+      "retreat": 0.0061,
+      "_own_turns": 990
+    }
+  },
+  "bodies_by_turn": {
+    "alakazam_second": {
+      "0": 0.0,
+      "2": 3.23,
+      "3": 3.66,
+      "4": 4.8,
+      "5": 4.13,
+      "6": 5.15,
+      "7": 4.38,
+      "8": 5.28
+    },
+    "other_second": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 3.11,
+      "3": 3.45,
+      "4": 4.64,
+      "5": 3.99,
+      "6": 5.03,
+      "7": 4.21,
+      "8": 5.14
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "grimmsnarl_ml_v11",
+  "version": "11.0.0-rc1",
+  "role": "champion_challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v8",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Exact v8 default policy with once-per-turn robust full-turn arithmetic search.",
+  "ranker": {
+    "source": "ranker_v5_data_refresh_base.txt@2000",
+    "trees": 2000,
+    "features": 823,
+    "teacher_team_id": 16494330,
+    "froslass_route_team_id": 16371703,
+    "sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79"
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass"
+  },
+  "arithmetic_search": {
+    "root_policy": "v8",
+    "continuation_policy": "v8",
+    "turn_min": 1,
+    "once_per_turn": true,
+    "candidate_cap": 3,
+    "hidden_state_determinizations": 2,
+    "acceptance": "strict arithmetic improvement in both hidden-state determinizations",
+    "fallback": "v8 on tie, disagreement, incomplete branch, engine error, or critical regression"
+  },
+  "submission_priority": 1,
+  "description": "Evidence-backed v11 release candidate. Ladder rating remains the final promotion gate."
+}

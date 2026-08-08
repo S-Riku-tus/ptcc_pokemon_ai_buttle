@@ -172,7 +172,12 @@ def build(agent_dir: Path, output: Path, cg_source: Path) -> None:
     with tempfile.TemporaryDirectory(prefix="ptcg_submission_") as tmp:
         stage = Path(tmp)
         copy_runtime_files(agent_dir, stage)
-        shutil.copytree(cg_source, stage / "cg", copy_function=copy_normalized)
+        shutil.copytree(
+            cg_source,
+            stage / "cg",
+            copy_function=copy_normalized,
+            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo"),
+        )
 
         if output.exists():
             output.unlink()

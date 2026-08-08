@@ -1,0 +1,40 @@
+cohort                    turns  atk off   noNRG  chgAct  toActive
+alakazam_second             645    0.674   0.603   0.524     0.349
+alakazam_second_won         453    0.715   0.563   0.508     0.350
+alakazam_second_lost        192    0.578   0.698   0.562     0.346
+other_second               6333    0.593   0.641   0.516     0.220
+ours_alakazam_second         38    0.500   0.711   0.526     0.423
+ours_other_second           160    0.613   0.619   0.531     0.147
+
+alakazam_second:
+   t2   n=  162 atk=0.296 actNRG=0.0 benchNRG=0.0 hand=6.796 chg=0.000 grimmActive=0.000
+   t4   n=  162 atk=0.648 actNRG=0.352 benchNRG=0.327 hand=6.358 chg=0.420 grimmActive=0.000
+   t6   n=  161 atk=0.876 actNRG=0.913 benchNRG=1.348 hand=5.553 chg=0.882 grimmActive=0.205
+   t8   n=  160 atk=0.881 actNRG=1.587 benchNRG=2.538 hand=5.95 chg=0.800 grimmActive=0.438
+alakazam_second_won:
+   t2   n=  114 atk=0.325 actNRG=0.0 benchNRG=0.0 hand=6.816 chg=0.000 grimmActive=0.000
+   t4   n=  114 atk=0.684 actNRG=0.386 benchNRG=0.377 hand=6.535 chg=0.377 grimmActive=0.000
+   t6   n=  113 atk=0.929 actNRG=1.062 benchNRG=1.531 hand=5.699 chg=0.885 grimmActive=0.266
+   t8   n=  112 atk=0.929 actNRG=1.705 benchNRG=2.893 hand=6.277 chg=0.777 grimmActive=0.527
+alakazam_second_lost:
+   t2   n=   48 atk=0.229 actNRG=0.0 benchNRG=0.0 hand=6.75 chg=0.000 grimmActive=0.000
+   t4   n=   48 atk=0.562 actNRG=0.271 benchNRG=0.208 hand=5.938 chg=0.521 grimmActive=0.000
+   t6   n=   48 atk=0.750 actNRG=0.562 benchNRG=0.917 hand=5.208 chg=0.875 grimmActive=0.062
+   t8   n=   48 atk=0.771 actNRG=1.312 benchNRG=1.708 hand=5.188 chg=0.854 grimmActive=0.229
+other_second:
+   t2   n= 1602 atk=0.162 actNRG=0.0 benchNRG=0.0 hand=6.881 chg=0.000 grimmActive=0.000
+   t4   n= 1592 atk=0.540 actNRG=0.175 benchNRG=0.514 hand=6.399 chg=0.440 grimmActive=0.000
+   t6   n= 1587 atk=0.822 actNRG=0.992 benchNRG=1.72 hand=5.476 chg=0.848 grimmActive=0.379
+   t8   n= 1552 atk=0.858 actNRG=1.557 benchNRG=2.552 hand=5.509 chg=0.787 grimmActive=0.612
+ours_alakazam_second:
+   t2   n=   10 atk=0.300 actNRG=0.0 benchNRG=0.0 hand=6.7 chg=0.000 grimmActive=0.000
+   t4   n=   10 atk=0.400 actNRG=0.2 benchNRG=0.3 hand=5.8 chg=0.500 grimmActive=0.000
+   t6   n=    9 atk=0.444 actNRG=0.444 benchNRG=0.889 hand=4.444 chg=0.889 grimmActive=0.000
+   t8   n=    9 atk=0.889 actNRG=1.111 benchNRG=1.222 hand=4.111 chg=0.778 grimmActive=0.222
+ours_other_second:
+   t2   n=   40 atk=0.100 actNRG=0.0 benchNRG=0.0 hand=6.575 chg=0.000 grimmActive=0.000
+   t4   n=   40 atk=0.600 actNRG=0.125 benchNRG=0.675 hand=6.325 chg=0.475 grimmActive=0.000
+   t6   n=   40 atk=0.875 actNRG=0.975 benchNRG=1.575 hand=5.025 chg=0.950 grimmActive=0.425
+   t8   n=   40 atk=0.875 actNRG=1.6 benchNRG=2.525 hand=5.4 chg=0.700 grimmActive=0.675
+
+attack offered, ours vs the field's own losses: {'note': 'field cohort restricted to its own losses, so the comparison is not confounded by outcome', 'attack_offered_fisher': 0.378, 'ours': 0.5, 'field_losses': 0.5781}

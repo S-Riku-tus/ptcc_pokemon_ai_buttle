@@ -1,0 +1,2273 @@
+{
+  "max_turn": 8,
+  "runs": [
+    "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\submissions\\submission_55317804",
+    "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\submissions\\submission_55302846"
+  ],
+  "cohorts": {
+    "alakazam_first": {
+      "games": 164,
+      "own_turns": 651,
+      "turns_per_game": 3.97,
+      "bodies_by_turn": {
+        "1": {
+          "n": 164,
+          "mean": 1.52
+        },
+        "3": {
+          "n": 164,
+          "mean": 3.52
+        },
+        "5": {
+          "n": 162,
+          "mean": 4.43
+        },
+        "7": {
+          "n": 161,
+          "mean": 4.88
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 506,
+          "taken": 433,
+          "offer_rate": 0.7773,
+          "take_rate": 0.8557,
+          "play_rate": 0.6651
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 354,
+          "taken": 343,
+          "offer_rate": 0.5438,
+          "take_rate": 0.9689,
+          "play_rate": 0.5269
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 246,
+          "taken": 232,
+          "offer_rate": 0.3779,
+          "take_rate": 0.9431,
+          "play_rate": 0.3564
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 239,
+          "taken": 163,
+          "offer_rate": 0.3671,
+          "take_rate": 0.682,
+          "play_rate": 0.2504
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 238,
+          "taken": 219,
+          "offer_rate": 0.3656,
+          "take_rate": 0.9202,
+          "play_rate": 0.3364
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 232,
+          "taken": 208,
+          "offer_rate": 0.3564,
+          "take_rate": 0.8966,
+          "play_rate": 0.3195
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 230,
+          "taken": 140,
+          "offer_rate": 0.3533,
+          "take_rate": 0.6087,
+          "play_rate": 0.2151
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 211,
+          "taken": 174,
+          "offer_rate": 0.3241,
+          "take_rate": 0.8246,
+          "play_rate": 0.2673
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 198,
+          "taken": 197,
+          "offer_rate": 0.3041,
+          "take_rate": 0.9949,
+          "play_rate": 0.3026
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 182,
+          "taken": 182,
+          "offer_rate": 0.2796,
+          "take_rate": 1.0,
+          "play_rate": 0.2796
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 155,
+          "taken": 115,
+          "offer_rate": 0.2381,
+          "take_rate": 0.7419,
+          "play_rate": 0.1767
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 150,
+          "taken": 123,
+          "offer_rate": 0.2304,
+          "take_rate": 0.82,
+          "play_rate": 0.1889
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 137,
+          "taken": 42,
+          "offer_rate": 0.2104,
+          "take_rate": 0.3066,
+          "play_rate": 0.0645
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 131,
+          "taken": 104,
+          "offer_rate": 0.2012,
+          "take_rate": 0.7939,
+          "play_rate": 0.1598
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 89,
+          "taken": 85,
+          "offer_rate": 0.1367,
+          "take_rate": 0.9551,
+          "play_rate": 0.1306
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 86,
+          "taken": 84,
+          "offer_rate": 0.1321,
+          "take_rate": 0.9767,
+          "play_rate": 0.129
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 73,
+          "taken": 34,
+          "offer_rate": 0.1121,
+          "take_rate": 0.4658,
+          "play_rate": 0.0522
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 63,
+          "taken": 60,
+          "offer_rate": 0.0968,
+          "take_rate": 0.9524,
+          "play_rate": 0.0922
+        },
+        "1137": {
+          "name": "Tool Scrapper",
+          "offered": 2,
+          "taken": 2,
+          "offer_rate": 0.0031,
+          "take_rate": 1.0,
+          "play_rate": 0.0031
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 651,
+          "taken": 265,
+          "offer_rate": 1.0,
+          "take_rate": 0.4071,
+          "play_rate": 0.4071
+        },
+        "retreat": {
+          "offered": 515,
+          "taken": 75,
+          "offer_rate": 0.7911,
+          "take_rate": 0.1456,
+          "play_rate": 0.1152
+        },
+        "item": {
+          "offered": 506,
+          "taken": 465,
+          "offer_rate": 0.7773,
+          "take_rate": 0.919,
+          "play_rate": 0.7143
+        },
+        "energy": {
+          "offered": 506,
+          "taken": 433,
+          "offer_rate": 0.7773,
+          "take_rate": 0.8557,
+          "play_rate": 0.6651
+        },
+        "ability": {
+          "offered": 473,
+          "taken": 471,
+          "offer_rate": 0.7266,
+          "take_rate": 0.9958,
+          "play_rate": 0.7235
+        },
+        "bench": {
+          "offered": 408,
+          "taken": 395,
+          "offer_rate": 0.6267,
+          "take_rate": 0.9681,
+          "play_rate": 0.6068
+        },
+        "evolve": {
+          "offered": 393,
+          "taken": 364,
+          "offer_rate": 0.6037,
+          "take_rate": 0.9262,
+          "play_rate": 0.5591
+        },
+        "attack": {
+          "offered": 392,
+          "taken": 386,
+          "offer_rate": 0.6022,
+          "take_rate": 0.9847,
+          "play_rate": 0.5929
+        },
+        "supporter": {
+          "offered": 374,
+          "taken": 337,
+          "offer_rate": 0.5745,
+          "take_rate": 0.9011,
+          "play_rate": 0.5177
+        },
+        "stadium": {
+          "offered": 198,
+          "taken": 197,
+          "offer_rate": 0.3041,
+          "take_rate": 0.9949,
+          "play_rate": 0.3026
+        },
+        "boss": {
+          "offered": 137,
+          "taken": 42,
+          "offer_rate": 0.2104,
+          "take_rate": 0.3066,
+          "play_rate": 0.0645
+        },
+        "stamp": {
+          "offered": 86,
+          "taken": 84,
+          "offer_rate": 0.1321,
+          "take_rate": 0.9767,
+          "play_rate": 0.129
+        }
+      }
+    },
+    "alakazam_second": {
+      "games": 162,
+      "own_turns": 645,
+      "turns_per_game": 3.98,
+      "bodies_by_turn": {
+        "2": {
+          "n": 162,
+          "mean": 1.57
+        },
+        "4": {
+          "n": 162,
+          "mean": 4.13
+        },
+        "6": {
+          "n": 161,
+          "mean": 4.5
+        },
+        "8": {
+          "n": 160,
+          "mean": 4.89
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 496,
+          "taken": 433,
+          "offer_rate": 0.769,
+          "take_rate": 0.873,
+          "play_rate": 0.6713
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 385,
+          "taken": 374,
+          "offer_rate": 0.5969,
+          "take_rate": 0.9714,
+          "play_rate": 0.5798
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 299,
+          "taken": 192,
+          "offer_rate": 0.4636,
+          "take_rate": 0.6421,
+          "play_rate": 0.2977
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 286,
+          "taken": 198,
+          "offer_rate": 0.4434,
+          "take_rate": 0.6923,
+          "play_rate": 0.307
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 252,
+          "taken": 249,
+          "offer_rate": 0.3907,
+          "take_rate": 0.9881,
+          "play_rate": 0.386
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 241,
+          "taken": 227,
+          "offer_rate": 0.3736,
+          "take_rate": 0.9419,
+          "play_rate": 0.3519
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 224,
+          "taken": 197,
+          "offer_rate": 0.3473,
+          "take_rate": 0.8795,
+          "play_rate": 0.3054
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 221,
+          "taken": 214,
+          "offer_rate": 0.3426,
+          "take_rate": 0.9683,
+          "play_rate": 0.3318
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 220,
+          "taken": 173,
+          "offer_rate": 0.3411,
+          "take_rate": 0.7864,
+          "play_rate": 0.2682
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 195,
+          "taken": 159,
+          "offer_rate": 0.3023,
+          "take_rate": 0.8154,
+          "play_rate": 0.2465
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 189,
+          "taken": 188,
+          "offer_rate": 0.293,
+          "take_rate": 0.9947,
+          "play_rate": 0.2915
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 171,
+          "taken": 127,
+          "offer_rate": 0.2651,
+          "take_rate": 0.7427,
+          "play_rate": 0.1969
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 161,
+          "taken": 63,
+          "offer_rate": 0.2496,
+          "take_rate": 0.3913,
+          "play_rate": 0.0977
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 146,
+          "taken": 124,
+          "offer_rate": 0.2264,
+          "take_rate": 0.8493,
+          "play_rate": 0.1922
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 124,
+          "taken": 119,
+          "offer_rate": 0.1922,
+          "take_rate": 0.9597,
+          "play_rate": 0.1845
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 113,
+          "taken": 109,
+          "offer_rate": 0.1752,
+          "take_rate": 0.9646,
+          "play_rate": 0.169
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 82,
+          "taken": 45,
+          "offer_rate": 0.1271,
+          "take_rate": 0.5488,
+          "play_rate": 0.0698
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 78,
+          "taken": 73,
+          "offer_rate": 0.1209,
+          "take_rate": 0.9359,
+          "play_rate": 0.1132
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 645,
+          "taken": 219,
+          "offer_rate": 1.0,
+          "take_rate": 0.3395,
+          "play_rate": 0.3395
+        },
+        "item": {
+          "offered": 526,
+          "taken": 488,
+          "offer_rate": 0.8155,
+          "take_rate": 0.9278,
+          "play_rate": 0.7566
+        },
+        "retreat": {
+          "offered": 499,
+          "taken": 57,
+          "offer_rate": 0.7736,
+          "take_rate": 0.1142,
+          "play_rate": 0.0884
+        },
+        "energy": {
+          "offered": 496,
+          "taken": 433,
+          "offer_rate": 0.769,
+          "take_rate": 0.873,
+          "play_rate": 0.6713
+        },
+        "ability": {
+          "offered": 492,
+          "taken": 488,
+          "offer_rate": 0.7628,
+          "take_rate": 0.9919,
+          "play_rate": 0.7566
+        },
+        "supporter": {
+          "offered": 487,
+          "taken": 435,
+          "offer_rate": 0.755,
+          "take_rate": 0.8932,
+          "play_rate": 0.6744
+        },
+        "attack": {
+          "offered": 435,
+          "taken": 425,
+          "offer_rate": 0.6744,
+          "take_rate": 0.977,
+          "play_rate": 0.6589
+        },
+        "bench": {
+          "offered": 408,
+          "taken": 394,
+          "offer_rate": 0.6326,
+          "take_rate": 0.9657,
+          "play_rate": 0.6109
+        },
+        "evolve": {
+          "offered": 407,
+          "taken": 373,
+          "offer_rate": 0.631,
+          "take_rate": 0.9165,
+          "play_rate": 0.5783
+        },
+        "stadium": {
+          "offered": 221,
+          "taken": 214,
+          "offer_rate": 0.3426,
+          "take_rate": 0.9683,
+          "play_rate": 0.3318
+        },
+        "boss": {
+          "offered": 161,
+          "taken": 63,
+          "offer_rate": 0.2496,
+          "take_rate": 0.3913,
+          "play_rate": 0.0977
+        },
+        "stamp": {
+          "offered": 124,
+          "taken": 119,
+          "offer_rate": 0.1922,
+          "take_rate": 0.9597,
+          "play_rate": 0.1845
+        }
+      }
+    },
+    "alakazam_second_lost": {
+      "games": 48,
+      "own_turns": 192,
+      "turns_per_game": 4.0,
+      "bodies_by_turn": {
+        "2": {
+          "n": 48,
+          "mean": 1.54
+        },
+        "4": {
+          "n": 48,
+          "mean": 3.67
+        },
+        "6": {
+          "n": 48,
+          "mean": 3.9
+        },
+        "8": {
+          "n": 48,
+          "mean": 4.23
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 145,
+          "taken": 127,
+          "offer_rate": 0.7552,
+          "take_rate": 0.8759,
+          "play_rate": 0.6615
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 95,
+          "taken": 92,
+          "offer_rate": 0.4948,
+          "take_rate": 0.9684,
+          "play_rate": 0.4792
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 70,
+          "taken": 65,
+          "offer_rate": 0.3646,
+          "take_rate": 0.9286,
+          "play_rate": 0.3385
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 70,
+          "taken": 57,
+          "offer_rate": 0.3646,
+          "take_rate": 0.8143,
+          "play_rate": 0.2969
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 70,
+          "taken": 57,
+          "offer_rate": 0.3646,
+          "take_rate": 0.8143,
+          "play_rate": 0.2969
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 69,
+          "taken": 69,
+          "offer_rate": 0.3594,
+          "take_rate": 1.0,
+          "play_rate": 0.3594
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 69,
+          "taken": 47,
+          "offer_rate": 0.3594,
+          "take_rate": 0.6812,
+          "play_rate": 0.2448
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 66,
+          "taken": 61,
+          "offer_rate": 0.3438,
+          "take_rate": 0.9242,
+          "play_rate": 0.3177
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 56,
+          "taken": 55,
+          "offer_rate": 0.2917,
+          "take_rate": 0.9821,
+          "play_rate": 0.2865
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 54,
+          "taken": 49,
+          "offer_rate": 0.2812,
+          "take_rate": 0.9074,
+          "play_rate": 0.2552
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 51,
+          "taken": 50,
+          "offer_rate": 0.2656,
+          "take_rate": 0.9804,
+          "play_rate": 0.2604
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 45,
+          "taken": 36,
+          "offer_rate": 0.2344,
+          "take_rate": 0.8,
+          "play_rate": 0.1875
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 41,
+          "taken": 13,
+          "offer_rate": 0.2135,
+          "take_rate": 0.3171,
+          "play_rate": 0.0677
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 40,
+          "taken": 35,
+          "offer_rate": 0.2083,
+          "take_rate": 0.875,
+          "play_rate": 0.1823
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 36,
+          "taken": 34,
+          "offer_rate": 0.1875,
+          "take_rate": 0.9444,
+          "play_rate": 0.1771
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 34,
+          "taken": 34,
+          "offer_rate": 0.1771,
+          "take_rate": 1.0,
+          "play_rate": 0.1771
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 23,
+          "taken": 22,
+          "offer_rate": 0.1198,
+          "take_rate": 0.9565,
+          "play_rate": 0.1146
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 22,
+          "taken": 11,
+          "offer_rate": 0.1146,
+          "take_rate": 0.5,
+          "play_rate": 0.0573
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 192,
+          "taken": 84,
+          "offer_rate": 1.0,
+          "take_rate": 0.4375,
+          "play_rate": 0.4375
+        },
+        "item": {
+          "offered": 150,
+          "taken": 148,
+          "offer_rate": 0.7812,
+          "take_rate": 0.9867,
+          "play_rate": 0.7708
+        },
+        "energy": {
+          "offered": 145,
+          "taken": 127,
+          "offer_rate": 0.7552,
+          "take_rate": 0.8759,
+          "play_rate": 0.6615
+        },
+        "retreat": {
+          "offered": 134,
+          "taken": 12,
+          "offer_rate": 0.6979,
+          "take_rate": 0.0896,
+          "play_rate": 0.0625
+        },
+        "bench": {
+          "offered": 129,
+          "taken": 126,
+          "offer_rate": 0.6719,
+          "take_rate": 0.9767,
+          "play_rate": 0.6562
+        },
+        "ability": {
+          "offered": 122,
+          "taken": 122,
+          "offer_rate": 0.6354,
+          "take_rate": 1.0,
+          "play_rate": 0.6354
+        },
+        "supporter": {
+          "offered": 119,
+          "taken": 115,
+          "offer_rate": 0.6198,
+          "take_rate": 0.9664,
+          "play_rate": 0.599
+        },
+        "evolve": {
+          "offered": 112,
+          "taken": 102,
+          "offer_rate": 0.5833,
+          "take_rate": 0.9107,
+          "play_rate": 0.5312
+        },
+        "attack": {
+          "offered": 111,
+          "taken": 108,
+          "offer_rate": 0.5781,
+          "take_rate": 0.973,
+          "play_rate": 0.5625
+        },
+        "stadium": {
+          "offered": 56,
+          "taken": 55,
+          "offer_rate": 0.2917,
+          "take_rate": 0.9821,
+          "play_rate": 0.2865
+        },
+        "boss": {
+          "offered": 41,
+          "taken": 13,
+          "offer_rate": 0.2135,
+          "take_rate": 0.3171,
+          "play_rate": 0.0677
+        },
+        "stamp": {
+          "offered": 36,
+          "taken": 34,
+          "offer_rate": 0.1875,
+          "take_rate": 0.9444,
+          "play_rate": 0.1771
+        }
+      }
+    },
+    "alakazam_second_won": {
+      "games": 114,
+      "own_turns": 453,
+      "turns_per_game": 3.97,
+      "bodies_by_turn": {
+        "2": {
+          "n": 114,
+          "mean": 1.59
+        },
+        "4": {
+          "n": 114,
+          "mean": 4.32
+        },
+        "6": {
+          "n": 113,
+          "mean": 4.76
+        },
+        "8": {
+          "n": 112,
+          "mean": 5.18
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 351,
+          "taken": 306,
+          "offer_rate": 0.7748,
+          "take_rate": 0.8718,
+          "play_rate": 0.6755
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 290,
+          "taken": 282,
+          "offer_rate": 0.6402,
+          "take_rate": 0.9724,
+          "play_rate": 0.6225
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 230,
+          "taken": 145,
+          "offer_rate": 0.5077,
+          "take_rate": 0.6304,
+          "play_rate": 0.3201
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 216,
+          "taken": 141,
+          "offer_rate": 0.4768,
+          "take_rate": 0.6528,
+          "play_rate": 0.3113
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 183,
+          "taken": 180,
+          "offer_rate": 0.404,
+          "take_rate": 0.9836,
+          "play_rate": 0.3974
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 175,
+          "taken": 166,
+          "offer_rate": 0.3863,
+          "take_rate": 0.9486,
+          "play_rate": 0.3664
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 165,
+          "taken": 159,
+          "offer_rate": 0.3642,
+          "take_rate": 0.9636,
+          "play_rate": 0.351
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 154,
+          "taken": 132,
+          "offer_rate": 0.34,
+          "take_rate": 0.8571,
+          "play_rate": 0.2914
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 150,
+          "taken": 116,
+          "offer_rate": 0.3311,
+          "take_rate": 0.7733,
+          "play_rate": 0.2561
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 141,
+          "taken": 110,
+          "offer_rate": 0.3113,
+          "take_rate": 0.7801,
+          "play_rate": 0.2428
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 138,
+          "taken": 138,
+          "offer_rate": 0.3046,
+          "take_rate": 1.0,
+          "play_rate": 0.3046
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 126,
+          "taken": 91,
+          "offer_rate": 0.2781,
+          "take_rate": 0.7222,
+          "play_rate": 0.2009
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 120,
+          "taken": 50,
+          "offer_rate": 0.2649,
+          "take_rate": 0.4167,
+          "play_rate": 0.1104
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 106,
+          "taken": 89,
+          "offer_rate": 0.234,
+          "take_rate": 0.8396,
+          "play_rate": 0.1965
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 88,
+          "taken": 85,
+          "offer_rate": 0.1943,
+          "take_rate": 0.9659,
+          "play_rate": 0.1876
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 79,
+          "taken": 75,
+          "offer_rate": 0.1744,
+          "take_rate": 0.9494,
+          "play_rate": 0.1656
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 60,
+          "taken": 34,
+          "offer_rate": 0.1325,
+          "take_rate": 0.5667,
+          "play_rate": 0.0751
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 55,
+          "taken": 51,
+          "offer_rate": 0.1214,
+          "take_rate": 0.9273,
+          "play_rate": 0.1126
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 453,
+          "taken": 135,
+          "offer_rate": 1.0,
+          "take_rate": 0.298,
+          "play_rate": 0.298
+        },
+        "item": {
+          "offered": 376,
+          "taken": 340,
+          "offer_rate": 0.83,
+          "take_rate": 0.9043,
+          "play_rate": 0.7506
+        },
+        "ability": {
+          "offered": 370,
+          "taken": 366,
+          "offer_rate": 0.8168,
+          "take_rate": 0.9892,
+          "play_rate": 0.8079
+        },
+        "supporter": {
+          "offered": 368,
+          "taken": 320,
+          "offer_rate": 0.8124,
+          "take_rate": 0.8696,
+          "play_rate": 0.7064
+        },
+        "retreat": {
+          "offered": 365,
+          "taken": 45,
+          "offer_rate": 0.8057,
+          "take_rate": 0.1233,
+          "play_rate": 0.0993
+        },
+        "energy": {
+          "offered": 351,
+          "taken": 306,
+          "offer_rate": 0.7748,
+          "take_rate": 0.8718,
+          "play_rate": 0.6755
+        },
+        "attack": {
+          "offered": 324,
+          "taken": 317,
+          "offer_rate": 0.7152,
+          "take_rate": 0.9784,
+          "play_rate": 0.6998
+        },
+        "evolve": {
+          "offered": 295,
+          "taken": 271,
+          "offer_rate": 0.6512,
+          "take_rate": 0.9186,
+          "play_rate": 0.5982
+        },
+        "bench": {
+          "offered": 279,
+          "taken": 268,
+          "offer_rate": 0.6159,
+          "take_rate": 0.9606,
+          "play_rate": 0.5916
+        },
+        "stadium": {
+          "offered": 165,
+          "taken": 159,
+          "offer_rate": 0.3642,
+          "take_rate": 0.9636,
+          "play_rate": 0.351
+        },
+        "boss": {
+          "offered": 120,
+          "taken": 50,
+          "offer_rate": 0.2649,
+          "take_rate": 0.4167,
+          "play_rate": 0.1104
+        },
+        "stamp": {
+          "offered": 88,
+          "taken": 85,
+          "offer_rate": 0.1943,
+          "take_rate": 0.9659,
+          "play_rate": 0.1876
+        }
+      }
+    },
+    "other_second": {
+      "games": 1602,
+      "own_turns": 6333,
+      "turns_per_game": 3.95,
+      "bodies_by_turn": {
+        "2": {
+          "n": 1602,
+          "mean": 1.5
+        },
+        "4": {
+          "n": 1592,
+          "mean": 4.0
+        },
+        "6": {
+          "n": 1587,
+          "mean": 4.58
+        },
+        "8": {
+          "n": 1552,
+          "mean": 4.72
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 4986,
+          "taken": 4356,
+          "offer_rate": 0.7873,
+          "take_rate": 0.8736,
+          "play_rate": 0.6878
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 4348,
+          "taken": 4292,
+          "offer_rate": 0.6866,
+          "take_rate": 0.9871,
+          "play_rate": 0.6777
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 2636,
+          "taken": 2098,
+          "offer_rate": 0.4162,
+          "take_rate": 0.7959,
+          "play_rate": 0.3313
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 2572,
+          "taken": 1558,
+          "offer_rate": 0.4061,
+          "take_rate": 0.6058,
+          "play_rate": 0.246
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 2392,
+          "taken": 2259,
+          "offer_rate": 0.3777,
+          "take_rate": 0.9444,
+          "play_rate": 0.3567
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 2319,
+          "taken": 2101,
+          "offer_rate": 0.3662,
+          "take_rate": 0.906,
+          "play_rate": 0.3318
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 2202,
+          "taken": 1655,
+          "offer_rate": 0.3477,
+          "take_rate": 0.7516,
+          "play_rate": 0.2613
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 2173,
+          "taken": 1887,
+          "offer_rate": 0.3431,
+          "take_rate": 0.8684,
+          "play_rate": 0.298
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 1720,
+          "taken": 1319,
+          "offer_rate": 0.2716,
+          "take_rate": 0.7669,
+          "play_rate": 0.2083
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 1709,
+          "taken": 532,
+          "offer_rate": 0.2699,
+          "take_rate": 0.3113,
+          "play_rate": 0.084
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 1639,
+          "taken": 1276,
+          "offer_rate": 0.2588,
+          "take_rate": 0.7785,
+          "play_rate": 0.2015
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 1348,
+          "taken": 1315,
+          "offer_rate": 0.2129,
+          "take_rate": 0.9755,
+          "play_rate": 0.2076
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 1298,
+          "taken": 1181,
+          "offer_rate": 0.205,
+          "take_rate": 0.9099,
+          "play_rate": 0.1865
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 1244,
+          "taken": 412,
+          "offer_rate": 0.1964,
+          "take_rate": 0.3312,
+          "play_rate": 0.0651
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 895,
+          "taken": 850,
+          "offer_rate": 0.1413,
+          "take_rate": 0.9497,
+          "play_rate": 0.1342
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 767,
+          "taken": 436,
+          "offer_rate": 0.1211,
+          "take_rate": 0.5684,
+          "play_rate": 0.0688
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 717,
+          "taken": 622,
+          "offer_rate": 0.1132,
+          "take_rate": 0.8675,
+          "play_rate": 0.0982
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 711,
+          "taken": 706,
+          "offer_rate": 0.1123,
+          "take_rate": 0.993,
+          "play_rate": 0.1115
+        },
+        "1137": {
+          "name": "Tool Scrapper",
+          "offered": 228,
+          "taken": 217,
+          "offer_rate": 0.036,
+          "take_rate": 0.9518,
+          "play_rate": 0.0343
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 6333,
+          "taken": 2650,
+          "offer_rate": 1.0,
+          "take_rate": 0.4184,
+          "play_rate": 0.4184
+        },
+        "ability": {
+          "offered": 5233,
+          "taken": 5194,
+          "offer_rate": 0.8263,
+          "take_rate": 0.9925,
+          "play_rate": 0.8201
+        },
+        "energy": {
+          "offered": 4986,
+          "taken": 4356,
+          "offer_rate": 0.7873,
+          "take_rate": 0.8736,
+          "play_rate": 0.6878
+        },
+        "item": {
+          "offered": 4961,
+          "taken": 4567,
+          "offer_rate": 0.7834,
+          "take_rate": 0.9206,
+          "play_rate": 0.7211
+        },
+        "supporter": {
+          "offered": 4397,
+          "taken": 4092,
+          "offer_rate": 0.6943,
+          "take_rate": 0.9306,
+          "play_rate": 0.6461
+        },
+        "retreat": {
+          "offered": 4288,
+          "taken": 833,
+          "offer_rate": 0.6771,
+          "take_rate": 0.1943,
+          "play_rate": 0.1315
+        },
+        "bench": {
+          "offered": 4169,
+          "taken": 3821,
+          "offer_rate": 0.6583,
+          "take_rate": 0.9165,
+          "play_rate": 0.6033
+        },
+        "evolve": {
+          "offered": 3804,
+          "taken": 3407,
+          "offer_rate": 0.6007,
+          "take_rate": 0.8956,
+          "play_rate": 0.538
+        },
+        "attack": {
+          "offered": 3755,
+          "taken": 3677,
+          "offer_rate": 0.5929,
+          "take_rate": 0.9792,
+          "play_rate": 0.5806
+        },
+        "boss": {
+          "offered": 1709,
+          "taken": 532,
+          "offer_rate": 0.2699,
+          "take_rate": 0.3113,
+          "play_rate": 0.084
+        },
+        "stadium": {
+          "offered": 1348,
+          "taken": 1315,
+          "offer_rate": 0.2129,
+          "take_rate": 0.9755,
+          "play_rate": 0.2076
+        },
+        "stamp": {
+          "offered": 711,
+          "taken": 706,
+          "offer_rate": 0.1123,
+          "take_rate": 0.993,
+          "play_rate": 0.1115
+        }
+      }
+    },
+    "ours_alakazam_first": {
+      "games": 9,
+      "own_turns": 35,
+      "turns_per_game": 3.89,
+      "bodies_by_turn": {
+        "1": {
+          "n": 9,
+          "mean": 1.78
+        },
+        "3": {
+          "n": 9,
+          "mean": 3.78
+        },
+        "5": {
+          "n": 9,
+          "mean": 4.11
+        },
+        "7": {
+          "n": 8,
+          "mean": 4.38
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 26,
+          "taken": 23,
+          "offer_rate": 0.7429,
+          "take_rate": 0.8846,
+          "play_rate": 0.6571
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 18,
+          "taken": 18,
+          "offer_rate": 0.5143,
+          "take_rate": 1.0,
+          "play_rate": 0.5143
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 15,
+          "taken": 15,
+          "offer_rate": 0.4286,
+          "take_rate": 1.0,
+          "play_rate": 0.4286
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 14,
+          "taken": 13,
+          "offer_rate": 0.4,
+          "take_rate": 0.9286,
+          "play_rate": 0.3714
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 13,
+          "taken": 13,
+          "offer_rate": 0.3714,
+          "take_rate": 1.0,
+          "play_rate": 0.3714
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 11,
+          "taken": 11,
+          "offer_rate": 0.3143,
+          "take_rate": 1.0,
+          "play_rate": 0.3143
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 11,
+          "taken": 9,
+          "offer_rate": 0.3143,
+          "take_rate": 0.8182,
+          "play_rate": 0.2571
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 11,
+          "taken": 8,
+          "offer_rate": 0.3143,
+          "take_rate": 0.7273,
+          "play_rate": 0.2286
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 10,
+          "taken": 10,
+          "offer_rate": 0.2857,
+          "take_rate": 1.0,
+          "play_rate": 0.2857
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 10,
+          "taken": 9,
+          "offer_rate": 0.2857,
+          "take_rate": 0.9,
+          "play_rate": 0.2571
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 9,
+          "taken": 8,
+          "offer_rate": 0.2571,
+          "take_rate": 0.8889,
+          "play_rate": 0.2286
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 9,
+          "taken": 8,
+          "offer_rate": 0.2571,
+          "take_rate": 0.8889,
+          "play_rate": 0.2286
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 8,
+          "taken": 6,
+          "offer_rate": 0.2286,
+          "take_rate": 0.75,
+          "play_rate": 0.1714
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 7,
+          "taken": 1,
+          "offer_rate": 0.2,
+          "take_rate": 0.1429,
+          "play_rate": 0.0286
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 6,
+          "taken": 5,
+          "offer_rate": 0.1714,
+          "take_rate": 0.8333,
+          "play_rate": 0.1429
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 6,
+          "taken": 2,
+          "offer_rate": 0.1714,
+          "take_rate": 0.3333,
+          "play_rate": 0.0571
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 6,
+          "taken": 6,
+          "offer_rate": 0.1714,
+          "take_rate": 1.0,
+          "play_rate": 0.1714
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 2,
+          "taken": 2,
+          "offer_rate": 0.0571,
+          "take_rate": 1.0,
+          "play_rate": 0.0571
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 35,
+          "taken": 17,
+          "offer_rate": 1.0,
+          "take_rate": 0.4857,
+          "play_rate": 0.4857
+        },
+        "energy": {
+          "offered": 26,
+          "taken": 23,
+          "offer_rate": 0.7429,
+          "take_rate": 0.8846,
+          "play_rate": 0.6571
+        },
+        "item": {
+          "offered": 26,
+          "taken": 26,
+          "offer_rate": 0.7429,
+          "take_rate": 1.0,
+          "play_rate": 0.7429
+        },
+        "retreat": {
+          "offered": 25,
+          "taken": 4,
+          "offer_rate": 0.7143,
+          "take_rate": 0.16,
+          "play_rate": 0.1143
+        },
+        "ability": {
+          "offered": 24,
+          "taken": 24,
+          "offer_rate": 0.6857,
+          "take_rate": 1.0,
+          "play_rate": 0.6857
+        },
+        "bench": {
+          "offered": 24,
+          "taken": 24,
+          "offer_rate": 0.6857,
+          "take_rate": 1.0,
+          "play_rate": 0.6857
+        },
+        "supporter": {
+          "offered": 21,
+          "taken": 19,
+          "offer_rate": 0.6,
+          "take_rate": 0.9048,
+          "play_rate": 0.5429
+        },
+        "evolve": {
+          "offered": 20,
+          "taken": 18,
+          "offer_rate": 0.5714,
+          "take_rate": 0.9,
+          "play_rate": 0.5143
+        },
+        "attack": {
+          "offered": 19,
+          "taken": 18,
+          "offer_rate": 0.5429,
+          "take_rate": 0.9474,
+          "play_rate": 0.5143
+        },
+        "stadium": {
+          "offered": 10,
+          "taken": 10,
+          "offer_rate": 0.2857,
+          "take_rate": 1.0,
+          "play_rate": 0.2857
+        },
+        "boss": {
+          "offered": 7,
+          "taken": 1,
+          "offer_rate": 0.2,
+          "take_rate": 0.1429,
+          "play_rate": 0.0286
+        },
+        "stamp": {
+          "offered": 6,
+          "taken": 6,
+          "offer_rate": 0.1714,
+          "take_rate": 1.0,
+          "play_rate": 0.1714
+        }
+      }
+    },
+    "ours_alakazam_second": {
+      "games": 10,
+      "own_turns": 38,
+      "turns_per_game": 3.8,
+      "bodies_by_turn": {
+        "2": {
+          "n": 10,
+          "mean": 1.4
+        },
+        "4": {
+          "n": 10,
+          "mean": 3.7
+        },
+        "6": {
+          "n": 9,
+          "mean": 3.44
+        },
+        "8": {
+          "n": 9,
+          "mean": 4.33
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 33,
+          "taken": 26,
+          "offer_rate": 0.8684,
+          "take_rate": 0.7879,
+          "play_rate": 0.6842
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 19,
+          "taken": 19,
+          "offer_rate": 0.5,
+          "take_rate": 1.0,
+          "play_rate": 0.5
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 18,
+          "taken": 10,
+          "offer_rate": 0.4737,
+          "take_rate": 0.5556,
+          "play_rate": 0.2632
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 16,
+          "taken": 15,
+          "offer_rate": 0.4211,
+          "take_rate": 0.9375,
+          "play_rate": 0.3947
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 14,
+          "taken": 11,
+          "offer_rate": 0.3684,
+          "take_rate": 0.7857,
+          "play_rate": 0.2895
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 14,
+          "taken": 14,
+          "offer_rate": 0.3684,
+          "take_rate": 1.0,
+          "play_rate": 0.3684
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 14,
+          "taken": 14,
+          "offer_rate": 0.3684,
+          "take_rate": 1.0,
+          "play_rate": 0.3684
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 12,
+          "taken": 12,
+          "offer_rate": 0.3158,
+          "take_rate": 1.0,
+          "play_rate": 0.3158
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 11,
+          "taken": 11,
+          "offer_rate": 0.2895,
+          "take_rate": 1.0,
+          "play_rate": 0.2895
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 10,
+          "taken": 10,
+          "offer_rate": 0.2632,
+          "take_rate": 1.0,
+          "play_rate": 0.2632
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 9,
+          "taken": 8,
+          "offer_rate": 0.2368,
+          "take_rate": 0.8889,
+          "play_rate": 0.2105
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 9,
+          "taken": 1,
+          "offer_rate": 0.2368,
+          "take_rate": 0.1111,
+          "play_rate": 0.0263
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 8,
+          "taken": 8,
+          "offer_rate": 0.2105,
+          "take_rate": 1.0,
+          "play_rate": 0.2105
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 7,
+          "taken": 7,
+          "offer_rate": 0.1842,
+          "take_rate": 1.0,
+          "play_rate": 0.1842
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 6,
+          "taken": 5,
+          "offer_rate": 0.1579,
+          "take_rate": 0.8333,
+          "play_rate": 0.1316
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 6,
+          "taken": 2,
+          "offer_rate": 0.1579,
+          "take_rate": 0.3333,
+          "play_rate": 0.0526
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 6,
+          "taken": 6,
+          "offer_rate": 0.1579,
+          "take_rate": 1.0,
+          "play_rate": 0.1579
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 5,
+          "taken": 5,
+          "offer_rate": 0.1316,
+          "take_rate": 1.0,
+          "play_rate": 0.1316
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 38,
+          "taken": 19,
+          "offer_rate": 1.0,
+          "take_rate": 0.5,
+          "play_rate": 0.5
+        },
+        "energy": {
+          "offered": 33,
+          "taken": 26,
+          "offer_rate": 0.8684,
+          "take_rate": 0.7879,
+          "play_rate": 0.6842
+        },
+        "ability": {
+          "offered": 30,
+          "taken": 30,
+          "offer_rate": 0.7895,
+          "take_rate": 1.0,
+          "play_rate": 0.7895
+        },
+        "item": {
+          "offered": 26,
+          "taken": 26,
+          "offer_rate": 0.6842,
+          "take_rate": 1.0,
+          "play_rate": 0.6842
+        },
+        "retreat": {
+          "offered": 26,
+          "taken": 2,
+          "offer_rate": 0.6842,
+          "take_rate": 0.0769,
+          "play_rate": 0.0526
+        },
+        "supporter": {
+          "offered": 24,
+          "taken": 23,
+          "offer_rate": 0.6316,
+          "take_rate": 0.9583,
+          "play_rate": 0.6053
+        },
+        "bench": {
+          "offered": 24,
+          "taken": 24,
+          "offer_rate": 0.6316,
+          "take_rate": 1.0,
+          "play_rate": 0.6316
+        },
+        "evolve": {
+          "offered": 20,
+          "taken": 19,
+          "offer_rate": 0.5263,
+          "take_rate": 0.95,
+          "play_rate": 0.5
+        },
+        "attack": {
+          "offered": 19,
+          "taken": 19,
+          "offer_rate": 0.5,
+          "take_rate": 1.0,
+          "play_rate": 0.5
+        },
+        "stadium": {
+          "offered": 14,
+          "taken": 14,
+          "offer_rate": 0.3684,
+          "take_rate": 1.0,
+          "play_rate": 0.3684
+        },
+        "boss": {
+          "offered": 9,
+          "taken": 1,
+          "offer_rate": 0.2368,
+          "take_rate": 0.1111,
+          "play_rate": 0.0263
+        },
+        "stamp": {
+          "offered": 6,
+          "taken": 6,
+          "offer_rate": 0.1579,
+          "take_rate": 1.0,
+          "play_rate": 0.1579
+        }
+      }
+    },
+    "ours_other_second": {
+      "games": 40,
+      "own_turns": 160,
+      "turns_per_game": 4.0,
+      "bodies_by_turn": {
+        "2": {
+          "n": 40,
+          "mean": 1.9
+        },
+        "4": {
+          "n": 40,
+          "mean": 4.15
+        },
+        "6": {
+          "n": 40,
+          "mean": 4.6
+        },
+        "8": {
+          "n": 40,
+          "mean": 5.03
+        }
+      },
+      "cards": {
+        "7": {
+          "name": "Basic {D} Energy",
+          "offered": 130,
+          "taken": 109,
+          "offer_rate": 0.8125,
+          "take_rate": 0.8385,
+          "play_rate": 0.6813
+        },
+        "112": {
+          "name": "Munkidori",
+          "offered": 112,
+          "taken": 112,
+          "offer_rate": 0.7,
+          "take_rate": 1.0,
+          "play_rate": 0.7
+        },
+        "1219": {
+          "name": "Team Rocket's Petrel",
+          "offered": 69,
+          "taken": 42,
+          "offer_rate": 0.4313,
+          "take_rate": 0.6087,
+          "play_rate": 0.2625
+        },
+        "1152": {
+          "name": "Poké Pad",
+          "offered": 62,
+          "taken": 62,
+          "offer_rate": 0.3875,
+          "take_rate": 1.0,
+          "play_rate": 0.3875
+        },
+        "647": {
+          "name": "Marnie's Morgrem",
+          "offered": 60,
+          "taken": 54,
+          "offer_rate": 0.375,
+          "take_rate": 0.9,
+          "play_rate": 0.3375
+        },
+        "1086": {
+          "name": "Buddy-Buddy Poffin",
+          "offered": 59,
+          "taken": 41,
+          "offer_rate": 0.3688,
+          "take_rate": 0.6949,
+          "play_rate": 0.2562
+        },
+        "1182": {
+          "name": "Boss’s Orders",
+          "offered": 59,
+          "taken": 21,
+          "offer_rate": 0.3688,
+          "take_rate": 0.3559,
+          "play_rate": 0.1313
+        },
+        "1227": {
+          "name": "Lillie's Determination",
+          "offered": 56,
+          "taken": 53,
+          "offer_rate": 0.35,
+          "take_rate": 0.9464,
+          "play_rate": 0.3312
+        },
+        "646": {
+          "name": "Marnie's Impidimp",
+          "offered": 52,
+          "taken": 46,
+          "offer_rate": 0.325,
+          "take_rate": 0.8846,
+          "play_rate": 0.2875
+        },
+        "648": {
+          "name": "Marnie's Grimmsnarl ex",
+          "offered": 42,
+          "taken": 31,
+          "offer_rate": 0.2625,
+          "take_rate": 0.7381,
+          "play_rate": 0.1938
+        },
+        "1097": {
+          "name": "Night Stretcher",
+          "offered": 39,
+          "taken": 29,
+          "offer_rate": 0.2437,
+          "take_rate": 0.7436,
+          "play_rate": 0.1812
+        },
+        "1259": {
+          "name": "Spikemuth Gym",
+          "offered": 38,
+          "taken": 38,
+          "offer_rate": 0.2375,
+          "take_rate": 1.0,
+          "play_rate": 0.2375
+        },
+        "104": {
+          "name": "Froslass",
+          "offered": 32,
+          "taken": 24,
+          "offer_rate": 0.2,
+          "take_rate": 0.75,
+          "play_rate": 0.15
+        },
+        "1079": {
+          "name": "Rare Candy",
+          "offered": 29,
+          "taken": 28,
+          "offer_rate": 0.1812,
+          "take_rate": 0.9655,
+          "play_rate": 0.175
+        },
+        "860": {
+          "name": "Snorunt",
+          "offered": 25,
+          "taken": 8,
+          "offer_rate": 0.1562,
+          "take_rate": 0.32,
+          "play_rate": 0.05
+        },
+        "1122": {
+          "name": "Pokégear 3.0",
+          "offered": 21,
+          "taken": 20,
+          "offer_rate": 0.1313,
+          "take_rate": 0.9524,
+          "play_rate": 0.125
+        },
+        "1231": {
+          "name": "Dawn",
+          "offered": 21,
+          "taken": 12,
+          "offer_rate": 0.1313,
+          "take_rate": 0.5714,
+          "play_rate": 0.075
+        },
+        "1080": {
+          "name": "Unfair Stamp",
+          "offered": 18,
+          "taken": 18,
+          "offer_rate": 0.1125,
+          "take_rate": 1.0,
+          "play_rate": 0.1125
+        },
+        "1137": {
+          "name": "Tool Scrapper",
+          "offered": 4,
+          "taken": 4,
+          "offer_rate": 0.025,
+          "take_rate": 1.0,
+          "play_rate": 0.025
+        }
+      },
+      "actions": {
+        "end": {
+          "offered": 160,
+          "taken": 63,
+          "offer_rate": 1.0,
+          "take_rate": 0.3937,
+          "play_rate": 0.3937
+        },
+        "ability": {
+          "offered": 139,
+          "taken": 139,
+          "offer_rate": 0.8688,
+          "take_rate": 1.0,
+          "play_rate": 0.8688
+        },
+        "energy": {
+          "offered": 130,
+          "taken": 109,
+          "offer_rate": 0.8125,
+          "take_rate": 0.8385,
+          "play_rate": 0.6813
+        },
+        "item": {
+          "offered": 128,
+          "taken": 119,
+          "offer_rate": 0.8,
+          "take_rate": 0.9297,
+          "play_rate": 0.7438
+        },
+        "supporter": {
+          "offered": 114,
+          "taken": 107,
+          "offer_rate": 0.7125,
+          "take_rate": 0.9386,
+          "play_rate": 0.6687
+        },
+        "retreat": {
+          "offered": 108,
+          "taken": 17,
+          "offer_rate": 0.675,
+          "take_rate": 0.1574,
+          "play_rate": 0.1062
+        },
+        "bench": {
+          "offered": 105,
+          "taken": 102,
+          "offer_rate": 0.6562,
+          "take_rate": 0.9714,
+          "play_rate": 0.6375
+        },
+        "attack": {
+          "offered": 98,
+          "taken": 97,
+          "offer_rate": 0.6125,
+          "take_rate": 0.9898,
+          "play_rate": 0.6062
+        },
+        "evolve": {
+          "offered": 97,
+          "taken": 85,
+          "offer_rate": 0.6062,
+          "take_rate": 0.8763,
+          "play_rate": 0.5312
+        },
+        "boss": {
+          "offered": 59,
+          "taken": 21,
+          "offer_rate": 0.3688,
+          "take_rate": 0.3559,
+          "play_rate": 0.1313
+        },
+        "stadium": {
+          "offered": 38,
+          "taken": 38,
+          "offer_rate": 0.2375,
+          "take_rate": 1.0,
+          "play_rate": 0.2375
+        },
+        "stamp": {
+          "offered": 18,
+          "taken": 18,
+          "offer_rate": 0.1125,
+          "take_rate": 1.0,
+          "play_rate": 0.1125
+        }
+      }
+    }
+  },
+  "ours_vs_field_alakazam_second": [
+    {
+      "card": "112",
+      "name": "Munkidori",
+      "field_offer_rate": 0.5969,
+      "ours_offer_rate": 0.5,
+      "field_play_rate": 0.5798,
+      "ours_play_rate": 0.5,
+      "delta_play_rate": -0.0798,
+      "offer_fisher": 0.2403,
+      "play_fisher": 0.3989
+    },
+    {
+      "card": "1182",
+      "name": "Boss’s Orders",
+      "field_offer_rate": 0.2496,
+      "ours_offer_rate": 0.2368,
+      "field_play_rate": 0.0977,
+      "ours_play_rate": 0.0263,
+      "delta_play_rate": -0.0714,
+      "offer_fisher": 1.0,
+      "play_fisher": 0.2449
+    },
+    {
+      "card": "1152",
+      "name": "Poké Pad",
+      "field_offer_rate": 0.3907,
+      "ours_offer_rate": 0.3158,
+      "field_play_rate": 0.386,
+      "ours_play_rate": 0.3158,
+      "delta_play_rate": -0.0702,
+      "offer_fisher": 0.3957,
+      "play_fisher": 0.4924
+    },
+    {
+      "card": "648",
+      "name": "Marnie's Grimmsnarl ex",
+      "field_offer_rate": 0.2651,
+      "ours_offer_rate": 0.1579,
+      "field_play_rate": 0.1969,
+      "ours_play_rate": 0.1316,
+      "delta_play_rate": -0.0653,
+      "offer_fisher": 0.1823,
+      "play_fisher": 0.4016
+    },
+    {
+      "card": "1079",
+      "name": "Rare Candy",
+      "field_offer_rate": 0.2264,
+      "ours_offer_rate": 0.1316,
+      "field_play_rate": 0.1922,
+      "ours_play_rate": 0.1316,
+      "delta_play_rate": -0.0606,
+      "offer_fisher": 0.2272,
+      "play_fisher": 0.5211
+    },
+    {
+      "card": "1097",
+      "name": "Night Stretcher",
+      "field_offer_rate": 0.3023,
+      "ours_offer_rate": 0.2105,
+      "field_play_rate": 0.2465,
+      "ours_play_rate": 0.2105,
+      "delta_play_rate": -0.036,
+      "offer_fisher": 0.2754,
+      "play_fisher": 0.7014
+    },
+    {
+      "card": "1219",
+      "name": "Team Rocket's Petrel",
+      "field_offer_rate": 0.4636,
+      "ours_offer_rate": 0.4737,
+      "field_play_rate": 0.2977,
+      "ours_play_rate": 0.2632,
+      "delta_play_rate": -0.0345,
+      "offer_fisher": 1.0,
+      "play_fisher": 0.7181
+    },
+    {
+      "card": "1080",
+      "name": "Unfair Stamp",
+      "field_offer_rate": 0.1922,
+      "ours_offer_rate": 0.1579,
+      "field_play_rate": 0.1845,
+      "ours_play_rate": 0.1579,
+      "delta_play_rate": -0.0266,
+      "offer_fisher": 0.8313,
+      "play_fisher": 0.8303
+    },
+    {
+      "card": "1227",
+      "name": "Lillie's Determination",
+      "field_offer_rate": 0.4434,
+      "ours_offer_rate": 0.3684,
+      "field_play_rate": 0.307,
+      "ours_play_rate": 0.2895,
+      "delta_play_rate": -0.0175,
+      "offer_fisher": 0.4039,
+      "play_fisher": 1.0
+    },
+    {
+      "card": "1231",
+      "name": "Dawn",
+      "field_offer_rate": 0.1271,
+      "ours_offer_rate": 0.1579,
+      "field_play_rate": 0.0698,
+      "ours_play_rate": 0.0526,
+      "delta_play_rate": -0.0172,
+      "offer_fisher": 0.6161,
+      "play_fisher": 1.0
+    },
+    {
+      "card": "1086",
+      "name": "Buddy-Buddy Poffin",
+      "field_offer_rate": 0.3411,
+      "ours_offer_rate": 0.2632,
+      "field_play_rate": 0.2682,
+      "ours_play_rate": 0.2632,
+      "delta_play_rate": -0.005,
+      "offer_fisher": 0.3799,
+      "play_fisher": 1.0
+    },
+    {
+      "card": "104",
+      "name": "Froslass",
+      "field_offer_rate": 0.293,
+      "ours_offer_rate": 0.2895,
+      "field_play_rate": 0.2915,
+      "ours_play_rate": 0.2895,
+      "delta_play_rate": -0.002,
+      "offer_fisher": 1.0,
+      "play_fisher": 1.0
+    },
+    {
+      "card": "7",
+      "name": "Basic {D} Energy",
+      "field_offer_rate": 0.769,
+      "ours_offer_rate": 0.8684,
+      "field_play_rate": 0.6713,
+      "ours_play_rate": 0.6842,
+      "delta_play_rate": 0.0129,
+      "offer_fisher": 0.2286,
+      "play_fisher": 1.0
+    },
+    {
+      "card": "1259",
+      "name": "Spikemuth Gym",
+      "field_offer_rate": 0.3426,
+      "ours_offer_rate": 0.3684,
+      "field_play_rate": 0.3318,
+      "ours_play_rate": 0.3684,
+      "delta_play_rate": 0.0366,
+      "offer_fisher": 0.7287,
+      "play_fisher": 0.7236
+    },
+    {
+      "card": "860",
+      "name": "Snorunt",
+      "field_offer_rate": 0.1752,
+      "ours_offer_rate": 0.2368,
+      "field_play_rate": 0.169,
+      "ours_play_rate": 0.2105,
+      "delta_play_rate": 0.0415,
+      "offer_fisher": 0.3811,
+      "play_fisher": 0.507
+    },
+    {
+      "card": "647",
+      "name": "Marnie's Morgrem",
+      "field_offer_rate": 0.3736,
+      "ours_offer_rate": 0.4211,
+      "field_play_rate": 0.3519,
+      "ours_play_rate": 0.3947,
+      "delta_play_rate": 0.0428,
+      "offer_fisher": 0.6064,
+      "play_fisher": 0.6035
+    },
+    {
+      "card": "646",
+      "name": "Marnie's Impidimp",
+      "field_offer_rate": 0.3473,
+      "ours_offer_rate": 0.3684,
+      "field_play_rate": 0.3054,
+      "ours_play_rate": 0.3684,
+      "delta_play_rate": 0.063,
+      "offer_fisher": 0.8612,
+      "play_fisher": 0.4701
+    },
+    {
+      "card": "1122",
+      "name": "Pokégear 3.0",
+      "field_offer_rate": 0.1209,
+      "ours_offer_rate": 0.1842,
+      "field_play_rate": 0.1132,
+      "ours_play_rate": 0.1842,
+      "delta_play_rate": 0.071,
+      "offer_fisher": 0.3063,
+      "play_fisher": 0.1926
+    }
+  ]
+}

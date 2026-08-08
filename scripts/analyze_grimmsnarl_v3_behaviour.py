@@ -412,6 +412,12 @@ def main() -> int:
             "when validating a class-table-only version."
         ),
     )
+    parser.add_argument(
+        "--seat",
+        type=int,
+        choices=(0, 1),
+        help="Only score episodes where the submitted agent occupied this seat.",
+    )
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
@@ -449,6 +455,8 @@ def main() -> int:
     ranker_totals: Counter[str] = Counter()
     value_search_totals: Counter[str] = Counter()
     episodes = episode_paths(args)
+    if args.seat is not None:
+        episodes = [row for row in episodes if row[1] == args.seat]
     if not episodes:
         raise SystemExit("no episodes found")
     print(
