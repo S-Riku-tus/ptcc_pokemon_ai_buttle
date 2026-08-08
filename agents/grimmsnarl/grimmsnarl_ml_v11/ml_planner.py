@@ -65,7 +65,7 @@ class Planner:
         self,
         observation: dict[str, Any],
         select: dict[str, Any],
-        chosen: int,
+        chosen: int | list[int],
     ) -> None:
         """Record the action actually taken, for the per-turn heal budget.
 
@@ -75,6 +75,13 @@ class Planner:
         offers and passes, not activations.
         """
         try:
+            if isinstance(chosen, list):
+                if len(chosen) != 1:
+                    # Multi/zero-pick selects cannot activate a single
+                    # Munkidori source, but replay harnesses still route them
+                    # through this bookkeeping hook.
+                    return
+                chosen = chosen[0]
             current = observation.get("current") or {}
             turn = int(current.get("turn", -1))
             if turn != self._turn:

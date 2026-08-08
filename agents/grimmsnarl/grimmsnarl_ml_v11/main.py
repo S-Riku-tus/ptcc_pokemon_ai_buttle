@@ -1,13 +1,20 @@
-"""Marnie's Grimmsnarl ex v11: v8 control plus robust arithmetic search.
+"""Marnie's Grimmsnarl ex v11.1: v9 ranker plus robust arithmetic search.
 
-v11 preserves v8 byte-for-byte as its default action.  Once per turn it may
-advance up to four semantically distinct v8 candidates through cabt's real
-Search API.  A candidate replaces v8 only when exact end-of-turn arithmetic
-improves in two different legal hidden-state determinizations without a
-critical regression.  Search failure, disagreement and ties all return v8.
+v11.1 restores v9's unconditioned current-top-four ranker as its default
+action.  Once per turn it may advance up to three semantically distinct v9
+candidates through cabt's real Search API.  Against a visible Alakazam line
+when going second, it gets one additional search opportunity per turn because
+that is the only repeated matchup regression in the ladder evidence.  A
+candidate replaces v9 only when exact end-of-turn arithmetic improves in two
+different legal hidden-state determinizations without a
+critical regression.  Search failure, disagreement and ties all return v9.
 
-v6 changes one thing, and it is the pin rather than a rule: **the Froslass
-evolve is scored as a different pilot.**
+The v9 model has no ``teacher_team_id`` feature, so the inherited teacher
+escalation is inactive by construction. The following history describes the
+older branches that supplied the fallback policy and arithmetic planner.
+
+Historical v6 changed one thing, and it was the pin rather than a rule:
+**the Froslass evolve was scored as a different pilot.**
 
 The v5 ladder run closed every resource gap it set out to close - Punk Up 2.52
 cards searched against the elite band's 2.65 and v4's 3.65, 4.07 Darkness left
@@ -178,7 +185,7 @@ _PLANNER_DISABLED = (
     _PLANNER is None or os.environ.get("GRIMMSNARL_PLANNER_DISABLE") == "1"
 )
 
-# The new layer is optional by construction.  v8 remains a complete legal
+# The new layer is optional by construction.  v9 remains a complete legal
 # policy if the local/competition Search API cannot be loaded.
 try:
     from arithmetic_search import ArithmeticSearch
@@ -251,10 +258,19 @@ def observe_external(observation, chosen):
     teacher rather than our own suggestion. Evaluators that only called
     ``Ranker.observe_external`` would leave the planner counting nothing.
     """
+    selection = chosen if isinstance(chosen, list) else [chosen]
+    legal = [index for index in selection if isinstance(index, int)]
+    # The ranker corpus contains only single-pick decisions. Multi-pick still
+    # passes through this hook so replay harnesses do not have to skip the
+    # observation; the ranker correctly treats it as out of corpus.
+    ranker_choice = legal[0] if len(legal) == 1 else legal
     if _RANKER is not None:
-        _RANKER.observe_external(observation, chosen)
+        _RANKER.observe_external(observation, ranker_choice)
     if _PLANNER is not None and isinstance(observation, dict):
-        _PLANNER.note(observation, observation.get("select") or {}, chosen)
+        planner_choice = legal[0] if len(legal) == 1 else legal
+        _PLANNER.note(
+            observation, observation.get("select") or {}, planner_choice
+        )
 
 
 def diag_reset():

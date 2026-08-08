@@ -555,9 +555,19 @@ class Ranker:
         if features and 0 <= chosen < len(features):
             self.note_decision(features, chosen)
 
-    def observe_external(self, observation: dict[str, Any],
-                         chosen: int) -> None:
+    def observe_external(
+        self,
+        observation: dict[str, Any],
+        chosen: int | list[int],
+    ) -> None:
         """Keep the turn history aligned when the rule policy decided."""
+        if isinstance(chosen, list):
+            if len(chosen) != 1:
+                # Multi/zero-pick decisions were not rows in the ranker
+                # corpus. Accept the observation but do not invent a chosen
+                # semantic for offer/pass history.
+                return
+            chosen = chosen[0]
         if not self.is_corpus_scorable(observation.get("select")):
             return
         try:

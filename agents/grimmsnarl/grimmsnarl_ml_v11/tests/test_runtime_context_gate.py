@@ -44,3 +44,15 @@ def test_teacher_forced_commit_does_not_advance_own_choice() -> None:
     ranker.commit(0)
     assert called == []
     assert ranker._pending is None
+
+
+def test_external_multi_pick_is_accepted_without_inventing_history() -> None:
+    ranker = object.__new__(Ranker)
+    ranker.stats = {"feature_errors": 0}
+    ranker.is_corpus_scorable = lambda selection: True
+    ranker._rows = lambda observation: (_ for _ in ()).throw(
+        AssertionError("multi-pick must not be converted to one corpus row")
+    )
+    ranker.observe_external({"select": select(F.MAIN_CONTEXT)}, [0, 1])
+    ranker.observe_external({"select": select(F.MAIN_CONTEXT)}, [])
+    assert ranker.stats["feature_errors"] == 0

@@ -116,7 +116,8 @@ def main() -> int:
             if key not in {
                 "enabled", "min_turn", "top_k",
                 "determinizations_per_search", "max_rank_margin",
-                "min_mean_utility_gain",
+                "min_mean_utility_gain", "default_searches_per_turn",
+                "alakazam_second_searches_per_turn",
             }:
                 search_totals[key] += value
         game_records = list(search.get("override_records") or [])

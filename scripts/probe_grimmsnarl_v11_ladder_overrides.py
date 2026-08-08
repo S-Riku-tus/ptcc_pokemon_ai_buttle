@@ -19,6 +19,9 @@ Traps this avoids, each of which has produced a wrong conclusion in this line:
   late step rather than the first one;
 * an override count per *decision* is not a rate per *game*; a layer that fires
   once in a 90-decision game is invisible in the first denominator.
+* multi-pick and optional zero-pick selects are real decisions. Both agents are
+  called on them so fallback trackers and external-observation hooks stay in
+  the same state as live play.
 """
 
 from __future__ import annotations
@@ -94,8 +97,50 @@ def load(agent_dir: Path):
 # that does not exist. Only these keys are additive.
 CONFIG_KEYS = frozenset({
     "enabled", "min_turn", "top_k", "determinizations_per_search",
-    "max_rank_margin", "min_mean_utility_gain", "override_records",
+    "max_rank_margin", "min_mean_utility_gain",
+    "default_searches_per_turn", "alakazam_second_searches_per_turn",
+    "override_records",
 })
+
+
+def legal_replay_action(action: Any, option_count: int) -> list[int] | None:
+    """Return a complete legal replay selection, including multi-picks."""
+    if not isinstance(action, list):
+        return None
+    if not all(
+        isinstance(slot, int) and 0 <= slot < option_count for slot in action
+    ):
+        return None
+    return list(action)
+
+
+def describe_answer(
+    answer: Any,
+    current: dict[str, Any],
+    select: dict[str, Any],
+    options: list[dict[str, Any]],
+    mf,
+) -> dict[str, Any] | None:
+    """Describe single- and multi-pick answers without losing compatibility."""
+    slots = legal_replay_action(answer, len(options))
+    if slots is None:
+        return None
+    cards = []
+    for slot in slots:
+        card = mf.resolve_option(current, select, options[slot])[0] or {}
+        card_id = int(card.get("id", -1))
+        cards.append({
+            "slot": slot,
+            "card": card_id,
+            "name": CARDS.get(card_id, {}).get("name", ""),
+        })
+    if len(cards) == 1:
+        return cards[0]
+    return {
+        "slots": slots,
+        "cards": cards,
+        "name": " + ".join(card["name"] or "?" for card in cards),
+    }
 
 
 def fisher(a: int, b: int, c: int, d: int) -> float:
@@ -188,6 +233,7 @@ def main() -> int:
     # deployed agent actually played. v11's own number bounds how much of the
     # ladder behaviour this probe can explain at all.
     reproduced = Counter()
+    selection_sizes: Counter[int] = Counter()
 
     for meta in episodes:
         episode_id = meta["episode_id"]
@@ -237,42 +283,24 @@ def main() -> int:
             observation = record.get("observation") or {}
             select = observation.get("select") or {}
             options = list(select.get("option") or [])
-            action = (steps[index + 1][seat] or {}).get("action")
-            if not options or not isinstance(action, list) or len(action) != 1:
-                continue
-            if not isinstance(action[0], int):
-                continue
-            if not 0 <= action[0] < len(options):
+            raw_action = (steps[index + 1][seat] or {}).get("action")
+            action = legal_replay_action(raw_action, len(options))
+            if not options or action is None:
                 continue
             current = observation.get("current") or {}
             if len(current.get("players") or []) < 2:
                 continue
             game_decisions += 1
             decisions_total += 1
+            selection_sizes[len(action)] += 1
             base_answer = base_agent(observation)
             cand_answer = cand_agent(observation)
             reproduced["decisions"] += 1
-            if base_answer == [action[0]]:
+            if base_answer == action:
                 reproduced["v8"] += 1
-            if cand_answer == [action[0]]:
+            if cand_answer == action:
                 reproduced["v11"] += 1
             if base_answer != cand_answer:
-                def describe(answer):
-                    if not (isinstance(answer, list) and len(answer) == 1):
-                        return None
-                    slot = answer[0]
-                    if not 0 <= slot < len(options):
-                        return None
-                    card = mf.resolve_option(
-                        current, select, options[slot]
-                    )[0] or {}
-                    cid = int(card.get("id", -1))
-                    return {
-                        "slot": slot,
-                        "card": cid,
-                        "name": CARDS.get(cid, {}).get("name", ""),
-                    }
-
                 row = {
                     "episode_id": episode_id,
                     "won": won,
@@ -280,14 +308,19 @@ def main() -> int:
                     "turn": int(current.get("turn", -1)),
                     "context": int(select.get("context", -1)),
                     "options": len(options),
-                    "v8": describe(base_answer),
-                    "v11": describe(cand_answer),
-                    "played": action[0],
+                    "v8": describe_answer(
+                        base_answer, current, select, options, mf
+                    ),
+                    "v11": describe_answer(
+                        cand_answer, current, select, options, mf
+                    ),
+                    "played": action[0] if len(action) == 1 else action,
                 }
                 game_diffs.append(row)
                 ledger.append(row)
-            base_module.observe_external(observation, action[0])
-            cand_module.observe_external(observation, action[0])
+            external = action[0] if len(action) == 1 else action
+            base_module.observe_external(observation, external)
+            cand_module.observe_external(observation, external)
 
         snapshot = (
             (cand_module.diag_snapshot() or {}).get("arithmetic_search") or {}
@@ -308,13 +341,13 @@ def main() -> int:
             "opponent_score": meta["opponent_score"],
             "decisions": game_decisions,
             "overrides": len(game_diffs),
-            "searches": int(snapshot.get("searches", 0) or 0),
+            "searches": int(snapshot.get("searched", 0) or 0),
             "search_overrides": int(snapshot.get("overrides", 0) or 0),
         })
         print(
             f"{episode_id} {'W' if won else 'L'} vs {opp_label:24s} "
             f"decisions={game_decisions:3d} overrides={len(game_diffs):2d} "
-            f"searches={snapshot.get('searches', 0)}",
+            f"searches={snapshot.get('searched', 0)}",
             flush=True,
         )
 
@@ -398,6 +431,7 @@ def main() -> int:
                 "under-counts."
             ),
         },
+        "selection_sizes": dict(sorted(selection_sizes.items())),
         "contexts_changed": dict(
             Counter(row["context"] for row in ledger)
         ),

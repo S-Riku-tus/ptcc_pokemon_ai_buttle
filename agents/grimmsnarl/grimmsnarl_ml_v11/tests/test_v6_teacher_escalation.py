@@ -14,7 +14,6 @@ think of a synthetic board.
 from __future__ import annotations
 
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -283,13 +282,14 @@ def test_shipped_mode_is_the_one_the_results_report_measured() -> None:
     assert ml_runtime.ESCALATION_TEACHER_TEAM == 16371703
 
 
-def test_the_deployed_model_carries_the_pin_the_escalation_replaces() -> None:
-    """The escalation code must not equal the pin, or v6 is v5 with overhead."""
-    tail = (AGENT_DIR / "ranker_model.json").read_bytes()[-4096:]
-    match = re.search(rb'"teacher_team_code":\s*(\d+)', tail)
-    assert match is not None, "model has no teacher_team_code"
-    assert int(match.group(1)) == PIN_CODE
-    assert ml_runtime.ESCALATION_TEACHER_CODE != PIN_CODE
+def test_the_deployed_v9_model_is_not_teacher_conditioned() -> None:
+    """v11.1 restores v9's deployable ranker, so no pilot oracle may ship."""
+    model = json.loads(
+        (AGENT_DIR / "ranker_model.json").read_text(encoding="utf-8")
+    )
+    assert "teacher_team_id" not in model["feature_names"]
+    assert "teacher_team_id" not in model
+    assert "teacher_team_code" not in model
 
 
 def test_escalation_code_is_the_corpus_dense_code_for_that_team() -> None:
@@ -313,14 +313,12 @@ def test_escalation_code_is_the_corpus_dense_code_for_that_team() -> None:
     assert codes[16494330] == PIN_CODE
 
 
-def test_metadata_records_the_escalation() -> None:
-    """A behaviour change that is not in the metadata cannot be reproduced."""
+def test_metadata_records_unconditioned_v9_lineage() -> None:
+    """The shipped model must not claim v8's now-inactive pilot escalation."""
     meta = json.loads((AGENT_DIR / "metadata.json").read_text(encoding="utf-8"))
-    escalation = meta["policy_escalation"]
-    assert escalation["mode"] == ml_runtime.ESCALATION_MODE
-    assert escalation["teacher_team_id"] == ml_runtime.ESCALATION_TEACHER_TEAM
-    assert escalation["teacher_code"] == ELITE_CODE
-    assert escalation["trigger_feature"] == TRIGGER
+    assert meta["parent_agent"] == "grimmsnarl_ml_v9"
+    assert meta["ranker"]["teacher_conditioned"] is False
+    assert "policy_escalation" not in meta
 
 
 # ----- the class table -------------------------------------------------------

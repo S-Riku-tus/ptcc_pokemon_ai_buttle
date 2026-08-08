@@ -1,9 +1,9 @@
 """Robust full-turn arithmetic search for Grimmsnarl v11.
 
-v8 remains the default policy and supplies both the root candidates and the
-continuation policy.  This module uses cabt's real Search API to play a small
-set of semantically distinct root actions to the end of our turn.  It differs
-from v7 in the two places that made v7's value search flat:
+The v9 ranker remains the default policy and supplies both the root candidates
+and the continuation policy.  This module uses cabt's real Search API to play
+a small set of semantically distinct root actions to the end of our turn.  It
+differs from v7 in the two places that made v7's value search flat:
 
 * the leaf is the last observation from our own perspective, so retained hand
   identities and the exact action sequence are still visible;
@@ -12,8 +12,8 @@ from v7 in the two places that made v7's value search flat:
 
 Search needs a complete hidden state even though an agent cannot know deck
 order or prizes.  v11 therefore evaluates two legal determinizations and only
-overrides v8 when the alternative is non-worse in both and meaningfully better
-in at least one.  Any tie, engine error or incomplete branch returns v8.
+overrides v9 when the alternative is non-worse in both and meaningfully better
+in at least one.  Any tie, engine error or incomplete branch returns v9.
 """
 
 from __future__ import annotations
@@ -40,6 +40,13 @@ TERMINAL_RANK_MARGIN = 12.0
 DETERMINIZATIONS = 2
 MAX_ROLLOUT_STEPS = 64
 MIN_MEAN_UTILITY_GAIN = 1_000
+DEFAULT_SEARCHES_PER_TURN = 1
+ALAKAZAM_SECOND_SEARCHES_PER_TURN = 2
+ALAKAZAM_LINE_IDS = frozenset({
+    fallback_policy.C.ABRA,
+    fallback_policy.C.KADABRA,
+    fallback_policy.C.ALAKAZAM,
+})
 
 
 def _plain(value: Any) -> Any:
@@ -534,7 +541,7 @@ class ArithmeticSearch:
         self.reset()
 
     def reset(self) -> None:
-        self._searched_turns: set[tuple[int, int]] = set()
+        self._turn_search_counts: dict[tuple[int, int], int] = {}
         self._last_turn: int | None = None
         self._last_turn_action_count = -1
         self._override_records: list[dict[str, Any]] = []
@@ -548,6 +555,8 @@ class ArithmeticSearch:
             "incomplete_branches": 0,
             "skip_early": 0,
             "skip_already_searched_turn": 0,
+            "alakazam_second_considered": 0,
+            "alakazam_second_extra_searches": 0,
             "skip_planner_guard": 0,
             "skip_no_search_state": 0,
             "skip_no_candidates": 0,
@@ -557,6 +566,34 @@ class ArithmeticSearch:
             "utility_gain_sum": 0.0,
             "utility_gain_max": 0.0,
         }
+
+    @staticmethod
+    def _alakazam_going_second(observation: dict[str, Any]) -> bool:
+        """Whether the narrow ladder failure mode is currently observable.
+
+        The trigger is deliberately based only on public board cards and the
+        resolved first-player field.  It cannot infer a hidden matchup before
+        Abra, Kadabra or Alakazam appears, and it stands down while
+        ``firstPlayer`` is still unresolved.
+        """
+        current = observation.get("current") or {}
+        players = current.get("players") or []
+        perspective = int(current.get("yourIndex", -1))
+        first_player = int(current.get("firstPlayer", -1))
+        if (
+            len(players) < 2
+            or perspective not in (0, 1)
+            or first_player not in (0, 1)
+            or first_player == perspective
+        ):
+            return False
+        opponent = players[1 - perspective]
+        visible_ids = {
+            int(card.get("id", -1))
+            for card in mf._in_play(opponent)
+            if isinstance(card, dict)
+        }
+        return bool(visible_ids & ALAKAZAM_LINE_IDS)
 
     @staticmethod
     def _terminal_action(
@@ -752,11 +789,19 @@ class ArithmeticSearch:
             )
         )
         if new_game:
-            self._searched_turns.clear()
+            self._turn_search_counts.clear()
         self._last_turn = turn
         self._last_turn_action_count = action_count
         turn_key = (turn, perspective)
-        if turn_key in self._searched_turns:
+        alakazam_second = self._alakazam_going_second(observation)
+        if alakazam_second:
+            self.stats["alakazam_second_considered"] += 1
+        search_limit = (
+            ALAKAZAM_SECOND_SEARCHES_PER_TURN
+            if alakazam_second else DEFAULT_SEARCHES_PER_TURN
+        )
+        searches_this_turn = self._turn_search_counts.get(turn_key, 0)
+        if searches_this_turn >= search_limit:
             self.stats["skip_already_searched_turn"] += 1
             return proposed
         if turn < MIN_TURN:
@@ -781,11 +826,13 @@ class ArithmeticSearch:
             candidate: [] for candidate in candidates
         }
         try:
-            self._searched_turns.add(turn_key)
+            self._turn_search_counts[turn_key] = searches_this_turn + 1
             self.stats["searched"] += 1
+            if alakazam_second and searches_this_turn > 0:
+                self.stats["alakazam_second_extra_searches"] += 1
 
             # First determinization screens every candidate.  The second runs
-            # only v8 and alternatives that were already strict upgrades.  A
+            # only v9 and alternatives that were already strict upgrades.  A
             # candidate tied or worse in sample zero cannot pass the final
             # strict-consensus rule, so simulating it again only burns clock.
             active_candidates = list(candidates)
@@ -933,6 +980,10 @@ class ArithmeticSearch:
             "determinizations_per_search": DETERMINIZATIONS,
             "max_rank_margin": MAX_RANK_MARGIN,
             "min_mean_utility_gain": MIN_MEAN_UTILITY_GAIN,
+            "default_searches_per_turn": DEFAULT_SEARCHES_PER_TURN,
+            "alakazam_second_searches_per_turn": (
+                ALAKAZAM_SECOND_SEARCHES_PER_TURN
+            ),
             "override_records": list(self._override_records),
         })
         return output

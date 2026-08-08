@@ -201,6 +201,43 @@ def test_search_runs_at_most_once_per_turn() -> None:
     assert planner.snapshot()["skip_already_searched_turn"] == 1
 
 
+def test_alakazam_going_second_gets_one_targeted_extra_search() -> None:
+    planner = planner_with(FakeSearch())
+    ranker = FakeRanker()
+    root = observation()
+    root["current"]["players"][1]["active"][0]["id"] = (
+        S.fallback_policy.C.ABRA
+    )
+    assert planner.adjust(root, 0, {0: 3.0, 1: 2.0}, ranker) == 1
+    assert planner.adjust(root, 0, {0: 3.0, 1: 2.0}, ranker) == 1
+    assert planner.adjust(root, 0, {0: 3.0, 1: 2.0}, ranker) == 0
+    snapshot = planner.snapshot()
+    assert snapshot["searched"] == 2
+    assert snapshot["alakazam_second_extra_searches"] == 1
+    assert snapshot["skip_already_searched_turn"] == 1
+
+
+def test_alakazam_trigger_stands_down_when_going_first() -> None:
+    planner = planner_with(FakeSearch())
+    ranker = FakeRanker()
+    root = observation()
+    root["current"]["firstPlayer"] = 0
+    root["current"]["players"][1]["active"][0]["id"] = (
+        S.fallback_policy.C.ALAKAZAM
+    )
+    assert planner.adjust(root, 0, {0: 3.0, 1: 2.0}, ranker) == 1
+    assert planner.adjust(root, 0, {0: 3.0, 1: 2.0}, ranker) == 0
+    assert planner.snapshot()["alakazam_second_extra_searches"] == 0
+
+
+def test_planner_note_accepts_multi_pick_without_counting_an_activation() -> None:
+    planner = S.ml_planner.Planner()
+    root = observation()
+    planner.note(root, root["select"], [0, 1])
+    planner.note(root, root["select"], [])
+    assert planner.snapshot()["errors"] == 0
+
+
 def test_arithmetic_planner_override_is_never_undone() -> None:
     planner = planner_with(FakeSearch())
     # Index 1 can only be proposed when the proven arithmetic planner moved
