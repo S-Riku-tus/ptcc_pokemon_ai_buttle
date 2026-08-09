@@ -1,0 +1,88 @@
+{
+  "name": "grimmsnarl_ml_v13",
+  "version": "13.0.0",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v8",
+  "specialist_lineage": "grimmsnarl_ml_v9",
+  "rejected_parent_search": "grimmsnarl_ml_v12",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Sticky matchup MoE: exact v8 default/mirror, lazy v9 Alakazam specialist, deterministic fallback wall state machine; no v12 broad arithmetic search.",
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "scope": "v8 default and mirror expert"
+  },
+  "router": {
+    "information": "public active, bench, discard, pre-evolution and stadium ids only",
+    "lock": "Alakazam and mirror specialists are sticky; non-specialist default locks from turn 2 and permits one irreversible safety promotion to wall after public proof",
+    "default": "v8_default",
+    "mirror": "v8_mirror",
+    "alakazam": "v9_alakazam",
+    "wall": "wall_state_machine",
+    "alakazam_ids": [741, 742, 743],
+    "mirror_ids": [646, 647, 648],
+    "wall_ids": [117, 330, 344, 345],
+    "neutralization_zone_id": 1247
+  },
+  "experts": {
+    "v8": {
+      "model": "ranker_model.json",
+      "source": "ranker_v5_data_refresh_base.txt@2000",
+      "trees": 2000,
+      "features": 823,
+      "teacher_team_id": 16494330,
+      "froslass_route_team_id": 16371703,
+      "sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79"
+    },
+    "v9_alakazam": {
+      "model": "ranker_model_v9.json",
+      "source": "corpus_v8_current_top4.npz",
+      "source_teams": [16422241, 16452116, 16541765, 16561259],
+      "trees": 1485,
+      "features": 822,
+      "teacher_conditioned": false,
+      "load": "lazy",
+      "sha256": "b0397a4a0270e2c8d3bb5088c759a173307f4446c8577c68895214493b91836c"
+    },
+    "wall": {
+      "implementation": "fallback_policy.GrimmsnarlPolicy",
+      "properties": [
+        "zero-damage Shadow Bullet below END unless Bench prize is taken",
+        "Boss unlock of a damageable target",
+        "Morgrem alternative attacker",
+        "wall and temporary-immunity awareness"
+      ]
+    }
+  },
+  "search": {
+    "broad_whole_turn_search": false,
+    "inherited_narrow_planner": true,
+    "reason": "v12 optimized local attacked/damage/body terms and could destroy the long-horizon route, including repeated zero-damage wall attacks"
+  },
+  "ladder_evidence": {
+    "v12_submission_55373676_rating": 914.8,
+    "v12_submission_55374240_rating": 894.6,
+    "reported_matchup_win_rates": {
+      "v8_mirror": 0.688,
+      "v9_mirror": 0.571,
+      "v12_mirror": 0.522,
+      "v8_alakazam": 0.364,
+      "v9_alakazam": 0.647,
+      "v12_alakazam": 0.722
+    },
+    "wall_failure_episode": 91279034
+  },
+  "evaluation_gates": {
+    "mirror": "must remain statistically compatible with v8",
+    "alakazam": "must improve over v8 without regressing below v9's observed band",
+    "wall": "zero useless damage-immune attacks and no repeated no-progress loop",
+    "runtime": "no illegal action, crash, timeout or v12 broad-search import"
+  },
+  "submission_priority": 1,
+  "description": "First-stage route mixture recommended by the v8/v9/v12 autopsy: preserve the known champion, specialize only where evidence supports it, and make wall play explicit and auditable."
+}

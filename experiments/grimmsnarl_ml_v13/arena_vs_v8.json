@@ -1,0 +1,37 @@
+{
+  "challenger": "agents\\grimmsnarl\\grimmsnarl_ml_v13",
+  "control": "agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "games_count": 2,
+  "wins": {
+    "challenger": 1,
+    "control": 1
+  },
+  "search_totals": {},
+  "latency_ms": {
+    "challenger": 79.04,
+    "control": 70.19
+  },
+  "moves": {
+    "challenger": 208,
+    "control": 218
+  },
+  "override_records": [],
+  "games": [
+    {
+      "game": 1,
+      "challenger_first": true,
+      "winner": "challenger",
+      "illegal": null,
+      "search": {},
+      "override_records": []
+    },
+    {
+      "game": 2,
+      "challenger_first": false,
+      "winner": "control",
+      "illegal": null,
+      "search": {},
+      "override_records": []
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "challenger": "agents\\grimmsnarl\\grimmsnarl_ml_v13",
+  "control": "agents\\alakazam\\alakazam_ml_v35",
+  "games_count": 2,
+  "wins": {
+    "challenger": 2
+  },
+  "search_totals": {},
+  "latency_ms": {
+    "challenger": 82.28,
+    "control": 145.08
+  },
+  "moves": {
+    "challenger": 151,
+    "control": 150
+  },
+  "override_records": [],
+  "games": [
+    {
+      "game": 1,
+      "challenger_first": true,
+      "winner": "challenger",
+      "illegal": null,
+      "search": {},
+      "override_records": []
+    },
+    {
+      "game": 2,
+      "challenger_first": false,
+      "winner": "challenger",
+      "illegal": null,
+      "search": {},
+      "override_records": []
+    }
+  ]
+}
