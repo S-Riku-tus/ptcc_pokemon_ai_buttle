@@ -236,7 +236,7 @@ constraint. Removed rather than weakened.
 | MAIN decisions searched | 16.6% | **99.3%** (43.8 of 44.1 per game) |
 | overrides per game | 0.79 | **3.9** |
 | overrides as a share of searches | 17.8% | **8.9%** |
-| our seconds per game | ~15 | **70.7** (worst game 107.8) |
+| our seconds per game, all decisions | ~15 | **70.7** (worst game 107.8) |
 | share of the 600 s bank, worst game | 3.4% | **18.0%** |
 | branch errors / incomplete branches | 0 / 0 | **0 / 0** |
 | illegal selections / crashes | 0 / 0 | **0 / 0** |
@@ -249,17 +249,101 @@ The 6-4 arena result is **not** evidence of strength and is not offered as any.
 same binary against the same opponent has scored 77.5% and 47.5% at n = 40.
 The arena is here for crashes, legality and milliseconds only.
 
-### Counterfactual over v11.1's own ladder games
+### Counterfactual over v11.1's own 59 ladder games
 
-See `ladder_counterfactual_v11_vs_v12.json`. Both agents are teacher-forced on
-the identical stored action at every decision including multi-picks, so the only
-difference between them is the search layer.
+`ladder_counterfactual_v11_vs_v12.json`, via
+`scripts/probe_grimmsnarl_v12_coverage.py`. Both agents are teacher-forced on
+the identical stored action at every one of the 5,653 decisions, multi-picks
+included, so the only difference between them is the search layer.
 
-<!-- FILLED IN BELOW WHEN THE PROBE COMPLETES -->
+**Coverage held on real ladder states, not just arena ones:**
+
+| | v11.1 | v12 |
+|---|---|---|
+| MAIN decisions offered a choice | 2,372 | 2,372 |
+| searched | 393 (16.6%) | **2,368 (99.83%)** |
+| own turns reached | 393 | 393 |
+| skipped: no second candidate | - | 4 |
+| skipped: budget, per-turn cap, planner guard | - | **0 / 0 / 0** |
+| branch errors, incomplete branches | - | **0 / 0** |
+| search seconds only | not instrumented in v11 | **2,978** (50.5 s/game, 2.20 s/search) |
+| search overrides | - | **344** (14.5% of searches) |
+
+(The probe records only the candidate's snapshot, so the v11.1 column is its
+coverage arithmetic - one search per own turn, 393 own turns - rather than a
+counter read back from this run. The 50.5 s/game here is the search layer alone;
+the arena's 70.7 s/game is every decision including ranker inference, on a
+machine that was also running this probe.)
+
+**Fidelity.** v11.1 - the deployed artifact - reproduces **95.52%** of its own
+logged actions here, matching the 95.63% in the handover analysis; the remaining
+4.5% is this harness's ceiling for every agent, not something v12 introduced.
+More importantly, on the 314 decisions where the two policies disagree, the
+action actually played matches **v11.1 at least 241 times and v12 at most 73**.
+That is the correct sign and it settles the worry recorded in
+`grimmsnarl-offline-probe-skips-multipick`: on this run the deployed policy does
+dominate its own counterfactual. The earlier inversion (v8 49/70 against v11
+13/70) is most likely an artifact mismatch - the v11a/v11b submissions shipped
+v8's ranker while the repository's `grimmsnarl_ml_v11` now carries v9's - rather
+than a harness defect, though that was not re-run to confirm.
+
+**What changed.** 314 divergences, 5.32 a game, 5.55% of all decisions; 312 of
+them in MAIN. The behavioural direction is one-sided and is the whole story of
+this diff:
+
+| card the layer moves toward | v11.1 would play | v12 plays |
+|---|---|---|
+| Marnie's Grimmsnarl ex | 16 | **83** |
+| Munkidori | **40** | 10 |
+| Marnie's Morgrem | 17 | 2 |
+| Basic {D} Energy | 23 | 22 |
+
+v12 systematically buys Grimmsnarl ex board presence and sells Munkidori
+tempo. That is the exact statistic that separates the field's wins from its
+losses in the one matchup we lose (section 1c), and it comes out of the leaf's
+`ready_grimms` / `active_ready` majors now being applied to the whole turn
+instead of its first decision. It is also the *opposite* of the direction the
+handover analysis suspected v11 of taking. Divergences peak on own turns 5-8,
+i.e. the mid-game rebuild, not the opening.
+
+**Two caveats, stated rather than buried:**
+
+* This probe **cannot estimate strength.** The 59 games were played by v11.1;
+  whether v12 would have won them is unknown. The "games with an override went
+  37-18" split in the JSON has a 4-game control arm and is reported only for
+  completeness - it is not evidence and is not part of the gate. (The v11
+  release read a split of this shape as reassurance; that was a mistake.)
+* This probe **cannot test the budget governor.** It replays v11.1's stored
+  `remainingOverageTime` values, which never fell below 588 s, so the throttle
+  and the degradation ladder were never engaged (`budget_stops = 0`,
+  `budget_degraded = 0`). Those paths are covered by unit tests and by the
+  internal wall-clock meter in the arena run, not here.
+
+**One unexplained residual.** 2 of the 5,653 decisions diverge in a *non-MAIN*
+context (16), which the search layer never touches - both are a Grimmsnarl
+ex / Munkidori target choice. 0.035% of decisions, and the architecture is
+v11's, so it is not introduced by v12, but it means some module-level state
+survives a search that should not. It is the first thing to chase in the next
+iteration's measurement work.
 
 ## 5. Method
 
 Every number above is recomputed from stored replays, not taken from a summary.
+Each is reproducible from a script in `scripts/`:
+
+| what | script | artifact |
+|---|---|---|
+| coverage, budget, option counts | `analyze_grimmsnarl_v12_decision_density.py` | stdout |
+| per-game tempo rows (3,917 games) | `analyze_grimmsnarl_v12_tempo_rows.py` | `tempo_rows.jsonl` |
+| turn order, archetype, board-width tables | `analyze_grimmsnarl_v12_tempo_report.py` | stdout |
+| the Alakazam cut | `analyze_grimmsnarl_v12_alakazam_cut.py` | stdout |
+| arena with the search ledger | `arena_probe_search_ledger.py` | `arena_v12_vs_v9_10.json` |
+| ladder counterfactual | `probe_grimmsnarl_v12_coverage.py` | `ladder_counterfactual_v11_vs_v12.json` |
+
+`probe_grimmsnarl_v12_coverage.py` supersedes
+`probe_grimmsnarl_v11_ladder_overrides.py`: `--base` / `--candidate` are
+arbitrary agent directories and every output key is named after the role, so the
+next iteration re-points it instead of copying and half-renaming it.
 
 * coverage, budget and option-count distributions: walk our own seat through
   `data/runs/grimmsnarl/20260809_grimmsnarl_ml_v11_sub55353978`, count MAIN
