@@ -1,0 +1,48 @@
+{
+  "name": "grimmsnarl_ml_v12",
+  "version": "12.0.0",
+  "role": "champion_challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v11",
+  "ranker_lineage": "grimmsnarl_ml_v9",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "v9 current-top-four consensus ranker with whole-turn arithmetic search under an explicit overage budget.",
+  "ranker": {
+    "source": "corpus_v8_current_top4.npz",
+    "source_relations": 1014,
+    "source_teams": [16422241, 16452116, 16541765, 16561259],
+    "trees": 1485,
+    "features": 822,
+    "teacher_conditioned": false,
+    "sha256": "b0397a4a0270e2c8d3bb5088c759a173307f4446c8577c68895214493b91836c",
+    "identical_to": "grimmsnarl_ml_v11"
+  },
+  "arithmetic_search": {
+    "root_policy": "v9",
+    "continuation_policy": "v9",
+    "turn_min": 1,
+    "coverage": "every MAIN decision the overage budget allows",
+    "max_searches_per_turn": 14,
+    "degraded_searches_per_turn": 1,
+    "overage_reserve_seconds": 150.0,
+    "max_game_search_seconds": 240.0,
+    "candidate_cap": 3,
+    "hidden_state_determinizations": 3,
+    "acceptance": "strict arithmetic improvement in all three hidden-state determinizations",
+    "new_invariant": "exposed_prizes - a candidate may not increase the prizes the opponent collects on their immediate reply unless it attacks or deals more damage",
+    "fallback": "v9 on tie, disagreement, incomplete branch, engine error, exhausted budget, or critical regression"
+  },
+  "changed_files_vs_v11": ["main.py", "arithmetic_search.py", "metadata.json", "tests/"],
+  "identical_files_vs_v11": [
+    "deck.csv",
+    "fallback_policy.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_runtime.py",
+    "policy_base.py",
+    "ranker_model.json"
+  ],
+  "submission_priority": 1,
+  "description": "v12 spends the 96.6% of the per-episode compute budget v11 left unused on covering the whole turn instead of its first decision, and tightens the acceptance gate in step."
+}

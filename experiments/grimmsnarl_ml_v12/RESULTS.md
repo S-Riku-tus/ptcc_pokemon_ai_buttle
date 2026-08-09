@@ -1,0 +1,312 @@
+# Grimmsnarl ML v12
+
+## Decision
+
+v12 is v11.1 with the search layer's **coverage** raised from 16.6% of our
+decisions to ~99%, paid for out of a compute budget that was 96.6% idle, with
+the acceptance gate tightened in step and two leaf defects fixed that the
+field data identifies directly.
+
+The deck, the v9 ranker, the fallback policy, the features and the arithmetic
+planner are byte-identical to v11.1. Only `main.py` and `arithmetic_search.py`
+change.
+
+## 1. Where the rating actually went
+
+The handover analysis of submission 55353978 is right on its central point and
+should be read first: the ~100-point drop is mostly the opponent draw, and the
+rating-controlled estimate (-49 Elo, p = 0.246) does not separate from an
+identical-code noise floor of ±76. Nothing below argues with that.
+
+Two of its downstream conclusions do not survive being recomputed against the
+field, and one of them would have sent v12 in the wrong direction.
+
+### 1a. The mirror is not a weakness
+
+The analysis found v11.1 at 9-10 in the mirror and proposed making search more
+conservative there. Pooled over every version we have run on this deck, against
+the 3,642 archived field games on the same 60 cards:
+
+| going second | field | ours | Fisher p |
+|---|---|---|---|
+| Grimmsnarl mirror | 419-324 (0.564) | 25-21 (0.543) | 0.878 |
+| Mega Lopunny ex | 90-91 (0.497) | 7-5 (0.583) | 0.767 |
+| Mega Kangaskhan ex | 117-69 (0.629) | 6-2 (0.750) | 0.713 |
+| **Alakazam** | **114-48 (0.704)** | **10-18 (0.357)** | **0.00092** |
+| Teal Mask Ogerpon ex | 25-103 (0.195) | 0-4 (0.000) | 1.0 |
+| Team Rocket's Mewtwo ex | 34-24 (0.586) | 1-1 (0.500) | 1.0 |
+| Dragapult ex | 37-22 (0.627) | 2-1 (0.667) | 1.0 |
+| Mega Lucario ex | 36-8 (0.818) | 6-1 (0.857) | 1.0 |
+
+The 9-10 was one run of 19 games. Tuning the mirror would have been tuning
+noise, and the Boss's Orders shift the analysis flagged (21.2% -> 58.3%,
+p = 0.00158) does not correspond to any outcome difference.
+
+### 1b. One matchup is the entire going-second deficit
+
+| | field | ours |
+|---|---|---|
+| going first | 1166-712 (0.621) | 105-51 (0.673) |
+| going second | 980-784 (0.556) | 59-60 (0.496) |
+| going second, excluding Alakazam | 866-736 (0.541) | 49-42 (0.538) |
+
+Take Alakazam out and our going-second rate is the field's to within a
+thousandth. Alakazam going second is 28 games at 0.357 against 0.704, worth
+about **7 wins in 119 going-second games**. It is the only measurable deficit
+left on this deck. This confirms
+`grimmsnarl-alakazam-is-turn-order` on a larger pool (v8 + v9 + v11a + v11b +
+v11.1).
+
+### 1c. But the *mechanism* recorded for it does not survive the larger pool
+
+The recorded mechanism is "the attacker never arrives": 3.6 bodies at turn 4
+against the field's 5.21, first attack on turn 8 against 4. Those came from
+`alakazam_second_tempo.json`, which is v8's **five** going-second games against
+Alakazam. Re-measured over all 28 such games we have (v8, v9, v11a, v11b,
+v11.1), the arrival gap is small. In own-turn ordinals, which is what the
+following tables use throughout - the source artifact keys by the engine's
+shared turn counter, so its "turn 4" is our own turn 2 when going second:
+
+| going second, all opponents | own turn 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| field bodies | 4.41 | 5.13 | 5.33 | 5.38 |
+| our bodies | 4.52 | 5.23 | 5.51 | 5.52 |
+
+Against Alakazam specifically the bodies gap is 4.96 against 5.21 at own turn 2
+(not 3.6 against 5.21), and our first attack lands on own turn 2.80 against the
+field's 2.48 (not turn 8 against turn 4). Across all opponents we are *ahead* of
+the field on both. There is no general early-setup tempo defect, so nothing in
+v12 is built for one.
+
+What *is* behind, and only against Alakazam, is Grimmsnarl ex uptime:
+
+| Alakazam, going second | own turn 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|
+| field, all | 0.45 | 0.78 | 0.79 | 0.77 | 0.79 | 0.75 |
+| field, games it won | 0.49 | 0.83 | 0.88 | 0.85 | 0.89 | 0.91 |
+| field, games it lost | 0.35 | 0.65 | 0.58 | 0.57 | 0.36 | 0.40 |
+| **ours** | **0.39** | **0.70** | **0.63** | **0.73** | **0.56** | **0.80** |
+
+We track the field's *losing* profile in the one matchup we lose. In the mirror
+we are at 0.89 / 0.93 / 0.98 / 0.97 - i.e. exactly the field - so this is not a
+general failure to hold an attacker. Alakazam takes one prize per knockout and
+our Grimmsnarl ex gives two, so each ex we hand over is a third of the game, and
+we hand them over without replacing the body. Our attack rate on own turn 3 is
+0.33 against the field's 0.58, and we finish 10.7% of these games having never
+attacked at all against the field's 3.1%.
+
+## 2. Why v12 is a coverage change
+
+### The search saw one sixth of the game
+
+Recomputed from v11.1's own 59 ladder games (`.tmp` diagnostic, method in
+section 5):
+
+* 394 of our own turns, 41.6 MAIN selects per game;
+* **2,372** MAIN selects offered a real choice - **6.02 per own turn**;
+* the once-per-turn rule searched **393** of them: **16.6%**.
+
+The one it always took was the first of the turn, which is the widest and least
+decidable: 177 of the 393 had ten or more options. Every ordering decision that
+follows - the class a full-turn leaf is actually good at, and the class both of
+v11's genuine counterfactual wins came from (Petrel before Munkidori, Rare Candy
+before Munkidori) - was never searched.
+
+### It was not a cost decision
+
+The competition configuration is `actTimeout: 0`, so every second we spend comes
+out of the 600 s per-episode overage bank and nothing else. Across v11.1's 59
+games the bank at game end was:
+
+```
+min 579.5   p10 583.4   median 588.2   max 594.1
+```
+
+v11.1's worst game spent **20.5 s of 600**, or 3.4%. Local timing agrees with
+the ladder to within 2%: v9 runs at 37.9 ms/move and v11.1 at 155.7 ms/move over
+the same four games, which is 15.0 s/game against the 15.18 s the ladder charged
+in episode 91039658.
+
+## 3. What changed
+
+### 3a. Whole-turn coverage under an explicit budget
+
+`SearchBudget` reads `remainingOverageTime` (authoritative on Kaggle) *and*
+keeps its own `perf_counter` total (the only meter that exists under the local
+`vendor/cg` shim, which does not supply the bank). The tighter of the two
+governs, with a documented degradation ladder rather than a cliff:
+
+| headroom | behaviour |
+|---|---|
+| bank > 150 s reserve and < 240 s spent, headroom >= 60 s | search every MAIN decision, cap 14/turn |
+| headroom < 60 s | once per turn - v11.1 behaviour |
+| headroom < 1.5x the measured mean search cost | off |
+
+A refilled bank is read as a new episode, so per-game accounting survives the
+turn-rewind detector missing an edge.
+
+### 3b. Three determinizations instead of two
+
+Six times the coverage is six times the exposure to a hand-written leaf, so the
+gate tightens with it: a candidate must beat v9 in **all three** hidden-state
+samples. The third sample is nearly free because samples are now re-screened
+after *every* determinization, not only the first - a candidate that has already
+failed one can never satisfy the consensus, so it is not simulated again.
+
+### 3c. `exposed_prizes`: what the opponent collects on their reply
+
+v11's leaf priced end-of-turn survival as `active_survival_margin` at x10, so
+the difference between ending on a body that lives and one that dies was worth
+less than one point of setup progress. v12 adds the prize itself:
+
+```
+exposed_prizes = prize_value(our final active) if it dies to the opponent's
+                 best available attack next turn, else 0
+```
+
+with two rules in `_grade_upgrade`:
+
+* a candidate may **not** increase it unless it attacks or deals more damage -
+  a hard refusal, not a price;
+* decreasing it counts as a **major**, alongside landing an attack or readying
+  a Grimmsnarl ex.
+
+This is the term the Alakazam-going-second table asks for, and it is
+matchup-agnostic: no deck hash, no opponent identity, just prize arithmetic.
+It also makes a Munkidori Adrena-Brain that lifts our active out of knockout
+range visible to the search for the first time.
+
+### 3d. Board width past three bodies
+
+v11's leaf capped body value at `min(bodies, 3)`, making a 3-body and a 6-body
+end of turn identical. The field's own win rate by bodies at the end of own
+turn 3, on this exact 60:
+
+| bodies | going second | going first |
+|---|---|---|
+| 3 | 0.206 (n=68) | 0.403 (n=62) |
+| 4 | 0.413 (n=225) | 0.524 (n=246) |
+| 5 | 0.538 (n=403) | 0.607 (n=519) |
+| 6 | 0.631 (n=1024) | 0.665 (n=1018) |
+
+The gradient runs to a full bench, so the cap is raised to 5 and a body gain
+becomes a *medium* signal. Deliberately a medium and not a major: this evidence
+is a correlation across whole games, so it earns the right to break a tie, not
+to force one. An extra body still has to pay for itself out of the hand.
+
+`grimmsnarl-roadmap-to-1100` records the opposite-signed fact - across pilots,
+`bench>=3 at turn end` correlates **-0.564** with rating. The two are not in
+conflict and the tension is deliberate: that one compares different pilots over
+whole games (better pilots trade and close faster), while this compares two
+lines from the *same* root at the *same* point in the same turn, which is the
+only comparison the leaf ever makes.
+
+### 3e. Removed: the Alakazam-going-second special case
+
+v11.1 gave that matchup a second search per turn. Under full coverage every
+matchup gets every search, so a matchup-keyed branch could only ever be a
+constraint. Removed rather than weakened.
+
+## 4. Verification
+
+### Static
+
+* 188 v12 tests pass, covering every inherited v3-v11 invariant plus new tests
+  for coverage, the per-turn cap, budget exhaustion, the degradation ladder,
+  bank-refill episode detection, missing-bank fallback, the re-screening rule,
+  `exposed_prizes` in both directions, and the body-width terms.
+* `validate_agent.py --agent grimmsnarl_ml_v12` passed: 60 cards, 19 unique, no
+  warnings.
+* SHA-256 equality with v11.1 verified for `deck.csv`, `fallback_policy.py`,
+  `ml_features.py`, `ml_planner.py`, `ml_runtime.py`, `policy_base.py` and the
+  33 MB ranker.
+* `tests/` shows the same 2 failures and 10 setup errors as the v11 run, all
+  pre-existing missing-fixture problems for `alakazam_ml_v2_expanded` and the
+  Spidops package. None imports v12.
+  Ranker SHA-256 is `b0397a4a0270e2c8d3bb5088c759a173307f4446c8577c68895214493b91836c`,
+  the same file v9 and v11.1 shipped.
+* Submission archive: 19 entries, 8,543,227 bytes, SHA-256
+  `03e08ecd93ee72ed7e51eb75bf7b213ddbf1f63dd998f902a2cfae5334607771`. Extracted
+  and played two games against v9 with no crash and no illegal selection.
+
+### Free-running arena, 10 games against v9, alternating seats
+
+| | v11.1 | v12 |
+|---|---|---|
+| MAIN decisions searched | 16.6% | **99.3%** (43.8 of 44.1 per game) |
+| overrides per game | 0.79 | **3.9** |
+| overrides as a share of searches | 17.8% | **8.9%** |
+| our seconds per game | ~15 | **70.7** (worst game 107.8) |
+| share of the 600 s bank, worst game | 3.4% | **18.0%** |
+| branch errors / incomplete branches | 0 / 0 | **0 / 0** |
+| illegal selections / crashes | 0 / 0 | **0 / 0** |
+
+The override *rate per search* halving while coverage rises 6x is the tightened
+gate doing its job: 4.9x the overrides out of 5.6x the searches.
+
+The 6-4 arena result is **not** evidence of strength and is not offered as any.
+`arena-cannot-be-paired`: the native shuffle has no seed entry point, and the
+same binary against the same opponent has scored 77.5% and 47.5% at n = 40.
+The arena is here for crashes, legality and milliseconds only.
+
+### Counterfactual over v11.1's own ladder games
+
+See `ladder_counterfactual_v11_vs_v12.json`. Both agents are teacher-forced on
+the identical stored action at every decision including multi-picks, so the only
+difference between them is the search layer.
+
+<!-- FILLED IN BELOW WHEN THE PROBE COMPLETES -->
+
+## 5. Method
+
+Every number above is recomputed from stored replays, not taken from a summary.
+
+* coverage, budget and option-count distributions: walk our own seat through
+  `data/runs/grimmsnarl/20260809_grimmsnarl_ml_v11_sub55353978`, count MAIN
+  (`select.context == 0`) selects with more than one option per own turn, and
+  read `remainingOverageTime` from the observation;
+* matchup and tempo tables: 3,642 field games from
+  `data/kaggle_grimmsnarl_top50` filtered to our deck hash `9714ab5c3996f6cc`,
+  plus 275 of our own across v8, v9, v11a, v11b and v11.1, with board state
+  keyed by **own-turn ordinal** rather than the engine's shared turn counter;
+* turn order is read from a late step because `current.firstPlayer` is -1 until
+  the flip (`replay-firstplayer-sentinel`);
+* the self-play validation episode is excluded from every count.
+
+## 6. Deliberately not done
+
+* **No mirror tuning.** Section 1a: it is not a weakness.
+* **No Alakazam-keyed rule.** The deficit is real and large, but a deck-hash
+  override is the wrong shape; `exposed_prizes` addresses the same prize
+  arithmetic without naming a matchup.
+* **No Ogerpon work.** 0.195 for the field over 128 going-second games. It is a
+  structural counter (`grimmsnarl-ogerpon-structural-counter`).
+* **No ranker retrain.** `grimmsnarl-imitation-saturated`; the model is
+  byte-identical to v9's on purpose so that this run measures the search layer
+  and nothing else.
+* **No claim about rating.** See the gate below.
+
+## 7. Promotion gate
+
+The v11 release shipped on a gate its run could not evaluate - it asked for
+60-80 games against 1000+ opponents and got one. This gate is written to be
+answerable from whatever the ladder actually deals.
+
+Read in this order:
+
+1. **Legality and containment.** Zero illegal selections, zero branch errors,
+   zero timeouts, and `overage_remaining_min` never below 150 s. Any failure
+   here is an immediate rollback regardless of rating.
+2. **Coverage held.** `searched / considered` above 0.9 on the ladder. If the
+   budget governor throttled, the run measures a different agent than the one
+   tested here and the rest of the gate is void.
+3. **Alakazam going second.** The pre-registered target: it is 5-16 across v8,
+   v9 and v11.1 with the field at 0.704. Any run with fewer than 8 such games
+   cannot move this number and should not be read as if it had.
+4. **Override-joined outcome.** Games with at least one search override against
+   games without, opponent-rating controlled.
+
+Do **not** promote or roll back on the final rating. Four runs of this deck have
+now peaked early and decayed, the same-code noise floor is ±76 Elo, and rating
+does not track win rate on this deck at all (`grimmsnarl-roadmap-to-1100`:
+spearman -0.138, p = 0.55). Champion stays v9 until points 1-3 are satisfied.
