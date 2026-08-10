@@ -1,0 +1,149 @@
+{
+  "name": "grimmsnarl_ml_v15",
+  "version": "15.0.0",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v14",
+  "champion_policy": "grimmsnarl_ml_v8",
+  "created_at": "2026-08-10T19:30:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "v14 exactly, plus one hard invariant: a turn never passes with a reachable, worthwhile Shadow Bullet unplayed. The escape attachment and the retreat it buys are already v8's two highest-scored rules; v15 makes the ranker respect them.",
+  "one_change": "attack_access.py",
+  "ranker": {
+    "source": "identical to grimmsnarl_ml_v8 and grimmsnarl_ml_v14",
+    "trees": 2000,
+    "features": 823,
+    "teacher_team_id": 16494330,
+    "sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79",
+    "model_changed": false,
+    "retrained": false
+  },
+  "attack_access": {
+    "module": "attack_access.py",
+    "disable_env": "GRIMMSNARL_ROUTE_DISABLE",
+    "problem": "ready_grimms() answers whether a Grimmsnarl ex can pay Shadow Bullet; nothing answered whether it can reach the Active spot this turn. _active_can_retreat() reads only attached Energy, so Active Snorunt 0E + Darkness in hand + unused manual attachment + Bench-ready Grimmsnarl reads as no attack this turn.",
+    "route": "attach one Darkness to the Active -> retreat -> promote the ready Grimmsnarl -> Shadow Bullet",
+    "why_one_attachment_is_enough": "every non-Grimmsnarl body this deck plays retreats for exactly one Energy (Impidimp, Morgrem, Snorunt, Froslass, Munkidori = 1; Grimmsnarl ex = 2)",
+    "teeth": [
+      "ACCESS: force the next ETA-0 route step (escape attachment, or the retreat it paid for, or fuelling an Active Grimmsnarl that is one Energy short)",
+      "CONVERT: never END with a worthwhile Shadow Bullet legal",
+      "BRIDGE: never END when v8's own scoring would attack (Filch / Corkscrew Punch)",
+      "PROMOTE: after our own retreat, put the ready Grimmsnarl in the Active spot"
+    ],
+    "fires_only_when": [
+      "the route completes this turn: escape debt <= 1 Energy, manual attachment unused, not already retreated, Active not asleep or paralysed",
+      "the Shadow Bullet is worth something: real damage to their Active, or a Bench-30 that takes a prize now",
+      "the chosen action does not already reach an attack this turn (attack, retreat, attachment to the Active, Grimmsnarl ex evolve onto the Active, or the Rare Candy that does)"
+    ],
+    "subset_of_v8": {
+      "score_attach_active_escape": 990000,
+      "score_retreat_to_ready_grimmsnarl": 995000,
+      "note": "both forced steps are v8's own top-scored rules; the guard adds three conditions v8 does not check, so it fires on strictly fewer boards than v8's rules apply to"
+    },
+    "stickiness": "the route is recomputed from the board every decision, so paying the escape debt is what turns the next step from attach into retreat. The only cross-decision state is a one-shot promotion flag.",
+    "multi_pick_selects": "untouched"
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass"
+  },
+  "router": {
+    "role": "public-information telemetry only",
+    "policy_switches": 0,
+    "information": "opponent active, bench, discard, pre-evolutions and stadium only",
+    "hidden_deck_or_hand_used": false,
+    "routes": ["v8_default", "v8_mirror", "v8_alakazam_guarded", "v8_wall_guarded"]
+  },
+  "residual": {
+    "module": "ml_residual.py",
+    "context": 7,
+    "trigger_effect_card_id": 1219,
+    "trigger_card_id": 1080,
+    "board_condition": "the opponent took no prize during their last turn, and no Unfair Stamp is already in hand",
+    "panel_team_ids": [16371703, 16422241, 16452116, 16561259],
+    "panel_teacher_codes": [0, 9, 12, 20],
+    "panel_need": 3,
+    "extra_model_files": 0,
+    "unchanged_from": "grimmsnarl_ml_v14"
+  },
+  "wall_guard": {
+    "module": "matchup_guard.py",
+    "unchanged_from": "grimmsnarl_ml_v14",
+    "interaction_with_attack_access": "the route's worth gate is the wall guard's own gate, so a damage-immune Active with no Bench prize keeps v14's behaviour: no forced retreat into a wall, and no forced Shadow Bullet"
+  },
+  "deliberately_unchanged": {
+    "deck": "same 60 cards; the same list is rated 1151.0, 1116.3 and 1113.7 on the current board, so the deck is not the bottleneck",
+    "punk_search_budget": "Punk Up draws from the deck and only reaches Marnie's Pokemon, so it can never pay a Snorunt or Munkidori escape; the fitted elite-band budget is kept",
+    "bosses_orders": "79% of v14's Boss plays attack the same turn and 63% take a prize, at or above the rank-3 pilot",
+    "unfair_stamp": "90% attack the same turn, 53% take a prize",
+    "petrel": "74% attack the same turn, 46% take a prize",
+    "froslass": "identical 0.93 per game in v14's wins and losses; no outcome signal to act on",
+    "zero_damage_shadow_bullet": "the rank-3 pilot plays about 2.8 a game in wall matchups; not banned",
+    "grimmsnarl_line_count": "v14 already evolves 2.21 a game against their 1.95, and more in losses than in wins",
+    "per_decision_search": "v12's whole-turn arithmetic search stays removed",
+    "teacher_averaging": "no new model; the v9 four-teacher consensus stays unpackaged"
+  },
+  "files_identical_to_v14": [
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "ml_runtime.py",
+    "policy_base.py",
+    "policy_router.py",
+    "ranker_model.json"
+  ],
+  "files_identical_to_v8": [
+    "deck.csv",
+    "fallback_policy.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_runtime.py",
+    "policy_base.py",
+    "ranker_model.json"
+  ],
+  "evidence": {
+    "v14_submission_rated_games": 42,
+    "v14_record": "27-15",
+    "v14_mean_opponent_rating": 851.4,
+    "v14_first_shadow_turn": 3.6,
+    "v14_first_shadow_turn_losses": 4.33,
+    "rank3_first_shadow_turn": 2.96,
+    "v14_shadow_by_own_turn_2": 0.19,
+    "rank3_shadow_by_own_turn_2": 0.38,
+    "v14_first_shadow_opening_snorunt": 4.11,
+    "rank3_first_shadow_opening_snorunt": 3.13,
+    "v14_escape_attachment_to_opening_snorunt": 0.33,
+    "rank3_escape_attachment_to_opening_snorunt": 0.63,
+    "v14_first_switch_turn_opening_snorunt": 5.0,
+    "rank3_first_switch_turn_opening_snorunt": 1.61,
+    "v14_prize_per_grimmsnarl_in_losses": 0.77,
+    "rank3_prize_per_grimmsnarl_in_losses": 1.04,
+    "worst_case_episode": 91548124,
+    "worst_case_first_shadow_turn": 15,
+    "rank3_mirror_filch_uses": 47,
+    "rank3_mirror_games": 136,
+    "v14_mirror_non_shadow_attacks": 0
+  },
+  "promotion_gate": {
+    "primary_kpi": "first Shadow Bullet turn, and the share of games with one by our own turn 2",
+    "demoted_kpi": "first attack turn (Filch and Corkscrew Punch counted as attacks and hid the gap)",
+    "counterfactual": "GRIMMSNARL_ROUTE_DISABLE=1 must reproduce v14 decision for decision",
+    "ladder_gate": "Rating drift >= 0 over at least 50 games started from 1000+, not a peak",
+    "rejected_gate": "peak rating, and win rate against a lower-rated opponent pool"
+  },
+  "next_candidates_not_in_this_version": [
+    "two-turn prize planner over Shadow Bullet's Bench-30, Adrena-Brain, Froslass and Boss's Orders",
+    "orphan-damage measurement: how much Bench-30 ever becomes a prize",
+    "distinct backup attacker ETA <= 1 at end of turn",
+    "matchup residuals trained on actual matchup trajectories, and DAgger over our own failure states"
+  ],
+  "submission_priority": 1,
+  "description": "One falsifiable change over v14: the agent may no longer end a turn with a Shadow Bullet it could have reached. The route it forces is v8's own highest-priority rule pair, gated to boards where the route completes this turn and the attack is worth making."
+}

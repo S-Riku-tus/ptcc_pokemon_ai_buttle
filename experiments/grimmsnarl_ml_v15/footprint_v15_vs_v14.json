@@ -1,0 +1,66 @@
+{
+  "footprint_route_off": {
+    "games": 8,
+    "decisions": 1746,
+    "single_pick_decisions": 1686,
+    "differences": 0,
+    "by_shape": {},
+    "guard": {
+      "considered": 0,
+      "main_decisions": 0,
+      "trapped_turns": 0,
+      "trapped_turns_worth": 0,
+      "no_route_available": 0,
+      "route_compatible_kept": 0,
+      "enable_attach_forced": 0,
+      "escape_attach_forced": 0,
+      "retreat_forced": 0,
+      "attack_overridden_for_route": 0,
+      "promote_forced": 0,
+      "promote_already_right": 0,
+      "end_replaced_by_shadow": 0,
+      "end_replaced_by_bridge": 0,
+      "played_shadow_bullets": 0,
+      "played_other_attacks": 0,
+      "played_ends": 0,
+      "ends_with_ready_attacker": 0,
+      "new_game_detected": 7,
+      "errors": 0
+    }
+  },
+  "footprint_route_on": {
+    "games": 8,
+    "decisions": 1613,
+    "single_pick_decisions": 1559,
+    "differences": 9,
+    "by_shape": {
+      "ctx0:type7 -> ctx0:type8": 2,
+      "ctx0:type8 -> ctx0:type8": 1,
+      "ctx0:type9 -> ctx0:type12": 2,
+      "ctx0:type10 -> ctx0:type12": 3,
+      "ctx0:type9 -> ctx0:type8": 1
+    },
+    "guard": {
+      "considered": 1559,
+      "main_decisions": 687,
+      "trapped_turns": 10,
+      "trapped_turns_worth": 10,
+      "no_route_available": 15,
+      "route_compatible_kept": 8,
+      "enable_attach_forced": 0,
+      "escape_attach_forced": 4,
+      "retreat_forced": 5,
+      "attack_overridden_for_route": 0,
+      "promote_forced": 0,
+      "promote_already_right": 22,
+      "end_replaced_by_shadow": 0,
+      "end_replaced_by_bridge": 0,
+      "played_shadow_bullets": 70,
+      "played_other_attacks": 1,
+      "played_ends": 29,
+      "ends_with_ready_attacker": 0,
+      "new_game_detected": 7,
+      "errors": 0
+    }
+  }
+}

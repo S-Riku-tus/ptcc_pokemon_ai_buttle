@@ -1,0 +1,64 @@
+{
+  "arena": {
+    "games": 30,
+    "record": {
+      "v15": {
+        "wins": 13,
+        "losses": 17,
+        "draws": 0
+      },
+      "v14": {
+        "wins": 17,
+        "losses": 13,
+        "draws": 0
+      }
+    },
+    "errors": {},
+    "v15": {
+      "games_with_shadow_bullet": 30,
+      "mean_first_shadow_own_turn": 2.733,
+      "shadow_by_own_turn_2": 0.333,
+      "shadow_by_own_turn_3": 0.933,
+      "first_shadow_turn_4_plus": 0.067,
+      "attacks": {
+        "934": 4,
+        "937": 124
+      },
+      "diag": {
+        "considered": 2964,
+        "main_decisions": 1302,
+        "trapped_turns": 16,
+        "trapped_turns_worth": 16,
+        "no_route_available": 20,
+        "route_compatible_kept": 18,
+        "enable_attach_forced": 0,
+        "escape_attach_forced": 3,
+        "retreat_forced": 0,
+        "attack_overridden_for_route": 0,
+        "promote_forced": 0,
+        "promote_already_right": 42,
+        "end_replaced_by_shadow": 0,
+        "end_replaced_by_bridge": 0,
+        "played_shadow_bullets": 124,
+        "played_other_attacks": 4,
+        "played_ends": 54,
+        "ends_with_ready_attacker": 0,
+        "new_game_detected": 29,
+        "errors": 0
+      }
+    },
+    "v14": {
+      "games_with_shadow_bullet": 30,
+      "mean_first_shadow_own_turn": 2.9,
+      "shadow_by_own_turn_2": 0.367,
+      "shadow_by_own_turn_3": 0.767,
+      "first_shadow_turn_4_plus": 0.233,
+      "attacks": {
+        "934": 3,
+        "936": 2,
+        "937": 121
+      },
+      "diag": {}
+    }
+  }
+}
