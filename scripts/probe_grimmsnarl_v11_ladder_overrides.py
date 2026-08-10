@@ -31,6 +31,7 @@ import csv
 import hashlib
 import json
 import math
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -79,6 +80,32 @@ def archetype(deck: list[int] | None) -> str:
         )
 
     return CARDS.get(max(pokemon.items(), key=key)[0], {}).get("name", "?")
+
+
+def deck_label(deck: list[int] | None, top: int = 3) -> str:
+    """Name a deck by its heaviest public evolution lines for filtering."""
+    if not deck:
+        return "unknown"
+    pokemon = Counter(
+        cid for cid in deck
+        if CARDS.get(cid, {}).get("cardType") == 0
+        and (
+            CARDS[cid].get("stage1")
+            or CARDS[cid].get("stage2")
+            or CARDS[cid].get("ex")
+            or CARDS[cid].get("megaEx")
+        )
+    )
+    names = [
+        CARDS[cid].get("name", str(cid))
+        for cid, _ in sorted(
+            pokemon.items(),
+            key=lambda item: (
+                -item[1], -int(CARDS[item[0]].get("hp", 0))
+            ),
+        )[:top]
+    ]
+    return " + ".join(names) if names else archetype(deck)
 
 
 def load(agent_dir: Path):
@@ -177,6 +204,10 @@ def main() -> int:
         help="RUN_DIR:SUBMISSION_ID, repeatable.",
     )
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument(
+        "--opponent",
+        help="Optional case-insensitive regex applied to the full-deck archetype label.",
+    )
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
@@ -221,6 +252,27 @@ def main() -> int:
                 "create_time": raw["create_time"],
             })
     episodes.sort(key=lambda e: e["create_time"])
+    if args.opponent:
+        pattern = re.compile(args.opponent, re.IGNORECASE)
+        filtered: list[dict[str, Any]] = []
+        for meta in episodes:
+            replay = json.loads(meta["path"].read_text(encoding="utf-8"))
+            steps = replay.get("steps") or []
+            decks: list[list[int] | None] = [None, None]
+            if len(steps) > 1:
+                for seat in (0, 1):
+                    action = (steps[1][seat] or {}).get("action")
+                    if isinstance(action, list) and len(action) == 60:
+                        decks[seat] = [int(value) for value in action]
+            opponent_deck = decks[1 - int(meta["seat"])]
+            label = (
+                "MIRROR"
+                if opponent_deck and deck_hash(opponent_deck) == MIRROR_HASH
+                else deck_label(opponent_deck)
+            )
+            if pattern.search(label):
+                filtered.append(meta)
+        episodes = filtered
     if args.limit:
         episodes = episodes[: args.limit]
 

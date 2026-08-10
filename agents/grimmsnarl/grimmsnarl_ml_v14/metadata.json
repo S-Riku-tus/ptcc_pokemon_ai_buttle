@@ -1,0 +1,87 @@
+{
+  "name": "grimmsnarl_ml_v14",
+  "version": "14.0.0",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v13",
+  "champion_policy": "grimmsnarl_ml_v8",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Exact v8 champion in every matchup, plus the measured Petrel/dead-Stamp residual and a one-decision wall-development safety gate. v13's v9 and wall full-policy overrides are removed.",
+  "ranker": {
+    "source": "identical to grimmsnarl_ml_v8",
+    "trees": 2000,
+    "features": 823,
+    "teacher_team_id": 16494330,
+    "sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79",
+    "model_changed": false
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass"
+  },
+  "router": {
+    "role": "public-information telemetry only",
+    "policy_switches": 0,
+    "information": "opponent active, bench, discard, pre-evolutions and stadium only",
+    "hidden_deck_or_hand_used": false,
+    "routes": ["v8_default", "v8_mirror", "v8_alakazam_guarded", "v8_wall_guarded"]
+  },
+  "residual": {
+    "module": "ml_residual.py",
+    "context": 7,
+    "trigger_effect_card_id": 1219,
+    "trigger_card_id": 1080,
+    "board_condition": "the opponent took no prize during their last turn, and no Unfair Stamp is already in hand",
+    "panel_team_ids": [16371703, 16422241, 16452116, 16561259],
+    "panel_teacher_codes": [0, 9, 12, 20],
+    "panel_need": 3,
+    "extra_model_files": 0
+  },
+  "wall_guard": {
+    "module": "matchup_guard.py",
+    "base_policy": "v8",
+    "trigger": "v8 selected Shadow Bullet, active damage is zero, Bench-30 takes no prize, and fallback offers a non-closing action",
+    "override": "exactly one fallback-selected development action",
+    "protected": [
+      "damageable-active attacks",
+      "Bench-prize Shadow Bullet",
+      "free swing when fallback also attacks or ends",
+      "all non-MAIN contexts"
+    ]
+  },
+  "rejected_v13_experts": {
+    "wall_state_machine": "1-10 over routed v13 games; it changed roughly 20-58 decisions per wall game and became the whole policy rather than a validator",
+    "v9_alakazam": "8-7 over routed v13 games; the model was trained as a generic four-teacher consensus, not an Alakazam specialist",
+    "v9_model_packaged": false
+  },
+  "files_identical_to_v8": [
+    "deck.csv",
+    "fallback_policy.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_runtime.py",
+    "policy_base.py",
+    "ranker_model.json"
+  ],
+  "evidence": {
+    "v13_submission_ids": [55380882, 55380958],
+    "v13_rated_games": 116,
+    "v13_record": "66-50",
+    "v13_peak_rating_in_logs": 1112.8,
+    "v13_wall_route_record": "1-10",
+    "v13_alakazam_route_record": "8-7",
+    "v13_default_record": "30-16",
+    "v13_mirror_record": "27-17",
+    "specialist_same_board_decisions": 2450,
+    "specialist_same_board_v13_vs_v8_differences": 514,
+    "dead_stamp_rating_gradient_rho": -0.6065,
+    "dead_stamp_rating_gradient_p": 0.00356,
+    "dead_stamp_gradient_pilots": 21
+  },
+  "submission_priority": 1,
+  "description": "A falsifiable recovery from v13: retain its successful return to v8, remove both unvalidated full-policy specialists, and keep only narrow residuals whose protected states are explicit."
+}

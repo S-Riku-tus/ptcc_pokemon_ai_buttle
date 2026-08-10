@@ -1,0 +1,733 @@
+{
+  "base": "agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "candidate": "agents\\grimmsnarl\\grimmsnarl_ml_v14",
+  "episodes": 28,
+  "decisions": 2450,
+  "overrides": 10,
+  "override_rate_per_decision": 0.004082,
+  "override_rate_per_game": 0.3571,
+  "games_with_override": 8,
+  "games_without_override": 20,
+  "outcome_split": {
+    "with_override": {
+      "games": 8,
+      "wins": 3,
+      "losses": 5,
+      "win_rate": 0.375,
+      "mean_opponent_rating": 823.4,
+      "mean_overrides": 1.25
+    },
+    "without_override": {
+      "games": 20,
+      "wins": 8,
+      "losses": 12,
+      "win_rate": 0.4,
+      "mean_opponent_rating": 947.9,
+      "mean_overrides": 0.0
+    },
+    "fisher_p": 1.0
+  },
+  "search_counters": {},
+  "search_config": {},
+  "reproduction": {
+    "decisions": 2450,
+    "v8_matches_played": 1938,
+    "v11_matches_played": 1946,
+    "v8_rate": 0.791,
+    "v11_rate": 0.7943,
+    "note": "v11 is the deployed policy, so its rate is the probe's fidelity ceiling. A rate well below 1.0 means the replayed layer is not reproducing deployed behaviour and the ledger under-counts."
+  },
+  "selection_sizes": {
+    "1": 2352,
+    "2": 57,
+    "3": 18,
+    "4": 19,
+    "5": 3,
+    "6": 1
+  },
+  "contexts_changed": {
+    "7": 5,
+    "0": 5
+  },
+  "turns_changed": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "8": 3
+  },
+  "cards_v8_would_play": {
+    "Unfair Stamp": 5,
+    "": 5
+  },
+  "cards_v11_plays": {
+    "Lillie's Determination": 3,
+    "Basic {D} Energy": 3,
+    "Spikemuth Gym": 1,
+    "Marnie's Grimmsnarl ex": 1,
+    "": 1,
+    "Poké Pad": 1
+  },
+  "by_opponent": {
+    "Alakazam": {
+      "all": {
+        "games": 18,
+        "wins": 11,
+        "losses": 7,
+        "win_rate": 0.6111,
+        "mean_opponent_rating": 898.3,
+        "mean_overrides": 0.222
+      },
+      "with_override": {
+        "games": 4,
+        "wins": 3,
+        "losses": 1,
+        "win_rate": 0.75,
+        "mean_opponent_rating": 818.1,
+        "mean_overrides": 1.0
+      },
+      "without_override": {
+        "games": 14,
+        "wins": 8,
+        "losses": 6,
+        "win_rate": 0.5714,
+        "mean_opponent_rating": 921.3,
+        "mean_overrides": 0.0
+      }
+    },
+    "Mega Kangaskhan ex": {
+      "all": {
+        "games": 7,
+        "wins": 0,
+        "losses": 7,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 1000.5,
+        "mean_overrides": 0.429
+      },
+      "with_override": {
+        "games": 2,
+        "wins": 0,
+        "losses": 2,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 928.8,
+        "mean_overrides": 1.5
+      },
+      "without_override": {
+        "games": 5,
+        "wins": 0,
+        "losses": 5,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 1029.2,
+        "mean_overrides": 0.0
+      }
+    },
+    "Teal Mask Ogerpon ex": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 685.8,
+        "mean_overrides": 2.0
+      },
+      "with_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 685.8,
+        "mean_overrides": 2.0
+      },
+      "without_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      }
+    },
+    "Cornerstone Mask Ogerpon ex": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 771.0,
+        "mean_overrides": 1.0
+      },
+      "with_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 771.0,
+        "mean_overrides": 1.0
+      },
+      "without_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      }
+    },
+    "Crustle": {
+      "all": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 913.9,
+        "mean_overrides": 0.0
+      },
+      "with_override": {
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate": null,
+        "mean_opponent_rating": null,
+        "mean_overrides": null
+      },
+      "without_override": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "mean_opponent_rating": 913.9,
+        "mean_overrides": 0.0
+      }
+    }
+  },
+  "games": [
+    {
+      "episode_id": 91340854,
+      "submission": "55380882",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 608.0035,
+      "decisions": 104,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91341747,
+      "submission": "55380882",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 701.6859,
+      "decisions": 77,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91342666,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 858.7331,
+      "decisions": 85,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91346356,
+      "submission": "55380958",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 861.7598,
+      "decisions": 111,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91348180,
+      "submission": "55380882",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 734.0967,
+      "decisions": 87,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91349048,
+      "submission": "55380958",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 941.7767,
+      "decisions": 75,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91350001,
+      "submission": "55380882",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 875.7724,
+      "decisions": 88,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91350924,
+      "submission": "55380882",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 893.193,
+      "decisions": 98,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91358209,
+      "submission": "55380958",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 1083.1293,
+      "decisions": 69,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91359116,
+      "submission": "55380958",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 1154.9056,
+      "decisions": 107,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91360038,
+      "submission": "55380958",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 988.6069,
+      "decisions": 63,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91361920,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 944.7649,
+      "decisions": 71,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91364675,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 950.4749,
+      "decisions": 65,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91366555,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 997.1682,
+      "decisions": 20,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91368235,
+      "submission": "55380882",
+      "won": true,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 948.606,
+      "decisions": 97,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91371751,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Teal Mask Ogerpon ex",
+      "opponent_score": 685.8291,
+      "decisions": 131,
+      "overrides": 2,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91399131,
+      "submission": "55380882",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 849.2924,
+      "decisions": 81,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91400726,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Cornerstone Mask Ogerpon ex",
+      "opponent_score": 771.0186,
+      "decisions": 108,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91409026,
+      "submission": "55380958",
+      "won": false,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 959.2094,
+      "decisions": 74,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91422336,
+      "submission": "55380882",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 915.2712,
+      "decisions": 129,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91427903,
+      "submission": "55380882",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 1013.5695,
+      "decisions": 73,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91431450,
+      "submission": "55380882",
+      "won": true,
+      "went_first": false,
+      "opponent": "Alakazam",
+      "opponent_score": 1040.0834,
+      "decisions": 114,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91438666,
+      "submission": "55380882",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 912.7249,
+      "decisions": 62,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91446801,
+      "submission": "55380882",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 989.1956,
+      "decisions": 90,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91449505,
+      "submission": "55380958",
+      "won": false,
+      "went_first": true,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 997.8888,
+      "decisions": 80,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91460175,
+      "submission": "55380958",
+      "won": false,
+      "went_first": true,
+      "opponent": "Alakazam",
+      "opponent_score": 1040.8322,
+      "decisions": 87,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91464970,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Crustle",
+      "opponent_score": 913.908,
+      "decisions": 99,
+      "overrides": 0,
+      "searches": 0,
+      "search_overrides": 0
+    },
+    {
+      "episode_id": 91475481,
+      "submission": "55380882",
+      "won": false,
+      "went_first": false,
+      "opponent": "Mega Kangaskhan ex",
+      "opponent_score": 912.7824,
+      "decisions": 105,
+      "overrides": 1,
+      "searches": 0,
+      "search_overrides": 0
+    }
+  ],
+  "ledger": [
+    {
+      "episode_id": 91340854,
+      "won": true,
+      "opponent": "Alakazam",
+      "turn": 3,
+      "context": 7,
+      "options": 23,
+      "v8": {
+        "slot": 1,
+        "card": 1080,
+        "name": "Unfair Stamp"
+      },
+      "v11": {
+        "slot": 7,
+        "card": 1259,
+        "name": "Spikemuth Gym"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 91348180,
+      "won": true,
+      "opponent": "Alakazam",
+      "turn": 2,
+      "context": 7,
+      "options": 26,
+      "v8": {
+        "slot": 7,
+        "card": 1080,
+        "name": "Unfair Stamp"
+      },
+      "v11": {
+        "slot": 1,
+        "card": 1227,
+        "name": "Lillie's Determination"
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 91349048,
+      "won": true,
+      "opponent": "Alakazam",
+      "turn": 2,
+      "context": 7,
+      "options": 24,
+      "v8": {
+        "slot": 1,
+        "card": 1080,
+        "name": "Unfair Stamp"
+      },
+      "v11": {
+        "slot": 13,
+        "card": 1227,
+        "name": "Lillie's Determination"
+      },
+      "played": 13
+    },
+    {
+      "episode_id": 91360038,
+      "won": false,
+      "opponent": "Alakazam",
+      "turn": 3,
+      "context": 7,
+      "options": 22,
+      "v8": {
+        "slot": 11,
+        "card": 1080,
+        "name": "Unfair Stamp"
+      },
+      "v11": {
+        "slot": 0,
+        "card": 1227,
+        "name": "Lillie's Determination"
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 91361920,
+      "won": false,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 6,
+      "context": 0,
+      "options": 8,
+      "v8": {
+        "slot": 5,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 2,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 91361920,
+      "won": false,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 8,
+      "context": 0,
+      "options": 9,
+      "v8": {
+        "slot": 6,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 2,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 2
+    },
+    {
+      "episode_id": 91371751,
+      "won": false,
+      "opponent": "Teal Mask Ogerpon ex",
+      "turn": 8,
+      "context": 0,
+      "options": 6,
+      "v8": {
+        "slot": 3,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 1,
+        "card": 648,
+        "name": "Marnie's Grimmsnarl ex"
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 91371751,
+      "won": false,
+      "opponent": "Teal Mask Ogerpon ex",
+      "turn": 8,
+      "context": 0,
+      "options": 4,
+      "v8": {
+        "slot": 1,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 0,
+        "card": -1,
+        "name": ""
+      },
+      "played": 0
+    },
+    {
+      "episode_id": 91400726,
+      "won": false,
+      "opponent": "Cornerstone Mask Ogerpon ex",
+      "turn": 6,
+      "context": 7,
+      "options": 24,
+      "v8": {
+        "slot": 5,
+        "card": 1080,
+        "name": "Unfair Stamp"
+      },
+      "v11": {
+        "slot": 3,
+        "card": 1152,
+        "name": "Poké Pad"
+      },
+      "played": 1
+    },
+    {
+      "episode_id": 91475481,
+      "won": false,
+      "opponent": "Mega Kangaskhan ex",
+      "turn": 4,
+      "context": 0,
+      "options": 13,
+      "v8": {
+        "slot": 10,
+        "card": -1,
+        "name": ""
+      },
+      "v11": {
+        "slot": 4,
+        "card": 7,
+        "name": "Basic {D} Energy"
+      },
+      "played": 4
+    }
+  ]
+}
