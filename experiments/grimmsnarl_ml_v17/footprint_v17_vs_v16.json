@@ -1,0 +1,110 @@
+{
+  "comparison": "v16 wall_break -> v17 wall_break",
+  "totals": {
+    "decisions": 9753,
+    "differences": 7,
+    "games": 110
+  },
+  "by_matchup": {
+    "alakazam": {
+      "decisions": 1496
+    },
+    "festival": {
+      "decisions": 177
+    },
+    "mirror": {
+      "decisions": 3367
+    },
+    "other": {
+      "decisions": 2971
+    },
+    "wall": {
+      "decisions": 1742,
+      "differences": 7
+    }
+  },
+  "by_shape": {
+    "ctx0:type9 -> ctx0:attack:shadow": 6,
+    "ctx21:type3 -> ctx21:type3": 1
+  },
+  "episodes_touched": [
+    {
+      "episode_id": 91691207,
+      "matchup": "wall",
+      "differences": 2
+    },
+    {
+      "episode_id": 91697783,
+      "matchup": "wall",
+      "differences": 2
+    },
+    {
+      "episode_id": 91688438,
+      "matchup": "wall",
+      "differences": 1
+    },
+    {
+      "episode_id": 91768893,
+      "matchup": "wall",
+      "differences": 1
+    },
+    {
+      "episode_id": 91793871,
+      "matchup": "wall",
+      "differences": 1
+    }
+  ],
+  "v16_guard": {
+    "considered": 9753,
+    "main_decisions": 4440,
+    "dead_swing_turns": 109,
+    "dead_swing_decisions": 548,
+    "boss_prize_deferred": 46,
+    "no_breaker_in_play": 151,
+    "breaker_too_slow": 128,
+    "breaker_would_be_sacrificed": 80,
+    "attack_forced": 0,
+    "fuel_attach_forced": 10,
+    "escape_attach_forced": 0,
+    "retreat_forced": 13,
+    "attachment_redirected": 10,
+    "dead_shadow_replaced": 11,
+    "end_replaced": 0,
+    "route_compatible_kept": 7,
+    "promote_forced": 0,
+    "promote_already_right": 1,
+    "last_breaker_evolve_refused": 2,
+    "last_breaker_evolve_kept": 6,
+    "new_game_detected": 0,
+    "errors": 0
+  },
+  "v17_guard": {
+    "considered": 9753,
+    "main_decisions": 4440,
+    "dead_swing_turns": 109,
+    "dead_swing_decisions": 548,
+    "boss_prize_deferred": 54,
+    "no_breaker_in_play": 155,
+    "breaker_too_slow": 132,
+    "breaker_would_be_sacrificed": 83,
+    "attack_forced": 0,
+    "fuel_attach_forced": 10,
+    "escape_attach_forced": 0,
+    "retreat_forced": 13,
+    "attachment_redirected": 10,
+    "dead_shadow_replaced": 11,
+    "end_replaced": 0,
+    "route_compatible_kept": 7,
+    "promote_forced": 0,
+    "promote_already_right": 1,
+    "last_breaker_evolve_refused": 8,
+    "last_breaker_evolve_kept": 0,
+    "last_breaker_preserve_shadow": 6,
+    "last_breaker_preserve_end": 0,
+    "punk_breaker_considered": 5,
+    "punk_breaker_forced": 1,
+    "punk_breaker_kept": 4,
+    "new_game_detected": 0,
+    "errors": 0
+  }
+}
