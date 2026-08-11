@@ -1,11 +1,10 @@
-"""Marnie's Grimmsnarl ex ML v19: refreshed matchup-conditioned ranker.
+"""Marnie's Grimmsnarl ex ML v19: win-weighted high-rated ranker.
 
 v19 retains v18's verified arithmetic and wall invariants, but replaces the
-core v8-era ranker for the first time since v9.  A shared conditioned model is
-trained on 4,697 exact-list trajectories, including 600 refreshed games from
-three pilots rated 1114-1151.  The public matchup router selects the learned
-teacher pin: Sixth Sense for default, mirror and wall, and kd for Alakazam.
-No scores from different teachers are mixed inside one choice.
+core v8-era ranker with one coherent, teacher-unconditioned model. It learns
+from the current-top4 corpus plus 600 refreshed games from three 1000+ pilots;
+decisions in games the teacher won receive four times the fit weight. Outcome
+is never an inference feature, and no matchup or phase policies are stitched.
 
 v18 adds one mirror-only safety layer over v17.  After our first Shadow
 Bullet, damage placement may choose among several opposing Benched Pokemon.

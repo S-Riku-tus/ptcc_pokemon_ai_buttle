@@ -56,21 +56,21 @@
   },
   "local_validation": {
     "purpose": "outcome screen and safety check; native engine shuffle is not paired",
-    "aggregate_games": 160,
-    "aggregate_record": "94-66",
-    "aggregate_win_rate": 0.5875,
+    "aggregate_games": 200,
+    "aggregate_record": "114-86",
+    "aggregate_win_rate": 0.57,
     "crashes": 0,
     "illegal_selects": 0,
     "representative_opponents": {
       "grimmsnarl_ml_v8": {"games": 20, "record": "11-9"},
-      "grimmsnarl_ml_v9": {"games": 80, "record": "47-33"},
-      "grimmsnarl_ml_v15": {"games": 40, "record": "24-16"},
+      "grimmsnarl_ml_v9": {"games": 100, "record": "55-45"},
+      "grimmsnarl_ml_v15": {"games": 60, "record": "36-24"},
       "grimmsnarl_ml_v18": {"games": 20, "record": "12-8"}
     },
     "model_candidate_screen": {
       "unweighted_vs_v9": "11-9 over 20",
       "win_weight_2_vs_v9": "8-12 over 20; rejected",
-      "win_weight_4_vs_v9": "47-33 over 80; selected",
+      "win_weight_4_vs_v9": "55-45 over 100; selected",
       "phase_stitched_v19_vs_v9": "6-14 over 20; rejected and removed"
     }
   },
