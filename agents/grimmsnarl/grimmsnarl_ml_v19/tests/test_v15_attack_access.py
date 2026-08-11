@@ -511,12 +511,12 @@ def test_v19_keeps_v18s_deck_and_attack_access_against_v15() -> None:
     assert metadata["ranker"]["model_changed"] is True
     assert metadata["router"]["policy_switches"] == 0
     assert metadata["router"]["teacher_pin_switches"] == 0
-    assert metadata["router"]["model_expert_switches"] == 1
+    assert metadata["router"]["model_expert_switches"] == 0
     assert "AttackAccessGuard" in source
     assert "WallBreakGuard" in source
     assert "WallSafetyGuard" in source
     assert "Residual" in source
-    assert (AGENT_DIR / "ranker_model_v9.json").exists()
+    assert not (AGENT_DIR / "ranker_model_v9.json").exists()
 
     v15 = AGENT_DIR.parent / "grimmsnarl_ml_v15"
     if not v15.is_dir():  # v15 may be archived away later
@@ -528,19 +528,16 @@ def test_v19_keeps_v18s_deck_and_attack_access_against_v15() -> None:
     changed = set(metadata["files_changed_from_v15"])
     assert changed == {
         "main.py", "ml_runtime.py", "wall_break.py", "policy_router.py",
-        "mirror_prize.py", "ranker_model.json", "ranker_model_v9.json",
-        "metadata.json",
+        "mirror_prize.py", "ranker_model.json", "metadata.json",
     }
     assert not (v15 / "wall_break.py").exists()
     assert not (v15 / "mirror_prize.py").exists()
-    for name in changed - {
-        "wall_break.py", "mirror_prize.py", "ranker_model_v9.json"
-    }:
+    for name in changed - {"wall_break.py", "mirror_prize.py"}:
         ours = hashlib.sha256((AGENT_DIR / name).read_bytes()).hexdigest()
         theirs = hashlib.sha256((v15 / name).read_bytes()).hexdigest()
         assert ours != theirs, name
     assert (
         hashlib.sha256(
             (AGENT_DIR / "ranker_model.json").read_bytes()
-        ).hexdigest() == metadata["ranker"]["primary"]["sha256"]
+        ).hexdigest() == metadata["ranker"]["sha256"]
     )

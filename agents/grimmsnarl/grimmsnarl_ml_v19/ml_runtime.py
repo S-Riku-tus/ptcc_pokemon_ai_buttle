@@ -1,16 +1,11 @@
-"""Standard-library runtime for v19's two-expert imitation ranker.
+"""Standard-library runtime for v19's win-weighted imitation ranker.
 
-The primary expert is a fresh unconditioned fit over the v8 current-teacher
-corpus plus 600 newer games from three 1000+ pilots.  It is strongest in the
-opening and in two measured matchup phases.  The secondary expert is the v9
-consensus model, retained for the mid/late regions where the fresh fit did not
-clear it.  A complete candidate set is always scored by exactly one expert, so
-scores from different tree ensembles are never compared inside one argmax.
-
-Both experts use the same 822 observation-derived features.  The final gate
-reads only the public turn number: the new fit owns turns 1-4 and the stable
-v9 consensus owns turn 5 onward.  It never reads the teacher, hidden hand,
-deck order, replay id, opponent identity, or outcome.
+The single unconditioned model is fitted over the v8 current-teacher corpus
+plus 600 newer games from three 1000+ pilots. Decisions from games the teacher
+won receive four times the fit weight, so the model learns one coherent policy
+from successful trajectories instead of stitching pilots or phase experts.
+It uses 822 observation-derived features and never reads hidden state, replay
+identity, the acting teacher, or the eventual result at inference time.
 """
 
 from __future__ import annotations
@@ -180,24 +175,12 @@ def _prepare(node: dict[str, Any]) -> None:
 
 
 class Ranker:
-    def __init__(self, model_path: str = "ranker_model.json",
-                 secondary_model_path: str | None = "ranker_model_v9.json"):
+    def __init__(self, model_path: str = "ranker_model.json"):
         with open(_resolve(model_path), encoding="utf-8") as handle:
             self.model = json.load(handle)
         for tree in self.model["trees"]:
             _prepare(tree)
         self.names: list[str] = list(self.model["feature_names"])
-        self.secondary_model: dict[str, Any] | None = None
-        if secondary_model_path:
-            with open(_resolve(secondary_model_path), encoding="utf-8") as handle:
-                secondary = json.load(handle)
-            if list(secondary.get("feature_names") or ()) != self.names:
-                raise ValueError("v19 experts must use the same feature order")
-            if "teacher_team_id" in self.names:
-                raise ValueError("v19 experts must be teacher-unconditioned")
-            for tree in secondary["trees"]:
-                _prepare(tree)
-            self.secondary_model = secondary
         # Contexts the export measured as worth routing. Without it every
         # context in SCORABLE_CONTEXTS is scored, which shipped context 8 on
         # 9 held-out decisions at 22% Top-1 - a rule replaced by noise.
@@ -260,7 +243,6 @@ class Ranker:
         self.route_teacher_codes = getattr(self, "route_teacher_codes", {})
         self.teacher_code = self.default_teacher_code
         self.active_route = ""
-        self.active_expert = "primary_v19"
         # Set by main from the public-information router, once per observation.
         # False means "not a mirror", which is v15's behaviour everywhere.
         self.suspend_escalation = False
@@ -292,14 +274,12 @@ class Ranker:
             "escalation_suspended_mirror": 0,
             "route_updates": 0,
             "route_teacher_changes": 0,
-            "primary_expert_decisions": 0,
-            "secondary_expert_decisions": 0,
         }
         for spec in getattr(self, "escalation_classes", ()):
             self.stats[f"escalation_offered_{spec['name']}"] = 0
 
     def set_route(self, route: str) -> None:
-        """Record the public matchup route used by the v19 expert gate."""
+        """Record the public matchup route for retained v18 safety layers."""
         code = self.route_teacher_codes.get(
             str(route), self.default_teacher_code
         )
@@ -309,32 +289,6 @@ class Ranker:
                 self.stats["route_teacher_changes"] += 1
             self.active_route = str(route)
         self.teacher_code = code
-
-    def _select_expert(self, observation: dict[str, Any]) -> dict[str, Any]:
-        """Choose one whole-argmax expert from public state only.
-
-        On the chronological high-rated test block the fresh fit cleared v9 in
-        the opening across the complete matchup mix. Finer matchup gates were
-        rejected because the live router intentionally keeps a detected route
-        sticky. Missing turn numbers are treated as opening state, which is
-        both conservative and deterministic.
-        """
-        secondary_model = getattr(self, "secondary_model", None)
-        if secondary_model is None:
-            self.active_expert = "primary_v19"
-            return self.model
-        try:
-            turn = int(
-                ((observation.get("current") or {}).get("turn")) or 0
-            )
-        except (TypeError, ValueError):
-            turn = 0
-        use_primary = turn <= 4
-        if use_primary:
-            self.active_expert = "primary_v19"
-            return self.model
-        self.active_expert = "secondary_v9"
-        return secondary_model
 
     @staticmethod
     def is_main(select: dict[str, Any] | None) -> bool:
@@ -519,8 +473,6 @@ class Ranker:
             # option is interchangeable here anyway.
             return None
         self._pending = features
-        scoring_model = self._select_expert(observation)
-        self.stats[f"{self.active_expert.split('_', 1)[0]}_expert_decisions"] += 1
         spec = self._escalated_class(select, features, representatives)
         if spec is not None:
             self.stats["escalation_offered"] += 1
@@ -529,12 +481,10 @@ class Ranker:
             if spec is not None and self.escalation_mode == "class":
                 self.stats["escalation_scored"] += 1
                 best_index, scores = self._score(
-                    features, representatives, self.escalation_code,
-                    scoring_model
+                    features, representatives, self.escalation_code
                 )
                 pinned_index, _ = self._score(
-                    features, representatives, self.teacher_code,
-                    scoring_model
+                    features, representatives, self.teacher_code
                 )
                 # Counted, not used: the pin's answer is what v5 would have
                 # played here, so the difference is the deployed change rate
@@ -545,8 +495,7 @@ class Ranker:
                         self.stats["escalation_refused_trigger"] += 1
             else:
                 best_index, scores = self._score(
-                    features, representatives, self.teacher_code,
-                    scoring_model
+                    features, representatives, self.teacher_code
                 )
                 if spec is not None and self._in_class(
                     features[best_index], spec
@@ -556,8 +505,7 @@ class Ranker:
                     # nothing else.
                     self.stats["escalation_scored"] += 1
                     moved, escalated_scores = self._score(
-                        features, representatives, self.escalation_code,
-                        scoring_model
+                        features, representatives, self.escalation_code
                     )
                     if moved != best_index:
                         self.stats["escalation_moved"] += 1
@@ -576,7 +524,6 @@ class Ranker:
         features: list[dict[str, Any]],
         representatives: list[int],
         teacher_code: Any,
-        model: dict[str, Any] | None = None,
     ) -> tuple[int, dict[int, float]]:
         """Argmax and every score, all as the same pilot.
 
@@ -592,7 +539,7 @@ class Ranker:
             vector = [float(row.get(name, -1)) for name in self.names]
             if self.teacher_index >= 0:
                 vector[self.teacher_index] = float(teacher_code)
-            score = tree_score(vector, model or self.model)
+            score = tree_score(vector, self.model)
             scores[position] = score
             if best_score is None or score > best_score:
                 best_score = score
@@ -664,7 +611,5 @@ class Ranker:
             "teacher_code": self.teacher_code,
             "default_teacher_code": self.default_teacher_code,
             "route_teacher_codes": dict(self.route_teacher_codes),
-            "active_expert": self.active_expert,
-            "secondary_model_loaded": self.secondary_model is not None,
         })
         return result

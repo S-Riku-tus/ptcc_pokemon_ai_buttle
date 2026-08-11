@@ -1,4 +1,4 @@
-"""The v19 retrained primary, retained v9 expert, and public-state gate."""
+"""The v19 win-weighted, unconditioned model artifact."""
 
 from __future__ import annotations
 
@@ -18,49 +18,37 @@ def artifact(name: str) -> dict:
     return json.loads((AGENT_DIR / name).read_text(encoding="utf-8"))
 
 
-def test_both_model_artifacts_are_the_recorded_fits() -> None:
-    primary = artifact("ranker_model.json")
-    secondary = artifact("ranker_model_v9.json")
+def test_model_artifact_is_the_recorded_win_weighted_fit() -> None:
+    model = artifact("ranker_model.json")
     metadata = artifact("metadata.json")
-    primary_digest = hashlib.sha256(
+    digest = hashlib.sha256(
         (AGENT_DIR / "ranker_model.json").read_bytes()
     ).hexdigest()
-    secondary_digest = hashlib.sha256(
-        (AGENT_DIR / "ranker_model_v9.json").read_bytes()
-    ).hexdigest()
-    assert len(primary["trees"]) == 413
-    assert len(secondary["trees"]) == 1485
-    assert len(primary["feature_names"]) == 822
-    assert primary["feature_names"] == secondary["feature_names"]
-    assert "teacher_team_id" not in primary["feature_names"]
-    assert primary_digest == metadata["ranker"]["primary"]["sha256"]
-    assert secondary_digest == metadata["ranker"]["secondary"]["sha256"]
+    assert len(model["trees"]) == 575
+    assert len(model["feature_names"]) == 822
+    assert "teacher_team_id" not in model["feature_names"]
+    assert digest == metadata["ranker"]["sha256"]
+    assert metadata["ranker"]["win_weight"] == 4.0
     assert metadata["ranker"]["retrained"] is True
 
 
-def test_gate_uses_one_complete_expert_on_each_side_of_turn_four() -> None:
+def test_only_one_coherent_policy_model_ships() -> None:
+    assert not (AGENT_DIR / "ranker_model_v9.json").exists()
     ranker = ml_runtime.Ranker()
-    ranker.set_route("v8_default")
-    assert ranker._select_expert({"current": {"turn": 4}}) is ranker.model
-    assert ranker._select_expert({"current": {"turn": 5}}) is ranker.secondary_model
-
-    ranker.set_route("v8_alakazam_guarded")
-    assert ranker._select_expert({"current": {"turn": 4}}) is ranker.model
-    assert ranker._select_expert({"current": {"turn": 5}}) is ranker.secondary_model
-
-    ranker.set_route("v8_mirror")
-    assert ranker._select_expert({"current": {"turn": 4}}) is ranker.model
-    assert ranker._select_expert({"current": {"turn": 9}}) is ranker.secondary_model
+    assert not hasattr(ranker, "secondary_model")
     assert ranker.teacher_code is None
     assert ranker.default_teacher_code is None
     assert ranker.route_teacher_codes == {}
 
 
-def test_unknown_route_uses_opening_primary_then_stable_secondary() -> None:
+def test_public_route_does_not_change_the_unconditioned_model() -> None:
     ranker = ml_runtime.Ranker()
-    ranker.set_route("future_unknown_matchup")
-    assert ranker._select_expert({"current": {"turn": 1}}) is ranker.model
-    assert ranker._select_expert({"current": {"turn": 6}}) is ranker.secondary_model
+    ranker.set_route("v8_alakazam_guarded")
+    assert ranker.active_route == "v8_alakazam_guarded"
+    assert ranker.teacher_code is None
+    ranker.set_route("v8_mirror")
+    assert ranker.active_route == "v8_mirror"
+    assert ranker.snapshot()["route_teacher_changes"] == 0
 
 
 def test_legacy_class_escalation_is_retired() -> None:

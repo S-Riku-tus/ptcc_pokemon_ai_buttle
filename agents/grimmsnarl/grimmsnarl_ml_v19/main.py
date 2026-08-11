@@ -297,22 +297,16 @@ def _choose(observation: Any):
         index = _PLANNER.adjust(
             observation, select, index, _RANKER.last_scores
         )
-    # The secondary is retained as the complete v9 decision expert, not just
-    # its tree file. v9's measured path is ranker -> planner; applying v10-v18
-    # residual/guard layers after its argmax changed that policy and erased the
-    # held-out advantage which justified retaining it. The freshly trained
-    # primary continues through every v18 safety layer.
-    if getattr(_RANKER, "active_expert", "primary_v19") != "secondary_v9":
-        if not _RESIDUAL_DISABLED:
-            index = _RESIDUAL.adjust(
-                observation, select, index, _RANKER, _RANKER.last_scores
-            )
-        if not _WALL_GUARD_DISABLED:
-            index = _WALL_GUARD.adjust(
-                observation, select, index, rule_choice
-            )
-        # Last, so the invariant has the final word over advisory layers.
-        index = _route(observation, select, index, rule_choice)
+    if not _RESIDUAL_DISABLED:
+        index = _RESIDUAL.adjust(
+            observation, select, index, _RANKER, _RANKER.last_scores
+        )
+    if not _WALL_GUARD_DISABLED:
+        index = _WALL_GUARD.adjust(
+            observation, select, index, rule_choice
+        )
+    # Last, so the invariant has the final word over advisory layers.
+    index = _route(observation, select, index, rule_choice)
 
     _RANKER.commit(index)
     if _PLANNER is not None and not _RANKER.teacher_forced:

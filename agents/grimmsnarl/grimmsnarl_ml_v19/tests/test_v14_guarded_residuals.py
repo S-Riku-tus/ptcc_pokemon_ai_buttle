@@ -106,9 +106,8 @@ def test_v13_full_policy_experts_stay_removed() -> None:
     # The v15 artifact assertions live in tests/test_v15_attack_access.py; this
     # one only guards the two v13 specialists against coming back.
     source = (AGENT_DIR / "main.py").read_text(encoding="utf-8")
-    assert (AGENT_DIR / "ranker_model_v9.json").exists()
+    assert not (AGENT_DIR / "ranker_model_v9.json").exists()
     assert "wall_state_machine" not in source
-    # v19 retains only v9's ranker artifact, never its full policy shell.
     assert "ranker_model_v9.json" not in source
     assert json.loads(
         (AGENT_DIR / "metadata.json").read_text(encoding="utf-8")
