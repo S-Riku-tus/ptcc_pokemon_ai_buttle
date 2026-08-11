@@ -1,0 +1,149 @@
+{
+  "counterfactual_v16_disabled": {
+    "games": 36,
+    "decisions": 3367,
+    "differences": 0,
+    "by_shape": {},
+    "by_matchup": {
+      "mirror": {
+        "decisions": 3367,
+        "differences": 0
+      }
+    },
+    "episodes_touched": [],
+    "guard": {
+      "considered": 0,
+      "main_decisions": 0,
+      "dead_swing_turns": 0,
+      "dead_swing_decisions": 0,
+      "boss_prize_deferred": 0,
+      "no_breaker_in_play": 0,
+      "breaker_too_slow": 0,
+      "breaker_would_be_sacrificed": 0,
+      "attack_forced": 0,
+      "fuel_attach_forced": 0,
+      "escape_attach_forced": 0,
+      "retreat_forced": 0,
+      "attachment_redirected": 0,
+      "dead_shadow_replaced": 0,
+      "end_replaced": 0,
+      "route_compatible_kept": 0,
+      "promote_forced": 0,
+      "promote_already_right": 0,
+      "last_breaker_evolve_refused": 0,
+      "last_breaker_evolve_kept": 0,
+      "new_game_detected": 0,
+      "errors": 0
+    }
+  },
+  "footprint_v16_live": {
+    "games": 36,
+    "decisions": 3367,
+    "differences": 45,
+    "by_shape": {
+      "ctx0:attack:shadow -> ctx0:type9": 10,
+      "ctx0:type7 -> ctx0:type9": 9,
+      "ctx0:type10 -> ctx0:type9": 7,
+      "ctx0:type10 -> ctx0:type7": 4,
+      "ctx0:type7 -> ctx0:type10": 2,
+      "ctx0:type7 -> ctx0:type7": 2,
+      "ctx0:type9 -> ctx0:type7": 2,
+      "ctx0:type14 -> ctx0:type9": 2,
+      "ctx0:attack:shadow -> ctx0:type10": 1,
+      "ctx0:type9 -> ctx0:type9": 1,
+      "ctx0:type12 -> ctx0:type9": 1,
+      "ctx0:attack:shadow -> ctx0:type7": 1,
+      "ctx0:type8 -> ctx0:type12": 1,
+      "ctx0:attack:shadow -> ctx0:type12": 1,
+      "ctx0:type10 -> ctx0:type10": 1
+    },
+    "by_matchup": {
+      "mirror": {
+        "decisions": 3367,
+        "differences": 45
+      }
+    },
+    "episodes_touched": [
+      {
+        "episode_id": 91647514,
+        "matchup": "mirror",
+        "differences": 18
+      },
+      {
+        "episode_id": 91690205,
+        "matchup": "mirror",
+        "differences": 5
+      },
+      {
+        "episode_id": 91690274,
+        "matchup": "mirror",
+        "differences": 5
+      },
+      {
+        "episode_id": 91780199,
+        "matchup": "mirror",
+        "differences": 4
+      },
+      {
+        "episode_id": 91651280,
+        "matchup": "mirror",
+        "differences": 3
+      },
+      {
+        "episode_id": 91638219,
+        "matchup": "mirror",
+        "differences": 3
+      },
+      {
+        "episode_id": 91752421,
+        "matchup": "mirror",
+        "differences": 2
+      },
+      {
+        "episode_id": 91695921,
+        "matchup": "mirror",
+        "differences": 2
+      },
+      {
+        "episode_id": 91733024,
+        "matchup": "mirror",
+        "differences": 1
+      },
+      {
+        "episode_id": 91663401,
+        "matchup": "mirror",
+        "differences": 1
+      },
+      {
+        "episode_id": 91701504,
+        "matchup": "mirror",
+        "differences": 1
+      }
+    ],
+    "guard": {
+      "considered": 3367,
+      "main_decisions": 1436,
+      "dead_swing_turns": 0,
+      "dead_swing_decisions": 0,
+      "boss_prize_deferred": 0,
+      "no_breaker_in_play": 0,
+      "breaker_too_slow": 0,
+      "breaker_would_be_sacrificed": 0,
+      "attack_forced": 0,
+      "fuel_attach_forced": 0,
+      "escape_attach_forced": 0,
+      "retreat_forced": 0,
+      "attachment_redirected": 0,
+      "dead_shadow_replaced": 0,
+      "end_replaced": 0,
+      "route_compatible_kept": 0,
+      "promote_forced": 0,
+      "promote_already_right": 0,
+      "last_breaker_evolve_refused": 0,
+      "last_breaker_evolve_kept": 0,
+      "new_game_detected": 0,
+      "errors": 0
+    }
+  },
+  "verdict": "clean"
+}
