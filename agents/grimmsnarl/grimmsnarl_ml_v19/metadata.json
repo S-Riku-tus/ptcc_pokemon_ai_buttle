@@ -1,0 +1,178 @@
+{
+  "name": "grimmsnarl_ml_v19",
+  "version": "19.0.0",
+  "role": "offline-validated_challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v18",
+  "created_at": "2026-08-11T16:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "v18 safety layers over a two-expert, high-rated imitation core",
+  "ranker": {
+    "architecture": "public-state mixture of two complete LambdaRank experts",
+    "features": 822,
+    "model_changed": true,
+    "retrained": true,
+    "primary": {
+      "artifact": "ranker_model.json",
+      "source": "corpus_v19_current.npz / ranker_v19_current_unconditioned.txt",
+      "trees": 413,
+      "teacher_conditioned": false,
+      "sha256": "0127189e7d0d1085b53718662f26d87159ded94e2514fd93a5d7bf9d643045c8"
+    },
+    "secondary": {
+      "artifact": "ranker_model_v9.json",
+      "source": "grimmsnarl_ml_v9 consensus ranker",
+      "trees": 1485,
+      "teacher_conditioned": false,
+      "sha256": "b0397a4a0270e2c8d3bb5088c759a173307f4446c8577c68895214493b91836c"
+    }
+  },
+  "training": {
+    "original_current_relations": 1014,
+    "refreshed_relations": 600,
+    "duplicate_relations_replaced": 350,
+    "combined_relations": 1264,
+    "combined_episodes": 1238,
+    "combined_decisions": 95664,
+    "combined_candidate_rows": 466463,
+    "refreshed_teacher_team_ids": [16422241, 16452116, 16561259],
+    "refreshed_teacher_public_scores": [1113.7, 1151.0, 1116.3],
+    "chronological_validation_decisions": 11432,
+    "chronological_test_decisions": 11420,
+    "validation_top1": 0.8017,
+    "test_top1": 0.8044,
+    "test_top3": 0.9798,
+    "test_order_insensitive_top1": 0.9194
+  },
+  "expert_gate": {
+    "primary_regions": [
+      "all routes on turns 1-4"
+    ],
+    "secondary_regions": ["all routes on turns 5+"],
+    "information_boundary": "public turn number only",
+    "hidden_deck_or_hand_used": false,
+    "score_invariant": "one complete tree ensemble scores every candidate in an argmax",
+    "post_ranker_path": "primary uses all v18 layers; secondary uses v9's measured ranker-to-planner path"
+  },
+  "runtime_teacher_forced_comparison": {
+    "scope": "latest 24 chronological test episodes from each refreshed 1000+ teacher",
+    "episodes": 72,
+    "main_decisions": 2708,
+    "v8_family_correct": 1839,
+    "v8_family_top1": 0.6791,
+    "v9_family_correct": 1963,
+    "v9_family_top1": 0.7249,
+    "v19_gate_correct": 1970,
+    "v19_gate_top1": 0.7275,
+    "delta_vs_v8_family": 0.0517,
+    "delta_vs_v9_family": 0.0026
+  },
+  "policy_escalation": {
+    "mode": "off",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "reason": "the v19 primary is teacher-unconditioned and the stale v6 pilot splice is not valid for either expert"
+  },
+  "residual": {
+    "module": "ml_residual.py",
+    "context": 7,
+    "trigger_effect_card_id": 1219,
+    "trigger_card_id": 1080,
+    "panel_team_ids": [16371703, 16422241, 16452116, 16561259],
+    "panel_teacher_codes": [0, 9, 12, 20],
+    "panel_need": 3,
+    "unchanged_from": "grimmsnarl_ml_v18"
+  },
+  "router": {
+    "role": "public-information selector for safety routes and model experts",
+    "policy_switches": 0,
+    "teacher_pin_switches": 0,
+    "model_expert_switches": 1,
+    "routes": ["v8_default", "v8_mirror", "v8_alakazam_guarded", "v8_wall_guarded"]
+  },
+  "retained_v18_layers": [
+    "ml_planner.py",
+    "ml_residual.py",
+    "matchup_guard.py",
+    "attack_access.py",
+    "wall_break.py",
+    "mirror_prize.py"
+  ],
+  "files_identical_to_v15": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "policy_base.py"
+  ],
+  "files_identical_to_v8": [
+    "deck.csv",
+    "fallback_policy.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "policy_base.py"
+  ],
+  "files_changed_from_v15": [
+    "main.py",
+    "metadata.json",
+    "mirror_prize.py",
+    "ml_runtime.py",
+    "policy_router.py",
+    "ranker_model.json",
+    "ranker_model_v9.json",
+    "wall_break.py"
+  ],
+  "files_identical_to_v18": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "mirror_prize.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "policy_base.py",
+    "policy_router.py",
+    "wall_break.py"
+  ],
+  "files_identical_to_v17": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "policy_base.py",
+    "wall_break.py"
+  ],
+  "files_changed_from_v17": [
+    "main.py",
+    "metadata.json",
+    "mirror_prize.py",
+    "ml_runtime.py",
+    "policy_router.py",
+    "ranker_model.json",
+    "ranker_model_v9.json"
+  ],
+  "files_changed_from_v18": {
+    "main.py": "use the primary with v18 layers and preserve the secondary's measured v9 post-ranker path",
+    "ml_runtime.py": "load and gate complete v19/v9 experts; retire stale teacher escalation",
+    "ranker_model.json": "new 413-tree current-teacher fit",
+    "ranker_model_v9.json": "retained consensus expert for regions where it remains stronger",
+    "metadata.json": "v19 data, fit, gate and comparison evidence"
+  },
+  "validation_scope": {
+    "ladder_run": false,
+    "reason": "explicitly excluded by user request",
+    "claim_limit": "offline held-out imitation and local engine tests support a stronger candidate; future ladder rating is not guaranteed"
+  },
+  "submission_priority": 1,
+  "description": "First post-v8 root-model refresh, gated with the strongest v9 consensus regions instead of regressing them."
+}

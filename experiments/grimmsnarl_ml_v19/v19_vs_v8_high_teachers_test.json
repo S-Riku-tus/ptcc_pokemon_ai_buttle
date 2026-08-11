@@ -1,0 +1,354 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v19_combined.npz",
+  "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\models\\ranker_v19_all21.txt",
+  "model_iterations": 1341,
+  "split": "test",
+  "split_mode": "per-team",
+  "split_boundaries": {
+    "16371703": [
+      89436307,
+      89447054
+    ],
+    "16375320": [
+      89416344,
+      89423275
+    ],
+    "16376653": [
+      89411560,
+      89418571
+    ],
+    "16381904": [
+      89408949,
+      89418509
+    ],
+    "16385817": [
+      89427143,
+      89430449
+    ],
+    "16388364": [
+      89390385,
+      89418138
+    ],
+    "16388654": [
+      89377994,
+      89414228
+    ],
+    "16407282": [
+      89399396,
+      89411624
+    ],
+    "16421840": [
+      89408059,
+      89421832
+    ],
+    "16422241": [
+      90351467,
+      90832532
+    ],
+    "16430670": [
+      89450767,
+      89454592
+    ],
+    "16431331": [
+      89393767,
+      89421100
+    ],
+    "16452116": [
+      90301938,
+      90835812
+    ],
+    "16461850": [
+      89414744,
+      89420741
+    ],
+    "16462035": [
+      89305369,
+      89408446
+    ],
+    "16463316": [
+      89410517,
+      89423312
+    ],
+    "16494330": [
+      89409969,
+      89418031
+    ],
+    "16514272": [
+      89414701,
+      89422418
+    ],
+    "16531269": [
+      89407855,
+      89421243
+    ],
+    "16556346": [
+      89414696,
+      89423404
+    ],
+    "16561259": [
+      90262321,
+      90307641
+    ]
+  },
+  "label_teams": [
+    16422241,
+    16452116,
+    16561259
+  ],
+  "pin_team": null,
+  "pin_team_code": null,
+  "team_feature": true,
+  "episodes": 157,
+  "submissions": 3,
+  "decisions": 11764,
+  "top1": 0.7986,
+  "top1_hits": 9395,
+  "top1_wilson95": [
+    0.7913,
+    0.8058
+  ],
+  "top2": 0.9385,
+  "top3": 0.9794,
+  "taxonomy": {
+    "counts": {
+      "correct": 9395,
+      "same_turn_ordering": 1398,
+      "same_action_type_divergence": 542,
+      "divergence": 429
+    },
+    "rates": {
+      "correct": 0.7986,
+      "same_turn_ordering": 0.1188,
+      "same_action_type_divergence": 0.0461,
+      "divergence": 0.0365
+    },
+    "order_insensitive_top1": 0.9175,
+    "top_action_confusions": [
+      {
+        "teacher": 12,
+        "predicted": 12,
+        "count": 674
+      },
+      {
+        "teacher": 8,
+        "predicted": 0,
+        "count": 92
+      },
+      {
+        "teacher": 0,
+        "predicted": 0,
+        "count": 79
+      },
+      {
+        "teacher": 16,
+        "predicted": 0,
+        "count": 58
+      },
+      {
+        "teacher": 0,
+        "predicted": 8,
+        "count": 57
+      },
+      {
+        "teacher": 8,
+        "predicted": 8,
+        "count": 52
+      },
+      {
+        "teacher": 5,
+        "predicted": 0,
+        "count": 49
+      },
+      {
+        "teacher": 5,
+        "predicted": 8,
+        "count": 47
+      },
+      {
+        "teacher": 8,
+        "predicted": 2,
+        "count": 44
+      },
+      {
+        "teacher": 8,
+        "predicted": 1,
+        "count": 39
+      },
+      {
+        "teacher": 4,
+        "predicted": 11,
+        "count": 35
+      },
+      {
+        "teacher": 1,
+        "predicted": 8,
+        "count": 35
+      }
+    ]
+  },
+  "top1_by_team": {
+    "16422241": {
+      "decisions": 4587,
+      "top1": 0.8042
+    },
+    "16452116": {
+      "decisions": 4309,
+      "top1": 0.7742
+    },
+    "16561259": {
+      "decisions": 2868,
+      "top1": 0.8264
+    }
+  },
+  "top1_by_context": {
+    "0": {
+      "decisions": 6154,
+      "top1": 0.7257
+    },
+    "1": {
+      "decisions": 60,
+      "top1": 0.9833
+    },
+    "3": {
+      "decisions": 224,
+      "top1": 0.8348
+    },
+    "4": {
+      "decisions": 326,
+      "top1": 0.9294
+    },
+    "5": {
+      "decisions": 7,
+      "top1": 0.7143
+    },
+    "7": {
+      "decisions": 1205,
+      "top1": 0.7942
+    },
+    "8": {
+      "decisions": 4,
+      "top1": 0.5
+    },
+    "13": {
+      "decisions": 776,
+      "top1": 0.8247
+    },
+    "15": {
+      "decisions": 512,
+      "top1": 0.791
+    },
+    "16": {
+      "decisions": 483,
+      "top1": 0.8592
+    },
+    "21": {
+      "decisions": 779,
+      "top1": 0.9358
+    },
+    "37": {
+      "decisions": 41,
+      "top1": 0.9024
+    },
+    "38": {
+      "decisions": 41,
+      "top1": 1.0
+    },
+    "40": {
+      "decisions": 745,
+      "top1": 1.0
+    },
+    "41": {
+      "decisions": 83,
+      "top1": 1.0
+    },
+    "43": {
+      "decisions": 324,
+      "top1": 0.9907
+    }
+  },
+  "top1_by_teacher_action": {
+    "0": {
+      "decisions": 1405,
+      "top1": 0.768
+    },
+    "1": {
+      "decisions": 631,
+      "top1": 0.7845
+    },
+    "2": {
+      "decisions": 690,
+      "top1": 0.8348
+    },
+    "3": {
+      "decisions": 86,
+      "top1": 0.3837
+    },
+    "4": {
+      "decisions": 173,
+      "top1": 0.4566
+    },
+    "5": {
+      "decisions": 549,
+      "top1": 0.6667
+    },
+    "6": {
+      "decisions": 640,
+      "top1": 0.7641
+    },
+    "7": {
+      "decisions": 407,
+      "top1": 0.9926
+    },
+    "8": {
+      "decisions": 1026,
+      "top1": 0.6823
+    },
+    "9": {
+      "decisions": 786,
+      "top1": 1.0
+    },
+    "11": {
+      "decisions": 150,
+      "top1": 0.5133
+    },
+    "12": {
+      "decisions": 4376,
+      "top1": 0.846
+    },
+    "14": {
+      "decisions": 233,
+      "top1": 0.8841
+    },
+    "15": {
+      "decisions": 93,
+      "top1": 0.7634
+    },
+    "16": {
+      "decisions": 519,
+      "top1": 0.6397
+    }
+  },
+  "baseline": {
+    "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\models\\ranker_v8_deployed_2000.txt",
+    "model_iterations": 2000,
+    "top1": 0.7825,
+    "top1_hits": 9205
+  },
+  "paired_comparison": {
+    "candidate_minus_baseline_top1": 0.0162,
+    "both_correct": 8898,
+    "candidate_only_correct": 497,
+    "baseline_only_correct": 307,
+    "neither_correct": 2062,
+    "net_correct_decisions": 190,
+    "cluster_bootstrap": {
+      "unit": "episode",
+      "samples": 2000,
+      "seed": 17,
+      "delta_top1_95": [
+        0.0115,
+        0.0208
+      ]
+    }
+  }
+}

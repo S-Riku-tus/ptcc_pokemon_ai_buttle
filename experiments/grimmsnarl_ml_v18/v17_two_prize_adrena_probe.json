@@ -1,0 +1,336 @@
+{
+  "definition": "post-first-Shadow Adrena-Brain target where a two-prize Benched Grimmsnarl ex is immediately lethal and a one-prize target exists",
+  "prompts": 5,
+  "teacher_takes_lethal_grim": 5,
+  "v17_takes_lethal_grim": 5,
+  "v17_matches_teacher": 5,
+  "rows": [
+    {
+      "run": "raihan_1151",
+      "episode_id": 90786032,
+      "turn": 10,
+      "actual_slot": 1,
+      "predicted_slot": 1,
+      "actual": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "predicted": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "v17_matches_teacher": true,
+      "v17_takes_lethal_grim": true,
+      "targets": [
+        {
+          "slot": 0,
+          "card_id": 648,
+          "hp": 320,
+          "prizes": 2,
+          "opponent_bench": false,
+          "lethal": false
+        },
+        {
+          "slot": 1,
+          "card_id": 648,
+          "hp": 20,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": true
+        },
+        {
+          "slot": 2,
+          "card_id": 648,
+          "hp": 140,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 3,
+          "card_id": 112,
+          "hp": 110,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 4,
+          "card_id": 112,
+          "hp": 110,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        }
+      ]
+    },
+    {
+      "run": "kd_1116",
+      "episode_id": 90296144,
+      "turn": 20,
+      "actual_slot": 2,
+      "predicted_slot": 2,
+      "actual": {
+        "slot": 2,
+        "card_id": 648,
+        "hp": 10,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "predicted": {
+        "slot": 2,
+        "card_id": 648,
+        "hp": 10,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "v17_matches_teacher": true,
+      "v17_takes_lethal_grim": true,
+      "targets": [
+        {
+          "slot": 0,
+          "card_id": 648,
+          "hp": 130,
+          "prizes": 2,
+          "opponent_bench": false,
+          "lethal": false
+        },
+        {
+          "slot": 1,
+          "card_id": 648,
+          "hp": 130,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 2,
+          "card_id": 648,
+          "hp": 10,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": true
+        },
+        {
+          "slot": 3,
+          "card_id": 646,
+          "hp": 70,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 4,
+          "card_id": 860,
+          "hp": 70,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 5,
+          "card_id": 860,
+          "hp": 70,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        }
+      ]
+    },
+    {
+      "run": "kd_1116",
+      "episode_id": 90291597,
+      "turn": 11,
+      "actual_slot": 1,
+      "predicted_slot": 1,
+      "actual": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "predicted": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "v17_matches_teacher": true,
+      "v17_takes_lethal_grim": true,
+      "targets": [
+        {
+          "slot": 0,
+          "card_id": 648,
+          "hp": 50,
+          "prizes": 2,
+          "opponent_bench": false,
+          "lethal": false
+        },
+        {
+          "slot": 1,
+          "card_id": 648,
+          "hp": 20,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": true
+        },
+        {
+          "slot": 2,
+          "card_id": 112,
+          "hp": 110,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 3,
+          "card_id": 646,
+          "hp": 70,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        }
+      ]
+    },
+    {
+      "run": "kd_1116",
+      "episode_id": 90220338,
+      "turn": 17,
+      "actual_slot": 1,
+      "predicted_slot": 1,
+      "actual": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "predicted": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "v17_matches_teacher": true,
+      "v17_takes_lethal_grim": true,
+      "targets": [
+        {
+          "slot": 0,
+          "card_id": 648,
+          "hp": 200,
+          "prizes": 2,
+          "opponent_bench": false,
+          "lethal": false
+        },
+        {
+          "slot": 1,
+          "card_id": 648,
+          "hp": 20,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": true
+        },
+        {
+          "slot": 2,
+          "card_id": 648,
+          "hp": 140,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 3,
+          "card_id": 647,
+          "hp": 100,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 4,
+          "card_id": 112,
+          "hp": 110,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        },
+        {
+          "slot": 5,
+          "card_id": 112,
+          "hp": 110,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        }
+      ]
+    },
+    {
+      "run": "kd_1116",
+      "episode_id": 90060409,
+      "turn": 10,
+      "actual_slot": 1,
+      "predicted_slot": 1,
+      "actual": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "predicted": {
+        "slot": 1,
+        "card_id": 648,
+        "hp": 20,
+        "prizes": 2,
+        "opponent_bench": true,
+        "lethal": true
+      },
+      "v17_matches_teacher": true,
+      "v17_takes_lethal_grim": true,
+      "targets": [
+        {
+          "slot": 0,
+          "card_id": 648,
+          "hp": 320,
+          "prizes": 2,
+          "opponent_bench": false,
+          "lethal": false
+        },
+        {
+          "slot": 1,
+          "card_id": 648,
+          "hp": 20,
+          "prizes": 2,
+          "opponent_bench": true,
+          "lethal": true
+        },
+        {
+          "slot": 2,
+          "card_id": 647,
+          "hp": 100,
+          "prizes": 1,
+          "opponent_bench": true,
+          "lethal": false
+        }
+      ]
+    }
+  ]
+}

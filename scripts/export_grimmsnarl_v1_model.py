@@ -81,6 +81,15 @@ def main() -> int:
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--teacher-team", type=int)
+    parser.add_argument(
+        "--route-teachers",
+        default="",
+        help=(
+            "Optional public-route:team-id pairs.  The conditioned runtime "
+            "may then select one learned pilot for each matchup without "
+            "mixing scores inside an argmax."
+        ),
+    )
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
         "--num-iteration", type=int,
@@ -134,6 +143,24 @@ def main() -> int:
             )
         model["teacher_team_id"] = args.teacher_team
         model["teacher_team_code"] = codes[args.teacher_team]
+        route_teams: dict[str, int] = {}
+        for pair in args.route_teachers.split(","):
+            if not pair.strip():
+                continue
+            if ":" not in pair:
+                raise SystemExit(f"invalid --route-teachers pair: {pair}")
+            route, raw_team = pair.split(":", 1)
+            team = int(raw_team)
+            if team not in codes:
+                raise SystemExit(
+                    f"route teacher {team} is not in the corpus"
+                )
+            route_teams[route.strip()] = team
+        if route_teams:
+            model["route_teacher_teams"] = route_teams
+            model["route_teacher_codes"] = {
+                route: codes[team] for route, team in route_teams.items()
+            }
     elif args.teacher_team is not None:
         raise SystemExit(
             "model has no teacher_team_id feature; --teacher-team is unused"
@@ -149,6 +176,8 @@ def main() -> int:
         "features": len(model["feature_names"]),
         "teacher_team_id": model.get("teacher_team_id"),
         "teacher_team_code": model.get("teacher_team_code"),
+        "route_teacher_teams": model.get("route_teacher_teams"),
+        "route_teacher_codes": model.get("route_teacher_codes"),
         "routed_contexts": model.get("routed_contexts"),
         "bytes": args.output.stat().st_size,
     }, indent=2))

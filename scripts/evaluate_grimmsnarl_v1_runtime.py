@@ -17,6 +17,7 @@ after the first disagreement and measure nothing.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import math
 import sys
@@ -68,6 +69,10 @@ def main() -> int:
         "--data-root", type=Path,
         default=ROOT / "data" / "kaggle_grimmsnarl_top50",
     )
+    parser.add_argument(
+        "--index", type=Path,
+        help="Optional frozen selection manifest with exact replay paths.",
+    )
     parser.add_argument("--team", type=int, required=True)
     parser.add_argument("--min-episode", type=int, required=True,
                         help="First test episode id from the corpus report.")
@@ -84,12 +89,18 @@ def main() -> int:
              "Without it the shipped model is measured exactly as it will "
              "run on Kaggle.",
     )
+    parser.add_argument(
+        "--route-codes",
+        default="",
+        help="Evaluation-only route:teacher-code overrides.",
+    )
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
-    index = pd.read_csv(args.data_root / "indexes" / "episodes.csv")
+    index_path = args.index or args.data_root / "indexes" / "episodes.csv"
+    index = pd.read_csv(index_path)
     index = index[
-        (index["download_status"] == "success")
+        (index["download_status"].isin(["success", "skipped_existing"]))
         & (index["team_id"] == args.team)
         & (index["episode_id"] >= args.min_episode)
     ].drop_duplicates(subset=["episode_id", "seat_index"])
@@ -112,7 +123,25 @@ def main() -> int:
             np.load(args.corpus, allow_pickle=False)["team_ids"]
         })
         ranker.teacher_code = teams.index(args.pin_team)
+    if args.route_codes:
+        overrides = {}
+        for pair in args.route_codes.split(","):
+            route, raw_code = pair.split(":", 1)
+            overrides[route.strip()] = int(raw_code)
+        ranker.route_teacher_codes.update(overrides)
     features_module = sys.modules["ml_features"]
+    router_path = (
+        ROOT / "agents" / "grimmsnarl" / "grimmsnarl_ml_v19"
+        / "policy_router.py"
+    )
+    router_spec = importlib.util.spec_from_file_location(
+        "grimmsnarl_runtime_eval_router", router_path
+    )
+    if router_spec is None or router_spec.loader is None:
+        raise ImportError(router_path)
+    router_module = importlib.util.module_from_spec(router_spec)
+    router_spec.loader.exec_module(router_module)
+    analysis_router = router_module.PolicyRouter()
     print(
         f"episodes={len(index)} teacher_team={args.team} "
         f"pinned_code={ranker.teacher_code}",
@@ -128,11 +157,25 @@ def main() -> int:
     counts: Counter[str] = Counter()
     latencies: list[float] = []
     for _, row in index.iterrows():
-        path = args.data_root / "replays" / f"episode_{row.episode_id}.json"
+        replay_value = str(getattr(row, "replay_path", "") or "").strip()
+        candidate = Path(replay_value) if replay_value else Path()
+        if replay_value and candidate.is_absolute():
+            path = candidate
+        elif replay_value:
+            direct = args.data_root / candidate
+            path = (
+                direct if direct.exists()
+                else args.data_root / "replays" / candidate
+            )
+        else:
+            path = (
+                args.data_root / "replays" / f"episode_{row.episode_id}.json"
+            )
         replay = json.loads(path.read_text(encoding="utf-8"))
         seat = int(row.seat_index)
         steps = replay.get("steps") or []
         module.diag_reset()
+        analysis_router.reset()
         counts["episodes"] += 1
 
         for step_index, step in enumerate(steps[:-1]):
@@ -142,6 +185,7 @@ def main() -> int:
             if record.get("status") != "ACTIVE":
                 continue
             observation = record.get("observation") or {}
+            analysis_route = analysis_router.choose(observation)
             select = observation.get("select") or {}
             options = list(select.get("option") or [])
             action = (steps[step_index + 1][seat] or {}).get("action")
@@ -182,7 +226,17 @@ def main() -> int:
             current = observation.get("current") or {}
             teacher = semantic(current, select, options[action[0]], action[0])
             guess = semantic(current, select, options[predicted], predicted)
-            counts["correct"] += int(teacher == guess)
+            correct = int(teacher == guess)
+            counts["correct"] += correct
+            route = str(analysis_route)
+            counts[f"route::{route}::main"] += 1
+            counts[f"route::{route}::correct"] += correct
+            turn = int(current.get("turn", -1) or -1)
+            band = "early" if turn <= 4 else ("mid" if turn <= 8 else "late")
+            counts[f"band::{band}::main"] += 1
+            counts[f"band::{band}::correct"] += correct
+            counts[f"route_band::{route}::{band}::main"] += 1
+            counts[f"route_band::{route}::{band}::correct"] += correct
             if teacher == guess and predicted != action[0]:
                 counts["correct_via_duplicate"] += 1
 

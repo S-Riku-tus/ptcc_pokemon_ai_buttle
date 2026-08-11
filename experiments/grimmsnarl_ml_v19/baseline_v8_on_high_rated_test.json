@@ -1,0 +1,255 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v19_high_rated.npz",
+  "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\models\\ranker_v5_data_refresh_base.txt",
+  "model_iterations": 2000,
+  "split": "test",
+  "split_mode": "per-team",
+  "split_boundaries": {
+    "16422241": [
+      90839011,
+      90854936
+    ],
+    "16452116": [
+      90847324,
+      91030880
+    ],
+    "16561259": [
+      90293086,
+      90427710
+    ]
+  },
+  "label_teams": "all",
+  "pin_team": 16494330,
+  "pin_team_code": 16,
+  "team_feature": true,
+  "episodes": 72,
+  "submissions": 3,
+  "decisions": 5165,
+  "top1": 0.7704,
+  "top1_hits": 3979,
+  "top1_wilson95": [
+    0.7587,
+    0.7816
+  ],
+  "top2": 0.9197,
+  "top3": 0.9752,
+  "taxonomy": {
+    "counts": {
+      "correct": 3979,
+      "same_turn_ordering": 689,
+      "divergence": 227,
+      "same_action_type_divergence": 270
+    },
+    "rates": {
+      "correct": 0.7704,
+      "same_turn_ordering": 0.1334,
+      "divergence": 0.0439,
+      "same_action_type_divergence": 0.0523
+    },
+    "order_insensitive_top1": 0.9038,
+    "top_action_confusions": [
+      {
+        "teacher": 12,
+        "predicted": 12,
+        "count": 340
+      },
+      {
+        "teacher": 8,
+        "predicted": 0,
+        "count": 51
+      },
+      {
+        "teacher": 0,
+        "predicted": 0,
+        "count": 47
+      },
+      {
+        "teacher": 16,
+        "predicted": 0,
+        "count": 44
+      },
+      {
+        "teacher": 6,
+        "predicted": 0,
+        "count": 33
+      },
+      {
+        "teacher": 1,
+        "predicted": 8,
+        "count": 27
+      },
+      {
+        "teacher": 2,
+        "predicted": 0,
+        "count": 25
+      },
+      {
+        "teacher": 0,
+        "predicted": 8,
+        "count": 24
+      },
+      {
+        "teacher": 5,
+        "predicted": 8,
+        "count": 24
+      },
+      {
+        "teacher": 8,
+        "predicted": 8,
+        "count": 23
+      },
+      {
+        "teacher": 1,
+        "predicted": 0,
+        "count": 22
+      },
+      {
+        "teacher": 5,
+        "predicted": 0,
+        "count": 22
+      }
+    ]
+  },
+  "top1_by_team": {
+    "16422241": {
+      "decisions": 1621,
+      "top1": 0.7785
+    },
+    "16452116": {
+      "decisions": 1659,
+      "top1": 0.7595
+    },
+    "16561259": {
+      "decisions": 1885,
+      "top1": 0.7729
+    }
+  },
+  "top1_by_context": {
+    "0": {
+      "decisions": 2708,
+      "top1": 0.6876
+    },
+    "1": {
+      "decisions": 20,
+      "top1": 1.0
+    },
+    "3": {
+      "decisions": 102,
+      "top1": 0.7843
+    },
+    "4": {
+      "decisions": 150,
+      "top1": 0.9
+    },
+    "5": {
+      "decisions": 5,
+      "top1": 1.0
+    },
+    "7": {
+      "decisions": 522,
+      "top1": 0.7759
+    },
+    "8": {
+      "decisions": 2,
+      "top1": 0.5
+    },
+    "13": {
+      "decisions": 331,
+      "top1": 0.7915
+    },
+    "15": {
+      "decisions": 225,
+      "top1": 0.7556
+    },
+    "16": {
+      "decisions": 204,
+      "top1": 0.7941
+    },
+    "21": {
+      "decisions": 361,
+      "top1": 0.9474
+    },
+    "37": {
+      "decisions": 17,
+      "top1": 1.0
+    },
+    "38": {
+      "decisions": 18,
+      "top1": 1.0
+    },
+    "40": {
+      "decisions": 312,
+      "top1": 1.0
+    },
+    "41": {
+      "decisions": 41,
+      "top1": 1.0
+    },
+    "43": {
+      "decisions": 147,
+      "top1": 1.0
+    }
+  },
+  "top1_by_teacher_action": {
+    "0": {
+      "decisions": 605,
+      "top1": 0.7851
+    },
+    "1": {
+      "decisions": 274,
+      "top1": 0.646
+    },
+    "2": {
+      "decisions": 306,
+      "top1": 0.8333
+    },
+    "3": {
+      "decisions": 39,
+      "top1": 0.3333
+    },
+    "4": {
+      "decisions": 68,
+      "top1": 0.4706
+    },
+    "5": {
+      "decisions": 235,
+      "top1": 0.6723
+    },
+    "6": {
+      "decisions": 289,
+      "top1": 0.6747
+    },
+    "7": {
+      "decisions": 188,
+      "top1": 1.0
+    },
+    "8": {
+      "decisions": 465,
+      "top1": 0.6903
+    },
+    "9": {
+      "decisions": 330,
+      "top1": 1.0
+    },
+    "11": {
+      "decisions": 68,
+      "top1": 0.4118
+    },
+    "12": {
+      "decisions": 1922,
+      "top1": 0.8231
+    },
+    "14": {
+      "decisions": 107,
+      "top1": 0.7103
+    },
+    "15": {
+      "decisions": 39,
+      "top1": 0.7179
+    },
+    "16": {
+      "decisions": 230,
+      "top1": 0.5261
+    }
+  }
+}

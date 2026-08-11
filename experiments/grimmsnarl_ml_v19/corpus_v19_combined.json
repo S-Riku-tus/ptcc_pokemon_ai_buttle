@@ -1,0 +1,55 @@
+{
+  "inputs_oldest_to_newest": [
+    {
+      "path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v5_data_refresh_candidate.npz",
+      "input_relations": 4097,
+      "kept_relations": 4097,
+      "replaced_relations": 0,
+      "kept_decisions": 322975,
+      "kept_candidate_rows": 1561181
+    },
+    {
+      "path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v19_high_rated.npz",
+      "input_relations": 600,
+      "kept_relations": 600,
+      "replaced_relations": 0,
+      "kept_decisions": 45495,
+      "kept_candidate_rows": 221446
+    }
+  ],
+  "deduplication_key": [
+    "episode_id",
+    "seat_index"
+  ],
+  "relations": 4697,
+  "episodes": 4519,
+  "teams": [
+    16371703,
+    16375320,
+    16376653,
+    16381904,
+    16385817,
+    16388364,
+    16388654,
+    16407282,
+    16421840,
+    16422241,
+    16430670,
+    16431331,
+    16452116,
+    16461850,
+    16462035,
+    16463316,
+    16494330,
+    16514272,
+    16531269,
+    16556346,
+    16561259
+  ],
+  "decisions": 368470,
+  "candidate_rows": 1782627,
+  "features": 822,
+  "validation_min_episode": 89437917,
+  "test_min_episode": 90036516,
+  "output": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v19_combined.npz"
+}

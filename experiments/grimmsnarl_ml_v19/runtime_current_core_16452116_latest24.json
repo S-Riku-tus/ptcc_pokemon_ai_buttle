@@ -1,0 +1,59 @@
+{
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\grimmsnarl_ml_v19\\agent_current_probe",
+  "teacher_team": 16452116,
+  "pinned_teacher_code": null,
+  "min_episode": 91030880,
+  "episodes": 24,
+  "main_decisions": 876,
+  "runtime_top1": 0.6861,
+  "runtime_top1_wilson95": [
+    0.6546,
+    0.7159
+  ],
+  "counts": {
+    "episodes": 24,
+    "non_main_decisions": 1192,
+    "main_decisions": 876,
+    "correct": 601,
+    "route::v8_alakazam_guarded::main": 138,
+    "route::v8_alakazam_guarded::correct": 87,
+    "band::early::main": 292,
+    "band::early::correct": 213,
+    "band::mid::main": 303,
+    "band::mid::correct": 210,
+    "band::late::main": 281,
+    "band::late::correct": 178,
+    "route::v8_mirror::main": 64,
+    "route::v8_mirror::correct": 44,
+    "correct_via_duplicate": 4,
+    "route::v8_default::main": 658,
+    "route::v8_default::correct": 460,
+    "route::v8_wall_guarded::main": 16,
+    "route::v8_wall_guarded::correct": 10
+  },
+  "ranker_stats": {
+    "main_decisions": 85,
+    "non_main_decisions": 43,
+    "ranker_used": 82,
+    "feature_errors": 0,
+    "score_errors": 0,
+    "escalation_offered": 0,
+    "escalation_scored": 0,
+    "escalation_moved": 0,
+    "escalation_refused_trigger": 0,
+    "escalation_suspended_mirror": 0,
+    "route_updates": 1,
+    "route_teacher_changes": 0,
+    "escalation_offered_froslass_evolve": 0,
+    "active_route": "v8_default",
+    "teacher_code": null,
+    "default_teacher_code": null,
+    "route_teacher_codes": {}
+  },
+  "latency_ms": {
+    "mean": 28.32,
+    "p50": 25.91,
+    "p95": 53.78,
+    "max": 110.8
+  }
+}

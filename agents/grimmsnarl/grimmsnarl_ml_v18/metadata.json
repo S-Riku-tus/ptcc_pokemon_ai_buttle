@@ -1,0 +1,260 @@
+{
+  "name": "grimmsnarl_ml_v18",
+  "version": "18.0.0",
+  "role": "challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v17",
+  "champion_policy": "grimmsnarl_ml_v15",
+  "created_at": "2026-08-11T18:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "v17 plus a post-first-Shadow mirror Prize invariant and a new-episode reset for the sticky public-information matchup route.",
+  "one_change": "seal, rather than widen, mirror targeting: preserve v17's learned choice except when the damage being placed now proves a higher-Prize Benched knockout; reset the mirror flag when a reused process starts a new game",
+  "ranker": {
+    "source": "identical to grimmsnarl_ml_v8, v14, v15 and v16",
+    "trees": 2000,
+    "features": 823,
+    "teacher_team_id": 16494330,
+    "sha256": "dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79",
+    "model_changed": false,
+    "retrained": false
+  },
+  "evidence_base": {
+      "runs": [
+        "data/runs/grimmsnarl/20260811_v18_refresh_sub55404196",
+        "data/runs/grimmsnarl/20260811_v18_refresh_sub55409394"
+      ],
+      "rated_games": 117,
+      "record": "70-47",
+      "mean_opponent_rating": 891.1,
+    "identical_agents": "the two submissions are byte-identical; they are pooled",
+    "scripts": [
+      "scripts/analyze_grimmsnarl_v16_prize_conversion.py",
+      "scripts/analyze_grimmsnarl_v16_boss_routes.py",
+      "scripts/analyze_grimmsnarl_v16_mirror_behaviour.py",
+      "scripts/analyze_grimmsnarl_v16_ability_uptake.py",
+      "scripts/analyze_grimmsnarl_v16_energy_allocation.py",
+      "scripts/analyze_grimmsnarl_v17_punk_targets.py",
+      "scripts/analyze_grimmsnarl_v17_mirror_stamp.py",
+      "scripts/analyze_grimmsnarl_v18_mirror_endgame.py",
+      "scripts/analyze_grimmsnarl_v18_bench30_setup.py",
+      "scripts/analyze_grimmsnarl_v18_adrena_source.py",
+      "scripts/analyze_grimmsnarl_v18_adrena_target.py",
+      "scripts/probe_grimmsnarl_v18_two_prize_adrena.py",
+      "scripts/probe_grimmsnarl_v18_footprint.py"
+    ]
+  },
+  "v18_mirror_endgame": {
+    "corpus": "152 exact-60 mirrors: 35 deployed v15 games plus 117 public games from three exact-deck pilots rated 1114 to 1151",
+    "deployed_exact_mirror_record": "20-15",
+    "teacher_exact_mirror_record": "74-43",
+    "negative_findings": {
+      "adrena_uptake": "not a refusal gap; deployed losses used every offered turn",
+      "damaged_grim_priority": "rejected as a broad override because some Munkidori targets become an immediate Freezing Shroud Prize while Grimmsnarl damage only accumulates",
+      "adrena_source": "deployed source selection already conditions on whether healing the Active Grimmsnarl crosses the next-hit survival threshold"
+    },
+    "saturated_invariant": {
+      "shadow_bench_immediate_ko": "deployed exact mirrors 25/25; high-rated pilots 103/103",
+      "two_prize_adrena_finish": "high-rated pilots 5/5; v17 counterfactual on those exact boards 5/5",
+      "implementation": "mirror_prize.py protects the maximum immediate Prize KO after our first Shadow without changing non-lethal target planning",
+      "disable_env": "GRIMMSNARL_MIRROR_PRIZE_DISABLE=1"
+    },
+    "router_reset": "v16/v17 kept a named route across a turn-counter rollback; v18 resets it so one earlier mirror cannot suspend Froslass escalation in a later non-mirror game handled by the same process"
+  },
+  "v15_is_solved": {
+    "claim": "attack access is closed and is not the bottleneck any more",
+    "first_shadow_own_turn": 2.84,
+    "first_shadow_own_turn_v14": 3.6,
+    "shadow_by_own_turn_2": 0.409,
+    "shadow_by_own_turn_3": 0.827,
+    "first_grimmsnarl_turn_equals_first_shadow_turn_in_losses": [3.048, 3.048],
+    "turn_ends_with_a_fuelled_grimmsnarl_unused": "4 of 187",
+    "conclusion": "every remaining late Shadow Bullet is a late Grimmsnarl ex, not an unreachable one"
+  },
+  "levers_measured_and_rejected": {
+    "two_turn_boss_route": "a playable Boss's Orders would have added a prize on 1 of 446 Shadow Bullets",
+    "bench_thirty_targeting": "an offered lethal Bench-30 was passed over on 2 of 397 shots",
+    "adrena_brain_uptake": "taken on 98.6% of the 346 turns it was offered, 100% in the losses",
+    "attacker_construction_gate": "a Grimmsnarl-line play was passed over at END once in 176 no-attacker turns",
+    "mirror_live_unfair_stamp": "Unfair Stamp was playable on 12 of our mirror turns and was played on all 12; opponents had 25 such turns and played all 25, so the usage gap is availability rather than refusal",
+    "note": "these are offer-side, so no preference or planner change can move them; the two-turn prize planner and a mirror Stamp override were dropped on this evidence"
+  },
+  "wall_break": {
+    "module": "wall_break.py",
+    "disable_env": "GRIMMSNARL_WALL_BREAK_DISABLE",
+    "problem": "84 Shadow Bullets over the two runs were thrown while the opposing Active prevents all damage from us and the Bench-30 could take no prize either. The wall matchup is 7-8, 8.25 swings a game in the losses, 86.4% of them taking nothing, mean deck left 7.6, and two games ended in deck-out.",
+    "mechanism": "the three walls block different things, and none of them blocks Marnie's Morgrem: Crustle and Sylveon stop Pokemon ex, Cornerstone Mask Ogerpon ex stops Pokemon with an Ability, Neutralization Zone stops ex and V against a non-Rule-Box body. Morgrem is neither an ex nor an Ability holder, so Corkscrew Punch's 60 lands through all of them.",
+    "why_only_two_breakers": "Basic Darkness is the only Energy in the 60, and Frost Smash is {W}{C}, Mind Bend is {P}{C} and Chilly is {W}. Froslass, Munkidori and Snorunt can never attack at all, so a breaker is Morgrem for 60 or Impidimp for 10.",
+    "teeth": [
+      "BREAK: while the swing is provably worth zero, advance the route to the breaker - attack with it, fuel it, or retreat into it - instead of throwing the swing",
+      "PRESERVE: do not spend the last breaker on a Grimmsnarl ex evolution while that wall is up and a fuelled Grimmsnarl ex is already in play"
+    ],
+    "fires_only_when": [
+      "the opposing Active takes 0 from Shadow Bullet and the Bench-30 takes no prize",
+      "no playable Boss's Orders would take a prize this turn (that route is already saturated, so it is left to the ranker)",
+      "for BREAK, a breaker in play knocks that Active out within 8 own turns and before our deck runs out",
+      "for BREAK, the breaker survives their best printed attack, or the wall has already proved permanent over two consecutive own turns",
+      "for PRESERVE, another fuelled Grimmsnarl ex already exists and a dead Shadow Bullet or END can close the turn without consuming the last Impidimp/Morgrem",
+      "for Punk Up, the triggering Grimmsnarl ex already has two Darkness and an offered Morgrem is still short of its second"
+    ],
+    "stickiness": "the route is recomputed from the board every decision, exactly as attack_access does, so there is no plan to go stale; the only cross-decision state is the promotion serial and the consecutive dead-turn counter",
+    "measured_footprint": {
+      "dead_swings_in_110_games": 84,
+      "breaker_in_play": 44,
+      "breaker_already_fuelled": 30,
+      "route_finishes_in_time": 35,
+      "last_breaker_evolved_away": 8,
+      "v16_last_breaker_evolutions_refused": 2,
+      "v17_last_breaker_evolutions_refused": 8,
+      "v17_extra_preserves": 6,
+      "v17_extra_punk_targets": 1,
+      "games_touched": "the wall module is confined to the 15 wall games; v17 adds 7 guard-level differences across 5 of them and zero elsewhere"
+    },
+    "deliberately_not_done": {
+      "forced_boss": "1 missed Boss prize in 446 swings; the guard stands down instead",
+      "zero_damage_shadow_ban": "banning it outright took a previous wall specialist to 1-10; both END and ATTACK close the turn, so the swing costs nothing on its own",
+      "stall_circuit_breaker": "the deck-out comes from the draw at the start of each turn, not from the swing, so refusing to attack saves no cards"
+    },
+    "v17_completion": {
+      "problem": "v16 reused BREAK's immediate eight-turn viability test for PRESERVE, so a last Impidimp whose current 10 damage was too slow could still be evolved away even though it was the only future Morgrem",
+      "stored_last_breaker_evolutions": 8,
+      "v16_refused": 2,
+      "v17_refused": 8,
+      "strict_preserve_change": "the six residual evolves become a dead Shadow Bullet; all six stored decisions offered both Shadow and END",
+      "punk_target_decisions_in_wall_games": 83,
+      "punk_target_change": "one split allocation now gives Morgrem its second Darkness instead of leaving both Morgrem and Impidimp at one",
+      "scope_probe": "7 differences over 9753 stored decisions: all 7 in wall games, zero in mirror, Alakazam, Festival and other matchups"
+    }
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "unchanged_from": "grimmsnarl_ml_v6, except for the matchup gate below",
+    "v16_mirror_suspension": {
+      "module": "ml_runtime.py",
+      "disable_env": "GRIMMSNARL_ESCALATION_MIRROR=on",
+      "change": "the class is not escalated when the public-information router reports a mirror; the pinned teacher answers instead",
+      "problem": "v6 escalated to reduce a 95.7% Froslass rate to 80.5%. Off the mirror the deployed agent takes it on 85.6% of offering turns, which is the intended target. On mirror boards it takes it on 30%, which no pilot in the corpus plays.",
+      "counterfactual": {
+        "stored_mirror_decisions_offering_the_evolve": 104,
+        "would_evolve_escalation_on": 4,
+        "would_evolve_escalation_off": 33,
+        "v15_actual_offering_turns_taken": "6 of 20",
+        "mirror_opponents_same_60_cards": "12 of 12",
+        "fisher_exact_p": 0.000112
+      },
+      "honest_limit": "this is an imitation gap, not an outcome gap: within our own 36 mirror games taking the evolve does not itself predict winning (4 of 15 offering turns in wins, 2 of 5 in losses). The argument is that a rate no teacher plays is not imitation, and the fallback is v5's behaviour on one matchup.",
+      "information_used": "opponent active, bench, discard, pre-evolutions and stadium only; no hidden hand or deck"
+    }
+  },
+  "residual": {
+    "module": "ml_residual.py",
+    "context": 7,
+    "trigger_effect_card_id": 1219,
+    "trigger_card_id": 1080,
+    "board_condition": "the opponent took no prize during their last turn, and no Unfair Stamp is already in hand",
+    "panel_team_ids": [16371703, 16422241, 16452116, 16561259],
+    "panel_teacher_codes": [0, 9, 12, 20],
+    "panel_need": 3,
+    "extra_model_files": 0,
+    "unchanged_from": "grimmsnarl_ml_v14"
+  },
+  "wall_guard": {
+    "module": "matchup_guard.py",
+    "unchanged_from": "grimmsnarl_ml_v14",
+    "interaction_with_wall_break": "the wall guard swaps a zero-damage Shadow Bullet for one development action and then keeps quiet; wall_break runs after it and is what supplies a route once development is exhausted"
+  },
+  "router": {
+    "role": "public-information telemetry, and from v16 the mirror flag for the escalation gate",
+    "policy_switches": 0,
+    "hidden_deck_or_hand_used": false,
+    "routes": ["v8_default", "v8_mirror", "v8_alakazam_guarded", "v8_wall_guarded"]
+  },
+  "layer_order": {
+    "order": "planner -> residual -> wall_guard -> attack_access -> wall_break -> mirror_prize",
+    "why": "the last layer is an arithmetic invariant only: when current damage proves multiple knockouts it retains the legal target worth the most Prize cards; otherwise it returns the earlier policy unchanged"
+  },
+  "files_identical_to_v15": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "policy_base.py",
+    "ranker_model.json"
+  ],
+  "files_identical_to_v8": [
+    "deck.csv",
+    "fallback_policy.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "policy_base.py",
+    "ranker_model.json"
+  ],
+  "files_identical_to_v16": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "ml_runtime.py",
+    "policy_base.py",
+    "ranker_model.json"
+  ],
+  "files_changed_from_v16": {
+    "main.py": "v17 rationale plus v18 mirror-prize runtime wiring",
+    "metadata.json": "v17 completion and v18 mirror evidence/scope",
+    "wall_break.py": "v17 completed PRESERVE and routed one residual Punk Up target",
+    "policy_router.py": "v18 new-episode reset",
+    "mirror_prize.py": "new in v18"
+  },
+  "files_changed_from_v15": {
+    "main.py": "loads wall_break and sets the mirror flag from the router",
+    "ml_runtime.py": "the escalation gate, plus its counter",
+    "wall_break.py": "new",
+    "policy_router.py": "v18 resets sticky public matchup state at a new episode",
+    "mirror_prize.py": "new in v18"
+  },
+  "files_identical_to_v17": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_features.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "ml_runtime.py",
+    "policy_base.py",
+    "ranker_model.json",
+    "wall_break.py"
+  ],
+  "files_changed_from_v17": {
+    "main.py": "load and apply mirror_prize last; expose diagnostics; pass the public mirror flag",
+    "mirror_prize.py": "new maximum-immediate-Prize invariant after first Shadow",
+    "policy_router.py": "clear the sticky named route when the turn counter moves backwards into a new episode",
+    "metadata.json": "v18 evidence, scope and validation gate"
+  },
+  "promotion_gate": {
+    "primary_kpi": "rating drift over at least 50 games started from 1000+, not a peak",
+    "regression_gate": "first Shadow Bullet own turn <= 3.1 and Shadow by own turn 2 >= 0.35; v15's gains must not be given back",
+    "wall_kpi": "zero games lost by deck-out while a breaker was in play, and prizes per Shadow Bullet in the wall matchup above 0.212",
+    "mirror_kpi": "Froslass uptake when offered above 0.8, and mirror rating drift >= 0",
+    "counterfactual": "GRIMMSNARL_MIRROR_PRIZE_DISABLE=1 restores v17 target selection; GRIMMSNARL_WALL_BREAK_DISABLE=1 with GRIMMSNARL_ESCALATION_MIRROR=on restores the older v15 route",
+    "attribution": "mirror_prize has its own firing counters and the public router reports every new-game reset"
+  },
+  "next_candidates_not_in_this_version": [
+    "live v18 mirror outcomes after the first Shadow; the stored 152-game audit found no justified broad target rewrite",
+    "the Festival/Dipplin matchup, 0-4 with a mean opponent rating of 1085 and only 0.5 Shadow Bullets a game",
+    "catastrophic losses to sub-800 opponents as a KPI of their own",
+    "closed-loop v18 ladder outcomes; the stored-board footprint proves scope and legality, not win rate"
+  ],
+  "submission_priority": 1,
+  "description": "v17 preserved. The 152-game exact-mirror audit rejects broad target rewrites and seals only the already-saturated maximum immediate Prize KO; a reused process now also clears its sticky mirror route at a new episode."
+}

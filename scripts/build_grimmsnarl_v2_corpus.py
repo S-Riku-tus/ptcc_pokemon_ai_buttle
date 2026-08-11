@@ -193,7 +193,20 @@ def _extract_chunk(payload: tuple[str, str, list[dict[str, Any]]]) -> dict[str, 
     stats: Counter[str] = Counter()
 
     for row in rows:
-        path = Path(replay_root) / f"episode_{row['episode_id']}.json"
+        # Newer fetch_submission_logs runs keep each replay inside its own
+        # episode directory instead of flattening everything under
+        # ``data_root/replays``.  A frozen selection manifest may therefore
+        # carry the exact replay path.  Preserve the legacy fallback so every
+        # historical corpus command remains reproducible.
+        replay_value = str(row.get("replay_path") or "").strip()
+        if replay_value:
+            candidate = Path(replay_value)
+            path = (
+                candidate if candidate.is_absolute()
+                else Path(replay_root) / candidate
+            )
+        else:
+            path = Path(replay_root) / f"episode_{row['episode_id']}.json"
         try:
             replay = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
@@ -517,9 +530,12 @@ def main() -> int:
     validation_min = int(unique_episodes[train_end])
     test_min = int(unique_episodes[train_end + validation_size])
 
-    rows = index[[
+    row_columns = [
         "team_id", "submission_id", "episode_id", "seat_index",
-    ]].to_dict("records")
+    ]
+    if "replay_path" in index.columns:
+        row_columns.append("replay_path")
+    rows = index[row_columns].to_dict("records")
     print(
         f"trajectories={len(rows)} teams={index['team_id'].nunique()} "
         f"validation_min={validation_min} test_min={test_min}",
