@@ -203,7 +203,10 @@ def _extract_chunk(payload: tuple[str, str, list[dict[str, Any]]]) -> dict[str, 
             candidate = Path(replay_value)
             path = (
                 candidate if candidate.is_absolute()
-                else Path(replay_root) / candidate
+                # Index paths are rooted at data_root (normally
+                # ``replays/episode_*.json``), while the legacy fallback
+                # below receives data_root/replays directly.
+                else Path(replay_root).parent / candidate
             )
         else:
             path = Path(replay_root) / f"episode_{row['episode_id']}.json"

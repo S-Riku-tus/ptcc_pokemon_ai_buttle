@@ -1,0 +1,44 @@
+{
+  "agent_a": "agents\\grimmsnarl\\grimmsnarl_ml_v20",
+  "agent_b": "agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "games": 20,
+  "seed": 2008,
+  "wins": {
+    "A": 7,
+    "B": 13,
+    "draw": 0
+  },
+  "win_rate_a_excluding_draws": 0.35,
+  "first_wins": {
+    "A": 3,
+    "B": 6
+  },
+  "agent_error_by_seat": [
+    0,
+    0
+  ],
+  "illegal_by_seat": [
+    0,
+    0
+  ],
+  "seat_moves": [
+    2136,
+    2100
+  ],
+  "seat_avg_ms": [
+    36.96669204128306,
+    38.73989690461063
+  ],
+  "agent_moves": {
+    "A": 2079,
+    "B": 2157
+  },
+  "agent_avg_ms": {
+    "A": 17.28232659910975,
+    "B": 57.66559142341853
+  },
+  "diagnostics": {
+    "A": null,
+    "B": null
+  }
+}

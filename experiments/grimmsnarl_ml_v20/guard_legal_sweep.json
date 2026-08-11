@@ -1,0 +1,788 @@
+{
+  "scope": {
+    "games": 162,
+    "runs": [
+      "20260811_grimmsnarl_ml_v16_sub55422280",
+      "20260811_grimmsnarl_ml_v17_sub55423572",
+      "20260811_grimmsnarl_ml_v18_sub55428191",
+      "20260811_grimmsnarl_ml_v19_sub55428196"
+    ],
+    "principle": "all legal single-pick inputs; stored action advances state"
+  },
+  "guards": {
+    "attack_access": {
+      "decisions": 14112,
+      "legal_inputs": 76526,
+      "moved_inputs": 3943,
+      "binding_prompts": 3162,
+      "actual_overrides": 3
+    },
+    "wall_break": {
+      "decisions": 14112,
+      "legal_inputs": 76526,
+      "moved_inputs": 308,
+      "binding_prompts": 122,
+      "actual_overrides": 2
+    },
+    "mirror_prize": {
+      "decisions": 14112,
+      "legal_inputs": 76526,
+      "moved_inputs": 148,
+      "binding_prompts": 43,
+      "actual_overrides": 0
+    },
+    "pipeline": {
+      "decisions": 14112,
+      "legal_inputs": 76526,
+      "moved_inputs": 4389,
+      "binding_prompts": 3314,
+      "actual_overrides": 5
+    }
+  },
+  "by_context": {
+    "attack_access": {
+      "0": {
+        "legal_inputs": 47951,
+        "moved_inputs": 3588,
+        "binding_prompts": 3050,
+        "actual_overrides": 0
+      },
+      "1": {
+        "legal_inputs": 264,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "2": {
+        "legal_inputs": 54,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "3": {
+        "legal_inputs": 807,
+        "moved_inputs": 355,
+        "binding_prompts": 112,
+        "actual_overrides": 3
+      },
+      "4": {
+        "legal_inputs": 1252,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "5": {
+        "legal_inputs": 95,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "7": {
+        "legal_inputs": 12051,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "8": {
+        "legal_inputs": 38,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "13": {
+        "legal_inputs": 4060,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "15": {
+        "legal_inputs": 1889,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "16": {
+        "legal_inputs": 2193,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "18": {
+        "legal_inputs": 3,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "19": {
+        "legal_inputs": 4,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "21": {
+        "legal_inputs": 1948,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "22": {
+        "legal_inputs": 25,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "27": {
+        "legal_inputs": 18,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "30": {
+        "legal_inputs": 320,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "37": {
+        "legal_inputs": 235,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "38": {
+        "legal_inputs": 102,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "40": {
+        "legal_inputs": 2399,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "41": {
+        "legal_inputs": 176,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "43": {
+        "legal_inputs": 642,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "wall_break": {
+      "0": {
+        "legal_inputs": 47951,
+        "moved_inputs": 301,
+        "binding_prompts": 119,
+        "actual_overrides": 2
+      },
+      "1": {
+        "legal_inputs": 264,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "2": {
+        "legal_inputs": 54,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "3": {
+        "legal_inputs": 807,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "4": {
+        "legal_inputs": 1252,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "5": {
+        "legal_inputs": 95,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "7": {
+        "legal_inputs": 12051,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "8": {
+        "legal_inputs": 38,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "13": {
+        "legal_inputs": 4060,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "15": {
+        "legal_inputs": 1889,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "16": {
+        "legal_inputs": 2193,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "18": {
+        "legal_inputs": 3,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "19": {
+        "legal_inputs": 4,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "21": {
+        "legal_inputs": 1948,
+        "moved_inputs": 7,
+        "binding_prompts": 3,
+        "actual_overrides": 0
+      },
+      "22": {
+        "legal_inputs": 25,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "27": {
+        "legal_inputs": 18,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "30": {
+        "legal_inputs": 320,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "37": {
+        "legal_inputs": 235,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "38": {
+        "legal_inputs": 102,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "40": {
+        "legal_inputs": 2399,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "41": {
+        "legal_inputs": 176,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "43": {
+        "legal_inputs": 642,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "mirror_prize": {
+      "0": {
+        "legal_inputs": 47951,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "1": {
+        "legal_inputs": 264,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "2": {
+        "legal_inputs": 54,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "3": {
+        "legal_inputs": 807,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "4": {
+        "legal_inputs": 1252,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "5": {
+        "legal_inputs": 95,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "7": {
+        "legal_inputs": 12051,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "8": {
+        "legal_inputs": 38,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "13": {
+        "legal_inputs": 4060,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "15": {
+        "legal_inputs": 1889,
+        "moved_inputs": 148,
+        "binding_prompts": 43,
+        "actual_overrides": 0
+      },
+      "16": {
+        "legal_inputs": 2193,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "18": {
+        "legal_inputs": 3,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "19": {
+        "legal_inputs": 4,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "21": {
+        "legal_inputs": 1948,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "22": {
+        "legal_inputs": 25,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "27": {
+        "legal_inputs": 18,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "30": {
+        "legal_inputs": 320,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "37": {
+        "legal_inputs": 235,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "38": {
+        "legal_inputs": 102,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "40": {
+        "legal_inputs": 2399,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "41": {
+        "legal_inputs": 176,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "43": {
+        "legal_inputs": 642,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "pipeline": {
+      "0": {
+        "legal_inputs": 47951,
+        "moved_inputs": 3879,
+        "binding_prompts": 3156,
+        "actual_overrides": 2
+      },
+      "1": {
+        "legal_inputs": 264,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "2": {
+        "legal_inputs": 54,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "3": {
+        "legal_inputs": 807,
+        "moved_inputs": 355,
+        "binding_prompts": 112,
+        "actual_overrides": 3
+      },
+      "4": {
+        "legal_inputs": 1252,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "5": {
+        "legal_inputs": 95,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "7": {
+        "legal_inputs": 12051,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "8": {
+        "legal_inputs": 38,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "13": {
+        "legal_inputs": 4060,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "15": {
+        "legal_inputs": 1889,
+        "moved_inputs": 148,
+        "binding_prompts": 43,
+        "actual_overrides": 0
+      },
+      "16": {
+        "legal_inputs": 2193,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "18": {
+        "legal_inputs": 3,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "19": {
+        "legal_inputs": 4,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "21": {
+        "legal_inputs": 1948,
+        "moved_inputs": 7,
+        "binding_prompts": 3,
+        "actual_overrides": 0
+      },
+      "22": {
+        "legal_inputs": 25,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "27": {
+        "legal_inputs": 18,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "30": {
+        "legal_inputs": 320,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "37": {
+        "legal_inputs": 235,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "38": {
+        "legal_inputs": 102,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "40": {
+        "legal_inputs": 2399,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "41": {
+        "legal_inputs": 176,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "43": {
+        "legal_inputs": 642,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    }
+  },
+  "by_matchup": {
+    "alakazam": {
+      "attack_access": {
+        "legal_inputs": 16828,
+        "moved_inputs": 695,
+        "binding_prompts": 564,
+        "actual_overrides": 1
+      },
+      "wall_break": {
+        "legal_inputs": 16828,
+        "moved_inputs": 49,
+        "binding_prompts": 19,
+        "actual_overrides": 0
+      },
+      "mirror_prize": {
+        "legal_inputs": 16828,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "pipeline": {
+        "legal_inputs": 16828,
+        "moved_inputs": 742,
+        "binding_prompts": 581,
+        "actual_overrides": 1
+      }
+    },
+    "mirror": {
+      "attack_access": {
+        "legal_inputs": 25150,
+        "moved_inputs": 1638,
+        "binding_prompts": 1343,
+        "actual_overrides": 0
+      },
+      "wall_break": {
+        "legal_inputs": 25150,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "mirror_prize": {
+        "legal_inputs": 25150,
+        "moved_inputs": 148,
+        "binding_prompts": 43,
+        "actual_overrides": 0
+      },
+      "pipeline": {
+        "legal_inputs": 25150,
+        "moved_inputs": 1786,
+        "binding_prompts": 1386,
+        "actual_overrides": 0
+      }
+    },
+    "other": {
+      "attack_access": {
+        "legal_inputs": 23632,
+        "moved_inputs": 1293,
+        "binding_prompts": 1037,
+        "actual_overrides": 0
+      },
+      "wall_break": {
+        "legal_inputs": 23632,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "mirror_prize": {
+        "legal_inputs": 23632,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "pipeline": {
+        "legal_inputs": 23632,
+        "moved_inputs": 1293,
+        "binding_prompts": 1037,
+        "actual_overrides": 0
+      }
+    },
+    "wall": {
+      "attack_access": {
+        "legal_inputs": 10916,
+        "moved_inputs": 317,
+        "binding_prompts": 218,
+        "actual_overrides": 2
+      },
+      "wall_break": {
+        "legal_inputs": 10916,
+        "moved_inputs": 259,
+        "binding_prompts": 103,
+        "actual_overrides": 2
+      },
+      "mirror_prize": {
+        "legal_inputs": 10916,
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "pipeline": {
+        "legal_inputs": 10916,
+        "moved_inputs": 568,
+        "binding_prompts": 310,
+        "actual_overrides": 4
+      }
+    }
+  },
+  "actual_override_examples": [
+    {
+      "episode_id": 91888197,
+      "matchup": "wall",
+      "step": 124,
+      "turn": 10,
+      "context": 3,
+      "guard": "attack_access",
+      "incoming": 3,
+      "output": 1
+    },
+    {
+      "episode_id": 91888197,
+      "matchup": "wall",
+      "step": 124,
+      "turn": 10,
+      "context": 3,
+      "guard": "pipeline",
+      "incoming": 3,
+      "output": 1
+    },
+    {
+      "episode_id": 91888197,
+      "matchup": "wall",
+      "step": 143,
+      "turn": 14,
+      "context": 0,
+      "guard": "wall_break",
+      "incoming": 0,
+      "output": 1
+    },
+    {
+      "episode_id": 91888197,
+      "matchup": "wall",
+      "step": 143,
+      "turn": 14,
+      "context": 0,
+      "guard": "pipeline",
+      "incoming": 0,
+      "output": 1
+    },
+    {
+      "episode_id": 91883492,
+      "matchup": "wall",
+      "step": 122,
+      "turn": 10,
+      "context": 0,
+      "guard": "wall_break",
+      "incoming": 0,
+      "output": 2
+    },
+    {
+      "episode_id": 91883492,
+      "matchup": "wall",
+      "step": 122,
+      "turn": 10,
+      "context": 0,
+      "guard": "pipeline",
+      "incoming": 0,
+      "output": 2
+    },
+    {
+      "episode_id": 91950626,
+      "matchup": "alakazam",
+      "step": 100,
+      "turn": 6,
+      "context": 3,
+      "guard": "attack_access",
+      "incoming": 1,
+      "output": 2
+    },
+    {
+      "episode_id": 91950626,
+      "matchup": "alakazam",
+      "step": 100,
+      "turn": 6,
+      "context": 3,
+      "guard": "pipeline",
+      "incoming": 1,
+      "output": 2
+    },
+    {
+      "episode_id": 91945881,
+      "matchup": "wall",
+      "step": 66,
+      "turn": 5,
+      "context": 3,
+      "guard": "attack_access",
+      "incoming": 3,
+      "output": 0
+    },
+    {
+      "episode_id": 91945881,
+      "matchup": "wall",
+      "step": 66,
+      "turn": 5,
+      "context": 3,
+      "guard": "pipeline",
+      "incoming": 3,
+      "output": 0
+    }
+  ]
+}

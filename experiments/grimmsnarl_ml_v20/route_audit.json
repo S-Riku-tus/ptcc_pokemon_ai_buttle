@@ -1,0 +1,377 @@
+{
+  "max_turn": 12,
+  "cohorts": {
+    "field_alakazam_second": {
+      "games": 162,
+      "wins": 114,
+      "opening_active_ids": {
+        "646": 97,
+        "112": 41,
+        "860": 24
+      },
+      "punk_targets": 819,
+      "punk_target_ids": {
+        "648": 433,
+        "646": 282,
+        "647": 104
+      },
+      "punk_trigger_offers": 819,
+      "punk_trigger_take_rate": 0.5165,
+      "punk_active_offers": 731,
+      "punk_active_take_rate": 0.4555,
+      "punk_underfunded_grim_offers": 399,
+      "punk_underfunded_grim_take_rate": 0.9624,
+      "punk_ready_active_vs_future_prompts": 375,
+      "punk_future_line_take_when_ready_active": 0.976,
+      "ready_bench_main_opportunities": 170,
+      "retreat_offered_rate": 0.4353,
+      "retreat_taken_when_offered": 0.5676,
+      "ready_promotion_prompts": 113,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 177,
+      "grim_evolve_active_rate": 0.7062,
+      "grim_evolve_bench_offers": 75,
+      "grim_evolve_active_when_bench_offered": 0.3067,
+      "grim_evolve_both_area_prompts": 23
+    },
+    "field_alakazam_second_elite": {
+      "games": 44,
+      "wins": 29,
+      "opening_active_ids": {
+        "112": 13,
+        "860": 3,
+        "646": 28
+      },
+      "punk_targets": 213,
+      "punk_target_ids": {
+        "648": 121,
+        "647": 32,
+        "646": 60
+      },
+      "punk_trigger_offers": 213,
+      "punk_trigger_take_rate": 0.5493,
+      "punk_active_offers": 204,
+      "punk_active_take_rate": 0.4657,
+      "punk_underfunded_grim_offers": 113,
+      "punk_underfunded_grim_take_rate": 0.9558,
+      "punk_ready_active_vs_future_prompts": 103,
+      "punk_future_line_take_when_ready_active": 0.9417,
+      "ready_bench_main_opportunities": 70,
+      "retreat_offered_rate": 0.5571,
+      "retreat_taken_when_offered": 0.3077,
+      "ready_promotion_prompts": 39,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 51,
+      "grim_evolve_active_rate": 0.7451,
+      "grim_evolve_bench_offers": 19,
+      "grim_evolve_active_when_bench_offered": 0.3158,
+      "grim_evolve_both_area_prompts": 6
+    },
+    "field_alakazam_second_lost": {
+      "games": 48,
+      "wins": 0,
+      "opening_active_ids": {
+        "112": 15,
+        "860": 8,
+        "646": 25
+      },
+      "punk_targets": 223,
+      "punk_target_ids": {
+        "648": 130,
+        "646": 68,
+        "647": 25
+      },
+      "punk_trigger_offers": 223,
+      "punk_trigger_take_rate": 0.583,
+      "punk_active_offers": 216,
+      "punk_active_take_rate": 0.537,
+      "punk_underfunded_grim_offers": 119,
+      "punk_underfunded_grim_take_rate": 0.958,
+      "punk_ready_active_vs_future_prompts": 96,
+      "punk_future_line_take_when_ready_active": 0.9688,
+      "ready_bench_main_opportunities": 4,
+      "retreat_offered_rate": 0.75,
+      "retreat_taken_when_offered": 0.6667,
+      "ready_promotion_prompts": 22,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 49,
+      "grim_evolve_active_rate": 0.7755,
+      "grim_evolve_bench_offers": 18,
+      "grim_evolve_active_when_bench_offered": 0.3889,
+      "grim_evolve_both_area_prompts": 7
+    },
+    "field_alakazam_second_won": {
+      "games": 114,
+      "wins": 114,
+      "opening_active_ids": {
+        "646": 72,
+        "112": 26,
+        "860": 16
+      },
+      "punk_targets": 596,
+      "punk_target_ids": {
+        "648": 303,
+        "646": 214,
+        "647": 79
+      },
+      "punk_trigger_offers": 596,
+      "punk_trigger_take_rate": 0.4916,
+      "punk_active_offers": 515,
+      "punk_active_take_rate": 0.4214,
+      "punk_underfunded_grim_offers": 280,
+      "punk_underfunded_grim_take_rate": 0.9643,
+      "punk_ready_active_vs_future_prompts": 279,
+      "punk_future_line_take_when_ready_active": 0.9785,
+      "ready_bench_main_opportunities": 166,
+      "retreat_offered_rate": 0.4277,
+      "retreat_taken_when_offered": 0.5634,
+      "ready_promotion_prompts": 91,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 128,
+      "grim_evolve_active_rate": 0.6797,
+      "grim_evolve_bench_offers": 57,
+      "grim_evolve_active_when_bench_offered": 0.2807,
+      "grim_evolve_both_area_prompts": 16
+    },
+    "ours_alakazam_second": {
+      "games": 18,
+      "wins": 7,
+      "opening_active_ids": {
+        "112": 7,
+        "646": 8,
+        "860": 3
+      },
+      "punk_targets": 95,
+      "punk_target_ids": {
+        "648": 56,
+        "646": 22,
+        "647": 17
+      },
+      "punk_trigger_offers": 95,
+      "punk_trigger_take_rate": 0.5789,
+      "punk_active_offers": 88,
+      "punk_active_take_rate": 0.5341,
+      "punk_underfunded_grim_offers": 51,
+      "punk_underfunded_grim_take_rate": 1.0,
+      "punk_ready_active_vs_future_prompts": 40,
+      "punk_future_line_take_when_ready_active": 1.0,
+      "ready_bench_main_opportunities": 10,
+      "retreat_offered_rate": 0.3,
+      "retreat_taken_when_offered": 1.0,
+      "ready_promotion_prompts": 9,
+      "ready_promotion_take_rate": 0.8889,
+      "grim_evolves": 24,
+      "grim_evolve_active_rate": 1.0,
+      "grim_evolve_bench_offers": 8,
+      "grim_evolve_active_when_bench_offered": 1.0,
+      "grim_evolve_both_area_prompts": 8
+    },
+    "ours_alakazam_second_lost": {
+      "games": 11,
+      "wins": 0,
+      "opening_active_ids": {
+        "112": 5,
+        "646": 5,
+        "860": 1
+      },
+      "punk_targets": 57,
+      "punk_target_ids": {
+        "648": 37,
+        "646": 9,
+        "647": 11
+      },
+      "punk_trigger_offers": 57,
+      "punk_trigger_take_rate": 0.6316,
+      "punk_active_offers": 54,
+      "punk_active_take_rate": 0.6111,
+      "punk_underfunded_grim_offers": 32,
+      "punk_underfunded_grim_take_rate": 1.0,
+      "punk_ready_active_vs_future_prompts": 20,
+      "punk_future_line_take_when_ready_active": 1.0,
+      "ready_bench_main_opportunities": 2,
+      "retreat_offered_rate": 0.0,
+      "retreat_taken_when_offered": null,
+      "ready_promotion_prompts": 4,
+      "ready_promotion_take_rate": 0.75,
+      "grim_evolves": 17,
+      "grim_evolve_active_rate": 1.0,
+      "grim_evolve_bench_offers": 5,
+      "grim_evolve_active_when_bench_offered": 1.0,
+      "grim_evolve_both_area_prompts": 5
+    },
+    "ours_alakazam_second_won": {
+      "games": 7,
+      "wins": 7,
+      "opening_active_ids": {
+        "112": 2,
+        "860": 2,
+        "646": 3
+      },
+      "punk_targets": 38,
+      "punk_target_ids": {
+        "648": 19,
+        "647": 6,
+        "646": 13
+      },
+      "punk_trigger_offers": 38,
+      "punk_trigger_take_rate": 0.5,
+      "punk_active_offers": 34,
+      "punk_active_take_rate": 0.4118,
+      "punk_underfunded_grim_offers": 19,
+      "punk_underfunded_grim_take_rate": 1.0,
+      "punk_ready_active_vs_future_prompts": 20,
+      "punk_future_line_take_when_ready_active": 1.0,
+      "ready_bench_main_opportunities": 8,
+      "retreat_offered_rate": 0.375,
+      "retreat_taken_when_offered": 1.0,
+      "ready_promotion_prompts": 5,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 7,
+      "grim_evolve_active_rate": 1.0,
+      "grim_evolve_bench_offers": 3,
+      "grim_evolve_active_when_bench_offered": 1.0,
+      "grim_evolve_both_area_prompts": 3
+    },
+    "v16_alakazam_second": {
+      "games": 2,
+      "wins": 0,
+      "opening_active_ids": {
+        "112": 2
+      },
+      "punk_targets": 11,
+      "punk_target_ids": {
+        "648": 7,
+        "646": 4
+      },
+      "punk_trigger_offers": 11,
+      "punk_trigger_take_rate": 0.6364,
+      "punk_active_offers": 8,
+      "punk_active_take_rate": 0.625,
+      "punk_underfunded_grim_offers": 7,
+      "punk_underfunded_grim_take_rate": 1.0,
+      "punk_ready_active_vs_future_prompts": 3,
+      "punk_future_line_take_when_ready_active": 1.0,
+      "ready_bench_main_opportunities": 1,
+      "retreat_offered_rate": 0.0,
+      "retreat_taken_when_offered": null,
+      "ready_promotion_prompts": 1,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 3,
+      "grim_evolve_active_rate": 1.0,
+      "grim_evolve_bench_offers": 1,
+      "grim_evolve_active_when_bench_offered": 1.0,
+      "grim_evolve_both_area_prompts": 1
+    },
+    "v17_alakazam_second": {
+      "games": 6,
+      "wins": 4,
+      "opening_active_ids": {
+        "112": 2,
+        "646": 2,
+        "860": 2
+      },
+      "punk_targets": 36,
+      "punk_target_ids": {
+        "648": 22,
+        "647": 4,
+        "646": 10
+      },
+      "punk_trigger_offers": 36,
+      "punk_trigger_take_rate": 0.6111,
+      "punk_active_offers": 32,
+      "punk_active_take_rate": 0.5625,
+      "punk_underfunded_grim_offers": 20,
+      "punk_underfunded_grim_take_rate": 1.0,
+      "punk_ready_active_vs_future_prompts": 14,
+      "punk_future_line_take_when_ready_active": 1.0,
+      "ready_bench_main_opportunities": 1,
+      "retreat_offered_rate": 1.0,
+      "retreat_taken_when_offered": 1.0,
+      "ready_promotion_prompts": 1,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 9,
+      "grim_evolve_active_rate": 1.0,
+      "grim_evolve_bench_offers": 3,
+      "grim_evolve_active_when_bench_offered": 1.0,
+      "grim_evolve_both_area_prompts": 3
+    },
+    "v18_alakazam_second": {
+      "games": 4,
+      "wins": 1,
+      "opening_active_ids": {
+        "646": 3,
+        "112": 1
+      },
+      "punk_targets": 16,
+      "punk_target_ids": {
+        "648": 8,
+        "647": 5,
+        "646": 3
+      },
+      "punk_trigger_offers": 16,
+      "punk_trigger_take_rate": 0.4375,
+      "punk_active_offers": 16,
+      "punk_active_take_rate": 0.4375,
+      "punk_underfunded_grim_offers": 7,
+      "punk_underfunded_grim_take_rate": 1.0,
+      "punk_ready_active_vs_future_prompts": 9,
+      "punk_future_line_take_when_ready_active": 1.0,
+      "ready_bench_main_opportunities": 0,
+      "retreat_offered_rate": null,
+      "retreat_taken_when_offered": null,
+      "ready_promotion_prompts": 2,
+      "ready_promotion_take_rate": 1.0,
+      "grim_evolves": 5,
+      "grim_evolve_active_rate": 1.0,
+      "grim_evolve_bench_offers": 1,
+      "grim_evolve_active_when_bench_offered": 1.0,
+      "grim_evolve_both_area_prompts": 1
+    },
+    "v19_alakazam_second": {
+      "games": 6,
+      "wins": 2,
+      "opening_active_ids": {
+        "646": 3,
+        "860": 1,
+        "112": 2
+      },
+      "punk_targets": 32,
+      "punk_target_ids": {
+        "648": 19,
+        "646": 5,
+        "647": 8
+      },
+      "punk_trigger_offers": 32,
+      "punk_trigger_take_rate": 0.5938,
+      "punk_active_offers": 32,
+      "punk_active_take_rate": 0.5312,
+      "punk_underfunded_grim_offers": 17,
+      "punk_underfunded_grim_take_rate": 1.0,
+      "punk_ready_active_vs_future_prompts": 14,
+      "punk_future_line_take_when_ready_active": 1.0,
+      "ready_bench_main_opportunities": 8,
+      "retreat_offered_rate": 0.25,
+      "retreat_taken_when_offered": 1.0,
+      "ready_promotion_prompts": 5,
+      "ready_promotion_take_rate": 0.8,
+      "grim_evolves": 7,
+      "grim_evolve_active_rate": 1.0,
+      "grim_evolve_bench_offers": 3,
+      "grim_evolve_active_when_bench_offered": 1.0,
+      "grim_evolve_both_area_prompts": 3
+    }
+  },
+  "ours_route_misses": [
+    {
+      "episode_id": 91950626,
+      "won": false,
+      "turn": 6,
+      "kind": "promotion",
+      "after_own_retreat": true,
+      "ready_offered": 1,
+      "ready_taken": false,
+      "chosen_id": 647,
+      "chosen_energy": 3
+    }
+  ]
+}

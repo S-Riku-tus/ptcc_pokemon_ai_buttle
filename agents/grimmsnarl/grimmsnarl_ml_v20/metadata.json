@@ -1,0 +1,219 @@
+{
+  "name": "grimmsnarl_ml_v20",
+  "version": "20.0.0",
+  "role": "offline-validated_challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v19",
+  "created_at": "2026-08-11T22:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "v19 safety layers plus one hard-state-weighted attack-continuity ranker and a bounded mirror-endgame Prize tie-breaker",
+  "ranker": {
+    "source": "corpus_v20_current.npz / ranker_v20_hard2_perteam.txt",
+    "objective": "LightGBM LambdaRank",
+    "trees": 513,
+    "features": 842,
+    "teacher_conditioned": false,
+    "win_weight": 1.0,
+    "hard_state_weight": 2.0,
+    "sha256": "38435a79d31c999e0dab4283c4e928b9df5b9a30b4b349f47cc78edfb7da3983",
+    "model_changed": true,
+    "retrained": true,
+    "eventual_result_used_for_weighting": false
+  },
+  "training": {
+    "combined_relations": 1264,
+    "combined_episodes": 1238,
+    "combined_decisions": 95664,
+    "combined_candidate_rows": 466463,
+    "refreshed_teacher_team_ids": [16422241, 16452116, 16561259],
+    "split_mode": "per-team chronological",
+    "chronological_validation_decisions": 11432,
+    "chronological_test_decisions": 11420,
+    "validation_top1": 0.8019,
+    "test_top1": 0.8047,
+    "test_main_top1": 0.7426,
+    "test_top3": 0.9801,
+    "test_order_insensitive_top1": 0.9177,
+    "v19_test_top1": 0.8006,
+    "v19_test_main_top1": 0.7314,
+    "weighting": "2x only for observation-defined attack delay, chain gap, Punk allocation, ready promotion, wall recovery and mirror endgame states",
+    "hard_state_test_top1": {
+      "delayed_attack_access": 0.8071,
+      "attack_chain_gap": 0.8027,
+      "punk_allocation": 0.9282,
+      "ready_promotion": 0.9704,
+      "wall_recovery": 0.8082,
+      "mirror_endgame": 0.8278
+    },
+    "feature_parity_audit": {
+      "games": 27,
+      "decisions": 2295,
+      "candidate_rows": 13776,
+      "features_checked": 20,
+      "mismatches": 0
+    },
+    "candidate_screen": {
+      "hard1": {"validation_top1": 0.8041, "test_top1": 0.8023, "test_main_top1": 0.7374},
+      "hard2": {"validation_top1": 0.8019, "test_top1": 0.8047, "test_main_top1": 0.7426, "selected": true},
+      "hard4": {"validation_top1": 0.8017, "test_top1": 0.8039, "test_main_top1": 0.7369, "selected": false}
+    }
+  },
+  "continuity_features": [
+    "active_grim_line_eta",
+    "backup_grim_line_eta",
+    "second_grim_line_eta",
+    "backup_grim_eta_le1",
+    "backup_grim_eta_le2",
+    "attack_chain_ready",
+    "future_attacker_line_count",
+    "single_attacker_risk",
+    "candidate_target_grim_line_eta_before",
+    "candidate_target_grim_line_eta_after",
+    "candidate_target_grim_line_eta_gain",
+    "candidate_creates_ready_active",
+    "candidate_creates_ready_backup",
+    "candidate_punk_targets_trigger",
+    "candidate_punk_funds_active",
+    "candidate_punk_overfunds_ready_active",
+    "candidate_punk_funds_future_line",
+    "candidate_ready_promotion_offered",
+    "candidate_promotes_ready_attacker",
+    "candidate_passes_ready_promotion"
+  ],
+  "alakazam_second_audit": {
+    "our_games": 18,
+    "our_record": "7-11",
+    "field_games": 162,
+    "field_record": "114-48",
+    "our_grim_evolve_active_rate": 1.0,
+    "field_grim_evolve_active_rate": 0.7062,
+    "finding": "Punk Up already funds a future line when a ready Active exists; the missing signal is earlier board placement and backup-line ETA, not a matchup-specific allocation rule"
+  },
+  "horizon_prize": {
+    "module": "horizon_prize.py",
+    "scope": "exact-60 mirror, after first Shadow, either player at three or fewer Prizes",
+    "score_tolerance": 0.08,
+    "strict_condition": "only near-tied options with a strictly larger observable two-turn Prize ceiling",
+    "v19_replay_scope": {"games": 27, "decisions": 2446},
+    "eligible_prompts": 99,
+    "score_band_prompts": 2,
+    "overrides": 1,
+    "override_episode": 91940351,
+    "errors": 0
+  },
+  "policy_escalation": {
+    "mode": "off",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "reason": "the deployed model is teacher-unconditioned; legacy teacher routing is not defined"
+  },
+  "residual": {
+    "module": "ml_residual.py",
+    "context": 7,
+    "trigger_effect_card_id": 1219,
+    "trigger_card_id": 1080,
+    "panel_team_ids": [16371703, 16422241, 16452116, 16561259],
+    "panel_teacher_codes": [0, 9, 12, 20],
+    "panel_need": 3,
+    "unchanged_from": "grimmsnarl_ml_v19"
+  },
+  "router": {
+    "role": "public-information selector for retained safety layers only",
+    "policy_switches": 0,
+    "teacher_pin_switches": 0,
+    "model_expert_switches": 0,
+    "ranker_route_method_removed": true,
+    "hidden_deck_or_hand_used": false,
+    "routes": ["v8_default", "v8_mirror", "v8_alakazam_guarded", "v8_wall_guarded"]
+  },
+  "retained_v19_layers": [
+    "ml_planner.py",
+    "ml_residual.py",
+    "matchup_guard.py",
+    "attack_access.py",
+    "wall_break.py",
+    "mirror_prize.py"
+  ],
+  "files_identical_to_v8": [
+    "deck.csv",
+    "fallback_policy.py",
+    "ml_planner.py",
+    "policy_base.py"
+  ],
+  "files_identical_to_v15": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "policy_base.py"
+  ],
+  "files_changed_from_v15": [
+    "horizon_prize.py",
+    "main.py",
+    "metadata.json",
+    "mirror_prize.py",
+    "ml_features.py",
+    "ml_runtime.py",
+    "policy_router.py",
+    "ranker_model.json",
+    "wall_break.py"
+  ],
+  "files_identical_to_v17": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "policy_base.py",
+    "wall_break.py"
+  ],
+  "files_changed_from_v17": [
+    "horizon_prize.py",
+    "main.py",
+    "metadata.json",
+    "mirror_prize.py",
+    "ml_features.py",
+    "ml_runtime.py",
+    "policy_router.py",
+    "ranker_model.json"
+  ],
+  "files_identical_to_v19": [
+    "attack_access.py",
+    "deck.csv",
+    "fallback_policy.py",
+    "matchup_guard.py",
+    "mirror_prize.py",
+    "ml_planner.py",
+    "ml_residual.py",
+    "policy_base.py",
+    "policy_router.py",
+    "wall_break.py"
+  ],
+  "files_changed_from_v19": {
+    "horizon_prize.py": "new bounded two-turn mirror-endgame tie-breaker",
+    "main.py": "integrate the tie-breaker and remove dead ranker route updates",
+    "ml_features.py": "20 attack-continuity and candidate-route features",
+    "ml_runtime.py": "load the 842-feature model and remove dead teacher-route state",
+    "ranker_model.json": "513-tree hard-state-weighted teacher-unconditioned fit",
+    "metadata.json": "v20 data, fit, footprint and limitation evidence"
+  },
+  "validation_scope": {
+    "ladder_run": false,
+    "reason": "explicitly excluded by user request",
+    "claim_limit": "held-out and same-board replay evidence support the candidate; future ladder rating is not guaranteed"
+  },
+  "submission_archive": {
+    "entries": 25,
+    "bytes": 4319895,
+    "sha256": "1e7b8a3c88725498ec853bfb17cd3726ccb4c3a8566eeb4a18eb005fbe14117a",
+    "extracted_import_smoke": true
+  },
+  "submission_priority": 1,
+  "description": "Attack-continuity ML with result-free hard-state weighting and a one-binding bounded two-turn mirror endgame planner."
+}

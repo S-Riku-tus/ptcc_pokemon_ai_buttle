@@ -1,0 +1,650 @@
+{
+  "run_dir": "data\\runs\\grimmsnarl\\20260811_grimmsnarl_ml_v19_sub55428196",
+  "submission": "55428196",
+  "episodes_total": 43,
+  "episodes_rated": 42,
+  "excluded": [
+    {
+      "episode_id": 91926096,
+      "type": "EPISODE_TYPE_VALIDATION"
+    }
+  ],
+  "our_deck_hashes": [
+    "9714ab5c3996f6cc"
+  ],
+  "overall": {
+    "games": 42,
+    "wins": 29,
+    "losses": 13,
+    "win_rate": 0.6905,
+    "wilson95": [
+      0.5397,
+      0.8093
+    ],
+    "mean_opponent_rating": 864.07,
+    "episodes": [
+      91926197,
+      91927127,
+      91928067,
+      91929000,
+      91929928,
+      91930858,
+      91931782,
+      91931793,
+      91932746,
+      91933680,
+      91934607,
+      91935543,
+      91936487,
+      91937433,
+      91938385,
+      91939328,
+      91940351,
+      91941193,
+      91942142,
+      91943074,
+      91944013,
+      91944940,
+      91945881,
+      91946755,
+      91946814,
+      91947765,
+      91947795,
+      91948729,
+      91949684,
+      91950626,
+      91951573,
+      91952515,
+      91953473,
+      91954370,
+      91955356,
+      91956314,
+      91957198,
+      91958202,
+      91959143,
+      91960096,
+      91961012,
+      91961928
+    ]
+  },
+  "mean_opponent_rating": 864.0655,
+  "rating_first": 600.0,
+  "rating_last": 978.3122,
+  "first_10": {
+    "games": 10,
+    "wins": 9,
+    "losses": 1,
+    "win_rate": 0.9,
+    "wilson95": [
+      0.5958,
+      0.9821
+    ],
+    "mean_opponent_rating": 768.55,
+    "episodes": [
+      91926197,
+      91927127,
+      91928067,
+      91929000,
+      91929928,
+      91930858,
+      91931782,
+      91931793,
+      91932746,
+      91933680
+    ]
+  },
+  "after_10": {
+    "games": 32,
+    "wins": 20,
+    "losses": 12,
+    "win_rate": 0.625,
+    "wilson95": [
+      0.4525,
+      0.7707
+    ],
+    "mean_opponent_rating": 893.91,
+    "episodes": [
+      91934607,
+      91935543,
+      91936487,
+      91937433,
+      91938385,
+      91939328,
+      91940351,
+      91941193,
+      91942142,
+      91943074,
+      91944013,
+      91944940,
+      91945881,
+      91946755,
+      91946814,
+      91947765,
+      91947795,
+      91948729,
+      91949684,
+      91950626,
+      91951573,
+      91952515,
+      91953473,
+      91954370,
+      91955356,
+      91956314,
+      91957198,
+      91958202,
+      91959143,
+      91960096,
+      91961012,
+      91961928
+    ]
+  },
+  "by_opponent_rating": {
+    "1000_1099": {
+      "games": 3,
+      "wins": 2,
+      "losses": 1,
+      "win_rate": 0.6667,
+      "wilson95": [
+        0.2077,
+        0.9385
+      ],
+      "mean_opponent_rating": 1012.3,
+      "episodes": [
+        91942142,
+        91944013,
+        91946755
+      ]
+    },
+    "900_999": {
+      "games": 21,
+      "wins": 14,
+      "losses": 7,
+      "win_rate": 0.6667,
+      "wilson95": [
+        0.4537,
+        0.8281
+      ],
+      "mean_opponent_rating": 942.2,
+      "episodes": [
+        91932746,
+        91933680,
+        91934607,
+        91935543,
+        91936487,
+        91937433,
+        91939328,
+        91940351,
+        91941193,
+        91943074,
+        91946814,
+        91947765,
+        91948729,
+        91950626,
+        91951573,
+        91952515,
+        91954370,
+        91956314,
+        91957198,
+        91960096,
+        91961928
+      ]
+    },
+    "under_900": {
+      "games": 18,
+      "wins": 13,
+      "losses": 5,
+      "win_rate": 0.7222,
+      "wilson95": [
+        0.4913,
+        0.875
+      ],
+      "mean_opponent_rating": 748.2,
+      "episodes": [
+        91926197,
+        91927127,
+        91928067,
+        91929000,
+        91929928,
+        91930858,
+        91931782,
+        91931793,
+        91938385,
+        91944940,
+        91945881,
+        91947795,
+        91949684,
+        91953473,
+        91955356,
+        91958202,
+        91959143,
+        91961012
+      ]
+    }
+  },
+  "by_turn_order": {
+    "first": {
+      "games": 26,
+      "wins": 20,
+      "losses": 6,
+      "win_rate": 0.7692,
+      "wilson95": [
+        0.5795,
+        0.8897
+      ],
+      "mean_opponent_rating": 830.36,
+      "episodes": [
+        91926197,
+        91928067,
+        91929000,
+        91930858,
+        91931782,
+        91932746,
+        91935543,
+        91936487,
+        91938385,
+        91939328,
+        91940351,
+        91942142,
+        91944013,
+        91944940,
+        91945881,
+        91947765,
+        91947795,
+        91949684,
+        91951573,
+        91952515,
+        91953473,
+        91956314,
+        91958202,
+        91959143,
+        91960096,
+        91961012
+      ]
+    },
+    "second": {
+      "games": 16,
+      "wins": 9,
+      "losses": 7,
+      "win_rate": 0.5625,
+      "wilson95": [
+        0.3318,
+        0.769
+      ],
+      "mean_opponent_rating": 918.84,
+      "episodes": [
+        91927127,
+        91929928,
+        91931793,
+        91933680,
+        91934607,
+        91937433,
+        91941193,
+        91943074,
+        91946755,
+        91946814,
+        91948729,
+        91950626,
+        91954370,
+        91955356,
+        91957198,
+        91961928
+      ]
+    },
+    "unknown": {
+      "games": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": null,
+      "wilson95": [
+        0.0,
+        0.0
+      ],
+      "mean_opponent_rating": null,
+      "episodes": []
+    }
+  },
+  "by_opponent_deck": {
+    "9714ab5c3996f6cc": {
+      "games": 15,
+      "wins": 10,
+      "losses": 5,
+      "win_rate": 0.6667,
+      "wilson95": [
+        0.4171,
+        0.8482
+      ],
+      "mean_opponent_rating": 923.34,
+      "episodes": [
+        91929928,
+        91931793,
+        91932746,
+        91934607,
+        91935543,
+        91939328,
+        91940351,
+        91941193,
+        91942142,
+        91948729,
+        91951573,
+        91952515,
+        91956314,
+        91959143,
+        91961012
+      ],
+      "label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass",
+      "archetype": "Marnie's Grimmsnarl ex"
+    },
+    "cc38cb450b86770a": {
+      "games": 7,
+      "wins": 3,
+      "losses": 4,
+      "win_rate": 0.4286,
+      "wilson95": [
+        0.1582,
+        0.7495
+      ],
+      "mean_opponent_rating": 925.49,
+      "episodes": [
+        91936487,
+        91937433,
+        91946755,
+        91953473,
+        91954370,
+        91955356,
+        91957198
+      ],
+      "label": "Alakazam + Kadabra + Dudunsparce",
+      "archetype": "Alakazam"
+    },
+    "a7ee29914c1dce64": {
+      "games": 2,
+      "wins": 2,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.3424,
+        1.0
+      ],
+      "mean_opponent_rating": 955.71,
+      "episodes": [
+        91933680,
+        91960096
+      ],
+      "label": "Dudunsparce + Mega Lopunny ex + Mega Froslass ex",
+      "archetype": "Mega Lopunny ex"
+    },
+    "9b415cc6bbdf6fd5": {
+      "games": 2,
+      "wins": 2,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.3424,
+        1.0
+      ],
+      "mean_opponent_rating": 842.8,
+      "episodes": [
+        91945881,
+        91946814
+      ],
+      "label": "Crustle + Mega Kangaskhan ex + Cornerstone Mask Ogerpon ex",
+      "archetype": "Mega Kangaskhan ex"
+    },
+    "05f854e1b3b3ba0f": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 670.37,
+      "episodes": [
+        91926197
+      ],
+      "label": "Mega Lucario ex + Hariyama",
+      "archetype": "Mega Lucario ex"
+    },
+    "21c3f20980827cb2": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 695.5,
+      "episodes": [
+        91927127
+      ],
+      "label": "Marnie's Grimmsnarl ex + Marnie's Morgrem + Froslass",
+      "archetype": "Marnie's Grimmsnarl ex"
+    },
+    "fcfbce590a2ce1a3": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 545.57,
+      "episodes": [
+        91928067
+      ],
+      "label": "Dudunsparce + Kadabra + Alakazam",
+      "archetype": "Alakazam"
+    },
+    "7fa65817cc79c36c": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 742.8,
+      "episodes": [
+        91929000
+      ],
+      "label": "Dudunsparce + Alakazam + Kadabra",
+      "archetype": "Alakazam"
+    },
+    "a6535bbccddb9182": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 755.92,
+      "episodes": [
+        91930858
+      ],
+      "label": "Mega Lucario ex",
+      "archetype": "Mega Lucario ex"
+    },
+    "237b497b729ad191": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 645.23,
+      "episodes": [
+        91931782
+      ],
+      "label": "Mega Lucario ex + Hariyama",
+      "archetype": "Mega Lucario ex"
+    },
+    "28c260bfbfef601b": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 507.63,
+      "episodes": [
+        91938385
+      ],
+      "label": "Kadabra + Alakazam + Dudunsparce",
+      "archetype": "Alakazam"
+    },
+    "daff2ed17de6145d": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 997.68,
+      "episodes": [
+        91943074
+      ],
+      "label": "Cynthia's Gabite + Cynthia's Garchomp ex + Cynthia's Roserade",
+      "archetype": "Cynthia's Garchomp ex"
+    },
+    "b97e551a32cdc3a8": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 1015.69,
+      "episodes": [
+        91944013
+      ],
+      "label": "Teal Mask Ogerpon ex + Hydrapple ex + Meowth ex",
+      "archetype": "Hydrapple ex"
+    },
+    "7e7bca6783abe61e": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 565.83,
+      "episodes": [
+        91944940
+      ],
+      "label": "Mega Abomasnow ex",
+      "archetype": "Mega Abomasnow ex"
+    },
+    "6d40ba7438d95d32": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 956.36,
+      "episodes": [
+        91947765
+      ],
+      "label": "Drakloak + Dragapult ex + Meowth ex",
+      "archetype": "Dragapult ex"
+    },
+    "295af070deb9c468": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 867.87,
+      "episodes": [
+        91947795
+      ],
+      "label": "Drakloak + Dragapult ex + Dudunsparce ex",
+      "archetype": "Dragapult ex"
+    },
+    "8055443275c86105": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 705.5,
+      "episodes": [
+        91949684
+      ],
+      "label": "Drakloak + Dragapult ex + Fezandipiti ex",
+      "archetype": "Dragapult ex"
+    },
+    "29929a763bf01096": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "mean_opponent_rating": 966.07,
+      "episodes": [
+        91950626
+      ],
+      "label": "Alakazam + Kadabra + Dudunsparce",
+      "archetype": "Alakazam"
+    },
+    "2b6a7dd699d2b6a5": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 784.82,
+      "episodes": [
+        91958202
+      ],
+      "label": "Archaludon ex + Cinderace",
+      "archetype": "Cinderace"
+    },
+    "1eda048ea3581634": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "mean_opponent_rating": 942.41,
+      "episodes": [
+        91961928
+      ],
+      "label": "Mega Kangaskhan ex + Crustle",
+      "archetype": "Mega Kangaskhan ex"
+    }
+  }
+}

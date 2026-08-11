@@ -304,11 +304,64 @@ def select_decisions(corpus: Corpus, split: str,
     return np.flatnonzero(mask)
 
 
+def hard_state_masks(
+    corpus: Corpus,
+    decisions: np.ndarray,
+) -> dict[str, np.ndarray]:
+    """Observable decision slices that deserve more teacher signal.
+
+    v19 weighted every decision from a won game four times.  That mostly
+    repeats ordinary winning positions.  v20 instead concentrates capacity on
+    states where the submitted policy demonstrably loses continuity: delayed
+    access, no near-term backup attacker, Punk Up allocation, a ready-attacker
+    promotion, a live wall route, or a one/two-Prize endgame.  All columns are
+    public observation features and the eventual result is not consulted.
+    """
+    starts = corpus.starts[decisions]
+
+    def state(name: str, default: float = 0.0) -> np.ndarray:
+        if name not in corpus.names:
+            return np.full(len(decisions), default, dtype=np.float32)
+        return corpus.features[starts, corpus.names.index(name)]
+
+    def offered(name: str) -> np.ndarray:
+        if name not in corpus.names:
+            return np.zeros(len(decisions), dtype=bool)
+        column = corpus.names.index(name)
+        return np.asarray([
+            bool(np.max(corpus.features[
+                corpus.starts[decision]:corpus.ends[decision], column
+            ]) > 0)
+            for decision in decisions
+        ])
+
+    turn = state("turn")
+    has_ready = state("has_ready_attacker")
+    active_ready = state("active_attacker_ready")
+    backup_eta = state("backup_grim_line_eta", 9.0)
+    has_line = state("marnie_body_count") > 0
+    return {
+        "delayed_attack_access": (turn >= 5) & (has_ready <= 0) & has_line,
+        "attack_chain_gap": (active_ready > 0) & (backup_eta > 1),
+        "punk_allocation": offered("candidate_punk_targets_trigger"),
+        "ready_promotion": offered("candidate_ready_promotion_offered"),
+        "wall_recovery": (
+            (state("opp_active_is_damage_immune") > 0)
+            & (state("shadow_bullet_prizes_now") <= 0)
+        ),
+        "mirror_endgame": (
+            (state("mirror_match_signal") > 0)
+            & (state("self_prize_count", 6.0) <= 2)
+        ),
+    }
+
+
 def make_dataset(corpus: Corpus, decisions: np.ndarray,
                  reference: lgb.Dataset | None = None,
                  focus_team: int | None = None,
                  focus_weight: float = 1.0,
                  win_weight: float = 1.0,
+                 hard_state_weight: float = 1.0,
                  rating_weight: float = 0.0,
                  ratings: dict[int, float] | None = None) -> lgb.Dataset:
     """Optionally tilt the fit toward the pilot we intend to pin.
@@ -320,7 +373,7 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
     is worse than pooling, so this is the middle of that range, and the weight
     is chosen on validation like any other hyperparameter.
 
-    Three weightings compose here, all default off:
+    Four weightings compose here, all default off:
 
     * ``focus_weight`` on the pinned pilot's decisions.
     * ``win_weight`` on decisions from games the teacher won. The corpus has
@@ -328,6 +381,10 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
       decision in a lost game counted the same as one in a won game. Kept
       small: a loss is often a bad opening, not a bad decision, so a large
       weight would just learn "teachers who drew well".
+    * ``hard_state_weight`` on observation-defined attack access, continuity,
+      allocation, promotion, wall and mirror-endgame states.  Unlike result
+      weighting it remains available at inference and directly targets the
+      sparse decisions v20 is intended to improve.
     * ``rating_weight`` interpolates each pilot's weight by leaderboard rating,
       so the shared mechanics are still fitted on all 21 pilots but the
       stronger ones pull harder. Capped by construction at 1 + rating_weight.
@@ -343,6 +400,10 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
         )
     if win_weight != 1.0:
         weights *= np.where(corpus.won[decisions] == 1, win_weight, 1.0)
+    if hard_state_weight != 1.0:
+        masks = hard_state_masks(corpus, decisions)
+        difficult = np.logical_or.reduce(list(masks.values()))
+        weights *= np.where(difficult, hard_state_weight, 1.0)
     if rating_weight and ratings:
         values = np.array(
             [ratings.get(int(t), 0.0) for t in corpus.team_ids[decisions]],
@@ -384,6 +445,13 @@ def main() -> int:
         help="Weight decisions from games the teacher won.",
     )
     parser.add_argument(
+        "--hard-state-weight", type=float, default=1.0,
+        help=(
+            "Weight observable recovery/continuity/wall/endgame decisions; "
+            "unlike --win-weight this does not use the eventual result."
+        ),
+    )
+    parser.add_argument(
         "--rating-weight", type=float, default=0.0,
         help="Scale each pilot's weight by leaderboard rating (0 = off).",
     )
@@ -423,6 +491,8 @@ def main() -> int:
         parser.error("--focus-weight must be positive")
     if args.win_weight <= 0:
         parser.error("--win-weight must be positive")
+    if args.hard_state_weight <= 0:
+        parser.error("--hard-state-weight must be positive")
     if args.rating_weight < 0:
         parser.error("--rating-weight cannot be negative")
 
@@ -483,6 +553,7 @@ def main() -> int:
         corpus, train,
         focus_team=args.focus_team, focus_weight=args.focus_weight,
         win_weight=args.win_weight,
+        hard_state_weight=args.hard_state_weight,
         rating_weight=args.rating_weight, ratings=ratings,
     )
     validation_set = make_dataset(corpus, validation, reference=train_set)
@@ -532,6 +603,18 @@ def main() -> int:
         "focus_team": args.focus_team,
         "focus_weight": args.focus_weight,
         "win_weight": args.win_weight,
+        "hard_state_weight": args.hard_state_weight,
+        "hard_state_support": {
+            split: {
+                name: int(mask.sum())
+                for name, mask in hard_state_masks(corpus, block).items()
+            }
+            for split, block in (
+                ("train", train),
+                ("validation", validation),
+                ("test", test),
+            )
+        },
         "rating_weight": args.rating_weight,
         "ratings": {
             str(team): rating for team, rating in sorted(ratings.items())
@@ -632,6 +715,15 @@ def main() -> int:
                 by_team.items(), key=lambda kv: -kv[1][1] / max(1, kv[1][0])
             )
         }
+        results[name]["top1_by_hard_state"] = {}
+        for slice_name, mask in hard_state_masks(corpus, block).items():
+            total = int(mask.sum())
+            results[name]["top1_by_hard_state"][slice_name] = {
+                "decisions": total,
+                "top1": (
+                    round(float(correct[mask].mean()), 4) if total else None
+                ),
+            }
 
     importance = sorted(
         zip(corpus.names, booster.feature_importance("gain")),

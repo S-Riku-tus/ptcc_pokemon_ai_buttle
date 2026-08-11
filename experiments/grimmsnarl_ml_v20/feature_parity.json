@@ -1,0 +1,13 @@
+{
+  "scope": {
+    "source": "submitted v19 mirror and Alakazam observations",
+    "games": 27,
+    "decisions": 2295,
+    "candidate_rows": 13776,
+    "features_checked": 20
+  },
+  "comparison": "runtime ml_features.py values versus the deterministic corpus_v20_current.npz reconstruction formulas",
+  "total_mismatches": 0,
+  "mismatches_by_feature": {},
+  "note": "The first audit found two candidate_punk_targets_trigger mismatches in episode 91950626 because the frozen v19 corpus did not retain effect serial. The runtime definition was aligned to the corpus-observable appeared-this-turn Grimmsnarl definition, after which the complete scope was rechecked with zero mismatches."
+}

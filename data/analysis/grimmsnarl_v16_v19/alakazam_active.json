@@ -1,0 +1,515 @@
+{
+  "max_turn": 8,
+  "cohorts": {
+    "alakazam_first": {
+      "games": 164,
+      "own_turns": 651,
+      "attack_offered": 0.6022,
+      "no_energy_on_active": 0.5499,
+      "active_changed": 0.4178,
+      "attaches_to_active": 157,
+      "attaches_to_bench": 276,
+      "attach_to_active_share": 0.3626,
+      "by_turn": {
+        "1": {
+          "n": 164,
+          "attack_offered": 0.0,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 6.902,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.512,
+          "attached_to_bench": 0.274
+        },
+        "3": {
+          "n": 164,
+          "attack_offered": 0.6341,
+          "active_energy": 0.482,
+          "bench_energy": 0.293,
+          "hand": 5.506,
+          "active_changed": 0.0549,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.238,
+          "attached_to_bench": 0.36
+        },
+        "5": {
+          "n": 162,
+          "attack_offered": 0.858,
+          "active_energy": 0.988,
+          "bench_energy": 1.481,
+          "hand": 5.568,
+          "active_changed": 0.8333,
+          "active_is_grimmsnarl": 0.3025,
+          "attached_to_active": 0.13,
+          "attached_to_bench": 0.5
+        },
+        "7": {
+          "n": 161,
+          "attack_offered": 0.9255,
+          "active_energy": 1.615,
+          "bench_energy": 2.217,
+          "hand": 5.87,
+          "active_changed": 0.795,
+          "active_is_grimmsnarl": 0.3851,
+          "attached_to_active": 0.081,
+          "attached_to_bench": 0.565
+        }
+      },
+      "active_when_no_attack": {
+        "Marnie's Impidimp": 123,
+        "Munkidori": 73,
+        "Snorunt": 55,
+        "Marnie's Morgrem": 4,
+        "Froslass": 4
+      }
+    },
+    "alakazam_second": {
+      "games": 162,
+      "own_turns": 645,
+      "attack_offered": 0.6744,
+      "no_energy_on_active": 0.6031,
+      "active_changed": 0.524,
+      "attaches_to_active": 151,
+      "attaches_to_bench": 282,
+      "attach_to_active_share": 0.3487,
+      "by_turn": {
+        "2": {
+          "n": 162,
+          "attack_offered": 0.2963,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 6.796,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.525,
+          "attached_to_bench": 0.29
+        },
+        "4": {
+          "n": 162,
+          "attack_offered": 0.6481,
+          "active_energy": 0.352,
+          "bench_energy": 0.327,
+          "hand": 6.358,
+          "active_changed": 0.4198,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.191,
+          "attached_to_bench": 0.494
+        },
+        "6": {
+          "n": 161,
+          "attack_offered": 0.8758,
+          "active_energy": 0.913,
+          "bench_energy": 1.348,
+          "hand": 5.553,
+          "active_changed": 0.882,
+          "active_is_grimmsnarl": 0.205,
+          "attached_to_active": 0.124,
+          "attached_to_bench": 0.503
+        },
+        "8": {
+          "n": 160,
+          "attack_offered": 0.8812,
+          "active_energy": 1.587,
+          "bench_energy": 2.538,
+          "hand": 5.95,
+          "active_changed": 0.8,
+          "active_is_grimmsnarl": 0.4375,
+          "attached_to_active": 0.094,
+          "attached_to_bench": 0.463
+        }
+      },
+      "active_when_no_attack": {
+        "Marnie's Impidimp": 85,
+        "Munkidori": 64,
+        "Snorunt": 49,
+        "Froslass": 8,
+        "Marnie's Morgrem": 4
+      }
+    },
+    "alakazam_second_lost": {
+      "games": 48,
+      "own_turns": 192,
+      "attack_offered": 0.5781,
+      "no_energy_on_active": 0.6979,
+      "active_changed": 0.5625,
+      "attaches_to_active": 44,
+      "attaches_to_bench": 83,
+      "attach_to_active_share": 0.3465,
+      "by_turn": {
+        "2": {
+          "n": 48,
+          "attack_offered": 0.2292,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 6.75,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.5,
+          "attached_to_bench": 0.229
+        },
+        "4": {
+          "n": 48,
+          "attack_offered": 0.5625,
+          "active_energy": 0.271,
+          "bench_energy": 0.208,
+          "hand": 5.938,
+          "active_changed": 0.5208,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.146,
+          "attached_to_bench": 0.479
+        },
+        "6": {
+          "n": 48,
+          "attack_offered": 0.75,
+          "active_energy": 0.562,
+          "bench_energy": 0.917,
+          "hand": 5.208,
+          "active_changed": 0.875,
+          "active_is_grimmsnarl": 0.0625,
+          "attached_to_active": 0.146,
+          "attached_to_bench": 0.5
+        },
+        "8": {
+          "n": 48,
+          "attack_offered": 0.7708,
+          "active_energy": 1.312,
+          "bench_energy": 1.708,
+          "hand": 5.188,
+          "active_changed": 0.8542,
+          "active_is_grimmsnarl": 0.2292,
+          "attached_to_active": 0.125,
+          "attached_to_bench": 0.521
+        }
+      },
+      "active_when_no_attack": {
+        "Marnie's Impidimp": 35,
+        "Munkidori": 26,
+        "Snorunt": 16,
+        "Marnie's Morgrem": 3,
+        "Froslass": 1
+      }
+    },
+    "alakazam_second_won": {
+      "games": 114,
+      "own_turns": 453,
+      "attack_offered": 0.7152,
+      "no_energy_on_active": 0.5629,
+      "active_changed": 0.5077,
+      "attaches_to_active": 107,
+      "attaches_to_bench": 199,
+      "attach_to_active_share": 0.3497,
+      "by_turn": {
+        "2": {
+          "n": 114,
+          "attack_offered": 0.3246,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 6.816,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.535,
+          "attached_to_bench": 0.316
+        },
+        "4": {
+          "n": 114,
+          "attack_offered": 0.6842,
+          "active_energy": 0.386,
+          "bench_energy": 0.377,
+          "hand": 6.535,
+          "active_changed": 0.3772,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.211,
+          "attached_to_bench": 0.5
+        },
+        "6": {
+          "n": 113,
+          "attack_offered": 0.9292,
+          "active_energy": 1.062,
+          "bench_energy": 1.531,
+          "hand": 5.699,
+          "active_changed": 0.885,
+          "active_is_grimmsnarl": 0.2655,
+          "attached_to_active": 0.115,
+          "attached_to_bench": 0.504
+        },
+        "8": {
+          "n": 112,
+          "attack_offered": 0.9286,
+          "active_energy": 1.705,
+          "bench_energy": 2.893,
+          "hand": 6.277,
+          "active_changed": 0.7768,
+          "active_is_grimmsnarl": 0.5268,
+          "attached_to_active": 0.08,
+          "attached_to_bench": 0.438
+        }
+      },
+      "active_when_no_attack": {
+        "Marnie's Impidimp": 50,
+        "Munkidori": 38,
+        "Snorunt": 33,
+        "Froslass": 7,
+        "Marnie's Morgrem": 1
+      }
+    },
+    "other_second": {
+      "games": 1602,
+      "own_turns": 6333,
+      "attack_offered": 0.5929,
+      "no_energy_on_active": 0.6408,
+      "active_changed": 0.5157,
+      "attaches_to_active": 956,
+      "attaches_to_bench": 3400,
+      "attach_to_active_share": 0.2195,
+      "by_turn": {
+        "2": {
+          "n": 1602,
+          "attack_offered": 0.1617,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 6.881,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.323,
+          "attached_to_bench": 0.538
+        },
+        "4": {
+          "n": 1592,
+          "attack_offered": 0.5402,
+          "active_energy": 0.175,
+          "bench_energy": 0.514,
+          "hand": 6.399,
+          "active_changed": 0.4397,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.155,
+          "attached_to_bench": 0.562
+        },
+        "6": {
+          "n": 1587,
+          "attack_offered": 0.8217,
+          "active_energy": 0.992,
+          "bench_energy": 1.72,
+          "hand": 5.476,
+          "active_changed": 0.8475,
+          "active_is_grimmsnarl": 0.3793,
+          "attached_to_active": 0.067,
+          "attached_to_bench": 0.549
+        },
+        "8": {
+          "n": 1552,
+          "attack_offered": 0.8582,
+          "active_energy": 1.557,
+          "bench_energy": 2.552,
+          "hand": 5.509,
+          "active_changed": 0.7867,
+          "active_is_grimmsnarl": 0.6115,
+          "attached_to_active": 0.054,
+          "attached_to_bench": 0.497
+        }
+      },
+      "active_when_no_attack": {
+        "Marnie's Impidimp": 1077,
+        "Munkidori": 864,
+        "Snorunt": 527,
+        "Marnie's Morgrem": 59,
+        "Froslass": 40,
+        "Marnie's Grimmsnarl ex": 11
+      }
+    },
+    "ours_alakazam_first": {
+      "games": 20,
+      "own_turns": 76,
+      "attack_offered": 0.4868,
+      "no_energy_on_active": 0.5921,
+      "active_changed": 0.3816,
+      "attaches_to_active": 22,
+      "attaches_to_bench": 28,
+      "attach_to_active_share": 0.44,
+      "by_turn": {
+        "1": {
+          "n": 20,
+          "attack_offered": 0.0,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 6.55,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.65,
+          "attached_to_bench": 0.15
+        },
+        "3": {
+          "n": 20,
+          "attack_offered": 0.6,
+          "active_energy": 0.65,
+          "bench_energy": 0.15,
+          "hand": 5.25,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.2,
+          "attached_to_bench": 0.35
+        },
+        "5": {
+          "n": 18,
+          "attack_offered": 0.6111,
+          "active_energy": 0.5,
+          "bench_energy": 1.167,
+          "hand": 5.667,
+          "active_changed": 0.6667,
+          "active_is_grimmsnarl": 0.0556,
+          "attached_to_active": 0.222,
+          "attached_to_bench": 0.556
+        },
+        "7": {
+          "n": 18,
+          "attack_offered": 0.7778,
+          "active_energy": 0.944,
+          "bench_energy": 1.833,
+          "hand": 5.444,
+          "active_changed": 0.9444,
+          "active_is_grimmsnarl": 0.3889,
+          "attached_to_active": 0.056,
+          "attached_to_bench": 0.444
+        }
+      },
+      "active_when_no_attack": {
+        "Marnie's Impidimp": 18,
+        "Munkidori": 16,
+        "Snorunt": 3,
+        "Froslass": 1,
+        "Marnie's Morgrem": 1
+      }
+    },
+    "ours_alakazam_second": {
+      "games": 18,
+      "own_turns": 71,
+      "attack_offered": 0.5352,
+      "no_energy_on_active": 0.662,
+      "active_changed": 0.4648,
+      "attaches_to_active": 17,
+      "attaches_to_bench": 31,
+      "attach_to_active_share": 0.3542,
+      "by_turn": {
+        "2": {
+          "n": 18,
+          "attack_offered": 0.1111,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 7.111,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.389,
+          "attached_to_bench": 0.444
+        },
+        "4": {
+          "n": 18,
+          "attack_offered": 0.3889,
+          "active_energy": 0.278,
+          "bench_energy": 0.5,
+          "hand": 6.722,
+          "active_changed": 0.1667,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.278,
+          "attached_to_bench": 0.333
+        },
+        "6": {
+          "n": 18,
+          "attack_offered": 0.7778,
+          "active_energy": 0.5,
+          "bench_energy": 1.278,
+          "hand": 6.0,
+          "active_changed": 0.7778,
+          "active_is_grimmsnarl": 0.1111,
+          "attached_to_active": 0.222,
+          "attached_to_bench": 0.5
+        },
+        "8": {
+          "n": 17,
+          "attack_offered": 0.8824,
+          "active_energy": 1.0,
+          "bench_energy": 2.412,
+          "hand": 5.765,
+          "active_changed": 0.9412,
+          "active_is_grimmsnarl": 0.2941,
+          "attached_to_active": 0.059,
+          "attached_to_bench": 0.471
+        }
+      },
+      "active_when_no_attack": {
+        "Munkidori": 17,
+        "Marnie's Impidimp": 10,
+        "Snorunt": 4,
+        "Marnie's Morgrem": 2
+      }
+    },
+    "ours_other_second": {
+      "games": 48,
+      "own_turns": 189,
+      "attack_offered": 0.6561,
+      "no_energy_on_active": 0.5979,
+      "active_changed": 0.4921,
+      "attaches_to_active": 30,
+      "attaches_to_bench": 104,
+      "attach_to_active_share": 0.2239,
+      "by_turn": {
+        "2": {
+          "n": 48,
+          "attack_offered": 0.1667,
+          "active_energy": 0.0,
+          "bench_energy": 0.0,
+          "hand": 6.75,
+          "active_changed": 0.0,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.312,
+          "attached_to_bench": 0.542
+        },
+        "4": {
+          "n": 47,
+          "attack_offered": 0.617,
+          "active_energy": 0.191,
+          "bench_energy": 0.489,
+          "hand": 6.489,
+          "active_changed": 0.383,
+          "active_is_grimmsnarl": 0.0,
+          "attached_to_active": 0.149,
+          "attached_to_bench": 0.681
+        },
+        "6": {
+          "n": 47,
+          "attack_offered": 0.8936,
+          "active_energy": 1.064,
+          "bench_energy": 2.0,
+          "hand": 5.426,
+          "active_changed": 0.8298,
+          "active_is_grimmsnarl": 0.4681,
+          "attached_to_active": 0.064,
+          "attached_to_bench": 0.468
+        },
+        "8": {
+          "n": 47,
+          "attack_offered": 0.9574,
+          "active_energy": 1.596,
+          "bench_energy": 2.66,
+          "hand": 6.128,
+          "active_changed": 0.766,
+          "active_is_grimmsnarl": 0.7234,
+          "attached_to_active": 0.106,
+          "attached_to_bench": 0.511
+        }
+      },
+      "active_when_no_attack": {
+        "Marnie's Impidimp": 31,
+        "Snorunt": 19,
+        "Munkidori": 12,
+        "Froslass": 2,
+        "Marnie's Morgrem": 1
+      }
+    }
+  },
+  "ours_vs_field_losses": {
+    "note": "field cohort restricted to its own losses, so the comparison is not confounded by outcome",
+    "attack_offered_fisher": 0.5762,
+    "ours": 0.5352,
+    "field_losses": 0.5781
+  }
+}

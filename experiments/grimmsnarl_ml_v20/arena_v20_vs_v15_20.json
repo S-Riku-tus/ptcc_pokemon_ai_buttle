@@ -1,0 +1,44 @@
+{
+  "agent_a": "agents\\grimmsnarl\\grimmsnarl_ml_v20",
+  "agent_b": "agents\\grimmsnarl\\grimmsnarl_ml_v15",
+  "games": 20,
+  "seed": 2015,
+  "wins": {
+    "A": 5,
+    "B": 15,
+    "draw": 0
+  },
+  "win_rate_a_excluding_draws": 0.25,
+  "first_wins": {
+    "A": 4,
+    "B": 9
+  },
+  "agent_error_by_seat": [
+    0,
+    0
+  ],
+  "illegal_by_seat": [
+    0,
+    0
+  ],
+  "seat_moves": [
+    2119,
+    1895
+  ],
+  "seat_avg_ms": [
+    39.24708787239552,
+    40.103281847487565
+  ],
+  "agent_moves": {
+    "A": 1883,
+    "B": 2131
+  },
+  "agent_avg_ms": {
+    "A": 17.107258205008023,
+    "B": 59.571718020912684
+  },
+  "diagnostics": {
+    "A": null,
+    "B": null
+  }
+}
