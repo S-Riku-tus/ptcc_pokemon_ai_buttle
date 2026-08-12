@@ -1,0 +1,587 @@
+{
+  "games": 529,
+  "totals": {
+    "v20": {
+      "decisions": 46070,
+      "legal_inputs": 251503,
+      "moved_inputs": 1614,
+      "binding_prompts": 451,
+      "actual_overrides": 57
+    },
+    "v21": {
+      "decisions": 46070,
+      "legal_inputs": 251503,
+      "moved_inputs": 1662,
+      "binding_prompts": 474,
+      "actual_overrides": 71
+    }
+  },
+  "guard_stats": {
+    "v20": {
+      "attachment_redirected": 12,
+      "attack_forced": 0,
+      "boss_prize_deferred": 93,
+      "breaker_too_slow": 478,
+      "breaker_would_be_sacrificed": 318,
+      "considered": 46070,
+      "dead_shadow_replaced": 20,
+      "dead_swing_decisions": 1729,
+      "dead_swing_turns": 320,
+      "end_replaced": 7,
+      "errors": 0,
+      "escape_attach_forced": 0,
+      "fuel_attach_forced": 14,
+      "last_breaker_evolve_kept": 0,
+      "last_breaker_evolve_refused": 16,
+      "last_breaker_preserve_end": 0,
+      "last_breaker_preserve_shadow": 10,
+      "main_decisions": 21129,
+      "new_game_detected": 0,
+      "no_breaker_in_play": 414,
+      "promote_already_right": 1,
+      "promote_forced": 0,
+      "punk_breaker_considered": 16,
+      "punk_breaker_forced": 2,
+      "punk_breaker_kept": 14,
+      "retreat_forced": 31,
+      "route_compatible_kept": 56
+    },
+    "v21": {
+      "attachment_redirected": 12,
+      "attack_forced": 0,
+      "boss_prize_deferred": 93,
+      "breaker_too_slow": 478,
+      "breaker_would_be_sacrificed": 318,
+      "considered": 46070,
+      "dead_shadow_replaced": 20,
+      "dead_swing_decisions": 1729,
+      "dead_swing_turns": 320,
+      "end_replaced": 7,
+      "errors": 0,
+      "escape_attach_forced": 0,
+      "fuel_attach_forced": 14,
+      "last_breaker_evolve_kept": 0,
+      "last_breaker_evolve_refused": 30,
+      "last_breaker_fastest_route": 14,
+      "last_breaker_only_body": 16,
+      "last_breaker_preserve_end": 0,
+      "last_breaker_preserve_shadow": 16,
+      "main_decisions": 21129,
+      "new_game_detected": 0,
+      "no_breaker_in_play": 414,
+      "promote_already_right": 1,
+      "promote_forced": 0,
+      "punk_breaker_considered": 16,
+      "punk_breaker_forced": 2,
+      "punk_breaker_kept": 14,
+      "retreat_forced": 39,
+      "route_compatible_kept": 56
+    }
+  },
+  "by_matchup": {
+    "Kangaskhan / Crustle": {
+      "v20": {
+        "moved_inputs": 1352,
+        "binding_prompts": 385,
+        "actual_overrides": 52
+      },
+      "v21": {
+        "moved_inputs": 1396,
+        "binding_prompts": 405,
+        "actual_overrides": 64
+      }
+    },
+    "Alakazam": {
+      "v20": {
+        "moved_inputs": 105,
+        "binding_prompts": 29,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 105,
+        "binding_prompts": 29,
+        "actual_overrides": 0
+      }
+    },
+    "Ogerpon": {
+      "v20": {
+        "moved_inputs": 84,
+        "binding_prompts": 23,
+        "actual_overrides": 4
+      },
+      "v21": {
+        "moved_inputs": 85,
+        "binding_prompts": 23,
+        "actual_overrides": 5
+      }
+    },
+    "other: Comfey": {
+      "v20": {
+        "moved_inputs": 63,
+        "binding_prompts": 9,
+        "actual_overrides": 1
+      },
+      "v21": {
+        "moved_inputs": 66,
+        "binding_prompts": 12,
+        "actual_overrides": 2
+      }
+    },
+    "other: Brambleghast": {
+      "v20": {
+        "moved_inputs": 10,
+        "binding_prompts": 5,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 10,
+        "binding_prompts": 5,
+        "actual_overrides": 0
+      }
+    },
+    "Grimmsnarl (mirror)": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "Mega Lucario": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "Dragapult": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Conkeldurr": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "Archaludon": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: N’s Zoroark ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "Mega Lopunny / Froslass": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Cynthia's Garchomp ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "Dipplin": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Mega Abomasnow ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Mega Starmie ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Mega Venusaur ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Rillaboom": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Hop's Trevenant": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Hydrapple ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Team Rocket's Mewtwo ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Mega Gardevoir ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Dudunsparce": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Mega Sharpedo ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Koraidon ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Dusknoir": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Latias ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Paldean Tauros": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    },
+    "other: Iono’s Bellibolt ex": {
+      "v20": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      },
+      "v21": {
+        "moved_inputs": 0,
+        "binding_prompts": 0,
+        "actual_overrides": 0
+      }
+    }
+  },
+  "changed_stored_decisions": [
+    {
+      "version": "v20",
+      "episode_id": "92167269",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "True",
+      "turn": 11,
+      "context": 0,
+      "played": 0,
+      "v20_output": 0,
+      "v21_output": 3
+    },
+    {
+      "version": "v20",
+      "episode_id": "92168220",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 13,
+      "context": 0,
+      "played": 6,
+      "v20_output": 6,
+      "v21_output": 9
+    },
+    {
+      "version": "v20",
+      "episode_id": "92183225",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 8,
+      "context": 0,
+      "played": 6,
+      "v20_output": 6,
+      "v21_output": 13
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91371751",
+      "opponent": "Ogerpon",
+      "won": "False",
+      "turn": 8,
+      "context": 0,
+      "played": 1,
+      "v20_output": 1,
+      "v21_output": 4
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91475481",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 6,
+      "context": 0,
+      "played": 6,
+      "v20_output": 6,
+      "v21_output": 9
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91359116",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 7,
+      "context": 0,
+      "played": 4,
+      "v20_output": 4,
+      "v21_output": 6
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91449505",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 7,
+      "context": 0,
+      "played": 11,
+      "v20_output": 11,
+      "v21_output": 14
+    },
+    {
+      "version": "v14",
+      "episode_id": "91526864",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "True",
+      "turn": 11,
+      "context": 0,
+      "played": 12,
+      "v20_output": 12,
+      "v21_output": 21
+    },
+    {
+      "version": "v14",
+      "episode_id": "91526864",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "True",
+      "turn": 17,
+      "context": 0,
+      "played": 0,
+      "v20_output": 0,
+      "v21_output": 2
+    },
+    {
+      "version": "v15",
+      "episode_id": "91633556",
+      "opponent": "other: Comfey",
+      "won": "True",
+      "turn": 9,
+      "context": 0,
+      "played": 0,
+      "v20_output": 0,
+      "v21_output": 7
+    },
+    {
+      "version": "v15",
+      "episode_id": "91770999",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 11,
+      "context": 0,
+      "played": 1,
+      "v20_output": 1,
+      "v21_output": 4
+    },
+    {
+      "version": "v15b",
+      "episode_id": "91689352",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 11,
+      "context": 0,
+      "played": 0,
+      "v20_output": 0,
+      "v21_output": 14
+    },
+    {
+      "version": "v15b",
+      "episode_id": "91705177",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 11,
+      "context": 0,
+      "played": 0,
+      "v20_output": 0,
+      "v21_output": 1
+    },
+    {
+      "version": "v16",
+      "episode_id": "91888197",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "turn": 8,
+      "context": 0,
+      "played": 0,
+      "v20_output": 0,
+      "v21_output": 3
+    }
+  ]
+}

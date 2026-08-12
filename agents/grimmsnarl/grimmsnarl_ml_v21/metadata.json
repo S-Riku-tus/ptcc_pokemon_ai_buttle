@@ -4,19 +4,21 @@
   "role": "offline-validated_challenger",
   "archetype": "marnies_grimmsnarl_ex",
   "parent_agent": "grimmsnarl_ml_v20",
-  "created_at": "2026-08-11T22:00:00+09:00",
+  "created_at": "2026-08-12T19:30:00+09:00",
   "deck_hash": "9714ab5c3996f6cc",
   "deck_changed": false,
-  "policy": "v19 safety layers plus one hard-state-weighted attack-continuity ranker and a bounded mirror-endgame Prize tie-breaker",
+  "policy": "v20 layers with a route-viability wall-breaker guard and a ranker retrained on six retreat-lock columns, Prize-conversion hard states and a corrected early-stopping patience",
   "ranker": {
-    "source": "corpus_v20_current.npz / ranker_v20_hard2_perteam.txt",
+    "source": "corpus_v21_current.npz / ranker_v21_new848_p800_w25.txt",
     "objective": "LightGBM LambdaRank",
-    "trees": 513,
-    "features": 842,
+    "trees": 1380,
+    "features": 848,
     "teacher_conditioned": false,
     "win_weight": 1.0,
-    "hard_state_weight": 2.0,
-    "sha256": "38435a79d31c999e0dab4283c4e928b9df5b9a30b4b349f47cc78edfb7da3983",
+    "hard_state_weight": 2.5,
+    "hard_state_set": "v21",
+    "early_stopping_patience": 800,
+    "sha256": "7916161771d8735ee1c1d9193d83839208b6020712ca048090461b670620e48d",
     "model_changed": true,
     "retrained": true,
     "eventual_result_used_for_weighting": false
@@ -26,56 +28,15 @@
     "combined_episodes": 1238,
     "combined_decisions": 95664,
     "combined_candidate_rows": 466463,
-    "refreshed_teacher_team_ids": [
-      16422241,
-      16452116,
-      16561259
-    ],
     "split_mode": "per-team chronological",
-    "chronological_validation_decisions": 11432,
-    "chronological_test_decisions": 11420,
-    "validation_top1": 0.8019,
-    "test_top1": 0.8047,
-    "test_main_top1": 0.7426,
-    "test_top3": 0.9801,
-    "test_order_insensitive_top1": 0.9177,
-    "v19_test_top1": 0.8006,
-    "v19_test_main_top1": 0.7314,
-    "weighting": "2x only for observation-defined attack delay, chain gap, Punk allocation, ready promotion, wall recovery and mirror endgame states",
-    "hard_state_test_top1": {
-      "delayed_attack_access": 0.8071,
-      "attack_chain_gap": 0.8027,
-      "punk_allocation": 0.9282,
-      "ready_promotion": 0.9704,
-      "wall_recovery": 0.8082,
-      "mirror_endgame": 0.8278
-    },
-    "feature_parity_audit": {
-      "games": 27,
-      "decisions": 2295,
-      "candidate_rows": 13776,
-      "features_checked": 20,
-      "mismatches": 0
-    },
-    "candidate_screen": {
-      "hard1": {
-        "validation_top1": 0.8041,
-        "test_top1": 0.8023,
-        "test_main_top1": 0.7374
-      },
-      "hard2": {
-        "validation_top1": 0.8019,
-        "test_top1": 0.8047,
-        "test_main_top1": 0.7426,
-        "selected": true
-      },
-      "hard4": {
-        "validation_top1": 0.8017,
-        "test_top1": 0.8039,
-        "test_main_top1": 0.7369,
-        "selected": false
-      }
-    }
+    "validation_top1": 0.8061,
+    "test_top1": 0.8092,
+    "test_main_top1": 0.7444,
+    "v20_reproduction_test_top1": 0.8047,
+    "v20_reproduction_test_main_top1": 0.7426,
+    "v20_reproduction_trees": 513,
+    "arms_compared": 10,
+    "note": "v20 was reproduced exactly at patience 200 (513 trees, test 0.8047, MAIN 0.7426) before any change was measured against it. The single largest gain is the patience correction: the same configuration at patience 800 fits 1120 trees for test 0.8073 / MAIN 0.7434."
   },
   "continuity_features": [
     "active_grim_line_eta",
@@ -238,16 +199,12 @@
     "ranker_model.json": "513-tree hard-state-weighted teacher-unconditioned fit",
     "metadata.json": "v20 data, fit, footprint and limitation evidence"
   },
-  "validation_scope": {
-    "ladder_run": false,
-    "reason": "explicitly excluded by user request",
-    "claim_limit": "held-out and same-board replay evidence support the candidate; future ladder rating is not guaranteed"
-  },
+  "validation_scope": "offline only: no ladder run, no local arena. Strength is undetermined until v21 is submitted.",
   "submission_archive": {
-    "entries": 25,
-    "bytes": 4319895,
-    "sha256": "1e7b8a3c88725498ec853bfb17cd3726ccb4c3a8566eeb4a18eb005fbe14117a",
-    "extracted_import_smoke": true
+    "path": "artifacts\\grimmsnarl_ml_v21_submission.tar.gz",
+    "sha256": "C258638C57F53B5A7583B987253EC2EFF15DEEEED8B4BBE5763E24315BF1F73E",
+    "bytes": 7528062,
+    "extracted_check": "60 cards, 19 unique, 848-feature model loads, 240 decisions with 0 errors and 0 illegal picks"
   },
   "submission_priority": 1,
   "description": "Attack-continuity ML with result-free hard-state weighting and a one-binding bounded two-turn mirror endgame planner.",
@@ -259,15 +216,146 @@
     "main.py",
     "matchup_guard.py",
     "mirror_prize.py",
-    "ml_features.py",
     "ml_planner.py",
     "ml_residual.py",
     "ml_runtime.py",
     "policy_base.py",
-    "policy_router.py",
-    "ranker_model.json"
+    "policy_router.py"
   ],
   "files_changed_from_v20": [
+    "ml_features.py",
+    "ranker_model.json",
     "wall_break.py"
-  ]
+  ],
+  "retreat_lock_features": {
+    "columns": [
+      "active_retreat_locked",
+      "bench_marnie_body_count",
+      "bench_locked_ready_attacker",
+      "retreat_lock_risk",
+      "candidate_funds_active_retreat",
+      "candidate_leaves_retreat_locked"
+    ],
+    "corpus_support_rows": 466463,
+    "train_runtime_mismatches": 0,
+    "parity_scope_candidate_rows": 66158,
+    "behavioural_effect": "none measured: funds_active_retreat 0.459 -> 0.443 of 122 offered own turns and leaves_retreat_locked 58 -> 58 over 133 stored games"
+  },
+  "wall_break": {
+    "change": "preserve the fastest route to the wall, not the last body",
+    "legal_inputs_swept": 251503,
+    "binding_prompts_v20": 451,
+    "binding_prompts_v21": 474,
+    "actual_overrides_v20": 57,
+    "actual_overrides_v21": 71,
+    "stored_decisions_changed": 14,
+    "errors": 0
+  },
+  "behaviour_panel": {
+    "v20": {
+      "decisions": 11658,
+      "top1_vs_stored": 0.9428,
+      "attack": {
+        "offers": 541,
+        "taken": 498,
+        "rate": 0.9205
+      },
+      "boss": {
+        "offers": 233,
+        "taken": 47,
+        "rate": 0.2017
+      },
+      "search_boss": {
+        "offers": 169,
+        "taken": 16,
+        "rate": 0.0947
+      },
+      "dead_shadow": {
+        "offers": 39,
+        "taken": 23,
+        "rate": 0.5897
+      },
+      "funds_active_retreat": {
+        "offers": 122,
+        "taken": 56,
+        "rate": 0.459
+      },
+      "leaves_retreat_locked": 58
+    },
+    "v21A_842_p800": {
+      "decisions": 11658,
+      "top1_vs_stored": 0.9406,
+      "attack": {
+        "offers": 541,
+        "taken": 496,
+        "rate": 0.9168
+      },
+      "boss": {
+        "offers": 233,
+        "taken": 49,
+        "rate": 0.2103
+      },
+      "search_boss": {
+        "offers": 169,
+        "taken": 15,
+        "rate": 0.0888
+      },
+      "dead_shadow": {
+        "offers": 39,
+        "taken": 23,
+        "rate": 0.5897
+      },
+      "funds_active_retreat": {
+        "offers": 122,
+        "taken": 55,
+        "rate": 0.4508
+      },
+      "leaves_retreat_locked": 56
+    },
+    "v21B_848_w25": {
+      "decisions": 11658,
+      "top1_vs_stored": 0.9317,
+      "attack": {
+        "offers": 541,
+        "taken": 492,
+        "rate": 0.9094
+      },
+      "boss": {
+        "offers": 233,
+        "taken": 53,
+        "rate": 0.2275
+      },
+      "search_boss": {
+        "offers": 169,
+        "taken": 17,
+        "rate": 0.1006
+      },
+      "dead_shadow": {
+        "offers": 39,
+        "taken": 23,
+        "rate": 0.5897
+      },
+      "funds_active_retreat": {
+        "offers": 122,
+        "taken": 54,
+        "rate": 0.4426
+      },
+      "leaves_retreat_locked": 58
+    }
+  },
+  "footprint_vs_v20": {
+    "boards": "stored v19 (two submissions) and v20 ladder games",
+    "games": 133,
+    "decisions": 11658,
+    "changed_decisions": 774,
+    "changed_share": 0.0664,
+    "games_touched": 130,
+    "changed_main_decisions": 542
+  },
+  "runtime_cost": {
+    "mean_ms_per_decision_v20": 35.4,
+    "mean_ms_per_decision_v21": 84.1,
+    "worst_ms_per_decision_v21": 1000,
+    "note": "1380 trees against v20 s 513, walked in pure Python. About 7.7 s of agent time per game against a 600 s per-episode bank."
+  }
 }

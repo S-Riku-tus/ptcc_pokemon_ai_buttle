@@ -1,0 +1,1373 @@
+{
+  "games": 133,
+  "agents": {
+    "v20": {
+      "agent_dir": "agents/grimmsnarl/grimmsnarl_ml_v20",
+      "elapsed_seconds": 482.5,
+      "overall": {
+        "decisions": 11658,
+        "top1_vs_stored": 0.9428,
+        "attack": {
+          "offers": 541,
+          "taken": 498,
+          "rate": 0.9205
+        },
+        "boss": {
+          "offers": 233,
+          "taken": 47,
+          "rate": 0.2017
+        },
+        "search_boss": {
+          "offers": 169,
+          "taken": 16,
+          "rate": 0.0947
+        },
+        "dead_shadow": {
+          "offers": 39,
+          "taken": 23,
+          "rate": 0.5897
+        },
+        "funds_active_retreat": {
+          "offers": 122,
+          "taken": 56,
+          "rate": 0.459
+        },
+        "leaves_retreat_locked": 58
+      },
+      "by_matchup": {
+        "Grimmsnarl (mirror)": {
+          "decisions": 4446,
+          "top1_vs_stored": 0.9426,
+          "attack": {
+            "offers": 197,
+            "taken": 182,
+            "rate": 0.9239
+          },
+          "boss": {
+            "offers": 84,
+            "taken": 16,
+            "rate": 0.1905
+          },
+          "search_boss": {
+            "offers": 61,
+            "taken": 3,
+            "rate": 0.0492
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 37,
+            "taken": 15,
+            "rate": 0.4054
+          },
+          "leaves_retreat_locked": 20
+        },
+        "Alakazam": {
+          "decisions": 2405,
+          "top1_vs_stored": 0.941,
+          "attack": {
+            "offers": 112,
+            "taken": 102,
+            "rate": 0.9107
+          },
+          "boss": {
+            "offers": 48,
+            "taken": 10,
+            "rate": 0.2083
+          },
+          "search_boss": {
+            "offers": 34,
+            "taken": 2,
+            "rate": 0.0588
+          },
+          "dead_shadow": {
+            "offers": 4,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "funds_active_retreat": {
+            "offers": 32,
+            "taken": 20,
+            "rate": 0.625
+          },
+          "leaves_retreat_locked": 12
+        },
+        "Mega Lopunny / Froslass": {
+          "decisions": 1214,
+          "top1_vs_stored": 0.9596,
+          "attack": {
+            "offers": 52,
+            "taken": 50,
+            "rate": 0.9615
+          },
+          "boss": {
+            "offers": 31,
+            "taken": 2,
+            "rate": 0.0645
+          },
+          "search_boss": {
+            "offers": 21,
+            "taken": 6,
+            "rate": 0.2857
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 10,
+            "taken": 4,
+            "rate": 0.4
+          },
+          "leaves_retreat_locked": 6
+        },
+        "Kangaskhan / Crustle": {
+          "decisions": 1118,
+          "top1_vs_stored": 0.949,
+          "attack": {
+            "offers": 62,
+            "taken": 57,
+            "rate": 0.9194
+          },
+          "boss": {
+            "offers": 17,
+            "taken": 5,
+            "rate": 0.2941
+          },
+          "search_boss": {
+            "offers": 23,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 34,
+            "taken": 22,
+            "rate": 0.6471
+          },
+          "funds_active_retreat": {
+            "offers": 10,
+            "taken": 3,
+            "rate": 0.3
+          },
+          "leaves_retreat_locked": 5
+        },
+        "Mega Lucario": {
+          "decisions": 627,
+          "top1_vs_stored": 0.9378,
+          "attack": {
+            "offers": 33,
+            "taken": 31,
+            "rate": 0.9394
+          },
+          "boss": {
+            "offers": 15,
+            "taken": 4,
+            "rate": 0.2667
+          },
+          "search_boss": {
+            "offers": 6,
+            "taken": 2,
+            "rate": 0.3333
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 5,
+            "taken": 2,
+            "rate": 0.4
+          },
+          "leaves_retreat_locked": 2
+        },
+        "Dragapult": {
+          "decisions": 460,
+          "top1_vs_stored": 0.9261,
+          "attack": {
+            "offers": 21,
+            "taken": 19,
+            "rate": 0.9048
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 4,
+            "rate": 0.5714
+          },
+          "search_boss": {
+            "offers": 5,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 8,
+            "taken": 3,
+            "rate": 0.375
+          },
+          "leaves_retreat_locked": 3
+        },
+        "Ogerpon": {
+          "decisions": 375,
+          "top1_vs_stored": 0.9333,
+          "attack": {
+            "offers": 16,
+            "taken": 15,
+            "rate": 0.9375
+          },
+          "boss": {
+            "offers": 8,
+            "taken": 1,
+            "rate": 0.125
+          },
+          "search_boss": {
+            "offers": 7,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "funds_active_retreat": {
+            "offers": 6,
+            "taken": 2,
+            "rate": 0.3333
+          },
+          "leaves_retreat_locked": 3
+        },
+        "other: Cynthia's Garchomp ex": {
+          "decisions": 331,
+          "top1_vs_stored": 0.9426,
+          "attack": {
+            "offers": 18,
+            "taken": 16,
+            "rate": 0.8889
+          },
+          "boss": {
+            "offers": 6,
+            "taken": 2,
+            "rate": 0.3333
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 1,
+            "rate": 0.3333
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 5,
+            "taken": 2,
+            "rate": 0.4
+          },
+          "leaves_retreat_locked": 3
+        },
+        "Archaludon": {
+          "decisions": 256,
+          "top1_vs_stored": 0.9336,
+          "attack": {
+            "offers": 15,
+            "taken": 13,
+            "rate": 0.8667
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "leaves_retreat_locked": 2
+        },
+        "other: Mega Abomasnow ex": {
+          "decisions": 145,
+          "top1_vs_stored": 0.931,
+          "attack": {
+            "offers": 5,
+            "taken": 5,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 4,
+            "taken": 1,
+            "rate": 0.25
+          },
+          "search_boss": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 2,
+            "rate": 1.0
+          },
+          "leaves_retreat_locked": 0
+        },
+        "other: N’s Zoroark ex": {
+          "decisions": 98,
+          "top1_vs_stored": 0.9082,
+          "attack": {
+            "offers": 2,
+            "taken": 2,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 3,
+            "taken": 1,
+            "rate": 0.3333
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 3,
+            "taken": 2,
+            "rate": 0.6667
+          },
+          "leaves_retreat_locked": 1
+        },
+        "other: Hydrapple ex": {
+          "decisions": 97,
+          "top1_vs_stored": 0.9175,
+          "attack": {
+            "offers": 3,
+            "taken": 2,
+            "rate": 0.6667
+          },
+          "boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "search_boss": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "leaves_retreat_locked": 1
+        },
+        "Dipplin": {
+          "decisions": 50,
+          "top1_vs_stored": 0.98,
+          "attack": {
+            "offers": 4,
+            "taken": 4,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 2,
+            "taken": 1,
+            "rate": 0.5
+          },
+          "search_boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "leaves_retreat_locked": 0
+        },
+        "other: Conkeldurr": {
+          "decisions": 36,
+          "top1_vs_stored": 0.9444,
+          "attack": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "boss": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "leaves_retreat_locked": 0
+        }
+      }
+    },
+    "v21A_842_p800": {
+      "agent_dir": "tmp/v21_candidates/agent_A",
+      "elapsed_seconds": 576.0,
+      "overall": {
+        "decisions": 11658,
+        "top1_vs_stored": 0.9406,
+        "attack": {
+          "offers": 541,
+          "taken": 496,
+          "rate": 0.9168
+        },
+        "boss": {
+          "offers": 233,
+          "taken": 49,
+          "rate": 0.2103
+        },
+        "search_boss": {
+          "offers": 169,
+          "taken": 15,
+          "rate": 0.0888
+        },
+        "dead_shadow": {
+          "offers": 39,
+          "taken": 23,
+          "rate": 0.5897
+        },
+        "funds_active_retreat": {
+          "offers": 122,
+          "taken": 55,
+          "rate": 0.4508
+        },
+        "leaves_retreat_locked": 56
+      },
+      "by_matchup": {
+        "Grimmsnarl (mirror)": {
+          "decisions": 4446,
+          "top1_vs_stored": 0.9388,
+          "attack": {
+            "offers": 197,
+            "taken": 182,
+            "rate": 0.9239
+          },
+          "boss": {
+            "offers": 84,
+            "taken": 16,
+            "rate": 0.1905
+          },
+          "search_boss": {
+            "offers": 61,
+            "taken": 2,
+            "rate": 0.0328
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 37,
+            "taken": 15,
+            "rate": 0.4054
+          },
+          "leaves_retreat_locked": 20
+        },
+        "Alakazam": {
+          "decisions": 2405,
+          "top1_vs_stored": 0.9426,
+          "attack": {
+            "offers": 112,
+            "taken": 100,
+            "rate": 0.8929
+          },
+          "boss": {
+            "offers": 48,
+            "taken": 11,
+            "rate": 0.2292
+          },
+          "search_boss": {
+            "offers": 34,
+            "taken": 2,
+            "rate": 0.0588
+          },
+          "dead_shadow": {
+            "offers": 4,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "funds_active_retreat": {
+            "offers": 32,
+            "taken": 20,
+            "rate": 0.625
+          },
+          "leaves_retreat_locked": 12
+        },
+        "Mega Lopunny / Froslass": {
+          "decisions": 1214,
+          "top1_vs_stored": 0.9382,
+          "attack": {
+            "offers": 52,
+            "taken": 48,
+            "rate": 0.9231
+          },
+          "boss": {
+            "offers": 31,
+            "taken": 3,
+            "rate": 0.0968
+          },
+          "search_boss": {
+            "offers": 21,
+            "taken": 6,
+            "rate": 0.2857
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 10,
+            "taken": 4,
+            "rate": 0.4
+          },
+          "leaves_retreat_locked": 5
+        },
+        "Kangaskhan / Crustle": {
+          "decisions": 1118,
+          "top1_vs_stored": 0.9472,
+          "attack": {
+            "offers": 62,
+            "taken": 57,
+            "rate": 0.9194
+          },
+          "boss": {
+            "offers": 17,
+            "taken": 5,
+            "rate": 0.2941
+          },
+          "search_boss": {
+            "offers": 23,
+            "taken": 1,
+            "rate": 0.0435
+          },
+          "dead_shadow": {
+            "offers": 34,
+            "taken": 22,
+            "rate": 0.6471
+          },
+          "funds_active_retreat": {
+            "offers": 10,
+            "taken": 3,
+            "rate": 0.3
+          },
+          "leaves_retreat_locked": 4
+        },
+        "Mega Lucario": {
+          "decisions": 627,
+          "top1_vs_stored": 0.9458,
+          "attack": {
+            "offers": 33,
+            "taken": 31,
+            "rate": 0.9394
+          },
+          "boss": {
+            "offers": 15,
+            "taken": 4,
+            "rate": 0.2667
+          },
+          "search_boss": {
+            "offers": 6,
+            "taken": 1,
+            "rate": 0.1667
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 5,
+            "taken": 2,
+            "rate": 0.4
+          },
+          "leaves_retreat_locked": 2
+        },
+        "Dragapult": {
+          "decisions": 460,
+          "top1_vs_stored": 0.9326,
+          "attack": {
+            "offers": 21,
+            "taken": 20,
+            "rate": 0.9524
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 4,
+            "rate": 0.5714
+          },
+          "search_boss": {
+            "offers": 5,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 8,
+            "taken": 3,
+            "rate": 0.375
+          },
+          "leaves_retreat_locked": 4
+        },
+        "Ogerpon": {
+          "decisions": 375,
+          "top1_vs_stored": 0.9493,
+          "attack": {
+            "offers": 16,
+            "taken": 15,
+            "rate": 0.9375
+          },
+          "boss": {
+            "offers": 8,
+            "taken": 1,
+            "rate": 0.125
+          },
+          "search_boss": {
+            "offers": 7,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "funds_active_retreat": {
+            "offers": 6,
+            "taken": 2,
+            "rate": 0.3333
+          },
+          "leaves_retreat_locked": 3
+        },
+        "other: Cynthia's Garchomp ex": {
+          "decisions": 331,
+          "top1_vs_stored": 0.9547,
+          "attack": {
+            "offers": 18,
+            "taken": 17,
+            "rate": 0.9444
+          },
+          "boss": {
+            "offers": 6,
+            "taken": 3,
+            "rate": 0.5
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 1,
+            "rate": 0.3333
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 5,
+            "taken": 1,
+            "rate": 0.2
+          },
+          "leaves_retreat_locked": 3
+        },
+        "Archaludon": {
+          "decisions": 256,
+          "top1_vs_stored": 0.9219,
+          "attack": {
+            "offers": 15,
+            "taken": 13,
+            "rate": 0.8667
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 1,
+            "rate": 0.5
+          },
+          "leaves_retreat_locked": 1
+        },
+        "other: Mega Abomasnow ex": {
+          "decisions": 145,
+          "top1_vs_stored": 0.9172,
+          "attack": {
+            "offers": 5,
+            "taken": 5,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 4,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 1,
+            "rate": 0.5
+          },
+          "leaves_retreat_locked": 0
+        },
+        "other: N’s Zoroark ex": {
+          "decisions": 98,
+          "top1_vs_stored": 0.9286,
+          "attack": {
+            "offers": 2,
+            "taken": 2,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 3,
+            "taken": 1,
+            "rate": 0.3333
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 3,
+            "taken": 2,
+            "rate": 0.6667
+          },
+          "leaves_retreat_locked": 1
+        },
+        "other: Hydrapple ex": {
+          "decisions": 97,
+          "top1_vs_stored": 0.9381,
+          "attack": {
+            "offers": 3,
+            "taken": 2,
+            "rate": 0.6667
+          },
+          "boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "search_boss": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "leaves_retreat_locked": 1
+        },
+        "Dipplin": {
+          "decisions": 50,
+          "top1_vs_stored": 0.96,
+          "attack": {
+            "offers": 4,
+            "taken": 4,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 2,
+            "taken": 1,
+            "rate": 0.5
+          },
+          "search_boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "leaves_retreat_locked": 0
+        },
+        "other: Conkeldurr": {
+          "decisions": 36,
+          "top1_vs_stored": 0.9444,
+          "attack": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "boss": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "leaves_retreat_locked": 0
+        }
+      }
+    },
+    "v21B_848_w25": {
+      "agent_dir": "tmp/v21_candidates/agent_B",
+      "elapsed_seconds": 572.3,
+      "overall": {
+        "decisions": 11658,
+        "top1_vs_stored": 0.9317,
+        "attack": {
+          "offers": 541,
+          "taken": 492,
+          "rate": 0.9094
+        },
+        "boss": {
+          "offers": 233,
+          "taken": 53,
+          "rate": 0.2275
+        },
+        "search_boss": {
+          "offers": 169,
+          "taken": 17,
+          "rate": 0.1006
+        },
+        "dead_shadow": {
+          "offers": 39,
+          "taken": 23,
+          "rate": 0.5897
+        },
+        "funds_active_retreat": {
+          "offers": 122,
+          "taken": 54,
+          "rate": 0.4426
+        },
+        "leaves_retreat_locked": 58
+      },
+      "by_matchup": {
+        "Grimmsnarl (mirror)": {
+          "decisions": 4446,
+          "top1_vs_stored": 0.9321,
+          "attack": {
+            "offers": 197,
+            "taken": 179,
+            "rate": 0.9086
+          },
+          "boss": {
+            "offers": 84,
+            "taken": 19,
+            "rate": 0.2262
+          },
+          "search_boss": {
+            "offers": 61,
+            "taken": 3,
+            "rate": 0.0492
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 37,
+            "taken": 15,
+            "rate": 0.4054
+          },
+          "leaves_retreat_locked": 20
+        },
+        "Alakazam": {
+          "decisions": 2405,
+          "top1_vs_stored": 0.936,
+          "attack": {
+            "offers": 112,
+            "taken": 101,
+            "rate": 0.9018
+          },
+          "boss": {
+            "offers": 48,
+            "taken": 13,
+            "rate": 0.2708
+          },
+          "search_boss": {
+            "offers": 34,
+            "taken": 2,
+            "rate": 0.0588
+          },
+          "dead_shadow": {
+            "offers": 4,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "funds_active_retreat": {
+            "offers": 32,
+            "taken": 20,
+            "rate": 0.625
+          },
+          "leaves_retreat_locked": 12
+        },
+        "Mega Lopunny / Froslass": {
+          "decisions": 1214,
+          "top1_vs_stored": 0.9349,
+          "attack": {
+            "offers": 52,
+            "taken": 49,
+            "rate": 0.9423
+          },
+          "boss": {
+            "offers": 31,
+            "taken": 3,
+            "rate": 0.0968
+          },
+          "search_boss": {
+            "offers": 21,
+            "taken": 7,
+            "rate": 0.3333
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 10,
+            "taken": 4,
+            "rate": 0.4
+          },
+          "leaves_retreat_locked": 5
+        },
+        "Kangaskhan / Crustle": {
+          "decisions": 1118,
+          "top1_vs_stored": 0.932,
+          "attack": {
+            "offers": 62,
+            "taken": 58,
+            "rate": 0.9355
+          },
+          "boss": {
+            "offers": 17,
+            "taken": 4,
+            "rate": 0.2353
+          },
+          "search_boss": {
+            "offers": 23,
+            "taken": 1,
+            "rate": 0.0435
+          },
+          "dead_shadow": {
+            "offers": 34,
+            "taken": 22,
+            "rate": 0.6471
+          },
+          "funds_active_retreat": {
+            "offers": 10,
+            "taken": 3,
+            "rate": 0.3
+          },
+          "leaves_retreat_locked": 5
+        },
+        "Mega Lucario": {
+          "decisions": 627,
+          "top1_vs_stored": 0.9362,
+          "attack": {
+            "offers": 33,
+            "taken": 32,
+            "rate": 0.9697
+          },
+          "boss": {
+            "offers": 15,
+            "taken": 3,
+            "rate": 0.2
+          },
+          "search_boss": {
+            "offers": 6,
+            "taken": 2,
+            "rate": 0.3333
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 5,
+            "taken": 2,
+            "rate": 0.4
+          },
+          "leaves_retreat_locked": 2
+        },
+        "Dragapult": {
+          "decisions": 460,
+          "top1_vs_stored": 0.9196,
+          "attack": {
+            "offers": 21,
+            "taken": 19,
+            "rate": 0.9048
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 4,
+            "rate": 0.5714
+          },
+          "search_boss": {
+            "offers": 5,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 8,
+            "taken": 3,
+            "rate": 0.375
+          },
+          "leaves_retreat_locked": 4
+        },
+        "Ogerpon": {
+          "decisions": 375,
+          "top1_vs_stored": 0.944,
+          "attack": {
+            "offers": 16,
+            "taken": 15,
+            "rate": 0.9375
+          },
+          "boss": {
+            "offers": 8,
+            "taken": 2,
+            "rate": 0.25
+          },
+          "search_boss": {
+            "offers": 7,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "funds_active_retreat": {
+            "offers": 6,
+            "taken": 2,
+            "rate": 0.3333
+          },
+          "leaves_retreat_locked": 3
+        },
+        "other: Cynthia's Garchomp ex": {
+          "decisions": 331,
+          "top1_vs_stored": 0.9215,
+          "attack": {
+            "offers": 18,
+            "taken": 15,
+            "rate": 0.8333
+          },
+          "boss": {
+            "offers": 6,
+            "taken": 2,
+            "rate": 0.3333
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 5,
+            "taken": 1,
+            "rate": 0.2
+          },
+          "leaves_retreat_locked": 3
+        },
+        "Archaludon": {
+          "decisions": 256,
+          "top1_vs_stored": 0.9258,
+          "attack": {
+            "offers": 15,
+            "taken": 12,
+            "rate": 0.8
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 2,
+            "rate": 0.2857
+          },
+          "search_boss": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "leaves_retreat_locked": 2
+        },
+        "other: Mega Abomasnow ex": {
+          "decisions": 145,
+          "top1_vs_stored": 0.8759,
+          "attack": {
+            "offers": 5,
+            "taken": 5,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 4,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 1,
+            "rate": 0.5
+          },
+          "leaves_retreat_locked": 0
+        },
+        "other: N’s Zoroark ex": {
+          "decisions": 98,
+          "top1_vs_stored": 0.9286,
+          "attack": {
+            "offers": 2,
+            "taken": 2,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 3,
+            "taken": 1,
+            "rate": 0.3333
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 3,
+            "taken": 2,
+            "rate": 0.6667
+          },
+          "leaves_retreat_locked": 1
+        },
+        "other: Hydrapple ex": {
+          "decisions": 97,
+          "top1_vs_stored": 0.8866,
+          "attack": {
+            "offers": 3,
+            "taken": 2,
+            "rate": 0.6667
+          },
+          "boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "search_boss": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "leaves_retreat_locked": 1
+        },
+        "Dipplin": {
+          "decisions": 50,
+          "top1_vs_stored": 0.88,
+          "attack": {
+            "offers": 4,
+            "taken": 3,
+            "rate": 0.75
+          },
+          "boss": {
+            "offers": 2,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "leaves_retreat_locked": 0
+        },
+        "other: Conkeldurr": {
+          "decisions": 36,
+          "top1_vs_stored": 1.0,
+          "attack": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "boss": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 1,
+            "taken": 1,
+            "rate": 1.0
+          },
+          "leaves_retreat_locked": 0
+        }
+      }
+    }
+  }
+}

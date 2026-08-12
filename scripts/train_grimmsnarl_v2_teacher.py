@@ -304,9 +304,16 @@ def select_decisions(corpus: Corpus, split: str,
     return np.flatnonzero(mask)
 
 
+V20_HARD_STATES = (
+    "delayed_attack_access", "attack_chain_gap", "punk_allocation",
+    "ready_promotion", "wall_recovery", "mirror_endgame",
+)
+
+
 def hard_state_masks(
     corpus: Corpus,
     decisions: np.ndarray,
+    mask_set: str = "v21",
 ) -> dict[str, np.ndarray]:
     """Observable decision slices that deserve more teacher signal.
 
@@ -335,12 +342,14 @@ def hard_state_masks(
             for decision in decisions
         ])
 
+    if mask_set not in {"v20", "v21"}:
+        raise ValueError(f"unknown hard-state set: {mask_set}")
     turn = state("turn")
     has_ready = state("has_ready_attacker")
     active_ready = state("active_attacker_ready")
     backup_eta = state("backup_grim_line_eta", 9.0)
     has_line = state("marnie_body_count") > 0
-    return {
+    masks = {
         "delayed_attack_access": (turn >= 5) & (has_ready <= 0) & has_line,
         "attack_chain_gap": (active_ready > 0) & (backup_eta > 1),
         "punk_allocation": offered("candidate_punk_targets_trigger"),
@@ -353,7 +362,34 @@ def hard_state_masks(
             (state("mirror_match_signal") > 0)
             & (state("self_prize_count", 6.0) <= 2)
         ),
+        # v21 adds the two slices the v19/v20 ladder autopsy sized.  Both
+        # degrade to empty on a pre-v21 corpus because ``state`` defaults a
+        # missing column to zero, so v20's reports stay reproducible.
+        #
+        # ``retreat_lock`` is the own turn where the lock is still preventable:
+        # a non-Marnie Active holding no Darkness with a Marnie line benched.
+        # ``bench_locked`` is the turn it has already cost us the attack.  Over
+        # the 529 stored ladder games the lock occurs on 128 own turns in 82
+        # games, and the single-decision fix binds only 4 times in 1,881 manual
+        # attachments - which is why it is taught here rather than guarded.
+        "retreat_lock": state("retreat_lock_risk") > 0,
+        "bench_locked": state("bench_locked_ready_attacker") > 0,
+        # Prize conversion.  v20 dropped v19's win weighting and did not
+        # replace it with anything that saw a Prize route, and its Boss rate
+        # fell from 0.303 to 0.180 of offers against an elite band at 0.385.
+        # A same-turn Boss gain is rare (8 of 457 stored Shadow Bullets), so
+        # this weights the decision rather than forcing the play.
+        "boss_prize_route": state("route_boss_prize_gain") >= 1,
+        "dead_shadow_with_route": (
+            (state("shadow_bullet_prizes_now") <= 0)
+            & (state("route_boss_prize_gain") >= 1)
+        ),
     }
+    if mask_set == "v20":
+        # The control: exactly the six slices v20 shipped, so a v21 candidate
+        # can be compared against a reproduction rather than a report.
+        masks = {name: masks[name] for name in V20_HARD_STATES}
+    return masks
 
 
 def make_dataset(corpus: Corpus, decisions: np.ndarray,
@@ -362,6 +398,7 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
                  focus_weight: float = 1.0,
                  win_weight: float = 1.0,
                  hard_state_weight: float = 1.0,
+                 hard_state_set: str = "v21",
                  rating_weight: float = 0.0,
                  ratings: dict[int, float] | None = None) -> lgb.Dataset:
     """Optionally tilt the fit toward the pilot we intend to pin.
@@ -401,7 +438,7 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
     if win_weight != 1.0:
         weights *= np.where(corpus.won[decisions] == 1, win_weight, 1.0)
     if hard_state_weight != 1.0:
-        masks = hard_state_masks(corpus, decisions)
+        masks = hard_state_masks(corpus, decisions, hard_state_set)
         difficult = np.logical_or.reduce(list(masks.values()))
         weights *= np.where(difficult, hard_state_weight, 1.0)
     if rating_weight and ratings:
@@ -443,6 +480,13 @@ def main() -> int:
     parser.add_argument(
         "--win-weight", type=float, default=1.0,
         help="Weight decisions from games the teacher won.",
+    )
+    parser.add_argument(
+        "--hard-state-set", default="v21", choices=["v20", "v21"],
+        help=(
+            "Which observable slices get the extra weight. 'v20' is the six "
+            "shipped slices, kept so v20 can be reproduced as a control."
+        ),
     )
     parser.add_argument(
         "--hard-state-weight", type=float, default=1.0,
@@ -554,6 +598,7 @@ def main() -> int:
         focus_team=args.focus_team, focus_weight=args.focus_weight,
         win_weight=args.win_weight,
         hard_state_weight=args.hard_state_weight,
+        hard_state_set=args.hard_state_set,
         rating_weight=args.rating_weight, ratings=ratings,
     )
     validation_set = make_dataset(corpus, validation, reference=train_set)
@@ -604,10 +649,13 @@ def main() -> int:
         "focus_weight": args.focus_weight,
         "win_weight": args.win_weight,
         "hard_state_weight": args.hard_state_weight,
+        "hard_state_set": args.hard_state_set,
         "hard_state_support": {
             split: {
                 name: int(mask.sum())
-                for name, mask in hard_state_masks(corpus, block).items()
+                for name, mask in hard_state_masks(
+                    corpus, block, args.hard_state_set
+                ).items()
             }
             for split, block in (
                 ("train", train),
@@ -716,7 +764,9 @@ def main() -> int:
             )
         }
         results[name]["top1_by_hard_state"] = {}
-        for slice_name, mask in hard_state_masks(corpus, block).items():
+        for slice_name, mask in hard_state_masks(
+            corpus, block, "v21"
+        ).items():
             total = int(mask.sum())
             results[name]["top1_by_hard_state"][slice_name] = {
                 "decisions": total,

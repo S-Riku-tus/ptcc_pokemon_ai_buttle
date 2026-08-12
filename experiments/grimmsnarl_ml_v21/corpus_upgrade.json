@@ -1,0 +1,47 @@
+{
+  "input": "data\\ml\\grimmsnarl\\processed\\corpus_v20_current.npz",
+  "output": "data\\ml\\grimmsnarl\\processed\\corpus_v21_current.npz",
+  "rows": 466463,
+  "features_before": 842,
+  "features_after": 848,
+  "new_columns": [
+    "active_retreat_locked",
+    "bench_marnie_body_count",
+    "bench_locked_ready_attacker",
+    "retreat_lock_risk",
+    "candidate_funds_active_retreat",
+    "candidate_leaves_retreat_locked"
+  ],
+  "support": {
+    "active_retreat_locked": {
+      "nonzero_rows": 47752,
+      "share": 0.10237,
+      "max": 1.0
+    },
+    "bench_marnie_body_count": {
+      "nonzero_rows": 389563,
+      "share": 0.835142,
+      "max": 4.0
+    },
+    "bench_locked_ready_attacker": {
+      "nonzero_rows": 8869,
+      "share": 0.019013,
+      "max": 1.0
+    },
+    "retreat_lock_risk": {
+      "nonzero_rows": 37529,
+      "share": 0.080454,
+      "max": 1.0
+    },
+    "candidate_funds_active_retreat": {
+      "nonzero_rows": 2393,
+      "share": 0.00513,
+      "max": 1.0
+    },
+    "candidate_leaves_retreat_locked": {
+      "nonzero_rows": 5846,
+      "share": 0.012533,
+      "max": 1.0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "scope": {
+    "versions": [
+      "v19",
+      "v19_old",
+      "v20"
+    ],
+    "games": 133,
+    "decisions": 12108,
+    "candidate_rows": 66158,
+    "features_checked": 6
+  },
+  "comparison": "runtime ml_features.py values versus the deterministic corpus_v21_current.npz reconstruction formulas",
+  "total_mismatches": 0,
+  "mismatches_by_feature": {},
+  "runtime_support_rows": {
+    "active_retreat_locked": 7543,
+    "bench_marnie_body_count": 56957,
+    "retreat_lock_risk": 6005,
+    "candidate_funds_active_retreat": 416,
+    "candidate_leaves_retreat_locked": 1290,
+    "bench_locked_ready_attacker": 1136
+  },
+  "examples": []
+}

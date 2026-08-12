@@ -1,0 +1,257 @@
+{
+  "games": 6,
+  "agents": {
+    "v20": {
+      "agent_dir": "agents/grimmsnarl/grimmsnarl_ml_v20",
+      "elapsed_seconds": 23.1,
+      "overall": {
+        "decisions": 509,
+        "top1_vs_stored": 0.9352,
+        "attack": {
+          "offers": 27,
+          "taken": 26,
+          "rate": 0.963
+        },
+        "boss": {
+          "offers": 15,
+          "taken": 0,
+          "rate": 0.0
+        },
+        "search_boss": {
+          "offers": 7,
+          "taken": 0,
+          "rate": 0.0
+        },
+        "dead_shadow": {
+          "offers": 1,
+          "taken": 0,
+          "rate": 0.0
+        },
+        "funds_active_retreat": {
+          "offers": 5,
+          "taken": 4,
+          "rate": 0.8
+        },
+        "leaves_retreat_locked": 1
+      },
+      "by_matchup": {
+        "Grimmsnarl (mirror)": {
+          "decisions": 291,
+          "top1_vs_stored": 0.9244,
+          "attack": {
+            "offers": 14,
+            "taken": 13,
+            "rate": 0.9286
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 4,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 3,
+            "taken": 3,
+            "rate": 1.0
+          },
+          "leaves_retreat_locked": 0
+        },
+        "Alakazam": {
+          "decisions": 149,
+          "top1_vs_stored": 0.9463,
+          "attack": {
+            "offers": 9,
+            "taken": 9,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 5,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 1,
+            "rate": 0.5
+          },
+          "leaves_retreat_locked": 1
+        },
+        "Mega Lucario": {
+          "decisions": 69,
+          "top1_vs_stored": 0.9565,
+          "attack": {
+            "offers": 4,
+            "taken": 4,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "leaves_retreat_locked": 0
+        }
+      }
+    },
+    "v21": {
+      "agent_dir": "agents/grimmsnarl/grimmsnarl_ml_v21",
+      "elapsed_seconds": 23.7,
+      "overall": {
+        "decisions": 509,
+        "top1_vs_stored": 0.9352,
+        "attack": {
+          "offers": 27,
+          "taken": 26,
+          "rate": 0.963
+        },
+        "boss": {
+          "offers": 15,
+          "taken": 0,
+          "rate": 0.0
+        },
+        "search_boss": {
+          "offers": 7,
+          "taken": 0,
+          "rate": 0.0
+        },
+        "dead_shadow": {
+          "offers": 1,
+          "taken": 0,
+          "rate": 0.0
+        },
+        "funds_active_retreat": {
+          "offers": 5,
+          "taken": 4,
+          "rate": 0.8
+        },
+        "leaves_retreat_locked": 1
+      },
+      "by_matchup": {
+        "Grimmsnarl (mirror)": {
+          "decisions": 291,
+          "top1_vs_stored": 0.9244,
+          "attack": {
+            "offers": 14,
+            "taken": 13,
+            "rate": 0.9286
+          },
+          "boss": {
+            "offers": 7,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 4,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 3,
+            "taken": 3,
+            "rate": 1.0
+          },
+          "leaves_retreat_locked": 0
+        },
+        "Alakazam": {
+          "decisions": 149,
+          "top1_vs_stored": 0.9463,
+          "attack": {
+            "offers": 9,
+            "taken": 9,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 5,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "dead_shadow": {
+            "offers": 1,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "funds_active_retreat": {
+            "offers": 2,
+            "taken": 1,
+            "rate": 0.5
+          },
+          "leaves_retreat_locked": 1
+        },
+        "Mega Lucario": {
+          "decisions": 69,
+          "top1_vs_stored": 0.9565,
+          "attack": {
+            "offers": 4,
+            "taken": 4,
+            "rate": 1.0
+          },
+          "boss": {
+            "offers": 3,
+            "taken": 0,
+            "rate": 0.0
+          },
+          "search_boss": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "dead_shadow": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "funds_active_retreat": {
+            "offers": 0,
+            "taken": 0,
+            "rate": null
+          },
+          "leaves_retreat_locked": 0
+        }
+      }
+    }
+  }
+}

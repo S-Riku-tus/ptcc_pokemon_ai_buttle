@@ -1,0 +1,3766 @@
+{
+  "field_replays_read": 3642,
+  "pilots": 21,
+  "statistics": 36,
+  "min_denominator": 40,
+  "gradients": [
+    {
+      "statistic": "prizes_per_own_turn",
+      "n_pilots": 21,
+      "rho": -0.7649,
+      "p": 5e-05,
+      "field_min": 0.5189,
+      "field_max": 0.6311,
+      "elite_mean": 0.535,
+      "rest_mean": 0.5776,
+      "v8": 0.5759,
+      "v8_n": 257,
+      "bh_critical": 0.00147,
+      "bh_significant": true
+    },
+    {
+      "statistic": "own_turns_per_game",
+      "n_pilots": 21,
+      "rho": 0.7519,
+      "p": 8e-05,
+      "field_min": 5.9457,
+      "field_max": 6.5141,
+      "elite_mean": 6.3487,
+      "rest_mean": 6.1974,
+      "v8": 6.119,
+      "v8_n": 42,
+      "bh_critical": 0.00294,
+      "bh_significant": true
+    },
+    {
+      "statistic": "turns_with_a_prize",
+      "n_pilots": 21,
+      "rho": -0.6818,
+      "p": 0.00066,
+      "field_min": 0.3425,
+      "field_max": 0.4086,
+      "elite_mean": 0.3589,
+      "rest_mean": 0.3854,
+      "v8": 0.3969,
+      "v8_n": 257,
+      "bh_critical": 0.00441,
+      "bh_significant": true
+    },
+    {
+      "statistic": "petrel_boss",
+      "n_pilots": 21,
+      "rho": 0.5805,
+      "p": 0.00579,
+      "field_min": 0.0063,
+      "field_max": 0.1609,
+      "elite_mean": 0.0931,
+      "rest_mean": 0.0458,
+      "v8": 0.0612,
+      "v8_n": 49,
+      "bh_critical": 0.00588,
+      "bh_significant": true
+    },
+    {
+      "statistic": "petrel_dead_stamp",
+      "n_pilots": 20,
+      "rho": -0.588,
+      "p": 0.0064,
+      "field_min": 0.34,
+      "field_max": 0.8837,
+      "elite_mean": 0.4525,
+      "rest_mean": 0.6358,
+      "v8": null,
+      "v8_n": 28,
+      "bh_critical": 0.00735,
+      "bh_significant": true
+    },
+    {
+      "statistic": "bench_full_at_turn_end",
+      "n_pilots": 21,
+      "rho": -0.5636,
+      "p": 0.00779,
+      "field_min": 0.8555,
+      "field_max": 0.9214,
+      "elite_mean": 0.8744,
+      "rest_mean": 0.8912,
+      "v8": 0.9027,
+      "v8_n": 257,
+      "bh_critical": 0.00882,
+      "bh_significant": true
+    },
+    {
+      "statistic": "retreat_taken",
+      "n_pilots": 21,
+      "rho": 0.5338,
+      "p": 0.0127,
+      "field_min": 0.1265,
+      "field_max": 0.2519,
+      "elite_mean": 0.2127,
+      "rest_mean": 0.1712,
+      "v8": 0.2216,
+      "v8_n": 194,
+      "bh_critical": 0.01029,
+      "bh_significant": false
+    },
+    {
+      "statistic": "stretcher_taken",
+      "n_pilots": 21,
+      "rho": -0.5338,
+      "p": 0.0127,
+      "field_min": 0.5687,
+      "field_max": 0.9894,
+      "elite_mean": 0.6549,
+      "rest_mean": 0.8377,
+      "v8": 0.6506,
+      "v8_n": 83,
+      "bh_critical": 0.01176,
+      "bh_significant": false
+    },
+    {
+      "statistic": "attack_taken",
+      "n_pilots": 21,
+      "rho": -0.5299,
+      "p": 0.01349,
+      "field_min": 0.9108,
+      "field_max": 0.9773,
+      "elite_mean": 0.9407,
+      "rest_mean": 0.9574,
+      "v8": 0.9532,
+      "v8_n": 171,
+      "bh_critical": 0.01324,
+      "bh_significant": false
+    },
+    {
+      "statistic": "poffin_takes_max",
+      "n_pilots": 21,
+      "rho": -0.4814,
+      "p": 0.02713,
+      "field_min": 0.6384,
+      "field_max": 1.0,
+      "elite_mean": 0.8369,
+      "rest_mean": 0.8981,
+      "v8": null,
+      "v8_n": 35,
+      "bh_critical": 0.01471,
+      "bh_significant": false
+    },
+    {
+      "statistic": "pokepad_taken",
+      "n_pilots": 21,
+      "rho": -0.4429,
+      "p": 0.04438,
+      "field_min": 0.6806,
+      "field_max": 0.9847,
+      "elite_mean": 0.8202,
+      "rest_mean": 0.9079,
+      "v8": 0.8652,
+      "v8_n": 89,
+      "bh_critical": 0.01618,
+      "bh_significant": false
+    },
+    {
+      "statistic": "munkidori_ability",
+      "n_pilots": 21,
+      "rho": -0.4384,
+      "p": 0.0468,
+      "field_min": 0.888,
+      "field_max": 1.0,
+      "elite_mean": 0.945,
+      "rest_mean": 0.9801,
+      "v8": 0.944,
+      "v8_n": 125,
+      "bh_critical": 0.01765,
+      "bh_significant": false
+    },
+    {
+      "statistic": "morgrem_evolve",
+      "n_pilots": 21,
+      "rho": -0.413,
+      "p": 0.06278,
+      "field_min": 0.7742,
+      "field_max": 0.9455,
+      "elite_mean": 0.8595,
+      "rest_mean": 0.9018,
+      "v8": 0.9231,
+      "v8_n": 78,
+      "bh_critical": 0.01912,
+      "bh_significant": false
+    },
+    {
+      "statistic": "bench_taken",
+      "n_pilots": 21,
+      "rho": -0.3974,
+      "p": 0.07444,
+      "field_min": 0.7915,
+      "field_max": 0.914,
+      "elite_mean": 0.8356,
+      "rest_mean": 0.8577,
+      "v8": 0.8608,
+      "v8_n": 158,
+      "bh_critical": 0.02059,
+      "bh_significant": false
+    },
+    {
+      "statistic": "punk_up_takes_max",
+      "n_pilots": 21,
+      "rho": -0.3849,
+      "p": 0.08489,
+      "field_min": 0.4179,
+      "field_max": 1.0,
+      "elite_mean": 0.5977,
+      "rest_mean": 0.7621,
+      "v8": 0.5333,
+      "v8_n": 120,
+      "bh_critical": 0.02206,
+      "bh_significant": false
+    },
+    {
+      "statistic": "froslass_evolve",
+      "n_pilots": 21,
+      "rho": -0.3545,
+      "p": 0.1148,
+      "field_min": 0.734,
+      "field_max": 0.996,
+      "elite_mean": 0.8593,
+      "rest_mean": 0.9387,
+      "v8": null,
+      "v8_n": 28,
+      "bh_critical": 0.02353,
+      "bh_significant": false
+    },
+    {
+      "statistic": "stadium_taken",
+      "n_pilots": 21,
+      "rho": -0.3494,
+      "p": 0.1206,
+      "field_min": 0.8696,
+      "field_max": 0.9952,
+      "elite_mean": 0.9421,
+      "rest_mean": 0.9542,
+      "v8": 0.98,
+      "v8_n": 50,
+      "bh_critical": 0.025,
+      "bh_significant": false
+    },
+    {
+      "statistic": "supporter_taken",
+      "n_pilots": 21,
+      "rho": -0.3117,
+      "p": 0.169,
+      "field_min": 0.7565,
+      "field_max": 0.942,
+      "elite_mean": 0.858,
+      "rest_mean": 0.8794,
+      "v8": 0.8258,
+      "v8_n": 178,
+      "bh_critical": 0.02647,
+      "bh_significant": false
+    },
+    {
+      "statistic": "supporter_is_boss",
+      "n_pilots": 21,
+      "rho": 0.3065,
+      "p": 0.17659,
+      "field_min": 0.0917,
+      "field_max": 0.1791,
+      "elite_mean": 0.1601,
+      "rest_mean": 0.1498,
+      "v8": 0.1565,
+      "v8_n": 147,
+      "bh_critical": 0.02794,
+      "bh_significant": false
+    },
+    {
+      "statistic": "stamp_played_when_live",
+      "n_pilots": 19,
+      "rho": -0.3053,
+      "p": 0.20377,
+      "field_min": 0.8933,
+      "field_max": 1.0,
+      "elite_mean": 0.9407,
+      "rest_mean": 0.9753,
+      "v8": null,
+      "v8_n": 32,
+      "bh_critical": 0.02941,
+      "bh_significant": false
+    },
+    {
+      "statistic": "actions_per_own_turn",
+      "n_pilots": 21,
+      "rho": -0.2883,
+      "p": 0.205,
+      "field_min": 6.1308,
+      "field_max": 7.0364,
+      "elite_mean": 6.578,
+      "rest_mean": 6.6737,
+      "v8": 6.4942,
+      "v8_n": 257,
+      "bh_critical": 0.03088,
+      "bh_significant": false
+    },
+    {
+      "statistic": "poffin_taken",
+      "n_pilots": 21,
+      "rho": 0.2779,
+      "p": 0.22253,
+      "field_min": 0.4299,
+      "field_max": 0.8946,
+      "elite_mean": 0.6735,
+      "rest_mean": 0.545,
+      "v8": 0.679,
+      "v8_n": 81,
+      "bh_critical": 0.03235,
+      "bh_significant": false
+    },
+    {
+      "statistic": "grimmsnarl_evolve",
+      "n_pilots": 21,
+      "rho": 0.2753,
+      "p": 0.22706,
+      "field_min": 0.5636,
+      "field_max": 0.8781,
+      "elite_mean": 0.7166,
+      "rest_mean": 0.6856,
+      "v8": 0.6747,
+      "v8_n": 83,
+      "bh_critical": 0.03382,
+      "bh_significant": false
+    },
+    {
+      "statistic": "supporter_is_lillie",
+      "n_pilots": 21,
+      "rho": -0.2683,
+      "p": 0.23968,
+      "field_min": 0.3563,
+      "field_max": 0.4401,
+      "elite_mean": 0.3929,
+      "rest_mean": 0.4003,
+      "v8": 0.3946,
+      "v8_n": 147,
+      "bh_critical": 0.03529,
+      "bh_significant": false
+    },
+    {
+      "statistic": "petrel_takes_grimmsnarl_line",
+      "n_pilots": 21,
+      "rho": 0.2527,
+      "p": 0.26913,
+      "field_min": 0.0414,
+      "field_max": 0.1108,
+      "elite_mean": 0.079,
+      "rest_mean": 0.0718,
+      "v8": 0.0566,
+      "v8_n": 53,
+      "bh_critical": 0.03676,
+      "bh_significant": false
+    },
+    {
+      "statistic": "prizes_conceded_per_own_turn",
+      "n_pilots": 21,
+      "rho": -0.2267,
+      "p": 0.32306,
+      "field_min": 0.487,
+      "field_max": 0.5835,
+      "elite_mean": 0.5323,
+      "rest_mean": 0.5412,
+      "v8": 0.5603,
+      "v8_n": 257,
+      "bh_critical": 0.03824,
+      "bh_significant": false
+    },
+    {
+      "statistic": "boss_taken",
+      "n_pilots": 21,
+      "rho": 0.2157,
+      "p": 0.34781,
+      "field_min": 0.22,
+      "field_max": 0.4975,
+      "elite_mean": 0.3847,
+      "rest_mean": 0.3631,
+      "v8": 0.3026,
+      "v8_n": 76,
+      "bh_critical": 0.03971,
+      "bh_significant": false
+    },
+    {
+      "statistic": "energy_taken",
+      "n_pilots": 21,
+      "rho": 0.1714,
+      "p": 0.45748,
+      "field_min": 0.7438,
+      "field_max": 0.8914,
+      "elite_mean": 0.8308,
+      "rest_mean": 0.8032,
+      "v8": 0.7598,
+      "v8_n": 204,
+      "bh_critical": 0.04118,
+      "bh_significant": false
+    },
+    {
+      "statistic": "candy_taken",
+      "n_pilots": 21,
+      "rho": -0.1506,
+      "p": 0.51451,
+      "field_min": 0.7551,
+      "field_max": 0.9644,
+      "elite_mean": 0.8356,
+      "rest_mean": 0.8775,
+      "v8": 0.7073,
+      "v8_n": 41,
+      "bh_critical": 0.04265,
+      "bh_significant": false
+    },
+    {
+      "statistic": "win_rate",
+      "n_pilots": 21,
+      "rho": -0.1377,
+      "p": 0.55167,
+      "field_min": 0.5409,
+      "field_max": 0.7059,
+      "elite_mean": 0.5903,
+      "rest_mean": 0.6081,
+      "v8": 0.619,
+      "v8_n": 42,
+      "bh_critical": 0.04412,
+      "bh_significant": false
+    },
+    {
+      "statistic": "supporter_is_petrel",
+      "n_pilots": 21,
+      "rho": -0.1091,
+      "p": 0.63784,
+      "field_min": 0.3121,
+      "field_max": 0.4328,
+      "elite_mean": 0.3635,
+      "rest_mean": 0.3695,
+      "v8": 0.3605,
+      "v8_n": 147,
+      "bh_critical": 0.04559,
+      "bh_significant": false
+    },
+    {
+      "statistic": "supporter_is_dawn",
+      "n_pilots": 21,
+      "rho": 0.0409,
+      "p": 0.8602,
+      "field_min": 0.042,
+      "field_max": 0.115,
+      "elite_mean": 0.0835,
+      "rest_mean": 0.0804,
+      "v8": 0.0884,
+      "v8_n": 147,
+      "bh_critical": 0.04706,
+      "bh_significant": false
+    },
+    {
+      "statistic": "attacked_this_turn",
+      "n_pilots": 21,
+      "rho": -0.039,
+      "p": 0.86684,
+      "field_min": 0.6043,
+      "field_max": 0.6827,
+      "elite_mean": 0.6305,
+      "rest_mean": 0.6315,
+      "v8": 0.6342,
+      "v8_n": 257,
+      "bh_critical": 0.04853,
+      "bh_significant": false
+    },
+    {
+      "statistic": "scrapper_taken",
+      "n_pilots": 6,
+      "rho": -0.0857,
+      "p": 0.87174,
+      "field_min": 0.8182,
+      "field_max": 1.0,
+      "elite_mean": 0.9052,
+      "rest_mean": 0.9445,
+      "v8": null,
+      "v8_n": 3,
+      "bh_critical": 0.05,
+      "bh_significant": false
+    },
+    {
+      "statistic": "punk_up_ability",
+      "n_pilots": 0,
+      "rho": null,
+      "p": null,
+      "field_min": null,
+      "field_max": null,
+      "elite_mean": null,
+      "rest_mean": null,
+      "v8": null,
+      "v8_n": 0
+    },
+    {
+      "statistic": "petrel_live_stamp",
+      "n_pilots": 0,
+      "rho": null,
+      "p": null,
+      "field_min": null,
+      "field_max": null,
+      "elite_mean": null,
+      "rest_mean": null,
+      "v8": null,
+      "v8_n": 3
+    }
+  ],
+  "per_team": {
+    "16462035": {
+      "rating": 1064.7,
+      "games": 287,
+      "attack_taken": {
+        "rate": 0.9633,
+        "n": 1200
+      },
+      "boss_taken": {
+        "rate": 0.4975,
+        "n": 406
+      },
+      "energy_taken": {
+        "rate": 0.8089,
+        "n": 1256
+      },
+      "froslass_evolve": {
+        "rate": 0.8845,
+        "n": 251
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.5692,
+        "n": 571
+      },
+      "morgrem_evolve": {
+        "rate": 0.9137,
+        "n": 498
+      },
+      "bench_taken": {
+        "rate": 0.871,
+        "n": 1054
+      },
+      "candy_taken": {
+        "rate": 0.9055,
+        "n": 275
+      },
+      "stadium_taken": {
+        "rate": 0.9904,
+        "n": 311
+      },
+      "retreat_taken": {
+        "rate": 0.1562,
+        "n": 1389
+      },
+      "munkidori_ability": {
+        "rate": 1.0,
+        "n": 992
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.9027,
+        "n": 1274
+      },
+      "scrapper_taken": {
+        "rate": 1.0,
+        "n": 48
+      },
+      "pokepad_taken": {
+        "rate": 0.922,
+        "n": 590
+      },
+      "stretcher_taken": {
+        "rate": 0.9725,
+        "n": 437
+      },
+      "poffin_taken": {
+        "rate": 0.4501,
+        "n": 591
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9845,
+        "n": 194
+      },
+      "supporter_is_petrel": {
+        "rate": 0.347,
+        "n": 1150
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4,
+        "n": 1150
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0774,
+        "n": 1150
+      },
+      "supporter_is_boss": {
+        "rate": 0.1757,
+        "n": 1150
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.7039,
+        "n": 179
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 22
+      },
+      "petrel_boss": {
+        "rate": 0.0252,
+        "n": 357
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0576,
+        "n": 399
+      },
+      "punk_up_takes_max": {
+        "rate": 1.0,
+        "n": 754
+      },
+      "poffin_takes_max": {
+        "rate": 1.0,
+        "n": 217
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5644,
+        "n": 1779
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5835,
+        "n": 1779
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3856,
+        "n": 1779
+      },
+      "actions_per_own_turn": {
+        "rate": 6.706,
+        "n": 1779
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.9011,
+        "n": 1779
+      },
+      "attacked_this_turn": {
+        "rate": 0.6498,
+        "n": 1779
+      },
+      "win_rate": {
+        "rate": 0.547,
+        "n": 287
+      },
+      "own_turns_per_game": {
+        "rate": 6.1986,
+        "n": 287
+      }
+    },
+    "16407282": {
+      "rating": 1063.4,
+      "games": 281,
+      "attack_taken": {
+        "rate": 0.9644,
+        "n": 1207
+      },
+      "boss_taken": {
+        "rate": 0.3355,
+        "n": 456
+      },
+      "energy_taken": {
+        "rate": 0.7741,
+        "n": 1390
+      },
+      "froslass_evolve": {
+        "rate": 0.9724,
+        "n": 217
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.7514,
+        "n": 543
+      },
+      "morgrem_evolve": {
+        "rate": 0.9222,
+        "n": 514
+      },
+      "bench_taken": {
+        "rate": 0.8616,
+        "n": 1055
+      },
+      "candy_taken": {
+        "rate": 0.9154,
+        "n": 260
+      },
+      "stadium_taken": {
+        "rate": 0.9928,
+        "n": 277
+      },
+      "retreat_taken": {
+        "rate": 0.1423,
+        "n": 1349
+      },
+      "munkidori_ability": {
+        "rate": 0.9938,
+        "n": 972
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.9057,
+        "n": 1283
+      },
+      "scrapper_taken": {
+        "rate": 0.8889,
+        "n": 45
+      },
+      "pokepad_taken": {
+        "rate": 0.8931,
+        "n": 608
+      },
+      "stretcher_taken": {
+        "rate": 0.7366,
+        "n": 524
+      },
+      "poffin_taken": {
+        "rate": 0.5965,
+        "n": 570
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9954,
+        "n": 216
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3769,
+        "n": 1162
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4036,
+        "n": 1162
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0878,
+        "n": 1162
+      },
+      "supporter_is_boss": {
+        "rate": 0.1317,
+        "n": 1162
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.8837,
+        "n": 172
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 17
+      },
+      "petrel_boss": {
+        "rate": 0.0519,
+        "n": 385
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0753,
+        "n": 438
+      },
+      "punk_up_takes_max": {
+        "rate": 0.4179,
+        "n": 950
+      },
+      "poffin_takes_max": {
+        "rate": 0.823,
+        "n": 243
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5559,
+        "n": 1781
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5525,
+        "n": 1781
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3728,
+        "n": 1781
+      },
+      "actions_per_own_turn": {
+        "rate": 6.8568,
+        "n": 1781
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.9017,
+        "n": 1781
+      },
+      "attacked_this_turn": {
+        "rate": 0.6536,
+        "n": 1781
+      },
+      "win_rate": {
+        "rate": 0.5409,
+        "n": 281
+      },
+      "own_turns_per_game": {
+        "rate": 6.3381,
+        "n": 281
+      }
+    },
+    "16388654": {
+      "rating": 1085.9,
+      "games": 268,
+      "attack_taken": {
+        "rate": 0.9522,
+        "n": 1089
+      },
+      "boss_taken": {
+        "rate": 0.4499,
+        "n": 449
+      },
+      "energy_taken": {
+        "rate": 0.8898,
+        "n": 1234
+      },
+      "froslass_evolve": {
+        "rate": 0.963,
+        "n": 162
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.809,
+        "n": 398
+      },
+      "morgrem_evolve": {
+        "rate": 0.8574,
+        "n": 484
+      },
+      "bench_taken": {
+        "rate": 0.8351,
+        "n": 1049
+      },
+      "candy_taken": {
+        "rate": 0.9644,
+        "n": 253
+      },
+      "stadium_taken": {
+        "rate": 0.8893,
+        "n": 271
+      },
+      "retreat_taken": {
+        "rate": 0.1605,
+        "n": 1271
+      },
+      "munkidori_ability": {
+        "rate": 0.9989,
+        "n": 922
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.9338,
+        "n": 1208
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 39
+      },
+      "pokepad_taken": {
+        "rate": 0.8311,
+        "n": 604
+      },
+      "stretcher_taken": {
+        "rate": 0.6395,
+        "n": 491
+      },
+      "poffin_taken": {
+        "rate": 0.7008,
+        "n": 488
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9944,
+        "n": 179
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3121,
+        "n": 1128
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4211,
+        "n": 1128
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0878,
+        "n": 1128
+      },
+      "supporter_is_boss": {
+        "rate": 0.1791,
+        "n": 1128
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.5207,
+        "n": 169
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 16
+      },
+      "petrel_boss": {
+        "rate": 0.1609,
+        "n": 317
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0511,
+        "n": 352
+      },
+      "punk_up_takes_max": {
+        "rate": 0.4237,
+        "n": 859
+      },
+      "poffin_takes_max": {
+        "rate": 0.6384,
+        "n": 224
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5583,
+        "n": 1664
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5415,
+        "n": 1664
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3858,
+        "n": 1664
+      },
+      "actions_per_own_turn": {
+        "rate": 6.8311,
+        "n": 1664
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8612,
+        "n": 1664
+      },
+      "attacked_this_turn": {
+        "rate": 0.6232,
+        "n": 1664
+      },
+      "win_rate": {
+        "rate": 0.5746,
+        "n": 268
+      },
+      "own_turns_per_game": {
+        "rate": 6.209,
+        "n": 268
+      }
+    },
+    "16531269": {
+      "rating": 1121.6,
+      "games": 286,
+      "attack_taken": {
+        "rate": 0.9441,
+        "n": 1162
+      },
+      "boss_taken": {
+        "rate": 0.478,
+        "n": 431
+      },
+      "energy_taken": {
+        "rate": 0.8914,
+        "n": 1317
+      },
+      "froslass_evolve": {
+        "rate": 0.9548,
+        "n": 199
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.8781,
+        "n": 402
+      },
+      "morgrem_evolve": {
+        "rate": 0.8494,
+        "n": 518
+      },
+      "bench_taken": {
+        "rate": 0.8509,
+        "n": 1113
+      },
+      "candy_taken": {
+        "rate": 0.8951,
+        "n": 286
+      },
+      "stadium_taken": {
+        "rate": 0.8992,
+        "n": 357
+      },
+      "retreat_taken": {
+        "rate": 0.1877,
+        "n": 1316
+      },
+      "munkidori_ability": {
+        "rate": 0.999,
+        "n": 965
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.942,
+        "n": 1241
+      },
+      "scrapper_taken": {
+        "rate": 0.8182,
+        "n": 55
+      },
+      "pokepad_taken": {
+        "rate": 0.8789,
+        "n": 603
+      },
+      "stretcher_taken": {
+        "rate": 0.698,
+        "n": 510
+      },
+      "poffin_taken": {
+        "rate": 0.7898,
+        "n": 528
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9583,
+        "n": 168
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3422,
+        "n": 1169
+      },
+      "supporter_is_lillie": {
+        "rate": 0.3798,
+        "n": 1169
+      },
+      "supporter_is_dawn": {
+        "rate": 0.1018,
+        "n": 1169
+      },
+      "supporter_is_boss": {
+        "rate": 0.1762,
+        "n": 1169
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.4433,
+        "n": 194
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 18
+      },
+      "petrel_boss": {
+        "rate": 0.0868,
+        "n": 357
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0779,
+        "n": 398
+      },
+      "punk_up_takes_max": {
+        "rate": 0.4189,
+        "n": 900
+      },
+      "poffin_takes_max": {
+        "rate": 0.6757,
+        "n": 259
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5364,
+        "n": 1801
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5364,
+        "n": 1801
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3615,
+        "n": 1801
+      },
+      "actions_per_own_turn": {
+        "rate": 6.7662,
+        "n": 1801
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8762,
+        "n": 1801
+      },
+      "attacked_this_turn": {
+        "rate": 0.6091,
+        "n": 1801
+      },
+      "win_rate": {
+        "rate": 0.5629,
+        "n": 286
+      },
+      "own_turns_per_game": {
+        "rate": 6.2972,
+        "n": 286
+      }
+    },
+    "16463316": {
+      "rating": 1141.3,
+      "games": 289,
+      "attack_taken": {
+        "rate": 0.9494,
+        "n": 1166
+      },
+      "boss_taken": {
+        "rate": 0.3976,
+        "n": 425
+      },
+      "energy_taken": {
+        "rate": 0.7849,
+        "n": 1232
+      },
+      "froslass_evolve": {
+        "rate": 0.996,
+        "n": 251
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.666,
+        "n": 527
+      },
+      "morgrem_evolve": {
+        "rate": 0.9061,
+        "n": 522
+      },
+      "bench_taken": {
+        "rate": 0.8982,
+        "n": 1002
+      },
+      "candy_taken": {
+        "rate": 0.7925,
+        "n": 265
+      },
+      "stadium_taken": {
+        "rate": 0.9708,
+        "n": 343
+      },
+      "retreat_taken": {
+        "rate": 0.2254,
+        "n": 1309
+      },
+      "munkidori_ability": {
+        "rate": 0.952,
+        "n": 999
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8272,
+        "n": 1285
+      },
+      "scrapper_taken": {
+        "rate": 0.9032,
+        "n": 62
+      },
+      "pokepad_taken": {
+        "rate": 0.6806,
+        "n": 692
+      },
+      "stretcher_taken": {
+        "rate": 0.6613,
+        "n": 558
+      },
+      "poffin_taken": {
+        "rate": 0.4299,
+        "n": 635
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9532,
+        "n": 171
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3396,
+        "n": 1063
+      },
+      "supporter_is_lillie": {
+        "rate": 0.429,
+        "n": 1063
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0724,
+        "n": 1063
+      },
+      "supporter_is_boss": {
+        "rate": 0.159,
+        "n": 1063
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.4265,
+        "n": 211
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 17
+      },
+      "petrel_boss": {
+        "rate": 0.0063,
+        "n": 320
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.1108,
+        "n": 361
+      },
+      "punk_up_takes_max": {
+        "rate": 0.9279,
+        "n": 791
+      },
+      "poffin_takes_max": {
+        "rate": 1.0,
+        "n": 237
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5311,
+        "n": 1832
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5218,
+        "n": 1832
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3603,
+        "n": 1832
+      },
+      "actions_per_own_turn": {
+        "rate": 6.2959,
+        "n": 1832
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.9214,
+        "n": 1832
+      },
+      "attacked_this_turn": {
+        "rate": 0.6043,
+        "n": 1832
+      },
+      "win_rate": {
+        "rate": 0.5675,
+        "n": 289
+      },
+      "own_turns_per_game": {
+        "rate": 6.3391,
+        "n": 289
+      }
+    },
+    "16461850": {
+      "rating": 1050.6,
+      "games": 142,
+      "attack_taken": {
+        "rate": 0.962,
+        "n": 579
+      },
+      "boss_taken": {
+        "rate": 0.379,
+        "n": 248
+      },
+      "energy_taken": {
+        "rate": 0.793,
+        "n": 628
+      },
+      "froslass_evolve": {
+        "rate": 0.9914,
+        "n": 116
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.5927,
+        "n": 275
+      },
+      "morgrem_evolve": {
+        "rate": 0.9203,
+        "n": 251
+      },
+      "bench_taken": {
+        "rate": 0.9069,
+        "n": 505
+      },
+      "candy_taken": {
+        "rate": 0.8551,
+        "n": 138
+      },
+      "stadium_taken": {
+        "rate": 0.9441,
+        "n": 161
+      },
+      "retreat_taken": {
+        "rate": 0.1629,
+        "n": 669
+      },
+      "munkidori_ability": {
+        "rate": 0.994,
+        "n": 503
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8837,
+        "n": 645
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 21
+      },
+      "pokepad_taken": {
+        "rate": 0.9454,
+        "n": 293
+      },
+      "stretcher_taken": {
+        "rate": 0.8809,
+        "n": 235
+      },
+      "poffin_taken": {
+        "rate": 0.548,
+        "n": 281
+      },
+      "stamp_played_when_live": {
+        "rate": 1.0,
+        "n": 104
+      },
+      "supporter_is_petrel": {
+        "rate": 0.4035,
+        "n": 570
+      },
+      "supporter_is_lillie": {
+        "rate": 0.3737,
+        "n": 570
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0579,
+        "n": 570
+      },
+      "supporter_is_boss": {
+        "rate": 0.1649,
+        "n": 570
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.6635,
+        "n": 104
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 5
+      },
+      "petrel_boss": {
+        "rate": 0.0146,
+        "n": 206
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0609,
+        "n": 230
+      },
+      "punk_up_takes_max": {
+        "rate": 1.0,
+        "n": 435
+      },
+      "poffin_takes_max": {
+        "rate": 0.95,
+        "n": 120
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.6117,
+        "n": 886
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5734,
+        "n": 886
+      },
+      "turns_with_a_prize": {
+        "rate": 0.4086,
+        "n": 886
+      },
+      "actions_per_own_turn": {
+        "rate": 6.7449,
+        "n": 886
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.9165,
+        "n": 886
+      },
+      "attacked_this_turn": {
+        "rate": 0.6287,
+        "n": 886
+      },
+      "win_rate": {
+        "rate": 0.6408,
+        "n": 142
+      },
+      "own_turns_per_game": {
+        "rate": 6.2394,
+        "n": 142
+      }
+    },
+    "16452116": {
+      "rating": 1101.8,
+      "games": 275,
+      "attack_taken": {
+        "rate": 0.9108,
+        "n": 1200
+      },
+      "boss_taken": {
+        "rate": 0.3497,
+        "n": 469
+      },
+      "energy_taken": {
+        "rate": 0.8403,
+        "n": 1259
+      },
+      "froslass_evolve": {
+        "rate": 0.8832,
+        "n": 197
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.6953,
+        "n": 443
+      },
+      "morgrem_evolve": {
+        "rate": 0.8848,
+        "n": 486
+      },
+      "bench_taken": {
+        "rate": 0.843,
+        "n": 1070
+      },
+      "candy_taken": {
+        "rate": 0.7636,
+        "n": 313
+      },
+      "stadium_taken": {
+        "rate": 0.9496,
+        "n": 337
+      },
+      "retreat_taken": {
+        "rate": 0.2344,
+        "n": 1344
+      },
+      "munkidori_ability": {
+        "rate": 0.9339,
+        "n": 938
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8595,
+        "n": 1274
+      },
+      "scrapper_taken": {
+        "rate": 0.9529,
+        "n": 85
+      },
+      "pokepad_taken": {
+        "rate": 0.8647,
+        "n": 606
+      },
+      "stretcher_taken": {
+        "rate": 0.6626,
+        "n": 572
+      },
+      "poffin_taken": {
+        "rate": 0.7744,
+        "n": 523
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9689,
+        "n": 193
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3753,
+        "n": 1095
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4,
+        "n": 1095
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0749,
+        "n": 1095
+      },
+      "supporter_is_boss": {
+        "rate": 0.1498,
+        "n": 1095
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.4715,
+        "n": 193
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 15
+      },
+      "petrel_boss": {
+        "rate": 0.1215,
+        "n": 354
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0611,
+        "n": 409
+      },
+      "punk_up_takes_max": {
+        "rate": 0.6295,
+        "n": 745
+      },
+      "poffin_takes_max": {
+        "rate": 0.8016,
+        "n": 257
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5194,
+        "n": 1775
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5346,
+        "n": 1775
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3425,
+        "n": 1775
+      },
+      "actions_per_own_turn": {
+        "rate": 6.653,
+        "n": 1775
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8682,
+        "n": 1775
+      },
+      "attacked_this_turn": {
+        "rate": 0.6158,
+        "n": 1775
+      },
+      "win_rate": {
+        "rate": 0.5455,
+        "n": 275
+      },
+      "own_turns_per_game": {
+        "rate": 6.4545,
+        "n": 275
+      }
+    },
+    "16376653": {
+      "rating": 1073.8,
+      "games": 180,
+      "attack_taken": {
+        "rate": 0.9397,
+        "n": 746
+      },
+      "boss_taken": {
+        "rate": 0.4122,
+        "n": 279
+      },
+      "energy_taken": {
+        "rate": 0.792,
+        "n": 827
+      },
+      "froslass_evolve": {
+        "rate": 0.8431,
+        "n": 153
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.8306,
+        "n": 301
+      },
+      "morgrem_evolve": {
+        "rate": 0.9338,
+        "n": 317
+      },
+      "bench_taken": {
+        "rate": 0.8856,
+        "n": 673
+      },
+      "candy_taken": {
+        "rate": 0.9195,
+        "n": 174
+      },
+      "stadium_taken": {
+        "rate": 0.9952,
+        "n": 208
+      },
+      "retreat_taken": {
+        "rate": 0.2195,
+        "n": 820
+      },
+      "munkidori_ability": {
+        "rate": 1.0,
+        "n": 581
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.9408,
+        "n": 811
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 32
+      },
+      "pokepad_taken": {
+        "rate": 0.9526,
+        "n": 359
+      },
+      "stretcher_taken": {
+        "rate": 0.8765,
+        "n": 332
+      },
+      "poffin_taken": {
+        "rate": 0.8116,
+        "n": 345
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9924,
+        "n": 131
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3342,
+        "n": 763
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4286,
+        "n": 763
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0865,
+        "n": 763
+      },
+      "supporter_is_boss": {
+        "rate": 0.1507,
+        "n": 763
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.5868,
+        "n": 121
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 12
+      },
+      "petrel_boss": {
+        "rate": 0.0133,
+        "n": 226
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0474,
+        "n": 253
+      },
+      "punk_up_takes_max": {
+        "rate": 0.5565,
+        "n": 566
+      },
+      "poffin_takes_max": {
+        "rate": 0.9161,
+        "n": 143
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5435,
+        "n": 1126
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5595,
+        "n": 1126
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3526,
+        "n": 1126
+      },
+      "actions_per_own_turn": {
+        "rate": 7.0364,
+        "n": 1126
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8783,
+        "n": 1126
+      },
+      "attacked_this_turn": {
+        "rate": 0.6226,
+        "n": 1126
+      },
+      "win_rate": {
+        "rate": 0.5778,
+        "n": 180
+      },
+      "own_turns_per_game": {
+        "rate": 6.2556,
+        "n": 180
+      }
+    },
+    "16381904": {
+      "rating": 1080.3,
+      "games": 192,
+      "attack_taken": {
+        "rate": 0.9451,
+        "n": 765
+      },
+      "boss_taken": {
+        "rate": 0.3758,
+        "n": 306
+      },
+      "energy_taken": {
+        "rate": 0.8425,
+        "n": 857
+      },
+      "froslass_evolve": {
+        "rate": 0.9198,
+        "n": 162
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.7206,
+        "n": 315
+      },
+      "morgrem_evolve": {
+        "rate": 0.8786,
+        "n": 346
+      },
+      "bench_taken": {
+        "rate": 0.8737,
+        "n": 665
+      },
+      "candy_taken": {
+        "rate": 0.8789,
+        "n": 190
+      },
+      "stadium_taken": {
+        "rate": 0.9039,
+        "n": 229
+      },
+      "retreat_taken": {
+        "rate": 0.2101,
+        "n": 871
+      },
+      "munkidori_ability": {
+        "rate": 0.9503,
+        "n": 624
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8375,
+        "n": 843
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 39
+      },
+      "pokepad_taken": {
+        "rate": 0.8578,
+        "n": 408
+      },
+      "stretcher_taken": {
+        "rate": 0.7697,
+        "n": 330
+      },
+      "poffin_taken": {
+        "rate": 0.6427,
+        "n": 375
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9829,
+        "n": 117
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3584,
+        "n": 706
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4065,
+        "n": 706
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0722,
+        "n": 706
+      },
+      "supporter_is_boss": {
+        "rate": 0.1629,
+        "n": 706
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.5304,
+        "n": 115
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 7
+      },
+      "petrel_boss": {
+        "rate": 0.1142,
+        "n": 219
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.087,
+        "n": 253
+      },
+      "punk_up_takes_max": {
+        "rate": 0.5613,
+        "n": 538
+      },
+      "poffin_takes_max": {
+        "rate": 0.8773,
+        "n": 163
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5494,
+        "n": 1185
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5367,
+        "n": 1185
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3629,
+        "n": 1185
+      },
+      "actions_per_own_turn": {
+        "rate": 6.5755,
+        "n": 1185
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8861,
+        "n": 1185
+      },
+      "attacked_this_turn": {
+        "rate": 0.6101,
+        "n": 1185
+      },
+      "win_rate": {
+        "rate": 0.5885,
+        "n": 192
+      },
+      "own_turns_per_game": {
+        "rate": 6.1719,
+        "n": 192
+      }
+    },
+    "16388364": {
+      "rating": 1046.3,
+      "games": 93,
+      "attack_taken": {
+        "rate": 0.9773,
+        "n": 352
+      },
+      "boss_taken": {
+        "rate": 0.22,
+        "n": 150
+      },
+      "energy_taken": {
+        "rate": 0.7474,
+        "n": 392
+      },
+      "froslass_evolve": {
+        "rate": 0.8696,
+        "n": 92
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.614,
+        "n": 171
+      },
+      "morgrem_evolve": {
+        "rate": 0.9359,
+        "n": 156
+      },
+      "bench_taken": {
+        "rate": 0.8656,
+        "n": 305
+      },
+      "candy_taken": {
+        "rate": 0.8065,
+        "n": 93
+      },
+      "stadium_taken": {
+        "rate": 0.9907,
+        "n": 107
+      },
+      "retreat_taken": {
+        "rate": 0.1687,
+        "n": 415
+      },
+      "munkidori_ability": {
+        "rate": 0.9828,
+        "n": 290
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8696,
+        "n": 414
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 12
+      },
+      "pokepad_taken": {
+        "rate": 0.9674,
+        "n": 184
+      },
+      "stretcher_taken": {
+        "rate": 0.8766,
+        "n": 154
+      },
+      "poffin_taken": {
+        "rate": 0.558,
+        "n": 181
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9565,
+        "n": 69
+      },
+      "supporter_is_petrel": {
+        "rate": 0.4056,
+        "n": 360
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4222,
+        "n": 360
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0806,
+        "n": 360
+      },
+      "supporter_is_boss": {
+        "rate": 0.0917,
+        "n": 360
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.75,
+        "n": 68
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 3
+      },
+      "petrel_boss": {
+        "rate": 0.0155,
+        "n": 129
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0753,
+        "n": 146
+      },
+      "punk_up_takes_max": {
+        "rate": 1.0,
+        "n": 239
+      },
+      "poffin_takes_max": {
+        "rate": 1.0,
+        "n": 87
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5704,
+        "n": 568
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5528,
+        "n": 568
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3838,
+        "n": 568
+      },
+      "actions_per_own_turn": {
+        "rate": 6.5651,
+        "n": 568
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8926,
+        "n": 568
+      },
+      "attacked_this_turn": {
+        "rate": 0.6056,
+        "n": 568
+      },
+      "win_rate": {
+        "rate": 0.5806,
+        "n": 93
+      },
+      "own_turns_per_game": {
+        "rate": 6.1075,
+        "n": 93
+      }
+    },
+    "16421840": {
+      "rating": 1048.5,
+      "games": 92,
+      "attack_taken": {
+        "rate": 0.9664,
+        "n": 357
+      },
+      "boss_taken": {
+        "rate": 0.2937,
+        "n": 143
+      },
+      "energy_taken": {
+        "rate": 0.7902,
+        "n": 386
+      },
+      "froslass_evolve": {
+        "rate": 0.9881,
+        "n": 84
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.6065,
+        "n": 155
+      },
+      "morgrem_evolve": {
+        "rate": 0.925,
+        "n": 160
+      },
+      "bench_taken": {
+        "rate": 0.8488,
+        "n": 324
+      },
+      "candy_taken": {
+        "rate": 0.8283,
+        "n": 99
+      },
+      "stadium_taken": {
+        "rate": 0.9902,
+        "n": 102
+      },
+      "retreat_taken": {
+        "rate": 0.1265,
+        "n": 419
+      },
+      "munkidori_ability": {
+        "rate": 0.9966,
+        "n": 295
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8934,
+        "n": 394
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 18
+      },
+      "pokepad_taken": {
+        "rate": 0.9691,
+        "n": 194
+      },
+      "stretcher_taken": {
+        "rate": 0.9759,
+        "n": 166
+      },
+      "poffin_taken": {
+        "rate": 0.4372,
+        "n": 199
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9559,
+        "n": 68
+      },
+      "supporter_is_petrel": {
+        "rate": 0.4119,
+        "n": 352
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4006,
+        "n": 352
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0682,
+        "n": 352
+      },
+      "supporter_is_boss": {
+        "rate": 0.1193,
+        "n": 352
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.8298,
+        "n": 47
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 7
+      },
+      "petrel_boss": {
+        "rate": 0.0317,
+        "n": 126
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0414,
+        "n": 145
+      },
+      "punk_up_takes_max": {
+        "rate": 0.9891,
+        "n": 275
+      },
+      "poffin_takes_max": {
+        "rate": 0.9481,
+        "n": 77
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.6289,
+        "n": 547
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5558,
+        "n": 547
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3985,
+        "n": 547
+      },
+      "actions_per_own_turn": {
+        "rate": 6.8117,
+        "n": 547
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.894,
+        "n": 547
+      },
+      "attacked_this_turn": {
+        "rate": 0.6307,
+        "n": 547
+      },
+      "win_rate": {
+        "rate": 0.663,
+        "n": 92
+      },
+      "own_turns_per_game": {
+        "rate": 5.9457,
+        "n": 92
+      }
+    },
+    "16556346": {
+      "rating": 1086.7,
+      "games": 179,
+      "attack_taken": {
+        "rate": 0.9447,
+        "n": 742
+      },
+      "boss_taken": {
+        "rate": 0.3497,
+        "n": 326
+      },
+      "energy_taken": {
+        "rate": 0.7689,
+        "n": 822
+      },
+      "froslass_evolve": {
+        "rate": 0.9924,
+        "n": 132
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.7069,
+        "n": 290
+      },
+      "morgrem_evolve": {
+        "rate": 0.8803,
+        "n": 309
+      },
+      "bench_taken": {
+        "rate": 0.8708,
+        "n": 681
+      },
+      "candy_taken": {
+        "rate": 0.8785,
+        "n": 181
+      },
+      "stadium_taken": {
+        "rate": 0.9894,
+        "n": 188
+      },
+      "retreat_taken": {
+        "rate": 0.1626,
+        "n": 861
+      },
+      "munkidori_ability": {
+        "rate": 0.9869,
+        "n": 613
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8603,
+        "n": 809
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 29
+      },
+      "pokepad_taken": {
+        "rate": 0.9713,
+        "n": 349
+      },
+      "stretcher_taken": {
+        "rate": 0.9597,
+        "n": 273
+      },
+      "poffin_taken": {
+        "rate": 0.5629,
+        "n": 350
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9918,
+        "n": 122
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3865,
+        "n": 696
+      },
+      "supporter_is_lillie": {
+        "rate": 0.3563,
+        "n": 696
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0934,
+        "n": 696
+      },
+      "supporter_is_boss": {
+        "rate": 0.1638,
+        "n": 696
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.6083,
+        "n": 120
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 8
+      },
+      "petrel_boss": {
+        "rate": 0.0398,
+        "n": 226
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0892,
+        "n": 269
+      },
+      "punk_up_takes_max": {
+        "rate": 0.8214,
+        "n": 515
+      },
+      "poffin_takes_max": {
+        "rate": 0.922,
+        "n": 141
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5582,
+        "n": 1116
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5341,
+        "n": 1116
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3781,
+        "n": 1116
+      },
+      "actions_per_own_turn": {
+        "rate": 6.698,
+        "n": 1116
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8781,
+        "n": 1116
+      },
+      "attacked_this_turn": {
+        "rate": 0.6281,
+        "n": 1116
+      },
+      "win_rate": {
+        "rate": 0.6369,
+        "n": 179
+      },
+      "own_turns_per_game": {
+        "rate": 6.2346,
+        "n": 179
+      }
+    },
+    "16494330": {
+      "rating": 1077.6,
+      "games": 146,
+      "attack_taken": {
+        "rate": 0.9748,
+        "n": 596
+      },
+      "boss_taken": {
+        "rate": 0.3373,
+        "n": 252
+      },
+      "energy_taken": {
+        "rate": 0.8377,
+        "n": 610
+      },
+      "froslass_evolve": {
+        "rate": 0.9624,
+        "n": 133
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.6726,
+        "n": 281
+      },
+      "morgrem_evolve": {
+        "rate": 0.938,
+        "n": 242
+      },
+      "bench_taken": {
+        "rate": 0.8507,
+        "n": 536
+      },
+      "candy_taken": {
+        "rate": 0.9034,
+        "n": 145
+      },
+      "stadium_taken": {
+        "rate": 0.9778,
+        "n": 180
+      },
+      "retreat_taken": {
+        "rate": 0.1827,
+        "n": 684
+      },
+      "munkidori_ability": {
+        "rate": 0.9843,
+        "n": 509
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8627,
+        "n": 663
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 33
+      },
+      "pokepad_taken": {
+        "rate": 0.8864,
+        "n": 308
+      },
+      "stretcher_taken": {
+        "rate": 0.8,
+        "n": 265
+      },
+      "poffin_taken": {
+        "rate": 0.4338,
+        "n": 325
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9813,
+        "n": 107
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3689,
+        "n": 572
+      },
+      "supporter_is_lillie": {
+        "rate": 0.3951,
+        "n": 572
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0874,
+        "n": 572
+      },
+      "supporter_is_boss": {
+        "rate": 0.1486,
+        "n": 572
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.7079,
+        "n": 89
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 9
+      },
+      "petrel_boss": {
+        "rate": 0.0328,
+        "n": 183
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0853,
+        "n": 211
+      },
+      "punk_up_takes_max": {
+        "rate": 0.9814,
+        "n": 429
+      },
+      "poffin_takes_max": {
+        "rate": 0.9821,
+        "n": 112
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5757,
+        "n": 912
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5768,
+        "n": 912
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3936,
+        "n": 912
+      },
+      "actions_per_own_turn": {
+        "rate": 6.6721,
+        "n": 912
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.9134,
+        "n": 912
+      },
+      "attacked_this_turn": {
+        "rate": 0.6371,
+        "n": 912
+      },
+      "win_rate": {
+        "rate": 0.589,
+        "n": 146
+      },
+      "own_turns_per_game": {
+        "rate": 6.2466,
+        "n": 146
+      }
+    },
+    "16431331": {
+      "rating": 1046.4,
+      "games": 82,
+      "attack_taken": {
+        "rate": 0.9683,
+        "n": 315
+      },
+      "boss_taken": {
+        "rate": 0.3459,
+        "n": 133
+      },
+      "energy_taken": {
+        "rate": 0.8575,
+        "n": 351
+      },
+      "froslass_evolve": {
+        "rate": 0.9677,
+        "n": 62
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.789,
+        "n": 109
+      },
+      "morgrem_evolve": {
+        "rate": 0.8413,
+        "n": 126
+      },
+      "bench_taken": {
+        "rate": 0.8194,
+        "n": 310
+      },
+      "candy_taken": {
+        "rate": 0.8649,
+        "n": 74
+      },
+      "stadium_taken": {
+        "rate": 0.8696,
+        "n": 92
+      },
+      "retreat_taken": {
+        "rate": 0.1576,
+        "n": 368
+      },
+      "munkidori_ability": {
+        "rate": 0.9354,
+        "n": 263
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8232,
+        "n": 345
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 14
+      },
+      "pokepad_taken": {
+        "rate": 0.7446,
+        "n": 184
+      },
+      "stretcher_taken": {
+        "rate": 0.6093,
+        "n": 151
+      },
+      "poffin_taken": {
+        "rate": 0.4308,
+        "n": 195
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9,
+        "n": 50
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3204,
+        "n": 284
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4401,
+        "n": 284
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0775,
+        "n": 284
+      },
+      "supporter_is_boss": {
+        "rate": 0.162,
+        "n": 284
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.4138,
+        "n": 58
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 3
+      },
+      "petrel_boss": {
+        "rate": 0.0256,
+        "n": 78
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.1,
+        "n": 90
+      },
+      "punk_up_takes_max": {
+        "rate": 0.4915,
+        "n": 236
+      },
+      "poffin_takes_max": {
+        "rate": 1.0,
+        "n": 63
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.6311,
+        "n": 488
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.502,
+        "n": 488
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3955,
+        "n": 488
+      },
+      "actions_per_own_turn": {
+        "rate": 6.3525,
+        "n": 488
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8893,
+        "n": 488
+      },
+      "attacked_this_turn": {
+        "rate": 0.625,
+        "n": 488
+      },
+      "win_rate": {
+        "rate": 0.6585,
+        "n": 82
+      },
+      "own_turns_per_game": {
+        "rate": 5.9512,
+        "n": 82
+      }
+    },
+    "16371703": {
+      "rating": 1220.2,
+      "games": 255,
+      "attack_taken": {
+        "rate": 0.9718,
+        "n": 1136
+      },
+      "boss_taken": {
+        "rate": 0.329,
+        "n": 538
+      },
+      "energy_taken": {
+        "rate": 0.878,
+        "n": 1139
+      },
+      "froslass_evolve": {
+        "rate": 0.8144,
+        "n": 194
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.7601,
+        "n": 446
+      },
+      "morgrem_evolve": {
+        "rate": 0.8755,
+        "n": 482
+      },
+      "bench_taken": {
+        "rate": 0.8225,
+        "n": 1042
+      },
+      "candy_taken": {
+        "rate": 0.864,
+        "n": 272
+      },
+      "stadium_taken": {
+        "rate": 0.984,
+        "n": 375
+      },
+      "retreat_taken": {
+        "rate": 0.1454,
+        "n": 1259
+      },
+      "munkidori_ability": {
+        "rate": 0.941,
+        "n": 780
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8794,
+        "n": 1202
+      },
+      "scrapper_taken": {
+        "rate": 0.9464,
+        "n": 112
+      },
+      "pokepad_taken": {
+        "rate": 0.9321,
+        "n": 501
+      },
+      "stretcher_taken": {
+        "rate": 0.6442,
+        "n": 489
+      },
+      "poffin_taken": {
+        "rate": 0.8946,
+        "n": 465
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9731,
+        "n": 186
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3832,
+        "n": 1057
+      },
+      "supporter_is_lillie": {
+        "rate": 0.369,
+        "n": 1057
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0804,
+        "n": 1057
+      },
+      "supporter_is_boss": {
+        "rate": 0.1675,
+        "n": 1057
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.5123,
+        "n": 203
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 8
+      },
+      "petrel_boss": {
+        "rate": 0.1532,
+        "n": 346
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.1086,
+        "n": 405
+      },
+      "punk_up_takes_max": {
+        "rate": 0.4205,
+        "n": 742
+      },
+      "poffin_takes_max": {
+        "rate": 0.824,
+        "n": 233
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5189,
+        "n": 1617
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.572,
+        "n": 1617
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3513,
+        "n": 1617
+      },
+      "actions_per_own_turn": {
+        "rate": 6.7835,
+        "n": 1617
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.859,
+        "n": 1617
+      },
+      "attacked_this_turn": {
+        "rate": 0.6827,
+        "n": 1617
+      },
+      "win_rate": {
+        "rate": 0.6,
+        "n": 255
+      },
+      "own_turns_per_game": {
+        "rate": 6.3412,
+        "n": 255
+      }
+    },
+    "16514272": {
+      "rating": 1073.9,
+      "games": 119,
+      "attack_taken": {
+        "rate": 0.9345,
+        "n": 519
+      },
+      "boss_taken": {
+        "rate": 0.3457,
+        "n": 188
+      },
+      "energy_taken": {
+        "rate": 0.8324,
+        "n": 537
+      },
+      "froslass_evolve": {
+        "rate": 0.988,
+        "n": 83
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.7412,
+        "n": 228
+      },
+      "morgrem_evolve": {
+        "rate": 0.8804,
+        "n": 209
+      },
+      "bench_taken": {
+        "rate": 0.8413,
+        "n": 460
+      },
+      "candy_taken": {
+        "rate": 0.8571,
+        "n": 119
+      },
+      "stadium_taken": {
+        "rate": 0.975,
+        "n": 120
+      },
+      "retreat_taken": {
+        "rate": 0.1684,
+        "n": 576
+      },
+      "munkidori_ability": {
+        "rate": 1.0,
+        "n": 418
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.9141,
+        "n": 512
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 15
+      },
+      "pokepad_taken": {
+        "rate": 0.9449,
+        "n": 236
+      },
+      "stretcher_taken": {
+        "rate": 0.7871,
+        "n": 202
+      },
+      "poffin_taken": {
+        "rate": 0.4877,
+        "n": 244
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9859,
+        "n": 71
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3761,
+        "n": 468
+      },
+      "supporter_is_lillie": {
+        "rate": 0.3868,
+        "n": 468
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0983,
+        "n": 468
+      },
+      "supporter_is_boss": {
+        "rate": 0.1389,
+        "n": 468
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.5053,
+        "n": 95
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 8
+      },
+      "petrel_boss": {
+        "rate": 0.0544,
+        "n": 147
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0852,
+        "n": 176
+      },
+      "punk_up_takes_max": {
+        "rate": 0.5964,
+        "n": 337
+      },
+      "poffin_takes_max": {
+        "rate": 0.7416,
+        "n": 89
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.6228,
+        "n": 737
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5075,
+        "n": 737
+      },
+      "turns_with_a_prize": {
+        "rate": 0.4003,
+        "n": 737
+      },
+      "actions_per_own_turn": {
+        "rate": 6.7001,
+        "n": 737
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8806,
+        "n": 737
+      },
+      "attacked_this_turn": {
+        "rate": 0.6581,
+        "n": 737
+      },
+      "win_rate": {
+        "rate": 0.7059,
+        "n": 119
+      },
+      "own_turns_per_game": {
+        "rate": 6.1933,
+        "n": 119
+      }
+    },
+    "16375320": {
+      "rating": 1094.8,
+      "games": 142,
+      "attack_taken": {
+        "rate": 0.9538,
+        "n": 628
+      },
+      "boss_taken": {
+        "rate": 0.3614,
+        "n": 202
+      },
+      "energy_taken": {
+        "rate": 0.7672,
+        "n": 653
+      },
+      "froslass_evolve": {
+        "rate": 0.9024,
+        "n": 123
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.6836,
+        "n": 256
+      },
+      "morgrem_evolve": {
+        "rate": 0.8789,
+        "n": 256
+      },
+      "bench_taken": {
+        "rate": 0.792,
+        "n": 572
+      },
+      "candy_taken": {
+        "rate": 0.7551,
+        "n": 147
+      },
+      "stadium_taken": {
+        "rate": 0.8795,
+        "n": 166
+      },
+      "retreat_taken": {
+        "rate": 0.1967,
+        "n": 732
+      },
+      "munkidori_ability": {
+        "rate": 0.888,
+        "n": 482
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.7565,
+        "n": 657
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 25
+      },
+      "pokepad_taken": {
+        "rate": 0.7667,
+        "n": 330
+      },
+      "stretcher_taken": {
+        "rate": 0.7276,
+        "n": 257
+      },
+      "poffin_taken": {
+        "rate": 0.4725,
+        "n": 309
+      },
+      "stamp_played_when_live": {
+        "rate": 0.9579,
+        "n": 95
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3722,
+        "n": 497
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4064,
+        "n": 497
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0744,
+        "n": 497
+      },
+      "supporter_is_boss": {
+        "rate": 0.1469,
+        "n": 497
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.5698,
+        "n": 86
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 9
+      },
+      "petrel_boss": {
+        "rate": 0.0488,
+        "n": 164
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0879,
+        "n": 182
+      },
+      "punk_up_takes_max": {
+        "rate": 0.7282,
+        "n": 412
+      },
+      "poffin_takes_max": {
+        "rate": 0.8505,
+        "n": 107
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5632,
+        "n": 925
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.547,
+        "n": 925
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3697,
+        "n": 925
+      },
+      "actions_per_own_turn": {
+        "rate": 6.1308,
+        "n": 925
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8897,
+        "n": 925
+      },
+      "attacked_this_turn": {
+        "rate": 0.6476,
+        "n": 925
+      },
+      "win_rate": {
+        "rate": 0.5986,
+        "n": 142
+      },
+      "own_turns_per_game": {
+        "rate": 6.5141,
+        "n": 142
+      }
+    },
+    "16561259": {
+      "rating": 1126.3,
+      "games": 109,
+      "attack_taken": {
+        "rate": 0.9408,
+        "n": 473
+      },
+      "boss_taken": {
+        "rate": 0.4276,
+        "n": 152
+      },
+      "energy_taken": {
+        "rate": 0.763,
+        "n": 519
+      },
+      "froslass_evolve": {
+        "rate": 0.734,
+        "n": 94
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.6318,
+        "n": 239
+      },
+      "morgrem_evolve": {
+        "rate": 0.7742,
+        "n": 217
+      },
+      "bench_taken": {
+        "rate": 0.7915,
+        "n": 422
+      },
+      "candy_taken": {
+        "rate": 0.7895,
+        "n": 114
+      },
+      "stadium_taken": {
+        "rate": 0.9252,
+        "n": 107
+      },
+      "retreat_taken": {
+        "rate": 0.2519,
+        "n": 524
+      },
+      "munkidori_ability": {
+        "rate": 0.9401,
+        "n": 384
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8422,
+        "n": 507
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 17
+      },
+      "pokepad_taken": {
+        "rate": 0.7935,
+        "n": 247
+      },
+      "stretcher_taken": {
+        "rate": 0.5687,
+        "n": 211
+      },
+      "poffin_taken": {
+        "rate": 0.7094,
+        "n": 203
+      },
+      "stamp_played_when_live": {
+        "rate": 0.8971,
+        "n": 68
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3747,
+        "n": 427
+      },
+      "supporter_is_lillie": {
+        "rate": 0.377,
+        "n": 427
+      },
+      "supporter_is_dawn": {
+        "rate": 0.096,
+        "n": 427
+      },
+      "supporter_is_boss": {
+        "rate": 0.1522,
+        "n": 427
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.34,
+        "n": 100
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 5
+      },
+      "petrel_boss": {
+        "rate": 0.0621,
+        "n": 145
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0625,
+        "n": 160
+      },
+      "punk_up_takes_max": {
+        "rate": 0.5666,
+        "n": 293
+      },
+      "poffin_takes_max": {
+        "rate": 0.8765,
+        "n": 81
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5535,
+        "n": 692
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5072,
+        "n": 692
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3815,
+        "n": 692
+      },
+      "actions_per_own_turn": {
+        "rate": 6.5347,
+        "n": 692
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8555,
+        "n": 692
+      },
+      "attacked_this_turn": {
+        "rate": 0.6431,
+        "n": 692
+      },
+      "win_rate": {
+        "rate": 0.633,
+        "n": 109
+      },
+      "own_turns_per_game": {
+        "rate": 6.3486,
+        "n": 109
+      }
+    },
+    "16385817": {
+      "rating": 1082.1,
+      "games": 62,
+      "attack_taken": {
+        "rate": 0.9377,
+        "n": 257
+      },
+      "boss_taken": {
+        "rate": 0.3804,
+        "n": 92
+      },
+      "energy_taken": {
+        "rate": 0.7438,
+        "n": 281
+      },
+      "froslass_evolve": {
+        "rate": 0.8571,
+        "n": 49
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.6325,
+        "n": 117
+      },
+      "morgrem_evolve": {
+        "rate": 0.9455,
+        "n": 110
+      },
+      "bench_taken": {
+        "rate": 0.8295,
+        "n": 217
+      },
+      "candy_taken": {
+        "rate": 0.873,
+        "n": 63
+      },
+      "stadium_taken": {
+        "rate": 0.9429,
+        "n": 70
+      },
+      "retreat_taken": {
+        "rate": 0.1932,
+        "n": 295
+      },
+      "munkidori_ability": {
+        "rate": 0.9898,
+        "n": 197
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.8815,
+        "n": 270
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 11
+      },
+      "pokepad_taken": {
+        "rate": 0.9847,
+        "n": 131
+      },
+      "stretcher_taken": {
+        "rate": 0.9894,
+        "n": 94
+      },
+      "poffin_taken": {
+        "rate": 0.496,
+        "n": 125
+      },
+      "stamp_played_when_live": {
+        "rate": null,
+        "n": 37
+      },
+      "supporter_is_petrel": {
+        "rate": 0.4328,
+        "n": 238
+      },
+      "supporter_is_lillie": {
+        "rate": 0.3782,
+        "n": 238
+      },
+      "supporter_is_dawn": {
+        "rate": 0.042,
+        "n": 238
+      },
+      "supporter_is_boss": {
+        "rate": 0.1471,
+        "n": 238
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.6275,
+        "n": 51
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 1
+      },
+      "petrel_boss": {
+        "rate": 0.0435,
+        "n": 92
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.068,
+        "n": 103
+      },
+      "punk_up_takes_max": {
+        "rate": 0.878,
+        "n": 164
+      },
+      "poffin_takes_max": {
+        "rate": 0.9362,
+        "n": 47
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5596,
+        "n": 386
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.487,
+        "n": 386
+      },
+      "turns_with_a_prize": {
+        "rate": 0.386,
+        "n": 386
+      },
+      "actions_per_own_turn": {
+        "rate": 6.5699,
+        "n": 386
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8912,
+        "n": 386
+      },
+      "attacked_this_turn": {
+        "rate": 0.6244,
+        "n": 386
+      },
+      "win_rate": {
+        "rate": 0.6452,
+        "n": 62
+      },
+      "own_turns_per_game": {
+        "rate": 6.2258,
+        "n": 62
+      }
+    },
+    "16422241": {
+      "rating": 1172.6,
+      "games": 109,
+      "attack_taken": {
+        "rate": 0.927,
+        "n": 466
+      },
+      "boss_taken": {
+        "rate": 0.3265,
+        "n": 196
+      },
+      "energy_taken": {
+        "rate": 0.827,
+        "n": 503
+      },
+      "froslass_evolve": {
+        "rate": 0.7736,
+        "n": 106
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.6685,
+        "n": 184
+      },
+      "morgrem_evolve": {
+        "rate": 0.8671,
+        "n": 173
+      },
+      "bench_taken": {
+        "rate": 0.8077,
+        "n": 416
+      },
+      "candy_taken": {
+        "rate": 0.9091,
+        "n": 99
+      },
+      "stadium_taken": {
+        "rate": 0.9236,
+        "n": 144
+      },
+      "retreat_taken": {
+        "rate": 0.2316,
+        "n": 544
+      },
+      "munkidori_ability": {
+        "rate": 0.9041,
+        "n": 386
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.7977,
+        "n": 514
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 22
+      },
+      "pokepad_taken": {
+        "rate": 0.7712,
+        "n": 236
+      },
+      "stretcher_taken": {
+        "rate": 0.6943,
+        "n": 193
+      },
+      "poffin_taken": {
+        "rate": 0.4431,
+        "n": 246
+      },
+      "stamp_played_when_live": {
+        "rate": 0.8933,
+        "n": 75
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3659,
+        "n": 410
+      },
+      "supporter_is_lillie": {
+        "rate": 0.4024,
+        "n": 410
+      },
+      "supporter_is_dawn": {
+        "rate": 0.0756,
+        "n": 410
+      },
+      "supporter_is_boss": {
+        "rate": 0.1561,
+        "n": 410
+      },
+      "petrel_dead_stamp": {
+        "rate": 0.5211,
+        "n": 71
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 4
+      },
+      "petrel_boss": {
+        "rate": 0.1286,
+        "n": 140
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0533,
+        "n": 150
+      },
+      "punk_up_takes_max": {
+        "rate": 0.6226,
+        "n": 310
+      },
+      "poffin_takes_max": {
+        "rate": 0.8438,
+        "n": 96
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.5509,
+        "n": 688
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5218,
+        "n": 688
+      },
+      "turns_with_a_prize": {
+        "rate": 0.3561,
+        "n": 688
+      },
+      "actions_per_own_turn": {
+        "rate": 6.4346,
+        "n": 688
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8663,
+        "n": 688
+      },
+      "attacked_this_turn": {
+        "rate": 0.6279,
+        "n": 688
+      },
+      "win_rate": {
+        "rate": 0.633,
+        "n": 109
+      },
+      "own_turns_per_game": {
+        "rate": 6.3119,
+        "n": 109
+      }
+    },
+    "16430670": {
+      "rating": 1062.3,
+      "games": 54,
+      "attack_taken": {
+        "rate": 0.9765,
+        "n": 213
+      },
+      "boss_taken": {
+        "rate": 0.3627,
+        "n": 102
+      },
+      "energy_taken": {
+        "rate": 0.8033,
+        "n": 244
+      },
+      "froslass_evolve": {
+        "rate": 0.9787,
+        "n": 47
+      },
+      "grimmsnarl_evolve": {
+        "rate": 0.5636,
+        "n": 110
+      },
+      "morgrem_evolve": {
+        "rate": 0.875,
+        "n": 96
+      },
+      "bench_taken": {
+        "rate": 0.914,
+        "n": 186
+      },
+      "candy_taken": {
+        "rate": 0.9574,
+        "n": 47
+      },
+      "stadium_taken": {
+        "rate": 0.9815,
+        "n": 54
+      },
+      "retreat_taken": {
+        "rate": 0.16,
+        "n": 250
+      },
+      "munkidori_ability": {
+        "rate": 1.0,
+        "n": 185
+      },
+      "punk_up_ability": {
+        "rate": null,
+        "n": 0
+      },
+      "supporter_taken": {
+        "rate": 0.9262,
+        "n": 244
+      },
+      "scrapper_taken": {
+        "rate": null,
+        "n": 8
+      },
+      "pokepad_taken": {
+        "rate": 0.9815,
+        "n": 108
+      },
+      "stretcher_taken": {
+        "rate": 0.9639,
+        "n": 83
+      },
+      "poffin_taken": {
+        "rate": 0.5464,
+        "n": 97
+      },
+      "stamp_played_when_live": {
+        "rate": null,
+        "n": 36
+      },
+      "supporter_is_petrel": {
+        "rate": 0.3363,
+        "n": 226
+      },
+      "supporter_is_lillie": {
+        "rate": 0.385,
+        "n": 226
+      },
+      "supporter_is_dawn": {
+        "rate": 0.115,
+        "n": 226
+      },
+      "supporter_is_boss": {
+        "rate": 0.1637,
+        "n": 226
+      },
+      "petrel_dead_stamp": {
+        "rate": null,
+        "n": 31
+      },
+      "petrel_live_stamp": {
+        "rate": null,
+        "n": 3
+      },
+      "petrel_boss": {
+        "rate": 0.0149,
+        "n": 67
+      },
+      "petrel_takes_grimmsnarl_line": {
+        "rate": 0.0658,
+        "n": 76
+      },
+      "punk_up_takes_max": {
+        "rate": 0.9861,
+        "n": 144
+      },
+      "poffin_takes_max": {
+        "rate": 0.8864,
+        "n": 44
+      },
+      "prizes_per_own_turn": {
+        "rate": 0.571,
+        "n": 331
+      },
+      "prizes_conceded_per_own_turn": {
+        "rate": 0.5076,
+        "n": 331
+      },
+      "turns_with_a_prize": {
+        "rate": 0.4079,
+        "n": 331
+      },
+      "actions_per_own_turn": {
+        "rate": 6.855,
+        "n": 331
+      },
+      "bench_full_at_turn_end": {
+        "rate": 0.8943,
+        "n": 331
+      },
+      "attacked_this_turn": {
+        "rate": 0.6284,
+        "n": 331
+      },
+      "win_rate": {
+        "rate": 0.5741,
+        "n": 54
+      },
+      "own_turns_per_game": {
+        "rate": 6.1296,
+        "n": 54
+      }
+    }
+  },
+  "v8": {
+    "rating": null,
+    "games": 42,
+    "attack_taken": {
+      "rate": 0.9532,
+      "n": 171
+    },
+    "boss_taken": {
+      "rate": 0.3026,
+      "n": 76
+    },
+    "energy_taken": {
+      "rate": 0.7598,
+      "n": 204
+    },
+    "froslass_evolve": {
+      "rate": null,
+      "n": 28
+    },
+    "grimmsnarl_evolve": {
+      "rate": 0.6747,
+      "n": 83
+    },
+    "morgrem_evolve": {
+      "rate": 0.9231,
+      "n": 78
+    },
+    "bench_taken": {
+      "rate": 0.8608,
+      "n": 158
+    },
+    "candy_taken": {
+      "rate": 0.7073,
+      "n": 41
+    },
+    "stadium_taken": {
+      "rate": 0.98,
+      "n": 50
+    },
+    "retreat_taken": {
+      "rate": 0.2216,
+      "n": 194
+    },
+    "munkidori_ability": {
+      "rate": 0.944,
+      "n": 125
+    },
+    "punk_up_ability": {
+      "rate": null,
+      "n": 0
+    },
+    "supporter_taken": {
+      "rate": 0.8258,
+      "n": 178
+    },
+    "scrapper_taken": {
+      "rate": null,
+      "n": 3
+    },
+    "pokepad_taken": {
+      "rate": 0.8652,
+      "n": 89
+    },
+    "stretcher_taken": {
+      "rate": 0.6506,
+      "n": 83
+    },
+    "poffin_taken": {
+      "rate": 0.679,
+      "n": 81
+    },
+    "stamp_played_when_live": {
+      "rate": null,
+      "n": 32
+    },
+    "supporter_is_petrel": {
+      "rate": 0.3605,
+      "n": 147
+    },
+    "supporter_is_lillie": {
+      "rate": 0.3946,
+      "n": 147
+    },
+    "supporter_is_dawn": {
+      "rate": 0.0884,
+      "n": 147
+    },
+    "supporter_is_boss": {
+      "rate": 0.1565,
+      "n": 147
+    },
+    "petrel_dead_stamp": {
+      "rate": null,
+      "n": 28
+    },
+    "petrel_live_stamp": {
+      "rate": null,
+      "n": 3
+    },
+    "petrel_boss": {
+      "rate": 0.0612,
+      "n": 49
+    },
+    "petrel_takes_grimmsnarl_line": {
+      "rate": 0.0566,
+      "n": 53
+    },
+    "punk_up_takes_max": {
+      "rate": 0.5333,
+      "n": 120
+    },
+    "poffin_takes_max": {
+      "rate": null,
+      "n": 35
+    },
+    "prizes_per_own_turn": {
+      "rate": 0.5759,
+      "n": 257
+    },
+    "prizes_conceded_per_own_turn": {
+      "rate": 0.5603,
+      "n": 257
+    },
+    "turns_with_a_prize": {
+      "rate": 0.3969,
+      "n": 257
+    },
+    "actions_per_own_turn": {
+      "rate": 6.4942,
+      "n": 257
+    },
+    "bench_full_at_turn_end": {
+      "rate": 0.9027,
+      "n": 257
+    },
+    "attacked_this_turn": {
+      "rate": 0.6342,
+      "n": 257
+    },
+    "win_rate": {
+      "rate": 0.619,
+      "n": 42
+    },
+    "own_turns_per_game": {
+      "rate": 6.119,
+      "n": 42
+    }
+  }
+}

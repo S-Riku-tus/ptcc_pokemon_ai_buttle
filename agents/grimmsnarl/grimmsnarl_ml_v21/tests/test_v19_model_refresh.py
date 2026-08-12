@@ -1,4 +1,4 @@
-"""The v20 hard-state-weighted, unconditioned model artifact."""
+"""The v21 hard-state-weighted, unconditioned model artifact."""
 
 from __future__ import annotations
 
@@ -24,12 +24,22 @@ def test_model_artifact_is_the_recorded_hard_state_fit() -> None:
     digest = hashlib.sha256(
         (AGENT_DIR / "ranker_model.json").read_bytes()
     ).hexdigest()
-    assert len(model["trees"]) == 513
-    assert len(model["feature_names"]) == 842
+    assert len(model["trees"]) == 1380
+    assert len(model["feature_names"]) == 848
+    # The six retreat-lock columns must be in the shipped model, not only in
+    # the extractor, or the corpus upgrade never reached inference.
+    for name in (
+        "active_retreat_locked", "bench_marnie_body_count",
+        "bench_locked_ready_attacker", "retreat_lock_risk",
+        "candidate_funds_active_retreat", "candidate_leaves_retreat_locked",
+    ):
+        assert name in model["feature_names"], name
     assert "teacher_team_id" not in model["feature_names"]
     assert digest == metadata["ranker"]["sha256"]
     assert metadata["ranker"]["win_weight"] == 1.0
-    assert metadata["ranker"]["hard_state_weight"] == 2.0
+    assert metadata["ranker"]["hard_state_weight"] == 2.5
+    assert metadata["ranker"]["hard_state_set"] == "v21"
+    assert metadata["ranker"]["early_stopping_patience"] == 800
     assert metadata["ranker"]["eventual_result_used_for_weighting"] is False
     assert metadata["ranker"]["retrained"] is True
 

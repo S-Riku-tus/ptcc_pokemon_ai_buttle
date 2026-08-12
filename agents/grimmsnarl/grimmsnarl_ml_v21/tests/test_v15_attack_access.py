@@ -547,7 +547,7 @@ def test_every_failure_returns_the_callers_index() -> None:
 
 
 # ----- artifacts ------------------------------------------------------------
-def test_v20_keeps_the_deck_and_attack_access_against_v15() -> None:
+def test_v21_keeps_the_deck_and_attack_access_against_v15() -> None:
     """v15's safety argument survives the intentional v19 model refresh.
 
     ``attack_access.py`` is on the identical list, so every state in this file

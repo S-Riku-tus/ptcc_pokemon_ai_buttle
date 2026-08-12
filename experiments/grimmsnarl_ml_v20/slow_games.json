@@ -1,0 +1,1702 @@
+{
+  "summary": {
+    "normal": {
+      "games": 476,
+      "offer_turns": {
+        "dark_energy:energy": 2183,
+        "poffin:item": 959,
+        "grimmsnarl_ex:evolve": 890,
+        "morgrem:evolve": 873,
+        "impidimp:bench": 830,
+        "night_stretcher:item": 810,
+        "rare_candy:item": 465
+      },
+      "take_turns": {
+        "dark_energy:energy": 1688,
+        "morgrem:evolve": 814,
+        "impidimp:bench": 667,
+        "night_stretcher:item": 635,
+        "grimmsnarl_ex:evolve": 618,
+        "poffin:item": 512,
+        "rare_candy:item": 409
+      },
+      "take_rate": {
+        "poffin:item": 0.5339,
+        "dark_energy:energy": 0.7732,
+        "rare_candy:item": 0.8796,
+        "night_stretcher:item": 0.784,
+        "morgrem:evolve": 0.9324,
+        "grimmsnarl_ex:evolve": 0.6944,
+        "impidimp:bench": 0.8036
+      },
+      "games_with_no_offer": {
+        "rare_candy:item": 102,
+        "impidimp:bench": 53,
+        "grimmsnarl_ex:evolve": 47,
+        "morgrem:evolve": 10
+      }
+    },
+    "slow": {
+      "games": 53,
+      "offer_turns": {
+        "dark_energy:energy": 238,
+        "grimmsnarl_ex:evolve": 89,
+        "impidimp:bench": 84,
+        "night_stretcher:item": 78,
+        "poffin:item": 78,
+        "morgrem:evolve": 75,
+        "rare_candy:item": 28
+      },
+      "take_turns": {
+        "dark_energy:energy": 193,
+        "morgrem:evolve": 72,
+        "night_stretcher:item": 71,
+        "impidimp:bench": 62,
+        "poffin:item": 57,
+        "grimmsnarl_ex:evolve": 39,
+        "rare_candy:item": 23
+      },
+      "take_rate": {
+        "dark_energy:energy": 0.8109,
+        "impidimp:bench": 0.7381,
+        "morgrem:evolve": 0.96,
+        "grimmsnarl_ex:evolve": 0.4382,
+        "rare_candy:item": 0.8214,
+        "night_stretcher:item": 0.9103,
+        "poffin:item": 0.7308
+      },
+      "games_with_no_offer": {
+        "grimmsnarl_ex:evolve": 27,
+        "rare_candy:item": 28,
+        "morgrem:evolve": 11,
+        "impidimp:bench": 11
+      }
+    }
+  },
+  "slow_games": [
+    {
+      "version": "v19",
+      "episode_id": "92165376",
+      "opponent": "other: Conkeldurr",
+      "won": "False",
+      "own_main_turns": 2,
+      "grim_on_board_turn": null,
+      "offers": {
+        "impidimp:bench": [
+          1
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1
+        ]
+      }
+    },
+    {
+      "version": "v19",
+      "episode_id": "92166326",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 6,
+      "grim_on_board_turn": 9,
+      "offers": {
+        "impidimp:bench": [
+          1,
+          3,
+          7,
+          9,
+          11
+        ],
+        "morgrem:evolve": [
+          3,
+          5
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          7,
+          9,
+          11
+        ],
+        "rare_candy:item": [
+          5
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1
+        ],
+        "morgrem:evolve": [
+          3,
+          5
+        ],
+        "grimmsnarl_ex:evolve": [
+          9,
+          11
+        ]
+      }
+    },
+    {
+      "version": "v19",
+      "episode_id": "92174054",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 14,
+      "offers": {
+        "impidimp:bench": [
+          2,
+          10
+        ],
+        "morgrem:evolve": [
+          4,
+          12
+        ],
+        "grimmsnarl_ex:evolve": [
+          14
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          2,
+          10
+        ],
+        "morgrem:evolve": [
+          4,
+          12
+        ],
+        "grimmsnarl_ex:evolve": [
+          14
+        ]
+      }
+    },
+    {
+      "version": "v19",
+      "episode_id": "92176656",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "own_main_turns": 12,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "morgrem:evolve": [
+          8,
+          10,
+          12
+        ],
+        "impidimp:bench": [
+          10
+        ],
+        "rare_candy:item": [
+          10
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          12,
+          14,
+          16
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          8,
+          10,
+          12
+        ],
+        "rare_candy:item": [
+          10
+        ],
+        "impidimp:bench": [
+          10
+        ],
+        "grimmsnarl_ex:evolve": [
+          16
+        ]
+      }
+    },
+    {
+      "version": "v20",
+      "episode_id": "92179485",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 6,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          4,
+          6
+        ],
+        "impidimp:bench": [
+          8
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          4,
+          6
+        ],
+        "impidimp:bench": [
+          8
+        ]
+      }
+    },
+    {
+      "version": "v20",
+      "episode_id": "92187003",
+      "opponent": "other: Conkeldurr",
+      "won": "False",
+      "own_main_turns": 2,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          3
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          3
+        ]
+      }
+    },
+    {
+      "version": "v20",
+      "episode_id": "92189837",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 9,
+      "grim_on_board_turn": 4,
+      "offers": {
+        "impidimp:bench": [
+          2,
+          14,
+          16,
+          18
+        ],
+        "morgrem:evolve": [
+          4,
+          6
+        ],
+        "rare_candy:item": [
+          4
+        ],
+        "grimmsnarl_ex:evolve": [
+          8,
+          10,
+          12,
+          14,
+          16,
+          18
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          2
+        ],
+        "rare_candy:item": [
+          4
+        ],
+        "morgrem:evolve": [
+          4,
+          6
+        ],
+        "grimmsnarl_ex:evolve": [
+          16,
+          18
+        ]
+      }
+    },
+    {
+      "version": "v20",
+      "episode_id": "92191615",
+      "opponent": "Alakazam",
+      "won": "True",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 14,
+      "offers": {
+        "impidimp:bench": [
+          2
+        ],
+        "morgrem:evolve": [
+          8,
+          12
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          12,
+          14
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          2
+        ],
+        "morgrem:evolve": [
+          8,
+          12
+        ],
+        "grimmsnarl_ex:evolve": [
+          14
+        ]
+      }
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91361920",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 4,
+      "offers": {
+        "impidimp:bench": [
+          2,
+          6
+        ],
+        "morgrem:evolve": [
+          4,
+          6,
+          8
+        ],
+        "rare_candy:item": [
+          4
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          2,
+          6
+        ],
+        "rare_candy:item": [
+          4
+        ],
+        "morgrem:evolve": [
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91365593",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 6,
+      "grim_on_board_turn": 9,
+      "offers": {
+        "impidimp:bench": [
+          3,
+          9
+        ],
+        "morgrem:evolve": [
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          9
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          3,
+          9
+        ],
+        "morgrem:evolve": [
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          9
+        ]
+      }
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91366555",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "own_main_turns": 6,
+      "grim_on_board_turn": null,
+      "offers": {
+        "impidimp:bench": [
+          10
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          10
+        ]
+      }
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91371141",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 10,
+      "grim_on_board_turn": 7,
+      "offers": {
+        "impidimp:bench": [
+          1,
+          17,
+          19
+        ],
+        "morgrem:evolve": [
+          3,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17
+        ],
+        "rare_candy:item": [
+          7
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1,
+          19
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "rare_candy:item": [
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          15,
+          17
+        ]
+      }
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91411806",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "True",
+      "own_main_turns": 8,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "morgrem:evolve": [
+          4,
+          14
+        ],
+        "grimmsnarl_ex:evolve": [
+          6,
+          8,
+          10,
+          12,
+          16
+        ],
+        "impidimp:bench": [
+          12,
+          16
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          4,
+          14
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          12
+        ],
+        "impidimp:bench": [
+          16
+        ]
+      }
+    },
+    {
+      "version": "v13a",
+      "episode_id": "91491374",
+      "opponent": "other: Rillaboom",
+      "won": "False",
+      "own_main_turns": 4,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          3
+        ],
+        "impidimp:bench": [
+          3
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          3
+        ],
+        "impidimp:bench": [
+          3
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91348176",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "True",
+      "own_main_turns": 10,
+      "grim_on_board_turn": 3,
+      "offers": {
+        "impidimp:bench": [
+          1,
+          17,
+          19
+        ],
+        "rare_candy:item": [
+          3
+        ],
+        "morgrem:evolve": [
+          5
+        ],
+        "grimmsnarl_ex:evolve": [
+          7,
+          9,
+          11,
+          13,
+          15
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1
+        ],
+        "rare_candy:item": [
+          3
+        ],
+        "morgrem:evolve": [
+          5
+        ],
+        "grimmsnarl_ex:evolve": [
+          13,
+          15
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91356280",
+      "opponent": "Dragapult",
+      "won": "False",
+      "own_main_turns": 6,
+      "grim_on_board_turn": null,
+      "offers": {
+        "impidimp:bench": [
+          4,
+          6
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          4,
+          6
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91359116",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "own_main_turns": 13,
+      "grim_on_board_turn": 3,
+      "offers": {
+        "rare_candy:item": [
+          3
+        ],
+        "impidimp:bench": [
+          3
+        ],
+        "morgrem:evolve": [
+          3,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          7,
+          19
+        ]
+      },
+      "takes": {
+        "rare_candy:item": [
+          3
+        ],
+        "morgrem:evolve": [
+          3,
+          7
+        ],
+        "impidimp:bench": [
+          3
+        ],
+        "grimmsnarl_ex:evolve": [
+          7,
+          19
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91360945",
+      "opponent": "Mega Lopunny / Froslass",
+      "won": "False",
+      "own_main_turns": 2,
+      "grim_on_board_turn": null,
+      "offers": {},
+      "takes": {}
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91365542",
+      "opponent": "Dipplin",
+      "won": "False",
+      "own_main_turns": 4,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          4,
+          8
+        ],
+        "impidimp:bench": [
+          4,
+          6
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          4,
+          6
+        ],
+        "morgrem:evolve": [
+          4,
+          8
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91367382",
+      "opponent": "Dragapult",
+      "won": "False",
+      "own_main_turns": 5,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          4
+        ],
+        "impidimp:bench": [
+          4,
+          10
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          4,
+          10
+        ],
+        "morgrem:evolve": [
+          4
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91372910",
+      "opponent": "other: Mega Abomasnow ex",
+      "won": "True",
+      "own_main_turns": 5,
+      "grim_on_board_turn": 6,
+      "offers": {
+        "impidimp:bench": [
+          4,
+          8
+        ],
+        "morgrem:evolve": [
+          6,
+          10
+        ],
+        "rare_candy:item": [
+          6
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          4,
+          8
+        ],
+        "rare_candy:item": [
+          6
+        ],
+        "morgrem:evolve": [
+          6,
+          10
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91375611",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 8,
+      "grim_on_board_turn": 5,
+      "offers": {
+        "impidimp:bench": [
+          1,
+          5,
+          11,
+          13,
+          15
+        ],
+        "morgrem:evolve": [
+          3,
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          7,
+          9,
+          11
+        ],
+        "rare_candy:item": [
+          7
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1,
+          5
+        ],
+        "morgrem:evolve": [
+          3,
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          9,
+          11
+        ]
+      }
+    },
+    {
+      "version": "v13b",
+      "episode_id": "91449505",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "False",
+      "own_main_turns": 9,
+      "grim_on_board_turn": 5,
+      "offers": {
+        "morgrem:evolve": [
+          3,
+          5,
+          9
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          7,
+          15
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          3,
+          5,
+          9
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          7,
+          15
+        ]
+      }
+    },
+    {
+      "version": "v14",
+      "episode_id": "91526864",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "True",
+      "own_main_turns": 11,
+      "grim_on_board_turn": 11,
+      "offers": {
+        "impidimp:bench": [
+          5
+        ],
+        "morgrem:evolve": [
+          7,
+          19
+        ],
+        "grimmsnarl_ex:evolve": [
+          9,
+          11,
+          17
+        ],
+        "rare_candy:item": [
+          11
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          5
+        ],
+        "morgrem:evolve": [
+          7,
+          19
+        ],
+        "rare_candy:item": [
+          11
+        ],
+        "grimmsnarl_ex:evolve": [
+          11,
+          17
+        ]
+      }
+    },
+    {
+      "version": "v14",
+      "episode_id": "91531557",
+      "opponent": "Mega Lucario",
+      "won": "False",
+      "own_main_turns": 8,
+      "grim_on_board_turn": 13,
+      "offers": {
+        "impidimp:bench": [
+          5,
+          7
+        ],
+        "rare_candy:item": [
+          13
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          5,
+          7
+        ],
+        "rare_candy:item": [
+          13
+        ]
+      }
+    },
+    {
+      "version": "v14",
+      "episode_id": "91537905",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 11,
+      "offers": {
+        "impidimp:bench": [
+          1
+        ],
+        "morgrem:evolve": [
+          9
+        ],
+        "rare_candy:item": [
+          11,
+          13
+        ],
+        "grimmsnarl_ex:evolve": [
+          11
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1
+        ],
+        "morgrem:evolve": [
+          9
+        ],
+        "grimmsnarl_ex:evolve": [
+          11
+        ],
+        "rare_candy:item": [
+          13
+        ]
+      }
+    },
+    {
+      "version": "v14",
+      "episode_id": "91541635",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 5,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "impidimp:bench": [
+          4,
+          6,
+          8
+        ],
+        "morgrem:evolve": [
+          6
+        ],
+        "rare_candy:item": [
+          10
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          4,
+          6,
+          8
+        ],
+        "morgrem:evolve": [
+          6
+        ],
+        "rare_candy:item": [
+          10
+        ]
+      }
+    },
+    {
+      "version": "v14",
+      "episode_id": "91548124",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 20,
+      "grim_on_board_turn": 3,
+      "offers": {
+        "rare_candy:item": [
+          3
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19,
+          21,
+          23,
+          25,
+          27,
+          29,
+          31,
+          33,
+          35
+        ],
+        "impidimp:bench": [
+          35,
+          39
+        ]
+      },
+      "takes": {
+        "rare_candy:item": [
+          3
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "grimmsnarl_ex:evolve": [
+          35
+        ]
+      }
+    },
+    {
+      "version": "v14",
+      "episode_id": "91550900",
+      "opponent": "Alakazam",
+      "won": "True",
+      "own_main_turns": 6,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "impidimp:bench": [
+          2,
+          10,
+          12
+        ],
+        "morgrem:evolve": [
+          8
+        ],
+        "grimmsnarl_ex:evolve": [
+          10
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          2
+        ],
+        "morgrem:evolve": [
+          8
+        ],
+        "grimmsnarl_ex:evolve": [
+          10
+        ]
+      }
+    },
+    {
+      "version": "v15",
+      "episode_id": "91625197",
+      "opponent": "other: Hop's Trevenant",
+      "won": "True",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "impidimp:bench": [
+          2,
+          10
+        ],
+        "morgrem:evolve": [
+          4,
+          10
+        ],
+        "rare_candy:item": [
+          10
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          14
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          2
+        ],
+        "morgrem:evolve": [
+          4,
+          10
+        ],
+        "grimmsnarl_ex:evolve": [
+          10
+        ]
+      }
+    },
+    {
+      "version": "v15",
+      "episode_id": "91630770",
+      "opponent": "Archaludon",
+      "won": "True",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 9,
+      "offers": {
+        "morgrem:evolve": [
+          3,
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          7,
+          9
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          3,
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          9
+        ]
+      }
+    },
+    {
+      "version": "v15",
+      "episode_id": "91650398",
+      "opponent": "other: Rillaboom",
+      "won": "False",
+      "own_main_turns": 5,
+      "grim_on_board_turn": 9,
+      "offers": {
+        "impidimp:bench": [
+          1,
+          7
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "rare_candy:item": [
+          9
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1,
+          7
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "rare_candy:item": [
+          9
+        ]
+      }
+    },
+    {
+      "version": "v15",
+      "episode_id": "91653142",
+      "opponent": "other: Mega Starmie ex",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 11,
+      "offers": {
+        "impidimp:bench": [
+          7,
+          11
+        ],
+        "morgrem:evolve": [
+          7,
+          13
+        ],
+        "rare_candy:item": [
+          11
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          7,
+          11
+        ],
+        "morgrem:evolve": [
+          7,
+          13
+        ],
+        "rare_candy:item": [
+          11
+        ]
+      }
+    },
+    {
+      "version": "v15",
+      "episode_id": "91667024",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 14,
+      "offers": {
+        "impidimp:bench": [
+          12
+        ],
+        "morgrem:evolve": [
+          14
+        ],
+        "rare_candy:item": [
+          14
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          12
+        ],
+        "rare_candy:item": [
+          14
+        ],
+        "morgrem:evolve": [
+          14
+        ]
+      }
+    },
+    {
+      "version": "v15b",
+      "episode_id": "91678025",
+      "opponent": "Mega Lucario",
+      "won": "True",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "morgrem:evolve": [
+          6
+        ],
+        "grimmsnarl_ex:evolve": [
+          10
+        ],
+        "impidimp:bench": [
+          12
+        ],
+        "rare_candy:item": [
+          12
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          6
+        ],
+        "grimmsnarl_ex:evolve": [
+          10
+        ],
+        "rare_candy:item": [
+          12
+        ],
+        "impidimp:bench": [
+          12
+        ]
+      }
+    },
+    {
+      "version": "v15b",
+      "episode_id": "91710011",
+      "opponent": "Dipplin",
+      "won": "False",
+      "own_main_turns": 1,
+      "grim_on_board_turn": null,
+      "offers": {},
+      "takes": {}
+    },
+    {
+      "version": "v15b",
+      "episode_id": "91749785",
+      "opponent": "Dipplin",
+      "won": "False",
+      "own_main_turns": 4,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          3,
+          5
+        ],
+        "impidimp:bench": [
+          3,
+          7
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          3,
+          7
+        ],
+        "morgrem:evolve": [
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "version": "v16",
+      "episode_id": "91859947",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 8,
+      "grim_on_board_turn": null,
+      "offers": {
+        "impidimp:bench": [
+          3
+        ],
+        "morgrem:evolve": [
+          5
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          3
+        ],
+        "morgrem:evolve": [
+          5
+        ]
+      }
+    },
+    {
+      "version": "v16",
+      "episode_id": "91866499",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 9,
+      "grim_on_board_turn": 15,
+      "offers": {
+        "impidimp:bench": [
+          7,
+          13,
+          17
+        ],
+        "rare_candy:item": [
+          15,
+          17
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          7,
+          13
+        ],
+        "rare_candy:item": [
+          15,
+          17
+        ]
+      }
+    },
+    {
+      "version": "v16",
+      "episode_id": "91869358",
+      "opponent": "Dragapult",
+      "won": "True",
+      "own_main_turns": 10,
+      "grim_on_board_turn": 7,
+      "offers": {
+        "morgrem:evolve": [
+          3,
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          3,
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          7
+        ]
+      }
+    },
+    {
+      "version": "v16",
+      "episode_id": "91871245",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "True",
+      "own_main_turns": 10,
+      "grim_on_board_turn": 11,
+      "offers": {
+        "impidimp:bench": [
+          1,
+          9
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "grimmsnarl_ex:evolve": [
+          11
+        ],
+        "rare_candy:item": [
+          13
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "grimmsnarl_ex:evolve": [
+          11
+        ],
+        "rare_candy:item": [
+          13
+        ]
+      }
+    },
+    {
+      "version": "v16",
+      "episode_id": "91887230",
+      "opponent": "Kangaskhan / Crustle",
+      "won": "True",
+      "own_main_turns": 9,
+      "grim_on_board_turn": 8,
+      "offers": {
+        "morgrem:evolve": [
+          4,
+          18
+        ],
+        "impidimp:bench": [
+          6,
+          16
+        ],
+        "rare_candy:item": [
+          8
+        ],
+        "grimmsnarl_ex:evolve": [
+          8
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          4,
+          18
+        ],
+        "impidimp:bench": [
+          6,
+          16
+        ],
+        "rare_candy:item": [
+          8
+        ]
+      }
+    },
+    {
+      "version": "v16",
+      "episode_id": "91889137",
+      "opponent": "Grimmsnarl (mirror)",
+      "won": "False",
+      "own_main_turns": 1,
+      "grim_on_board_turn": null,
+      "offers": {},
+      "takes": {}
+    },
+    {
+      "version": "v17",
+      "episode_id": "91881575",
+      "opponent": "other: Paldean Tauros",
+      "won": "True",
+      "own_main_turns": 13,
+      "grim_on_board_turn": 7,
+      "offers": {
+        "impidimp:bench": [
+          3,
+          5
+        ],
+        "morgrem:evolve": [
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          7,
+          17
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          3,
+          5
+        ],
+        "morgrem:evolve": [
+          5,
+          7
+        ],
+        "grimmsnarl_ex:evolve": [
+          7,
+          17
+        ]
+      }
+    },
+    {
+      "version": "v17",
+      "episode_id": "91889003",
+      "opponent": "Mega Lucario",
+      "won": "False",
+      "own_main_turns": 8,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          3
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          3
+        ]
+      }
+    },
+    {
+      "version": "v17",
+      "episode_id": "91893781",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 6,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "morgrem:evolve": [
+          4,
+          8
+        ],
+        "impidimp:bench": [
+          6
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          12
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          4,
+          8
+        ],
+        "impidimp:bench": [
+          6
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          12
+        ]
+      }
+    },
+    {
+      "version": "v18",
+      "episode_id": "91928076",
+      "opponent": "Archaludon",
+      "won": "False",
+      "own_main_turns": 1,
+      "grim_on_board_turn": null,
+      "offers": {},
+      "takes": {}
+    },
+    {
+      "version": "v18",
+      "episode_id": "91940408",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 3,
+      "grim_on_board_turn": null,
+      "offers": {},
+      "takes": {}
+    },
+    {
+      "version": "v18",
+      "episode_id": "91945921",
+      "opponent": "Mega Lucario",
+      "won": "False",
+      "own_main_turns": 1,
+      "grim_on_board_turn": null,
+      "offers": {},
+      "takes": {}
+    },
+    {
+      "version": "v18",
+      "episode_id": "91950677",
+      "opponent": "Archaludon",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 9,
+      "offers": {
+        "impidimp:bench": [
+          1,
+          5,
+          13
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "rare_candy:item": [
+          9
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          1,
+          5,
+          13
+        ],
+        "morgrem:evolve": [
+          3
+        ],
+        "rare_candy:item": [
+          9
+        ]
+      }
+    },
+    {
+      "version": "v18",
+      "episode_id": "91953513",
+      "opponent": "other: Cynthia's Garchomp ex",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": null,
+      "offers": {
+        "morgrem:evolve": [
+          4
+        ],
+        "impidimp:bench": [
+          6,
+          8
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          4
+        ],
+        "impidimp:bench": [
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "version": "v19_old",
+      "episode_id": "91950626",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 6,
+      "grim_on_board_turn": 6,
+      "offers": {
+        "morgrem:evolve": [
+          4,
+          6
+        ],
+        "grimmsnarl_ex:evolve": [
+          6,
+          8
+        ],
+        "rare_candy:item": [
+          6,
+          12
+        ],
+        "impidimp:bench": [
+          8,
+          10
+        ]
+      },
+      "takes": {
+        "morgrem:evolve": [
+          4,
+          6
+        ],
+        "grimmsnarl_ex:evolve": [
+          6
+        ],
+        "rare_candy:item": [
+          6,
+          12
+        ],
+        "impidimp:bench": [
+          10
+        ]
+      }
+    },
+    {
+      "version": "v19_old",
+      "episode_id": "91955356",
+      "opponent": "Alakazam",
+      "won": "False",
+      "own_main_turns": 7,
+      "grim_on_board_turn": 10,
+      "offers": {
+        "morgrem:evolve": [
+          4,
+          6,
+          8
+        ],
+        "impidimp:bench": [
+          4
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          14
+        ],
+        "rare_candy:item": [
+          14
+        ]
+      },
+      "takes": {
+        "impidimp:bench": [
+          4
+        ],
+        "morgrem:evolve": [
+          6,
+          8
+        ],
+        "grimmsnarl_ex:evolve": [
+          10,
+          14
+        ]
+      }
+    }
+  ]
+}

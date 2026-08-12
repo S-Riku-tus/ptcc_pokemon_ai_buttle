@@ -1,0 +1,427 @@
+=== v21_ctrl842_p200 corpus=corpus_v20_current.npz patience=200 ===
+decisions train=72812 validation=11432 test=11420 features=842
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+Training until validation scores don't improve for 200 rounds
+[100]	validation's top1: 0.794524
+[200]	validation's top1: 0.797148
+[300]	validation's top1: 0.800997
+[400]	validation's top1: 0.803534
+[500]	validation's top1: 0.802309
+Early stopping, best iteration is:
+[385]	validation's top1: 0.804409
+{
+  "best_iteration": 385,
+  "validation_top1": 0.8044,
+  "test_top1": 0.801,
+  "test_top1_wilson95": [
+    0.7935,
+    0.8082
+  ],
+  "test_top3": 0.9797,
+  "test_order_insensitive_top1": 0.9181,
+  "test_taxonomy": {
+    "correct": 0.801,
+    "same_turn_ordering": 0.1172,
+    "divergence": 0.0339,
+    "same_action_type_divergence": 0.048
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 5971,
+      "top1": 0.7367
+    },
+    "7": {
+      "decisions": 1134,
+      "top1": 0.7769
+    },
+    "13": {
+      "decisions": 776,
+      "top1": 0.8119
+    },
+    "40": {
+      "decisions": 761,
+      "top1": 1.0
+    },
+    "21": {
+      "decisions": 738,
+      "top1": 0.9322
+    },
+    "15": {
+      "decisions": 487,
+      "top1": 0.7885
+    },
+    "16": {
+      "decisions": 476,
+      "top1": 0.8424
+    },
+    "4": {
+      "decisions": 318,
+      "top1": 0.9245
+    },
+    "43": {
+      "decisions": 311,
+      "top1": 0.9904
+    },
+    "3": {
+      "decisions": 216,
+      "top1": 0.8241
+    },
+    "41": {
+      "decisions": 80,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 56,
+      "top1": 0.9821
+    },
+    "37": {
+      "decisions": 44,
+      "top1": 0.9091
+    },
+    "38": {
+      "decisions": 40,
+      "top1": 1.0
+    },
+    "5": {
+      "decisions": 7,
+      "top1": 0.7143
+    },
+    "8": {
+      "decisions": 5,
+      "top1": 0.6
+    }
+  }
+}
+=== v21_new848_p200 corpus=corpus_v21_current.npz patience=200 ===
+decisions train=72812 validation=11432 test=11420 features=848
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+Training until validation scores don't improve for 200 rounds
+[100]	validation's top1: 0.791025
+[200]	validation's top1: 0.79986
+[300]	validation's top1: 0.801697
+[400]	validation's top1: 0.80126
+Early stopping, best iteration is:
+[261]	validation's top1: 0.803009
+{
+  "best_iteration": 261,
+  "validation_top1": 0.803,
+  "test_top1": 0.8011,
+  "test_top1_wilson95": [
+    0.7937,
+    0.8084
+  ],
+  "test_top3": 0.9798,
+  "test_order_insensitive_top1": 0.9167,
+  "test_taxonomy": {
+    "correct": 0.8011,
+    "same_turn_ordering": 0.1156,
+    "divergence": 0.0363,
+    "same_action_type_divergence": 0.0469
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 5971,
+      "top1": 0.7346
+    },
+    "7": {
+      "decisions": 1134,
+      "top1": 0.7892
+    },
+    "13": {
+      "decisions": 776,
+      "top1": 0.8196
+    },
+    "40": {
+      "decisions": 761,
+      "top1": 1.0
+    },
+    "21": {
+      "decisions": 738,
+      "top1": 0.9255
+    },
+    "15": {
+      "decisions": 487,
+      "top1": 0.7947
+    },
+    "16": {
+      "decisions": 476,
+      "top1": 0.8277
+    },
+    "4": {
+      "decisions": 318,
+      "top1": 0.9214
+    },
+    "43": {
+      "decisions": 311,
+      "top1": 0.9904
+    },
+    "3": {
+      "decisions": 216,
+      "top1": 0.8519
+    },
+    "41": {
+      "decisions": 80,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 56,
+      "top1": 0.9821
+    },
+    "37": {
+      "decisions": 44,
+      "top1": 0.9091
+    },
+    "38": {
+      "decisions": 40,
+      "top1": 1.0
+    },
+    "5": {
+      "decisions": 7,
+      "top1": 0.7143
+    },
+    "8": {
+      "decisions": 5,
+      "top1": 0.4
+    }
+  }
+}
+=== v21_ctrl842_p800 corpus=corpus_v20_current.npz patience=800 ===
+decisions train=72812 validation=11432 test=11420 features=842
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+Training until validation scores don't improve for 800 rounds
+[100]	validation's top1: 0.794524
+[200]	validation's top1: 0.797148
+[300]	validation's top1: 0.800997
+[400]	validation's top1: 0.803534
+[500]	validation's top1: 0.802309
+[600]	validation's top1: 0.802309
+[700]	validation's top1: 0.802747
+[800]	validation's top1: 0.803097
+[900]	validation's top1: 0.802309
+[1000]	validation's top1: 0.802834
+[1100]	validation's top1: 0.805458
+[1200]	validation's top1: 0.805371
+[1300]	validation's top1: 0.805721
+[1400]	validation's top1: 0.805546
+[1500]	validation's top1: 0.805633
+[1600]	validation's top1: 0.805983
+[1700]	validation's top1: 0.804934
+[1800]	validation's top1: 0.804671
+[1900]	validation's top1: 0.804496
+[2000]	validation's top1: 0.804584
+[2100]	validation's top1: 0.804234
+[2200]	validation's top1: 0.804584
+[2300]	validation's top1: 0.804146
+[2400]	validation's top1: 0.804059
+Early stopping, best iteration is:
+[1620]	validation's top1: 0.806683
+{
+  "best_iteration": 1620,
+  "validation_top1": 0.8067,
+  "test_top1": 0.806,
+  "test_top1_wilson95": [
+    0.7987,
+    0.8132
+  ],
+  "test_top3": 0.9814,
+  "test_order_insensitive_top1": 0.9182,
+  "test_taxonomy": {
+    "correct": 0.806,
+    "same_turn_ordering": 0.1122,
+    "divergence": 0.0345,
+    "same_action_type_divergence": 0.0473
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 5971,
+      "top1": 0.7412
+    },
+    "7": {
+      "decisions": 1134,
+      "top1": 0.7963
+    },
+    "13": {
+      "decisions": 776,
+      "top1": 0.8222
+    },
+    "40": {
+      "decisions": 761,
+      "top1": 1.0
+    },
+    "21": {
+      "decisions": 738,
+      "top1": 0.9336
+    },
+    "15": {
+      "decisions": 487,
+      "top1": 0.7762
+    },
+    "16": {
+      "decisions": 476,
+      "top1": 0.8445
+    },
+    "4": {
+      "decisions": 318,
+      "top1": 0.9151
+    },
+    "43": {
+      "decisions": 311,
+      "top1": 0.9936
+    },
+    "3": {
+      "decisions": 216,
+      "top1": 0.8519
+    },
+    "41": {
+      "decisions": 80,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 56,
+      "top1": 0.9821
+    },
+    "37": {
+      "decisions": 44,
+      "top1": 0.9318
+    },
+    "38": {
+      "decisions": 40,
+      "top1": 1.0
+    },
+    "5": {
+      "decisions": 7,
+      "top1": 0.7143
+    },
+    "8": {
+      "decisions": 5,
+      "top1": 0.6
+    }
+  }
+}
+=== v21_new848_p800 corpus=corpus_v21_current.npz patience=800 ===
+decisions train=72812 validation=11432 test=11420 features=848
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+[LightGBM] [Warning] Met categorical feature which contains sparse values. Consider renumbering to consecutive integers started from zero
+[LightGBM] [Warning] Met negative value in categorical features, will convert it to NaN
+Training until validation scores don't improve for 800 rounds
+[100]	validation's top1: 0.791025
+[200]	validation's top1: 0.79986
+[300]	validation's top1: 0.801697
+[400]	validation's top1: 0.80126
+[500]	validation's top1: 0.801347
+[600]	validation's top1: 0.803971
+[700]	validation's top1: 0.802747
+[800]	validation's top1: 0.803884
+[900]	validation's top1: 0.805546
+[1000]	validation's top1: 0.803359
+[1100]	validation's top1: 0.803272
+[1200]	validation's top1: 0.803796
+[1300]	validation's top1: 0.803009
+[1400]	validation's top1: 0.804584
+[1500]	validation's top1: 0.804759
+[1600]	validation's top1: 0.805021
+[1700]	validation's top1: 0.805896
+[1800]	validation's top1: 0.805196
+[1900]	validation's top1: 0.805983
+[2000]	validation's top1: 0.804934
+[2100]	validation's top1: 0.804759
+[2200]	validation's top1: 0.804234
+[2300]	validation's top1: 0.804234
+[2400]	validation's top1: 0.805808
+[2500]	validation's top1: 0.805021
+Early stopping, best iteration is:
+[1706]	validation's top1: 0.806333
+{
+  "best_iteration": 1706,
+  "validation_top1": 0.8063,
+  "test_top1": 0.8063,
+  "test_top1_wilson95": [
+    0.799,
+    0.8134
+  ],
+  "test_top3": 0.9809,
+  "test_order_insensitive_top1": 0.9192,
+  "test_taxonomy": {
+    "correct": 0.8063,
+    "same_turn_ordering": 0.1129,
+    "divergence": 0.0344,
+    "same_action_type_divergence": 0.0464
+  },
+  "test_top1_by_context": {
+    "0": {
+      "decisions": 5971,
+      "top1": 0.7428
+    },
+    "7": {
+      "decisions": 1134,
+      "top1": 0.7937
+    },
+    "13": {
+      "decisions": 776,
+      "top1": 0.8325
+    },
+    "40": {
+      "decisions": 761,
+      "top1": 1.0
+    },
+    "21": {
+      "decisions": 738,
+      "top1": 0.9282
+    },
+    "15": {
+      "decisions": 487,
+      "top1": 0.768
+    },
+    "16": {
+      "decisions": 476,
+      "top1": 0.8361
+    },
+    "4": {
+      "decisions": 318,
+      "top1": 0.9151
+    },
+    "43": {
+      "decisions": 311,
+      "top1": 0.9936
+    },
+    "3": {
+      "decisions": 216,
+      "top1": 0.8611
+    },
+    "41": {
+      "decisions": 80,
+      "top1": 1.0
+    },
+    "1": {
+      "decisions": 56,
+      "top1": 0.9821
+    },
+    "37": {
+      "decisions": 44,
+      "top1": 0.9091
+    },
+    "38": {
+      "decisions": 40,
+      "top1": 1.0
+    },
+    "5": {
+      "decisions": 7,
+      "top1": 0.8571
+    },
+    "8": {
+      "decisions": 5,
+      "top1": 0.4
+    }
+  }
+}
