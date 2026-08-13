@@ -110,8 +110,7 @@ Dreepy→Drakloak→Dragapult exの進化ラインと、妨害・展開札を組
 ### 得られた知見（wmh/ptcg-abcのlessons learned）
 
 1. デッキ選択がエージェント品質より支配的（ただし単純なデッキ×ルールベースが最良）
-2. ローカルsim（cabt含む）はラダー順位を正確に予測しない。回帰検知用と割り切り、
-   最終判断は実ラダーA/B（最新2提出が採点対象、5回/日）
+2. 最終判断には実ラダーの対面別ログを使う（最新2提出が採点対象、5回/日）
 3. 40戦のA/Bは±10pt級のノイズ。80戦以上で判断
 4. スコアの当てずっぽう調整は禁物。top披露のreplayとのdivergence分析で修正する
 5. エネルギー過剰貼りは共有基盤（policy_base.pyのshould_fuel）で構造的に防止
@@ -119,7 +118,5 @@ Dreepy→Drakloak→Dragapult exの進化ラインと、妨害・展開札を組
 ### 本リポジトリの対応（2026-07-10）
 
 - `agents/cynthia_garchomp_v1/`: 現メタ最高勝率アーキタイプ＋mined pilot（主力候補）
-- `agents/alakazam741_v1/`: 非ex 1プライズ型（ヘッジ。直接対決ではGarchompに67%勝）
-- `agents/_base/policy_base.py` + `generic_policy.py`: 共有基盤（wmh/ptcg-abc由来）
-- `vendor/cg/`: ローカル対戦環境（公式wheelのエンジン＋自作互換API。Git管理外）
-- `scripts/local_arena.py`: 依存なしのローカルベンチ（Windows/Linux両対応）
+- `agents/alakazam741_v1/`: 非ex 1プライズ型（ヘッジ）
+- `agents/_base/policy_base.py`: 共有基盤（wmh/ptcg-abc由来）

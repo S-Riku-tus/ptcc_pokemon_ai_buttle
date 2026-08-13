@@ -36,4 +36,3 @@ Articuno handling.
 - v11 evolution, Rare Candy, emergency Energy draw, Shaymin, Hammer, Xerosic,
   and ordinary Fezandipiti rules
 - ML remains shadow-only by default
-

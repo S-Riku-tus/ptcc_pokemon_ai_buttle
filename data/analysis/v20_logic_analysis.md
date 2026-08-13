@@ -139,16 +139,6 @@
 
 ## 4. 横断的な注意（実装者向け）
 
-- **ML 再学習は不要**（§0）。3要件はすべて fallback スコア関数の改修。ただし fallback の
-  スコア変化は ML の候補・タイブレークに間接影響しうるので、`{"bench","evolve"}` の挙動は回帰確認。
-- **既知の地雷**: 「デッキアウトガードは cabt を後退させた」実績あり（`:2373-2387` コメント、
-  ANALYSIS_V19 §5「広い後続再建は v17 へ 65-135」）。要件②の過剰ドロー抑制は
-  この後退を再発させうるので、**local_arena で v19 相手 A/B 必須**。
-- **prize分析の caveat**: Dudunsparce の自己シャッフルが単プライズKOに過大計上される件は
-  ターン数・相手アーキタイプ指標には無影響。優先度設計は後者を根拠にする。
-- 検証: `pytest agents/alakazam/alakazam_ml_v20`、`scripts/local_arena.py v20 v19 --games 500`、
-  top40 への policy 一致率（`scripts/analyze_alakazam_policy_imitation.py`）。
-
 ## 5. 具体的な実装優先度（Claude の推奨順）
 
 1. **要件①（Boss 絶対ゲート＋`_winning_gust_ready` 結線）** — 最小変更・最も安全・勝ち筋直結。

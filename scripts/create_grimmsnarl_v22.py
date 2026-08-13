@@ -58,7 +58,7 @@ def main() -> int:
     metadata = {
         "name": "grimmsnarl_ml_v22",
         "version": "22.0.0",
-        "role": "crn_validated_challenger",
+        "role": "experimental_submission_candidate",
         "archetype": "marnies_grimmsnarl_ex",
         "parent_agent": "grimmsnarl_ml_v8",
         "created_at": "2026-08-13T17:00:00+09:00",
@@ -103,33 +103,35 @@ def main() -> int:
                 "no separate escalation: the global teacher pin is already code 0"
             ),
         },
-        "screening_evidence": {
-            "blocks": 100,
-            "primary_games": 400,
-            "complete_pairs": 200,
-            "win_rate_v8": 0.545,
-            "win_rate_v22_policy": 0.600,
-            "paired_effect": 0.055,
-            "seed_cluster_95ci": [0.003077839922912426, 0.10692216007708757],
-            "paired_exact_p": 0.15240777196147803,
-            "discordant_v22_only": 30,
-            "discordant_v8_only": 19,
-            "calibration_mismatches": 0,
-            "errors": 0,
+        "impact_evidence": {
+            "stored_games": 133,
+            "decisions": 11658,
+            "changed_decisions": 1647,
+            "games_touched": 133,
+            "changed_actions_per_game": 12.38345864661654,
+            "changed_decision_rate": 0.14127637673700462,
+            "gate": "LARGE_ENOUGH_TO_IMPLEMENT",
             "report": (
-                "experiments/grimmsnarl_1100_diagnosis/eval-harness/"
-                "gauntlet_v8_top_pin_vs_v8_100_blocks.json"
+                "experiments/grimmsnarl_1100_diagnosis/"
+                "policy_impact_v22_full.json"
             ),
         },
+        "submission_package": {
+            "path": "artifacts/grimmsnarl_ml_v22_submission.tar.gz",
+            "bytes": 10926438,
+            "sha256": (
+                "c2b1097ead1c68ce689d07e5d60810470449cb4630be7e6b2d9b6ecf671fb33b"
+            ),
+            "archive_entries": 18,
+            "extracted_import_smoke": "PASS",
+            "deck_size": 60,
+        },
         "known_limits": [
-            "The formal gauntlet currently represents 58% of the observed ladder mixture.",
-            "The 1220 opponent is a conditional-model proxy, not the original submission.",
-            "Final promotion still requires the larger CRN run and package smoke test.",
+            "Strength is unverified until real ladder episodes are collected.",
         ],
-        "submission_priority": 1,
         "description": (
-            "The first retrospective candidate whose CRN seed-cluster 95% CI "
-            "was wholly positive against the frozen v8 champion."
+            "Experimental v22 submission candidate using the same-deck "
+            "1220.2-rated pilot condition."
         ),
     }
     (TARGET / "metadata.json").write_text(

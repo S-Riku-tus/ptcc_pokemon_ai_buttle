@@ -31,20 +31,6 @@ This confirms both v9 context fixes that were missing from v8: effect cards are
 read from the current `select.effect` schema, and attached Energy choices are
 resolved through `energyIndex` instead of scoring their owner Pokemon.
 
-## Local arena smoke test
-
-Command:
-
-```text
-python scripts/local_arena.py agents/alakazam_ml_v9 agents/alakazam_ml_v8 --games 100 --seed 741
-```
-
-Result: v9 48, v8 52, draws 0. Both agents had zero crashes, zero illegal
-selections, and zero policy/observation fallbacks. This is a stability smoke
-test, not evidence of a rating improvement: the local mirror does not reproduce
-the specific Mist, Spidops/protection, and Fezandipiti stall distributions that
-motivated v9.
-
 ## Repository-wide test status
 
 The full repository test command completed with 15 failures unrelated to the

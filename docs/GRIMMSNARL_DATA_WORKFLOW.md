@@ -117,32 +117,7 @@ The August 2026 refresh selected 2,000 rather than the 3,515-tree validation
 optimum: it kept a clear paired Top-1 gain while reducing the export from 79.2
 MB to 45.1 MB. See `experiments/grimmsnarl_ml_v5/DATA_REFRESH_2026-08-06.md`.
 
-## Promotion gate
-
-A retrained ranker is a separate challenger. Keep v5 unchanged until the
-candidate has been checked on:
-
-- its immutable chronological validation/test blocks;
-- the frozen `corpus_v4.npz` benchmark or equivalent stored-board probes;
-- per-team and per-context Top-1, especially MAIN, counter placement, and rare
-  contexts;
-- paired local play against v5/v4; and
-- a ladder run, because imitation accuracy alone is not outcome strength.
-
-Collect continuously, but rebuild in batches, not after every episode. A useful
-trigger is at least 200-500 new same-deck games overall, at least 100 new games
-for a strategically important top team, a roughly 10% corpus increase, or a
-material leaderboard/metagame shift. A trigger starts an experiment; it does
-not automatically promote its model.
-
 ## Deciding whether a refresh is due
-
-"Collect continuously" is not automatic, and the archive cannot tell you it has
-gone stale: the EpisodeService only serves episodes for a *submission id*, so
-when a pilot replaces their submission our tracked ids simply stop returning new
-games and the index looks like a static meta. On 2026-08-06 the archive had zero
-new same-deck games since the previous day's refresh while 559 were in fact
-available.
 
 Measure it before deciding, with a throwaway leaderboard snapshot and one replay
 per submission - read-only, nothing written into the corpus:

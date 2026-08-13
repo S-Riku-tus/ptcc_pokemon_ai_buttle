@@ -54,7 +54,7 @@
     "recency_power": 2.0,
     "recency_seed": 1091,
     "recency_best_iteration": 692,
-    "recency_validation_top1": 0.7796744740,
+    "recency_validation_top1": 0.779674474,
     "recency_heldout_test_top1": 0.7870705244,
     "numeric_id_validation_top1": 0.7691544264,
     "numeric_id_test_top1": 0.7724909584,
@@ -98,18 +98,6 @@
     "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
     "Use the frozen v29 policy for unsupported, nested, low-time, or illegal cases."
   ],
-  "local_validation": {
-    "v32_pytest_tests": 177,
-    "v32_pytest_failures": 0,
-    "static_validation_passed": true,
-    "arena_vs_v31_games": 20,
-    "arena_vs_v31_wins": 11,
-    "arena_vs_v31_losses": 9,
-    "arena_vs_v31_draws": 0,
-    "arena_seed": 3220,
-    "arena_crashes": 0,
-    "arena_illegal_actions": 0
-  },
   "known_limitations": [
     "The requested 90% unseen Top-1 agreement was not reached. The best deployable strict held-out Top-1 is 78.71%.",
     "The 78.71% v32 score is measured on Yushin's chronological holdout, while v31's 76.31% was measured on Majkel's chronological holdout; the 2.40-point difference is not a same-test causal comparison.",

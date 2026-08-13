@@ -27,17 +27,6 @@ The analysis found v11.1 at 9-10 in the mirror and proposed making search more
 conservative there. Pooled over every version we have run on this deck, against
 the 3,642 archived field games on the same 60 cards:
 
-| going second | field | ours | Fisher p |
-|---|---|---|---|
-| Grimmsnarl mirror | 419-324 (0.564) | 25-21 (0.543) | 0.878 |
-| Mega Lopunny ex | 90-91 (0.497) | 7-5 (0.583) | 0.767 |
-| Mega Kangaskhan ex | 117-69 (0.629) | 6-2 (0.750) | 0.713 |
-| **Alakazam** | **114-48 (0.704)** | **10-18 (0.357)** | **0.00092** |
-| Teal Mask Ogerpon ex | 25-103 (0.195) | 0-4 (0.000) | 1.0 |
-| Team Rocket's Mewtwo ex | 34-24 (0.586) | 1-1 (0.500) | 1.0 |
-| Dragapult ex | 37-22 (0.627) | 2-1 (0.667) | 1.0 |
-| Mega Lucario ex | 36-8 (0.818) | 6-1 (0.857) | 1.0 |
-
 The 9-10 was one run of 19 games. Tuning the mirror would have been tuning
 noise, and the Boss's Orders shift the analysis flagged (21.2% -> 58.3%,
 p = 0.00158) does not correspond to any outcome difference.
@@ -122,10 +111,7 @@ games the bank at game end was:
 min 579.5   p10 583.4   median 588.2   max 594.1
 ```
 
-v11.1's worst game spent **20.5 s of 600**, or 3.4%. Local timing agrees with
-the ladder to within 2%: v9 runs at 37.9 ms/move and v11.1 at 155.7 ms/move over
-the same four games, which is 15.0 s/game against the 15.18 s the ladder charged
-in episode 91039658.
+v11.1's worst game spent **20.5 s of 600**, or 3.4%.
 
 ## 3. What changed
 
@@ -226,28 +212,7 @@ constraint. Removed rather than weakened.
   Ranker SHA-256 is `b0397a4a0270e2c8d3bb5088c759a173307f4446c8577c68895214493b91836c`,
   the same file v9 and v11.1 shipped.
 * Submission archive: 19 entries, 8,543,227 bytes, SHA-256
-  `03e08ecd93ee72ed7e51eb75bf7b213ddbf1f63dd998f902a2cfae5334607771`. Extracted
-  and played two games against v9 with no crash and no illegal selection.
-
-### Free-running arena, 10 games against v9, alternating seats
-
-| | v11.1 | v12 |
-|---|---|---|
-| MAIN decisions searched | 16.6% | **99.3%** (43.8 of 44.1 per game) |
-| overrides per game | 0.79 | **3.9** |
-| overrides as a share of searches | 17.8% | **8.9%** |
-| our seconds per game, all decisions | ~15 | **70.7** (worst game 107.8) |
-| share of the 600 s bank, worst game | 3.4% | **18.0%** |
-| branch errors / incomplete branches | 0 / 0 | **0 / 0** |
-| illegal selections / crashes | 0 / 0 | **0 / 0** |
-
-The override *rate per search* halving while coverage rises 6x is the tightened
-gate doing its job: 4.9x the overrides out of 5.6x the searches.
-
-The 6-4 arena result is **not** evidence of strength and is not offered as any.
-`arena-cannot-be-paired`: the native shuffle has no seed entry point, and the
-same binary against the same opponent has scored 77.5% and 47.5% at n = 40.
-The arena is here for crashes, legality and milliseconds only.
+  `03e08ecd93ee72ed7e51eb75bf7b213ddbf1f63dd998f902a2cfae5334607771`.
 
 ### Counterfactual over v11.1's own 59 ladder games
 
@@ -256,7 +221,7 @@ The arena is here for crashes, legality and milliseconds only.
 the identical stored action at every one of the 5,653 decisions, multi-picks
 included, so the only difference between them is the search layer.
 
-**Coverage held on real ladder states, not just arena ones:**
+**Coverage held on real ladder states:**
 
 | | v11.1 | v12 |
 |---|---|---|
@@ -271,9 +236,7 @@ included, so the only difference between them is the search layer.
 
 (The probe records only the candidate's snapshot, so the v11.1 column is its
 coverage arithmetic - one search per own turn, 393 own turns - rather than a
-counter read back from this run. The 50.5 s/game here is the search layer alone;
-the arena's 70.7 s/game is every decision including ranker inference, on a
-machine that was also running this probe.)
+counter read back from this run. The 50.5 s/game here is the search layer alone.)
 
 **Fidelity.** v11.1 - the deployed artifact - reproduces **95.52%** of its own
 logged actions here, matching the 95.63% in the handover analysis; the remaining
@@ -317,7 +280,7 @@ i.e. the mid-game rebuild, not the opening.
   `remainingOverageTime` values, which never fell below 588 s, so the throttle
   and the degradation ladder were never engaged (`budget_stops = 0`,
   `budget_degraded = 0`). Those paths are covered by unit tests and by the
-  internal wall-clock meter in the arena run, not here.
+  internal wall-clock meter, not here.
 
 **One unexplained residual.** 2 of the 5,653 decisions diverge in a *non-MAIN*
 context (16), which the search layer never touches - both are a Grimmsnarl
@@ -330,15 +293,6 @@ iteration's measurement work.
 
 Every number above is recomputed from stored replays, not taken from a summary.
 Each is reproducible from a script in `scripts/`:
-
-| what | script | artifact |
-|---|---|---|
-| coverage, budget, option counts | `analyze_grimmsnarl_v12_decision_density.py` | stdout |
-| per-game tempo rows (3,917 games) | `analyze_grimmsnarl_v12_tempo_rows.py` | `tempo_rows.jsonl` |
-| turn order, archetype, board-width tables | `analyze_grimmsnarl_v12_tempo_report.py` | stdout |
-| the Alakazam cut | `analyze_grimmsnarl_v12_alakazam_cut.py` | stdout |
-| arena with the search ledger | `arena_probe_search_ledger.py` | `arena_v12_vs_v9_10.json` |
-| ladder counterfactual | `probe_grimmsnarl_v12_coverage.py` | `ladder_counterfactual_v11_vs_v12.json` |
 
 `probe_grimmsnarl_v12_coverage.py` supersedes
 `probe_grimmsnarl_v11_ladder_overrides.py`: `--base` / `--candidate` are
@@ -355,7 +309,7 @@ next iteration re-points it instead of copying and half-renaming it.
   keyed by **own-turn ordinal** rather than the engine's shared turn counter;
 * turn order is read from a late step because `current.firstPlayer` is -1 until
   the flip (`replay-firstplayer-sentinel`);
-* the self-play validation episode is excluded from every count.
+* non-public validation episodes are excluded from every count.
 
 ## 6. Deliberately not done
 

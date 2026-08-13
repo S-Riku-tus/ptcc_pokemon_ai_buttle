@@ -148,70 +148,6 @@ which is exactly `escape_attach_forced = 4` plus `retreat_forced = 5`. The
 trapped state itself occurred on 10 turns in those 8 games, every one of them
 with a worthwhile Shadow Bullet at the end of the route.
 
-## Head to head (mirror, seat-swapped)
-
-`arena_v15_vs_v14_30.json` and `arena_v15_vs_v14_40.json`, 70 games total, both
-sides on the same 60 cards. The local arena **cannot be paired** — the engine
-shuffle does not follow `--seed`, and an identical agent has scored 77.5% and
-47.5% against the same opponent — so the record is read as noise and only the
-KPI direction is taken seriously.
-
-| measurement | v15 | v14 |
-| --- | ---: | ---: |
-| record (70 games) | 31-39 (44.3%) | 39-31 |
-| mean first Shadow Bullet (own turn) | **2.76** | 2.84 |
-| Shadow Bullet by own turn 2 | 37.1% | 38.6% |
-| Shadow Bullet by own turn 3 | **90.0%** | 81.4% |
-| **first Shadow Bullet on own turn 4+** | **10.0% (7)** | 18.6% (13) |
-| Shadow Bullets played | 292 | 290 |
-| non-Shadow attacks | 17 | 11 |
-| crashes / illegal selects | 0 | 0 |
-
-Per run: 13-17 then 18-22; first-Shadow turn-4+ 6.7% then 12.5% against 23.3%
-then 15.0%. The direction is the same in both halves and the shape is the point
-— the mean barely moves, the **tail** shrinks (13 games to 7). That is the
-failure the autopsy identified: not a slow average, a catastrophic 10-20% of
-games.
-
-What the counters say about effect size has to be said just as plainly:
-
-* 44.3% over 70 unpaired games is within noise of a coin flip (z = -0.95,
-  p ≈ 0.34), but the point estimate is **below** 50% and it was below in both
-  halves. This run does not show v15 winning the mirror.
-* the guard fired **10** forced route steps in those 70 games, so at most a few
-  of the six-game tail difference is causal; 7/70 against 13/70 is Fisher
-  p ≈ 0.21.
-* the trapped state occurred only ~0.4 times a game locally, against a v14
-  ladder mirror that averaged its first switch on turn 5.0 with 2.0 Grimmsnarl ex
-  already built. The state this version exists to fix is **rarer in local
-  self-play than on the ladder**, so the local A/B is the weaker test by
-  construction and the ladder telemetry is the real measurement.
-
-One unplanned finding is worth keeping: `retreat_forced` was 0 in both arena
-runs while `escape_attach_forced` was 3 and 4 — once the escape is paid, the
-existing policy completes the route on its own. On v14's own boards (the
-footprint run) both steps were missed, so both teeth are needed, but the
-attachment is the scarce resource and the primary defect.
-
-The CONVERT and BRIDGE teeth did **not** fire in either run
-(`end_replaced_by_shadow = 0`, `end_replaced_by_bridge = 0`,
-`ends_with_ready_attacker = 0`): v14 does not end turns with a ready attacker in
-self-play. They are backstops for the ladder, and whether they ever fire there
-is an open measurement, not a claimed gain.
-
-## Safety runs
-
-| run | result | crashes | illegal selects |
-| --- | --- | ---: | ---: |
-| `arena_v15_vs_crustle_first_6.json` (wall deck) | 6-0 | 0 | 0 |
-| `arena_v15_vs_alakazam35_6.json` | 5-1 | 0 | 0 |
-| `arena_v15_vs_v14_30.json` + `_40.json` | 31-39 | 0 | 0 |
-| 8-game same-board footprint | — | 0 | 0 |
-
-Average 40-46 ms/move, i.e. the same envelope as v14; the guard adds no model
-inference. `attack_access` reported 0 internal errors across every run
-(3,847 `considered` decisions in the 40-game arena alone).
-
 ## Golden states
 
 `agents/grimmsnarl/grimmsnarl_ml_v15/tests/test_v15_attack_access.py` (26 cases)
@@ -274,9 +210,9 @@ The KPI list changes with this version.
 
 ## Next, in order
 
-1. Re-run the ladder telemetry against these counters. If `trapped_turns` per
-   game stays near the local 0.5-1.25 and the first-Shadow tail shrinks on real
-   opponents, the access defect is closed.
+1. Re-run the ladder telemetry against these counters. If `trapped_turns`
+   decreases and the first-Shadow tail shrinks on real opponents, the access
+   defect is closed.
 2. Two-turn prize planner: Shadow Bullet's Bench-30 + Adrena-Brain + Froslass +
    Boss's Orders scored as one prize route rather than four decisions, with an
    **orphan damage** measurement (how much Bench-30 ever becomes a prize) as its

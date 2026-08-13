@@ -12,13 +12,6 @@
 
 ## Seat resolution
 
-- `team_name_exact`: 1830
-- `source_manifest`: 164
-- `modal_target_deck_unique`: 45
-- `self_play_exact_same_deck`: 30
-- `team_alias_plus_modal_deck`: 3
-- `alias_self_play_same_modal_deck`: 2
-
 Ambiguous seats are excluded rather than guessed.
 
 ## Leakage controls

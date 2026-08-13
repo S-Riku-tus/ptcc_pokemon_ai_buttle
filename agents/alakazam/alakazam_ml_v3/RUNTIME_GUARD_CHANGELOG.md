@@ -22,7 +22,3 @@
 - nested selection and legal-option fallback behavior
 
 ## Expected effect
-
-The ML adoption rate will fall. This is intentional. The next retrained model
-should earn back broader action types only after offline action-type evaluation
-and champion–challenger testing show that they are safe.

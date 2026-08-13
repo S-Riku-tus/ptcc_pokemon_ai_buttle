@@ -5,7 +5,6 @@
   "status": "v22_direct_target_priority_static_validated",
   "archetype": "alakazam_dudunsparce",
   "parent_agent": "alakazam_ml_v22",
-  "parent_submission_id": null,
   "created_at": "2026-07-26T00:00:00+09:00",
   "runtime_revision": "v23_boss_target_priority_20260726",
   "model_version": "v20-action-ranker-plus-v23-target-ranker",
@@ -49,21 +48,6 @@
     "Mist Energy Hammer memory and effect-prevention handling",
     "deck floors, exact-KO hand protection, and Fezandipiti exposure gates"
   ],
-  "local_validation": {
-    "pytest_tests": 129,
-    "v23_specific_tests": 8,
-    "python_compile": true,
-    "deck_count": 60,
-    "validate_agent_warnings": 0,
-    "target_model_loaded": true,
-    "arena_games": 0,
-    "teacher_forced_replays": 511,
-    "teacher_forced_decisions": 45717,
-    "v22_semantic_agreement": 0.9997375155850121,
-    "v22_semantic_changes": 12,
-    "baseline_teacher_immediate_agreement": 0.6480586240839987,
-    "candidate_teacher_immediate_agreement": 0.6479492507929564
-  },
   "known_limitations": [
     "A new live ladder rating has not been measured; 900/1000 stability is a goal, not a validated outcome.",
     "Teacher-forced policy comparison does not simulate the counterfactual trajectory after a changed action.",

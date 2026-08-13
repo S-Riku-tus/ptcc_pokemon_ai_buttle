@@ -8,7 +8,7 @@
 #   [P1] Give main attackers and their visible pre-evolutions a generic lineage priority.
 # Parent tactical core: v19.
 # Historical core notes:
-# alakazam741_v3 - v2 + 67戦の実ラダーログ全数分析(sub54523210) + ローカルアリーナA/Bに基づく改善:
+# alakazam741_v3 - v2 + 67戦の実ラダーログ全数分析(sub54523210)に基づく改善:
 #   [P0-1] 致死維持ゲート: 実ログで「致死圏なのに手札消費プレイで圏外に落ちる/攻撃せず
 #          ターンを終える」パターンを多数検出。ただし即攻撃の強制はA/Bで悪化(41.5% vs v2)。
 #          Powerful Handは手札を消費しない → 「ドロー/展開で手札を伸ばしてから終端で攻撃」
@@ -888,9 +888,7 @@ class AlakazamPolicy:
             if not rule_box and getattr(pokemon, "hp", 0) <= hits * damage:
                 exposed += 1
         # Flower Curtain has to protect more than one body to be worth the bench
-        # slot, and it must not take the slot a line body still needs. Requiring
-        # both was worth ~+2pp over 1,800 local games against the Grimmsnarl
-        # agent; the unconditional version was worth nothing.
+        # slot, and it must not take the slot a line body still needs.
         return exposed >= 2 and self._board_body_count() >= 3
 
     # ── v26: board-count floor ───────────────────────────────────────────────

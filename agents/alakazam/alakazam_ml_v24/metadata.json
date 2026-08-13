@@ -51,7 +51,7 @@
     "Admit a same-turn benched ex or Mega ex KO even when the opposing Active is not KO-able.",
     "Compare identical Active and Bench ex copies by their current HP and real post-Boss damage.",
     "Remove the v23 blanket high-role single-prize exception from a guaranteed multi-prize KO gate while preserving an Active game-winning KO.",
-      "Keep attacking an Active Grimmsnarl ex instead of early-gusting Munkidori or a substitute one-prizer when the ex is a clean visible two-hit; retain one-prize targets as the no-route fallback.",
+    "Keep attacking an Active Grimmsnarl ex instead of early-gusting Munkidori or a substitute one-prizer when the ex is a clean visible two-hit; retain one-prize targets as the no-route fallback.",
     "Treat one or two remaining deck cards as a safe Active Dudunsparce cycle only when the resulting promotion creates a same-turn Alakazam KO.",
     "Allow an Energy attachment and retreat from Dudunsparce only when its full three-Energy retreat cost is met and the promoted Alakazam KOs.",
     "Retrain the bounded card-ID-agnostic target ranker on the current Yushin Ito 1000 replay corpus."
@@ -64,29 +64,6 @@
     "Mist Energy Hammer memory and effect-prevention handling",
     "normal deck floors, exact-KO hand protection, and Fezandipiti exposure gates"
   ],
-  "local_validation": {
-    "pytest_tests": 135,
-    "v24_specific_tests": 6,
-    "python_compile": true,
-    "deck_count": 60,
-    "validate_agent_warnings": 0,
-    "target_model_loaded": true,
-    "arena_games": 0,
-    "v23_teacher_forced_replays": 50,
-    "v23_teacher_forced_decisions": 3051,
-    "v23_semantic_agreement": 0.9977056702720419,
-    "v23_semantic_changes": 7,
-    "v23_low_deck_failure_changes": 5,
-    "v23_grimmsnarl_pressure_changes": 1,
-    "yushin_teacher_forced_replays": 1000,
-    "yushin_teacher_forced_decisions": 84232,
-    "yushin_semantic_agreement_with_v23": 0.997162598537373,
-    "yushin_semantic_changes": 239,
-    "v23_yushin_immediate_agreement": 0.6375163243499941,
-    "v24_yushin_immediate_agreement": 0.637765641695358,
-    "changed_v23_yushin_immediate_agreement": 0.2301255230125523,
-    "changed_v24_yushin_immediate_agreement": 0.3179916317991632
-  },
   "known_limitations": [
     "A new live ladder rating has not been measured; 900/1000 stability is a goal, not a validated outcome.",
     "Teacher-forced comparison does not simulate the counterfactual trajectory after a changed action.",

@@ -20,8 +20,6 @@ Before comparing on ladder, run:
 
 ```powershell
 .\.venv\Scripts\python.exe .\scripts\validate_agent.py --agent alakazam741_v3
-.\.venv\Scripts\python.exe .\scripts\local_arena.py alakazam741_v3 alakazam741_v2 --games 40
-.\.venv\Scripts\python.exe .\scripts\local_arena.py alakazam741_v3 alakazam741_v1 --games 40
 .\.venv\Scripts\python.exe -m pytest
 ```
 

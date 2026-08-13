@@ -58,42 +58,8 @@
     "post-resolution Dudunsparce deck accounting and low-deck exceptions",
     "Archaludon, Grimmsnarl/Froslass, Mist Energy, Fezandipiti exposure, alternate-attacker, and protection-lock logic"
   ],
-  "local_validation": {
-    "pytest_tests": 160,
-    "v27_specific_tests": 9,
-    "validate_agent": "passed",
-    "deck_count": 60,
-    "warnings": 0,
-    "v26_run_teacher_forced_replays": 48,
-    "v26_run_teacher_forced_decisions": 2958,
-    "v26_run_semantic_changes": 68,
-    "v26_run_semantic_change_rate": 0.0229885057,
-    "v26_run_changed_games": 24,
-    "v26_run_changed_wins": 18,
-    "v26_run_changed_losses": 6,
-    "arena_v27_vs_v26_games": 600,
-    "arena_v27_vs_v26_wins": 287,
-    "arena_v27_vs_v26_win_rate": 0.4783333333,
-    "arena_vs_marnies_grimmsnarl_ex_v7_games": 400,
-    "arena_vs_marnies_grimmsnarl_ex_v7_wins": 290,
-    "generic_crustle_wins": 100,
-    "generic_kangaskhan_wins": 98,
-    "generic_megastarmie_wins": 83,
-    "generic_grimmsnarl_wins": 93,
-    "generic_alakazam741_wins": 98,
-    "generic_games_per_matchup": 100,
-    "generic_total_wins": 472,
-    "same_seed_v26_generic_total_wins": 471,
-    "arena_crashes": 0,
-    "arena_illegal_selects": 0,
-    "arena_board_collapse_losses": 0,
-    "arena_no_line_endings": 0
-  },
   "known_limitations": [
-    "The 287/600 mirror result is below 50% but not statistically distinguishable from an even matchup; it does not establish that v27 is stronger than v26.",
     "Teacher-forced comparison identifies changed observed decisions but cannot simulate each counterfactual continuation.",
-    "The local generic opponents are much weaker than leaderboard opponents, and the native battle API does not expose fully deterministic RNG.",
-    "The exact hand budget intentionally values current-turn KO efficiency and keeping Dudunsparce available after a hand reset; it may forgo benign surplus setup in states not represented by the current tests.",
-    "Leaderboard promotion requires a real submission and per-matchup review; local rating or a single aggregate win rate is not sufficient."
+    "The exact hand budget intentionally values current-turn KO efficiency and keeping Dudunsparce available after a hand reset; it may forgo benign surplus setup in states not represented by the current tests."
   ]
 }

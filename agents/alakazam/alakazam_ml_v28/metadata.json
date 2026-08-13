@@ -57,28 +57,7 @@
     "post-resolution Dudunsparce deck accounting and low-deck exceptions",
     "Mist Energy, Fezandipiti exposure, alternate-attacker, and protection-lock logic"
   ],
-  "local_validation": {
-    "pytest_tests": 164,
-    "v28_specific_tests": 4,
-    "validate_agent": "passed",
-    "deck_count": 60,
-    "warnings": 0,
-    "arena_v28_vs_v27_games": 200,
-    "arena_v28_vs_v27_wins": 89,
-    "arena_v28_vs_v27_win_rate": 0.445,
-    "arena_v28_vs_marnies_grimmsnarl_ex_v7_games": 100,
-    "arena_v28_vs_marnies_grimmsnarl_ex_v7_wins": 64,
-    "same_seed_v27_vs_marnies_grimmsnarl_ex_v7_wins": 67,
-    "arena_crashes": 0,
-    "arena_illegal_selects": 0,
-    "v28_mirror_end_turn_asset_blocks": 190,
-    "v28_grimmsnarl_end_turn_asset_blocks": 149
-  },
   "known_limitations": [
-    "The 89/200 v27 mirror result is below 50%; it is a warning against claiming aggregate local strength from this change, although the requested board-value behavior is confirmed directly.",
-    "The same-seed 100-game Grimmsnarl result is three wins below v27 and is too small to establish a meaningful difference.",
-    "Duraludon did not appear in the latest top-five 125-game sample; its priority is supported by older top-Alakazam public logs, matchup evidence, card mechanics, and a deterministic regression test.",
-    "The local arena and generic opponents do not reproduce leaderboard policy strength or fully deterministic native battle RNG.",
-    "Leaderboard promotion requires a real submission and per-matchup review; local validation alone is not sufficient."
+    "Duraludon did not appear in the latest top-five 125-game sample; its priority is supported by older top-Alakazam public logs, matchup evidence, card mechanics, and a deterministic regression test."
   ]
 }

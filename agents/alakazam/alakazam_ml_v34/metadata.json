@@ -59,7 +59,6 @@
     "test_decisions": 9977
   },
   "holdout_identity": {
-    "shared_with": null,
     "note": "The 980 refetched games are all chronologically newer than the v33 frozen holdout, so that holdout cannot be reused for v34 without training on games that postdate the test block. The holdout was re-cut chronologically and the v33 configuration was refitted on its own training episodes to produce a comparable baseline on it."
   },
   "teacher_training": {
@@ -94,21 +93,72 @@
     "note": "v33's published 79.51% and v34's 83.01% are on different holdouts and are not comparable. Only the 77.22% baseline in this block is."
   },
   "test_top1_by_teacher_action": {
-    "evolve": {"n": 2284, "v33_baseline": 0.8236, "v34": 0.9426},
-    "trainer": {"n": 1843, "v33_baseline": 0.6337, "v34": 0.7048},
-    "ability": {"n": 1587, "v33_baseline": 0.7801, "v34": 0.8009},
-    "bench": {"n": 1514, "v33_baseline": 0.8633, "v34": 0.8904},
-    "attack": {"n": 925, "v33_baseline": 0.8476, "v34": 0.8692},
-    "energy": {"n": 874, "v33_baseline": 0.7265, "v34": 0.7735},
-    "end": {"n": 428, "v33_baseline": 0.9112, "v34": 0.9416},
-    "boss": {"n": 194, "v33_baseline": 0.4588, "v34": 0.4794},
-    "xerosic": {"n": 135, "v33_baseline": 0.5037, "v34": 0.6296},
-    "hammer": {"n": 123, "v33_baseline": 0.8618, "v34": 0.8455},
-    "retreat": {"n": 70, "v33_baseline": 0.5429, "v34": 0.6571}
+    "evolve": {
+      "n": 2284,
+      "v33_baseline": 0.8236,
+      "v34": 0.9426
+    },
+    "trainer": {
+      "n": 1843,
+      "v33_baseline": 0.6337,
+      "v34": 0.7048
+    },
+    "ability": {
+      "n": 1587,
+      "v33_baseline": 0.7801,
+      "v34": 0.8009
+    },
+    "bench": {
+      "n": 1514,
+      "v33_baseline": 0.8633,
+      "v34": 0.8904
+    },
+    "attack": {
+      "n": 925,
+      "v33_baseline": 0.8476,
+      "v34": 0.8692
+    },
+    "energy": {
+      "n": 874,
+      "v33_baseline": 0.7265,
+      "v34": 0.7735
+    },
+    "end": {
+      "n": 428,
+      "v33_baseline": 0.9112,
+      "v34": 0.9416
+    },
+    "boss": {
+      "n": 194,
+      "v33_baseline": 0.4588,
+      "v34": 0.4794
+    },
+    "xerosic": {
+      "n": 135,
+      "v33_baseline": 0.5037,
+      "v34": 0.6296
+    },
+    "hammer": {
+      "n": 123,
+      "v33_baseline": 0.8618,
+      "v34": 0.8455
+    },
+    "retreat": {
+      "n": 70,
+      "v33_baseline": 0.5429,
+      "v34": 0.6571
+    }
   },
   "rejected": {
     "seed_ensemble": {
-      "seeds": [1091, 7, 42, 2024, 31337, 65535],
+      "seeds": [
+        1091,
+        7,
+        42,
+        2024,
+        31337,
+        65535
+      ],
       "individual_test_top1_min": 0.788,
       "individual_test_top1_max": 0.7961,
       "individual_test_top1_std": 0.0026,
@@ -145,28 +195,6 @@
     "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
     "Use the frozen v29 policy for unsupported, nested, low-time, or illegal cases."
   ],
-  "local_validation": {
-    "v34_pytest_tests": 188,
-    "v34_pytest_failures": 0,
-    "static_validation_passed": true,
-    "static_validation_warnings": 0,
-    "arena_vs_v33": {
-      "games": 40,
-      "seed": 3340,
-      "record": "19-21-0",
-      "win_rate_excluding_draws": 0.475
-    },
-    "arena_vs_v31": {
-      "games": 40,
-      "seed": 3341,
-      "record": "23-16-1",
-      "win_rate_excluding_draws": 0.5897435897
-    },
-    "arena_crashes": 0,
-    "arena_illegal_actions": 0,
-    "arena_fallback_rate": 0.0,
-    "arena_caveat": "40 games per matchup cannot separate agents that agree on most decisions. v33 itself went 19-21 against v32 locally and then gained 45 rating points on the ladder. Treat these as safety checks only."
-  },
   "inference_cost": {
     "measured_on": "289 scoped holdout decisions with teacher memory disabled",
     "v33_trees": 1005,
@@ -187,14 +215,30 @@
     "source": "All replays of the existing v31/v32/v33 ladder runs",
     "script": "scripts/analyze_alakazam_v34_behaviour.py",
     "artifact": "experiments/alakazam_ml_v34/behaviour_by_run.json",
-    "powerful_hand_per_game": {"v31": 3.75, "v32": 3.78, "v33": 4.15},
-    "share_of_games_with_4plus_powerful_hand": {
-      "v31": 0.5217, "v32": 0.5385, "v33": 0.5833
+    "powerful_hand_per_game": {
+      "v31": 3.75,
+      "v32": 3.78,
+      "v33": 4.15
     },
-    "v33_win_rate_by_powerful_hand": {"0-3": "8/30", "4+": "34/42"},
-    "dudunsparce_per_game": {"v31": 2.2174, "v32": 2.8154, "v33": 2.4583},
+    "share_of_games_with_4plus_powerful_hand": {
+      "v31": 0.5217,
+      "v32": 0.5385,
+      "v33": 0.5833
+    },
+    "v33_win_rate_by_powerful_hand": {
+      "0-3": "8/30",
+      "4+": "34/42"
+    },
+    "dudunsparce_per_game": {
+      "v31": 2.2174,
+      "v32": 2.8154,
+      "v33": 2.4583
+    },
     "v33_win_rate_by_dudunsparce": {
-      "0": "6/11", "1": "10/15", "2": "11/16", "3+": "15/30"
+      "0": "6/11",
+      "1": "10/15",
+      "2": "11/16",
+      "3+": "15/30"
     },
     "reading": "Powerful Hand count is the only measure that separates wins from losses (27% below four, 81% at four or more). The Dudunsparce usage gap recorded earlier is closed: win rate is now flat across usage buckets, so that lever is spent. v34's largest offline gain is the evolve class (+11.91 points), which is the class that puts Alakazam on the board, but the causal link to Powerful Hand count on the ladder is unproven."
   },

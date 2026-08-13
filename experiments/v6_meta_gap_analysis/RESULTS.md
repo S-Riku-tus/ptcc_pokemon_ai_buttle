@@ -7,10 +7,6 @@ remaining divergences are inside the top pilots' band. This report changes the
 unit of analysis from *decisions* to *matchups*, because that is where the
 remaining rating is, and it reports three hypotheses that measurement killed.
 
-All numbers come from data already in the repo: 4,186 same-deck corpus games
-(deck hash `9714ab5c3996f6cc`, self-play validation episodes excluded), our own
-ladder runs for v1-v5, and the 2026-08-06 top-60 leaderboard snapshot.
-
 Scripts and outputs live beside this file:
 
 | script | output | what it measures |
@@ -144,15 +140,6 @@ against Ogerpon the wins are the short games (ending turn 7.70 vs 9.19) with
 
 ## 4. What is actually available to fix
 
-**4.1 Build a local opponent panel; it is the only instrument that can rank a
-change.** Our replays contain the opponent's own observations and actions, not
-just ours - 76 to 109 selects per game on their side. So the same imitation
-pipeline that produced the Grimmsnarl ranker can produce sparring partners from
-data we already hold: `0dede7cb8026e473` (218 games), `6fa64c0e3b2eb67c` (213),
-`a7ee29914c1dce64` (106), `202ee2cec6cbe8b4` (45). Local arena games are
-unlimited and paired, which is the opposite of a 65-game ladder run against an
-860-rated pool. Everything below depends on this existing first.
-
 **4.2 Target `a7ee29914c1dce64` - the biggest recoverable cell.** 5 of the
 current top 20, 17.9% of the slot-weighted field, 0.415 for the field and 0.417
 for the top-3 pilots, and we have never played it. Because the entire field is at
@@ -170,13 +157,6 @@ top 40, ~7% of the slot-weighted field, 2.1 points of expected win rate, and
 93.9% of our passed turns are already lethal. The only lever the data supports is
 finishing the game before turn 8, which is the same lever as 4.2's setup pace and
 is not specific to this matchup.
-
-**4.4 Refresh the corpus, for the field's composition rather than for accuracy.**
-559 new same-deck games are available (about +13.6%), the corpus reflects the July
-field, and all three current top same-deck pilots are in it but capped at 300
-games while 885, 791 and 303 episodes are now available. This was already the
-documented trigger; the new argument for it is that the July field it encodes is
-not the field a v7 would play.
 
 **4.5 The strategic fork, which is a decision rather than a task.** This
 archetype has fallen from 51% of the top 50 to 6 of the top 40 in four days, its

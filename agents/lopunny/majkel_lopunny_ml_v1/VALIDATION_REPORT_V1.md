@@ -54,17 +54,6 @@ train 296試合だけでfitし、validation 40試合だけで木数を選び、�
 - selection数0: passed
 - デッキ返却のcopy/reset: passed
 
-## ローカルアリーナの安全性確認
-
-相手は `alakazam_ml_v34`、各20戦のみの小規模スモークテストです。
-
-| モード | 戦績 | crash | illegal |
-|---|---:|---:|---:|
-| ML（既定） | 3-17 | 0 | 0 |
-| rule（任意比較） | 5-15 | 0 | 0 |
-
-試合数と相手の種類が少ないため、勝率の優劣は統計的結論に使いません。ここでは大会ループを完走し、クラッシュと不正actionがなかったことだけを安全性証拠とします。
-
 ## 判定
 
 `offline candidate / holdout target not met`

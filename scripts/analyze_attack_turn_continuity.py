@@ -1,8 +1,7 @@
 """Measure attack setup and continuity from a Kaggle full-replay bundle.
 
-The champion/challenger ``attack_turn_rate`` uses every engine turn on which an
-agent made a decision.  This audit also reports MAIN-only and attack-opportunity
-denominators so setup latency can be separated from avoidable skipped attacks.
+This audit reports all-turn, MAIN-only, and attack-opportunity denominators so
+setup latency can be separated from avoidable skipped attacks in real replays.
 """
 from __future__ import annotations
 

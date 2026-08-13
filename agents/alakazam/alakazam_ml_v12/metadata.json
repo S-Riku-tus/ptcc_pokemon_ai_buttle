@@ -15,7 +15,7 @@
   "ranker_model_unchanged_from_v10": true,
   "ml_override_default": false,
   "ml_override_environment": "ALAKAZAM_ML_V12_ENABLE_OVERRIDE=1",
-  "deck_policy": "Keep the submitted v10 60-card list: 2 Basic Psychic plus 4 Telepath Psychic, 3 Dunsparce / 2 Dudunsparce, Shaymin, Fezandipiti ex, 3 Rare Candy, 4 Enhanced Hammer, 3 Boss's Orders, and Max Rod. Existing controlled deck ablations favored Max Rod over Enriching Energy 278-222 and did not justify replacing Shaymin outside the mirror.",
+  "deck_policy": "Keep the submitted v10 60-card list: 2 Basic Psychic plus 4 Telepath Psychic, 3 Dunsparce / 2 Dudunsparce, Shaymin, Fezandipiti ex, 3 Rare Candy, 4 Enhanced Hammer, 3 Boss's Orders, and Max Rod.",
   "deck_changed_from_v10": false,
   "evidence": {
     "current_leaderboard_snapshot": {
@@ -79,75 +79,8 @@
     "Bench-Kadabra-to-Active-Candy out",
     "Dunsparce-over-Abra setup interaction"
   ],
-  "local_validation": {
-    "targeted_tests": 44,
-    "mirror_v11_vs_v10": {
-      "games": 800,
-      "v11_wins": 414,
-      "v10_wins": 386,
-      "v11_win_rate": 0.5175,
-      "seeds": [
-        741,
-        742,
-        743,
-        744
-      ]
-    },
-    "final_source_smoke_vs_v10": {
-      "games": 400,
-      "v11_wins": 209,
-      "v10_wins": 191,
-      "v11_win_rate": 0.5225,
-      "seeds": [
-        741,
-        742,
-        743,
-        744
-      ]
-    },
-    "generic_pool_v11": {
-      "games": 800,
-      "wins": 723,
-      "win_rate": 0.90375
-    },
-    "generic_pool_v10_same_seeds": {
-      "games": 800,
-      "wins": 718,
-      "win_rate": 0.8975
-    },
-    "v12_vs_v11_fair_seat_swap": {
-      "games": 200,
-      "v12_wins": 116,
-      "v11_wins": 84,
-      "v12_win_rate": 0.58,
-      "wilson_95_ci": [0.5107, 0.6463],
-      "attack_opportunity_conversion": 1.0,
-      "v12_deckout_rate": 0.07,
-      "v11_deckout_rate": 0.155,
-      "v12_boardout_rate": 0.08,
-      "v11_boardout_rate": 0.095
-    },
-    "v12_generic_pool": {
-      "games": 400,
-      "wins": 367,
-      "win_rate": 0.9175,
-      "v11_same_seed_wins": 374,
-      "v11_same_seed_win_rate": 0.935
-    },
-    "team_rocket_spidops_generic": {
-      "games": 200,
-      "v12_wins": 163,
-      "v12_win_rate": 0.815,
-      "v11_wins": 158,
-      "v11_win_rate": 0.79
-    },
-    "errors": 0,
-    "illegal_selections": 0
-  },
   "known_limitations": [
-    "Local battle results are regression gates, not a Kaggle rating guarantee.",
     "The v10 ranker is intentionally not retrained on v10 losses because those trajectories are failure evidence, not expert action labels.",
-    "Deck order variance remains; v12 changes two requested tactical branches rather than claiming to remove opening-hand variance.",
-    "The formal champion-challenger report passed win-rate, attack, idle-turn, and safety checks but missed absolute deckout and boardout thresholds; both rates still improved versus v11 in the same run."
+    "Deck order variance remains; v12 changes two requested tactical branches rather than claiming to remove opening-hand variance."
   ]
 }

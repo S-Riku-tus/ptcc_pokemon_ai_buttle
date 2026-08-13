@@ -1,8 +1,8 @@
 # vendor/
 
-## vendor/cg — ローカル対戦用エンジン＋互換API（Git管理外）
+## vendor/cg — 互換API調査用（Git管理外）
 
-`vendor/cg/` はローカルベンチマーク（`scripts/local_arena.py`）専用です。
+`vendor/cg/` は互換性調査用に保持しています。
 
 - `game.py` / `sim.py` / `libcg.so`（Linux用） / `cg.dll`（Windows用）:
   公式ラダーと同一バージョンの `kaggle-environments==1.30.1` wheel の

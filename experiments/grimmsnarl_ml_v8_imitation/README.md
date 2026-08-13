@@ -5,5 +5,5 @@ high-rated same-deck pilot.  The primary gate is chronological held-out
 accuracy for team `16452116`; pooled accuracy is retained as a secondary
 diagnostic because the deployed runtime uses one pinned teacher at a time.
 
-The production candidate is not changed until a model clears the accuracy,
-runtime, and arena gates documented here.
+The production candidate is not changed until a model clears the accuracy and
+runtime gates documented here.

@@ -1066,29 +1066,5 @@
     }
   ],
   "target_top1": 0.9,
-  "target_met": false,
-  "local_arena": {
-    "v33_vs_v31": {
-      "games": 40,
-      "seed": 3330,
-      "v33_wins": 24,
-      "v31_wins": 15,
-      "draws": 1,
-      "v33_win_rate_excluding_draws": 0.6153846153846154,
-      "crashes": 0,
-      "illegal_selects": 0,
-      "caveat": "40 games is a small sample; the Wilson 95% interval on 24/39 spans roughly 45% to 76%."
-    },
-    "v33_vs_v32": {
-      "games": 40,
-      "seed": 3331,
-      "v33_wins": 19,
-      "v32_wins": 21,
-      "draws": 0,
-      "v33_win_rate_excluding_draws": 0.475,
-      "crashes": 0,
-      "illegal_selects": 0,
-      "caveat": "Near-mirror matchup: v33 and v32 agree on most decisions, so 40 games cannot separate them."
-    }
-  }
+  "target_met": false
 }

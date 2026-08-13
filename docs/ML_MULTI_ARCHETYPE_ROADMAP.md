@@ -23,8 +23,8 @@ ml/archetypes/
 5. Run `scripts/analyze_deck_archetypes.py` on the top replay corpus and verify the deck has enough teams/submissions.
 6. Build processed data with `python -m ml.pipelines.train_archetype --archetype <name>`.
 7. Validate offline holdouts and action-type safety.
-8. Run local self-play with trajectory logging only if the official `cg/` engine is available.
-9. Produce a Champion-Challenger report. Do not auto-promote.
+8. Validate behavior on held-out real replay states.
+9. Submit explicitly selected candidates and evaluate newly collected ladder episodes.
 10. Build Kaggle tar.gz with `scripts/build_submission.py`.
 
 ## Current Alakazam Status

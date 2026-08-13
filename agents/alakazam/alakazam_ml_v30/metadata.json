@@ -74,8 +74,8 @@
     "validation_decisions": 10983,
     "test_decisions": 19608,
     "validation_semantic_top1": 0.7564417737,
-    "validation_semantic_top3": 0.9562960940,
-    "heldout_test_semantic_top1": 0.7394940840,
+    "validation_semantic_top3": 0.956296094,
+    "heldout_test_semantic_top1": 0.739494084,
     "heldout_test_semantic_top2": 0.8955528356,
     "heldout_test_semantic_top3": 0.9511423909,
     "heldout_v29_semantic_top1": 0.6553447572,
@@ -89,24 +89,10 @@
     "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
     "Use the frozen v29 policy for unsupported, nested, low-confidence, low-time, or illegal cases."
   ],
-  "local_validation": {
-    "v30_pytest_tests": 176,
-    "v30_pytest_failures": 0,
-    "same_seed_1741_games_per_matchup": 60,
-    "v30_vs_grimmsnarl_wins": 47,
-    "v29_vs_grimmsnarl_wins": 47,
-    "v30_vs_megastarmie_wins": 56,
-    "v29_vs_megastarmie_wins": 54,
-    "same_deck_seed_741_mirror_games": 100,
-    "v30_vs_v29_mirror_wins": 50,
-    "arena_crashes": 0,
-    "arena_illegal_selects": 0
-  },
   "known_limitations": [
     "The requested 90% unseen top-choice agreement was not reached: held-out semantic top-1 is 73.95%. Held-out top-3 recall is 95.11%.",
     "The 100% semantic replay result measures exact questions already stored in teacher memory and is not an unbiased generalization estimate.",
     "Exact/canonical memory retrieves only 1.66% of chronologically held-out decisions, so the learned ranker remains essential for genuinely unseen states.",
-    "Unseen Boss, retreat, trainer, Xerosic, and energy choices remain the weakest action families.",
-    "Local arena results are opponent- and seed-dependent. A real leaderboard submission is required to determine whether v30 improves the approximately 800 rating."
+    "Unseen Boss, retreat, trainer, Xerosic, and energy choices remain the weakest action families."
   ]
 }

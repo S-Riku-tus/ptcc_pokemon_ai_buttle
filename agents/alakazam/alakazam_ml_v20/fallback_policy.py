@@ -4,7 +4,7 @@
 #   [P1] Stop optional draw once the chosen route already has the hand needed for its KO.
 # Parent tactical core: v19.
 # Historical core notes:
-# alakazam741_v3 - v2 + 67戦の実ラダーログ全数分析(sub54523210) + ローカルアリーナA/Bに基づく改善:
+# alakazam741_v3 - v2 + 67戦の実ラダーログ全数分析(sub54523210)に基づく改善:
 #   [P0-1] 致死維持ゲート: 実ログで「致死圏なのに手札消費プレイで圏外に落ちる/攻撃せず
 #          ターンを終える」パターンを多数検出。ただし即攻撃の強制はA/Bで悪化(41.5% vs v2)。
 #          Powerful Handは手札を消費しない → 「ドロー/展開で手札を伸ばしてから終端で攻撃」

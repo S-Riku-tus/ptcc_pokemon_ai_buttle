@@ -48,9 +48,19 @@
     "escalation_offered_share_of_decisions": 0.0131,
     "escalation_moved": 16,
     "escalation_refused_trigger": 12,
-    "froslass_evolve_own_turns": {"v5": "58/59", "v6": "46/59", "global_elite_pin": "46/59"},
-    "froslass_evolve_decisions": {"v5": "62/83", "v6": "49/83"},
-    "froslass_evolve_net_negative": {"v5": "19/25", "v6": "11/25"},
+    "froslass_evolve_own_turns": {
+      "v5": "58/59",
+      "v6": "46/59",
+      "global_elite_pin": "46/59"
+    },
+    "froslass_evolve_decisions": {
+      "v5": "62/83",
+      "v6": "49/83"
+    },
+    "froslass_evolve_net_negative": {
+      "v5": "19/25",
+      "v6": "11/25"
+    },
     "unchanged": {
       "grimmsnarl_evolve_own_turns": "81/130",
       "dark_attachment_own_turns": "230/316",
@@ -59,32 +69,14 @@
       "bench30_best_prize_ko": "52/52",
       "counters_moved_maximum": "385/385"
     },
-    "boss_played_own_turns": {"v5": "42/118", "v6": "41/118"},
+    "boss_played_own_turns": {
+      "v5": "42/118",
+      "v6": "41/118"
+    },
     "changed_decisions_that_gave_up_an_attack": 0,
     "feature_errors": 0,
     "score_errors": 0,
     "global_pin_rejected_because": "Pinning every context to 16371703 reproduces the same Froslass numbers but changes 712 decisions and drops the Grimmsnarl ex evolve from 81/130 to 56/130, Boss from 42/118 to 28/118, and the best-prize Bench-30 kill from 52/52 to 51/52."
-  },
-  "local_validation": {
-    "mirror_versus_v5": {
-      "games": 60, "seed": 1705, "wins": 29, "losses": 31, "draws": 0,
-      "win_rate": 0.4833, "crashes": 0, "illegal_selects": 0,
-      "candidate_avg_ms_per_move": 45.06, "v5_avg_ms_per_move": 43.08,
-      "note": "Read for safety and timing only; 299 paired mirror games could not separate v5 from v4."
-    },
-    "versus_alakazam_ml_v35": {
-      "games": 40, "seed": 314159,
-      "candidate": {"wins": 24, "losses": 16, "win_rate": 0.6},
-      "v5_control_same_seed": {"wins": 22, "losses": 18, "win_rate": 0.55},
-      "crashes": 0, "illegal_selects": 0
-    },
-    "live_escalation_rate": {
-      "opponent": "alakazam_ml_v35", "games": 24,
-      "scored_decisions": 1649, "escalation_offered": 46,
-      "offered_share": 0.0279, "moved": 8, "moved_share_of_offered": 0.1739,
-      "note": "Higher than the teacher-forced 1.52% because refusing the evolve leaves the Snorunt benched with the Froslass in hand, so the class re-fires on later turns."
-    },
-    "agent_tests": 159
   },
   "ladder_run": {
     "submission_id": 55290882,
@@ -102,8 +94,11 @@
     "went_first": 0.75,
     "went_second": 0.6522,
     "v5_control": {
-      "submission_id": 55275642, "rating": 963.7, "rated_games": 65,
-      "win_rate": 0.6615, "mean_opponent_rating": 859.6,
+      "submission_id": 55275642,
+      "rating": 963.7,
+      "rated_games": 65,
+      "win_rate": 0.6615,
+      "mean_opponent_rating": 859.6,
       "win_rate_900_plus": 0.5333
     },
     "significance": "Fisher exact v6 vs v5: p=0.695 overall, p=0.609 at 900+.",

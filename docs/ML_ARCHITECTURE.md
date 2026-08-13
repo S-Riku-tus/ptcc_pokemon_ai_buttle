@@ -70,4 +70,3 @@ python scripts/build_submission.py --agent alakazam_ml_v2_expanded --cg-source <
 ```
 
 The builder includes official `cg/` and rejects training artifacts.
-

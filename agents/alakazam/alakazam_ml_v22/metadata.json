@@ -40,9 +40,9 @@
       "win_rate": 0.596,
       "same_deck_representatives": 4,
       "attacks_per_game": 4.96,
-      "alakazam_attacks_per_game": 4.30,
-      "dudunsparce_abilities_per_game": 4.40,
-      "powerful_hand_mean_hand": 12.40,
+      "alakazam_attacks_per_game": 4.3,
+      "dudunsparce_abilities_per_game": 4.4,
+      "powerful_hand_mean_hand": 12.4,
       "four_plus_alakazam_attack_rate": 0.641,
       "turn_two_board_five_plus_rate": 0.718,
       "fezandipiti_attacks_per_game": 0.03
@@ -69,19 +69,6 @@
     "exact-current-KO hand-spend protection",
     "late Fezandipiti ex two-prize exposure gates"
   ],
-  "local_validation": {
-    "pytest_tests": 121,
-    "v22_specific_tests": 12,
-    "python_compile": true,
-    "deck_count": 60,
-    "ranker_json_load": true,
-    "model_and_deck_unchanged_from_v20": true,
-    "latest_v20_replay_decisions": 3046,
-    "latest_v20_replay_policy_errors": 0,
-    "semantic_agreement_with_v20": 0.9629021667760999,
-    "semantic_changes_from_v20": 113,
-    "arena_games": 0
-  },
   "known_limitations": [
     "A new live ladder rating has not been measured; rating 900 or 1000 stability is a goal, not a validated outcome.",
     "Teacher-forced comparison does not simulate counterfactual board trajectories after a changed action.",

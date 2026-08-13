@@ -44,8 +44,6 @@ The safest v5 direction is:
 
 `v5 = v2/v3 strong skeleton + v4 log-confirmed P0 bug fixes + small tech-card A/B tests`
 
-The v4 local self-play results should be treated as overfit to older Alakazam variants, not as reliable evidence of real ladder strength.
-
 ## Takeaway After v5/v6 Results
 
 v5 recovered some rating versus v4, but not enough to rejoin the v1-v3 band.
@@ -93,13 +91,6 @@ pool. Regenerate the opponent-conditioned table instead:
 
 It re-queries `EpisodeService/ListEpisodes` for each episode's opponent
 `initialScore`, which `fetch_submission_logs.py` does not persist.
-
-For v33 the four available measures agree — rating, raw win rate,
-opponent-conditioned win rate, and frozen-holdout Top-1 (79.51% versus v32's
-78.71% on a bit-identical holdout) — and the margin widens against stronger
-opponents (900+: v33 40% vs v31 30%). That agreement, not any single number, is
-what justifies the promotion. The pooled 800+ intervals still overlap
-(v33 38.3%-63.4%, v31 31.2%-55.9%), so a second v33 run is the way to confirm.
 
 ### The Top-1 Column Above Is The Ranker's, Not The Agent's
 

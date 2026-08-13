@@ -82,17 +82,6 @@ scope difference, not a miss.
 
 ## Verification
 
-- v18 agent suite: **271/271 passed**.
-- Analysis and runtime modules: Python bytecode compilation passed.
-- Static agent validation: passed; 60 cards, 19 unique card IDs, no warnings.
-- Model SHA-256: `dabc15894cae4ebf49ab6fa6d91e7af0ad81b2c88751da5ad2cb05a326b93f79`
-  (byte-identical to v17).
-- Local arena v18 vs v17, 20 games: 9-11; **0 crashes, 0 illegal selections**,
-  45.76 ms/v18 move.  This is a process-reuse/runtime smoke test, not a rating
-  estimate.
-- Submission archive: 24 entries; SHA-256
-  `FA43A3922039A191B1494139C881045E25B91DD30993973768B3F3AEB9E53804`.
-
 ## Live ladder gate
 
 The requested live ladder run has **not started**.  This workspace has no

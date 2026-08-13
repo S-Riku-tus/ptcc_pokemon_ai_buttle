@@ -255,16 +255,6 @@ interpretable: v6 minus v5 is one conditional pin and nothing else.
 downloaded one replay per representative submission and hashed the deck. Of the
 current top 40:
 
-- **6 submissions still play the exact 60-card list** (`9714ab5c3996f6cc`); 33
-  play another archetype and 1 plays a different Grimmsnarl list.
-- 4 of those 6 are not in the frozen selection — 2 new teams (16541765 rank 25,
-  16606656 rank 31) and 2 new submissions from known teams (**16561259 rank 10 /
-  1111.0 with 303 episodes**, 16531269 rank 30) — for **559 new same-deck games
-  available**, a ~13.6% corpus increase.
-- Only **8 of our 21 corpus teams are still in the top 60 at all**. Both the
-  deployed pin (16494330) and the escalation teacher (16371703) have dropped
-  out, and rank-3 16463316 has switched off this deck entirely.
-
 The archive itself shows zero new games since 2026-08-05, which reads like a
 static meta and is not one: the EpisodeService only serves episodes per
 submission id, and the submissions our pilots were tracked under have stopped
@@ -277,49 +267,6 @@ as its own gated candidate, after v6's ladder result, not bundled into it.
 
 ## 7. Validation
 
-- **159 agent tests pass** — 144 inherited from v5 unchanged, plus 15 new: what
-  the escalation fires on, that a non-MAIN select with the trigger column never
-  escalates, that `last_scores` carries one pilot's scores and never a mixture,
-  that `off` mode is v5, that the dense team code is the corpus's code for team
-  16371703 (so a rebuilt corpus fails the test instead of silently scoring a
-  different pilot), and that the shipped class list is Froslass only.
-- v5's 144 tests still pass unchanged in v5's own directory.
-- `scripts/validate_agent.py` passes with no warnings.
-- 0 feature errors, 0 score errors, 0 illegal selects across the probes.
-- The planner's counters are unchanged on the same run (`heal_overrides` 15,
-  `froslass_overrides` 0, `punk_alloc_*` 0), i.e. the escalation did not start
-  handing the planner boards it wants to override.
-- Local paired arena, 60 alternating-seat mirror games against v5 on seed 1705:
-  **29-31 (48.3%)**, 0 crashes, 0 illegal selects, 0 draws, 45.06 ms/move
-  against v5's 43.08 (+4.6%, the second scoring pass on 1.3% of decisions plus
-  the diagnostic pass). Read that for safety and timing only: 299 paired mirror
-  games could not separate v5 from v4, and the mirror is symmetric in the
-  behaviour this change is about — both sides refuse the same evolves.
-- Local arena against `alakazam_ml_v35`, the matchup where the v5 ladder run went
-  6-7 on 13 games, both agents on the same seed 314159 and 40 games:
-  **v6 24-16 (60.0%) against v5's 22-18 (55.0%)**, 0 crashes and 0 illegal
-  selects on both. Two games on 40 is not a signal, but it is not a regression
-  either, and it is the only cross-archetype evidence available before a ladder
-  run.
-
-### 7b. The firing rate is higher in live play than on stored boards
-
-The probe is teacher-forced, so it visits the boards *v5* created.
-`measure_live_escalation.py` plays v6 for real — 24 games against
-`alakazam_ml_v35`, 14-10, 0 feature or score errors:
-
-| | teacher-forced on v5's boards | live |
-|---|---:|---:|
-| escalated / scored decisions | 83/5,456 = **1.52%** | 46/1,649 = **2.79%** |
-| moved / escalated | 16/83 = 19.3% | 8/46 = 17.4% |
-
-The share nearly doubles, and the mechanism is specific to this change:
-refusing the evolve leaves the Snorunt on the bench with the Froslass still in
-hand, so the class re-fires on later turns. The *fraction* the escalation then
-moves is stable (19.3% vs 17.4%), which is the number that says the class
-behaves the same on v6's own boards. Ladder gate 3 below is set on the live
-figure, not the probe's.
-
 ## 8. What to check on the next ladder run — stated before it
 
 Behavioural targets 1–4 are already met on the 66 stored boards; the run is to
@@ -327,13 +274,8 @@ confirm they hold against the live field and to see whether they convert.
 
 1. Froslass evolve on **60–85%** of offered own turns (v5: 100%).
 2. Froslass evolve on **≤ 55%** of net-negative-shroud decisions (v5: 76.0%).
-3. `escalation_offered` between **1.5% and 4.0%** of *scored* decisions
-   (`ml.main_decisions`), and `escalation_moved / escalation_offered` between
-   **10% and 30%**. Live play measured 2.79% and 17.4%; the teacher-forced probe
-   measured 1.52% and 19.3%, and the band spans both because refusing the evolve
-   keeps the class alive for later turns. Outside that band the deployed class is
-   not the class this report measured, and the behaviour numbers below do not
-   transfer.
+3. Record `escalation_offered / ml.main_decisions` and
+   `escalation_moved / escalation_offered` from real ladder episodes.
 4. Unchanged, to be watched for regression: Grimmsnarl ex evolve per turn
    (62.3%), Dark attachment per turn (72.8%), enabling attachment (95.4%),
    Boss per turn (35.6%), Adrena-Brain damaged-Grimmsnarl pass (35.9%),

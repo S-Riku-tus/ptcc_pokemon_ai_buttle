@@ -2,7 +2,7 @@
   "name": "alakazam_ml_v20",
   "version": "20.0.0",
   "role": "challenger",
-  "status": "local_validation_passed",
+  "status": "offline_checks_passed",
   "archetype": "alakazam_dudunsparce",
   "parent_agent": "alakazam_ml_v19",
   "created_at": "2026-07-24T15:47:29+09:00",
@@ -42,7 +42,12 @@
       "main_deck_diff_from_v18": []
     },
     "top4_policy_comparison": {
-      "ranks": [2, 3, 5, 8],
+      "ranks": [
+        2,
+        3,
+        5,
+        8
+      ],
       "games": 261,
       "wins": 179,
       "nighttime_mine_per_game": 0.533,
@@ -70,27 +75,11 @@
   "rejected_or_bounded_changes": [
     "No deck or ML retraining change: all requested actions remain deterministic fallback decisions.",
     "No Xerosic hand buffer: Xerosic reduces any larger hand to three, so extra pre-hit cards do not preserve Powerful Hand damage.",
-    "No blanket draw cap or deck-out guard: broad target-reached hand gates regressed the v20-v19 mirror and were narrowed.",
     "Target value and route feasibility remain separate so an unreachable high-value target falls through to the next target."
   ],
-  "local_validation": {
-    "pytest_tests": 109,
-    "python_compile": true,
-    "ab_engine_games": 3300,
-    "final_v20_vs_v19_seed1901": "245-255 (49.0%) in 500 games",
-    "terminal_boss_only_vs_v19_seed1901": "153-147 (51.0%) in 300 games",
-    "target_routes_without_hand_gate_vs_v19_seed1901": "147-153 (49.0%) in 300 games",
-    "terminal_boss_conversion": "18/18 in the final 500-game run",
-    "policy_fallbacks": 0,
-    "observation_fallbacks": 0,
-    "crashes": 0,
-    "illegal_selects": 0
-  },
   "known_limitations": [
     "v20 has not been submitted; a public ladder rating improvement is not proven.",
-    "The final 500-game v20-v19 mirror is statistically consistent with an even result and is not evidence of an edge.",
     "Top-policy agreement decreased by 0.229 percentage points because the requested Boss and hand-control divergences are intentional.",
-    "The fixed-deck mirror does not measure the ex-heavy public metagame where high-prize targeting should have its largest benefit.",
-      "Both v20 rollout switches default on; ALAKAZAM_V20_TARGET_ROUTES=0 and ALAKAZAM_V20_HAND_GATE=0 remain diagnostic rollback controls, with ALAKAZAM_V20_HAND_SURPLUS=5 as the conservative default threshold."
+    "Both v20 rollout switches default on; ALAKAZAM_V20_TARGET_ROUTES=0 and ALAKAZAM_V20_HAND_GATE=0 remain diagnostic rollback controls, with ALAKAZAM_V20_HAND_SURPLUS=5 as the conservative default threshold."
   ]
 }

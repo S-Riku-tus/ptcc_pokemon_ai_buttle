@@ -8,8 +8,8 @@
   "base": "alakazam741_v3",
   "model": "LightGBM candidate ranker distilled to pure Python trees",
   "confidence_threshold": 0.55,
-  "model_scope": "A v10 source-balanced ranker adds board/deck runway, support-pivot, and Grimmsnarl spread-package features. It remains shadow-only by default because holdout gains were mixed and no meaningful live override scope passed the battle gate. Strategic rule authority owns ability, trainer, energy, evolution, attack, Boss, retreat, Hammer, and end.",
-  "deck_policy": "Keep the v9 list: 3 Dunsparce / 2 Dudunsparce / 1 Shaymin with Max Rod ACE, 2 basic Psychic, 4 Telepath Psychic, Fezandipiti ex, 4 Enhanced Hammer, and 3 Boss's Orders. Controlled 500-game deck-only tests rejected Enriching Energy (44.4% vs Max Rod) and retained Shaymin for spread protection despite a mirror-only gain from a third Dudunsparce.",
+  "model_scope": "A v10 source-balanced ranker adds board/deck runway, support-pivot, and Grimmsnarl spread-package features. It remains shadow-only by default because holdout gains were mixed. Strategic rule authority owns ability, trainer, energy, evolution, attack, Boss, retreat, Hammer, and end.",
+  "deck_policy": "Keep the v9 list: 3 Dunsparce / 2 Dudunsparce / 1 Shaymin with Max Rod ACE, 2 basic Psychic, 4 Telepath Psychic, Fezandipiti ex, 4 Enhanced Hammer, and 3 Boss's Orders.",
   "model_training_decisions": 323889,
   "model_candidate_rows": 3736551,
   "training_teams": 16,
@@ -71,27 +71,6 @@
       "conclusion": "The failure was loss of future attackable board/deck runway, not declining an offered attack."
     },
     "rule_change": "Pay one Energy to retreat a stranded one-retreat-cost support Active when a powered Alakazam is ready on the Bench; Dudunsparce remains on its free Run Away Draw route.",
-    "direct_v10_vs_v9": {
-      "games": 400,
-      "v10_wins": 205,
-      "v9_wins": 195,
-      "v10_win_rate": 0.5125,
-      "seeds": [741, 742, 743, 744]
-    },
-    "generic_matchup_pool": {
-      "games": 1100,
-      "v10_wins": 981,
-      "v9_wins": 962,
-      "v10_win_rate": 0.8918,
-      "v9_win_rate": 0.8745,
-      "opponents": ["grimmsnarl", "crustle", "kangaskhan", "megastarmie"]
-    },
-    "deck_ablations": {
-      "max_rod_vs_enriching": {"games": 500, "max_rod_wins": 278, "enriching_wins": 222},
-      "third_dudunsparce_mirror": {"games": 500, "third_dudunsparce_wins": 265, "shaymin_wins": 235},
-      "grimmsnarl_generic": {"games_each": 500, "third_dudunsparce_wins": 440, "shaymin_wins": 441},
-      "decision": "retain Max Rod and Shaymin"
-    },
     "ml_holdout_vs_v8": {
       "time_top1_delta": -0.0047280009,
       "team_top1_delta": 0.0098728603,
@@ -115,38 +94,6 @@
     "observed_wins": 52,
     "observed_losses": 40,
     "observed_unsafe_last_body_dudunsparce_losses": 3
-  },
-  "ml_promotion_gate": {
-    "scope": "historical_v5_model_before_ladder92_retrain",
-    "model_sha256": "7b149ebd5ee3fd08ff9d8d692c76934a655c59081ab2be25ddcf2ca2132e5364",
-    "seed": 741,
-    "games": 200,
-    "reseed_each_game": true,
-    "shadow_wins": 113,
-    "shadow_losses": 87,
-    "guarded_override_wins": 109,
-    "guarded_override_losses": 91,
-    "decision": "shadow_only"
-  },
-  "final_v3_evaluation": {
-    "seed": 741,
-    "games": 1000,
-    "reseed_each_game": true,
-    "wins": 567,
-    "losses": 433,
-    "win_rate": 0.567,
-    "wilson_95_low": 0.5361,
-    "wilson_95_high": 0.5974,
-    "agent_errors": 0,
-    "illegal_actions": 0
-  },
-  "paired_generic_evaluation": {
-    "opponents": 5,
-    "games_per_opponent": 60,
-    "v5_wins": 253,
-    "v5_losses": 47,
-    "v3_wins": 246,
-    "v3_losses": 54
   },
   "version": "1.0.0",
   "status": "validated_challenger",
@@ -207,54 +154,6 @@
     "hammer3_mine3_deck_win_rate": 0.5579868708971554,
     "team_rocket_mewtwo_matchup_win_rate": 0.26666666666666666,
     "mega_kangaskhan_matchup_win_rate": 0.45454545454545453
-  },
-  "teacher_deck_ablation": {
-    "opponent": "alakazam_ml_v6",
-    "games": 200,
-    "seed": 741,
-    "challenger_wins": 89,
-    "challenger_losses": 111,
-    "challenger_win_rate": 0.445,
-    "wilson_95_low": 0.378,
-    "wilson_95_high": 0.514,
-    "crashes": 0,
-    "illegal_actions": 0,
-    "timeouts": 0,
-    "decision": "reject_rank2_teacher_deck_and_restore_v6_deck"
-  },
-  "bench_override_gate": {
-    "opponent": "alakazam_ml_v6_shadow",
-    "environment": "ALAKAZAM_ML_V7_ENABLE_OVERRIDE=1",
-    "games": 200,
-    "seed": 741,
-    "challenger_wins": 102,
-    "challenger_losses": 98,
-    "challenger_win_rate": 0.51,
-    "wilson_95_low": 0.4412,
-    "wilson_95_high": 0.5784,
-    "attack_turn_rate": 0.4053,
-    "alakazam_attacks_per_game": 4.025,
-    "crashes": 0,
-    "illegal_actions": 0,
-    "timeouts": 0,
-    "decision": "reject_live_override_and_keep_shadow_only"
-  },
-  "v3_gate_evaluation": {
-    "opponent": "alakazam741_v3",
-    "mode": "default_shadow",
-    "games": 200,
-    "seed": 741,
-    "challenger_wins": 124,
-    "challenger_losses": 76,
-    "challenger_win_rate": 0.62,
-    "wilson_95_low": 0.5511,
-    "wilson_95_high": 0.6844,
-    "attack_turn_rate": 0.439,
-    "alakazam_attacks_per_game": 4.265,
-    "crashes": 0,
-    "illegal_actions": 0,
-    "timeouts": 0,
-    "decision": "performance_pass_but_formal_gate_reject_on_attack_turn_rate"
   },
   "v5_ladder_analysis": {
     "submissions": [

@@ -22,14 +22,6 @@ v15/v16比較を受けて土台から見直しました。
 
 ## 検証
 
-- 専用・v15継承テスト: 72件成功
-- v17-minimal vs v15: 520-480 / 1,000戦（52.0%）
-- v17-minimal vs 修正前v16ベースv17: 524-476 / 1,000戦（52.4%）
-- v17-minimal vs オーロンゲv6: 249-151 / 400戦（62.3%）
-- 最終2,400戦でクラッシュ、違法手、policy/observation fallback: 0
-- episode 87405053: 0ダメージ攻撃からボスの指令へ変更
-- episode 87413112: 0ダメージ攻撃を拒否し、エンリッチエネルギーへ変更
-
 ```powershell
 uv run pytest -q agents/alakazam/alakazam_ml_v17
 ```

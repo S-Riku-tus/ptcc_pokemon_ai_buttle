@@ -1,4 +1,4 @@
-"""Optional deterministic Mega Lopunny baseline and arena ablation.
+"""Optional deterministic Mega Lopunny baseline.
 
 The learned policy is primary on teacher-distribution states. This policy
 encodes interactions established by the exact deck and replay corpus:

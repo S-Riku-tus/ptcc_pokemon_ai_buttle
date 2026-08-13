@@ -42,16 +42,6 @@ Alakazam同士の対戦や同名対戦では誤る可能性がある。
 
 改修版は次の順で判定する。
 
-1. ZIP内 `manifest.csv` の明示seat
-2. `TeamNames` の完全一致
-3. ZIP内対象teamのmodal deck hashが片側だけ一致
-4. team aliasとmodal deckの同時一致
-5. 同名self-playかつ両deckが同一の場合のみ両trajectory化
-6. それ以外は除外
-
-今回の内訳は、完全team名1,830、元manifest164、modal deck45、
-同一deck self-play30、限定alias5だった。
-
 ### 3.2 action alignment
 
 CABT agentは `select.option` のindexを返す。

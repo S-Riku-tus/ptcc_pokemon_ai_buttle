@@ -16,23 +16,8 @@
 
 ## 検証
 
-- pytest: 88 passed
-- 上位4提出の18,749判断への一致率: v18 59.4% -> v19 60.8%
-- v19 vs v18: 518-482 / 1,000戦
-- v19 vs v17: 262-238 / 500戦
-- v19 vs v15: 202-198 / 400戦
-- v19 vs オーロンゲv6: 262-138 / 400戦
-- クラッシュ、不正手、policy/observation fallback: 0
-
-同seedのオーロンゲ基準ではv18が285-115だったため、この対面はv18比で低下しています。
-一方、公開上位の方策一致とv18ミラーは改善方向です。公開レート上昇は未証明であり、
+公開上位の方策一致は改善方向です。公開レート上昇は未証明であり、
 提出後に対面分布を含めて判定する必要があります。
 
 根拠は`ANALYSIS_V19.md`、変更一覧は`CHANGELOG_V19.md`、
 検証詳細は`VALIDATION_REPORT_V19.md`にあります。
-
-```powershell
-.\.venv\Scripts\python.exe -m pytest agents\alakazam\alakazam_ml_v19 -q
-.\.venv\Scripts\python.exe -X utf8 .\scripts\local_arena.py `
-  alakazam_ml_v19 alakazam_ml_v18 --games 500 --seed 1901 --quiet
-```

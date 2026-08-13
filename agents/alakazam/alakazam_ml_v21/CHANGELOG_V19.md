@@ -30,4 +30,3 @@
 
 - `scripts/analyze_alakazam_v19_top40.py`
 - `scripts/analyze_alakazam_policy_imitation.py`
-

@@ -167,7 +167,7 @@ def main() -> int:
             "arch": pilots.get(t, {}).get("arch"),
         })
 
-    # head-to-head prediction: v21 vs each top Grimmsnarl pilot
+    # policy prediction comparison: v21 vs each top Grimmsnarl pilot
     grimm = [t for t in names if pilots.get(t, {}).get("deck_hash") == OUR
              and rating.get(t) is not None and games[t] >= 100]
     grimm.sort(key=lambda t: -rating[t])

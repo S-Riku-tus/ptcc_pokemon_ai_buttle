@@ -1,7 +1,6 @@
 {
   "name": "grimmsnarl_ml_v11",
   "version": "11.1.0",
-  "role": "champion_challenger",
   "archetype": "marnies_grimmsnarl_ex",
   "parent_agent": "grimmsnarl_ml_v9",
   "deck_hash": "9714ab5c3996f6cc",
@@ -10,7 +9,12 @@
   "ranker": {
     "source": "corpus_v8_current_top4.npz",
     "source_relations": 1014,
-    "source_teams": [16422241, 16452116, 16541765, 16561259],
+    "source_teams": [
+      16422241,
+      16452116,
+      16541765,
+      16561259
+    ],
     "trees": 1485,
     "features": 822,
     "teacher_conditioned": false,

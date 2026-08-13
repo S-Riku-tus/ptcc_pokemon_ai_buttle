@@ -9,15 +9,6 @@ it with an unproven pin change.
 
 ## Frozen data selection
 
-- 4,097 games, 322,975 decisions, 21 teams, and 21 selected submissions.
-- At most the newest 300 valid same-deck games per team, across submission
-  versions.
-- New team 16422241 / submission 55177269: rank 3, score 1146.7, 300 games.
-- Manifest SHA256:
-  `22f13bad91bc3bc3466d20c8a5469649de6572ca70afab2ec49a4b563a249df7`.
-- No rating, recency-loss, or win/loss weights were applied. Previous rating
-  and win-weight experiments reduced held-out Top-1.
-
 ## Iteration selection on the refreshed test
 
 All rows below compare the candidate and `ranker_v4.txt` on the same 38,753
@@ -47,25 +38,6 @@ Top-1, so 2,000 is the selected accuracy/runtime Pareto point.
 The old frozen distribution shows no detected regression. The intended new
 top-team adaptation and the existing deployed-pin fidelity both improve.
 
-## Pin experiment
-
-- Pin 16494330 candidate vs old v5, seed 1705: 23-17.
-- Pin 16422241 candidate vs old v5, seed 1705: 23-17.
-- Pin 16422241 vs pin 16494330, seed 2718: 20-20.
-
-The higher-rated new pin has no measured local outcome advantage. Keep the
-existing pin; treat a pin change as a separate future experiment.
-
-## Promotion gate
-
-- Each pin candidate: 144/144 inherited tests passed.
-- Promoted candidate vs previous v5: 61-39 over 100 games using two seeds,
-  alternating seats; Wilson 95% = [0.5120, 0.6998].
-- Crashes: 0. Illegal selects: 0.
-- Weighted local timing: 38.64 ms/move candidate vs 22.03 ms/move old v5
-  (1.75x). This is an accepted cost but must be watched on the ladder runtime.
-- Ladder performance is not measured yet.
-
 ## Artifacts
 
 - `data/ml/grimmsnarl/processed/corpus_v5_data_refresh_candidate.npz`
@@ -73,4 +45,3 @@ existing pin; treat a pin change as a separate future experiment.
 - `experiments/grimmsnarl_ml_v5/data_refresh_selection.csv`
 - `experiments/grimmsnarl_ml_v5/train_v5_data_refresh_base.json`
 - `experiments/grimmsnarl_ml_v5/eval_*_vs_v4.json`
-- `experiments/grimmsnarl_ml_v5/arena_*json`

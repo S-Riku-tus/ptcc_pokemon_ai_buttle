@@ -102,12 +102,6 @@ turn-set agreement is 94.4%.
 This is the same shape the Alakazam v36 report identified, and it bounds what
 further ranking work can buy: even a perfect ordering fix leaves ~5.6%.
 
-## Self-play
-
-20 games on the cg engine vs `marnies_grimmsnarl_ex_v7`: **16-4**, 0 crashes,
-0 illegal selects, ~10 ms/move. This measures the mirror only and is not a
-rating estimate.
-
 ## Open items
 
 1. No ladder rating yet. Per `docs/` history and the rating-noise finding,

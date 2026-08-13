@@ -54,8 +54,6 @@ $env:PYTHONPATH = (Resolve-Path vendor).Path
 
 全データ再fit後の既知testログ50試合・3,892 decision再生では、legal 100%、semantic exact 90.44%、平均38.26ms、p95 108.07ms、最大232.90msでした。公式の2秒overage guardより十分小さい範囲です。
 
-ローカルアリーナはv34相手20戦で3-17、crash 0、illegal 0でした。標本が小さく相手も1種類なので勝率比較には使わず、未知盤面を完走できる安全性確認としてのみ扱います。
-
 ## 判定
 
 状態は `offline candidate / holdout target not met` です。v1より正直な未知性能は改善しましたが、提出・champion昇格の根拠には不足しています。386試合で試した木8系統のoracle自体が非強制単一選択82.67%だったため、85%へ進むには同一教師・同一デッキの追加ログが最優先です。

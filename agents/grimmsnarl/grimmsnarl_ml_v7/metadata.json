@@ -44,7 +44,12 @@
     "source": "corpus_v8_current_top4.npz",
     "source_relations": 1014,
     "source_unique_episodes": 991,
-    "source_teams": [16422241, 16452116, 16541765, 16561259],
+    "source_teams": [
+      16422241,
+      16452116,
+      16541765,
+      16561259
+    ],
     "chronological_test": {
       "states": 9495,
       "episodes": 118,
@@ -84,35 +89,6 @@
     "branch_errors": 0,
     "incomplete_branches": 0,
     "report": "experiments/grimmsnarl_ml_v7_value/pinned_teacher_runtime.json"
-  },
-  "local_validation": {
-    "mirror_enabled": {
-      "games": 8,
-      "wins": 2,
-      "losses": 6,
-      "crashes": 0,
-      "illegal_selects": 0,
-      "average_ms_per_move": 117.21,
-      "interpretation": "Small unpaired outcome screen, not evidence of a causal regression. A separate online teacher-forced game produced 0 action differences over 191 decisions while search executed 8 times."
-    },
-    "mirror_search_disabled": {
-      "games": 4,
-      "wins": 2,
-      "losses": 2,
-      "crashes": 0,
-      "illegal_selects": 0,
-      "average_ms_per_move": 73.81
-    },
-    "a7_safety_panel": {
-      "games": 8,
-      "wins": 6,
-      "losses": 2,
-      "crashes": 0,
-      "illegal_selects": 0,
-      "average_ms_per_move": 105.05,
-      "interpretation": "Safety only: the opponent imitation model has 56.65% unseen semantic agreement, so this win rate is not matchup efficacy evidence."
-    },
-    "tests": 167
   },
   "policy": "v6 generates and protects actions. From turn five, once per turn, only an ambiguous top-three MAIN candidate set is rolled to the end of the turn in the real engine. The public outcome value head may replace v6 only when its predicted gain is at least 0.06.",
   "description": "A replacement v7 that preserves v6's high-fidelity imitation and adds a conservative, actual-transition outcome-value layer instead of another narrow teacher pin."

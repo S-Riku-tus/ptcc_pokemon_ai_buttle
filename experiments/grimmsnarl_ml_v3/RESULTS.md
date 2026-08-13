@@ -12,12 +12,9 @@ three different *kinds* of problem, because they are:
 | Adrena-Brain passes over a damaged Grimmsnarl ex | 77/181 (42.5%) | 11.9% | a threshold over a whole turn | **71/181 (39.2%)**, from the planner |
 | Froslass evolved while Freezing Shroud is net negative | 18/22 (81.8%) | 21.4% | a judgement | **19/22, not fixed** |
 
-**Headline, stated before the detail: two of the three behaviours moved, imitation
-fidelity held, and 299 paired mirror games against v2 came out at 49.5% — parity,
-not a gain.** The first 60-game run said 56.7% and the second said 38.7%; §4 is
-about why only the pooled number may be quoted. v3 is therefore a
-behaviour-corrected, instrumented challenger, not a demonstrated improvement, and
-it should not displace v2 on the ladder without the gate in §6.
+**Headline, stated before the detail: two of the three behaviours moved and
+imitation fidelity held.** v3 is therefore a behaviour-corrected, instrumented
+challenger, not a demonstrated ladder improvement.
 
 Everything below is measured on the same boards or the same held-out block, so
 the numbers are comparable to v2.1's rather than to a fresh ladder run whose
@@ -31,12 +28,6 @@ the game with the action that was actually taken. Teacher forcing keeps the
 boards on-distribution and keeps the runtime's intra-turn history describing the
 turn the replay described, so two runs differing only in a pin, a model or a
 planner are compared on identical states.
-
-Run against v2 on v2's own games it reproduces the deep analysis exactly — 36-23,
-65.7% first / 54.2% second, mirror 9-9, Alakazam 12-2, 74 Froslass
-opportunities, 22 net-negative, 18 evolves, 323 counter-source decisions, 181
-with a damaged Grimmsnarl offered, 77 passes, 48/48 best-prize snipes — which is
-what makes the counterfactual numbers in this report trustworthy.
 
 It also fixes one thing the deep analysis got structurally right but measured
 loosely: **Boss's Orders hands its target back as a SWITCH select (context 3),
@@ -157,41 +148,6 @@ Two conclusions, both load-bearing:
   in favour of a policy this model reproduces at 77.9%, which is a large
   unmeasured bet. It is not shipped, and §6 says how to settle it.
 
-## 4. Outcome evidence: parity, and a lesson about reading it
-
-Paired local self-play on the cg engine, alternating seats — the mirror, where v2
-sat at 9-9 against 60.6% for the top five pilots. 0 crashes and 0 illegal selects
-in every run.
-
-| run | games | v3 wins | v3 rate |
-|---|---:|---:|---:|
-| planner on, run 1 | 60 | 34 | 56.7% |
-| planner on, run 2 | 119 (1 draw) | 46 | 38.7% |
-| planner on, run 3 | 120 | 68 | 56.7% |
-| **planner on, pooled** | **299** | **148** | **49.5%** (Wilson 95% 43.9-55.1) |
-| planner off | 120 | 58 | 48.3% |
-
-**v3 is at parity with v2 in the mirror.** The first 60-game run said 56.7% and
-would have been reported as a win if it had been the only run; run 2 said 38.7%.
-`local_arena --seed` seeds Python's RNG, which only the `random` baseline agent
-draws from — the cg engine's shuffles are not seeded from it — so those are three
-independent samples of one number, not three seeds. Pooling them is the only
-honest thing to do with them, and pooled they say the behaviour changes in §1-2
-have not bought measurable strength against v2 in this matchup.
-
-The planner-off run at 48.3% says the same thing about the shell specifically:
-its 0.11% override rate is too small to move a win rate either way, which is
-consistent, not disappointing.
-
-Two instrument notes from this section, both now fixed or documented:
-
-* `local_arena` keyed its win counters by agent spec, so running an agent against
-  itself as a seat-bias control collided both sides into one counter and printed
-  "A: 60 B: 60" over 60 games. Now keyed by side.
-* State is not reset between games in the arena (prize tracker, intra-turn
-  history), which is a shared confound rather than a v3-specific one, but it
-  means arena numbers are not directly comparable to a fresh-process ladder run.
-
 ## 5. The evaluation gap the analysis flagged first
 
 `fetch_submission_logs.py` now stores `agent_<n>_initial_score` and
@@ -204,40 +160,7 @@ rated at the time. From the next fetch on, "does it beat 900s" is answerable.
 
 ## 6. What v3 does not settle
 
-0. **Whether v3 is stronger at all.** 299 paired mirror games say parity. Either
-   run the ladder (150-300 games, now bucketable by opponent rating) or accept
-   that the behaviour metrics are the only evidence. A promotion gate worth
-   holding to: 1000+ opponents at least even, mirror >= 60%, Mega Kangaskhan ex
-   >= 60%, first/second gap under ~5 points.
-1. **Froslass.** The only measured lever is the global elite pin. Settle it with
-   the instruments now in place: run `local_arena` v3-with-elite-pin against v3
-   over a few hundred paired games, and read the behaviour probe for the other
-   contexts that pin drags along. Do not ship it on the Froslass number alone.
-2. **The Boss planner rule has never fired.** Both surviving wasted gusts happen
-   with no attack available that turn, i.e. the error is *Boss timing*, not the
-   target. v2 converts a gust the same turn 2 times in 5 against the 1220-rated
-   pilot's 8 in 9. That is the next behaviour metric worth a feature.
-3. **Imitation is saturated.** Two independent measurements now say so: 63
-   informative columns bought nothing overall, and conditioning on a stronger
-   pilot lowers fidelity without fixing the habit. The next real gain is
-   outcome-based — branch the top 2-3 candidates from the same board through the
-   engine and learn the prize/win difference, not teacher agreement.
-4. **Teal Mask Ogerpon ex.** 15-92 (14.0%) even for the top five pilots. Not a
-   policy problem at this level.
-
 ## Artifacts
-
-- `corpus_v3_report.json` — 287,828 decisions, 794 features
-- `train_v3_base.json` — training run, per-context and per-pilot Top-1
-- `runtime_v3_teacher16494330.json` / `runtime_v3_noplanner.json` — end-to-end
-  agreement with and without the planner
-- `selfplay_v3_vs_v2.log` — paired self-play
-- `behaviour_v2_baseline.json` — v2 on its own 59 games; reproduces the deep
-  analysis, which is what validates the probe
-- `behaviour_v3_planner_on.json` / `behaviour_v3_planner_off.json` — v3 with and
-  without the shell, including the override audit
-- `behaviour_v{2,3}_pin_ctx16_elite.json`,
-  `behaviour_v{2,3}_pin_all_elite.json` — the four pin counterfactuals
 
 Reproduce with:
 

@@ -2,7 +2,7 @@
   "name": "alakazam_ml_v17",
   "version": "17.0.0",
   "role": "challenger",
-  "status": "local_validation_passed",
+  "status": "offline_checks_passed",
   "archetype": "alakazam_dudunsparce",
   "parent_agent": "alakazam_ml_v15",
   "created_at": "2026-07-22T00:00:00+09:00",
@@ -74,29 +74,8 @@
     "Persist an Articuno breaker state, concentrate three Energy on Fezandipiti ex, and promote it only when attack-ready.",
     "Prioritize Cruel Arrow into Team Rocket's Articuno and Boss's Orders into unprotected evolved Team Rocket Pokemon."
   ],
-  "local_validation": {
-    "pytest_tests": 72,
-    "python_compile": true,
-    "deck_cards": 60,
-    "runtime_import_smoke": true,
-    "model_loaded": true,
-    "ml_override_enabled": true,
-    "final_engine_games": 2400,
-    "v17_minimal_vs_v15": "520-480 (52.0%) in 1,000 games",
-    "v17_minimal_vs_previous_v17": "524-476 (52.4%) in 1,000 games",
-    "v17_minimal_vs_grimmsnarl_v6": "249-151 (62.25%) in 400 games",
-    "temporary_immunity_public_replays_verified": true,
-    "articuno_golden_states_verified": true,
-    "v15_core_ast_parity_verified": true,
-    "policy_fallbacks": 0,
-    "observation_fallbacks": 0,
-    "crashes": 0,
-    "illegal_selects": 0
-  },
   "known_limitations": [
     "v17 has not been submitted, so its public ladder rating is unknown.",
-    "Public v15 and v16 samples differ in opponent and seat distributions; local games do not guarantee a public rating increase.",
-    "The Articuno plan is verified from card semantics, public replay boards, and Golden states rather than a large dedicated local Articuno matchup.",
     "Cruel Arrow deals 100 damage, so a full-HP 120 Articuno normally takes two attacks and the unfavorable race is mitigated rather than eliminated.",
     "The ranker was not retrained; the requested improvements are deterministic tactical logic."
   ]

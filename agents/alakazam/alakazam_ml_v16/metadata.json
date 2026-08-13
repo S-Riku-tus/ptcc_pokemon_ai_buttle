@@ -2,7 +2,7 @@
   "name": "alakazam_ml_v16",
   "version": "16.0.0",
   "role": "challenger",
-  "status": "local_validation_passed",
+  "status": "offline_checks_passed",
   "archetype": "alakazam_dudunsparce",
   "parent_agent": "alakazam_ml_v15",
   "created_at": "2026-07-22T00:00:00+09:00",
@@ -44,27 +44,8 @@
     "Compare optional deck spend with a visible prize-race horizon, while stopping sufficient-damage draw only for a terminal KO or real deck emergency.",
     "Defer the ML override on visible Grimmsnarl tactical boards so deterministic damage-counter safety cannot be overwritten."
   ],
-  "local_validation": {
-    "pytest_tests": 74,
-    "python_compile": true,
-    "deck_cards": 60,
-    "runtime_import_smoke": true,
-    "model_loaded": true,
-    "ml_override_enabled": true,
-    "final_engine_games": 1800,
-    "v16_vs_v15_same_deck": "500-500 (50.0%)",
-    "v16_vs_grimmsnarl_v6": "255-145 (63.75%)",
-    "v15_vs_grimmsnarl_v6_control": "253-147 (63.25%) on the same seed stream",
-    "attack_lock_replay_verified": true,
-    "policy_fallbacks": 0,
-    "observation_fallbacks": 0,
-    "crashes": 0,
-    "illegal_selects": 0
-  },
   "known_limitations": [
     "v16 has not been submitted, so its public ladder rating is unknown.",
-    "The 33-game v15 public sample is small and opponent-mix dependent; local paired gates do not guarantee a public rating increase.",
-    "The Cubchoo behavior is verified against the saved public observation sequence and Golden states, not a dedicated local Cubchoo deck matchup.",
     "The ranker was not retrained; the requested improvements are deterministic tactical logic."
   ]
 }

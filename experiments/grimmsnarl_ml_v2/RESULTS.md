@@ -110,8 +110,6 @@ MAIN drops 2 points against v1's number, but those are different teachers —
 v1's figure is against a 1048.5-rated pilot and v2's against a 1077.6-rated
 one, and the harder pilot was chosen deliberately.
 
-Self-play, cg engine: **v2 17-3 v1**, 0 crashes, 0 illegal selects, 14 ms/move.
-
 ## Where the remaining 8% is, and why 95% did not land
 
 Target was ≥95%. Achieved 92.23% offline / 91.74% end-to-end. The residual on

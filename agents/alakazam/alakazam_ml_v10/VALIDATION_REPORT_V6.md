@@ -35,5 +35,3 @@
 - deck.csv: `d08565ebf564dfff70fb0131a3fd0e3161039a559ad6f20e01495ae017ca57af`
 
 ## Limitation
-
-The uploaded agent archive does not contain the official `cg/` engine package. The included v6 tests use a minimal API-compatible stub for the newly changed authoritative logic. Full engine self-play and Kaggle Validation Episode remain external checks.

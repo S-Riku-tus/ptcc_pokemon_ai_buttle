@@ -1,4 +1,4 @@
-"""Head-to-head v32 vs v33 on the one holdout both versions share.
+"""Like-for-like v32/v33 prediction comparison on their shared holdout.
 
 v31 and v32 were measured against different teachers, so their published Top-1
 numbers were never like-for-like. The v33 corpus keeps the v32 validation and

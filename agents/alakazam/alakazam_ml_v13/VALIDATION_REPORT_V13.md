@@ -30,9 +30,4 @@ Covered regression states include:
 
 ## Not validated here
 
-- Official `cg` engine full match
-- Kaggle Validation Episode
-- ladder rating
-- full self-play versus v11/top agents
-
 Therefore this is a statically and Golden-state validated candidate, not a measured 1000-rating agent.

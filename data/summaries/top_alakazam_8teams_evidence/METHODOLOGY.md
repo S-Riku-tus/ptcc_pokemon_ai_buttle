@@ -1,7 +1,7 @@
 # Methodology
 
 - Input: eight uploaded ZIP bundles.
-- Scope: only `EPISODE_TYPE_PUBLIC`; validation/self-play episodes were excluded.
+- Scope: only `EPISODE_TYPE_PUBLIC`; all other episode types were excluded.
 - Total: 793 public games (Yushin Ito 100; the other seven teams 99 each).
 - Source within each replay: `steps[0][0].visualize`, whose frames contain non-duplicated semantic logs (`TurnStart`, `Play`, `Evolve`, `Attach`, `Attack`, `MoveCard`, etc.) and full board states.
 - Deck lists were reconstructed from frame 0's complete 60-card action lists.

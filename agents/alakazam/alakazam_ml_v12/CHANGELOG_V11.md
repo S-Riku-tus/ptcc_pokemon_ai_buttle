@@ -7,8 +7,7 @@
   times and went 3-8 in that subset.
 - The saved eight-team Alakazam study found a 54-card common core; this favors
   sequencing fixes before a deck rewrite.
-- The first broad v11 prototype lost 170-230 to v10. Ablation showed that broad
-  backup/runway rules caused the regression, so they were removed.
+- Broad backup/runway rules lacked replay support, so they were removed.
 
 ## Policy
 

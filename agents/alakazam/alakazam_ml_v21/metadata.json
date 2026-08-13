@@ -58,17 +58,6 @@
     "Avoid benching Fezandipiti ex at three or fewer opponent prizes unless its immediately available recovery draw creates a KO or restores offense.",
     "Infer the opponent's important visible evolution families from card metadata and combine lineage value with prizes, energy, tools, HP, and engine text."
   ],
-  "local_validation": {
-    "pytest_tests": 119,
-    "python_compile": true,
-    "real_ladder_replay_decisions": 3996,
-    "policy_fallbacks": 0,
-    "observation_fallbacks": 0,
-    "arena_safety_games": 100,
-    "arena_v21_vs_v20": "50-50",
-    "crashes": 0,
-    "illegal_selects": 0
-  },
   "diagnostic_controls": {
     "ALAKAZAM_V21_TARGET_ROUTES": "1 by default; falls back to the v20 variable for compatibility",
     "ALAKAZAM_V21_HAND_GATE": "1 by default; falls back to the v20 variable for compatibility",

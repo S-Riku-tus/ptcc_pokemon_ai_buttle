@@ -195,7 +195,7 @@ def main() -> int:
         "sum_pts_mix_effect": round(sum(d["pts_mix_effect"] for d in decomp), 4),
     }
 
-    # ---------------- 7. head-to-head: do we / they play the same opponents ----
+    # ---------------- 7. opponent-pool comparison -------------------------------
     our_opp_teams = Counter(g["opp_team"] for g in ourrec)
     field_opp_teams = Counter(r["opp"] for r in prows if r["own_hash"] == OUR)
     rep["opponent_pool_overlap"] = {

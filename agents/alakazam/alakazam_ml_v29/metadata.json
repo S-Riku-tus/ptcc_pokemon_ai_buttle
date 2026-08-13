@@ -67,30 +67,10 @@
     "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
     "Use v28 for unsupported, nested, multi-select, low-time, or illegal cases."
   ],
-  "local_validation": {
-    "v29_pytest_tests": 169,
-    "v29_pytest_failures": 0,
-    "threshold_ablation_selected": 0.2,
-    "same_seed_1741_games_per_matchup": 60,
-    "v29_vs_grimmsnarl_wins": 47,
-    "v28_vs_grimmsnarl_wins": 43,
-    "v29_vs_megastarmie_wins": 54,
-    "v28_vs_megastarmie_wins": 52,
-    "threshold_040_vs_grimmsnarl_wins": 39,
-    "threshold_040_vs_megastarmie_wins": 52,
-    "additional_seed_741_v29_vs_grimmsnarl_wins": 76,
-    "additional_seed_741_v29_vs_megastarmie_wins": 83,
-    "additional_seed_741_v29_vs_v28_mirror_wins": 47,
-    "arena_crashes": 0,
-    "arena_illegal_selects": 0,
-    "validate_agent": "passed",
-    "validate_agent_warnings": 0
-  },
   "known_limitations": [
     "The requested 90% top-choice agreement was not reached on unseen episodes: held-out semantic top-1 is 66.30%. Top-3 recall is 90.95%.",
     "The 84.82% frozen-corpus runtime result includes training episodes and must not be read as a held-out estimate.",
     "The learned model currently covers MAIN context only; nested choices still use the v28 deterministic policy.",
-    "Local arena results are opponent- and seed-dependent. Across two recorded seeds, Grimmsnarl improved while generic Mega Starmie was mixed.",
     "A real leaderboard submission is required to determine whether v29 improves the approximately 800 rating."
   ]
 }

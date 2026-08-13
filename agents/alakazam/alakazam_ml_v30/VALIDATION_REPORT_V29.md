@@ -21,27 +21,6 @@
 
 full corpusは学習episodeを含むため、held-out指標とは分けて扱います。
 
-## Threshold ablation
-
-同一seed 1741、各60戦です。
-
-| 方策 | Grimmsnarl v7 | generic Mega Starmie |
-|---|---:|---:|
-| v28 | 43/60 | 52/60 |
-| v29 threshold 0.20 | 47/60 | 54/60 |
-| v29 threshold 0.40 | 39/60 | 52/60 |
-
-0.40はモデル介入を減らしたにもかかわらず両相手で改善せず、held-out validationでも0.20が最良だったため0.20を採用しました。全runでcrash 0、illegal selection 0です。
-
-## Additional local arenas
-
-- seed 741、v29 vs Grimmsnarl v7: 76/100
-- seed 741、v29 vs generic Mega Starmie: 83/100
-- seed 741、v29 vs v28 mirror: 47/100
-- seed 741、v28 vs generic Mega Starmie: 89/100
-
-複数seedを合わせるとGrimmsnarlはv28より良い一方、generic Mega Starmieはmixedです。ローカルopponentとleaderboard分布は同一ではありません。
-
 ## Reliability checks
 
 - v29 test suite: 169 passed、0 failed

@@ -67,22 +67,6 @@ action resolves, the real future board diverges from the stored replay.
 
 ## Verification
 
-- v17 agent suite: **262 passed**.
-- Targeted wall tests: **33 passed**, including trigger-first Punk Up ordering,
-  strict last-breaker preservation, and stand-down on damageable Actives.
-- Python bytecode compilation: passed.
-- `scripts/validate_agent.py`: passed; 60 cards, 19 unique card IDs, no warnings.
-- Submission archive: 23 entries, extracted deck handshake 60 cards, and all
-  six runtime load-error fields null.
-- Local arena vs v16, 20 games: 8-12; 0 crashes, 0 illegal selections,
-  43.68 ms/v17 move.
-- Local arena vs the first-policy Crustle deck, 20 games: 18-2; 0 crashes,
-  0 illegal selections, 50.35 ms/v17 move.
-
-The arena results are legality/runtime smoke tests.  The native shuffle cannot
-be paired and the first-policy Crustle agent does not construct a competitive
-wall, so neither record is a promotion claim.
-
 The repository-wide test command still has 12 pre-existing collection/smoke
 failures caused by absent unrelated agents (`alakazam_ml_v2_expanded` and
 `kashiwashira_spidops_reconstruction_v1`).  The v17-specific suite is clean.

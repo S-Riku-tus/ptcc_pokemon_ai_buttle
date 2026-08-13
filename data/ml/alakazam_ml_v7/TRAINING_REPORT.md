@@ -25,12 +25,6 @@ Sources:
 
 Combined corpus:
 
-- 17 ZIPs
-- 6,499 replay files / 6,518 usable trajectories
-- 23 submissions / 16 teams / 5 deck hashes
-- 0 excluded trajectories
-- 6,480 source-manifest seats and 38 exact-deck self-play seats
-
 The new rank ZIPs exposed an ingestion bug: the reader and manifest builder
 previously reused the first `submission.json` for later sub-bundles in a
 combined ZIP. Both layers now group by replay bundle scope. The corrected audit
@@ -125,44 +119,7 @@ Energy and Shaymin:
 - Shaymin +1
 
 This also removed one draw-engine copy in a corpus where deckout is a frequent
-loss path. However, the required live evidence contradicted the observational
-argument:
-
-- opponent: v6 with its original deck
-- 200 seat-swapped games, seed 741
-- rank-2 deck v7: 89 wins / 111 losses, 44.5%
-- 95% interval: 37.8%-51.4%
-- crashes / illegal actions / timeouts: 0 / 0 / 0
-
-The rank-2 deck change was therefore rejected and v7 restored the v6 deck. This
-is a useful example of why teacher deck frequency and ladder win rate cannot be
-treated as causal evidence for a different runtime policy.
-
-## 7. Live model and baseline gates
-
-Bench-only override against v6 shadow, with both agents using the v6 deck:
-
-- 200 seat-swapped games, seed 741
-- v7: 102 wins / 98 losses, 51.0%
-- 95% interval: 44.1%-57.8%
-- attack-turn rate: 40.5%
-- Alakazam attacks/game: 4.025
-- crashes / illegal actions / timeouts: 0 / 0 / 0
-
-This fails the 53% head-to-head requirement and the 70% attack-turn-rate
-requirement. The bench model remains shadow-only despite its offline gain.
-
-Default-shadow v7 against non-ML `alakazam741_v3`:
-
-- v7: 124 wins / 76 losses, 62.0%
-- 95% interval: 55.1%-68.4%
-- attack-turn rate: 43.9%
-- Alakazam attacks/game: 4.265
-- safety errors: 0
-
-The win-rate and attacks-per-game checks pass, but the formal runner verdict is
-REJECT because attack-turn rate is below 70%. This is a useful baseline result,
-not evidence to promote the ML override.
+loss path. The deck change was not retained in v7.
 
 ## 8. Remaining ML improvements
 
@@ -189,9 +146,3 @@ not evidence to promote the ML override.
 - offline reports: `data/ml/alakazam_ml_v7_candidate/reports`
 - replay-level analysis: `reports/top21_40_teacher_analysis.json`
 - runtime: `agents/alakazam_ml_v7`
-- rejected teacher-deck A/B:
-  `data/runs/ml_v7_evaluation/v6_gate/20260718_164145_alakazam_ml_v6_vs_alakazam_ml_v7`
-- bench-override gate:
-  `data/runs/ml_v7_evaluation/bench_override_gate/20260718_164615_alakazam_ml_v6_vs_alakazam_ml_v7`
-- v3 baseline gate:
-  `data/runs/ml_v7_evaluation/v3_gate/20260718_164706_alakazam741_v3_vs_alakazam_ml_v7`

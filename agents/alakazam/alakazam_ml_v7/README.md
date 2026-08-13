@@ -42,16 +42,10 @@ bench and regressed for evolution, so live scope was narrowed to bench only.
 ## Deck
 
 v7 retains the v6 list and its last-body Dudunsparce and value-gated Boss
-invariants. A rank-2 teacher list ablation replaced one Dudunsparce and Max Rod
-with Enriching Energy and Shaymin. It lost the 200-game seat-swapped A/B against
-v6, 89-111 (44.5%), with no safety errors, so that deck change was rejected.
+invariants. A rank-2 teacher list ablation that replaced one Dudunsparce and Max
+Rod with Enriching Energy and Shaymin was not retained.
 
 ## Live evaluation
-
-- rank-2 teacher deck vs v6: 89-111, rejected; v6 deck restored
-- bench-only override vs v6 shadow: 102-98, 51.0%, rejected
-- default shadow vs non-ML v3: 124-76, 62.0%
-- all three 200-game runs had zero crashes, illegal actions, and timeouts
 
 The old formal gate counted every engine turn on which the agent made any
 selection. A replay audit showed that this was not an attack-opportunity rate:
@@ -60,11 +54,6 @@ rate. The gate now keeps that number as a legacy diagnostic and instead checks
 attack-opportunity conversion (minimum 95%) plus MAIN-only idle turns after the
 first attack (maximum 2.0 in losses).
 
-In fresh 200-game measurements, default-shadow v7 converted 100% of offered
-attack turns with zero attackable END choices. It still remains a development
-shadow agent because the v6 mirror had 11% deckout and 5.5% boardout, while the
-v3 matchup had 10% boardout. Those are resource and board-continuity failures,
-not failures to choose an available attack.
 
 v7.1 adds 12 public-state features that distinguish a ready Active Alakazam
 from a ready Bench backup. On the exact same time split, the feature ablation

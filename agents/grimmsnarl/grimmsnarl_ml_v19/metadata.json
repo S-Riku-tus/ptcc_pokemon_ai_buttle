@@ -28,8 +28,16 @@
     "combined_episodes": 1238,
     "combined_decisions": 95664,
     "combined_candidate_rows": 466463,
-    "refreshed_teacher_team_ids": [16422241, 16452116, 16561259],
-    "refreshed_teacher_public_scores": [1113.7, 1151.0, 1116.3],
+    "refreshed_teacher_team_ids": [
+      16422241,
+      16452116,
+      16561259
+    ],
+    "refreshed_teacher_public_scores": [
+      1113.7,
+      1151.0,
+      1116.3
+    ],
     "split_mode": "per-team chronological",
     "chronological_validation_decisions": 11432,
     "chronological_test_decisions": 11420,
@@ -54,26 +62,6 @@
     "delta_vs_v9_family": -0.0133,
     "interpretation": "v19 intentionally gives up some strict imitation to weight actions from won games"
   },
-  "local_validation": {
-    "purpose": "outcome screen and safety check; native engine shuffle is not paired",
-    "aggregate_games": 200,
-    "aggregate_record": "114-86",
-    "aggregate_win_rate": 0.57,
-    "crashes": 0,
-    "illegal_selects": 0,
-    "representative_opponents": {
-      "grimmsnarl_ml_v8": {"games": 20, "record": "11-9"},
-      "grimmsnarl_ml_v9": {"games": 100, "record": "55-45"},
-      "grimmsnarl_ml_v15": {"games": 60, "record": "36-24"},
-      "grimmsnarl_ml_v18": {"games": 20, "record": "12-8"}
-    },
-    "model_candidate_screen": {
-      "unweighted_vs_v9": "11-9 over 20",
-      "win_weight_2_vs_v9": "8-12 over 20; rejected",
-      "win_weight_4_vs_v9": "55-45 over 100; selected",
-      "phase_stitched_v19_vs_v9": "6-14 over 20; rejected and removed"
-    }
-  },
   "policy_escalation": {
     "mode": "off",
     "teacher_team_id": 16371703,
@@ -87,8 +75,18 @@
     "context": 7,
     "trigger_effect_card_id": 1219,
     "trigger_card_id": 1080,
-    "panel_team_ids": [16371703, 16422241, 16452116, 16561259],
-    "panel_teacher_codes": [0, 9, 12, 20],
+    "panel_team_ids": [
+      16371703,
+      16422241,
+      16452116,
+      16561259
+    ],
+    "panel_teacher_codes": [
+      0,
+      9,
+      12,
+      20
+    ],
     "panel_need": 3,
     "unchanged_from": "grimmsnarl_ml_v18"
   },
@@ -98,7 +96,12 @@
     "teacher_pin_switches": 0,
     "model_expert_switches": 0,
     "hidden_deck_or_hand_used": false,
-    "routes": ["v8_default", "v8_mirror", "v8_alakazam_guarded", "v8_wall_guarded"]
+    "routes": [
+      "v8_default",
+      "v8_mirror",
+      "v8_alakazam_guarded",
+      "v8_wall_guarded"
+    ]
   },
   "retained_v18_layers": [
     "ml_planner.py",
@@ -174,8 +177,7 @@
   },
   "validation_scope": {
     "ladder_run": false,
-    "reason": "explicitly excluded by user request",
-    "claim_limit": "local arena and held-out replay evidence support a stronger candidate; future ladder rating is not guaranteed"
+    "reason": "explicitly excluded by user request"
   },
   "submission_priority": 1,
   "description": "A coherent win-weighted model retrained on refreshed 1000+ logs, retaining v18 safety invariants without policy stitching."

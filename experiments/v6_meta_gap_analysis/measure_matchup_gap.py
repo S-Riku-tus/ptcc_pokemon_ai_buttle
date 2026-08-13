@@ -9,7 +9,7 @@ it can label every game by opponent deck hash and compare, on the same field:
 * the pilots on the identical 60-card list who are currently near the top;
 * the whole same-deck corpus as a field baseline.
 
-Self-play validation episodes are excluded: both seats are the same submission.
+Non-public validation episodes are excluded.
 
 Usage:
     python experiments/v6_meta_gap_analysis/measure_matchup_gap.py \

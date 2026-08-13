@@ -1,6 +1,6 @@
 # v6 ladder run, submission 55290882 (fetched 2026-08-06, rating 996.6)
 
-55 episodes, all `COMPLETED`, one of them a self-play validation episode that is
+55 episodes, all `COMPLETED`, one of them a non-public validation episode that is
 excluded from every win rate below, leaving 54 rated games. Read against the
 gates in `RESULTS.md` §8, which were written before the run.
 

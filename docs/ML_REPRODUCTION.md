@@ -76,29 +76,9 @@ Analyze next deck candidates:
   --output data/ml/archetype_analysis
 ```
 
-Save self-play trajectories:
-
-```powershell
-.\.venv\Scripts\python.exe .\scripts\self_play.py `
-  alakazam_ml_v2_expanded `
-  alakazam741_v12_top_sync_full `
-  --games 100 `
-  --save-trajectories
-```
-
-Champion-Challenger report:
-
-```powershell
-.\.venv\Scripts\python.exe .\scripts\champion_challenger.py `
-  --champion alakazam741_v12_top_sync_full `
-  --challenger alakazam_ml_v2_expanded
-```
-
 ## Safety Notes
 
 - Boss, Retreat, Xerosic, and Hammer remain fallback-controlled.
 - Energy is ML-controlled only at the stricter confidence gate.
 - Nested/target/multi-select decisions remain fallback-controlled.
-- Self-play trajectories are not treated as labels automatically.
-- New models are copied to runtime only after training/export and are still subject to Champion-Challenger review.
-
+- New models are copied to runtime only after training/export and are evaluated from stored or newly collected real ladder episodes.

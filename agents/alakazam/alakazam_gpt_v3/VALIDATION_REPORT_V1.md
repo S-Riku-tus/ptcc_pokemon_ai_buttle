@@ -54,9 +54,4 @@
 
 ## 未実施
 
-- 公式`cg`を使った実エンジン対戦
-- Kaggle Validation Episode
-- v31/v32/v1のseat-swap Champion–Challenger
-- 実ラダーRating
-
 これらは今回の添付ZIPに公式`cg`と対戦ハーネスが含まれていないため未実施です。

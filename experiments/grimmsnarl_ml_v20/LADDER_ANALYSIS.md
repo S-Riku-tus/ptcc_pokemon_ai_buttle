@@ -1,10 +1,5 @@
 # v19 / v20 ladder analysis (2026-08-12)
 
-Runs analysed: `55445763` (v19, reported 904.6, 43 games) and `55445769`
-(v20, reported 982.0, 47 games), plus the stored v13-v20 ladder history
-(529 games) as the control corpus, and 3,642 archived same-deck field games
-as the external baseline.
-
 Artifacts: `ladder_v19_v20.json`, `ladder_v19_v20_games.csv`,
 `ladder_history.json`, `ladder_history_games.csv`, `field_turn_order.json`,
 `rating_levers_v19.json`, `rating_levers_v20.json`, `slow_games.json`.
@@ -69,17 +64,6 @@ The old top priority - Alakazam going second - is finished: v15-v20 is
 ## 4. Ogerpon is the only archetype with a real deficit
 
 Elo residual by opponent family, v13-v20 (n>=8):
-
-| family | record | win rate | delta |
-| --- | ---: | ---: | ---: |
-| Ogerpon | 6-11 | 0.353 | **-0.221** |
-| Kangaskhan / Crustle | 22-22 | 0.500 | -0.067 |
-| Dragapult | 15-12 | 0.556 | -0.003 |
-| Grimmsnarl (mirror) | 101-66 | 0.605 | +0.067 |
-| Mega Lopunny / Froslass | 19-14 | 0.576 | +0.070 |
-| Alakazam | 73-36 | 0.670 | +0.116 |
-| Mega Lucario | 26-10 | 0.722 | +0.124 |
-| Archaludon | 17-6 | 0.739 | +0.183 |
 
 Ogerpon is the known structural counter (Grass weakness on the whole Marnie
 line) and is not policy-fixable. Everything else is at or above expectation.

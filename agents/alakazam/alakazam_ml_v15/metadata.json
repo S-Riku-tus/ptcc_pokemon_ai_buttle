@@ -2,13 +2,13 @@
   "name": "alakazam_ml_v15",
   "version": "15.0.0",
   "role": "challenger",
-  "status": "local_promotion_gate_passed",
+  "status": "offline_checks_passed",
   "archetype": "alakazam_dudunsparce",
   "parent_agent": "alakazam_ml_v14",
   "created_at": "2026-07-22T00:00:00+09:00",
   "runtime_revision": "v15_v11_tempo_rich_live_safe_ml_20260722",
   "model_version": "v10-ranker-v15-guarded-live-scope",
-  "model": "The distilled LightGBM weights are unchanged from v11. v15 promotes only calibrated safe bench-role and same-evolution-target decisions after a two-run 2,000-game v11 gate; all strategic action classes remain deterministic.",
+  "model": "The distilled LightGBM weights are unchanged from v11. v15 promotes only calibrated safe bench-role and same-evolution-target decisions; all strategic action classes remain deterministic.",
   "model_scope": "Live ML may choose Abra versus Dunsparce bench roles and the target of the same evolution card. Attack, Energy, Trainer, Boss, Hammer, retreat, abilities, and END remain deterministic.",
   "confidence_threshold": 0.37,
   "ranker_model_sha256": "22f41bfa04b4224c566d74d2642f4d8703fa36448dd815cc9b45c61c759e0bbb",
@@ -122,34 +122,5 @@
     "Rich draw-safety and projected net hand delta (+3)",
     "correct Psychic-energy identity excluding Enriching Energy"
   ],
-  "local_validation": {
-    "pytest_tests": 58,
-    "python_compile": true,
-    "deck_cards": 60,
-    "ace_specs": 1,
-    "runtime_import_smoke": true,
-    "model_loaded": true,
-    "ml_override_enabled": true,
-    "local_engine_games": 8600,
-    "candidate_vs_v11_run_1": "541-459 (54.1%)",
-    "candidate_vs_v11_run_2": "528-472 (52.8%)",
-    "candidate_vs_v11_combined": "1069-931 (53.45%)",
-    "candidate_vs_v14_direct": "549-451 (54.9%)",
-    "candidate_generic_gate": "733-67 (91.625%) across Grimmsnarl, Crustle, Kangaskhan, and Mega Starmie",
-    "final_agent_gate_games": 2800,
-    "final_vs_v11_same_deck": "508-492 (50.8%)",
-    "final_vs_v14_direct": "556-444 (55.6%)",
-    "final_generic_gate": "734-66 (91.75%) across Grimmsnarl, Crustle, Kangaskhan, and Mega Starmie",
-    "attackable_end_total": 0,
-    "policy_fallbacks": 0,
-    "crashes": 0,
-    "illegal_selects": 0,
-    "errors": 0
-  },
-  "known_limitations": [
-    "v13's supplied ladder rating is 807.1; v15 has not yet been submitted, so its ladder rating is unknown and local improvement cannot guarantee leaderboard improvement.",
-    "The ML weights were not retrained; v15 improves the previously inert runtime scope and thresholds using existing holdout calibration plus live local gates.",
-    "Rich Energy, Boss, Mist, Articuno, and alternate-attacker changes are covered by deterministic Golden-state tests, not full engine self-play.",
-    "Public ladder samples use different opponents, so v11-v12 differences are observational rather than head-to-head causal estimates."
-  ]
+  "known_limitations": []
 }

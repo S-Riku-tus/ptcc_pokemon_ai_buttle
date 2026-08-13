@@ -19,13 +19,6 @@ Adrena-Brainが同時に成立して新しい低HPポケモンを即座に倒せ
 
 ## 検証
 
-- 専用・継承テスト: 74件成功
-- v16 vs v15（同一デッキ）: 500-500 / 1,000戦
-- v16 vs オーロンゲv6: 255-145 / 400戦
-- 同条件のv15 vs オーロンゲv6: 253-147 / 400戦
-- 全1,800最終対戦で例外、違法手、policy/observation fallback: 0
-- クマシュン戦 episode 87378335 の再生で、控えへのエネルギー→にげる順を確認
-
 ```powershell
 uv run pytest -q agents/alakazam/alakazam_ml_v16
 ```

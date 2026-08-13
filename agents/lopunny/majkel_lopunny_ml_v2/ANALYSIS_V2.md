@@ -67,6 +67,6 @@ DeepSetsはtest MAIN 2,527 decisionへ適用され、validationとtestの両方�
 2. 新規ログの最後200試合を固定testとし、今回のtestを開発用へ移す。
 3. DeepSets/attentionをepisode OOF化し、Top-3だけを再順位付けする。
 4. 複数discardを集合予測ヘッドへ分離する。
-5. 教師模倣率と自己対戦勝率を別ゲートで管理する。
+5. 教師模倣率と実ラダー結果を別に管理する。
 
 v2は「目標に届かなかった実験」ではなく、木の微調整・暗記・単純selectorでは届かないことを定量化し、異なるlistwiseモデルで未知性能を再現可能に改善した基準版です。

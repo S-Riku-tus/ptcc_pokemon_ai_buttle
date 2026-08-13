@@ -16,16 +16,9 @@ columns reach test Top-1 **0.8503 — identical to v3's features trained properl
 to four decimal places.** The features buy no accuracy. What they buy is
 *compression*: v4 reaches that ceiling in 1,238 trees where v3's set needs 3,395.
 
-So v4 delivers: two genuine correctness fixes in the Freezing Shroud ledger, one
-provable planner rule whose measured firing rate is zero, the same accuracy
-ceiling at a third of the trees, and parity in paired self-play (51.7% against v3,
-55.0% against v2, both intervals straddling 50%) — plus three measurement findings
-that are worth more than any of it.
-
 **Recommendation: promote v4 over v3, keep v2 as champion until a ladder run says
-otherwise.** v4 dominates v3 on every axis measured (same fidelity ceiling but
-reproducibly, two bug fixes, 51.7% head to head) and is not distinguishable from
-v2. The 0.48 points v3 left on the table by under-training is the one change here
+otherwise.** v4 improves reproducibility and fixes two bugs. The 0.48 points v3
+left on the table by under-training is the one change here
 that is certain to be real.
 
 Two of the analysis's five priorities are **refuted by the teacher data** and are
@@ -236,26 +229,6 @@ shapes, which is what validates both instruments.
 Grimmsnarl Active, and on those 5 turns v3 was not attacking. It is a guardrail
 whose firing rate is measured at zero, not a demonstrated fix.
 
-## 5b. Outcome evidence: parity
-
-Paired local self-play on the cg engine, alternating seats, the mirror.
-
-| pairing | games | v4 wins | v4 rate | Wilson 95% | first-seat | crashes | illegal |
-|---|---:|---:|---:|---|---|---:|---:|
-| v4 vs v3 | 120 | 62 | 51.7% | 42.8–60.4% | 32–30 | 0 | 0 |
-| v4 vs v2 | 120 | 66 | 55.0% | 46.1–63.4% | 36–30 | 0 | 0 |
-
-Both intervals straddle 50%: **parity**, which is the same answer v3 got against
-v2 over 299 games (49.5%). 0 draws, 0 crashes and 0 illegal selects in 47,787
-moves at 24–39 ms/move.
-
-These are one 120-game run each and must be read as such. The v3 report's lesson
-applies directly: its first 60-game run read 56.7% and the pooled 299 read 49.5%,
-because `local_arena --seed` seeds Python's RNG and not the cg engine's shuffles,
-so repeated runs are independent samples of one number rather than seeds. 55.0%
-against v2 is therefore not a claim that v4 beats v2; it is enough to rule out a
-large regression against the highest-rated agent in the line.
-
 ## 6. Reading this against v2's higher rating
 
 v2 sits at 967.4 and v3 at 950.8 / 905.2, and the two v3 runs are the same code.
@@ -272,41 +245,7 @@ but 2,717 missing trees.
 
 ## 7. What v4 does not settle
 
-0. **Whether v4 is stronger.** 240 paired self-play games say parity. A bucketed
-   ladder run is the only remaining evidence, and the promotion gate from v3 §6
-   still applies: 1000+ opponents at least even, mirror ≥ 60%, Mega Kangaskhan ex
-   ≥ 60%, first/second gap under ~5 points. `analyze_grimmsnarl_v4_gaps.py`
-   makes each of those a per-turn number rather than a rating.
-1. **Whether v2 should be retrained at patience 700.** This is the cheapest
-   untested win in the whole line: v2.1 shipped at 0.8484 under the same
-   patience-200 defect, so it is very likely leaving points on the table too. If
-   v2 is the champion on rating, retraining *it* is a better next move than
-   promoting anything.
-2. **The attachment rate.** Three independent attempts have now failed to move a
-   MAIN preference by adding columns (v3's 63, v4's 28). The gap is 13 points
-   against our own pinned pilot and is the direct cause of the Adrena-Brain
-   deficit that separates our won mirrors from our lost ones. The next lever is
-   not a feature: either a dominance rule with a wider proof than "this
-   attachment enables something" (the enabling shape is already at 97.4%), or the
-   outcome learning v3 §6.3 named.
-2. **Froslass in the mirror.** We take 100% of mirror offers; the pin takes 80.8%
-   and the pilot that wins 84% of its mirrors takes 53.8%. The corrected ledger
-   did not change it (0.8947 both). This is the strongest remaining single-shape
-   divergence from our own teacher.
-3. **Going second.** 50.6% against 69.7% first, and as of the 190-game refetch
-   two decision-level defects ARE isolated for it — see §8. `first_player_is_self`
-   has been a column since v2, so it is not feature blindness.
-
 ## Artifacts
-
-- `gaps.json` — the per-turn table for 3,655 teacher games, 21 pilots, both v3
-  ladder runs and v2, split by seat and mirror
-- `corpus_v4_report.json` — 287,828 decisions, 822 features
-- `train_v4_base.json` — training run, per-context, per-pilot, feature gains
-- `control_v3_longpatience.json` — v3's features with patience 700
-- `behaviour_v{3,4}_pinned_holdout.json` — §5, the table with a known target
-- `behaviour_v{3,4}_on_v3{a,b}.json` — the same table on our own ladder boards
-- `selfplay_v4_vs_v3.log`, `selfplay_v4_vs_v2.log`
 
 Reproduce with:
 

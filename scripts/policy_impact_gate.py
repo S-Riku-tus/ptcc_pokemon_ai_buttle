@@ -3,8 +3,8 @@
 The footprint is an upper-bound exposure measure: it counts stored decisions
 where base and candidate answer differently while both are advanced with the
 historical action.  It does not claim those changes improve win rate.  It does
-answer the prior question that was repeatedly skipped: is this intervention
-large enough to spend match-evaluation budget on at all?
+answer the prior question that was repeatedly skipped: does this intervention
+affect enough stored decisions to justify deeper real-replay analysis?
 """
 from __future__ import annotations
 
@@ -27,13 +27,10 @@ def evaluate_impact(
     actions_per_game = changed / games
     if actions_per_game < reject_below:
         verdict = "REJECT_TOO_SMALL"
-        required_paired_games = 0
     elif actions_per_game <= large_above:
-        verdict = "MEASURE_WITH_2000_PAIRED_GAMES"
-        required_paired_games = 2000
+        verdict = "REQUIRES_DEEPER_REPLAY_ANALYSIS"
     else:
         verdict = "LARGE_ENOUGH_TO_IMPLEMENT"
-        required_paired_games = 0
     return {
         "verdict": verdict,
         "games": games,
@@ -47,7 +44,6 @@ def evaluate_impact(
             "reject_below_actions_per_game": reject_below,
             "large_above_actions_per_game": large_above,
         },
-        "required_paired_games": required_paired_games,
         "interpretation": (
             "Teacher-forced exposure only; passing this gate is necessary, not evidence of benefit."
         ),
@@ -101,4 +97,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

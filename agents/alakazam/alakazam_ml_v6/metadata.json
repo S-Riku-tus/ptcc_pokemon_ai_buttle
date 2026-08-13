@@ -9,7 +9,7 @@
   "model": "LightGBM candidate ranker distilled to pure Python trees",
   "confidence_threshold": 0.55,
   "model_scope": "Shadow-scored ACTIVE MAIN ranking over guarded bench, evolution, and attack candidates. Deterministic fallback remains authoritative unless ALAKAZAM_ML_ENABLE_OVERRIDE=1 is explicitly set for an experiment.",
-  "deck_policy": "60-card v6 revision: 3 Dunsparce / 3 Dudunsparce, 2 basic Psychic, 4 Telepath Psychic, Fezandipiti ex, Max Rod ACE, Boss's Orders 3, no Genesect/Lucky Helmet/Shaymin/Psyduck",
+  "deck_policy": "60-card v6 revision: 3 Dunsparce / 3 Dudunsparce, 2 basic Psychic, 4 Telepath Psychic, Fezandipiti ex, Max Rod ACE, Boss's Orders 3, no Genesect/Lucky Helmet/Shaymin/Psyduck.",
   "model_training_decisions": 171674,
   "model_candidate_rows": 1972066,
   "training_teams": 6,
@@ -70,38 +70,6 @@
     "observed_wins": 52,
     "observed_losses": 40,
     "observed_unsafe_last_body_dudunsparce_losses": 3
-  },
-  "ml_promotion_gate": {
-    "scope": "historical_v5_model_before_ladder92_retrain",
-    "model_sha256": "7b149ebd5ee3fd08ff9d8d692c76934a655c59081ab2be25ddcf2ca2132e5364",
-    "seed": 741,
-    "games": 200,
-    "reseed_each_game": true,
-    "shadow_wins": 113,
-    "shadow_losses": 87,
-    "guarded_override_wins": 109,
-    "guarded_override_losses": 91,
-    "decision": "shadow_only"
-  },
-  "final_v3_evaluation": {
-    "seed": 741,
-    "games": 1000,
-    "reseed_each_game": true,
-    "wins": 567,
-    "losses": 433,
-    "win_rate": 0.567,
-    "wilson_95_low": 0.5361,
-    "wilson_95_high": 0.5974,
-    "agent_errors": 0,
-    "illegal_actions": 0
-  },
-  "paired_generic_evaluation": {
-    "opponents": 5,
-    "games_per_opponent": 60,
-    "v5_wins": 253,
-    "v5_losses": 47,
-    "v3_wins": 246,
-    "v3_losses": 54
   },
   "version": "0.6.0",
   "status": "development",

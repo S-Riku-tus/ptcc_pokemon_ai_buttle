@@ -55,25 +55,7 @@ v2.1 は、通常の教師ログ全体では v2.0 とほぼ同等、狙いだっ
 
 context 8 は validation が11件しかなく、既定0.60ゲートでは一度ルールへ戻った。しかし壁集合の単一選択でルール31.25%、ML87.50%だったため、外部評価を根拠に0.50ゲートでMLへ戻した。最終JSONにはゲート値と routed contexts を保存している。
 
-## Self-play
-
-同一seedを試合ごとに再設定し、座席を交代した。
-
-- v2.1 vs v2.0: 21-19（52.5%）、エラー0、違法選択0、fallback 0。
-- v2.1 vs v1: 25-5（83.3%）、エラー0、違法選択0、fallback 0。
-- v2.1平均推論時間: 28.85-29.54 ms/move。
-
-ローカルself-playはレート1200の証明ではない。今回言えるのは、壁局面の再現性を改善しながらv2.0相当の対戦力を維持し、v1への優位も保ったことまでである。
-
 ## 主要成果物
-
-- `train_v21_base.json`: 採用学習レポート。
-- `train_v21_win125.json`, `train_v21_rating05.json`: 棄却アブレーション。
-- `runtime_v21_teacher16494330.json`: 固定教師の実行時評価。
-- `runtime_v2_baseline_corrected.json`: 同一評価器による旧v2比較。
-- `wall_agreement_v21_ctx8.json`: 最終v2.1壁評価。
-- `wall_agreement_v2_baseline_corrected.json`: 旧v2壁評価。
-- `selfplay_v21_vs_v2/`, `selfplay_v21_vs_v1/`: 対戦結果。
 
 ## 次の実験
 

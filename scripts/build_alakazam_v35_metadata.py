@@ -255,10 +255,6 @@ def main() -> int:
         ),
     }
 
-    arena = EXP / "local_arena.json"
-    if arena.exists():
-        m["local_validation"] = load(arena)
-
     for name in ("ranker_model.json", "v29_ranker_model.json",
                  "legacy_ranker_model.json", "target_ranker_model.json",
                  "teacher_memory.bin", "fallback_policy.py", "deck.csv"):

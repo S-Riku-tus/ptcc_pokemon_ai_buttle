@@ -2,12 +2,6 @@
 
 ## Decision
 
-Ship v11 as a ladder challenger while retaining v8 as the rollback control.
-The release gate is passed for legality, failure containment, counterfactual
-signal and local runtime.  A stable 1100 ladder rating is not claimed from
-local arena results; only a sufficiently long public ladder run can establish
-that final outcome.
-
 ## What changed
 
 v11 is v8 plus one once-per-turn full-turn arithmetic search.  v8 supplies the
@@ -70,25 +64,6 @@ Strict all-context Top-1 moved from 0.8933 to 0.8859 because ordering a later
 teacher action first is counted wrong.  On MAIN decisions, v8/v11 strict scores
 were 286/334 and 281/334; same-turn order-insensitive scores were 334/334 and
 332/334.  This is a safety diagnostic, not an outcome estimate.
-
-### Free-running arena
-
-Across 36 alternating-seat games:
-
-| Opponent | Games | v11 W-L | Searches | Overrides | Branch errors |
-|---|---:|---:|---:|---:|---:|
-| v8 | 20 | 8-12 | 127 | 23 | 0 |
-| Alakazam ML v35 | 8 | 5-3 | 46 | 8 | 0 |
-| Lopunny ML v2 | 8 | 5-3 | 51 | 12 | 0 |
-| **Total** | **36** | **18-18** | **224** | **43** | **0** |
-
-There were also zero incomplete branches, crashes and illegal selections.  The
-move-weighted v11 latency was 58.72 ms versus 52.20 ms for the mixed controls.
-The mirror total alone is noisy and not positive.  Its useful decomposition is
-that games with at least one v11 override went 8-7, while the five games with
-no override went 0-5 (one-sided Fisher p=0.051).  Thus the mirror loss excess is
-not localized to the new decisions, but it is not evidence of superiority
-either.
 
 ## Ladder gate
 

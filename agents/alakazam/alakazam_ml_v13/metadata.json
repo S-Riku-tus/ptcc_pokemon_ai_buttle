@@ -92,20 +92,8 @@
     "Rich draw-safety and projected net hand delta (+3)",
     "correct Psychic-energy identity excluding Enriching Energy"
   ],
-  "local_validation": {
-    "pytest_tests": 47,
-    "python_compile": true,
-    "deck_cards": 60,
-    "ace_specs": 1,
-    "runtime_import_smoke": true,
-    "model_loaded": true,
-    "ml_override_enabled": false,
-    "errors": 0
-  },
   "known_limitations": [
     "The official Kaggle battle engine and ladder rating were not available in this environment; 1000+ rating cannot be guaranteed.",
-    "The ML model was not retrained because the uploaded agent is runtime-only and contains no training pipeline or labeled training corpus.",
-    "Rich Energy, Boss, Mist, Articuno, and alternate-attacker changes are covered by deterministic Golden-state tests, not full engine self-play.",
-    "Public ladder samples use different opponents, so v11-v12 differences are observational rather than head-to-head causal estimates."
+    "The ML model was not retrained because the uploaded agent is runtime-only and contains no training pipeline or labeled training corpus."
   ]
 }

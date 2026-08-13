@@ -81,9 +81,6 @@ the ladder converts into rating.
 
 ## 2. Where skill buys anything at all on this deck
 
-Splitting the 3,642 archived same-deck games by opponent family and by pilot
-rating band (`matchup_ceiling.json`, elite = 1100+):
-
 | opponent family | share of meta | elite | rest | elite − rest | v8 |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Grimmsnarl (mirror) | 40.7% | 0.605 | 0.596 | **+0.009** | 0.688 (16) |
@@ -210,8 +207,7 @@ and evaluate whole *action sequences* rather than single candidates. That is
 what would catch the orderings the current single-decision planner rules cannot
 see (they fired 0 times in 51 games: boss-route 0, wall-unlock 0, punk-alloc 0).
 
-Cost control: v7 ran at 117 ms/move with search on against v8's 40; the Kaggle
-budget tolerated it. Trigger it on the turns that matter — a lethal is
+Trigger search only on the turns that matter — a lethal is
 available, or the opponent's next attack kills our Active — not on low-margin
 MAIN decisions from turn 5, which is the trigger that produced v7's 8 searches
 a game.
@@ -221,5 +217,3 @@ a game.
 * Do not tune Ogerpon (7.6%, elite are 11 points *worse* than the rest).
 * Do not add features for the per-turn take rates — six versions and 91 feature
   columns of evidence say they are saturated and none has a rating gradient.
-* Do not judge any of this by arena win rate: the same v8 binary scored 77.5%
-  and 47.5% against the same opponent on two 40-game runs.

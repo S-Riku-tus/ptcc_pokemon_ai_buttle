@@ -21,16 +21,6 @@ policy switches.
 The attached analysis is directionally correct, but the same-board replay adds
 an important effect-size measurement.
 
-| measurement | v13 result |
-| --- | ---: |
-| rated games | 116 |
-| record | 66-50 (56.9%) |
-| default route | 30-16 |
-| mirror route | 27-17 |
-| Alakazam route | 8-7 |
-| wall route | 1-10 |
-| v13-v8 differences on 28 specialist games | **514 / 2,450 (21.0%)** |
-
 Wall did not behave as a validator. Depending on the game it replaced 20-58
 decisions, including setup, search targets, attachments and target selection.
 That is a whole policy, and its 1-10 result is consistent with the observed
@@ -62,19 +52,6 @@ same 28 v13 specialist games.
 The ten v14 differences are exactly five Petrel residuals and five wall
 development gates. v14 removes 98.1% of v13's specialist-induced changes while
 retaining an explicit correction for the concrete wall failure mode.
-
-## Verification
-
-- 196 v14 tests pass.
-- Static validation passes: 60 cards, 19 unique IDs, no warnings, unchanged
-  deck hash `9714ab5c3996f6cc`.
-- Clean extracted archive imports with all four load-error fields null and
-  returns the 60-card deck.
-- 18 local legality games produced zero crashes and zero illegal selections:
-  v14-v8 4-2, v14-Alakazam-v35 5-1, v14-first-policy-on-Crustle-deck 6-0.
-  These tiny, unseeded-engine samples are runtime checks, not power estimates.
-- On the 28 specialist replay states, the wall gate fires five times total and
-  never more than twice in one game; v13 changed 20-58 decisions in wall games.
 
 ## Submission artifact
 

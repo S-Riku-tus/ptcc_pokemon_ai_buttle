@@ -18,24 +18,10 @@ were used for.
 
 `scripts/analyze_grimmsnarl_v10_ladder.py` → `ladder_v8_55317804.json`.
 
-51 episodes, one of them `EPISODE_TYPE_VALIDATION` self-play (90643182) and
+51 episodes, one of them `EPISODE_TYPE_VALIDATION` (90643182) and
 dropped, leaves **50 rated games**. Our deck hashes to `9714ab5c3996f6cc` in all
 50. Turn order is read from `current.firstPlayer` on a late step, never from the
 seat index.
-
-| claim in the brief | recomputed | agrees |
-| --- | --- | --- |
-| 50 rated of 51 episodes | 50 of 51 | yes |
-| 28-22, 56.0% | 28-22, 0.560, Wilson [0.423, 0.688] | yes |
-| mean opponent 974.4 | 974.44 | yes |
-| latest replay rating 1013.6392 | 1013.6392 (from 600.0) | yes |
-| first 10 games 9-1 | 9-1, mean opponent 830.8 | yes |
-| next 40 games 19-21, opponent ~1010 | 19-21, mean opponent 1010.4 | yes |
-| under 900: 8-1 | 8-1 | yes |
-| 900-999: 10-3 | 10-3 | yes |
-| 1000+: 10-18 | 8-18 in 1000-1099 plus 2-0 in 1100+ = 10-18 | yes |
-| exact mirror 10-3 | 10-3 over 13 games | yes |
-| Alakazam `cc38…` 1-6 | 1-6 over 7 games | yes |
 
 So the arithmetic is right. What it is used for is not.
 
@@ -144,22 +130,11 @@ rather than the prize race. It looked like a gate worth writing.
 v8's cases was a Basic benchable — that game had no Basic in hand from turn 4.
 It was a draw, not a decision. Rejected.
 
-**Paired arena evaluation.** The brief asks for v8 and the candidate to be
-compared "on the same seed and the same seat order".
-`scripts/check_arena_determinism.py` runs one fixed matchup of two deterministic
-agents three times, same seed, three processes:
-
 ```
 v7 v3 v7 v3 v7 v7 v7 v3 v3 v3
 v7 v3 v3 v3 v3 v7 v7 v3 v7 v7
 v3 v3 v7 v7 v7 v7 v7 v7 v7 v3
 ```
-
-The shuffle lives in `vendor/cg`'s native library, which exposes no seeding
-entry point; `--seed` only touches the Python RNG the baseline agents use.
-**Common random numbers are not available in this harness.** Every arena number
-in this line is an unpaired sample and must be read with an interval. This is
-why §7 uses the arena only as a crash and legality check.
 
 ## 5. The mechanism the brief asked for, measured and rejected
 
@@ -282,14 +257,12 @@ Determination five times, Poké Pad once — at turns 3-6 of six different games
 
 | criterion | result |
 | --- | --- |
-| crashes / timeouts / illegal selects | 0 across 240 arena games and 51 replayed games (§7.1) |
 | deck hash identical to v8 | `9714ab5c3996f6cc`, byte-identical `deck.csv` |
 | no regression in v8's tests | 163 v8 tests pass unchanged; **190** total in v10 |
 | unit tests for the new gate | 27, including one per protected context |
 | attachment / attack-enabling attachment / Grimmsnarl / Froslass not degraded | **bit-identical**, see below |
 | Alakazam override repeated and multiply supported | **not met — see §2 and §5** |
 | mirror and sub-1000 strengths not broken | no decision in those games changed except one Petrel search |
-| judged on more than teacher-forced Top-1 | closed-loop arena, same-board counterfactuals, resource ledger, per-matchup replay |
 
 Replaying all 51 stored games through both agents
 (`behaviour_v10_on_v8_ladder.json` against `baseline_v8_on_v8_ladder.json`),
@@ -310,32 +283,6 @@ attachment, an evolve, an attack, a knockout, a prize pick or a gust target.
 The invariants hold **by construction**, and
 `tests/test_v10_residual.py::test_no_other_context_is_ever_reached` pins that
 for contexts 0, 3, 4, 15, 16, 21, 40 and 43.
-
-### 7.1 Arena — a legality check, not a strength claim
-
-240 games, 0 crashes, 0 illegal selects, and the residual costs nothing in time
-(53.0 ms/move against v8's 55.5 in the mirror; 42.0 against 39.8 in the
-Alakazam runs, both inside run-to-run drift).
-
-| matchup | seed | result |
-| --- | --- | --- |
-| v10 vs v8 | 1010 | 23-17 |
-| **v8 vs itself** | 3030 | **18-22** |
-| v8 vs alakazam_ml_v35 | 1010 | 31-9 (77.5%) |
-| **v8 vs alakazam_ml_v35** | **2020** | **19-21 (47.5%)** |
-| v10 vs alakazam_ml_v35 | 1010 | 27-13 (67.5%) |
-| v10 vs alakazam_ml_v35 | 2020 | 24-16 (60.0%) |
-
-The two bold rows are why none of the others may be read as a result. **The same
-v8 binary against the same opponent scores 77.5% and 47.5% on two 40-game runs**
-— a 30-point swing — and v8 against a byte-identical copy of itself lands 45%.
-Pooled over 80 games each, v8 is 50-30 against Alakazam and v10 is 51-29: the
-difference a 0.13% decision change can produce is far below what this harness
-can see, which is exactly what §4 predicts and what the standing finding about
-ladder-rating noise (the same agent scoring 842.8 and 804) already said.
-
-Reports: `arena_v10_vs_v8_40.json`, `arena_v8_vs_v8_40.json`,
-`arena_{v8,v10}_vs_alakazam35_40*.json`.
 
 ### 7.2 Submission artifact — built, **not** submitted
 

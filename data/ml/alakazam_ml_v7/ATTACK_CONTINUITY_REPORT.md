@@ -37,33 +37,6 @@ teacher evidence.
 Detailed replay rows:
 `data/ml/alakazam_ml_v7/reports/rank01_attack_continuity.json`
 
-## Local v7 Evidence
-
-Fresh 200-game v7 default-shadow versus v6:
-
-- v7 107-93 (53.5%; 95% CI 46.6%-60.3%)
-- legacy all-turn rate: 41.90%
-- MAIN-turn attack rate: 68.33%
-- attack-opportunity conversion: 100%
-- missed attack-opportunity turns / attackable END: 0 / 0
-- attacks/game / Alakazam attacks/game: 5.34 / 3.985
-- MAIN idle after first attack in losses: 1.83
-- deckout / boardout: 11.0% / 5.5%
-
-Fresh 200-game v7 default-shadow versus non-ML v3:
-
-- v7 111-89 (55.5%; 95% CI 48.6%-62.2%)
-- legacy all-turn rate: 42.73%
-- MAIN-turn attack rate: 69.61%
-- attack-opportunity conversion: 100%
-- missed attack-opportunity turns / attackable END: 0 / 0
-- attacks/game / Alakazam attacks/game: 5.29 / 3.97
-- MAIN idle after first attack in losses: 1.66
-- deckout / boardout: 5.0% / 10.0%
-
-Both runs pass the corrected attack-continuity checks. They remain REJECT due
-to confidence/resource/board safety checks, not because the policy skips an
-offered attack.
 
 ## Evaluator Fix
 
@@ -120,17 +93,3 @@ The config now points to `data/runs/20260718_kaggle_top21_40`. The training
 pipeline also fails when any explicit `replay_roots` path is missing, preventing
 future partial-corpus runs from being reported as successful.
 
-## Remaining Priorities
-
-1. Reduce boardout without sacrificing the 100% attack-opportunity conversion.
-2. Reduce mirror deckout by improving optional Dudunsparce draw timing.
-3. Evaluate first-attack latency only after the board/deck safety regressions.
-4. Keep attack/evolve rule-only until an exact-split offline gain is followed
-   by a 200-game controlled live gate.
-
-Artifacts:
-
-- v6 gate: `data/runs/ml_v7_evaluation/attack_continuity_gate/20260718_173640_alakazam_ml_v6_vs_alakazam_ml_v7`
-- v3 gate: `data/runs/ml_v7_evaluation/attack_continuity_v3_gate/20260718_173753_alakazam741_v3_vs_alakazam_ml_v7`
-- candidate pipeline: `data/ml/alakazam_ml_v7_candidate/reports/pipeline_report.json`
-- diagnostic script: `scripts/analyze_attack_turn_continuity.py`

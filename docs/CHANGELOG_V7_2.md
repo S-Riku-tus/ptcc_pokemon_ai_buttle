@@ -55,5 +55,4 @@
 python .\scripts\validate_agent.py --agent alakazam741_v7
 python -m pytest tests/test_alakazam741_v7.py
 python .\scripts\build_submission.py --agent alakazam741_v7
-python .\scripts\local_arena.py alakazam741_v7 alakazam741_v3 --games 100
 ```

@@ -22,71 +22,6 @@
   "unique_cards": 22,
   "ace_spec_count": 1,
   "deck_unchanged_from_v31": true,
-  "champion_challenger": {
-    "ladder_champion": "alakazam_ml_v33",
-    "previous_champion": "alakazam_ml_v31",
-    "ladder_runs": {
-      "alakazam_ml_v31": {
-        "submission_id": 55076863,
-        "final_rating": 881.2,
-        "public_record": "35-33",
-        "public_win_rate": 0.5147058824,
-        "public_win_rate_95ci": [0.398, 0.629],
-        "run": "data/runs/alakazam/20260730_v31_sub55076863"
-      },
-      "alakazam_ml_v32": {
-        "submission_id": 55094510,
-        "final_rating": 871.9,
-        "public_record": "36-28",
-        "public_win_rate": 0.5625,
-        "public_win_rate_95ci": [0.441, 0.677],
-        "run": "data/runs/alakazam/20260731_v32_sub55094510"
-      },
-      "alakazam_ml_v33": {
-        "submission_id": 55129390,
-        "final_rating": 916.9,
-        "public_record": "42-29",
-        "public_win_rate": 0.5915492958,
-        "public_win_rate_95ci": [0.475, 0.698],
-        "run": "data/runs/alakazam/20260731_v33_sub55129390"
-      }
-    },
-    "opponent_bucketed_win_rate": {
-      "source": "EpisodeService/ListEpisodes agents[].initialScore, re-queried by scripts/compare_alakazam_ladder_runs.py",
-      "artifact": "experiments/alakazam_ml_v33/ladder_opponent_buckets.json",
-      "opponent_initial_mean": {
-        "alakazam_ml_v31": 866.1,
-        "alakazam_ml_v32": 836.0,
-        "alakazam_ml_v33": 860.8
-      },
-      "bucket_800_900": {
-        "alakazam_ml_v31": "17/31",
-        "alakazam_ml_v32": "18/36",
-        "alakazam_ml_v33": "19/32"
-      },
-      "bucket_900_plus": {
-        "alakazam_ml_v31": "8/27",
-        "alakazam_ml_v32": "5/13",
-        "alakazam_ml_v33": "10/25"
-      },
-      "pooled_800_plus": {
-        "alakazam_ml_v31": {"record": "25/58", "win_rate": 0.4310344828,
-                            "ci95": [0.312, 0.559]},
-        "alakazam_ml_v32": {"record": "23/49", "win_rate": 0.4693877551,
-                            "ci95": [0.337, 0.606]},
-        "alakazam_ml_v33": {"record": "29/57", "win_rate": 0.5087719298,
-                            "ci95": [0.383, 0.634]}
-      },
-      "reading": "v31 and v33 drew comparably strong pools (866 vs 861) while v32 drew one about 30 points weaker, so v32's raw 56.2% is partly pool easiness. v33 leads both high-sample buckets and the gap widens against the strongest opponents."
-    },
-    "peak_updated_score": {
-      "alakazam_ml_v31": 1040.2,
-      "alakazam_ml_v32": 925.5,
-      "alakazam_ml_v33": 928.2,
-      "note": "v31 peaked higher inside its run but finished at 881.2; v33 finished at 916.9, close to its own peak."
-    },
-    "note": "v33 is the best Alakazam result on rating, on public win rate, on opponent-conditioned win rate and on frozen-holdout Top-1. One ~70-game run cannot prove it statistically: the pooled 800+ intervals overlap and the +35.7 rating gap over v31 is inside the 38.8-point swing previously seen between two runs of an equivalent agent. The agreement of four independent measures is what supports the promotion."
-  },
   "teacher_corpus": {
     "index": "experiments/alakazam_ml_v33/teacher_index.csv",
     "primary_teacher": "Yushin Ito",
@@ -192,31 +127,6 @@
     "Do not cycle Dudunsparce away from a board of two or fewer Pokemon.",
     "Use the frozen v29 policy for unsupported, nested, low-time, or illegal cases."
   ],
-  "local_validation": {
-    "v33_pytest_tests": 184,
-    "v33_pytest_failures": 0,
-    "static_validation_passed": true,
-    "turn_history_parity_episodes": 12,
-    "turn_history_parity_rows": 6513,
-    "turn_history_parity_mismatches": 0,
-    "shipped_artifact_integrity_top1": 0.9970817121,
-    "shipped_artifact_integrity_note": "In-sample by construction; confirms the exported JSON and the pure-Python walker reproduce the trained model.",
-    "arena_vs_v31": {
-      "games": 40,
-      "seed": 3330,
-      "record": "24-15-1",
-      "win_rate_excluding_draws": 0.6153846154
-    },
-    "arena_vs_v32": {
-      "games": 40,
-      "seed": 3331,
-      "record": "19-21-0",
-      "win_rate_excluding_draws": 0.475
-    },
-    "arena_crashes": 0,
-    "arena_illegal_actions": 0,
-    "arena_caveat": "40 games per matchup is far too few to separate agents that agree on most decisions; these runs are safety checks, not strength evidence."
-  },
   "ladder_validation": {
     "submission_id": 55129390,
     "final_rating": 916.9,
@@ -225,7 +135,9 @@
     "public_episodes": 71,
     "validation_episodes": 1,
     "public_record": "42-29",
-    "terminal_statuses": {"DONE": 142},
+    "terminal_statuses": {
+      "DONE": 142
+    },
     "errors": 0,
     "timeouts": 0,
     "mean_steps_per_game": 138.9,

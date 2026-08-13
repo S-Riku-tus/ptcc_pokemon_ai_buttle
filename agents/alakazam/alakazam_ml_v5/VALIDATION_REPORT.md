@@ -51,5 +51,3 @@
 - archive integrity checked after creation
 
 ## Limitation
-
-The official `cg` package, real battle harness, Kaggle Validation Episode, and ladder execution were not available here. The local API-compatible stub validates policy control flow but cannot prove compatibility with every engine-side effect. Run repository static validation and a small real-engine smoke match before submission, followed by a seat-swapped Champion–Challenger evaluation.

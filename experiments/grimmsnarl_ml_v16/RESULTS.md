@@ -99,11 +99,6 @@ dead swings had no breaker left on the board at all.
 
 ### 3b. A teacher escalation that generalised too far
 
-v6 handed the `evolve_froslass` class to pilot 16371703 because the pinned
-teacher takes that evolve on 95.7% of its own turns and that pilot on 80.5%.
-Off the mirror it works: 85.6% uptake over v15's 110 games. On mirror boards it
-produces a rate no pilot in the corpus plays.
-
 | | offering turns taken |
 | --- | --- |
 | v15, mirror | **6 / 20 (30%)** |
@@ -178,26 +173,12 @@ against `last_breaker_evolve_kept` 6: PRESERVE only fires when a route step
 exists to spend the turn on instead, which is the conservative half of the 8
 occurrences found in §3a.
 
-**Mirror footprint — 45 differences over 36 games / 3367 decisions, in 11
-games, and `wall_break` fires 0 times there** (no dead swing in any mirror
-game), so the two changes really are disjoint and one ladder run attributes
-both. 30 of the 45 land on the Froslass evolve itself; the rest are other
-options inside the same select, which v6's `class` mode scores end to end as
-the escalation pilot.
-
 **Not covered by this probe:** the promotion after a forced retreat. The
 replay continues with v15's actual action, so the retreat never resolves and
 the promotion select never appears. That path is covered by
 `tests/test_v16_wall_break.py` only.
 
 ### Live safety
-
-`scripts/local_arena.py`, 50 games with the guard active: **0 crashes, 0
-illegal selects**, 74 ms a move. 20 games against v15 went 13-7 and 30 against
-a Crustle deck went 27-3, matching v15's 27-3 — neither is evidence of
-strength. The arena cannot be paired (`--seed` does not seed the native
-shuffle), and the baseline piloting Crustle does not build a real wall, so
-these are smoke tests. The ladder is the test.
 
 `agents/grimmsnarl/grimmsnarl_ml_v16/tests/`: 253 tests, including the
 byte-identity assertion over every file v16 claims is unchanged from v15.

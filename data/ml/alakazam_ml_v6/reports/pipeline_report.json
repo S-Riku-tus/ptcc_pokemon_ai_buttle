@@ -1460,36 +1460,6 @@
       "observed_losses": 40,
       "observed_unsafe_last_body_dudunsparce_losses": 3
     },
-    "ml_promotion_gate": {
-      "seed": 741,
-      "games": 200,
-      "reseed_each_game": true,
-      "shadow_wins": 113,
-      "shadow_losses": 87,
-      "guarded_override_wins": 109,
-      "guarded_override_losses": 91,
-      "decision": "shadow_only"
-    },
-    "final_v3_evaluation": {
-      "seed": 741,
-      "games": 1000,
-      "reseed_each_game": true,
-      "wins": 567,
-      "losses": 433,
-      "win_rate": 0.567,
-      "wilson_95_low": 0.5361,
-      "wilson_95_high": 0.5974,
-      "agent_errors": 0,
-      "illegal_actions": 0
-    },
-    "paired_generic_evaluation": {
-      "opponents": 5,
-      "games_per_opponent": 60,
-      "v5_wins": 253,
-      "v5_losses": 47,
-      "v3_wins": 246,
-      "v3_losses": 54
-    },
     "version": "0.6.0",
     "status": "development",
     "training_dataset_version": "20260717-kaggle-top20-full-5-submissions-3158-replays",
@@ -1586,36 +1556,6 @@
         "observed_wins": 52,
         "observed_losses": 40,
         "observed_unsafe_last_body_dudunsparce_losses": 3
-      },
-      "ml_promotion_gate": {
-        "seed": 741,
-        "games": 200,
-        "reseed_each_game": true,
-        "shadow_wins": 113,
-        "shadow_losses": 87,
-        "guarded_override_wins": 109,
-        "guarded_override_losses": 91,
-        "decision": "shadow_only"
-      },
-      "final_v3_evaluation": {
-        "seed": 741,
-        "games": 1000,
-        "reseed_each_game": true,
-        "wins": 567,
-        "losses": 433,
-        "win_rate": 0.567,
-        "wilson_95_low": 0.5361,
-        "wilson_95_high": 0.5974,
-        "agent_errors": 0,
-        "illegal_actions": 0
-      },
-      "paired_generic_evaluation": {
-        "opponents": 5,
-        "games_per_opponent": 60,
-        "v5_wins": 253,
-        "v5_losses": 47,
-        "v3_wins": 246,
-        "v3_losses": 54
       },
       "version": "0.6.0",
       "status": "development",

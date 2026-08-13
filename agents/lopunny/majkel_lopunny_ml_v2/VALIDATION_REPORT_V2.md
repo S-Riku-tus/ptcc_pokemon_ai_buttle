@@ -57,17 +57,6 @@ test非強制semantic exactの目標85%は未達です。v1 test 77.13%に対し
 - bundleに3モデル、特徴量、runtime、policy baseを同梱: passed
 - README/metadata/tests/training reportをbundleから除外: passed
 
-## ローカルアリーナ
-
-`alakazam_ml_v34` 相手20戦、seed 5515:
-
-- 戦績: 3-17
-- crash: 0
-- illegal select: 0
-- seat pool平均: 48.66ms / 52.87ms per move
-
-勝率は標本が小さく相手が1種類なので比較根拠にしません。未知盤面の完走・合法性・時間だけを安全性証拠とします。
-
 ## 判定
 
 `offline candidate / holdout target not met`

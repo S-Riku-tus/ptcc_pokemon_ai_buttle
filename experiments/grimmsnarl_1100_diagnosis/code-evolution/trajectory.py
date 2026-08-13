@@ -119,7 +119,7 @@ def ladder_stats(run_dir: Path, submission: int) -> dict:
             continue
         other = 1 - seat
         if row[f"agent_{other}_submission_id"] == str(submission):
-            continue  # self-play validation
+            continue  # non-public validation episode
         if f"agent_{seat}_initial_score" not in row:
             continue
         try:

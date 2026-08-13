@@ -48,11 +48,6 @@ supports the original concern. v35's 59.7% API win rate was supported by a
 perfect 18-0 below rating 800, not by performance against stronger teams. Its
 maximum observed updated score was 911.27 versus 928.21 for v33.
 
-The 68-replay strategy audit found 10-7 in the Alakazam mirror, 11-11 against
-Marnie's Grimmsnarl ex, and 0-3 against Dragapult. It converted 305 of 315
-measured attack opportunities (96.8%), so missed legal attacks are not the
-main defect.
-
 ## Evaluation data
 
 The combined index contains five same-teacher cohorts: 180, 115, 994, 980,

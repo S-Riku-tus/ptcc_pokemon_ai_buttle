@@ -7,8 +7,7 @@ that its ranker was byte-identical to v4 at that time. v5.1 now promotes a
 separately gated data refresh: 4,097 selected games, 322,975 decisions, 21
 teams, a 2,000-tree ranker, and the existing teacher pin 16494330. The promoted
 candidate improved paired Top-1 by +0.0036 on the refreshed test, improved the
-new rank-3 team by +0.0276, passed 144 tests, and went 61-39 against the prior
-v5 over 100 local games with no crashes or illegal selections. The detailed
+new rank-3 team by +0.0276, and passed 144 tests. The detailed
 selection, iteration sweep, pin experiment, timing cost, and artifact paths are
 in `DATA_REFRESH_2026-08-06.md`. Statements below that the model bytes are
 unchanged apply to v5.0 before this refresh.
@@ -145,33 +144,6 @@ exactly, which is the control.
 
 Both land on the elite band's own means.
 
-## 4b. And the chain closes in *live* play
-
-The probe above is teacher-forced, so it proves the count changed, not that the
-fuel arrives. 60 paired self-play games with trajectories saved
-(`data/runs/local_self_play/v5_vs_v4_traj`), measured per own turn on the games
-each agent actually played:
-
-| per own turn | v4 | **v5** | ≥1120 corpus |
-|---|---:|---:|---:|
-| attachment made | 51.5% | **59.2%** | 59.6% |
-| a Darkness in hand | 62.3% | **70.8%** | 71.0% |
-| Darkness left in deck | 3.66 | **4.30** | 4.23 |
-| Adrena-Brain per game | 5.45 | **6.48** | 6.07 field / 6.8 mirror top |
-| Punk Up mean searched | 3.72 | **2.53** | 2.65 |
-| Punk Up took every card | 100.0% | **29.5%** | 36.9% |
-| five-card searches | 56 | **4** | — |
-| Poffin mean taken | 1.75 | **1.50** | 1.64 |
-
-From turn 5 on: attachment 45.6% → **51.9%** (band 53.2%), a Darkness in hand
-59.8% → **67.9%** (67.0%), Darkness left in deck 1.85 → **2.72** (2.71).
-
-All six pre-registered behavioural targets in §7 are met. The attachment gap
-v3 and v4 could not move with 91 feature columns between them is **+7.7 points
-and now sits on the elite band's own rate**, and Adrena-Brain — which v4's
-metadata names as "the exact statistic that separates our won mirrors from our
-lost ones" — is up 1.03 uses a game.
-
 ## 5. Three analysis priorities measured and **not** implemented
 
 Same discipline as v4, which refuted two of its five inherited priorities.
@@ -229,27 +201,7 @@ theirs) is kept unchanged, and this stays open.
   guard's firing *and* its stand-down conditions.
 - v4's 116 tests still pass unchanged in v4's own directory.
 - `scripts/validate_agent.py` passes with no warnings.
-- 0 crashes, 0 illegal selects, 0 policy fallbacks in 539 games and the 52-game
-  counterfactual probe.
-
-**Local self-play cannot see the change.**
-
-| matchup | v5 | v4 | n each |
-|---|---:|---:|---:|
-| mirror, paired | 96-103-1 / 32-28 / 20-20 → **49.5%** | — | 299 |
-| vs `alakazam_ml_v35` | 23-17 (57.5%) | 23-17 (57.5%) | 40 |
-| vs `majkel_lopunny_ml_v2` | 30-10 (75.0%) | 30-10 (75.0%) | 40 |
-
-The two cross-archetype pairs are seed-paired but genuinely diverge — only 18 of
-40 games against Alakazam end with the same winner — so the identical
-aggregates are coincidence, not a no-op. The reading is parity everywhere.
-
-That is exactly what every version in this line has measured in the mirror:
-**v4 was 51.7% against v3 and 55.0% against v2 in paired self-play, and then
-moved the ladder from 950.8 / 905.2 to 1031.2.** The mirror is symmetric in
-precisely the resource this change is about — both sides thin the same deck at
-the same rate — and it is only ~42% of the actual ladder field. Local self-play
-has no demonstrated power to rank versions of this agent.
+- 0 illegal selects in the 52-game counterfactual probe.
 
 **So the strength claim here is a causal one, not an outcome one:** three
 rating-ordered behaviours with v4 off the end of the field distribution, a
@@ -260,10 +212,6 @@ this ladder — which is why §7's targets are stated before the run rather than
 after it.
 
 ## 7. What to check on the next ladder run
-
-Stated before the run. Targets 1–6 are already met in 60 games of live
-self-play (§4b); the ladder run is to confirm they hold against the real field
-and to see whether they convert.
 
 1. Punk Up takes every card offered on **30–45%** of activations (v4: 100%).
 2. Five-card searches ≈ **0%** (v4: 52% of `maxCount == 5` activations).
@@ -300,8 +248,6 @@ leaves on the table are both inside the model:
    [[grimmsnarl-imitation-saturated]] measured that the elite pin fixes the
    Froslass over-evolve (86.4% → 45.5% net-negative evolves) at the cost of
    changing 12.3% of all decisions in favour of a policy the model reproduces
-   at 77.9%. That trade has never been run end to end as a paired A/B, and it is
-   the only remaining lever with a measured effect on more than one of the gaps
-   in this report.
+   at 77.9%. Stored replay evidence does not resolve that trade.
 
 Neither is a shell. Both are v6.

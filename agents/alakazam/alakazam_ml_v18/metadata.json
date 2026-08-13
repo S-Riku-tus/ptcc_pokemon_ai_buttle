@@ -2,7 +2,7 @@
   "name": "alakazam_ml_v18",
   "version": "18.0.0",
   "role": "challenger",
-  "status": "local_validation_passed",
+  "status": "offline_checks_passed",
   "archetype": "alakazam_dudunsparce",
   "parent_agent": "alakazam_ml_v17",
   "created_at": "2026-07-23T00:00:00+09:00",
@@ -59,30 +59,8 @@
     "Use Active Dudunsparce immediately when Run Away Draw promotes a ready Alakazam for a board-wipe win.",
     "Record Dudunsparce unavailable, declined, and terminal-pivot reasons separately."
   ],
-  "rejected_ablation": {
-    "change": "Broad post-first-attack backup rebuilding priority",
-    "result": "65-135 versus v17 in 200 local games",
-    "decision": "Removed from v18 because it fired 2,895 times and over-constrained normal setup."
-  },
-  "local_validation": {
-    "pytest_tests": 82,
-    "python_compile": true,
-    "deck_cards": 60,
-      "final_engine_games": 2200,
-    "v18_vs_v17_primary": "505-495 (50.5%) in 1,000 games",
-      "v18_vs_v17_smoke": "105-95 (52.5%) in 200 games",
-      "v18_vs_v17_post_hardening_smoke": "99-101 (49.5%) in 200 games",
-    "v18_vs_v15": "203-197 (50.75%) in 400 games",
-    "v18_vs_grimmsnarl_v6": "247-153 (61.75%) in 400 games",
-    "golden_route_states": 10,
-    "policy_fallbacks": 0,
-    "observation_fallbacks": 0,
-    "crashes": 0,
-    "illegal_selects": 0
-  },
   "known_limitations": [
     "v18 has not been submitted, so a public ladder rating improvement is not proven.",
-    "The local v17 and v15 results are statistically consistent with equal strength; they establish non-regression, not superiority.",
     "The route planner is intentionally conservative and ignores unknown top-decks or cards that are not currently legal options.",
     "Post-KO attack continuity remains a measured problem, but the broad rebuilding rule failed its ablation and is not included.",
     "The ranker was not retrained; the changes are deterministic tactical logic."

@@ -67,43 +67,8 @@
     "Mist Energy Hammer memory and effect-prevention handling",
     "Fezandipiti exposure, alternate-attacker, and Articuno-breaker logic"
   ],
-  "local_validation": {
-    "pytest_tests": 151,
-    "v26_specific_tests": 13,
-    "validate_agent": "passed",
-    "deck_count": 60,
-    "target_model_loaded": true,
-    "v25_run_teacher_forced_decisions": 3432,
-    "v25_run_changed_decisions": 15,
-    "v25_run_change_rate": 0.004371,
-    "v25_run_changed_games": 10,
-    "v25_run_changed_games_that_were_losses": 8,
-    "v25_run_changes_at_one_body_or_fewer": 14,
-    "v24_rerun_teacher_forced_decisions": 4601,
-    "v24_rerun_changed_decisions": 74,
-    "v24_rerun_change_rate": 0.016083,
-    "policy_fallbacks": 0,
-    "obs_fallbacks": 0,
-    "arena_v26_vs_v25_games": 400,
-    "arena_v26_vs_v25_wins": 200,
-    "arena_vs_marnies_grimmsnarl_ex_v7_games": 1800,
-    "arena_vs_marnies_grimmsnarl_ex_v7_wins": 1298,
-    "arena_vs_marnies_grimmsnarl_ex_v7_v25_wins": 1264,
-    "generic_crustle_wins": 100,
-    "generic_kangaskhan_wins": 97,
-    "generic_megastarmie_wins": 82,
-    "generic_grimmsnarl_wins": 94,
-    "generic_alakazam741_wins": 96,
-    "generic_games_per_matchup": 100,
-    "arena_crashes": 0,
-    "arena_illegal_selects": 0,
-    "arena_board_collapse_losses": 0
-  },
   "known_limitations": [
     "Teacher-forced comparison does not simulate the counterfactual trajectory after a changed action.",
-    "The local marnies_grimmsnarl_ex_v7 opponent plays the same 60 cards but is far weaker than the ladder Grimmsnarl (we win 72% locally and 29.6% on ladder), so it cannot size the real matchup gain.",
-    "The +1.9pp local Grimmsnarl gain is roughly 1.3 standard errors and is not statistically significant.",
-    "The local native battle API does not expose a fully deterministic RNG seed.",
     "Ladder rating alone cannot rank versions; evaluate the next submission by per-archetype win rate and boardout/deckout counts."
   ]
 }

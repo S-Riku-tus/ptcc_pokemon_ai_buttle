@@ -6,17 +6,6 @@ This build starts from the user-supplied original `ml_alakazam.zip`. It is not a
 
 ## High-impact fixes
 
-1. `src/replay_io.py` now accepts both `replay/episode_*.json` and `replays/episode_*.json`.
-2. Seat inference uses source manifest, exact TeamNames, modal target-deck evidence, restricted aliases, and safe self-play handling. Ambiguous cases are excluded.
-3. Labels use the same-seat action stored at replay step t+1 as an index into the legal `select.option` list.
-4. Dataset construction supports team, submission, deck, and chronological holdouts.
-5. Policy features grew from the original 76 to 225 observation/candidate-only features, including explicit state-action interactions.
-6. Rank/deck/outcome/quality weights are mild and bounded because strong weighting failed ablation.
-7. LightGBM categorical splits are now distilled correctly as category sets (`lightgbm_tree_v2`). The original numeric-only distiller could not safely export the expanded ranker.
-8. The existing v12 fallback remains authoritative for Boss, Retreat, Xerosic, and Hammer. Energy requires probability >= 0.85 and margin >= 0.12.
-9. Old battle artifacts are marked stale rather than presented as results of the new model.
-10. Pipeline output uses compressed CSV when PyArrow is unavailable; Parquet remains an optional acceleration artifact.
-
 ## Actual replay recheck
 
 The integrated parser and manifest builder were rerun against all 20 supplied ZIPs:

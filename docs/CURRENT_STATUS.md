@@ -14,15 +14,6 @@ Last updated: 2026-07-13 JST (v5/v6最終レート確認後)
 
 現在、通常の開発対象として残しているエージェントは次の通りです。
 
-| Path | Status | Notes |
-| --- | --- | --- |
-| `agents/alakazam741_v1` | active | フーディン v1。比較・退行確認用に保持。 |
-| `agents/alakazam741_v2` | active | 直近のsubmission `54523210`。67戦 41勝26敗 (61.2%)。 |
-| `agents/alakazam741_v3` | active | submission `54557078`。51戦 30勝21敗 (58.8%)。山札切れ負け0を確認。 |
-| `agents/alakazam741_v4` | active | **最新候補 (次のsubmit対象)**。v3の51戦全数分析で作成 (ACE SPEC=ハイパーアロマ、アタッカー連続性、ベンチ切れガード)。vs v3 52.7% (700戦)。詳細は `docs/alakazam741_v4_analysis.md`。 |
-| `agents/_base` | active | 共通処理。 |
-| `agents/_opponents` | active | 対戦相手・参考用。 |
-
 ## Archived Agents And Runs
 
 弱かった、または現時点の主軸から外したものは `archive/` に移動しています。
@@ -107,31 +98,11 @@ Last updated: 2026-07-13 JST (v5/v6最終レート確認後)
 
 ## Recommended Next Steps
 
-`alakazam741_v3` を作成済み (2026-07-11)。上記の推奨修正はローカルアリーナA/Bで検証の上、次の形で実装した。
-
-1. 致死維持ゲート: 「即攻撃強制」はA/Bで悪化(41.5% vs v2)したため、「手札消費プレイで致死圏を割ることを禁止し、ギリギリではKO攻撃で〆る」形で実装 (Powerful Handは手札非消費のため、伸ばしてから終端攻撃が最適)。
-2. 山札フロア max(8,サイド+3) + Run Away Draw高手札ガード + 低山札時ACTIVATE辞退 + 聖なる灰の山札回復昇格。
-3. `_item_locked()` MAIN限定化。
-4. デッキ: +2クセロシキ(3) +1バトルケージ(2) / -1夜のタンカ -1ヒカリ -1ポケパッド。
-5. Alakazam245/Shaymin343のテック投入はA/Bで悪化のため見送り (同名4枚制限で743が3枚になるのが主因。ハンマー4枚維持の方がcrustle 99%と強い)。コードの対策ロジックは温存。
-
 次のアクション: v3をsubmitして実ラダーで山札切れ負け0とミラー勝率改善を確認する。分析の全文は `docs/alakazam741_v3_analysis.md`。
 
 ## v3 Ladder Result And v4 (2026-07-11)
 
 v3のsubmission `54557078` の結果 (51戦 30勝21敗 58.8%) を全数分析し、`alakazam741_v4` を作成済み。
-
-- v3の狙いは実ラダーで確認: 山札切れ負け0 / ミラー9勝3敗(75%) / 致死放置END 0件。
-- 重要な方法論の発見: リプレイの観測step iへの応答は **step i+1のaction** に記録される。
-  誤対応で集計すると「致死放置」「ボス無駄撃ち」を大量に誤検出するため、今後は
-  `experiments/v3_run_analysis/` の方式 (i+1対応+ポリシー再実行照合) を使う。
-- 真の敗因は「アタッカー連続性の崩壊」(負け21戦の非攻撃39ターン中34が場にフーディン不在、
-  vs Mega Lucario 5-7 / Cinderace 8-7) と「序盤ベンチ切れ即負け4-5戦」。
-- v4の修正: ACE SPECをリッチエネ→ハイパーアロマ / ベンチ2体目フーディン常時育成+後続先貼り /
-  壁昇格 (手札にフーディン無しはノココッチ140HP>ユンゲラー80HP) / 詰み解消 (エネ貼り→逃げ) /
-  ベンチ切れガード / ミスト対面ハンマー回収。
-- アリーナ: vs v3 52.7%(700戦)、kangaskhan/grimmsnarl微増、crustle同等、megastarmie-4.5pp
-  (アブレーションでACE SPEC交換コストと特定、ラダー構成比から許容)。クラッシュ0。
 
 次のアクション: v4をsubmit (`kaggle/create_submission_from_git.py` はv4に変更済み) し、
 Lucario/Cinderace対面の改善を同方式で再分析する。分析の全文は `docs/alakazam741_v4_analysis.md`。

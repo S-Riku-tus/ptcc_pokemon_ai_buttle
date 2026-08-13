@@ -30,22 +30,6 @@ The replay loader recovers expert seats from each bundle's `submission.json`
 and `episodes.json`, including nested episode layouts.  Duplicate trajectory
 IDs are removed before training.
 
-## Promotion evidence against alakazam741_v3
-
-The final comparison used 200 games, alternating seats, and independent
-per-game seeds starting at 741 so that shadow and override modes saw matching
-RNG conditions.
-
-- Old v5 logic, ML disabled: 58-142 (29.0%)
-- Recursion-fixed old v5 logic, ML disabled: 67-133 (33.5%)
-- Final v3-based v5, ML shadow mode: 113-87 (56.5%)
-- Same build with all guarded ML overrides: 109-91 (54.5%)
-- Final larger shadow evaluation: 567-433 over 1,000 games (56.7%)
-
-The model therefore remains a measured shadow advisor.  A future model should
-be promoted only after it beats the deterministic shadow baseline on a fresh,
-paired 200-game set and does not regress against non-Alakazam opponents.
-
 ## Deck
 
 - Dunsparce 3 / Dudunsparce 3

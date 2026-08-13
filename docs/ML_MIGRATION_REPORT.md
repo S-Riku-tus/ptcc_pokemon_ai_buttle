@@ -42,8 +42,6 @@ The official agent name is `alakazam_ml_v2_expanded`.
 - Old ZIP export: marked the legacy ZIP exporter as development-only and made `scripts/build_submission.py` the official tar.gz builder.
 - Kaggle Notebook helper lagged active agents: updated `kaggle/create_submission_from_git.py` to build v12 fallback and ML hybrid.
 - Dependencies were mixed: added `requirements-runtime.txt`, kept dev tooling in `requirements-dev.txt`, and moved ML stack dependencies to `requirements-ml.txt`.
-- Self-play lacked trajectory schema: added opt-in `--save-trajectories`.
-- Champion-Challenger was undocumented: added config and report generator.
 
 ## Large Data Inventory
 
@@ -99,9 +97,6 @@ Executed during the migration:
 | `python -m ml.pipelines.train_archetype --archetype alakazam --reuse-processed` | passed; rebuilt matrix, trained LightGBM ranker, distilled JSON model, validated runtime |
 | `python -m ml.pipelines.train_archetype --archetype alakazam` | passed; rebuilt processed data from 51 replay ZIPs, trained LightGBM ranker, distilled JSON model, validated runtime |
 | `python scripts/analyze_deck_archetypes.py --input data\runs\kaggle_top50 --output data\ml\archetype_analysis` | passed; wrote 171 deck clusters |
-| `python scripts/self_play.py alakazam_ml_v2_expanded alakazam741_v12_top_sync_full --games 20 --quiet` | passed; 10-10-0, no crashes or illegal actions |
-| `python scripts/self_play.py ... --games 2 --save-trajectories` | passed; wrote `trajectory_schema.json` and 217 trajectory rows |
-| `python scripts/champion_challenger.py --summary-json data\runs\local_self_play\20260716_181849\summary.json ...` | passed; no promotion recommended |
 
 Full raw replay retraining changed the runtime model hash to
 `2f494b027174388877fce9fb615e7a4cd077ad2279bc5511693a494bca526809`.
