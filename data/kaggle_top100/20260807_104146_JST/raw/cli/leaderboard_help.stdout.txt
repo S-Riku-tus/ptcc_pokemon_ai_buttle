@@ -1,0 +1,12 @@
+usage: kaggle competitions leaderboard [-h] [-s] [-d] [-p PATH] [-v] [-q]
+                                       [competition]
+
+options:
+  -h, --help            show this help message and exit
+  competition           Competition URL suffix (use "kaggle competitions list" to show options)
+                        If empty, the default competition will be used (use "kaggle config set competition")"
+  -s, --show            Show the top of the leaderboard
+  -d, --download        Download entire leaderboard
+  -p PATH, --path PATH  Folder where file(s) will be downloaded, defaults to current working directory
+  -v, --csv             Print results in CSV format (if not set print in table format)
+  -q, --quiet           Suppress printing information about the upload/download progress

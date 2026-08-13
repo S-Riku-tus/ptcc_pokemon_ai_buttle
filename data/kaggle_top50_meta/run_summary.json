@@ -1,27 +1,27 @@
 {
   "input_csv": "data\\kaggle_top100\\latest\\public_submissions_top50.csv",
   "output_root": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\kaggle_top50_meta",
-  "collected_at": "2026-08-02T04:02:40.863026Z",
+  "collected_at": "2026-08-05T03:09:20.085339Z",
   "counts": {
     "input_submission_ids": 50,
     "processed_submission_rows": 50,
-    "submission_success": 0,
+    "submission_success": 50,
     "submission_no_data": 0,
-    "submission_failed": 50,
+    "submission_failed": 0,
     "submission_missing_from_final_index": 0,
-    "episode_relations": 0,
-    "unique_episodes": 0,
-    "replays_present": 97,
-    "logs_present": 194,
-    "duplicate_episode_relations": 0,
-    "replay_downloaded": 0,
-    "replay_skipped_existing": 0,
+    "episode_relations": 50,
+    "unique_episodes": 46,
+    "replays_present": 622,
+    "logs_present": 1244,
+    "duplicate_episode_relations": 4,
+    "replay_downloaded": 46,
+    "replay_skipped_existing": 4,
     "replay_failures": 0,
-    "log_downloaded": 0,
-    "log_skipped_existing": 0,
+    "log_downloaded": 92,
+    "log_skipped_existing": 8,
     "log_failures": 0,
     "episode_filtered_by_deck": 0,
-    "failure_rows": 50
+    "failure_rows": 0
   },
   "deck_filter": {
     "required_deck_card_ids": []
@@ -29,7 +29,7 @@
   "submission_filter": {
     "max_rank": 50,
     "representative_only": true,
-    "source_rows_total": 100,
+    "source_rows_total": 102,
     "source_rows_kept": 50
   },
   "missing_submission_ids": [],

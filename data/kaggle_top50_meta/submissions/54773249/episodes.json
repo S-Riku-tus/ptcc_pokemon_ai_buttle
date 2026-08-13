@@ -1,4 +1,19 @@
 {
-  "episodes": [],
-  "error": "list episodes for submission 54773249 failed after 6 attempts: Kaggle API failed with HTTP 429 for https://www.kaggle.com/api/i/competitions.EpisodeService/ListEpisodes:\n{\"error\":{\"code\":429,\"message\":\"Too many requests\",\"status\":\"RESOURCE_EXHAUSTED\"}}"
+  "submission_id": 54773249,
+  "episode_count": 1,
+  "episodes": [
+    {
+      "episode_id": 90070640,
+      "create_time": "2026-08-05T02:32:53.903542100Z",
+      "end_time": "2026-08-05T02:33:58.598299600Z",
+      "state": "COMPLETED",
+      "episode_type": "EPISODE_TYPE_PUBLIC",
+      "agent_0_submission_id": "55253275",
+      "agent_1_submission_id": "54773249",
+      "agent_0_initial_score": "1043.5521",
+      "agent_1_initial_score": "1124.3017",
+      "agent_0_updated_score": "1037.3209",
+      "agent_1_updated_score": "1127.5296"
+    }
+  ]
 }

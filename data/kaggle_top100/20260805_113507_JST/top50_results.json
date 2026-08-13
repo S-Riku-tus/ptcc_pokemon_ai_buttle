@@ -1,0 +1,1503 @@
+{
+  "metadata": {
+    "competition": {
+      "id": 116727,
+      "name": "pokemon-tcg-ai-battle",
+      "leaderboardUrl": "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/leaderboard"
+    },
+    "retrievedAtJst": "2026-08-05T11:35:39.754798+09:00",
+    "retrievedAtUtc": "2026-08-05T02:35:39.754798Z",
+    "snapshotDirectory": "data\\kaggle_top100\\20260805_113507_JST",
+    "latestDirectory": "data\\kaggle_top100\\latest",
+    "topN": 50,
+    "counts": {
+      "leaderboardRowsFetched": 6286,
+      "teamsRequested": 50,
+      "teamsSucceeded": 50,
+      "teamsFailed": 0,
+      "publicSubmissionRows": 102
+    },
+    "cli": {
+      "versionCommandFile": "raw/cli/version.json",
+      "teamSubmissionsSupported": false,
+      "teamSubmissionsNote": "Kaggle API 1.7.4.5 in this environment does not expose `kaggle competitions team-submissions`; equivalent public web API endpoints were used for per-team public submissions.",
+      "diagnostics": [
+        {
+          "name": "version",
+          "command": [
+            "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\.venv\\Scripts\\kaggle.exe",
+            "--version"
+          ],
+          "exit_code": 0,
+          "stdout_file": "version.stdout.txt",
+          "stderr_file": "version.stderr.txt"
+        },
+        {
+          "name": "competitions_help",
+          "command": [
+            "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\.venv\\Scripts\\kaggle.exe",
+            "competitions",
+            "--help"
+          ],
+          "exit_code": 0,
+          "stdout_file": "competitions_help.stdout.txt",
+          "stderr_file": "competitions_help.stderr.txt"
+        },
+        {
+          "name": "leaderboard_help",
+          "command": [
+            "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\.venv\\Scripts\\kaggle.exe",
+            "competitions",
+            "leaderboard",
+            "--help"
+          ],
+          "exit_code": 0,
+          "stdout_file": "leaderboard_help.stdout.txt",
+          "stderr_file": "leaderboard_help.stderr.txt"
+        },
+        {
+          "name": "team_submissions_help",
+          "command": [
+            "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\.venv\\Scripts\\kaggle.exe",
+            "competitions",
+            "team-submissions",
+            "--help"
+          ],
+          "exit_code": 2,
+          "stdout_file": "team_submissions_help.stdout.txt",
+          "stderr_file": "team_submissions_help.stderr.txt"
+        },
+        {
+          "name": "auth_check_leaderboard_show",
+          "command": [
+            "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\.venv\\Scripts\\kaggle.exe",
+            "competitions",
+            "leaderboard",
+            "pokemon-tcg-ai-battle",
+            "--show",
+            "--csv",
+            "--quiet"
+          ],
+          "exit_code": 1,
+          "stdout_file": "auth_check_leaderboard_show.stdout.txt",
+          "stderr_file": "auth_check_leaderboard_show.stderr.txt"
+        }
+      ]
+    }
+  },
+  "teams": [
+    {
+      "rank": 1,
+      "teamId": 16374395,
+      "teamName": "Majkel1337",
+      "leaderboardSubmissionId": 55186239,
+      "leaderboardScore": "1300.3",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55186239,
+      "representativePublicScore": "1300.3",
+      "representativeSubmittedAtUtc": "2026-08-02T12:57:04.700000Z",
+      "representativeSubmittedAtJst": "2026-08-02T21:57:04.700000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55186239,
+          "publicScore": "1300.3",
+          "submittedAtUtc": "2026-08-02T12:57:04.700000Z",
+          "submittedAtJst": "2026-08-02T21:57:04.700000+09:00"
+        },
+        {
+          "id": 55147326,
+          "publicScore": "1040.5",
+          "submittedAtUtc": "2026-07-31T21:33:01.977000Z",
+          "submittedAtJst": "2026-08-01T06:33:01.977000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "teamId": 16463316,
+      "teamName": "LiamK",
+      "leaderboardSubmissionId": 55248965,
+      "leaderboardScore": "1177.1",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55248965,
+      "representativePublicScore": "1177.1",
+      "representativeSubmittedAtUtc": "2026-08-04T19:59:05.597000Z",
+      "representativeSubmittedAtJst": "2026-08-05T04:59:05.597000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55248965,
+          "publicScore": "1177.1",
+          "submittedAtUtc": "2026-08-04T19:59:05.597000Z",
+          "submittedAtJst": "2026-08-05T04:59:05.597000+09:00"
+        },
+        {
+          "id": 55248957,
+          "publicScore": "1009.6",
+          "submittedAtUtc": "2026-08-04T19:58:32.727000Z",
+          "submittedAtJst": "2026-08-05T04:58:32.727000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "teamId": 16422241,
+      "teamName": "Raihan Ramadistra",
+      "leaderboardSubmissionId": 55177269,
+      "leaderboardScore": "1151.0",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55177269,
+      "representativePublicScore": "1151.0",
+      "representativeSubmittedAtUtc": "2026-08-02T04:23:36.767000Z",
+      "representativeSubmittedAtJst": "2026-08-02T13:23:36.767000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55202823,
+          "publicScore": "1128.4",
+          "submittedAtUtc": "2026-08-03T05:09:02.993000Z",
+          "submittedAtJst": "2026-08-03T14:09:02.993000+09:00"
+        },
+        {
+          "id": 55177269,
+          "publicScore": "1151.0",
+          "submittedAtUtc": "2026-08-02T04:23:36.767000Z",
+          "submittedAtJst": "2026-08-02T13:23:36.767000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "teamId": 16536318,
+      "teamName": "李秉叡（ntumlnoob）",
+      "leaderboardSubmissionId": 55184021,
+      "leaderboardScore": "1148.2",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55184021,
+      "representativePublicScore": "1148.2",
+      "representativeSubmittedAtUtc": "2026-08-02T11:01:48.520000Z",
+      "representativeSubmittedAtJst": "2026-08-02T20:01:48.520000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55184021,
+          "publicScore": "1148.2",
+          "submittedAtUtc": "2026-08-02T11:01:48.520000Z",
+          "submittedAtJst": "2026-08-02T20:01:48.520000+09:00"
+        },
+        {
+          "id": 55176332,
+          "publicScore": "1054.1",
+          "submittedAtUtc": "2026-08-02T03:21:38.057000Z",
+          "submittedAtJst": "2026-08-02T12:21:38.057000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "teamId": 16385817,
+      "teamName": "M Sato",
+      "leaderboardSubmissionId": 55198468,
+      "leaderboardScore": "1147.4",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55198468,
+      "representativePublicScore": "1147.4",
+      "representativeSubmittedAtUtc": "2026-08-03T00:49:29.427000Z",
+      "representativeSubmittedAtJst": "2026-08-03T09:49:29.427000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55201815,
+          "publicScore": "1057.0",
+          "submittedAtUtc": "2026-08-03T04:03:42.453000Z",
+          "submittedAtJst": "2026-08-03T13:03:42.453000+09:00"
+        },
+        {
+          "id": 55198468,
+          "publicScore": "1147.4",
+          "submittedAtUtc": "2026-08-03T00:49:29.427000Z",
+          "submittedAtJst": "2026-08-03T09:49:29.427000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "teamId": 16372380,
+      "teamName": "THIRD PTCG Club",
+      "leaderboardSubmissionId": 55242764,
+      "leaderboardScore": "1129.5",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55242764,
+      "representativePublicScore": "1129.5",
+      "representativeSubmittedAtUtc": "2026-08-04T14:36:48.293000Z",
+      "representativeSubmittedAtJst": "2026-08-04T23:36:48.293000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55242764,
+          "publicScore": "1129.5",
+          "submittedAtUtc": "2026-08-04T14:36:48.293000Z",
+          "submittedAtJst": "2026-08-04T23:36:48.293000+09:00"
+        },
+        {
+          "id": 55239029,
+          "publicScore": "1003.6",
+          "submittedAtUtc": "2026-08-04T11:42:59.367000Z",
+          "submittedAtJst": "2026-08-04T20:42:59.367000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "teamId": 16381823,
+      "teamName": "AlphaStarmie",
+      "leaderboardSubmissionId": 54773249,
+      "leaderboardScore": "1127.5",
+      "medal": "GOLD",
+      "representativeSubmissionId": 54773249,
+      "representativePublicScore": "1127.5",
+      "representativeSubmittedAtUtc": "2026-07-17T02:27:09.747000Z",
+      "representativeSubmittedAtJst": "2026-07-17T11:27:09.747000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 54773249,
+          "publicScore": "1127.5",
+          "submittedAtUtc": "2026-07-17T02:27:09.747000Z",
+          "submittedAtJst": "2026-07-17T11:27:09.747000+09:00"
+        },
+        {
+          "id": 54486275,
+          "publicScore": "953.7",
+          "submittedAtUtc": "2026-07-09T07:32:23.100000Z",
+          "submittedAtJst": "2026-07-09T16:32:23.100000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "teamId": 16375647,
+      "teamName": "James Cox & Henry Chao",
+      "leaderboardSubmissionId": 55188658,
+      "leaderboardScore": "1123.6",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55188658,
+      "representativePublicScore": "1123.6",
+      "representativeSubmittedAtUtc": "2026-08-02T14:58:20.007000Z",
+      "representativeSubmittedAtJst": "2026-08-02T23:58:20.007000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55188672,
+          "publicScore": "1017.4",
+          "submittedAtUtc": "2026-08-02T14:59:08.433000Z",
+          "submittedAtJst": "2026-08-02T23:59:08.433000+09:00"
+        },
+        {
+          "id": 55188658,
+          "publicScore": "1123.6",
+          "submittedAtUtc": "2026-08-02T14:58:20.007000Z",
+          "submittedAtJst": "2026-08-02T23:58:20.007000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "teamId": 16425135,
+      "teamName": "Rmy",
+      "leaderboardSubmissionId": 55251826,
+      "leaderboardScore": "1119.6",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55251826,
+      "representativePublicScore": "1119.6",
+      "representativeSubmittedAtUtc": "2026-08-04T23:15:23.237000Z",
+      "representativeSubmittedAtJst": "2026-08-05T08:15:23.237000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55251826,
+          "publicScore": "1119.6",
+          "submittedAtUtc": "2026-08-04T23:15:23.237000Z",
+          "submittedAtJst": "2026-08-05T08:15:23.237000+09:00"
+        },
+        {
+          "id": 55251532,
+          "publicScore": "926.5",
+          "submittedAtUtc": "2026-08-04T22:56:22.487000Z",
+          "submittedAtJst": "2026-08-05T07:56:22.487000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "teamId": 16381624,
+      "teamName": "LumenLiquidity",
+      "leaderboardSubmissionId": 55229706,
+      "leaderboardScore": "1116.3",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55229706,
+      "representativePublicScore": "1116.3",
+      "representativeSubmittedAtUtc": "2026-08-04T04:55:33.770000Z",
+      "representativeSubmittedAtJst": "2026-08-04T13:55:33.770000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55236013,
+          "publicScore": "929.4",
+          "submittedAtUtc": "2026-08-04T09:24:03.357000Z",
+          "submittedAtJst": "2026-08-04T18:24:03.357000+09:00"
+        },
+        {
+          "id": 55229706,
+          "publicScore": "1116.3",
+          "submittedAtUtc": "2026-08-04T04:55:33.770000Z",
+          "submittedAtJst": "2026-08-04T13:55:33.770000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "teamId": 16561259,
+      "teamName": "@kdcyberdude",
+      "leaderboardSubmissionId": 55187358,
+      "leaderboardScore": "1116.3",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55187358,
+      "representativePublicScore": "1116.3",
+      "representativeSubmittedAtUtc": "2026-08-02T13:53:40.993000Z",
+      "representativeSubmittedAtJst": "2026-08-02T22:53:40.993000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55217189,
+          "publicScore": "964.7",
+          "submittedAtUtc": "2026-08-03T16:48:32.337000Z",
+          "submittedAtJst": "2026-08-04T01:48:32.337000+09:00"
+        },
+        {
+          "id": 55187358,
+          "publicScore": "1116.3",
+          "submittedAtUtc": "2026-08-02T13:53:40.993000Z",
+          "submittedAtJst": "2026-08-02T22:53:40.993000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "teamId": 16452116,
+      "teamName": "Sixth Sense",
+      "leaderboardSubmissionId": 55138264,
+      "leaderboardScore": "1113.7",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55138264,
+      "representativePublicScore": "1113.7",
+      "representativeSubmittedAtUtc": "2026-07-31T13:22:03.727000Z",
+      "representativeSubmittedAtJst": "2026-07-31T22:22:03.727000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55167593,
+          "publicScore": "725.5",
+          "submittedAtUtc": "2026-08-01T17:14:09.927000Z",
+          "submittedAtJst": "2026-08-02T02:14:09.927000+09:00"
+        },
+        {
+          "id": 55138264,
+          "publicScore": "1113.7",
+          "submittedAtUtc": "2026-07-31T13:22:03.727000Z",
+          "submittedAtJst": "2026-07-31T22:22:03.727000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "teamId": 16393745,
+      "teamName": "ShumpeiNomura",
+      "leaderboardSubmissionId": 55214482,
+      "leaderboardScore": "1108.7",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55214482,
+      "representativePublicScore": "1108.7",
+      "representativeSubmittedAtUtc": "2026-08-03T14:37:30.157000Z",
+      "representativeSubmittedAtJst": "2026-08-03T23:37:30.157000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55215429,
+          "publicScore": "1068.4",
+          "submittedAtUtc": "2026-08-03T15:19:29.307000Z",
+          "submittedAtJst": "2026-08-04T00:19:29.307000+09:00"
+        },
+        {
+          "id": 55214482,
+          "publicScore": "1108.7",
+          "submittedAtUtc": "2026-08-03T14:37:30.157000Z",
+          "submittedAtJst": "2026-08-03T23:37:30.157000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "teamId": 16404352,
+      "teamName": "Oshbocker",
+      "leaderboardSubmissionId": 55084456,
+      "leaderboardScore": "1088.7",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55084456,
+      "representativePublicScore": "1088.7",
+      "representativeSubmittedAtUtc": "2026-07-29T14:20:52.550000Z",
+      "representativeSubmittedAtJst": "2026-07-29T23:20:52.550000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55084456,
+          "publicScore": "1088.7",
+          "submittedAtUtc": "2026-07-29T14:20:52.550000Z",
+          "submittedAtJst": "2026-07-29T23:20:52.550000+09:00"
+        },
+        {
+          "id": 55062390,
+          "publicScore": "1063.9",
+          "submittedAtUtc": "2026-07-28T18:28:21.147000Z",
+          "submittedAtJst": "2026-07-29T03:28:21.147000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "teamId": 16499803,
+      "teamName": "Team Rot-Weiß",
+      "leaderboardSubmissionId": 55231831,
+      "leaderboardScore": "1085.7",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55231831,
+      "representativePublicScore": "1085.7",
+      "representativeSubmittedAtUtc": "2026-08-04T06:28:09.687000Z",
+      "representativeSubmittedAtJst": "2026-08-04T15:28:09.687000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55232403,
+          "publicScore": "964.2",
+          "submittedAtUtc": "2026-08-04T06:46:23.807000Z",
+          "submittedAtJst": "2026-08-04T15:46:23.807000+09:00"
+        },
+        {
+          "id": 55231831,
+          "publicScore": "1085.7",
+          "submittedAtUtc": "2026-08-04T06:28:09.687000Z",
+          "submittedAtJst": "2026-08-04T15:28:09.687000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "teamId": 16461850,
+      "teamName": "MissingNo.",
+      "leaderboardSubmissionId": 55221290,
+      "leaderboardScore": "1082.6",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55221290,
+      "representativePublicScore": "1082.6",
+      "representativeSubmittedAtUtc": "2026-08-03T20:45:50.453000Z",
+      "representativeSubmittedAtJst": "2026-08-04T05:45:50.453000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55241457,
+          "publicScore": "976.1",
+          "submittedAtUtc": "2026-08-04T13:40:03.207000Z",
+          "submittedAtJst": "2026-08-04T22:40:03.207000+09:00"
+        },
+        {
+          "id": 55221290,
+          "publicScore": "1082.6",
+          "submittedAtUtc": "2026-08-03T20:45:50.453000Z",
+          "submittedAtJst": "2026-08-04T05:45:50.453000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "teamId": 16380946,
+      "teamName": "flg",
+      "leaderboardSubmissionId": 55033309,
+      "leaderboardScore": "1081.5",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55033309,
+      "representativePublicScore": "1081.5",
+      "representativeSubmittedAtUtc": "2026-07-27T16:06:01.463000Z",
+      "representativeSubmittedAtJst": "2026-07-28T01:06:01.463000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55033457,
+          "publicScore": "1061.7",
+          "submittedAtUtc": "2026-07-27T16:13:32.777000Z",
+          "submittedAtJst": "2026-07-28T01:13:32.777000+09:00"
+        },
+        {
+          "id": 55033309,
+          "publicScore": "1081.5",
+          "submittedAtUtc": "2026-07-27T16:06:01.463000Z",
+          "submittedAtJst": "2026-07-28T01:06:01.463000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "teamId": 16464757,
+      "teamName": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+      "leaderboardSubmissionId": 55241354,
+      "leaderboardScore": "1080.9",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55241354,
+      "representativePublicScore": "1080.9",
+      "representativeSubmittedAtUtc": "2026-08-04T13:34:23.053000Z",
+      "representativeSubmittedAtJst": "2026-08-04T22:34:23.053000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55254674,
+          "publicScore": "917.8",
+          "submittedAtUtc": "2026-08-05T01:28:21.037000Z",
+          "submittedAtJst": "2026-08-05T10:28:21.037000+09:00"
+        },
+        {
+          "id": 55241354,
+          "publicScore": "1080.9",
+          "submittedAtUtc": "2026-08-04T13:34:23.053000Z",
+          "submittedAtJst": "2026-08-04T22:34:23.053000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "teamId": 16411029,
+      "teamName": "ANDPAD kaggler team",
+      "leaderboardSubmissionId": 55251764,
+      "leaderboardScore": "1078.6",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55251764,
+      "representativePublicScore": "1083.1",
+      "representativeSubmittedAtUtc": "2026-08-04T23:11:17.210000Z",
+      "representativeSubmittedAtJst": "2026-08-05T08:11:17.210000+09:00",
+      "representativeReason": "highest_public_score_fallback",
+      "leaderboardScoreMatchFound": false,
+      "publicSubmissions": [
+        {
+          "id": 55251764,
+          "publicScore": "1083.1",
+          "submittedAtUtc": "2026-08-04T23:11:17.210000Z",
+          "submittedAtJst": "2026-08-05T08:11:17.210000+09:00"
+        },
+        {
+          "id": 55239761,
+          "publicScore": "1021.6",
+          "submittedAtUtc": "2026-08-04T12:18:07.177000Z",
+          "submittedAtJst": "2026-08-04T21:18:07.177000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "teamId": 16388654,
+      "teamName": "vvs",
+      "leaderboardSubmissionId": 55251919,
+      "leaderboardScore": "1074.7",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55251919,
+      "representativePublicScore": "1074.7",
+      "representativeSubmittedAtUtc": "2026-08-04T23:22:06.613000Z",
+      "representativeSubmittedAtJst": "2026-08-05T08:22:06.613000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55252080,
+          "publicScore": "986.3",
+          "submittedAtUtc": "2026-08-04T23:33:07.033000Z",
+          "submittedAtJst": "2026-08-05T08:33:07.033000+09:00"
+        },
+        {
+          "id": 55251919,
+          "publicScore": "1074.7",
+          "submittedAtUtc": "2026-08-04T23:22:06.613000Z",
+          "submittedAtJst": "2026-08-05T08:22:06.613000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 21,
+      "teamId": 16442659,
+      "teamName": "cununn",
+      "leaderboardSubmissionId": 55230940,
+      "leaderboardScore": "1073.2",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55230940,
+      "representativePublicScore": "1073.2",
+      "representativeSubmittedAtUtc": "2026-08-04T05:53:38.113000Z",
+      "representativeSubmittedAtJst": "2026-08-04T14:53:38.113000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55230940,
+          "publicScore": "1073.2",
+          "submittedAtUtc": "2026-08-04T05:53:38.113000Z",
+          "submittedAtJst": "2026-08-04T14:53:38.113000+09:00"
+        },
+        {
+          "id": 55230921,
+          "publicScore": "947.2",
+          "submittedAtUtc": "2026-08-04T05:52:46.830000Z",
+          "submittedAtJst": "2026-08-04T14:52:46.830000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 22,
+      "teamId": 16541765,
+      "teamName": "less",
+      "leaderboardSubmissionId": 55249896,
+      "leaderboardScore": "1072.3",
+      "medal": "GOLD",
+      "representativeSubmissionId": 55249896,
+      "representativePublicScore": "1072.3",
+      "representativeSubmittedAtUtc": "2026-08-04T21:01:23.563000Z",
+      "representativeSubmittedAtJst": "2026-08-05T06:01:23.563000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55254136,
+          "publicScore": "845.2",
+          "submittedAtUtc": "2026-08-05T00:59:26.923000Z",
+          "submittedAtJst": "2026-08-05T09:59:26.923000+09:00"
+        },
+        {
+          "id": 55249896,
+          "publicScore": "1072.3",
+          "submittedAtUtc": "2026-08-04T21:01:23.563000Z",
+          "submittedAtJst": "2026-08-05T06:01:23.563000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 23,
+      "teamId": 16420537,
+      "teamName": "tonakaiiii",
+      "leaderboardSubmissionId": 55185728,
+      "leaderboardScore": "1071.7",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55185728,
+      "representativePublicScore": "1071.7",
+      "representativeSubmittedAtUtc": "2026-08-02T12:28:49.147000Z",
+      "representativeSubmittedAtJst": "2026-08-02T21:28:49.147000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55185728,
+          "publicScore": "1071.7",
+          "submittedAtUtc": "2026-08-02T12:28:49.147000Z",
+          "submittedAtJst": "2026-08-02T21:28:49.147000+09:00"
+        },
+        {
+          "id": 55167921,
+          "publicScore": "1064.2",
+          "submittedAtUtc": "2026-08-01T17:29:08.073000Z",
+          "submittedAtJst": "2026-08-02T02:29:08.073000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 24,
+      "teamId": 16387915,
+      "teamName": "tw_shin",
+      "leaderboardSubmissionId": 55199855,
+      "leaderboardScore": "1066.4",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55199855,
+      "representativePublicScore": "1066.4",
+      "representativeSubmittedAtUtc": "2026-08-03T02:05:52.477000Z",
+      "representativeSubmittedAtJst": "2026-08-03T11:05:52.477000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55216157,
+          "publicScore": "820.2",
+          "submittedAtUtc": "2026-08-03T15:56:30.743000Z",
+          "submittedAtJst": "2026-08-04T00:56:30.743000+09:00"
+        },
+        {
+          "id": 55199855,
+          "publicScore": "1066.4",
+          "submittedAtUtc": "2026-08-03T02:05:52.477000Z",
+          "submittedAtJst": "2026-08-03T11:05:52.477000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 25,
+      "teamId": 16372307,
+      "teamName": "Team KASA.",
+      "leaderboardSubmissionId": 55098365,
+      "leaderboardScore": "1065.5",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55098365,
+      "representativePublicScore": "1065.5",
+      "representativeSubmittedAtUtc": "2026-07-30T03:27:37.517000Z",
+      "representativeSubmittedAtJst": "2026-07-30T12:27:37.517000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55188029,
+          "publicScore": "906.2",
+          "submittedAtUtc": "2026-08-02T14:26:07.130000Z",
+          "submittedAtJst": "2026-08-02T23:26:07.130000+09:00"
+        },
+        {
+          "id": 55098365,
+          "publicScore": "1065.5",
+          "submittedAtUtc": "2026-07-30T03:27:37.517000Z",
+          "submittedAtJst": "2026-07-30T12:27:37.517000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 26,
+      "teamId": 16374632,
+      "teamName": "cyrus",
+      "leaderboardSubmissionId": 55245607,
+      "leaderboardScore": "1065.0",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55245607,
+      "representativePublicScore": "1065.0",
+      "representativeSubmittedAtUtc": "2026-08-04T16:51:03.680000Z",
+      "representativeSubmittedAtJst": "2026-08-05T01:51:03.680000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55250570,
+          "publicScore": "690.8",
+          "submittedAtUtc": "2026-08-04T21:49:08.603000Z",
+          "submittedAtJst": "2026-08-05T06:49:08.603000+09:00"
+        },
+        {
+          "id": 55245607,
+          "publicScore": "1065.0",
+          "submittedAtUtc": "2026-08-04T16:51:03.680000Z",
+          "submittedAtJst": "2026-08-05T01:51:03.680000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 27,
+      "teamId": 16582540,
+      "teamName": "Ayanokoji Fan Club",
+      "leaderboardSubmissionId": 55247656,
+      "leaderboardScore": "1058.7",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55247656,
+      "representativePublicScore": "1058.7",
+      "representativeSubmittedAtUtc": "2026-08-04T18:38:11.567000Z",
+      "representativeSubmittedAtJst": "2026-08-05T03:38:11.567000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55248715,
+          "publicScore": "604.6",
+          "submittedAtUtc": "2026-08-04T19:41:19.567000Z",
+          "submittedAtJst": "2026-08-05T04:41:19.567000+09:00"
+        },
+        {
+          "id": 55247656,
+          "publicScore": "1058.7",
+          "submittedAtUtc": "2026-08-04T18:38:11.567000Z",
+          "submittedAtJst": "2026-08-05T03:38:11.567000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 28,
+      "teamId": 16602856,
+      "teamName": "GuerillaMoon",
+      "leaderboardSubmissionId": 55252808,
+      "leaderboardScore": "1058.6",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55252808,
+      "representativePublicScore": "1058.6",
+      "representativeSubmittedAtUtc": "2026-08-05T00:02:49.903000Z",
+      "representativeSubmittedAtJst": "2026-08-05T09:02:49.903000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55252808,
+          "publicScore": "1058.6",
+          "submittedAtUtc": "2026-08-05T00:02:49.903000Z",
+          "submittedAtJst": "2026-08-05T09:02:49.903000+09:00"
+        },
+        {
+          "id": 55247368,
+          "publicScore": "941.4",
+          "submittedAtUtc": "2026-08-04T18:23:08.223000Z",
+          "submittedAtJst": "2026-08-05T03:23:08.223000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 29,
+      "teamId": 16454068,
+      "teamName": "Where is my orbit",
+      "leaderboardSubmissionId": 54959248,
+      "leaderboardScore": "1058.3",
+      "medal": "SILVER",
+      "representativeSubmissionId": 54959248,
+      "representativePublicScore": "1058.3",
+      "representativeSubmittedAtUtc": "2026-07-24T20:33:58.450000Z",
+      "representativeSubmittedAtJst": "2026-07-25T05:33:58.450000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 54959248,
+          "publicScore": "1058.3",
+          "submittedAtUtc": "2026-07-24T20:33:58.450000Z",
+          "submittedAtJst": "2026-07-25T05:33:58.450000+09:00"
+        },
+        {
+          "id": 54957625,
+          "publicScore": "1031.9",
+          "submittedAtUtc": "2026-07-24T18:35:42.033000Z",
+          "submittedAtJst": "2026-07-25T03:35:42.033000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 30,
+      "teamId": 16416261,
+      "teamName": "Petit Canard",
+      "leaderboardSubmissionId": 55251179,
+      "leaderboardScore": "1056.9",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55251179,
+      "representativePublicScore": "1056.9",
+      "representativeSubmittedAtUtc": "2026-08-04T22:32:39.063000Z",
+      "representativeSubmittedAtJst": "2026-08-05T07:32:39.063000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55252059,
+          "publicScore": "935.6",
+          "submittedAtUtc": "2026-08-04T23:32:11.633000Z",
+          "submittedAtJst": "2026-08-05T08:32:11.633000+09:00"
+        },
+        {
+          "id": 55251179,
+          "publicScore": "1056.9",
+          "submittedAtUtc": "2026-08-04T22:32:39.063000Z",
+          "submittedAtJst": "2026-08-05T07:32:39.063000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 31,
+      "teamId": 16408505,
+      "teamName": "JZ",
+      "leaderboardSubmissionId": 55094113,
+      "leaderboardScore": "1055.3",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55094113,
+      "representativePublicScore": "1055.3",
+      "representativeSubmittedAtUtc": "2026-07-29T23:45:08.200000Z",
+      "representativeSubmittedAtJst": "2026-07-30T08:45:08.200000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55235857,
+          "publicScore": "1023.4",
+          "submittedAtUtc": "2026-08-04T09:16:42.900000Z",
+          "submittedAtJst": "2026-08-04T18:16:42.900000+09:00"
+        },
+        {
+          "id": 55094113,
+          "publicScore": "1055.3",
+          "submittedAtUtc": "2026-07-29T23:45:08.200000Z",
+          "submittedAtJst": "2026-07-30T08:45:08.200000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 32,
+      "teamId": 16373946,
+      "teamName": "KawattaTaido",
+      "leaderboardSubmissionId": 55245964,
+      "leaderboardScore": "1053.3",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55245964,
+      "representativePublicScore": "1053.3",
+      "representativeSubmittedAtUtc": "2026-08-04T17:07:28.563000Z",
+      "representativeSubmittedAtJst": "2026-08-05T02:07:28.563000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55245964,
+          "publicScore": "1053.3",
+          "submittedAtUtc": "2026-08-04T17:07:28.563000Z",
+          "submittedAtJst": "2026-08-05T02:07:28.563000+09:00"
+        },
+        {
+          "id": 55129463,
+          "publicScore": "859.9",
+          "submittedAtUtc": "2026-07-31T06:33:12.263000Z",
+          "submittedAtJst": "2026-07-31T15:33:12.263000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 33,
+      "teamId": 16600240,
+      "teamName": "DavidFreelan",
+      "leaderboardSubmissionId": 55229375,
+      "leaderboardScore": "1053.2",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55229375,
+      "representativePublicScore": "1053.2",
+      "representativeSubmittedAtUtc": "2026-08-04T04:40:35.507000Z",
+      "representativeSubmittedAtJst": "2026-08-04T13:40:35.507000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55229375,
+          "publicScore": "1053.2",
+          "submittedAtUtc": "2026-08-04T04:40:35.507000Z",
+          "submittedAtJst": "2026-08-04T13:40:35.507000+09:00"
+        },
+        {
+          "id": 55220605,
+          "publicScore": "997.7",
+          "submittedAtUtc": "2026-08-03T20:01:58.563000Z",
+          "submittedAtJst": "2026-08-04T05:01:58.563000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 34,
+      "teamId": 16371280,
+      "teamName": "Iolzpo + emonga",
+      "leaderboardSubmissionId": 55121805,
+      "leaderboardScore": "1053.0",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55121805,
+      "representativePublicScore": "1053.0",
+      "representativeSubmittedAtUtc": "2026-07-31T00:01:36.500000Z",
+      "representativeSubmittedAtJst": "2026-07-31T09:01:36.500000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55157066,
+          "publicScore": "1045.1",
+          "submittedAtUtc": "2026-08-01T07:43:51.813000Z",
+          "submittedAtJst": "2026-08-01T16:43:51.813000+09:00"
+        },
+        {
+          "id": 55121805,
+          "publicScore": "1053.0",
+          "submittedAtUtc": "2026-07-31T00:01:36.500000Z",
+          "submittedAtJst": "2026-07-31T09:01:36.500000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 35,
+      "teamId": 16422150,
+      "teamName": "junlee789",
+      "leaderboardSubmissionId": 55229754,
+      "leaderboardScore": "1052.6",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55229754,
+      "representativePublicScore": "1052.6",
+      "representativeSubmittedAtUtc": "2026-08-04T04:57:14.703000Z",
+      "representativeSubmittedAtJst": "2026-08-04T13:57:14.703000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55255249,
+          "publicScore": "719.7",
+          "submittedAtUtc": "2026-08-05T01:56:36.317000Z",
+          "submittedAtJst": "2026-08-05T10:56:36.317000+09:00"
+        },
+        {
+          "id": 55229754,
+          "publicScore": "1052.6",
+          "submittedAtUtc": "2026-08-04T04:57:14.703000Z",
+          "submittedAtJst": "2026-08-04T13:57:14.703000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 36,
+      "teamId": 16405152,
+      "teamName": "Ketchum Alt",
+      "leaderboardSubmissionId": 55253878,
+      "leaderboardScore": "1052.5",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55253878,
+      "representativePublicScore": "1052.5",
+      "representativeSubmittedAtUtc": "2026-08-05T00:47:06.407000Z",
+      "representativeSubmittedAtJst": "2026-08-05T09:47:06.407000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55253878,
+          "publicScore": "1052.5",
+          "submittedAtUtc": "2026-08-05T00:47:06.407000Z",
+          "submittedAtJst": "2026-08-05T09:47:06.407000+09:00"
+        },
+        {
+          "id": 55250164,
+          "publicScore": "746.7",
+          "submittedAtUtc": "2026-08-04T21:19:40Z",
+          "submittedAtJst": "2026-08-05T06:19:40+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 37,
+      "teamId": 16489606,
+      "teamName": "junseo lee",
+      "leaderboardSubmissionId": 55205180,
+      "leaderboardScore": "1052.2",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55205180,
+      "representativePublicScore": "1052.2",
+      "representativeSubmittedAtUtc": "2026-08-03T07:09:37.240000Z",
+      "representativeSubmittedAtJst": "2026-08-03T16:09:37.240000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55205180,
+          "publicScore": "1052.2",
+          "submittedAtUtc": "2026-08-03T07:09:37.240000Z",
+          "submittedAtJst": "2026-08-03T16:09:37.240000+09:00"
+        },
+        {
+          "id": 55204634,
+          "publicScore": "969.5",
+          "submittedAtUtc": "2026-08-03T06:44:36.757000Z",
+          "submittedAtJst": "2026-08-03T15:44:36.757000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 38,
+      "teamId": 16371653,
+      "teamName": "213tubo",
+      "leaderboardSubmissionId": 55234094,
+      "leaderboardScore": "1051.6",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55234094,
+      "representativePublicScore": "1051.6",
+      "representativeSubmittedAtUtc": "2026-08-04T08:02:09.067000Z",
+      "representativeSubmittedAtJst": "2026-08-04T17:02:09.067000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55234112,
+          "publicScore": "1020.4",
+          "submittedAtUtc": "2026-08-04T08:03:03.960000Z",
+          "submittedAtJst": "2026-08-04T17:03:03.960000+09:00"
+        },
+        {
+          "id": 55234094,
+          "publicScore": "1051.6",
+          "submittedAtUtc": "2026-08-04T08:02:09.067000Z",
+          "submittedAtJst": "2026-08-04T17:02:09.067000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 39,
+      "teamId": 16514878,
+      "teamName": "Hancang Mi",
+      "leaderboardSubmissionId": 55254078,
+      "leaderboardScore": "1050.3",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55254078,
+      "representativePublicScore": "1050.3",
+      "representativeSubmittedAtUtc": "2026-08-05T00:56:59.943000Z",
+      "representativeSubmittedAtJst": "2026-08-05T09:56:59.943000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55254244,
+          "publicScore": "948.1",
+          "submittedAtUtc": "2026-08-05T01:05:13.720000Z",
+          "submittedAtJst": "2026-08-05T10:05:13.720000+09:00"
+        },
+        {
+          "id": 55254078,
+          "publicScore": "1050.3",
+          "submittedAtUtc": "2026-08-05T00:56:59.943000Z",
+          "submittedAtJst": "2026-08-05T09:56:59.943000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 40,
+      "teamId": 16376653,
+      "teamName": "szlachetny snieg",
+      "leaderboardSubmissionId": 55254018,
+      "leaderboardScore": "1049.8",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55254018,
+      "representativePublicScore": "1049.8",
+      "representativeSubmittedAtUtc": "2026-08-05T00:53:43.963000Z",
+      "representativeSubmittedAtJst": "2026-08-05T09:53:43.963000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55254035,
+          "publicScore": "881.1",
+          "submittedAtUtc": "2026-08-05T00:54:37.173000Z",
+          "submittedAtJst": "2026-08-05T09:54:37.173000+09:00"
+        },
+        {
+          "id": 55254018,
+          "publicScore": "1049.8",
+          "submittedAtUtc": "2026-08-05T00:53:43.963000Z",
+          "submittedAtJst": "2026-08-05T09:53:43.963000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 41,
+      "teamId": 16375635,
+      "teamName": "palsystem",
+      "leaderboardSubmissionId": 55107167,
+      "leaderboardScore": "1049.7",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55107167,
+      "representativePublicScore": "1049.7",
+      "representativeSubmittedAtUtc": "2026-07-30T11:02:20.413000Z",
+      "representativeSubmittedAtJst": "2026-07-30T20:02:20.413000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55175954,
+          "publicScore": "1028.4",
+          "submittedAtUtc": "2026-08-02T02:58:10.743000Z",
+          "submittedAtJst": "2026-08-02T11:58:10.743000+09:00"
+        },
+        {
+          "id": 55175951,
+          "publicScore": "1021.9",
+          "submittedAtUtc": "2026-08-02T02:58:06.953000Z",
+          "submittedAtJst": "2026-08-02T11:58:06.953000+09:00"
+        },
+        {
+          "id": 55140608,
+          "publicScore": "967.6",
+          "submittedAtUtc": "2026-07-31T14:58:26.853000Z",
+          "submittedAtJst": "2026-07-31T23:58:26.853000+09:00"
+        },
+        {
+          "id": 55107167,
+          "publicScore": "1049.7",
+          "submittedAtUtc": "2026-07-30T11:02:20.413000Z",
+          "submittedAtJst": "2026-07-30T20:02:20.413000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 42,
+      "teamId": 16431331,
+      "teamName": "insuperabilehart",
+      "leaderboardSubmissionId": 55243043,
+      "leaderboardScore": "1049.3",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55243043,
+      "representativePublicScore": "1049.3",
+      "representativeSubmittedAtUtc": "2026-08-04T14:48:24.197000Z",
+      "representativeSubmittedAtJst": "2026-08-04T23:48:24.197000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55244157,
+          "publicScore": "891.9",
+          "submittedAtUtc": "2026-08-04T15:41:12.540000Z",
+          "submittedAtJst": "2026-08-05T00:41:12.540000+09:00"
+        },
+        {
+          "id": 55243043,
+          "publicScore": "1049.3",
+          "submittedAtUtc": "2026-08-04T14:48:24.197000Z",
+          "submittedAtJst": "2026-08-04T23:48:24.197000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 43,
+      "teamId": 16426595,
+      "teamName": "Xiangyu Liu",
+      "leaderboardSubmissionId": 55238859,
+      "leaderboardScore": "1048.9",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55238859,
+      "representativePublicScore": "1048.9",
+      "representativeSubmittedAtUtc": "2026-08-04T11:36:01.893000Z",
+      "representativeSubmittedAtJst": "2026-08-04T20:36:01.893000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55251605,
+          "publicScore": "1008.6",
+          "submittedAtUtc": "2026-08-04T23:00:51.933000Z",
+          "submittedAtJst": "2026-08-05T08:00:51.933000+09:00"
+        },
+        {
+          "id": 55238859,
+          "publicScore": "1048.9",
+          "submittedAtUtc": "2026-08-04T11:36:01.893000Z",
+          "submittedAtJst": "2026-08-04T20:36:01.893000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 44,
+      "teamId": 16371427,
+      "teamName": "bono",
+      "leaderboardSubmissionId": 55184624,
+      "leaderboardScore": "1047.2",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55184624,
+      "representativePublicScore": "1047.2",
+      "representativeSubmittedAtUtc": "2026-08-02T11:32:55.633000Z",
+      "representativeSubmittedAtJst": "2026-08-02T20:32:55.633000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55184624,
+          "publicScore": "1047.2",
+          "submittedAtUtc": "2026-08-02T11:32:55.633000Z",
+          "submittedAtJst": "2026-08-02T20:32:55.633000+09:00"
+        },
+        {
+          "id": 55184621,
+          "publicScore": "858.5",
+          "submittedAtUtc": "2026-08-02T11:32:46.377000Z",
+          "submittedAtJst": "2026-08-02T20:32:46.377000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 45,
+      "teamId": 16372064,
+      "teamName": "Vermillion City Pikachu",
+      "leaderboardSubmissionId": 55252638,
+      "leaderboardScore": "1044.7",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55252638,
+      "representativePublicScore": "1044.7",
+      "representativeSubmittedAtUtc": "2026-08-05T00:01:09.423000Z",
+      "representativeSubmittedAtJst": "2026-08-05T09:01:09.423000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55252638,
+          "publicScore": "1044.7",
+          "submittedAtUtc": "2026-08-05T00:01:09.423000Z",
+          "submittedAtJst": "2026-08-05T09:01:09.423000+09:00"
+        },
+        {
+          "id": 55252629,
+          "publicScore": "808.8",
+          "submittedAtUtc": "2026-08-05T00:01:05.933000Z",
+          "submittedAtJst": "2026-08-05T09:01:05.933000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 46,
+      "teamId": 16549721,
+      "teamName": "Mearyl",
+      "leaderboardSubmissionId": 55231083,
+      "leaderboardScore": "1044.5",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55231083,
+      "representativePublicScore": "1044.5",
+      "representativeSubmittedAtUtc": "2026-08-04T05:59:26.450000Z",
+      "representativeSubmittedAtJst": "2026-08-04T14:59:26.450000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55231083,
+          "publicScore": "1044.5",
+          "submittedAtUtc": "2026-08-04T05:59:26.450000Z",
+          "submittedAtJst": "2026-08-04T14:59:26.450000+09:00"
+        },
+        {
+          "id": 55203534,
+          "publicScore": "945.0",
+          "submittedAtUtc": "2026-08-03T05:44:32.707000Z",
+          "submittedAtJst": "2026-08-03T14:44:32.707000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 47,
+      "teamId": 16397982,
+      "teamName": "NorthStar",
+      "leaderboardSubmissionId": 55130199,
+      "leaderboardScore": "1043.2",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55130199,
+      "representativePublicScore": "1043.2",
+      "representativeSubmittedAtUtc": "2026-07-31T07:07:47.260000Z",
+      "representativeSubmittedAtJst": "2026-07-31T16:07:47.260000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55130199,
+          "publicScore": "1043.2",
+          "submittedAtUtc": "2026-07-31T07:07:47.260000Z",
+          "submittedAtJst": "2026-07-31T16:07:47.260000+09:00"
+        },
+        {
+          "id": 55112275,
+          "publicScore": "994.3",
+          "submittedAtUtc": "2026-07-30T14:52:53.073000Z",
+          "submittedAtJst": "2026-07-30T23:52:53.073000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 48,
+      "teamId": 16376582,
+      "teamName": "Arthurs Torres24",
+      "leaderboardSubmissionId": 55227232,
+      "leaderboardScore": "1042.8",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55227232,
+      "representativePublicScore": "1042.8",
+      "representativeSubmittedAtUtc": "2026-08-04T02:51:57.473000Z",
+      "representativeSubmittedAtJst": "2026-08-04T11:51:57.473000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55228079,
+          "publicScore": "988.9",
+          "submittedAtUtc": "2026-08-04T03:29:54.187000Z",
+          "submittedAtJst": "2026-08-04T12:29:54.187000+09:00"
+        },
+        {
+          "id": 55227232,
+          "publicScore": "1042.8",
+          "submittedAtUtc": "2026-08-04T02:51:57.473000Z",
+          "submittedAtJst": "2026-08-04T11:51:57.473000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 49,
+      "teamId": 16381725,
+      "teamName": "llkarill",
+      "leaderboardSubmissionId": 55217790,
+      "leaderboardScore": "1041.1",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55217790,
+      "representativePublicScore": "1041.1",
+      "representativeSubmittedAtUtc": "2026-08-03T17:17:27.010000Z",
+      "representativeSubmittedAtJst": "2026-08-04T02:17:27.010000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55217790,
+          "publicScore": "1041.1",
+          "submittedAtUtc": "2026-08-03T17:17:27.010000Z",
+          "submittedAtJst": "2026-08-04T02:17:27.010000+09:00"
+        },
+        {
+          "id": 55216094,
+          "publicScore": "860.9",
+          "submittedAtUtc": "2026-08-03T15:52:09.833000Z",
+          "submittedAtJst": "2026-08-04T00:52:09.833000+09:00"
+        }
+      ]
+    },
+    {
+      "rank": 50,
+      "teamId": 16371723,
+      "teamName": "RtoABC",
+      "leaderboardSubmissionId": 55239385,
+      "leaderboardScore": "1040.0",
+      "medal": "SILVER",
+      "representativeSubmissionId": 55239385,
+      "representativePublicScore": "1040.0",
+      "representativeSubmittedAtUtc": "2026-08-04T11:59:40.743000Z",
+      "representativeSubmittedAtJst": "2026-08-04T20:59:40.743000+09:00",
+      "representativeReason": "matched_leaderboard_score_and_id",
+      "leaderboardScoreMatchFound": true,
+      "publicSubmissions": [
+        {
+          "id": 55246205,
+          "publicScore": "988.6",
+          "submittedAtUtc": "2026-08-04T17:20:47.503000Z",
+          "submittedAtJst": "2026-08-05T02:20:47.503000+09:00"
+        },
+        {
+          "id": 55239385,
+          "publicScore": "1040.0",
+          "submittedAtUtc": "2026-08-04T11:59:40.743000Z",
+          "submittedAtJst": "2026-08-04T20:59:40.743000+09:00"
+        }
+      ]
+    }
+  ],
+  "failures": []
+}
