@@ -1,0 +1,16 @@
+{
+  "source": "experiments\\grimmsnarl_1100_diagnosis\\footprint_v22_vs_v8.json",
+  "variant": null,
+  "verdict": "LARGE_ENOUGH_TO_IMPLEMENT",
+  "games": 133,
+  "changed_actions": 1647,
+  "changed_actions_per_game": 12.38345864661654,
+  "games_touched": 133,
+  "games_touched_rate": 1.0,
+  "thresholds": {
+    "reject_below_actions_per_game": 0.5,
+    "large_above_actions_per_game": 2.0
+  },
+  "required_paired_games": 0,
+  "interpretation": "Teacher-forced exposure only; passing this gate is necessary, not evidence of benefit."
+}

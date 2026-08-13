@@ -66,6 +66,12 @@ class Job:
 
 _STATE: dict[str, Any] = {}
 
+IMPIDIMP_ID = 646
+GRIMMSNARL_EX_ID = 648
+DARK_ENERGY_ID = 7
+SPIKEMUTH_GYM_ID = 1259
+SHADOW_BULLET_ID = 937
+
 
 def _resolve_agent(spec: str) -> Path:
     direct = Path(spec)
@@ -202,7 +208,175 @@ def _canonical_observation(observation: dict[str, Any]) -> bytes:
     ).encode("utf-8")
 
 
-def _play(job: Job, max_steps: int) -> dict[str, Any]:
+def _cards(player: dict[str, Any], area: str) -> list[dict[str, Any]]:
+    return [card for card in (player.get(area) or []) if isinstance(card, dict)]
+
+
+def _in_play(player: dict[str, Any]) -> list[dict[str, Any]]:
+    return _cards(player, "active") + _cards(player, "bench")
+
+
+def _attached_id(value: Any) -> int:
+    if isinstance(value, dict):
+        value = value.get("id", value.get("cardId", -1))
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return -1
+
+
+def _dark_energy(card: dict[str, Any]) -> int:
+    attached = card.get("energyCards") or card.get("energies") or []
+    return sum(_attached_id(value) == DARK_ENERGY_ID for value in attached)
+
+
+def _stadium_id(current: dict[str, Any]) -> int:
+    stadium = current.get("stadium")
+    if isinstance(stadium, dict):
+        return int(stadium.get("id", -1))
+    if isinstance(stadium, list) and stadium and isinstance(stadium[0], dict):
+        return int(stadium[0].get("id", -1))
+    return -1
+
+
+def _own_turn(turn: int, first_player: int | None, seat: int) -> int | None:
+    if first_player not in (0, 1) or turn < 1:
+        return None
+    went_first = first_player == seat
+    return (turn + 1) // 2 if went_first else turn // 2
+
+
+def _board_snapshot(current: dict[str, Any], seat: int) -> dict[str, Any] | None:
+    players = current.get("players") or []
+    if seat not in (0, 1) or len(players) <= seat:
+        return None
+    player = players[seat]
+    board = _in_play(player)
+    if not board:
+        return None
+    return {
+        "impidimp": sum(int(card.get("id", -1)) == IMPIDIMP_ID for card in board),
+        "grimmsnarl_ex": sum(
+            int(card.get("id", -1)) == GRIMMSNARL_EX_ID for card in board
+        ),
+        "dark_energy": sum(_dark_energy(card) for card in board),
+        "ready_grimmsnarl": sum(
+            int(card.get("id", -1)) == GRIMMSNARL_EX_ID
+            and _dark_energy(card) >= 2
+            for card in board
+        ),
+        "spikemuth": int(_stadium_id(current) == SPIKEMUTH_GYM_ID),
+        "active_id": int((_cards(player, "active") or [{}])[0].get("id", -1)),
+        "bench_ids": [int(card.get("id", -1)) for card in _cards(player, "bench")],
+    }
+
+
+def _resolved_card_id(
+    current: dict[str, Any], select: dict[str, Any], option: dict[str, Any]
+) -> int:
+    """Best-effort public card id for a compact decision trace."""
+    direct = option.get("cardId", option.get("id"))
+    if isinstance(direct, int) and direct >= 0:
+        return direct
+    players = current.get("players") or []
+    seat = int(current.get("yourIndex", -1))
+    if seat not in (0, 1) or len(players) <= seat:
+        return -1
+    option_type = int(option.get("type", -1))
+    if option_type in (7, 8, 9):
+        area, index = "hand", option.get("index")
+    elif option_type in (3, 10):
+        area_code = int(option.get("area", -1))
+        area = {1: "deck", 2: "hand", 3: "discard", 4: "active", 5: "bench"}.get(
+            area_code
+        )
+        index = option.get("index")
+        if area_code == 1:
+            deck = [card for card in (select.get("deck") or []) if isinstance(card, dict)]
+            if isinstance(index, int) and 0 <= index < len(deck):
+                return int(deck[index].get("id", -1))
+    else:
+        return -1
+    cards = _cards(players[seat], area) if area else []
+    return int(cards[index].get("id", -1)) if isinstance(index, int) and 0 <= index < len(cards) else -1
+
+
+def _trace_decision(
+    observation: dict[str, Any], action: list[int], evaluated_seat: int,
+    first_player: int | None,
+) -> dict[str, Any]:
+    current = observation.get("current") or {}
+    select = observation.get("select") or {}
+    options = list(select.get("option") or [])
+    chosen = [index for index in action if isinstance(index, int) and 0 <= index < len(options)]
+    return {
+        "observation_hash": hashlib.sha256(_canonical_observation(observation)).hexdigest(),
+        "turn": int(current.get("turn", -1)),
+        "own_turn": _own_turn(int(current.get("turn", -1)), first_player, evaluated_seat),
+        "context": int(select.get("context", -1)),
+        "min_count": int(select.get("minCount") or 0),
+        "max_count": int(select.get("maxCount") or 0),
+        "board": _board_snapshot(current, evaluated_seat),
+        "action": chosen,
+        "chosen": [
+            {
+                "position": index,
+                "type": int(options[index].get("type", -1)),
+                "card_id": _resolved_card_id(current, select, options[index]),
+                "attack_id": int(options[index].get("attackId", -1)),
+                "area": int(options[index].get("area", -1)),
+                "in_play_area": int(options[index].get("inPlayArea", -1)),
+                "in_play_index": int(options[index].get("inPlayIndex", -1)),
+            }
+            for index in chosen
+        ],
+    }
+
+
+def _new_setup_funnel() -> dict[str, Any]:
+    return {
+        "initial": None,
+        "turn2_last": None,
+        "impidimp_by_turn2": 0,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 0,
+        "first_shadow_own_turn": None,
+    }
+
+
+def _observe_setup(
+    funnel: dict[str, Any], current: dict[str, Any], seat: int,
+    first_player: int | None,
+) -> None:
+    snapshot = _board_snapshot(current, seat)
+    if snapshot is None:
+        return
+    turn = int(current.get("turn", -1))
+    own_turn = _own_turn(turn, first_player, seat)
+    # Setup prompts expose a partially constructed board.  "Initial" means
+    # the completed board at the beginning of battle, not the first Basic that
+    # happened to be selected during placement.
+    if funnel["initial"] is None and first_player in (0, 1) and turn >= 1:
+        funnel["initial"] = snapshot
+    if own_turn is None or own_turn > 2:
+        return
+    funnel["turn2_last"] = snapshot
+    funnel["impidimp_by_turn2"] = max(funnel["impidimp_by_turn2"], snapshot["impidimp"])
+    funnel["grimmsnarl_by_turn2"] = max(
+        funnel["grimmsnarl_by_turn2"], snapshot["grimmsnarl_ex"]
+    )
+    funnel["ready_grimmsnarl_by_turn2"] = max(
+        funnel["ready_grimmsnarl_by_turn2"], snapshot["ready_grimmsnarl"]
+    )
+    funnel["spikemuth_by_turn2"] = max(funnel["spikemuth_by_turn2"], snapshot["spikemuth"])
+    funnel["max_dark_energy_by_turn2"] = max(
+        funnel["max_dark_energy_by_turn2"], snapshot["dark_energy"]
+    )
+
+
+def _play(job: Job, max_steps: int, trace_limit: int = 0) -> dict[str, Any]:
     if _STATE.get("init_error"):
         return {**job.__dict__, "error": f"worker_init: {_STATE['init_error']}"}
 
@@ -233,12 +407,15 @@ def _play(job: Job, max_steps: int) -> dict[str, Any]:
     error = None
     result: int | None = None
     first_player: int | None = None
+    setup_funnel = _new_setup_funnel()
+    trace: list[dict[str, Any]] = []
     try:
         for _ in range(max_steps):
             current = observation["current"]
             observed_first = current.get("firstPlayer", -1)
             if observed_first in (0, 1) and first_player is None:
                 first_player = int(observed_first)
+            _observe_setup(setup_funnel, current, job.evaluated_seat, first_player)
             visible_hash.update(_canonical_observation(observation))
             if current["result"] >= 0:
                 result = int(current["result"])
@@ -246,6 +423,26 @@ def _play(job: Job, max_steps: int) -> dict[str, Any]:
             seat = int(current["yourIndex"])
             try:
                 action = list(agents[seat](observation))
+                if seat == job.evaluated_seat:
+                    if trace_limit > 0 and len(trace) < trace_limit:
+                        trace.append(
+                            _trace_decision(
+                                observation, action, job.evaluated_seat, first_player
+                            )
+                        )
+                    select = observation.get("select") or {}
+                    options = list(select.get("option") or [])
+                    picked = [
+                        index for index in action
+                        if isinstance(index, int) and 0 <= index < len(options)
+                    ]
+                    if any(
+                        int(options[index].get("attackId", -1)) == SHADOW_BULLET_ID
+                        for index in picked
+                    ) and setup_funnel["first_shadow_own_turn"] is None:
+                        setup_funnel["first_shadow_own_turn"] = _own_turn(
+                            int(current.get("turn", -1)), first_player, job.evaluated_seat
+                        )
                 action_hash.update(json.dumps(action, separators=(",", ":")).encode("ascii"))
                 observation = battle_select(action)
             except Exception as exc:  # noqa: BLE001
@@ -272,15 +469,17 @@ def _play(job: Job, max_steps: int) -> dict[str, Any]:
             "seconds": time.perf_counter() - started,
             "observable_hash": visible_hash.hexdigest(),
             "action_hash": action_hash.hexdigest(),
+            "setup_funnel": setup_funnel,
+            **({"trace": trace} if trace_limit > 0 else {}),
             "error": error,
         }
     finally:
         battle_finish()
 
 
-def _run_job(payload: tuple[Job, int]) -> dict[str, Any]:
-    job, max_steps = payload
-    return _play(job, max_steps)
+def _run_job(payload: tuple[Job, int, int]) -> dict[str, Any]:
+    job, max_steps, trace_limit = payload
+    return _play(job, max_steps, trace_limit)
 
 
 def _allocate_blocks(opponents: list[Opponent], blocks: int) -> dict[str, int]:
@@ -482,7 +681,7 @@ def _load_settings(args: argparse.Namespace) -> dict[str, Any]:
         settings.update(json.loads(args.config.read_text(encoding="utf-8")))
     for key in (
         "champion", "challenger", "blocks", "workers", "base_seed",
-        "max_steps", "calibration_blocks", "out",
+        "max_steps", "calibration_blocks", "trace_limit", "out",
     ):
         value = getattr(args, key)
         if value is not None:
@@ -505,6 +704,10 @@ def main() -> int:
     parser.add_argument("--base-seed", type=int)
     parser.add_argument("--max-steps", type=int)
     parser.add_argument("--calibration-blocks", type=int)
+    parser.add_argument(
+        "--trace-limit", type=int,
+        help="Store this many evaluated-agent decisions per game (default: 0).",
+    )
     parser.add_argument("--one-seat", action="store_true")
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
@@ -524,6 +727,7 @@ def main() -> int:
     max_steps = int(settings.get("max_steps", 8000))
     both_seats = bool(settings.get("both_seats", True))
     calibration_blocks = max(1, int(settings.get("calibration_blocks", 1)))
+    trace_limit = max(0, int(settings.get("trace_limit", 0)))
     out_path = Path(settings.get("out", "artifacts/paired_gauntlet/report.json"))
 
     if blocks < len(opponents):
@@ -544,7 +748,7 @@ def main() -> int:
     started = time.perf_counter()
     if workers == 1:
         _worker_init(champion, challenger, opponent_payload)
-        rows = [_run_job((job, max_steps)) for job in schedule]
+        rows = [_run_job((job, max_steps, trace_limit)) for job in schedule]
         controller = _STATE.get("controller")
         if controller is not None:
             controller.restore()
@@ -559,7 +763,9 @@ def main() -> int:
             progress_every = max(1, len(schedule) // 20)
             for completed, row in enumerate(
                 pool.imap_unordered(
-                    _run_job, ((job, max_steps) for job in schedule), chunksize=1
+                    _run_job,
+                    ((job, max_steps, trace_limit) for job in schedule),
+                    chunksize=1,
                 ),
                 start=1,
             ):
@@ -606,6 +812,7 @@ def main() -> int:
             "base_seed": base_seed,
             "max_steps": max_steps,
             "calibration_blocks": calibration_blocks,
+            "trace_limit": trace_limit,
             "represented_ladder_weight": settings.get("represented_ladder_weight"),
             "unrepresented_matchups": settings.get("unrepresented_matchups", []),
             "limitations": settings.get("limitations", []),

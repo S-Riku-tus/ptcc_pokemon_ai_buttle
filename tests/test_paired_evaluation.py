@@ -10,12 +10,17 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from paired_gauntlet import (  # noqa: E402
     Opponent,
+    _board_snapshot,
+    _new_setup_funnel,
+    _observe_setup,
     _paired_exact_p,
     _parse_agent_spec,
     build_schedule,
     paired_summary,
 )
 from policy_impact_gate import evaluate_impact  # noqa: E402
+from analyze_paired_divergences import _first_divergence  # noqa: E402
+from summarize_paired_setup import summarize  # noqa: E402
 
 
 def test_schedule_is_weighted_paired_and_seat_mirrored():
@@ -74,6 +79,83 @@ def test_paired_summary_uses_seed_clusters():
     assert summary["seed_clusters"] == 2
     assert summary["challenger_minus_champion"] == pytest.approx(0.5)
     assert summary["discordant"]["challenger_only_win"] == 2
+
+
+def test_setup_funnel_tracks_reached_state_without_future_information():
+    current = {
+        "turn": 3,
+        "players": [
+            {
+                "active": [{"id": 646, "energyCards": []}],
+                "bench": [{"id": 648, "energyCards": [7, 7]}],
+            },
+            {"active": [{"id": 860}], "bench": []},
+        ],
+        "stadium": {"id": 1259},
+    }
+    snapshot = _board_snapshot(current, 0)
+    assert snapshot == {
+        "impidimp": 1,
+        "grimmsnarl_ex": 1,
+        "dark_energy": 2,
+        "ready_grimmsnarl": 1,
+        "spikemuth": 1,
+        "active_id": 646,
+        "bench_ids": [648],
+    }
+    funnel = _new_setup_funnel()
+    _observe_setup(funnel, current, seat=0, first_player=0)
+    assert funnel["grimmsnarl_by_turn2"] == 1
+    assert funnel["ready_grimmsnarl_by_turn2"] == 1
+    assert funnel["max_dark_energy_by_turn2"] == 2
+
+
+def test_setup_funnel_does_not_call_partial_placement_initial():
+    funnel = _new_setup_funnel()
+    partial = {
+        "turn": 0,
+        "players": [
+            {"active": [{"id": 860}], "bench": []},
+            {"active": [], "bench": []},
+        ],
+    }
+    _observe_setup(funnel, partial, seat=0, first_player=None)
+    assert funnel["initial"] is None
+
+
+def test_first_divergence_requires_same_public_state_for_action_difference():
+    left = [{"observation_hash": "same", "action": [0]}]
+    right = [{"observation_hash": "same", "action": [1]}]
+    found = _first_divergence(left, right)
+    assert found is not None
+    assert found["kind"] == "evaluated_action"
+    assert found["index"] == 0
+
+
+def test_setup_summary_pairs_treatments_by_seed_and_seat():
+    rows = []
+    for treatment, grim, energy in (("champion", 0, 1), ("challenger", 1, 2)):
+        rows.append({
+            "repeat": 0,
+            "error": None,
+            "opponent": "mirror",
+            "seed": 1,
+            "evaluated_seat": 0,
+            "treatment": treatment,
+            "evaluated_win": int(treatment == "challenger"),
+            "setup_funnel": {
+                "initial": {"impidimp": 1},
+                "impidimp_by_turn2": 1,
+                "grimmsnarl_by_turn2": grim,
+                "ready_grimmsnarl_by_turn2": grim,
+                "spikemuth_by_turn2": 0,
+                "max_dark_energy_by_turn2": energy,
+                "first_shadow_own_turn": 2 if grim else None,
+            },
+        })
+    report = summarize(rows)
+    assert report["paired_effects"]["grimmsnarl_by_turn2"]["challenger_minus_champion"] == 1
+    assert report["paired_effects"]["max_dark_energy_by_turn2"]["challenger_minus_champion"] == 1
 
 
 @pytest.mark.parametrize(

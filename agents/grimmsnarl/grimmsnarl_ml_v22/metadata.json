@@ -1,0 +1,73 @@
+{
+  "name": "grimmsnarl_ml_v22",
+  "version": "22.0.0",
+  "role": "crn_validated_challenger",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v8",
+  "created_at": "2026-08-13T17:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Frozen v8 policy with the entire ranker conditioned on same-deck team 16371703 (stored code 0, observed rating 1220.2) instead of the incumbent team 16494330 (stored code 16).",
+  "ranker": {
+    "source_agent": "grimmsnarl_ml_v8",
+    "trees": 2000,
+    "features": 823,
+    "teacher_team_id": 16371703,
+    "teacher_team_code": 0,
+    "source_teacher_team_id": 16494330,
+    "source_teacher_team_code": 16,
+    "trees_changed": false,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1"
+  },
+  "change_scope": {
+    "policy_files_changed_from_v8": [
+      "ranker_model.json"
+    ],
+    "documentation_files_changed_from_v8": [
+      "main.py",
+      "metadata.json"
+    ],
+    "identical_runtime_files": [
+      "deck.csv",
+      "fallback_policy.py",
+      "ml_features.py",
+      "ml_planner.py",
+      "ml_runtime.py",
+      "policy_base.py"
+    ],
+    "full_policy_pin_supersedes_froslass_escalation": true
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "effective_runtime": "no separate escalation: the global teacher pin is already code 0"
+  },
+  "screening_evidence": {
+    "blocks": 100,
+    "primary_games": 400,
+    "complete_pairs": 200,
+    "win_rate_v8": 0.545,
+    "win_rate_v22_policy": 0.6,
+    "paired_effect": 0.055,
+    "seed_cluster_95ci": [
+      0.003077839922912426,
+      0.10692216007708757
+    ],
+    "paired_exact_p": 0.15240777196147803,
+    "discordant_v22_only": 30,
+    "discordant_v8_only": 19,
+    "calibration_mismatches": 0,
+    "errors": 0,
+    "report": "experiments/grimmsnarl_1100_diagnosis/eval-harness/gauntlet_v8_top_pin_vs_v8_100_blocks.json"
+  },
+  "known_limits": [
+    "The formal gauntlet currently represents 58% of the observed ladder mixture.",
+    "The 1220 opponent is a conditional-model proxy, not the original submission.",
+    "Final promotion still requires the larger CRN run and package smoke test."
+  ],
+  "submission_priority": 1,
+  "description": "The first retrospective candidate whose CRN seed-cluster 95% CI was wholly positive against the frozen v8 champion."
+}

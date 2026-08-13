@@ -1,0 +1,709 @@
+{
+  "source": "experiments\\grimmsnarl_1100_diagnosis\\eval-harness\\gauntlet_v8_pin9_vs_v8_100_blocks.json",
+  "overall": {
+    "treatments": {
+      "champion": {
+        "games": 200,
+        "win_rate": 0.545,
+        "metrics": {
+          "initial_impidimp": 0.63,
+          "initial_impidimp_present": 0.555,
+          "impidimp_by_turn2": 2.31,
+          "grimmsnarl_by_turn2": 0.42,
+          "ready_grimmsnarl_by_turn2": 0.42,
+          "spikemuth_by_turn2": 0.83,
+          "max_dark_energy_by_turn2": 2.785,
+          "shadow_by_turn2": 0.365,
+          "shadow_by_turn3": 0.84
+        }
+      },
+      "challenger": {
+        "games": 200,
+        "win_rate": 0.55,
+        "metrics": {
+          "initial_impidimp": 0.63,
+          "initial_impidimp_present": 0.555,
+          "impidimp_by_turn2": 2.21,
+          "grimmsnarl_by_turn2": 0.385,
+          "ready_grimmsnarl_by_turn2": 0.385,
+          "spikemuth_by_turn2": 0.85,
+          "max_dark_energy_by_turn2": 2.665,
+          "shadow_by_turn2": 0.345,
+          "shadow_by_turn3": 0.805
+        }
+      }
+    },
+    "paired_effects": {
+      "initial_impidimp": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": 0.0,
+        "cluster_standard_error": 0.0,
+        "cluster_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      "initial_impidimp_present": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": 0.0,
+        "cluster_standard_error": 0.0,
+        "cluster_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      "impidimp_by_turn2": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": -0.1,
+        "cluster_standard_error": 0.02842676218074806,
+        "cluster_95ci": [
+          -0.1557164538742662,
+          -0.044283546125733805
+        ]
+      },
+      "grimmsnarl_by_turn2": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": -0.035,
+        "cluster_standard_error": 0.021619996355786982,
+        "cluster_95ci": [
+          -0.07737519285734248,
+          0.007375192857342484
+        ]
+      },
+      "ready_grimmsnarl_by_turn2": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": -0.035,
+        "cluster_standard_error": 0.021619996355786982,
+        "cluster_95ci": [
+          -0.07737519285734248,
+          0.007375192857342484
+        ]
+      },
+      "spikemuth_by_turn2": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": 0.02,
+        "cluster_standard_error": 0.012143918126978109,
+        "cluster_95ci": [
+          -0.0038020795288770913,
+          0.04380207952887709
+        ]
+      },
+      "max_dark_energy_by_turn2": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": -0.12,
+        "cluster_standard_error": 0.07525042367074262,
+        "cluster_95ci": [
+          -0.26749083039465554,
+          0.027490830394655552
+        ]
+      },
+      "shadow_by_turn2": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": -0.02,
+        "cluster_standard_error": 0.022383254924387138,
+        "cluster_95ci": [
+          -0.0638711796517988,
+          0.02387117965179879
+        ]
+      },
+      "shadow_by_turn3": {
+        "seed_clusters": 100,
+        "challenger_minus_champion": -0.035,
+        "cluster_standard_error": 0.02275805995530579,
+        "cluster_95ci": [
+          -0.07960579751239935,
+          0.009605797512399344
+        ]
+      }
+    }
+  },
+  "by_opponent": {
+    "Grimmsnarl 1220-pilot conditional proxy": {
+      "treatments": {
+        "champion": {
+          "games": 78,
+          "win_rate": 0.5384615384615384,
+          "metrics": {
+            "initial_impidimp": 0.6666666666666666,
+            "initial_impidimp_present": 0.6025641025641025,
+            "impidimp_by_turn2": 2.3333333333333335,
+            "grimmsnarl_by_turn2": 0.4358974358974359,
+            "ready_grimmsnarl_by_turn2": 0.4358974358974359,
+            "spikemuth_by_turn2": 0.9102564102564102,
+            "max_dark_energy_by_turn2": 2.871794871794872,
+            "shadow_by_turn2": 0.38461538461538464,
+            "shadow_by_turn3": 0.8717948717948718
+          }
+        },
+        "challenger": {
+          "games": 78,
+          "win_rate": 0.47435897435897434,
+          "metrics": {
+            "initial_impidimp": 0.6666666666666666,
+            "initial_impidimp_present": 0.6025641025641025,
+            "impidimp_by_turn2": 2.230769230769231,
+            "grimmsnarl_by_turn2": 0.358974358974359,
+            "ready_grimmsnarl_by_turn2": 0.358974358974359,
+            "spikemuth_by_turn2": 0.9102564102564102,
+            "max_dark_energy_by_turn2": 2.6153846153846154,
+            "shadow_by_turn2": 0.32051282051282054,
+            "shadow_by_turn3": 0.8076923076923077
+          }
+        }
+      },
+      "paired_effects": {
+        "initial_impidimp": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "initial_impidimp_present": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "impidimp_by_turn2": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": -0.10256410256410256,
+          "cluster_standard_error": 0.04566012731637562,
+          "cluster_95ci": [
+            -0.1920579521041988,
+            -0.013070253024006342
+          ]
+        },
+        "grimmsnarl_by_turn2": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": -0.07692307692307693,
+          "cluster_standard_error": 0.03913048493224826,
+          "cluster_95ci": [
+            -0.1536188273902835,
+            -0.0002273264558703414
+          ]
+        },
+        "ready_grimmsnarl_by_turn2": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": -0.07692307692307693,
+          "cluster_standard_error": 0.03913048493224826,
+          "cluster_95ci": [
+            -0.1536188273902835,
+            -0.0002273264558703414
+          ]
+        },
+        "spikemuth_by_turn2": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "max_dark_energy_by_turn2": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": -0.2564102564102564,
+          "cluster_standard_error": 0.1360615717470351,
+          "cluster_95ci": [
+            -0.5230909370344452,
+            0.010270424213932372
+          ]
+        },
+        "shadow_by_turn2": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": -0.0641025641025641,
+          "cluster_standard_error": 0.03755107713353988,
+          "cluster_95ci": [
+            -0.13770267528430225,
+            0.009497547079174065
+          ]
+        },
+        "shadow_by_turn3": {
+          "seed_clusters": 39,
+          "challenger_minus_champion": -0.0641025641025641,
+          "cluster_standard_error": 0.03275212172607719,
+          "cluster_95ci": [
+            -0.12829672268567538,
+            9.159448054718577e-05
+          ]
+        }
+      }
+    },
+    "Grimmsnarl incumbent-teacher control": {
+      "treatments": {
+        "champion": {
+          "games": 80,
+          "win_rate": 0.5,
+          "metrics": {
+            "initial_impidimp": 0.65,
+            "initial_impidimp_present": 0.575,
+            "impidimp_by_turn2": 2.3125,
+            "grimmsnarl_by_turn2": 0.425,
+            "ready_grimmsnarl_by_turn2": 0.425,
+            "spikemuth_by_turn2": 0.8625,
+            "max_dark_energy_by_turn2": 2.825,
+            "shadow_by_turn2": 0.35,
+            "shadow_by_turn3": 0.875
+          }
+        },
+        "challenger": {
+          "games": 80,
+          "win_rate": 0.5625,
+          "metrics": {
+            "initial_impidimp": 0.65,
+            "initial_impidimp_present": 0.575,
+            "impidimp_by_turn2": 2.1875,
+            "grimmsnarl_by_turn2": 0.4,
+            "ready_grimmsnarl_by_turn2": 0.4,
+            "spikemuth_by_turn2": 0.85,
+            "max_dark_energy_by_turn2": 2.6625,
+            "shadow_by_turn2": 0.35,
+            "shadow_by_turn3": 0.825
+          }
+        }
+      },
+      "paired_effects": {
+        "initial_impidimp": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "initial_impidimp_present": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "impidimp_by_turn2": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": -0.125,
+          "cluster_standard_error": 0.04292957859039287,
+          "cluster_95ci": [
+            -0.20914197403717003,
+            -0.040858025962829975
+          ]
+        },
+        "grimmsnarl_by_turn2": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": -0.025,
+          "cluster_standard_error": 0.024999999999999998,
+          "cluster_95ci": [
+            -0.074,
+            0.023999999999999994
+          ]
+        },
+        "ready_grimmsnarl_by_turn2": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": -0.025,
+          "cluster_standard_error": 0.024999999999999998,
+          "cluster_95ci": [
+            -0.074,
+            0.023999999999999994
+          ]
+        },
+        "spikemuth_by_turn2": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": -0.0125,
+          "cluster_standard_error": 0.012499999999999999,
+          "cluster_95ci": [
+            -0.037,
+            0.011999999999999997
+          ]
+        },
+        "max_dark_energy_by_turn2": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": -0.1625,
+          "cluster_standard_error": 0.0865794062681397,
+          "cluster_95ci": [
+            -0.3321956362855538,
+            0.007195636285553808
+          ]
+        },
+        "shadow_by_turn2": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.031008683647302113,
+          "cluster_95ci": [
+            -0.06077701994871214,
+            0.06077701994871214
+          ]
+        },
+        "shadow_by_turn3": {
+          "seed_clusters": 40,
+          "challenger_minus_champion": -0.05,
+          "cluster_standard_error": 0.03489912202260564,
+          "cluster_95ci": [
+            -0.11840227916430705,
+            0.018402279164307048
+          ]
+        }
+      }
+    },
+    "Alakazam": {
+      "treatments": {
+        "champion": {
+          "games": 42,
+          "win_rate": 0.6428571428571429,
+          "metrics": {
+            "initial_impidimp": 0.5238095238095238,
+            "initial_impidimp_present": 0.42857142857142855,
+            "impidimp_by_turn2": 2.261904761904762,
+            "grimmsnarl_by_turn2": 0.38095238095238093,
+            "ready_grimmsnarl_by_turn2": 0.38095238095238093,
+            "spikemuth_by_turn2": 0.6190476190476191,
+            "max_dark_energy_by_turn2": 2.5476190476190474,
+            "shadow_by_turn2": 0.35714285714285715,
+            "shadow_by_turn3": 0.7142857142857143
+          }
+        },
+        "challenger": {
+          "games": 42,
+          "win_rate": 0.6666666666666666,
+          "metrics": {
+            "initial_impidimp": 0.5238095238095238,
+            "initial_impidimp_present": 0.42857142857142855,
+            "impidimp_by_turn2": 2.2142857142857144,
+            "grimmsnarl_by_turn2": 0.40476190476190477,
+            "ready_grimmsnarl_by_turn2": 0.40476190476190477,
+            "spikemuth_by_turn2": 0.7380952380952381,
+            "max_dark_energy_by_turn2": 2.761904761904762,
+            "shadow_by_turn2": 0.38095238095238093,
+            "shadow_by_turn3": 0.7619047619047619
+          }
+        }
+      },
+      "paired_effects": {
+        "initial_impidimp": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "initial_impidimp_present": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "impidimp_by_turn2": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": -0.047619047619047616,
+          "cluster_standard_error": 0.06818010030131598,
+          "cluster_95ci": [
+            -0.18125204420962693,
+            0.0860139489715317
+          ]
+        },
+        "grimmsnarl_by_turn2": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.023809523809523808,
+          "cluster_standard_error": 0.05429406786186372,
+          "cluster_95ci": [
+            -0.08260684919972908,
+            0.1302258968187767
+          ]
+        },
+        "ready_grimmsnarl_by_turn2": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.023809523809523808,
+          "cluster_standard_error": 0.05429406786186372,
+          "cluster_95ci": [
+            -0.08260684919972908,
+            0.1302258968187767
+          ]
+        },
+        "spikemuth_by_turn2": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.11904761904761904,
+          "cluster_standard_error": 0.047619047619047616,
+          "cluster_95ci": [
+            0.025714285714285717,
+            0.21238095238095236
+          ]
+        },
+        "max_dark_energy_by_turn2": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.21428571428571427,
+          "cluster_standard_error": 0.18117154647377906,
+          "cluster_95ci": [
+            -0.14081051680289267,
+            0.5693819453743212
+          ]
+        },
+        "shadow_by_turn2": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.023809523809523808,
+          "cluster_standard_error": 0.05429406786186372,
+          "cluster_95ci": [
+            -0.08260684919972908,
+            0.1302258968187767
+          ]
+        },
+        "shadow_by_turn3": {
+          "seed_clusters": 21,
+          "challenger_minus_champion": 0.047619047619047616,
+          "cluster_standard_error": 0.05880518588204033,
+          "cluster_95ci": [
+            -0.06763911670975144,
+            0.16287721194784666
+          ]
+        }
+      }
+    }
+  },
+  "by_evaluated_order": {
+    "first": {
+      "treatments": {
+        "champion": {
+          "games": 100,
+          "win_rate": 0.59,
+          "metrics": {
+            "initial_impidimp": 0.65,
+            "initial_impidimp_present": 0.55,
+            "impidimp_by_turn2": 2.16,
+            "grimmsnarl_by_turn2": 0.32,
+            "ready_grimmsnarl_by_turn2": 0.32,
+            "spikemuth_by_turn2": 0.79,
+            "max_dark_energy_by_turn2": 2.41,
+            "shadow_by_turn2": 0.28,
+            "shadow_by_turn3": 0.78
+          }
+        },
+        "challenger": {
+          "games": 100,
+          "win_rate": 0.57,
+          "metrics": {
+            "initial_impidimp": 0.65,
+            "initial_impidimp_present": 0.55,
+            "impidimp_by_turn2": 2.05,
+            "grimmsnarl_by_turn2": 0.3,
+            "ready_grimmsnarl_by_turn2": 0.3,
+            "spikemuth_by_turn2": 0.81,
+            "max_dark_energy_by_turn2": 2.31,
+            "shadow_by_turn2": 0.26,
+            "shadow_by_turn3": 0.71
+          }
+        }
+      },
+      "paired_effects": {
+        "initial_impidimp": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "initial_impidimp_present": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "impidimp_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.11,
+          "cluster_standard_error": 0.03732196796699355,
+          "cluster_95ci": [
+            -0.18315105721530736,
+            -0.03684894278469264
+          ]
+        },
+        "grimmsnarl_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.02,
+          "cluster_standard_error": 0.028355606218883844,
+          "cluster_95ci": [
+            -0.07557698818901233,
+            0.03557698818901234
+          ]
+        },
+        "ready_grimmsnarl_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.02,
+          "cluster_standard_error": 0.028355606218883844,
+          "cluster_95ci": [
+            -0.07557698818901233,
+            0.03557698818901234
+          ]
+        },
+        "spikemuth_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": 0.02,
+          "cluster_standard_error": 0.02,
+          "cluster_95ci": [
+            -0.0192,
+            0.0592
+          ]
+        },
+        "max_dark_energy_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.1,
+          "cluster_standard_error": 0.09692233691951198,
+          "cluster_95ci": [
+            -0.28996778036224347,
+            0.08996778036224345
+          ]
+        },
+        "shadow_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.02,
+          "cluster_standard_error": 0.024536099975754132,
+          "cluster_95ci": [
+            -0.0680907559524781,
+            0.028090755952478095
+          ]
+        },
+        "shadow_by_turn3": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.07,
+          "cluster_standard_error": 0.03554766326548573,
+          "cluster_95ci": [
+            -0.13967342000035204,
+            -0.000326579999647969
+          ]
+        }
+      }
+    },
+    "second": {
+      "treatments": {
+        "champion": {
+          "games": 100,
+          "win_rate": 0.5,
+          "metrics": {
+            "initial_impidimp": 0.61,
+            "initial_impidimp_present": 0.56,
+            "impidimp_by_turn2": 2.46,
+            "grimmsnarl_by_turn2": 0.52,
+            "ready_grimmsnarl_by_turn2": 0.52,
+            "spikemuth_by_turn2": 0.87,
+            "max_dark_energy_by_turn2": 3.16,
+            "shadow_by_turn2": 0.45,
+            "shadow_by_turn3": 0.9
+          }
+        },
+        "challenger": {
+          "games": 100,
+          "win_rate": 0.53,
+          "metrics": {
+            "initial_impidimp": 0.61,
+            "initial_impidimp_present": 0.56,
+            "impidimp_by_turn2": 2.37,
+            "grimmsnarl_by_turn2": 0.47,
+            "ready_grimmsnarl_by_turn2": 0.47,
+            "spikemuth_by_turn2": 0.89,
+            "max_dark_energy_by_turn2": 3.02,
+            "shadow_by_turn2": 0.43,
+            "shadow_by_turn3": 0.9
+          }
+        }
+      },
+      "paired_effects": {
+        "initial_impidimp": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "initial_impidimp_present": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.0,
+          "cluster_95ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "impidimp_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.09,
+          "cluster_standard_error": 0.0404395046378357,
+          "cluster_95ci": [
+            -0.16926142909015796,
+            -0.010738570909842024
+          ]
+        },
+        "grimmsnarl_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.05,
+          "cluster_standard_error": 0.03588702812826367,
+          "cluster_95ci": [
+            -0.1203385751313968,
+            0.020338575131396794
+          ]
+        },
+        "ready_grimmsnarl_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.05,
+          "cluster_standard_error": 0.03588702812826367,
+          "cluster_95ci": [
+            -0.1203385751313968,
+            0.020338575131396794
+          ]
+        },
+        "spikemuth_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": 0.02,
+          "cluster_standard_error": 0.014070529413628968,
+          "cluster_95ci": [
+            -0.007578237650712777,
+            0.04757823765071278
+          ]
+        },
+        "max_dark_energy_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.14,
+          "cluster_standard_error": 0.12872333498514157,
+          "cluster_95ci": [
+            -0.3922977365708775,
+            0.1122977365708775
+          ]
+        },
+        "shadow_by_turn2": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": -0.02,
+          "cluster_standard_error": 0.03755131169614465,
+          "cluster_95ci": [
+            -0.09360057092444352,
+            0.05360057092444351
+          ]
+        },
+        "shadow_by_turn3": {
+          "seed_clusters": 100,
+          "challenger_minus_champion": 0.0,
+          "cluster_standard_error": 0.02842676218074806,
+          "cluster_95ci": [
+            -0.0557164538742662,
+            0.0557164538742662
+          ]
+        }
+      }
+    }
+  }
+}

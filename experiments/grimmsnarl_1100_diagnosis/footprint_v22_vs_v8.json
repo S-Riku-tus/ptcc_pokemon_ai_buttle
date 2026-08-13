@@ -1,0 +1,1017 @@
+{
+  "valid": true,
+  "base": "agents\\grimmsnarl\\grimmsnarl_ml_v8",
+  "candidate": "agents\\grimmsnarl\\grimmsnarl_ml_v22",
+  "workers": 4,
+  "elapsed_seconds": 1022.03,
+  "selected_games": 133,
+  "errors": [],
+  "totals": {
+    "games": 133,
+    "decisions": 11658,
+    "changed": 1647,
+    "games_touched": 133
+  },
+  "changed_actions_per_game": 12.38345864661654,
+  "changed_share": 0.14127637673700463,
+  "by_context": {
+    "0": 1296,
+    "1": 2,
+    "3": 11,
+    "4": 3,
+    "7": 127,
+    "13": 85,
+    "15": 48,
+    "16": 62,
+    "21": 11,
+    "43": 2
+  },
+  "by_matchup": {
+    "Grimmsnarl (mirror)": {
+      "games": 47,
+      "decisions": 4446,
+      "changed": 620,
+      "games_touched": 47
+    },
+    "Alakazam": {
+      "games": 31,
+      "decisions": 2405,
+      "changed": 343,
+      "games_touched": 31
+    },
+    "Mega Lopunny / Froslass": {
+      "games": 11,
+      "decisions": 1214,
+      "changed": 208,
+      "games_touched": 11
+    },
+    "Kangaskhan / Crustle": {
+      "games": 10,
+      "decisions": 1118,
+      "changed": 118,
+      "games_touched": 10
+    },
+    "Dragapult": {
+      "games": 6,
+      "decisions": 460,
+      "changed": 85,
+      "games_touched": 6
+    },
+    "Mega Lucario": {
+      "games": 8,
+      "decisions": 627,
+      "changed": 73,
+      "games_touched": 8
+    },
+    "Ogerpon": {
+      "games": 6,
+      "decisions": 375,
+      "changed": 56,
+      "games_touched": 6
+    },
+    "other: Cynthia's Garchomp ex": {
+      "games": 4,
+      "decisions": 331,
+      "changed": 45,
+      "games_touched": 4
+    },
+    "Archaludon": {
+      "games": 3,
+      "decisions": 256,
+      "changed": 37,
+      "games_touched": 3
+    },
+    "other: Mega Abomasnow ex": {
+      "games": 2,
+      "decisions": 145,
+      "changed": 21,
+      "games_touched": 2
+    },
+    "other: Hydrapple ex": {
+      "games": 1,
+      "decisions": 97,
+      "changed": 18,
+      "games_touched": 1
+    },
+    "other: N’s Zoroark ex": {
+      "games": 1,
+      "decisions": 98,
+      "changed": 10,
+      "games_touched": 1
+    },
+    "Dipplin": {
+      "games": 1,
+      "decisions": 50,
+      "changed": 8,
+      "games_touched": 1
+    },
+    "other: Conkeldurr": {
+      "games": 2,
+      "decisions": 36,
+      "changed": 5,
+      "games_touched": 2
+    }
+  },
+  "examples": [
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 33,
+      "turn": 5,
+      "context": 0,
+      "base": 8,
+      "candidate": 7
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 34,
+      "turn": 5,
+      "context": 0,
+      "base": 7,
+      "candidate": 8
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 43,
+      "turn": 5,
+      "context": 0,
+      "base": 7,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 44,
+      "turn": 5,
+      "context": 0,
+      "base": 1,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 45,
+      "turn": 5,
+      "context": 0,
+      "base": 2,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 90,
+      "turn": 7,
+      "context": 0,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 97,
+      "turn": 7,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 123,
+      "turn": 9,
+      "context": 21,
+      "base": 2,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 130,
+      "turn": 9,
+      "context": 7,
+      "base": 4,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91926096",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 142,
+      "turn": 9,
+      "context": 0,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 6,
+      "turn": 1,
+      "context": 0,
+      "base": 5,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 7,
+      "turn": 1,
+      "context": 0,
+      "base": 4,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 8,
+      "turn": 1,
+      "context": 7,
+      "base": 6,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 40,
+      "turn": 3,
+      "context": 0,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 43,
+      "turn": 3,
+      "context": 13,
+      "base": 1,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 67,
+      "turn": 5,
+      "context": 0,
+      "base": 5,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 72,
+      "turn": 5,
+      "context": 0,
+      "base": 5,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 75,
+      "turn": 5,
+      "context": 0,
+      "base": 0,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 76,
+      "turn": 5,
+      "context": 7,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 77,
+      "turn": 5,
+      "context": 0,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 79,
+      "turn": 5,
+      "context": 0,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 84,
+      "turn": 5,
+      "context": 15,
+      "base": 1,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 103,
+      "turn": 7,
+      "context": 0,
+      "base": 9,
+      "candidate": 6
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 104,
+      "turn": 7,
+      "context": 0,
+      "base": 3,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 108,
+      "turn": 7,
+      "context": 0,
+      "base": 3,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 128,
+      "turn": 9,
+      "context": 0,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91926197",
+      "opponent": "Mega Lucario",
+      "step": 133,
+      "turn": 9,
+      "context": 16,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 15,
+      "turn": 2,
+      "context": 0,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 37,
+      "turn": 4,
+      "context": 0,
+      "base": 5,
+      "candidate": 6
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 40,
+      "turn": 4,
+      "context": 0,
+      "base": 7,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 42,
+      "turn": 4,
+      "context": 0,
+      "base": 1,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 49,
+      "turn": 4,
+      "context": 0,
+      "base": 2,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 54,
+      "turn": 4,
+      "context": 13,
+      "base": 1,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 55,
+      "turn": 4,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 74,
+      "turn": 6,
+      "context": 0,
+      "base": 6,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 86,
+      "turn": 6,
+      "context": 0,
+      "base": 1,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 92,
+      "turn": 6,
+      "context": 15,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 115,
+      "turn": 8,
+      "context": 0,
+      "base": 4,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 119,
+      "turn": 8,
+      "context": 0,
+      "base": 3,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 141,
+      "turn": 10,
+      "context": 0,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 146,
+      "turn": 10,
+      "context": 0,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 174,
+      "turn": 12,
+      "context": 0,
+      "base": 5,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 175,
+      "turn": 12,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91927127",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 183,
+      "turn": 12,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 23,
+      "turn": 3,
+      "context": 0,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 25,
+      "turn": 3,
+      "context": 0,
+      "base": 0,
+      "candidate": 7
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 26,
+      "turn": 3,
+      "context": 7,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 34,
+      "turn": 3,
+      "context": 0,
+      "base": 5,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 38,
+      "turn": 3,
+      "context": 0,
+      "base": 1,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 62,
+      "turn": 5,
+      "context": 0,
+      "base": 6,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 63,
+      "turn": 5,
+      "context": 0,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 70,
+      "turn": 5,
+      "context": 0,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 71,
+      "turn": 5,
+      "context": 0,
+      "base": 1,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 74,
+      "turn": 5,
+      "context": 0,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 101,
+      "turn": 7,
+      "context": 0,
+      "base": 27,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 102,
+      "turn": 7,
+      "context": 16,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 108,
+      "turn": 7,
+      "context": 0,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91928067",
+      "opponent": "Alakazam",
+      "step": 128,
+      "turn": 9,
+      "context": 0,
+      "base": 28,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 6,
+      "turn": 1,
+      "context": 0,
+      "base": 4,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 7,
+      "turn": 1,
+      "context": 0,
+      "base": 0,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 11,
+      "turn": 1,
+      "context": 0,
+      "base": 2,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 80,
+      "turn": 7,
+      "context": 13,
+      "base": 2,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 83,
+      "turn": 7,
+      "context": 0,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 119,
+      "turn": 9,
+      "context": 0,
+      "base": 21,
+      "candidate": 6
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 120,
+      "turn": 9,
+      "context": 0,
+      "base": 20,
+      "candidate": 6
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 126,
+      "turn": 9,
+      "context": 0,
+      "base": 4,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 131,
+      "turn": 9,
+      "context": 0,
+      "base": 2,
+      "candidate": 5
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 132,
+      "turn": 9,
+      "context": 15,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 140,
+      "turn": 11,
+      "context": 0,
+      "base": 7,
+      "candidate": 9
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 144,
+      "turn": 11,
+      "context": 0,
+      "base": 6,
+      "candidate": 8
+    },
+    {
+      "episode_id": "91929000",
+      "opponent": "Alakazam",
+      "step": 145,
+      "turn": 11,
+      "context": 16,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 10,
+      "turn": 2,
+      "context": 0,
+      "base": 3,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 13,
+      "turn": 2,
+      "context": 0,
+      "base": 6,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 30,
+      "turn": 4,
+      "context": 7,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 35,
+      "turn": 4,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 63,
+      "turn": 6,
+      "context": 0,
+      "base": 18,
+      "candidate": 20
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 78,
+      "turn": 6,
+      "context": 0,
+      "base": 17,
+      "candidate": 16
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 91,
+      "turn": 8,
+      "context": 0,
+      "base": 18,
+      "candidate": 20
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 92,
+      "turn": 8,
+      "context": 16,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 95,
+      "turn": 8,
+      "context": 0,
+      "base": 18,
+      "candidate": 19
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 99,
+      "turn": 8,
+      "context": 0,
+      "base": 16,
+      "candidate": 18
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 137,
+      "turn": 10,
+      "context": 0,
+      "base": 16,
+      "candidate": 15
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 141,
+      "turn": 10,
+      "context": 0,
+      "base": 16,
+      "candidate": 13
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 152,
+      "turn": 10,
+      "context": 0,
+      "base": 15,
+      "candidate": 16
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 154,
+      "turn": 10,
+      "context": 0,
+      "base": 15,
+      "candidate": 13
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 157,
+      "turn": 10,
+      "context": 3,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 158,
+      "turn": 10,
+      "context": 0,
+      "base": 12,
+      "candidate": 3
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 179,
+      "turn": 12,
+      "context": 0,
+      "base": 7,
+      "candidate": 9
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 183,
+      "turn": 12,
+      "context": 0,
+      "base": 7,
+      "candidate": 8
+    },
+    {
+      "episode_id": "91929928",
+      "opponent": "Grimmsnarl (mirror)",
+      "step": 188,
+      "turn": 12,
+      "context": 0,
+      "base": 6,
+      "candidate": 7
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 34,
+      "turn": 3,
+      "context": 0,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 61,
+      "turn": 5,
+      "context": 21,
+      "base": 2,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 95,
+      "turn": 7,
+      "context": 0,
+      "base": 1,
+      "candidate": 8
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 102,
+      "turn": 7,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 103,
+      "turn": 7,
+      "context": 0,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 122,
+      "turn": 9,
+      "context": 0,
+      "base": 2,
+      "candidate": 4
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 124,
+      "turn": 9,
+      "context": 0,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91930858",
+      "opponent": "Mega Lucario",
+      "step": 127,
+      "turn": 9,
+      "context": 7,
+      "base": 5,
+      "candidate": 14
+    },
+    {
+      "episode_id": "91931782",
+      "opponent": "Mega Lucario",
+      "step": 4,
+      "turn": 1,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "91931782",
+      "opponent": "Mega Lucario",
+      "step": 9,
+      "turn": 1,
+      "context": 7,
+      "base": 1,
+      "candidate": 0
+    }
+  ]
+}

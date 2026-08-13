@@ -1,0 +1,5726 @@
+{
+  "valid": true,
+  "config": {
+    "champion": "grimmsnarl_ml_v8@teacher_code=0",
+    "challenger": "grimmsnarl_ml_v22",
+    "opponents": [
+      {
+        "label": "Grimmsnarl 1220-pilot conditional proxy",
+        "agent": "grimmsnarl_ml_v8@teacher_code=0",
+        "weight": 0.23
+      },
+      {
+        "label": "Grimmsnarl incumbent-teacher control",
+        "agent": "grimmsnarl_ml_v8",
+        "weight": 0.23
+      },
+      {
+        "label": "Alakazam",
+        "agent": "alakazam_ml_v35",
+        "weight": 0.12
+      }
+    ],
+    "blocks": 20,
+    "both_seats": true,
+    "workers": 8,
+    "base_seed": 20260816,
+    "max_steps": 8000,
+    "calibration_blocks": 1,
+    "trace_limit": 0,
+    "represented_ladder_weight": 0.58,
+    "unrepresented_matchups": [
+      "Kangaskhan / Crustle (12%; generic policies were rejected as too weak)",
+      "Mega Lucario",
+      "Dragapult",
+      "Ogerpon and long-tail archetypes"
+    ],
+    "limitations": [
+      "The 1220-pilot opponent is a conditional-model proxy, not the original submission.",
+      "Its stored held-out top-1 fidelity is 0.797, so report mirror strata separately.",
+      "The August 5-7 corpus is stale relative to the August 12-13 v21 ladder run."
+    ]
+  },
+  "engine": {
+    "engine_path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\vendor\\cg\\cg.dll",
+    "engine_sha256": "e758cdba51482102ac1463e58b621951431d6d5b0ce46b8facee65cae2ee17f9",
+    "installed": false,
+    "seed_instruction": "8b8f20020000",
+    "flag_instruction": "0fb6872b020000"
+  },
+  "throughput": {
+    "games": 92,
+    "primary_games": 80,
+    "wall_seconds": 252.1907213999948,
+    "games_per_hour": 1313.2917744213519,
+    "mean_game_seconds": 18.826761790217816
+  },
+  "calibration": {
+    "duplicate_games_checked": 12,
+    "mismatches": 0,
+    "passed": true,
+    "details": []
+  },
+  "errors": [],
+  "overall": {
+    "complete_pairs": 40,
+    "seed_clusters": 20,
+    "challenger_minus_champion": 0.0,
+    "cluster_standard_error": 0.0,
+    "cluster_95ci": [
+      0.0,
+      0.0
+    ],
+    "mde_80pct_approx": 0.0,
+    "paired_exact_p": 1.0,
+    "discordant": {
+      "challenger_only_win": 0,
+      "champion_only_win": 0,
+      "same_outcome": 40
+    },
+    "treatments": {
+      "champion": {
+        "games": 40,
+        "wins": 18.0,
+        "win_rate": 0.45,
+        "wilson95": [
+          0.30705075280944694,
+          0.6017117011155924
+        ]
+      },
+      "challenger": {
+        "games": 40,
+        "wins": 18.0,
+        "win_rate": 0.45,
+        "wilson95": [
+          0.30705075280944694,
+          0.6017117011155924
+        ]
+      }
+    },
+    "pair_rows": [
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20268735,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20268735,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20276654,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20276654,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20284573,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20284573,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20292492,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20292492,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20300411,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20300411,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20308330,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20308330,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20316249,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20316249,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20324168,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+        "seed": 20324168,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20332087,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20332087,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20340006,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20340006,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20347925,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20347925,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20355844,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20355844,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20363763,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20363763,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20371682,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20371682,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20379601,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20379601,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20387520,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl incumbent-teacher control",
+        "seed": 20387520,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20395439,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20395439,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20403358,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20403358,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20411277,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20411277,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20419196,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20419196,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      }
+    ]
+  },
+  "by_opponent": {
+    "Grimmsnarl 1220-pilot conditional proxy": {
+      "complete_pairs": 16,
+      "seed_clusters": 8,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 16
+      },
+      "treatments": {
+        "champion": {
+          "games": 16,
+          "wins": 8.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.2799923761135083,
+            0.7200076238864916
+          ]
+        },
+        "challenger": {
+          "games": 16,
+          "wins": 8.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.2799923761135083,
+            0.7200076238864916
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20268735,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20268735,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20276654,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20276654,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20284573,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20284573,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20292492,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20292492,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20300411,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20300411,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20308330,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20308330,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20316249,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20316249,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20324168,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20324168,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    "Grimmsnarl incumbent-teacher control": {
+      "complete_pairs": 16,
+      "seed_clusters": 8,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 16
+      },
+      "treatments": {
+        "champion": {
+          "games": 16,
+          "wins": 7.0,
+          "win_rate": 0.4375,
+          "wilson95": [
+            0.2309836333518552,
+            0.6682180439322347
+          ]
+        },
+        "challenger": {
+          "games": 16,
+          "wins": 7.0,
+          "win_rate": 0.4375,
+          "wilson95": [
+            0.2309836333518552,
+            0.6682180439322347
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20332087,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20332087,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20340006,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20340006,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20347925,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20347925,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20355844,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20355844,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20363763,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20363763,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20371682,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20371682,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20379601,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20379601,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20387520,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20387520,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    "Alakazam": {
+      "complete_pairs": 8,
+      "seed_clusters": 4,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 8
+      },
+      "treatments": {
+        "champion": {
+          "games": 8,
+          "wins": 3.0,
+          "win_rate": 0.375,
+          "wilson95": [
+            0.13684175946152105,
+            0.6942621454161981
+          ]
+        },
+        "challenger": {
+          "games": 8,
+          "wins": 3.0,
+          "win_rate": 0.375,
+          "wilson95": [
+            0.13684175946152105,
+            0.6942621454161981
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "Alakazam",
+          "seed": 20395439,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20395439,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20403358,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20403358,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20411277,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20411277,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20419196,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20419196,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        }
+      ]
+    }
+  },
+  "by_evaluated_order": {
+    "first": {
+      "complete_pairs": 20,
+      "seed_clusters": 20,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 20
+      },
+      "treatments": {
+        "champion": {
+          "games": 20,
+          "wins": 10.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.2992949144298199,
+            0.7007050855701801
+          ]
+        },
+        "challenger": {
+          "games": 20,
+          "wins": 10.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.2992949144298199,
+            0.7007050855701801
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20268735,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20276654,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20284573,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20292492,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20300411,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20308330,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20316249,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20324168,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20332087,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20340006,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20347925,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20355844,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20363763,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20371682,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20379601,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20387520,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20395439,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20403358,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20411277,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20419196,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    "second": {
+      "complete_pairs": 20,
+      "seed_clusters": 20,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 20
+      },
+      "treatments": {
+        "champion": {
+          "games": 20,
+          "wins": 8.0,
+          "win_rate": 0.4,
+          "wilson95": [
+            0.21880396741419272,
+            0.613422057684794
+          ]
+        },
+        "challenger": {
+          "games": 20,
+          "wins": 8.0,
+          "win_rate": 0.4,
+          "wilson95": [
+            0.21880396741419272,
+            0.613422057684794
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20268735,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20276654,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20284573,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20292492,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20300411,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20308330,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20316249,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+          "seed": 20324168,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20332087,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20340006,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20347925,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20355844,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20363763,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20371682,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20379601,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl incumbent-teacher control",
+          "seed": 20387520,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20395439,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20403358,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20411277,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20419196,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 204,
+      "seconds": 38.308281999998144,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            647,
+            647,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 204,
+      "seconds": 39.886630299995886,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            647,
+            647,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 204,
+      "seconds": 37.08693380000477,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            112,
+            104,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 204,
+      "seconds": 37.7465852000023,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            112,
+            104,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 204,
+      "seconds": 38.60641540000506,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            647,
+            647,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 204,
+      "seconds": 38.87145869999949,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            647,
+            647,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 204,
+      "seconds": 38.53724140000122,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            112,
+            104,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20268735,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 204,
+      "seconds": 38.480555700007244,
+      "observable_hash": "ad24e868ab010815065e11be40385553fa306e2da6e371c8544f32d0b7e4e10d",
+      "action_hash": "63c53bd16470a502992da127b7dacc4f4de026379541089fdebd394cd427168a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            112,
+            104,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20276654,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 216,
+      "seconds": 35.10589700000128,
+      "observable_hash": "78f5725a6d210ef1e553fa6b3e157f67a3e04a24ae4b9ba338846067cfc1a0bf",
+      "action_hash": "a74be0c5450db430018597c74e096859e58665b0409ea3193aa389542a5b6f31",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            646,
+            860,
+            112,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20276654,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 216,
+      "seconds": 34.76556569999957,
+      "observable_hash": "78f5725a6d210ef1e553fa6b3e157f67a3e04a24ae4b9ba338846067cfc1a0bf",
+      "action_hash": "a74be0c5450db430018597c74e096859e58665b0409ea3193aa389542a5b6f31",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            646,
+            860,
+            112,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20276654,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 216,
+      "seconds": 35.61825430000317,
+      "observable_hash": "78f5725a6d210ef1e553fa6b3e157f67a3e04a24ae4b9ba338846067cfc1a0bf",
+      "action_hash": "a74be0c5450db430018597c74e096859e58665b0409ea3193aa389542a5b6f31",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            647,
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20276654,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 216,
+      "seconds": 36.047312900002,
+      "observable_hash": "78f5725a6d210ef1e553fa6b3e157f67a3e04a24ae4b9ba338846067cfc1a0bf",
+      "action_hash": "a74be0c5450db430018597c74e096859e58665b0409ea3193aa389542a5b6f31",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            647,
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20284573,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 234,
+      "seconds": 43.20547970000189,
+      "observable_hash": "9d1c6019ebeda2b4f4782da1da310d233be3e2f802595a33907185dbc225b591",
+      "action_hash": "9310ca0a40633e1b83135c59f2880fb9300a680863a799b5d46280a3a69bbe06",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20284573,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 234,
+      "seconds": 43.262910399993416,
+      "observable_hash": "9d1c6019ebeda2b4f4782da1da310d233be3e2f802595a33907185dbc225b591",
+      "action_hash": "9310ca0a40633e1b83135c59f2880fb9300a680863a799b5d46280a3a69bbe06",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20284573,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 234,
+      "seconds": 43.969876300005126,
+      "observable_hash": "9d1c6019ebeda2b4f4782da1da310d233be3e2f802595a33907185dbc225b591",
+      "action_hash": "9310ca0a40633e1b83135c59f2880fb9300a680863a799b5d46280a3a69bbe06",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 112,
+          "bench_ids": [
+            647,
+            647,
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20284573,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 234,
+      "seconds": 43.36047350001172,
+      "observable_hash": "9d1c6019ebeda2b4f4782da1da310d233be3e2f802595a33907185dbc225b591",
+      "action_hash": "9310ca0a40633e1b83135c59f2880fb9300a680863a799b5d46280a3a69bbe06",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 112,
+          "bench_ids": [
+            647,
+            647,
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20292492,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 207,
+      "seconds": 33.043686599994544,
+      "observable_hash": "a2d1ac2cfcfea824cad3cea4f866295b6a6d43121fa20a202cc319cf26eafa77",
+      "action_hash": "a62a359db42683d95625fa8c559e9e40deeabab96de1be4e5608eb16bc8f27e5",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20292492,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 207,
+      "seconds": 33.582325099996524,
+      "observable_hash": "a2d1ac2cfcfea824cad3cea4f866295b6a6d43121fa20a202cc319cf26eafa77",
+      "action_hash": "a62a359db42683d95625fa8c559e9e40deeabab96de1be4e5608eb16bc8f27e5",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20292492,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 207,
+      "seconds": 32.42068689998996,
+      "observable_hash": "a2d1ac2cfcfea824cad3cea4f866295b6a6d43121fa20a202cc319cf26eafa77",
+      "action_hash": "a62a359db42683d95625fa8c559e9e40deeabab96de1be4e5608eb16bc8f27e5",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 5,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            112,
+            646,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 6,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20292492,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 207,
+      "seconds": 32.44061099999817,
+      "observable_hash": "a2d1ac2cfcfea824cad3cea4f866295b6a6d43121fa20a202cc319cf26eafa77",
+      "action_hash": "a62a359db42683d95625fa8c559e9e40deeabab96de1be4e5608eb16bc8f27e5",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 5,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            112,
+            646,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 6,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 4,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20300411,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 178,
+      "seconds": 24.88422089999949,
+      "observable_hash": "bd8853e9647a611b85cc2ec13e3bf1c979ee05094439e84973f673ba8fb36702",
+      "action_hash": "3cdd8a2251d733a82316354b56b06c0dd76ec1ba80c5a4afd209a46c034f868f",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            860
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            860
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 4,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20300411,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 178,
+      "seconds": 25.087294500001008,
+      "observable_hash": "bd8853e9647a611b85cc2ec13e3bf1c979ee05094439e84973f673ba8fb36702",
+      "action_hash": "3cdd8a2251d733a82316354b56b06c0dd76ec1ba80c5a4afd209a46c034f868f",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            860
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            860
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 4,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20300411,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 178,
+      "seconds": 24.14693069999339,
+      "observable_hash": "bd8853e9647a611b85cc2ec13e3bf1c979ee05094439e84973f673ba8fb36702",
+      "action_hash": "3cdd8a2251d733a82316354b56b06c0dd76ec1ba80c5a4afd209a46c034f868f",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            646,
+            646,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 4,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20300411,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 178,
+      "seconds": 24.86475980000978,
+      "observable_hash": "bd8853e9647a611b85cc2ec13e3bf1c979ee05094439e84973f673ba8fb36702",
+      "action_hash": "3cdd8a2251d733a82316354b56b06c0dd76ec1ba80c5a4afd209a46c034f868f",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            646,
+            646,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 5,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20308330,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 200,
+      "seconds": 13.535675600011018,
+      "observable_hash": "a547ed28a5ae142d0438683983553759e93de459ccfeb410ebeeb7f9f466596d",
+      "action_hash": "545fa0aeeafffc924861c645b93f750b46012f54bf688303c8789b97b96875d0",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 5
+      },
+      "error": null
+    },
+    {
+      "block_id": 5,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20308330,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 200,
+      "seconds": 14.031625200004783,
+      "observable_hash": "a547ed28a5ae142d0438683983553759e93de459ccfeb410ebeeb7f9f466596d",
+      "action_hash": "545fa0aeeafffc924861c645b93f750b46012f54bf688303c8789b97b96875d0",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 5
+      },
+      "error": null
+    },
+    {
+      "block_id": 5,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20308330,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 200,
+      "seconds": 12.674963500001468,
+      "observable_hash": "a547ed28a5ae142d0438683983553759e93de459ccfeb410ebeeb7f9f466596d",
+      "action_hash": "545fa0aeeafffc924861c645b93f750b46012f54bf688303c8789b97b96875d0",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646,
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 3,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646,
+            112,
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 5
+      },
+      "error": null
+    },
+    {
+      "block_id": 5,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20308330,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 200,
+      "seconds": 13.207335700004478,
+      "observable_hash": "a547ed28a5ae142d0438683983553759e93de459ccfeb410ebeeb7f9f466596d",
+      "action_hash": "545fa0aeeafffc924861c645b93f750b46012f54bf688303c8789b97b96875d0",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646,
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 3,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646,
+            112,
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 5
+      },
+      "error": null
+    },
+    {
+      "block_id": 6,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20316249,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 182,
+      "seconds": 12.025078999999096,
+      "observable_hash": "26a1690b73999d8ae0f4aef9842aa122f71f7741af9a76d8cb6084e08a7895a2",
+      "action_hash": "1f1d3050d5d9411adce7b897f08217cd22fd0d7ec0b0a4ed5fcdec563f60fb4a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            647,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 6,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20316249,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 182,
+      "seconds": 11.247424700006377,
+      "observable_hash": "26a1690b73999d8ae0f4aef9842aa122f71f7741af9a76d8cb6084e08a7895a2",
+      "action_hash": "1f1d3050d5d9411adce7b897f08217cd22fd0d7ec0b0a4ed5fcdec563f60fb4a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            647,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 6,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20316249,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 182,
+      "seconds": 11.228337400010787,
+      "observable_hash": "26a1690b73999d8ae0f4aef9842aa122f71f7741af9a76d8cb6084e08a7895a2",
+      "action_hash": "1f1d3050d5d9411adce7b897f08217cd22fd0d7ec0b0a4ed5fcdec563f60fb4a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 6,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            647,
+            647,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 6,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 6,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20316249,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 182,
+      "seconds": 11.273782500007655,
+      "observable_hash": "26a1690b73999d8ae0f4aef9842aa122f71f7741af9a76d8cb6084e08a7895a2",
+      "action_hash": "1f1d3050d5d9411adce7b897f08217cd22fd0d7ec0b0a4ed5fcdec563f60fb4a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 6,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            647,
+            647,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 6,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 7,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20324168,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 193,
+      "seconds": 13.907839999999851,
+      "observable_hash": "52a72c01bb56caea1619791380b5d46d8cfbdcfa2ad43eb2fa9bc8c14eef5e8e",
+      "action_hash": "fbbd947d3fec4f6e04cc300d5b3aec1ca5ad0a46bd40b2b9fca545a51769fb3e",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            647,
+            646,
+            112,
+            860,
+            860
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 7,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20324168,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 193,
+      "seconds": 13.339604599997983,
+      "observable_hash": "52a72c01bb56caea1619791380b5d46d8cfbdcfa2ad43eb2fa9bc8c14eef5e8e",
+      "action_hash": "fbbd947d3fec4f6e04cc300d5b3aec1ca5ad0a46bd40b2b9fca545a51769fb3e",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            647,
+            646,
+            112,
+            860,
+            860
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 7,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20324168,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 193,
+      "seconds": 13.983120999997482,
+      "observable_hash": "52a72c01bb56caea1619791380b5d46d8cfbdcfa2ad43eb2fa9bc8c14eef5e8e",
+      "action_hash": "fbbd947d3fec4f6e04cc300d5b3aec1ca5ad0a46bd40b2b9fca545a51769fb3e",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 112,
+          "bench_ids": [
+            647,
+            112,
+            647,
+            646,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 7,
+      "opponent": "Grimmsnarl 1220-pilot conditional proxy",
+      "seed": 20324168,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 193,
+      "seconds": 13.127271200006362,
+      "observable_hash": "52a72c01bb56caea1619791380b5d46d8cfbdcfa2ad43eb2fa9bc8c14eef5e8e",
+      "action_hash": "fbbd947d3fec4f6e04cc300d5b3aec1ca5ad0a46bd40b2b9fca545a51769fb3e",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 112,
+          "bench_ids": [
+            647,
+            112,
+            647,
+            646,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 198,
+      "seconds": 13.3568518999964,
+      "observable_hash": "3e6c2552898f1d62a02b1e4eb7dc46cf51e09aca0778f2d05dfd2baf33596daf",
+      "action_hash": "493f86db2ba274fd8ebfd8e329dde63007157e522a00bbb2c5795522233dd401",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112,
+            647,
+            647,
+            104
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 0,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 198,
+      "seconds": 12.884713200008264,
+      "observable_hash": "3e6c2552898f1d62a02b1e4eb7dc46cf51e09aca0778f2d05dfd2baf33596daf",
+      "action_hash": "493f86db2ba274fd8ebfd8e329dde63007157e522a00bbb2c5795522233dd401",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112,
+            647,
+            647,
+            104
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 0,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 188,
+      "seconds": 12.339044799999101,
+      "observable_hash": "c04153a7eb6625e1eec53637a3fc726e6c8b0b3e6d72a051e45170d888e2fd84",
+      "action_hash": "d682460217decb198791b06702375b342ddc33d06e9c1247664d6a07397102ce",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            646,
+            646,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 188,
+      "seconds": 13.084317400003783,
+      "observable_hash": "c04153a7eb6625e1eec53637a3fc726e6c8b0b3e6d72a051e45170d888e2fd84",
+      "action_hash": "d682460217decb198791b06702375b342ddc33d06e9c1247664d6a07397102ce",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            646,
+            646,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 198,
+      "seconds": 13.027520399991772,
+      "observable_hash": "3e6c2552898f1d62a02b1e4eb7dc46cf51e09aca0778f2d05dfd2baf33596daf",
+      "action_hash": "493f86db2ba274fd8ebfd8e329dde63007157e522a00bbb2c5795522233dd401",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112,
+            647,
+            647,
+            104
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 0,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 198,
+      "seconds": 12.616780099997413,
+      "observable_hash": "3e6c2552898f1d62a02b1e4eb7dc46cf51e09aca0778f2d05dfd2baf33596daf",
+      "action_hash": "493f86db2ba274fd8ebfd8e329dde63007157e522a00bbb2c5795522233dd401",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 646,
+          "bench_ids": [
+            112,
+            112,
+            647,
+            647,
+            104
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 0,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 188,
+      "seconds": 11.842653100000462,
+      "observable_hash": "c04153a7eb6625e1eec53637a3fc726e6c8b0b3e6d72a051e45170d888e2fd84",
+      "action_hash": "d682460217decb198791b06702375b342ddc33d06e9c1247664d6a07397102ce",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            646,
+            646,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 8,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20332087,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 188,
+      "seconds": 11.58401039999444,
+      "observable_hash": "c04153a7eb6625e1eec53637a3fc726e6c8b0b3e6d72a051e45170d888e2fd84",
+      "action_hash": "d682460217decb198791b06702375b342ddc33d06e9c1247664d6a07397102ce",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            646,
+            646,
+            112,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 9,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20340006,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 218,
+      "seconds": 16.41091599999345,
+      "observable_hash": "9b061c80890eba9a5a25bb9496e50338ae6bd727fa6bb87ca32af8e41b4b36c9",
+      "action_hash": "9ac715fdc5b420db2a66ea1a3114fb60b1356036f9ce1eb56a457e041546a07a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 647,
+          "bench_ids": [
+            647,
+            104,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 9,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20340006,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 218,
+      "seconds": 14.560803500004113,
+      "observable_hash": "9b061c80890eba9a5a25bb9496e50338ae6bd727fa6bb87ca32af8e41b4b36c9",
+      "action_hash": "9ac715fdc5b420db2a66ea1a3114fb60b1356036f9ce1eb56a457e041546a07a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 647,
+          "bench_ids": [
+            647,
+            104,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 9,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20340006,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 223,
+      "seconds": 13.978355999992345,
+      "observable_hash": "1ff26fc6da286f005e04ee4753f2e8cd7086b433de586fb8eb6ca2b0dfc21cb8",
+      "action_hash": "72aa88a94c1983939b591b13c8e729b0af064ca04448282e3701d3130141c6c9",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 6,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            112,
+            648,
+            647,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 6,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 9,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20340006,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 223,
+      "seconds": 15.484332199994242,
+      "observable_hash": "1ff26fc6da286f005e04ee4753f2e8cd7086b433de586fb8eb6ca2b0dfc21cb8",
+      "action_hash": "72aa88a94c1983939b591b13c8e729b0af064ca04448282e3701d3130141c6c9",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 6,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            112,
+            648,
+            647,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 6,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 10,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20347925,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 272,
+      "seconds": 16.166407199998503,
+      "observable_hash": "ce38efa1eea20706b2ce6b4f12ea829a850fa137b9153af2c1b55619a3b52aa2",
+      "action_hash": "a2c0ef0f740c26b153b80090aa721e076702c12b55f200e78fff093b120a9d35",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": [
+            112,
+            647,
+            646,
+            646,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 6
+      },
+      "error": null
+    },
+    {
+      "block_id": 10,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20347925,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 272,
+      "seconds": 16.16769290000957,
+      "observable_hash": "ce38efa1eea20706b2ce6b4f12ea829a850fa137b9153af2c1b55619a3b52aa2",
+      "action_hash": "a2c0ef0f740c26b153b80090aa721e076702c12b55f200e78fff093b120a9d35",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": [
+            112,
+            647,
+            646,
+            646,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 6
+      },
+      "error": null
+    },
+    {
+      "block_id": 10,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20347925,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 206,
+      "seconds": 13.165731800007052,
+      "observable_hash": "682661a18aec07a945aa3eb84944750fd2f5be64ab6e5f47e4bf0560d9c8971d",
+      "action_hash": "3e738567e45f18b4840624d294ba7aa411e634bd306e126b12c0b3127350f9d6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 104,
+          "bench_ids": [
+            112
+          ]
+        },
+        "impidimp_by_turn2": 0,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 10,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20347925,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 206,
+      "seconds": 12.801768299992546,
+      "observable_hash": "682661a18aec07a945aa3eb84944750fd2f5be64ab6e5f47e4bf0560d9c8971d",
+      "action_hash": "3e738567e45f18b4840624d294ba7aa411e634bd306e126b12c0b3127350f9d6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 104,
+          "bench_ids": [
+            112
+          ]
+        },
+        "impidimp_by_turn2": 0,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 11,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20355844,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 189,
+      "seconds": 11.487660700004199,
+      "observable_hash": "a8c6213e8305692bb92d74d76573a60a6bab7810225651cfebc56d0cddc0b117",
+      "action_hash": "7e56ed56c282a34d7b3a1505242d4e28ab43ef1891b8d4dcefcd0d210010d012",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            860
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            860,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 11,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20355844,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 189,
+      "seconds": 11.25009040000441,
+      "observable_hash": "a8c6213e8305692bb92d74d76573a60a6bab7810225651cfebc56d0cddc0b117",
+      "action_hash": "7e56ed56c282a34d7b3a1505242d4e28ab43ef1891b8d4dcefcd0d210010d012",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            860
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            860,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 11,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20355844,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 212,
+      "seconds": 15.20485280000139,
+      "observable_hash": "72d8f5b734e2fa03fade0f57cee86921bfc1538b732185c7658259f3c3fc053b",
+      "action_hash": "fe960319384f234f9962a554c23240aae2c2e4225417a184a0defd9186dc7c28",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 11,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20355844,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 212,
+      "seconds": 14.549731100007193,
+      "observable_hash": "72d8f5b734e2fa03fade0f57cee86921bfc1538b732185c7658259f3c3fc053b",
+      "action_hash": "fe960319384f234f9962a554c23240aae2c2e4225417a184a0defd9186dc7c28",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 12,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20363763,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 233,
+      "seconds": 15.501473299998906,
+      "observable_hash": "ec904f7d4eae38bfee78de7ef69adcaabd636fba65618c09ba1b1986a37ab3fa",
+      "action_hash": "3e7c3ea995c6d6c8df20db76f43aef1ae464dcbcbd5755d8a9cf551a78684418",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 112,
+          "bench_ids": [
+            112,
+            112,
+            647,
+            646,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 12,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20363763,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 233,
+      "seconds": 14.907294799995725,
+      "observable_hash": "ec904f7d4eae38bfee78de7ef69adcaabd636fba65618c09ba1b1986a37ab3fa",
+      "action_hash": "3e7c3ea995c6d6c8df20db76f43aef1ae464dcbcbd5755d8a9cf551a78684418",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 112,
+          "bench_ids": [
+            112,
+            112,
+            647,
+            646,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 12,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20363763,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 219,
+      "seconds": 13.861615899993922,
+      "observable_hash": "63ba75b1bf6bef7425578e5334646fd18a23cdbf913f4a725669697cc72cd290",
+      "action_hash": "c3633229e1769e6c69bd5c99c172950fe0828aa38cd62761cf1d865cbb403b6e",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 5,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            647,
+            112,
+            860,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 5,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 12,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20363763,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 219,
+      "seconds": 13.936863800001447,
+      "observable_hash": "63ba75b1bf6bef7425578e5334646fd18a23cdbf913f4a725669697cc72cd290",
+      "action_hash": "c3633229e1769e6c69bd5c99c172950fe0828aa38cd62761cf1d865cbb403b6e",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 5,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            647,
+            112,
+            860,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 5,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 13,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20371682,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 210,
+      "seconds": 13.133030100012547,
+      "observable_hash": "d27652d637617b2fdfd027baabed53d8d83465f9bfa18b4e156c9d594c126f26",
+      "action_hash": "fa824bdff9a19fa683fafdf2b2f8519a8f7085b8c14ba51bf39fa3d5dfa7f24b",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 13,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20371682,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 210,
+      "seconds": 13.061851600010414,
+      "observable_hash": "d27652d637617b2fdfd027baabed53d8d83465f9bfa18b4e156c9d594c126f26",
+      "action_hash": "fa824bdff9a19fa683fafdf2b2f8519a8f7085b8c14ba51bf39fa3d5dfa7f24b",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 13,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20371682,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 220,
+      "seconds": 16.5683674000029,
+      "observable_hash": "db6e2ce124a66ebc3f272187e41309081abfb77c6d068f34eae01e8971642aa0",
+      "action_hash": "05f91ea034d401fca5c9d849029eaac2f346c752c3ec61608ee56a5a128611d6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            647,
+            647,
+            104
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 13,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20371682,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 220,
+      "seconds": 14.852465599993593,
+      "observable_hash": "db6e2ce124a66ebc3f272187e41309081abfb77c6d068f34eae01e8971642aa0",
+      "action_hash": "05f91ea034d401fca5c9d849029eaac2f346c752c3ec61608ee56a5a128611d6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            647,
+            647,
+            104
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 14,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20379601,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 198,
+      "seconds": 10.62179649999598,
+      "observable_hash": "cd606ec56b37f71565eab7a139a87149e12bd5cbf76dfaaa4721353217a54e22",
+      "action_hash": "f3f2ba1bc9ca3de87e972906e450702ff8cbd2dd1cf1a76cbd1e2065f925bb74",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 860,
+          "bench_ids": [
+            112,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 6
+      },
+      "error": null
+    },
+    {
+      "block_id": 14,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20379601,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 198,
+      "seconds": 10.432281500005047,
+      "observable_hash": "cd606ec56b37f71565eab7a139a87149e12bd5cbf76dfaaa4721353217a54e22",
+      "action_hash": "f3f2ba1bc9ca3de87e972906e450702ff8cbd2dd1cf1a76cbd1e2065f925bb74",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 860,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": 860,
+          "bench_ids": [
+            112,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 6
+      },
+      "error": null
+    },
+    {
+      "block_id": 14,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20379601,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 212,
+      "seconds": 12.710063399994397,
+      "observable_hash": "76e56f1c3ccd5b6e213406bbdf77e2f3ae511644e874fc76f12d72ffcf6a08e2",
+      "action_hash": "4bf263778b59118cc2c3ce787102da1c66472aee6a9eea152448553926dcf12f",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            648,
+            647,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 14,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20379601,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 212,
+      "seconds": 13.40517660000478,
+      "observable_hash": "76e56f1c3ccd5b6e213406bbdf77e2f3ae511644e874fc76f12d72ffcf6a08e2",
+      "action_hash": "4bf263778b59118cc2c3ce787102da1c66472aee6a9eea152448553926dcf12f",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            648,
+            647,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 15,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20387520,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 175,
+      "seconds": 10.371771499994793,
+      "observable_hash": "c55cddcde3252077e1c80f8b9e2457b295c1b51881af0c8d3c386f3d0ad04b92",
+      "action_hash": "e58f5ebb552f21c46f610c119b29854bf5b93681f8546ed95236a85ed490ddcc",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            647,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 15,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20387520,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 175,
+      "seconds": 10.582377099999576,
+      "observable_hash": "c55cddcde3252077e1c80f8b9e2457b295c1b51881af0c8d3c386f3d0ad04b92",
+      "action_hash": "e58f5ebb552f21c46f610c119b29854bf5b93681f8546ed95236a85ed490ddcc",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            647,
+            112,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 15,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20387520,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 223,
+      "seconds": 15.800890800004709,
+      "observable_hash": "539b696f3bb949061c942d0af0a11a28cc24dcd5b706588b9e8127885062b980",
+      "action_hash": "fb22de0f0f329588d6e4a683b558c0794dab237d068a42890fb03f54fe63f75a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            647,
+            112,
+            860,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 15,
+      "opponent": "Grimmsnarl incumbent-teacher control",
+      "seed": 20387520,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 223,
+      "seconds": 15.659143600001698,
+      "observable_hash": "539b696f3bb949061c942d0af0a11a28cc24dcd5b706588b9e8127885062b980",
+      "action_hash": "fb22de0f0f329588d6e4a683b558c0794dab237d068a42890fb03f54fe63f75a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            647,
+            112,
+            860,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 133,
+      "seconds": 12.775601500004996,
+      "observable_hash": "54b50ebef754be6184f0a6f8b96c26bc1ef4646b1196f51ad94416ecdec9443f",
+      "action_hash": "7fe74cebbf0c28ce9c8c5857b37b142bdbf4138c065be41d161ff3cf89e831b6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            104,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 3,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 133,
+      "seconds": 13.06875449999643,
+      "observable_hash": "54b50ebef754be6184f0a6f8b96c26bc1ef4646b1196f51ad94416ecdec9443f",
+      "action_hash": "7fe74cebbf0c28ce9c8c5857b37b142bdbf4138c065be41d161ff3cf89e831b6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            104,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 3,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 116,
+      "seconds": 12.159363900005701,
+      "observable_hash": "22ae2e4d4b6a9cdd21eb83c2cf4e339f031c975e6bbe1919345ace6b3e303075",
+      "action_hash": "2279d31d56d8d8b843f4aec1c77ab08282ffe5baa5e80a68d57d6754177b78ae",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 116,
+      "seconds": 12.3364533999993,
+      "observable_hash": "22ae2e4d4b6a9cdd21eb83c2cf4e339f031c975e6bbe1919345ace6b3e303075",
+      "action_hash": "2279d31d56d8d8b843f4aec1c77ab08282ffe5baa5e80a68d57d6754177b78ae",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 133,
+      "seconds": 12.628433699996094,
+      "observable_hash": "54b50ebef754be6184f0a6f8b96c26bc1ef4646b1196f51ad94416ecdec9443f",
+      "action_hash": "7fe74cebbf0c28ce9c8c5857b37b142bdbf4138c065be41d161ff3cf89e831b6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            104,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 3,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 133,
+      "seconds": 12.658172699986608,
+      "observable_hash": "54b50ebef754be6184f0a6f8b96c26bc1ef4646b1196f51ad94416ecdec9443f",
+      "action_hash": "7fe74cebbf0c28ce9c8c5857b37b142bdbf4138c065be41d161ff3cf89e831b6",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 1,
+          "active_id": 648,
+          "bench_ids": [
+            104,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 3,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 116,
+      "seconds": 12.522160599997733,
+      "observable_hash": "22ae2e4d4b6a9cdd21eb83c2cf4e339f031c975e6bbe1919345ace6b3e303075",
+      "action_hash": "2279d31d56d8d8b843f4aec1c77ab08282ffe5baa5e80a68d57d6754177b78ae",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 16,
+      "opponent": "Alakazam",
+      "seed": 20395439,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 116,
+      "seconds": 12.089011899995967,
+      "observable_hash": "22ae2e4d4b6a9cdd21eb83c2cf4e339f031c975e6bbe1919345ace6b3e303075",
+      "action_hash": "2279d31d56d8d8b843f4aec1c77ab08282ffe5baa5e80a68d57d6754177b78ae",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            647
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 17,
+      "opponent": "Alakazam",
+      "seed": 20403358,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 119,
+      "seconds": 10.713800500001526,
+      "observable_hash": "969f08317ff21835f2184e30f1c1ad5fd4a55587c42f495157d3162d018fd1f7",
+      "action_hash": "bc2f4a16d91f4941ec94041b5fdca1425fffd31dd7fb6ab1c9f057bc77e0547d",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            112,
+            648
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 3,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 17,
+      "opponent": "Alakazam",
+      "seed": 20403358,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 119,
+      "seconds": 10.946556099996087,
+      "observable_hash": "969f08317ff21835f2184e30f1c1ad5fd4a55587c42f495157d3162d018fd1f7",
+      "action_hash": "bc2f4a16d91f4941ec94041b5fdca1425fffd31dd7fb6ab1c9f057bc77e0547d",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            112,
+            648
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 3,
+        "first_shadow_own_turn": 4
+      },
+      "error": null
+    },
+    {
+      "block_id": 17,
+      "opponent": "Alakazam",
+      "seed": 20403358,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 149,
+      "seconds": 11.084592700004578,
+      "observable_hash": "6869a77fdcca278b4fe4ea1c8a888c53d74e5c915c6cd2d094ed8331bd3454c5",
+      "action_hash": "15ac1ae6f0e3d266d052a0e7d7fa1b6f7cc3c606e3fe9b1fd9731bbeecdcf197",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            647,
+            112,
+            647,
+            104,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 17,
+      "opponent": "Alakazam",
+      "seed": 20403358,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 149,
+      "seconds": 10.075042899989057,
+      "observable_hash": "6869a77fdcca278b4fe4ea1c8a888c53d74e5c915c6cd2d094ed8331bd3454c5",
+      "action_hash": "15ac1ae6f0e3d266d052a0e7d7fa1b6f7cc3c606e3fe9b1fd9731bbeecdcf197",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            112
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 2,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            647,
+            112,
+            647,
+            104,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 3,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 18,
+      "opponent": "Alakazam",
+      "seed": 20411277,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 111,
+      "seconds": 11.588315599990892,
+      "observable_hash": "a4e08c0b249859dbee04bd365cd56c6e3cf8b04012c26b49e2c948af9709564e",
+      "action_hash": "57e69064e3430bd9724fe4f5c8a29d175b6a703679e8cfeb2e5c2f7349706875",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            646
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 5
+      },
+      "error": null
+    },
+    {
+      "block_id": 18,
+      "opponent": "Alakazam",
+      "seed": 20411277,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 111,
+      "seconds": 11.204743499998585,
+      "observable_hash": "a4e08c0b249859dbee04bd365cd56c6e3cf8b04012c26b49e2c948af9709564e",
+      "action_hash": "57e69064e3430bd9724fe4f5c8a29d175b6a703679e8cfeb2e5c2f7349706875",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 112,
+          "bench_ids": [
+            646
+          ]
+        },
+        "impidimp_by_turn2": 1,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 1,
+        "first_shadow_own_turn": 5
+      },
+      "error": null
+    },
+    {
+      "block_id": 18,
+      "opponent": "Alakazam",
+      "seed": 20411277,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 120,
+      "seconds": 11.418962800002191,
+      "observable_hash": "2f66f70ba3d565f6aab4ee3843f8a46c8fd46418477357f15ebdbd1ff82e394a",
+      "action_hash": "b2b80ae54777b91d896f2b51d4ae15a601b4b09a3114efd31e1c475bb4fae004",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            860,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 5,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 18,
+      "opponent": "Alakazam",
+      "seed": 20411277,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 120,
+      "seconds": 11.962101299999631,
+      "observable_hash": "2f66f70ba3d565f6aab4ee3843f8a46c8fd46418477357f15ebdbd1ff82e394a",
+      "action_hash": "b2b80ae54777b91d896f2b51d4ae15a601b4b09a3114efd31e1c475bb4fae004",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 3,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 1,
+          "active_id": -1,
+          "bench_ids": [
+            112,
+            860,
+            646
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 1,
+        "max_dark_energy_by_turn2": 5,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 19,
+      "opponent": "Alakazam",
+      "seed": 20419196,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 156,
+      "seconds": 12.7531020000024,
+      "observable_hash": "3778c961c19fc77bfad596543c550d159cb42bb346a6c61acb6d0a7823b18104",
+      "action_hash": "ae6f239406a21d408ef258947259796ef3c5f511c0b57dfd3c5e07bd63718e28",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            860
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 19,
+      "opponent": "Alakazam",
+      "seed": 20419196,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 156,
+      "seconds": 12.731728200000362,
+      "observable_hash": "3778c961c19fc77bfad596543c550d159cb42bb346a6c61acb6d0a7823b18104",
+      "action_hash": "ae6f239406a21d408ef258947259796ef3c5f511c0b57dfd3c5e07bd63718e28",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 2,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": [
+            646
+          ]
+        },
+        "turn2_last": {
+          "impidimp": 0,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 1,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": -1,
+          "bench_ids": [
+            647,
+            860
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 0,
+        "ready_grimmsnarl_by_turn2": 0,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 2,
+        "first_shadow_own_turn": 3
+      },
+      "error": null
+    },
+    {
+      "block_id": 19,
+      "opponent": "Alakazam",
+      "seed": 20419196,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 138,
+      "seconds": 11.245184100000188,
+      "observable_hash": "a271e64b16a61f626951adbf777a4be875f44633d4df0604e47ed725f1b45e6d",
+      "action_hash": "40912523b75851adb3670ee5e0513303f5a8fcd0c6d0cc2203703344f7e4692a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 0,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            648,
+            860,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    },
+    {
+      "block_id": 19,
+      "opponent": "Alakazam",
+      "seed": 20419196,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 138,
+      "seconds": 11.81685689999722,
+      "observable_hash": "a271e64b16a61f626951adbf777a4be875f44633d4df0604e47ed725f1b45e6d",
+      "action_hash": "40912523b75851adb3670ee5e0513303f5a8fcd0c6d0cc2203703344f7e4692a",
+      "setup_funnel": {
+        "initial": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 0,
+          "dark_energy": 0,
+          "ready_grimmsnarl": 0,
+          "spikemuth": 0,
+          "active_id": 646,
+          "bench_ids": []
+        },
+        "turn2_last": {
+          "impidimp": 1,
+          "grimmsnarl_ex": 1,
+          "dark_energy": 4,
+          "ready_grimmsnarl": 1,
+          "spikemuth": 0,
+          "active_id": -1,
+          "bench_ids": [
+            646,
+            648,
+            860,
+            112
+          ]
+        },
+        "impidimp_by_turn2": 2,
+        "grimmsnarl_by_turn2": 1,
+        "ready_grimmsnarl_by_turn2": 1,
+        "spikemuth_by_turn2": 0,
+        "max_dark_energy_by_turn2": 4,
+        "first_shadow_own_turn": 2
+      },
+      "error": null
+    }
+  ]
+}
