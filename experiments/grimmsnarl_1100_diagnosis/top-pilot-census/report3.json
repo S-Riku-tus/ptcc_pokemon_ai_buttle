@@ -1,0 +1,710 @@
+{
+  "elite_pilots": [
+    {
+      "team": "やる気元気ミワハルキ",
+      "rating": 1220.2,
+      "games": 420
+    },
+    {
+      "team": "LiamK",
+      "rating": 1158.9,
+      "games": 338
+    },
+    {
+      "team": "M Sato",
+      "rating": 1147.4,
+      "games": 152
+    },
+    {
+      "team": "Raihan Ramadistra",
+      "rating": 1142.4,
+      "games": 546
+    },
+    {
+      "team": "@kdcyberdude",
+      "rating": 1135.8,
+      "games": 379
+    },
+    {
+      "team": "Sixth Sense",
+      "rating": 1133.3,
+      "games": 351
+    },
+    {
+      "team": "MissingNo.",
+      "rating": 1125.9,
+      "games": 203
+    },
+    {
+      "team": "Dries @ Tufa Labs",
+      "rating": 1121.6,
+      "games": 312
+    }
+  ],
+  "raw": {
+    "elite": {
+      "n": 2462,
+      "w": 1386,
+      "wr": 0.563,
+      "ci": [
+        0.5433,
+        0.5824
+      ]
+    },
+    "ours": {
+      "n": 418,
+      "w": 257,
+      "wr": 0.6148,
+      "ci": [
+        0.5673,
+        0.6602
+      ]
+    },
+    "elite_first": {
+      "n": 1262,
+      "w": 762,
+      "wr": 0.6038,
+      "ci": [
+        0.5765,
+        0.6304
+      ]
+    },
+    "elite_second": {
+      "n": 1200,
+      "w": 624,
+      "wr": 0.52,
+      "ci": [
+        0.4917,
+        0.5482
+      ]
+    },
+    "ours_first": {
+      "n": 228,
+      "w": 150,
+      "wr": 0.6579,
+      "ci": [
+        0.5942,
+        0.7164
+      ]
+    },
+    "ours_second": {
+      "n": 190,
+      "w": 107,
+      "wr": 0.5632,
+      "ci": [
+        0.4921,
+        0.6317
+      ]
+    }
+  },
+  "standardised_on_shared_opponents": {
+    "shared_opponent_teams": 76,
+    "our_games_on_shared": 96,
+    "elite_games_on_shared": 674,
+    "our_raw_wr_on_shared": 0.5104,
+    "our_ci": [
+      0.412,
+      0.6081
+    ],
+    "elite_raw_wr_on_shared": 0.5326,
+    "elite_ci": [
+      0.4949,
+      0.57
+    ],
+    "elite_wr_standardised_to_our_opponent_mix": 0.6186,
+    "our_wr_standardised_to_elite_opponent_mix": 0.2292,
+    "diff_elite_minus_ours_at_our_mix": 0.1082,
+    "diff_boot_ci": [
+      -0.0095,
+      0.2218
+    ]
+  },
+  "by_turn_order": [
+    {
+      "label": "we go first",
+      "shared_opponents": 40,
+      "our": {
+        "n": 47,
+        "w": 24,
+        "wr": 0.5106,
+        "ci": [
+          0.3724,
+          0.6472
+        ]
+      },
+      "elite": {
+        "n": 140,
+        "w": 97,
+        "wr": 0.6929,
+        "ci": [
+          0.6121,
+          0.7633
+        ]
+      },
+      "elite_std_to_our_mix": 0.7699,
+      "our_std": 0.5106,
+      "diff": 0.2593
+    },
+    {
+      "label": "we go second",
+      "shared_opponents": 29,
+      "our": {
+        "n": 31,
+        "w": 13,
+        "wr": 0.4194,
+        "ci": [
+          0.2642,
+          0.5923
+        ]
+      },
+      "elite": {
+        "n": 226,
+        "w": 114,
+        "wr": 0.5044,
+        "ci": [
+          0.4397,
+          0.569
+        ]
+      },
+      "elite_std_to_our_mix": 0.5522,
+      "our_std": 0.4194,
+      "diff": 0.1329
+    }
+  ],
+  "by_family": [
+    {
+      "label": "Grimmsnarl (mirror)",
+      "shared_opponents": 21,
+      "our": {
+        "n": 25,
+        "w": 15,
+        "wr": 0.6,
+        "ci": [
+          0.4074,
+          0.766
+        ]
+      },
+      "elite": {
+        "n": 128,
+        "w": 63,
+        "wr": 0.4922,
+        "ci": [
+          0.4071,
+          0.5778
+        ]
+      },
+      "elite_std_to_our_mix": 0.5264,
+      "our_std": 0.6,
+      "diff": -0.0736
+    },
+    {
+      "label": "Alakazam",
+      "shared_opponents": 8,
+      "our": {
+        "n": 8,
+        "w": 7,
+        "wr": 0.875,
+        "ci": [
+          0.5291,
+          0.9776
+        ]
+      },
+      "elite": {
+        "n": 29,
+        "w": 23,
+        "wr": 0.7931,
+        "ci": [
+          0.6161,
+          0.9015
+        ]
+      },
+      "elite_std_to_our_mix": 0.9271,
+      "our_std": 0.875,
+      "diff": 0.0521
+    },
+    {
+      "label": "Dragapult",
+      "shared_opponents": 5,
+      "our": {
+        "n": 7,
+        "w": 5,
+        "wr": 0.7143,
+        "ci": [
+          0.3589,
+          0.9178
+        ]
+      },
+      "elite": {
+        "n": 15,
+        "w": 10,
+        "wr": 0.6667,
+        "ci": [
+          0.4171,
+          0.8482
+        ]
+      },
+      "elite_std_to_our_mix": 0.5476,
+      "our_std": 0.7143,
+      "diff": -0.1667
+    },
+    {
+      "label": "Kangaskhan / Crustle",
+      "shared_opponents": 4,
+      "our": {
+        "n": 5,
+        "w": 3,
+        "wr": 0.6,
+        "ci": [
+          0.2307,
+          0.8824
+        ]
+      },
+      "elite": {
+        "n": 37,
+        "w": 17,
+        "wr": 0.4595,
+        "ci": [
+          0.3104,
+          0.6162
+        ]
+      },
+      "elite_std_to_our_mix": 0.7774,
+      "our_std": 0.6,
+      "diff": 0.1774
+    },
+    {
+      "label": "Mega Lopunny / Froslass",
+      "shared_opponents": 1,
+      "our": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite": {
+        "n": 47,
+        "w": 22,
+        "wr": 0.4681,
+        "ci": [
+          0.3333,
+          0.6077
+        ]
+      },
+      "elite_std_to_our_mix": 0.4681,
+      "our_std": 0.0,
+      "diff": 0.4681
+    },
+    {
+      "label": "Mega Lucario",
+      "shared_opponents": 1,
+      "our": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite_std_to_our_mix": 0.0,
+      "our_std": 0.0,
+      "diff": 0.0
+    },
+    {
+      "label": "other: Hydrapple ex",
+      "shared_opponents": 1,
+      "our": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite": {
+        "n": 3,
+        "w": 3,
+        "wr": 1.0,
+        "ci": [
+          0.4385,
+          1.0
+        ]
+      },
+      "elite_std_to_our_mix": 1.0,
+      "our_std": 0.0,
+      "diff": 1.0
+    },
+    {
+      "label": "Ogerpon",
+      "shared_opponents": 1,
+      "our": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite": {
+        "n": 2,
+        "w": 1,
+        "wr": 0.5,
+        "ci": [
+          0.0945,
+          0.9055
+        ]
+      },
+      "elite_std_to_our_mix": 0.5,
+      "our_std": 0.0,
+      "diff": 0.5
+    },
+    {
+      "label": "other: Rillaboom",
+      "shared_opponents": 1,
+      "our": {
+        "n": 2,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.6576
+        ]
+      },
+      "elite": {
+        "n": 8,
+        "w": 4,
+        "wr": 0.5,
+        "ci": [
+          0.2152,
+          0.7848
+        ]
+      },
+      "elite_std_to_our_mix": 0.5,
+      "our_std": 0.0,
+      "diff": 0.5
+    },
+    {
+      "label": "other: Conkeldurr",
+      "shared_opponents": 1,
+      "our": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite": {
+        "n": 10,
+        "w": 5,
+        "wr": 0.5,
+        "ci": [
+          0.2366,
+          0.7634
+        ]
+      },
+      "elite_std_to_our_mix": 0.5,
+      "our_std": 0.0,
+      "diff": 0.5
+    },
+    {
+      "label": "other: Mega Gardevoir ex",
+      "shared_opponents": 1,
+      "our": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite": {
+        "n": 1,
+        "w": 0,
+        "wr": 0.0,
+        "ci": [
+          0.0,
+          0.7935
+        ]
+      },
+      "elite_std_to_our_mix": 0.0,
+      "our_std": 0.0,
+      "diff": 0.0
+    }
+  ],
+  "top100_20260807_archetypes": {
+    "teams_with_ge5_games": 67,
+    "archetypes": [
+      [
+        "Marnie's Grimmsnarl ex",
+        35
+      ],
+      [
+        "<no games in archive>",
+        33
+      ],
+      [
+        "Alakazam",
+        8
+      ],
+      [
+        "Mega Kangaskhan ex",
+        7
+      ],
+      [
+        "Mega Lopunny ex",
+        4
+      ],
+      [
+        "Dragapult ex",
+        4
+      ],
+      [
+        "Team Rocket's Mewtwo ex",
+        3
+      ],
+      [
+        "Mega Lucario ex",
+        1
+      ],
+      [
+        "Conkeldurr",
+        1
+      ],
+      [
+        "Cornerstone Mask Ogerpon ex",
+        1
+      ],
+      [
+        "Teal Mask Ogerpon ex",
+        1
+      ],
+      [
+        "Rillaboom",
+        1
+      ],
+      [
+        "Fezandipiti ex",
+        1
+      ]
+    ],
+    "our_hash_share_of_known": 0.4328,
+    "our_hash_count": 29
+  },
+  "top10_20260807_archetypes": [
+    [
+      "Marnie's Grimmsnarl ex",
+      6
+    ],
+    [
+      "Mega Kangaskhan ex",
+      2
+    ],
+    [
+      "<no games>",
+      2
+    ]
+  ],
+  "anti_grimmsnarl": [
+    {
+      "team": "Majkel1337",
+      "rating": 1102.4,
+      "arch": "Mega Lucario ex",
+      "all": {
+        "n": 847,
+        "w": 576,
+        "wr": 0.68,
+        "ci": [
+          0.6479,
+          0.7106
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 445,
+        "w": 253,
+        "wr": 0.5685,
+        "ci": [
+          0.5221,
+          0.6138
+        ]
+      }
+    },
+    {
+      "team": "Rmy",
+      "rating": 1040.7,
+      "arch": "Teal Mask Ogerpon ex",
+      "all": {
+        "n": 132,
+        "w": 87,
+        "wr": 0.6591,
+        "ci": [
+          0.5748,
+          0.7344
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 62,
+        "w": 50,
+        "wr": 0.8065,
+        "ci": [
+          0.6915,
+          0.8857
+        ]
+      }
+    },
+    {
+      "team": "keidroid",
+      "rating": 1141.4,
+      "arch": "Teal Mask Ogerpon ex",
+      "all": {
+        "n": 98,
+        "w": 77,
+        "wr": 0.7857,
+        "ci": [
+          0.6945,
+          0.8554
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 67,
+        "w": 55,
+        "wr": 0.8209,
+        "ci": [
+          0.7125,
+          0.8945
+        ]
+      }
+    },
+    {
+      "team": "flg",
+      "rating": 1158.7,
+      "arch": "Mega Kangaskhan ex",
+      "all": {
+        "n": 153,
+        "w": 58,
+        "wr": 0.3791,
+        "ci": [
+          0.3061,
+          0.458
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 108,
+        "w": 37,
+        "wr": 0.3426,
+        "ci": [
+          0.2599,
+          0.4361
+        ]
+      }
+    },
+    {
+      "team": "Yushin Ito",
+      "rating": 1228.6,
+      "arch": "Alakazam",
+      "all": {
+        "n": 207,
+        "w": 95,
+        "wr": 0.4589,
+        "ci": [
+          0.3924,
+          0.527
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 80,
+        "w": 36,
+        "wr": 0.45,
+        "ci": [
+          0.3458,
+          0.5588
+        ]
+      }
+    },
+    {
+      "team": "LiamK",
+      "rating": 1158.9,
+      "arch": "Marnie's Grimmsnarl ex",
+      "all": {
+        "n": 338,
+        "w": 186,
+        "wr": 0.5503,
+        "ci": [
+          0.497,
+          0.6025
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 113,
+        "w": 65,
+        "wr": 0.5752,
+        "ci": [
+          0.4831,
+          0.6624
+        ]
+      }
+    },
+    {
+      "team": "James Cox & Henry Chao",
+      "rating": 1138.6,
+      "arch": "Mega Kangaskhan ex",
+      "all": {
+        "n": 72,
+        "w": 41,
+        "wr": 0.5694,
+        "ci": [
+          0.4544,
+          0.6774
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 48,
+        "w": 29,
+        "wr": 0.6042,
+        "ci": [
+          0.4631,
+          0.7298
+        ]
+      }
+    },
+    {
+      "team": "Oshbocker",
+      "rating": 1046.0,
+      "arch": "Mega Kangaskhan ex",
+      "all": {
+        "n": 92,
+        "w": 38,
+        "wr": 0.413,
+        "ci": [
+          0.3179,
+          0.5152
+        ]
+      },
+      "vs_our_exact_hash": {
+        "n": 65,
+        "w": 24,
+        "wr": 0.3692,
+        "ci": [
+          0.2623,
+          0.4908
+        ]
+      }
+    }
+  ]
+}

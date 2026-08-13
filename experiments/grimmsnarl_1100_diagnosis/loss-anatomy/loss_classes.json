@@ -1,0 +1,1021 @@
+{
+  "pool": {
+    "games": 255,
+    "wins": 160,
+    "losses": 95,
+    "win_rate": 0.6275,
+    "wilson95": [
+      0.5666,
+      0.6845
+    ],
+    "per_version": {
+      "v15": {
+        "games": 63,
+        "wins": 40,
+        "win_rate": 0.6349,
+        "wilson95": [
+          0.5115,
+          0.7428
+        ]
+      },
+      "v19a": {
+        "games": 43,
+        "wins": 29,
+        "win_rate": 0.6744,
+        "wilson95": [
+          0.5252,
+          0.7951
+        ]
+      },
+      "v19b": {
+        "games": 43,
+        "wins": 27,
+        "win_rate": 0.6279,
+        "wilson95": [
+          0.4786,
+          0.7562
+        ]
+      },
+      "v20": {
+        "games": 47,
+        "wins": 28,
+        "win_rate": 0.5957,
+        "wilson95": [
+          0.4534,
+          0.7236
+        ]
+      },
+      "v21": {
+        "games": 59,
+        "wins": 36,
+        "win_rate": 0.6102,
+        "wilson95": [
+          0.4827,
+          0.7242
+        ]
+      }
+    }
+  },
+  "loss_classes": {
+    "prize race lost while attacking": {
+      "n": 58,
+      "share": 0.6105,
+      "wilson95": [
+        0.51,
+        0.7025
+      ],
+      "share_of_all_games": 0.2275,
+      "mean_prizes_we_took": 3.09,
+      "mean_our_attacks": 3.31,
+      "mean_our_damage": 723.1,
+      "mean_turns": 13.1,
+      "went_second": 39,
+      "families": {
+        "Grimmsnarl (mirror)": 20,
+        "Alakazam": 13,
+        "Mega Lopunny / Froslass": 8,
+        "Dragapult": 4,
+        "Kangaskhan / Crustle": 3,
+        "other: Rillaboom": 2,
+        "Mega Lucario": 2,
+        "other: Mega Starmie ex": 1,
+        "other: Hydrapple ex": 1,
+        "other: Mega Abomasnow ex": 1,
+        "other: N’s Zoroark ex": 1,
+        "Ogerpon": 1,
+        "other: Cynthia's Garchomp ex": 1
+      },
+      "episodes": [
+        91630184,
+        91637276,
+        91641933,
+        91650398,
+        91652218,
+        91653142,
+        91654112,
+        91661606,
+        91662535,
+        91663401,
+        91667024,
+        91716337,
+        91743131,
+        91751312,
+        91779068,
+        91927127,
+        91937433,
+        91940351,
+        91941193,
+        91944013,
+        91944940,
+        91950626,
+        91953473,
+        91954370,
+        91955356,
+        92157853,
+        92158798,
+        92161623,
+        92163498,
+        92163508,
+        92164441,
+        92167385,
+        92171031,
+        92171043,
+        92172191,
+        92172909,
+        92173841,
+        92174054,
+        92174785,
+        92177597,
+        92179504,
+        92183225,
+        92186068,
+        92192672,
+        92294364,
+        92298133,
+        92299068,
+        92310361,
+        92312245,
+        92316985,
+        92318873,
+        92320805,
+        92337400,
+        92361041,
+        92380726,
+        92410069,
+        92446416,
+        92479989
+      ]
+    },
+    "run over (<=4 opposing attacks for 6 prizes)": {
+      "n": 27,
+      "share": 0.2842,
+      "wilson95": [
+        0.2033,
+        0.3819
+      ],
+      "share_of_all_games": 0.1059,
+      "mean_prizes_we_took": 2.59,
+      "mean_our_attacks": 3.3,
+      "mean_our_damage": 793.0,
+      "mean_turns": 11.6,
+      "went_second": 12,
+      "families": {
+        "Grimmsnarl (mirror)": 19,
+        "Alakazam": 3,
+        "Ogerpon": 2,
+        "Dragapult": 2,
+        "other: Cynthia's Garchomp ex": 1
+      },
+      "episodes": [
+        91628892,
+        91632620,
+        91645648,
+        91651280,
+        91697663,
+        91926096,
+        91934607,
+        91951573,
+        91961012,
+        92155899,
+        92164599,
+        92165385,
+        92166326,
+        92177628,
+        92178567,
+        92183257,
+        92185044,
+        92188868,
+        92189837,
+        92194308,
+        92300965,
+        92308462,
+        92316023,
+        92319827,
+        92329216,
+        92330799,
+        92403585
+      ]
+    },
+    "deck-out": {
+      "n": 5,
+      "share": 0.0526,
+      "wilson95": [
+        0.0227,
+        0.1173
+      ],
+      "share_of_all_games": 0.0196,
+      "mean_prizes_we_took": 0.6,
+      "mean_our_attacks": 14.2,
+      "mean_our_damage": 92.0,
+      "mean_turns": 35.4,
+      "went_second": 1,
+      "families": {
+        "Kangaskhan / Crustle": 5
+      },
+      "episodes": [
+        91663479,
+        91770999,
+        92168220,
+        92176656,
+        92318905
+      ]
+    },
+    "board-out": {
+      "n": 2,
+      "share": 0.0211,
+      "wilson95": [
+        0.0058,
+        0.0735
+      ],
+      "share_of_all_games": 0.0078,
+      "mean_prizes_we_took": 0.0,
+      "mean_our_attacks": 0.0,
+      "mean_our_damage": 0.0,
+      "mean_turns": 4.0,
+      "went_second": 0,
+      "families": {
+        "other: Conkeldurr": 2
+      },
+      "episodes": [
+        92165376,
+        92187003
+      ]
+    },
+    "no ready Grimmsnarl ex": {
+      "n": 2,
+      "share": 0.0211,
+      "wilson95": [
+        0.0058,
+        0.0735
+      ],
+      "share_of_all_games": 0.0078,
+      "mean_prizes_we_took": 1.0,
+      "mean_our_attacks": 0.0,
+      "mean_our_damage": 0.0,
+      "mean_turns": 11.0,
+      "went_second": 2,
+      "families": {
+        "Grimmsnarl (mirror)": 1,
+        "other: Rillaboom": 1
+      },
+      "episodes": [
+        92179485,
+        92421332
+      ]
+    },
+    "walled (majority of attacks dealt 0)": {
+      "n": 1,
+      "share": 0.0105,
+      "wilson95": [
+        0.0019,
+        0.0572
+      ],
+      "share_of_all_games": 0.0039,
+      "mean_prizes_we_took": 1.0,
+      "mean_our_attacks": 7.0,
+      "mean_our_damage": 250.0,
+      "mean_turns": 20.0,
+      "went_second": 0,
+      "families": {
+        "Kangaskhan / Crustle": 1
+      },
+      "episodes": [
+        91793871
+      ]
+    }
+  },
+  "overlays_on_losses": {
+    "opp_one_shot_kos>=1": {
+      "n": 79,
+      "share": 0.8316,
+      "wilson95": [
+        0.7438,
+        0.8936
+      ]
+    },
+    "opp_one_shot_kos>=2": {
+      "n": 58,
+      "share": 0.6105,
+      "wilson95": [
+        0.51,
+        0.7025
+      ]
+    },
+    "we_took_0_prizes": {
+      "n": 11,
+      "share": 0.1158,
+      "wilson95": [
+        0.0659,
+        0.1955
+      ]
+    },
+    "we_took_5_prizes (1 away)": {
+      "n": 14,
+      "share": 0.1474,
+      "wilson95": [
+        0.0899,
+        0.2323
+      ]
+    },
+    "we_took_>=4_prizes": {
+      "n": 36,
+      "share": 0.3789,
+      "wilson95": [
+        0.2879,
+        0.4794
+      ]
+    },
+    "any_zero_damage_attack": {
+      "n": 23,
+      "share": 0.2421,
+      "wilson95": [
+        0.1671,
+        0.3372
+      ]
+    },
+    "never_shadow_bullet": {
+      "n": 5,
+      "share": 0.0526,
+      "wilson95": [
+        0.0227,
+        0.1173
+      ]
+    },
+    "our_deck_left<=3": {
+      "n": 0,
+      "share": 0.0,
+      "wilson95": [
+        0.0,
+        0.0389
+      ]
+    },
+    "we_mulliganed": {
+      "n": 29,
+      "share": 0.3053,
+      "wilson95": [
+        0.2217,
+        0.4039
+      ]
+    },
+    "went_second": {
+      "n": 54,
+      "share": 0.5684,
+      "wilson95": [
+        0.4681,
+        0.6634
+      ]
+    }
+  },
+  "pre_decision": {
+    "turn_order": {
+      "first": {
+        "games": 138,
+        "wins": 97,
+        "win_rate": 0.7029,
+        "wilson95": [
+          0.622,
+          0.7728
+        ]
+      },
+      "second": {
+        "games": 117,
+        "wins": 63,
+        "win_rate": 0.5385,
+        "wilson95": [
+          0.4483,
+          0.6261
+        ]
+      },
+      "unknown": {
+        "games": 0,
+        "wins": 0,
+        "win_rate": null,
+        "wilson95": null
+      }
+    },
+    "is_first_select_offered": {
+      "offered": {
+        "games": 129,
+        "wins": 89,
+        "win_rate": 0.6899,
+        "wilson95": [
+          0.6056,
+          0.7633
+        ]
+      },
+      "not_offered": {
+        "games": 126,
+        "wins": 71,
+        "win_rate": 0.5635,
+        "wilson95": [
+          0.4763,
+          0.6469
+        ]
+      }
+    },
+    "our_mulligans": {
+      "0": {
+        "games": 188,
+        "wins": 122,
+        "win_rate": 0.6489,
+        "wilson95": [
+          0.5783,
+          0.7136
+        ]
+      },
+      "1": {
+        "games": 52,
+        "wins": 28,
+        "win_rate": 0.5385,
+        "wilson95": [
+          0.405,
+          0.6666
+        ]
+      },
+      "2": {
+        "games": 9,
+        "wins": 7,
+        "win_rate": 0.7778,
+        "wilson95": [
+          0.4526,
+          0.9368
+        ]
+      },
+      "3": {
+        "games": 4,
+        "wins": 2,
+        "win_rate": 0.5,
+        "wilson95": [
+          0.15,
+          0.85
+        ]
+      }
+    },
+    "opening_hand": {
+      "impidimp>=1": {
+        "games": 136,
+        "wins": 90,
+        "win_rate": 0.6618,
+        "wilson95": [
+          0.5788,
+          0.7359
+        ]
+      },
+      "impidimp==0": {
+        "games": 119,
+        "wins": 70,
+        "win_rate": 0.5882,
+        "wilson95": [
+          0.4984,
+          0.6726
+        ]
+      },
+      "impidimp==0 and candy==0": {
+        "games": 83,
+        "wins": 48,
+        "win_rate": 0.5783,
+        "wilson95": [
+          0.4709,
+          0.6788
+        ]
+      },
+      "no_dark_energy": {
+        "games": 77,
+        "wins": 50,
+        "win_rate": 0.6494,
+        "wilson95": [
+          0.538,
+          0.7465
+        ]
+      },
+      "basics==1": {
+        "games": 141,
+        "wins": 88,
+        "win_rate": 0.6241,
+        "wilson95": [
+          0.5419,
+          0.6998
+        ]
+      },
+      "basics>=3": {
+        "games": 22,
+        "wins": 14,
+        "win_rate": 0.6364,
+        "wilson95": [
+          0.4295,
+          0.8027
+        ]
+      }
+    },
+    "opening_hand_x_turn_order": {
+      "impidimp>=1 | first": {
+        "games": 76,
+        "wins": 53,
+        "win_rate": 0.6974,
+        "wilson95": [
+          0.5867,
+          0.7891
+        ]
+      },
+      "impidimp>=1 | second": {
+        "games": 60,
+        "wins": 37,
+        "win_rate": 0.6167,
+        "wilson95": [
+          0.4902,
+          0.7291
+        ]
+      },
+      "impidimp==0 | first": {
+        "games": 62,
+        "wins": 44,
+        "win_rate": 0.7097,
+        "wilson95": [
+          0.5871,
+          0.8078
+        ]
+      },
+      "impidimp==0 | second": {
+        "games": 57,
+        "wins": 26,
+        "win_rate": 0.4561,
+        "wilson95": [
+          0.3337,
+          0.5841
+        ]
+      }
+    }
+  },
+  "by_family": {
+    "Grimmsnarl (mirror)": {
+      "games": 96,
+      "wins": 56,
+      "win_rate": 0.5833,
+      "wilson95": [
+        0.4834,
+        0.6769
+      ]
+    },
+    "Alakazam": {
+      "games": 51,
+      "wins": 35,
+      "win_rate": 0.6863,
+      "wilson95": [
+        0.5497,
+        0.7967
+      ]
+    },
+    "Kangaskhan / Crustle": {
+      "games": 24,
+      "wins": 15,
+      "win_rate": 0.625,
+      "wilson95": [
+        0.4271,
+        0.7884
+      ]
+    },
+    "Mega Lopunny / Froslass": {
+      "games": 17,
+      "wins": 9,
+      "win_rate": 0.5294,
+      "wilson95": [
+        0.3096,
+        0.7383
+      ]
+    },
+    "Mega Lucario": {
+      "games": 16,
+      "wins": 14,
+      "win_rate": 0.875,
+      "wilson95": [
+        0.6398,
+        0.965
+      ]
+    },
+    "Dragapult": {
+      "games": 13,
+      "wins": 7,
+      "win_rate": 0.5385,
+      "wilson95": [
+        0.2914,
+        0.7679
+      ]
+    },
+    "other: Cynthia's Garchomp ex": {
+      "games": 8,
+      "wins": 6,
+      "win_rate": 0.75,
+      "wilson95": [
+        0.4093,
+        0.9285
+      ]
+    },
+    "Ogerpon": {
+      "games": 7,
+      "wins": 4,
+      "win_rate": 0.5714,
+      "wilson95": [
+        0.2505,
+        0.8418
+      ]
+    },
+    "Archaludon": {
+      "games": 6,
+      "wins": 6,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.6097,
+        1.0
+      ]
+    },
+    "other: Rillaboom": {
+      "games": 3,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.5615
+      ]
+    },
+    "other: Team Rocket's Mewtwo ex": {
+      "games": 2,
+      "wins": 2,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.3424,
+        1.0
+      ]
+    },
+    "other: Hydrapple ex": {
+      "games": 2,
+      "wins": 1,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.0945,
+        0.9055
+      ]
+    },
+    "other: Mega Abomasnow ex": {
+      "games": 2,
+      "wins": 1,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.0945,
+        0.9055
+      ]
+    },
+    "other: Conkeldurr": {
+      "games": 2,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576
+      ]
+    },
+    "other: Hop's Trevenant": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Comfey": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Brambleghast": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Mega Starmie ex": {
+      "games": 1,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ]
+    },
+    "other: N’s Zoroark ex": {
+      "games": 1,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ]
+    },
+    "Dipplin": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    }
+  },
+  "by_family_turn_order": {
+    "Grimmsnarl (mirror) | first": {
+      "games": 56,
+      "wins": 38,
+      "win_rate": 0.6786,
+      "wilson95": [
+        0.5482,
+        0.786
+      ]
+    },
+    "Grimmsnarl (mirror) | second": {
+      "games": 40,
+      "wins": 18,
+      "win_rate": 0.45,
+      "wilson95": [
+        0.3071,
+        0.6017
+      ]
+    },
+    "Alakazam | second": {
+      "games": 32,
+      "wins": 20,
+      "win_rate": 0.625,
+      "wilson95": [
+        0.4525,
+        0.7707
+      ]
+    },
+    "Alakazam | first": {
+      "games": 19,
+      "wins": 15,
+      "win_rate": 0.7895,
+      "wilson95": [
+        0.5667,
+        0.9149
+      ]
+    },
+    "Kangaskhan / Crustle | first": {
+      "games": 14,
+      "wins": 8,
+      "win_rate": 0.5714,
+      "wilson95": [
+        0.3259,
+        0.7862
+      ]
+    },
+    "Mega Lucario | first": {
+      "games": 12,
+      "wins": 12,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.7575,
+        1.0
+      ]
+    },
+    "Mega Lopunny / Froslass | second": {
+      "games": 10,
+      "wins": 4,
+      "win_rate": 0.4,
+      "wilson95": [
+        0.1682,
+        0.6873
+      ]
+    },
+    "Kangaskhan / Crustle | second": {
+      "games": 10,
+      "wins": 7,
+      "win_rate": 0.7,
+      "wilson95": [
+        0.3968,
+        0.8922
+      ]
+    },
+    "Dragapult | second": {
+      "games": 7,
+      "wins": 2,
+      "win_rate": 0.2857,
+      "wilson95": [
+        0.0822,
+        0.6411
+      ]
+    },
+    "Mega Lopunny / Froslass | first": {
+      "games": 7,
+      "wins": 5,
+      "win_rate": 0.7143,
+      "wilson95": [
+        0.3589,
+        0.9178
+      ]
+    },
+    "Dragapult | first": {
+      "games": 6,
+      "wins": 5,
+      "win_rate": 0.8333,
+      "wilson95": [
+        0.4365,
+        0.9699
+      ]
+    },
+    "Archaludon | first": {
+      "games": 5,
+      "wins": 5,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.5655,
+        1.0
+      ]
+    },
+    "other: Cynthia's Garchomp ex | first": {
+      "games": 5,
+      "wins": 3,
+      "win_rate": 0.6,
+      "wilson95": [
+        0.2307,
+        0.8824
+      ]
+    },
+    "Ogerpon | second": {
+      "games": 5,
+      "wins": 3,
+      "win_rate": 0.6,
+      "wilson95": [
+        0.2307,
+        0.8824
+      ]
+    },
+    "Mega Lucario | second": {
+      "games": 4,
+      "wins": 2,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.15,
+        0.85
+      ]
+    },
+    "other: Cynthia's Garchomp ex | second": {
+      "games": 3,
+      "wins": 3,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.4385,
+        1.0
+      ]
+    },
+    "other: Rillaboom | second": {
+      "games": 2,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576
+      ]
+    },
+    "other: Hydrapple ex | first": {
+      "games": 2,
+      "wins": 1,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.0945,
+        0.9055
+      ]
+    },
+    "other: Conkeldurr | first": {
+      "games": 2,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.6576
+      ]
+    },
+    "Ogerpon | first": {
+      "games": 2,
+      "wins": 1,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.0945,
+        0.9055
+      ]
+    },
+    "other: Hop's Trevenant | second": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Team Rocket's Mewtwo ex | second": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Comfey | first": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Brambleghast | first": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Rillaboom | first": {
+      "games": 1,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ]
+    },
+    "other: Mega Starmie ex | first": {
+      "games": 1,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ]
+    },
+    "other: Mega Abomasnow ex | first": {
+      "games": 1,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ]
+    },
+    "other: N’s Zoroark ex | first": {
+      "games": 1,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ]
+    },
+    "Archaludon | second": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "Dipplin | first": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Mega Abomasnow ex | second": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    },
+    "other: Team Rocket's Mewtwo ex | first": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ]
+    }
+  }
+}

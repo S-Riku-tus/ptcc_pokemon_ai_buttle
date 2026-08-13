@@ -1,0 +1,297 @@
+{
+  "agent": "agents/grimmsnarl/grimmsnarl_ml_v21",
+  "runs": "20260813_grimmsnarl_ml_v21_sub55456713",
+  "episodes": 3,
+  "elapsed_seconds": 30.7,
+  "totals": {
+    "decisions": 619,
+    "path_ml": 406,
+    "ml_scored": 406,
+    "ml_top1_survived": 400,
+    "ml_agree_played": 302,
+    "ml_top1_agree_played": 296,
+    "ml_with_played": 302,
+    "path_rule_not_scorable": 94,
+    "path_rule_multipick": 32,
+    "path_rule_ranker_deferred": 87,
+    "ml_overridden": 6
+  },
+  "changed_by_layer": {
+    "wall_break": 2,
+    "wall_guard": 1,
+    "planner": 3
+  },
+  "ml_overrides_first_layer": {
+    "wall_break": 2,
+    "wall_guard": 1,
+    "planner": 3
+  },
+  "ml_override_context": {
+    "0": 3,
+    "16": 3
+  },
+  "layer_by_context": {
+    "planner|ctx16": 3,
+    "wall_break|ctx0": 2,
+    "wall_guard|ctx0": 1
+  },
+  "games_touched_by_layer": {
+    "wall_guard": 1,
+    "wall_break": 1,
+    "planner": 1
+  },
+  "last_game_guard_snapshot": {
+    "fallback": {
+      "decisions": 194,
+      "policy_ok": 194,
+      "policy_fallback": 0,
+      "obs_fallback": 0,
+      "deck_returns": 0,
+      "errors": {},
+      "shadow_bullets": 12,
+      "adrena_brains": 6,
+      "punk_up_searches": 3,
+      "punk_up_targets": {
+        "current": 3,
+        "backup": 4,
+        "other": 0
+      },
+      "punk_search_offered": 9,
+      "punk_search_taken": 7,
+      "punk_search_trimmed": 2,
+      "punk_search_counts": {
+        "0": 0,
+        "1": 1,
+        "2": 1,
+        "3": 0,
+        "4": 1,
+        "5": 0
+      },
+      "poffin_offered": 4,
+      "poffin_taken": 3,
+      "poffin_trimmed": 1,
+      "attackable_ends": 0,
+      "retreats_to_attacker": 0,
+      "walled_shadow_bullets": 0,
+      "walled_bench_ko_attacks": 0,
+      "locked_boss_unlocks": 0,
+      "emergency_basics": 0,
+      "bench_evolves_active_avail": 7,
+      "boss_plays": 1,
+      "boss_modes": {
+        "WIN_NOW": 1,
+        "WALL_UNLOCK": 0,
+        "HIGHER_PRIZE_KO": 0,
+        "ENGINE_KO": 0,
+        "TEMPO_GUST": 0
+      },
+      "fast_race_decisions": 0,
+      "temp_immunity_hits": 0
+    },
+    "router": {
+      "route": "v8_mirror",
+      "decisions": {
+        "v8_default": 12,
+        "v8_mirror": 285
+      },
+      "transitions": [
+        {
+          "from": "pending",
+          "to": "v8_mirror",
+          "turn": 2
+        }
+      ],
+      "policy_switches": 0,
+      "new_game_detected": 0
+    },
+    "ranker": {
+      "main_decisions": 141,
+      "non_main_decisions": 101,
+      "ranker_used": 114,
+      "feature_errors": 0,
+      "score_errors": 0,
+      "escalation_offered": 0,
+      "escalation_scored": 0,
+      "escalation_moved": 0,
+      "escalation_refused_trigger": 0,
+      "escalation_suspended_mirror": 0,
+      "escalation_offered_froslass_evolve": 0,
+      "teacher_code": null,
+      "default_teacher_code": null
+    },
+    "planner": {
+      "considered": 114,
+      "boss_route_considered": 0,
+      "boss_route_overrides": 0,
+      "heal_considered": 6,
+      "heal_overrides": 3,
+      "froslass_considered": 0,
+      "froslass_overrides": 0,
+      "wall_unlock_considered": 0,
+      "wall_unlock_overrides": 0,
+      "punk_alloc_considered": 7,
+      "punk_alloc_trigger_overrides": 0,
+      "punk_alloc_stack_overrides": 0,
+      "errors": 0
+    },
+    "residual": {
+      "considered": 114,
+      "petrel_searches": 3,
+      "stamp_offered": 0,
+      "stamp_already_in_hand": 0,
+      "stamp_live_kept": 0,
+      "dead_stamp_chosen": 0,
+      "panel_scored": 0,
+      "panel_short": 0,
+      "panel_agreed_with_v8": 0,
+      "panel_alternative_was_stamp": 0,
+      "overrides": 0,
+      "errors": 0,
+      "new_game_detected": 0
+    },
+    "wall_guard": {
+      "considered": 114,
+      "shadow_bullet_selected": 5,
+      "active_walled": 0,
+      "bench_prize_kept": 0,
+      "invalid_fallback_kept": 0,
+      "closing_fallback_kept": 0,
+      "development_overrides": 0,
+      "errors": 0
+    },
+    "attack_access": {
+      "considered": 171,
+      "main_decisions": 57,
+      "trapped_turns": 0,
+      "trapped_turns_worth": 0,
+      "no_route_available": 0,
+      "route_compatible_kept": 0,
+      "enable_attach_forced": 0,
+      "escape_attach_forced": 0,
+      "retreat_forced": 0,
+      "attack_overridden_for_route": 0,
+      "promote_forced": 0,
+      "promote_already_right": 2,
+      "end_replaced_by_shadow": 0,
+      "end_replaced_by_bridge": 0,
+      "played_shadow_bullets": 5,
+      "played_other_attacks": 0,
+      "played_ends": 17,
+      "ends_with_ready_attacker": 0,
+      "new_game_detected": 0,
+      "errors": 0
+    },
+    "wall_break": {
+      "considered": 171,
+      "main_decisions": 57,
+      "dead_swing_turns": 0,
+      "dead_swing_decisions": 0,
+      "boss_prize_deferred": 0,
+      "no_breaker_in_play": 0,
+      "breaker_too_slow": 0,
+      "breaker_would_be_sacrificed": 0,
+      "attack_forced": 0,
+      "fuel_attach_forced": 0,
+      "escape_attach_forced": 0,
+      "retreat_forced": 0,
+      "attachment_redirected": 0,
+      "dead_shadow_replaced": 0,
+      "end_replaced": 0,
+      "route_compatible_kept": 0,
+      "promote_forced": 0,
+      "promote_already_right": 0,
+      "last_breaker_evolve_refused": 0,
+      "last_breaker_evolve_kept": 0,
+      "last_breaker_only_body": 0,
+      "last_breaker_fastest_route": 0,
+      "last_breaker_preserve_shadow": 0,
+      "last_breaker_preserve_end": 0,
+      "punk_breaker_considered": 0,
+      "punk_breaker_forced": 0,
+      "punk_breaker_kept": 0,
+      "new_game_detected": 0,
+      "errors": 0
+    },
+    "mirror_prize": {
+      "considered": 171,
+      "post_shadow_target_prompts": 31,
+      "immediate_ko_prompts": 2,
+      "already_max_prizes": 2,
+      "overrides": 0,
+      "shadow_bench_overrides": 0,
+      "adrena_overrides": 0,
+      "new_game_detected": 0,
+      "errors": 0
+    },
+    "horizon_prize": {
+      "considered": 171,
+      "eligible_endgame_prompts": 1,
+      "score_band_prompts": 0,
+      "horizon_differentiated": 0,
+      "already_horizon_best": 0,
+      "overrides": 0,
+      "damage_target_overrides": 0,
+      "boss_target_overrides": 0,
+      "rejected_score_gap": 1,
+      "new_game_detected": 0,
+      "errors": 0,
+      "score_tolerance_milli": 80
+    }
+  },
+  "examples": [
+    {
+      "episode": "92479989",
+      "turn": 4,
+      "context": 0,
+      "layer": "wall_break",
+      "path": "ml",
+      "final": 2,
+      "played": 2
+    },
+    {
+      "episode": "92479989",
+      "turn": 8,
+      "context": 0,
+      "layer": "wall_break",
+      "path": "ml",
+      "final": 3,
+      "played": 3
+    },
+    {
+      "episode": "92479989",
+      "turn": 20,
+      "context": 0,
+      "layer": "wall_guard",
+      "path": "ml",
+      "final": 1,
+      "played": 1
+    },
+    {
+      "episode": "92479999",
+      "turn": 8,
+      "context": 16,
+      "layer": "planner",
+      "path": "ml",
+      "final": 0,
+      "played": 0
+    },
+    {
+      "episode": "92479999",
+      "turn": 10,
+      "context": 16,
+      "layer": "planner",
+      "path": "ml",
+      "final": 0,
+      "played": 0
+    },
+    {
+      "episode": "92479999",
+      "turn": 10,
+      "context": 16,
+      "layer": "planner",
+      "path": "ml",
+      "final": 0,
+      "played": 0
+    }
+  ]
+}

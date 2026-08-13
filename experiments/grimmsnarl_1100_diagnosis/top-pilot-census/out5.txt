@@ -1,0 +1,67 @@
+=== Grimmsnarl deck-hash neighbourhood (teams with >=10 archived games) ===
+9714ab5c3996f6cc  teams= 55 rated=34 best=1220.2 cards_diff_from_ours=0
+21c3f20980827cb2  teams=  7 rated= 4 best=1066.2 cards_diff_from_ours=2
+    +[('Handheld Fan', 2)]  -[('Pokégear 3.0', 1), ('Tool Scrapper', 1)]
+57961e5f51c03eaf  teams=  3 rated= 1 best=1070.6 cards_diff_from_ours=1
+    +[('Xerosic’s Machinations', 1)]  -[('Tool Scrapper', 1)]
+3017232366addacc  teams=  1 rated= 0 best=None cards_diff_from_ours=4
+    +[('Basic {D} Energy', 1), ('Judge', 1), ("Marnie's Grimmsnarl ex", 1), ('Rare Candy', 1)]  -[("Marnie's Morgrem", 1), ('Night Stretcher', 1), ('Pokégear 3.0', 1), ('Tool Scrapper', 1)]
+2f2726e9c4394ea3  teams=  1 rated= 1 best=1083.5 cards_diff_from_ours=5
+    +[('Air Balloon', 1), ('Boss’s Orders', 1), ('Budew', 1), ('Snorunt', 1), ('Yveltal', 1)]  -[('Buddy-Buddy Poffin', 1), ('Dawn', 1), ("Marnie's Impidimp", 1), ('Pokégear 3.0', 1), ('Tool Scrapper', 1)]
+800fe13b8300dd02  teams=  1 rated= 1 best=1017.0 cards_diff_from_ours=1
+    +[('Judge', 1)]  -[("Marnie's Morgrem", 1)]
+23ea4e343befd1a7  teams=  1 rated= 0 best=None cards_diff_from_ours=2
+    +[('Dawn', 1), ('Pokégear 3.0', 1)]  -[('Buddy-Buddy Poffin', 1), ('Rare Candy', 1)]
+98602045f4ac7b52  teams=  1 rated= 0 best=None cards_diff_from_ours=5
+    +[('Basic {D} Energy', 2), ('Boss’s Orders', 1), ('Dawn', 1), ('Rare Candy', 1)]  -[('Froslass', 2), ('Snorunt', 2), ('Tool Scrapper', 1)]
+
+=== calibration ===
+{
+ "elite_mean_rating": 1148.3,
+ "low_mean_rating": 1044.7,
+ "rating_gap": 103.6,
+ "standardised_wr_gap": 0.0742,
+ "rating_points_per_wr_point": 13.97,
+ "wr_points_needed_for_1100_from_v21_9482": 0.1087
+}
+
+--- やる気元気ミワハルキ rating=1220.2 overall=0.5631 (n=325) 1st=0.6136(176) 2nd=0.5034(149)
+      Mega Lopunny / Froslass           share=0.403 wr=0.5802 n=131 [0.4945, 0.6612]
+      Grimmsnarl (mirror)               share=0.308 wr=0.56 n=100 [0.4623, 0.6533]
+      Ogerpon                           share=0.095 wr=0.2258 n=31 [0.114, 0.3981]
+      Alakazam                          share=0.071 wr=0.6522 n=23 [0.4489, 0.8119]
+      Kangaskhan / Crustle              share=0.043 wr=0.6429 n=14 [0.3876, 0.8366]
+      other: Cynthia's Garchomp ex      share=0.025 wr=0.5 n=8 [0.2152, 0.7848]
+--- LiamK rating=1158.9 overall=0.5528 (n=322) 1st=0.5494(162) 2nd=0.5563(160)
+      Grimmsnarl (mirror)               share=0.450 wr=0.5379 n=145 [0.4569, 0.6171]
+      Kangaskhan / Crustle              share=0.134 wr=0.6279 n=43 [0.4786, 0.7562]
+      Mega Lopunny / Froslass           share=0.084 wr=0.4444 n=27 [0.2759, 0.6269]
+      Ogerpon                           share=0.084 wr=0.1481 n=27 [0.0592, 0.3248]
+      Alakazam                          share=0.050 wr=0.75 n=16 [0.505, 0.8982]
+      other: Team Rocket's Mewtwo ex    share=0.040 wr=0.9231 n=13 [0.6669, 0.9863]
+      Dragapult                         share=0.037 wr=0.8333 n=12 [0.552, 0.953]
+      other: Cynthia's Garchomp ex      share=0.034 wr=0.6364 n=11 [0.3538, 0.8483]
+      Mega Lucario                      share=0.031 wr=0.4 n=10 [0.1682, 0.6873]
+      other: Fezandipiti ex             share=0.031 wr=0.7 n=10 [0.3968, 0.8922]
+--- M Sato rating=1147.4 overall=0.5765 (n=85) 1st=0.6364(44) 2nd=0.5122(41)
+      Grimmsnarl (mirror)               share=0.600 wr=0.4902 n=51 [0.3586, 0.6232]
+      Alakazam                          share=0.118 wr=0.8 n=10 [0.4902, 0.9433]
+--- Raihan Ramadistra rating=1142.4 overall=0.5627 (n=542) 1st=0.6374(273) 2nd=0.487(269)
+      Mega Lucario                      share=0.269 wr=0.5685 n=146 [0.4874, 0.6461]
+      Grimmsnarl (mirror)               share=0.233 wr=0.5873 n=126 [0.5, 0.6694]
+      Mega Lopunny / Froslass           share=0.170 wr=0.4891 n=92 [0.3895, 0.5896]
+      Alakazam                          share=0.081 wr=0.7273 n=44 [0.5815, 0.8365]
+      Kangaskhan / Crustle              share=0.081 wr=0.6364 n=44 [0.4887, 0.7622]
+      Ogerpon                           share=0.048 wr=0.2308 n=26 [0.1103, 0.4205]
+      Dragapult                         share=0.048 wr=0.5769 n=26 [0.3895, 0.7446]
+--- @kdcyberdude rating=1135.8 overall=0.5818 (n=373) 1st=0.6564(195) 2nd=0.5(178)
+      Grimmsnarl (mirror)               share=0.432 wr=0.4969 n=161 [0.4206, 0.5733]
+      Alakazam                          share=0.123 wr=0.8043 n=46 [0.6683, 0.8935]
+      Mega Lopunny / Froslass           share=0.094 wr=0.4571 n=35 [0.3047, 0.6181]
+      Kangaskhan / Crustle              share=0.072 wr=0.7407 n=27 [0.5532, 0.8683]
+      Ogerpon                           share=0.070 wr=0.3077 n=26 [0.165, 0.4999]
+      Dragapult                         share=0.040 wr=0.6667 n=15 [0.4171, 0.8482]
+      Mega Lucario                      share=0.032 wr=0.8333 n=12 [0.552, 0.953]
+      other: Team Rocket's Mewtwo ex    share=0.032 wr=0.8333 n=12 [0.552, 0.953]
+      other: Cynthia's Garchomp ex      share=0.024 wr=0.7778 n=9 [0.4526, 0.9368]
+      other: Fezandipiti ex             share=0.024 wr=0.4444 n=9 [0.1888, 0.7333]

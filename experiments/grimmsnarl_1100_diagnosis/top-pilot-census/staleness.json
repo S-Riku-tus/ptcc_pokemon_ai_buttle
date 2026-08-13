@@ -1,0 +1,868 @@
+{
+  "corpus_date_range": {
+    "top50_meta": {
+      "episodes": 622,
+      "min": "2026-08-02 00:54:59",
+      "max": "2026-08-05 03:04:54",
+      "median": "2026-08-03 02:27:15",
+      "days_stale_vs_20260813": 7.87
+    },
+    "grimm_top50": {
+      "episodes": 5211,
+      "min": "2026-07-29 16:05:14",
+      "max": "2026-08-05 03:32:55",
+      "median": "2026-08-01 19:22:43",
+      "days_stale_vs_20260813": 7.85
+    },
+    "top100_current": {
+      "episodes": 14,
+      "min": "2026-08-06 23:38:00",
+      "max": "2026-08-07 01:23:44",
+      "median": "2026-08-07 01:23:44",
+      "days_stale_vs_20260813": 5.94
+    },
+    "top40_alakazam": {
+      "episodes": 383,
+      "min": "2026-07-29 16:05:14",
+      "max": "2026-07-29 16:05:14",
+      "median": "2026-07-29 16:05:14",
+      "days_stale_vs_20260813": 14.33
+    }
+  },
+  "our_run_dates": {
+    "v21": {
+      "episodes": 58,
+      "min": "2026-08-12 11:03:43",
+      "max": "2026-08-13 01:03:40"
+    },
+    "v20": {
+      "episodes": 46,
+      "min": "2026-08-12 01:19:11",
+      "max": "2026-08-12 04:03:36"
+    },
+    "v19b": {
+      "episodes": 42,
+      "min": "2026-08-12 01:19:11",
+      "max": "2026-08-12 03:59:35"
+    },
+    "v19a": {
+      "episodes": 42,
+      "min": "2026-08-11 08:53:52",
+      "max": "2026-08-11 11:25:52"
+    },
+    "v18": {
+      "episodes": 33,
+      "min": "2026-08-11 08:53:52",
+      "max": "2026-08-11 11:09:50"
+    },
+    "v17": {
+      "episodes": 42,
+      "min": "2026-08-11 04:49:50",
+      "max": "2026-08-11 08:29:51"
+    },
+    "v16": {
+      "episodes": 45,
+      "min": "2026-08-11 03:41:50",
+      "max": "2026-08-11 08:25:51"
+    },
+    "v15": {
+      "episodes": 62,
+      "min": "2026-08-10 10:52:09",
+      "max": "2026-08-10 23:21:49"
+    },
+    "v15b": {
+      "episodes": 48,
+      "min": "2026-08-10 14:38:35",
+      "max": "2026-08-10 23:21:48"
+    },
+    "v8": {
+      "episodes": 50,
+      "min": "2026-08-07 07:03:51",
+      "max": "2026-08-07 10:19:54"
+    }
+  },
+  "top100_coverage_20260807": {
+    "n": 100,
+    "zero_games": 19,
+    "lt_20_games": 56,
+    "ge_100_games": 19,
+    "median_games": 13,
+    "top10_zero_games": 0,
+    "top25_zero_games": 2
+  },
+  "top100_detail": [
+    {
+      "rank": 1,
+      "team": "LiamK",
+      "score": 1158.9,
+      "games": 338,
+      "last_game": "2026-08-06 23:38:00"
+    },
+    {
+      "rank": 2,
+      "team": "flg",
+      "score": 1158.7,
+      "games": 153,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 3,
+      "team": "Raihan Ramadistra",
+      "score": 1142.4,
+      "games": 546,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 4,
+      "team": "James Cox & Henry Chao",
+      "score": 1138.6,
+      "games": 72,
+      "last_game": "2026-08-06 23:38:00"
+    },
+    {
+      "rank": 5,
+      "team": "@kdcyberdude",
+      "score": 1135.8,
+      "games": 379,
+      "last_game": "2026-08-06 23:38:00"
+    },
+    {
+      "rank": 6,
+      "team": "Sixth Sense",
+      "score": 1133.3,
+      "games": 351,
+      "last_game": "2026-08-06 23:38:00"
+    },
+    {
+      "rank": 7,
+      "team": "MissingNo.",
+      "score": 1125.9,
+      "games": 203,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 8,
+      "team": "stnick",
+      "score": 1124.7,
+      "games": 2,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 9,
+      "team": "Petit Canard",
+      "score": 1123.2,
+      "games": 2,
+      "last_game": "2026-08-06 23:38:00"
+    },
+    {
+      "rank": 10,
+      "team": "213tubo",
+      "score": 1122.2,
+      "games": 21,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 11,
+      "team": "MTADA",
+      "score": 1118.7,
+      "games": 1,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 12,
+      "team": "DavidFreelan",
+      "score": 1108.4,
+      "games": 5,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 13,
+      "team": "Majkel1337",
+      "score": 1102.4,
+      "games": 850,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 14,
+      "team": "ShumpeiNomura",
+      "score": 1096.2,
+      "games": 17,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 15,
+      "team": "THIRD PTCG Club",
+      "score": 1096.0,
+      "games": 48,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 16,
+      "team": "Boss's Orders Are All You Need",
+      "score": 1095.0,
+      "games": 14,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 17,
+      "team": "loIzpo + emonga",
+      "score": 1091.6,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 18,
+      "team": "想要成为kaggle大师",
+      "score": 1090.3,
+      "games": 21,
+      "last_game": "2026-08-04 07:52:04"
+    },
+    {
+      "rank": 19,
+      "team": "vvs",
+      "score": 1087.7,
+      "games": 293,
+      "last_game": "2026-08-05 02:56:53"
+    },
+    {
+      "rank": 20,
+      "team": "JB Bryant",
+      "score": 1087.6,
+      "games": 11,
+      "last_game": "2026-08-02 00:06:57"
+    },
+    {
+      "rank": 21,
+      "team": "RtoABC",
+      "score": 1087.0,
+      "games": 37,
+      "last_game": "2026-08-05 02:36:55"
+    },
+    {
+      "rank": 22,
+      "team": "kanno",
+      "score": 1084.9,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 23,
+      "team": "Bart, Edwyn",
+      "score": 1083.3,
+      "games": 5,
+      "last_game": "2026-08-03 00:39:13"
+    },
+    {
+      "rank": 24,
+      "team": "カントー地方マスター(KantoRegionMaster)",
+      "score": 1083.2,
+      "games": 216,
+      "last_game": "2026-08-05 03:20:53"
+    },
+    {
+      "rank": 25,
+      "team": "AlphaStarmie",
+      "score": 1078.2,
+      "games": 13,
+      "last_game": "2026-08-05 02:32:53"
+    },
+    {
+      "rank": 26,
+      "team": "Where is my orbit",
+      "score": 1076.4,
+      "games": 21,
+      "last_game": "2026-08-05 02:36:55"
+    },
+    {
+      "rank": 27,
+      "team": "齐乐",
+      "score": 1072.4,
+      "games": 67,
+      "last_game": "2026-08-04 20:04:41"
+    },
+    {
+      "rank": 28,
+      "team": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+      "score": 1072.1,
+      "games": 71,
+      "last_game": "2026-08-05 01:28:54"
+    },
+    {
+      "rank": 29,
+      "team": "☕ Psyduck Needs Coffee",
+      "score": 1071.8,
+      "games": 13,
+      "last_game": "2026-08-02 13:59:07"
+    },
+    {
+      "rank": 30,
+      "team": "NguyenThanhNhan",
+      "score": 1070.7,
+      "games": 243,
+      "last_game": "2026-08-02 14:43:08"
+    },
+    {
+      "rank": 31,
+      "team": "MOP Capital",
+      "score": 1068.7,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 32,
+      "team": "Yaroslav",
+      "score": 1068.1,
+      "games": 4,
+      "last_game": "2026-08-03 09:03:30"
+    },
+    {
+      "rank": 33,
+      "team": "ANDPAD kaggler team",
+      "score": 1066.2,
+      "games": 337,
+      "last_game": "2026-08-05 03:00:53"
+    },
+    {
+      "rank": 34,
+      "team": "Luca",
+      "score": 1064.5,
+      "games": 142,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 35,
+      "team": "matsurih",
+      "score": 1062.2,
+      "games": 79,
+      "last_game": "2026-08-04 12:56:04"
+    },
+    {
+      "rank": 36,
+      "team": "rhythm master",
+      "score": 1059.1,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 37,
+      "team": "cyrus",
+      "score": 1058.2,
+      "games": 2,
+      "last_game": "2026-08-05 02:32:54"
+    },
+    {
+      "rank": 38,
+      "team": "KanaeKanae",
+      "score": 1056.8,
+      "games": 7,
+      "last_game": "2026-08-04 03:36:05"
+    },
+    {
+      "rank": 39,
+      "team": "Nghia Tran",
+      "score": 1055.6,
+      "games": 2,
+      "last_game": "2026-08-04 22:52:53"
+    },
+    {
+      "rank": 40,
+      "team": "alexesn",
+      "score": 1053.7,
+      "games": 3,
+      "last_game": "2026-08-01 19:10:42"
+    },
+    {
+      "rank": 41,
+      "team": "haggle",
+      "score": 1051.9,
+      "games": 49,
+      "last_game": "2026-08-02 06:23:06"
+    },
+    {
+      "rank": 42,
+      "team": "HCRL",
+      "score": 1050.3,
+      "games": 4,
+      "last_game": "2026-08-05 03:00:53"
+    },
+    {
+      "rank": 43,
+      "team": "ykhnkf",
+      "score": 1049.0,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 44,
+      "team": "KawattaTaido",
+      "score": 1046.9,
+      "games": 7,
+      "last_game": "2026-08-05 02:28:54"
+    },
+    {
+      "rank": 45,
+      "team": "NIWATORI",
+      "score": 1046.4,
+      "games": 11,
+      "last_game": "2026-08-05 00:00:53"
+    },
+    {
+      "rank": 46,
+      "team": "Oshbocker",
+      "score": 1046.0,
+      "games": 92,
+      "last_game": "2026-08-05 02:00:53"
+    },
+    {
+      "rank": 47,
+      "team": "Ars Noveau",
+      "score": 1045.9,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 48,
+      "team": "doctorw",
+      "score": 1044.1,
+      "games": 2,
+      "last_game": "2026-08-02 13:31:07"
+    },
+    {
+      "rank": 49,
+      "team": "Jonathan Coletti",
+      "score": 1044.1,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 50,
+      "team": "sadwat",
+      "score": 1040.9,
+      "games": 227,
+      "last_game": "2026-08-02 15:47:08"
+    },
+    {
+      "rank": 51,
+      "team": "Rmy",
+      "score": 1040.7,
+      "games": 132,
+      "last_game": "2026-08-05 02:56:53"
+    },
+    {
+      "rank": 52,
+      "team": "tktkyamyam",
+      "score": 1039.6,
+      "games": 1,
+      "last_game": "2026-08-01 22:26:48"
+    },
+    {
+      "rank": 53,
+      "team": "gecogeco",
+      "score": 1039.5,
+      "games": 19,
+      "last_game": "2026-08-02 00:18:58"
+    },
+    {
+      "rank": 54,
+      "team": "Jack",
+      "score": 1038.8,
+      "games": 28,
+      "last_game": "2026-08-02 20:47:09"
+    },
+    {
+      "rank": 55,
+      "team": "LumenLiquidity",
+      "score": 1036.9,
+      "games": 83,
+      "last_game": "2026-08-05 02:24:58"
+    },
+    {
+      "rank": 56,
+      "team": "pokemon master",
+      "score": 1036.9,
+      "games": 9,
+      "last_game": "2026-08-03 16:27:54"
+    },
+    {
+      "rank": 57,
+      "team": "perrodawn",
+      "score": 1036.0,
+      "games": 31,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 58,
+      "team": "redblackbst",
+      "score": 1033.7,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 59,
+      "team": "youtube.com/@BigBugginnings",
+      "score": 1033.4,
+      "games": 7,
+      "last_game": "2026-08-01 01:49:30"
+    },
+    {
+      "rank": 60,
+      "team": "bono",
+      "score": 1032.6,
+      "games": 67,
+      "last_game": "2026-08-05 02:44:54"
+    },
+    {
+      "rank": 61,
+      "team": "MarineYY",
+      "score": 1030.6,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 62,
+      "team": "你好哇",
+      "score": 1030.2,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 63,
+      "team": "Dominic Peel",
+      "score": 1030.2,
+      "games": 253,
+      "last_game": "2026-08-04 21:52:55"
+    },
+    {
+      "rank": 64,
+      "team": "szlachetny snieg",
+      "score": 1030.1,
+      "games": 243,
+      "last_game": "2026-08-05 03:04:54"
+    },
+    {
+      "rank": 65,
+      "team": "Roman Stupin",
+      "score": 1028.0,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 66,
+      "team": "takayosi",
+      "score": 1028.0,
+      "games": 1,
+      "last_game": "2026-07-29 16:05:14"
+    },
+    {
+      "rank": 67,
+      "team": "djschmit",
+      "score": 1027.7,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 68,
+      "team": "less",
+      "score": 1027.3,
+      "games": 5,
+      "last_game": "2026-08-05 01:56:55"
+    },
+    {
+      "rank": 69,
+      "team": "kigasudayooo",
+      "score": 1026.9,
+      "games": 1,
+      "last_game": "2026-08-05 01:52:54"
+    },
+    {
+      "rank": 70,
+      "team": "GPT-5.6 Sol🏆",
+      "score": 1025.9,
+      "games": 4,
+      "last_game": "2026-08-02 14:19:08"
+    },
+    {
+      "rank": 71,
+      "team": "ポケカ前線",
+      "score": 1023.9,
+      "games": 5,
+      "last_game": "2026-07-29 16:05:14"
+    },
+    {
+      "rank": 72,
+      "team": "Confusion",
+      "score": 1022.7,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 73,
+      "team": "あなまか",
+      "score": 1022.7,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 74,
+      "team": "Articuno0144",
+      "score": 1021.9,
+      "games": 16,
+      "last_game": "2026-08-04 22:20:54"
+    },
+    {
+      "rank": 75,
+      "team": "Iliamna",
+      "score": 1021.2,
+      "games": 64,
+      "last_game": "2026-08-02 21:19:09"
+    },
+    {
+      "rank": 76,
+      "team": "Pokemon Fan",
+      "score": 1021.0,
+      "games": 18,
+      "last_game": "2026-08-02 07:03:05"
+    },
+    {
+      "rank": 77,
+      "team": "wkonishi",
+      "score": 1020.2,
+      "games": 9,
+      "last_game": "2026-08-02 20:23:09"
+    },
+    {
+      "rank": 78,
+      "team": "Yan",
+      "score": 1019.6,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 79,
+      "team": "mojyaP",
+      "score": 1018.9,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 80,
+      "team": "six seven",
+      "score": 1017.7,
+      "games": 6,
+      "last_game": "2026-08-01 15:06:34"
+    },
+    {
+      "rank": 81,
+      "team": "Team Rot-Weiß",
+      "score": 1017.3,
+      "games": 75,
+      "last_game": "2026-08-05 02:53:04"
+    },
+    {
+      "rank": 82,
+      "team": "palsystem",
+      "score": 1017.0,
+      "games": 44,
+      "last_game": "2026-08-05 02:44:54"
+    },
+    {
+      "rank": 83,
+      "team": "NorthStar",
+      "score": 1016.8,
+      "games": 9,
+      "last_game": "2026-08-05 02:40:53"
+    },
+    {
+      "rank": 84,
+      "team": "서주영",
+      "score": 1016.3,
+      "games": 70,
+      "last_game": "2026-08-03 12:59:22"
+    },
+    {
+      "rank": 85,
+      "team": "JZ",
+      "score": 1016.3,
+      "games": 353,
+      "last_game": "2026-08-05 02:56:53"
+    },
+    {
+      "rank": 86,
+      "team": "Ayanokoji Fan Club",
+      "score": 1015.1,
+      "games": 10,
+      "last_game": "2026-08-05 02:56:53"
+    },
+    {
+      "rank": 87,
+      "team": "Pokemon Siuuuu",
+      "score": 1013.9,
+      "games": 30,
+      "last_game": "2026-08-05 03:00:53"
+    },
+    {
+      "rank": 88,
+      "team": "MtN",
+      "score": 1013.7,
+      "games": 25,
+      "last_game": "2026-08-02 20:47:09"
+    },
+    {
+      "rank": 89,
+      "team": "Thai",
+      "score": 1013.5,
+      "games": 29,
+      "last_game": "2026-08-05 02:36:55"
+    },
+    {
+      "rank": 90,
+      "team": "Brahim",
+      "score": 1013.5,
+      "games": 38,
+      "last_game": "2026-08-04 21:00:35"
+    },
+    {
+      "rank": 91,
+      "team": "Leonardo Viola10",
+      "score": 1011.2,
+      "games": 1,
+      "last_game": "2026-08-07 01:23:44"
+    },
+    {
+      "rank": 92,
+      "team": "pztriatomic",
+      "score": 1011.2,
+      "games": 7,
+      "last_game": "2026-08-02 14:51:08"
+    },
+    {
+      "rank": 93,
+      "team": "qb",
+      "score": 1010.6,
+      "games": 25,
+      "last_game": "2026-08-02 14:55:12"
+    },
+    {
+      "rank": 94,
+      "team": "iwashi",
+      "score": 1009.8,
+      "games": 7,
+      "last_game": "2026-08-02 15:47:08"
+    },
+    {
+      "rank": 95,
+      "team": "masspeaks",
+      "score": 1009.1,
+      "games": 24,
+      "last_game": "2026-08-02 13:43:07"
+    },
+    {
+      "rank": 96,
+      "team": "haruto",
+      "score": 1008.8,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 97,
+      "team": "insuperabilehart",
+      "score": 1007.3,
+      "games": 134,
+      "last_game": "2026-08-05 02:24:57"
+    },
+    {
+      "rank": 98,
+      "team": "Byer Script",
+      "score": 1007.2,
+      "games": 0,
+      "last_game": null
+    },
+    {
+      "rank": 99,
+      "team": "李秉叡（ntumlnoob）",
+      "score": 1007.0,
+      "games": 152,
+      "last_game": "2026-08-05 02:04:55"
+    },
+    {
+      "rank": 100,
+      "team": "Changyuan Chen",
+      "score": 1006.7,
+      "games": 0,
+      "last_game": null
+    }
+  ],
+  "v21_opponents": {
+    "games": 58,
+    "distinct_opponents": 57,
+    "opp_in_top100_20260807": 6,
+    "opp_with_any_archived_game": 22,
+    "max_opp_rating": 1011.9044,
+    "opp_rating_deciles": [
+      801.0,
+      864.7,
+      897.7,
+      942.8,
+      971.2,
+      1011.9
+    ]
+  },
+  "churn": {
+    "top50_0805": 50,
+    "top100_0807": 100,
+    "0805_top50_still_in_0807_top50": 22,
+    "0805_top50_still_in_0807_top100": 34,
+    "mean_abs_score_change": 43.3,
+    "mean_signed_score_change": -17.2,
+    "biggest_drops": [
+      {
+        "team": "Majkel1337",
+        "d0805": 1300.3,
+        "d0807": 1102.4,
+        "delta": -197.9
+      },
+      {
+        "team": "李秉叡（ntumlnoob）",
+        "d0805": 1148.2,
+        "d0807": 1007.0,
+        "delta": -141.2
+      },
+      {
+        "team": "LumenLiquidity",
+        "d0805": 1116.3,
+        "d0807": 1036.9,
+        "delta": -79.4
+      },
+      {
+        "team": "Rmy",
+        "d0805": 1119.6,
+        "d0807": 1040.7,
+        "delta": -78.9
+      },
+      {
+        "team": "Team Rot-Weiß",
+        "d0805": 1085.7,
+        "d0807": 1017.3,
+        "delta": -68.4
+      },
+      {
+        "team": "AlphaStarmie",
+        "d0805": 1127.5,
+        "d0807": 1078.2,
+        "delta": -49.3
+      },
+      {
+        "team": "less",
+        "d0805": 1072.3,
+        "d0807": 1027.3,
+        "delta": -45.0
+      },
+      {
+        "team": "Ayanokoji Fan Club",
+        "d0805": 1058.7,
+        "d0807": 1015.1,
+        "delta": -43.6
+      }
+    ]
+  }
+}

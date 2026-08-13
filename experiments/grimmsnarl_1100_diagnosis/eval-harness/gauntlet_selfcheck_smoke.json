@@ -1,0 +1,199 @@
+{
+  "valid": true,
+  "config": {
+    "champion": "grimmsnarl_ml_v21",
+    "challenger": "grimmsnarl_ml_v21",
+    "opponents": [
+      {
+        "label": "crustle",
+        "agent": "generic:crustle",
+        "weight": 1.0
+      }
+    ],
+    "blocks": 1,
+    "both_seats": false,
+    "workers": 2,
+    "base_seed": 20260813,
+    "max_steps": 8000,
+    "calibration_blocks": 1,
+    "represented_ladder_weight": null,
+    "unrepresented_matchups": []
+  },
+  "engine": {
+    "engine_path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\vendor\\cg\\cg.dll",
+    "engine_sha256": "e758cdba51482102ac1463e58b621951431d6d5b0ce46b8facee65cae2ee17f9",
+    "installed": false,
+    "seed_instruction": "8b8f20020000",
+    "flag_instruction": "0fb6872b020000"
+  },
+  "throughput": {
+    "games": 4,
+    "primary_games": 2,
+    "wall_seconds": 15.254431200002728,
+    "games_per_hour": 943.9880000243749,
+    "mean_game_seconds": 4.686168274998636
+  },
+  "calibration": {
+    "duplicate_games_checked": 2,
+    "mismatches": 0,
+    "passed": true,
+    "details": []
+  },
+  "errors": [],
+  "overall": {
+    "complete_pairs": 1,
+    "seed_clusters": 1,
+    "challenger_minus_champion": 0.0,
+    "cluster_standard_error": null,
+    "cluster_95ci": [
+      null,
+      null
+    ],
+    "mde_80pct_approx": null,
+    "discordant": {
+      "challenger_only_win": 0,
+      "champion_only_win": 0,
+      "same_outcome": 1
+    },
+    "treatments": {
+      "champion": {
+        "games": 1,
+        "wins": 1.0,
+        "win_rate": 1.0,
+        "wilson95": [
+          0.20654329147389294,
+          1.0
+        ]
+      },
+      "challenger": {
+        "games": 1,
+        "wins": 1.0,
+        "win_rate": 1.0,
+        "wilson95": [
+          0.20654329147389294,
+          1.0
+        ]
+      }
+    },
+    "pair_rows": [
+      {
+        "opponent": "crustle",
+        "seed": 20268732,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      }
+    ]
+  },
+  "by_opponent": {
+    "crustle": {
+      "complete_pairs": 1,
+      "seed_clusters": 1,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": null,
+      "cluster_95ci": [
+        null,
+        null
+      ],
+      "mde_80pct_approx": null,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 1
+      },
+      "treatments": {
+        "champion": {
+          "games": 1,
+          "wins": 1.0,
+          "win_rate": 1.0,
+          "wilson95": [
+            0.20654329147389294,
+            1.0
+          ]
+        },
+        "challenger": {
+          "games": 1,
+          "wins": 1.0,
+          "win_rate": 1.0,
+          "wilson95": [
+            0.20654329147389294,
+            1.0
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "crustle",
+          "seed": 20268732,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "block_id": 0,
+      "opponent": "crustle",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 110,
+      "seconds": 4.405219400003261,
+      "observable_hash": "0db04f825a77f7900d9983caf7c268bc1cc771b9d50f56a7779d35a95b536b48",
+      "action_hash": "4f8725f7ae258ca43e7d98b59454d2499e751628751dcd5957facc745c5ddab7",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "crustle",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 110,
+      "seconds": 4.433771599993634,
+      "observable_hash": "0db04f825a77f7900d9983caf7c268bc1cc771b9d50f56a7779d35a95b536b48",
+      "action_hash": "4f8725f7ae258ca43e7d98b59454d2499e751628751dcd5957facc745c5ddab7",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "crustle",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 110,
+      "seconds": 4.928536200000963,
+      "observable_hash": "0db04f825a77f7900d9983caf7c268bc1cc771b9d50f56a7779d35a95b536b48",
+      "action_hash": "4f8725f7ae258ca43e7d98b59454d2499e751628751dcd5957facc745c5ddab7",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "crustle",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 110,
+      "seconds": 4.977145899996685,
+      "observable_hash": "0db04f825a77f7900d9983caf7c268bc1cc771b9d50f56a7779d35a95b536b48",
+      "action_hash": "4f8725f7ae258ca43e7d98b59454d2499e751628751dcd5957facc745c5ddab7",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+game   1: seat0=A -> grimmsnarl_ml_v8
+game   2: seat0=B -> grimmsnarl_ml_v8
+game   3: seat0=A -> grimmsnarl_ml_v8
+game   4: seat0=B -> grimmsnarl_ml_v21
+game   5: seat0=A -> grimmsnarl_ml_v8
+game   6: seat0=B -> grimmsnarl_ml_v21
+game   7: seat0=A -> grimmsnarl_ml_v21
+game   8: seat0=B -> grimmsnarl_ml_v21
+game   9: seat0=A -> grimmsnarl_ml_v21
+game  10: seat0=B -> grimmsnarl_ml_v8
+game  11: seat0=A -> grimmsnarl_ml_v21
+game  12: seat0=B -> grimmsnarl_ml_v21
+game  13: seat0=A -> grimmsnarl_ml_v8
+game  14: seat0=B -> grimmsnarl_ml_v21
+game  15: seat0=A -> grimmsnarl_ml_v8
+game  16: seat0=B -> grimmsnarl_ml_v21
+game  17: seat0=A -> grimmsnarl_ml_v8
+game  18: seat0=B -> grimmsnarl_ml_v8
+game  19: seat0=A -> grimmsnarl_ml_v21
+game  20: seat0=B -> grimmsnarl_ml_v8
+
+== RESULT ==
+A grimmsnarl_ml_v21: 10  B grimmsnarl_ml_v8: 10  draw: 0
+A win rate (excl. draws): 50.0%
+first-seat wins: A=4 B=4
+errors (crash): [0, 0]  illegal selects: [0, 0]
+seat-pool-0: 1823 moves, avg 81.82 ms/move
+seat-pool-1: 1888 moves, avg 78.72 ms/move
+agent A grimmsnarl_ml_v21: 1895 moves, avg 69.68 ms/move
+agent B grimmsnarl_ml_v8: 1816 moves, avg 91.26 ms/move
+
+real	5m19.923s
+user	0m0.031s
+sys	0m0.016s

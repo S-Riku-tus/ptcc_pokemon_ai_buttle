@@ -1,0 +1,537 @@
+{
+ "same_hash_rows": 6101,
+ "same_hash_pilots": 209,
+ "same_hash_pilots_rated": 65,
+ "spearman_vs_rating": {
+  "overall": [
+   -0.1807,
+   0.4487,
+   19
+  ],
+  "first": [
+   -0.1789,
+   0.4533,
+   19
+  ],
+  "second": [
+   -0.3649,
+   0.1061,
+   19
+  ],
+  "mirror": [
+   -0.1579,
+   0.5097,
+   19
+  ],
+  "nonmirror": [
+   -0.2912,
+   0.2094,
+   19
+  ],
+  "vs1050plus": [
+   0.2598,
+   0.2674,
+   19
+  ],
+  "first_minus_second": [
+   0.0316,
+   0.8964,
+   19
+  ]
+ },
+ "bands": {
+  "elite_teams": [
+   "@kdcyberdude",
+   "Dries @ Tufa Labs",
+   "LiamK",
+   "MissingNo.",
+   "Raihan Ramadistra",
+   "Sixth Sense",
+   "やる気元気ミワハルキ"
+  ],
+  "low_teams": [
+   "Azat Akhtyamov",
+   "Dominic Peel",
+   "NguyenThanhNhan",
+   "Roy Pidril",
+   "SQUIRTLE (prime)",
+   "insuperabilehart",
+   "miya",
+   "sadwat",
+   "szlachetny snieg"
+  ],
+  "elite": {
+   "n": 2377,
+   "w": 1337,
+   "wr": 0.5625,
+   "ci": [
+    0.5424,
+    0.5823
+   ]
+  },
+  "low": {
+   "n": 1841,
+   "w": 1047,
+   "wr": 0.5687,
+   "ci": [
+    0.546,
+    0.5912
+   ]
+  }
+ },
+ "standardised": {
+  "all": {
+   "label": "all",
+   "shared_opponents": 190,
+   "elite": {
+    "n": 2149,
+    "w": 1146,
+    "wr": 0.5333,
+    "ci": [
+     0.5121,
+     0.5543
+    ]
+   },
+   "low": {
+    "n": 1549,
+    "w": 809,
+    "wr": 0.5223,
+    "ci": [
+     0.4974,
+     0.5471
+    ]
+   },
+   "elite_std": 0.5624,
+   "low_std": 0.4882,
+   "diff": 0.0742,
+   "diff_ci": [
+    0.0433,
+    0.1073
+   ]
+  },
+  "first": {
+   "label": "going first",
+   "shared_opponents": 132,
+   "elite": {
+    "n": 1061,
+    "w": 604,
+    "wr": 0.5693,
+    "ci": [
+     0.5393,
+     0.5988
+    ]
+   },
+   "low": {
+    "n": 698,
+    "w": 383,
+    "wr": 0.5487,
+    "ci": [
+     0.5116,
+     0.5853
+    ]
+   },
+   "elite_std": 0.5983,
+   "low_std": 0.522,
+   "diff": 0.0763,
+   "diff_ci": [
+    0.0264,
+    0.1289
+   ]
+  },
+  "second": {
+   "label": "going second",
+   "shared_opponents": 136,
+   "elite": {
+    "n": 1046,
+    "w": 511,
+    "wr": 0.4885,
+    "ci": [
+     0.4583,
+     0.5188
+    ]
+   },
+   "low": {
+    "n": 736,
+    "w": 345,
+    "wr": 0.4688,
+    "ci": [
+     0.433,
+     0.5049
+    ]
+   },
+   "elite_std": 0.5129,
+   "low_std": 0.4333,
+   "diff": 0.0796,
+   "diff_ci": [
+    0.0303,
+    0.1303
+   ]
+  }
+ },
+ "standardised_by_family": [
+  {
+   "label": "Grimmsnarl (mirror)",
+   "shared_opponents": 104,
+   "elite": {
+    "n": 854,
+    "w": 461,
+    "wr": 0.5398,
+    "ci": [
+     0.5063,
+     0.573
+    ]
+   },
+   "low": {
+    "n": 888,
+    "w": 470,
+    "wr": 0.5293,
+    "ci": [
+     0.4964,
+     0.5619
+    ]
+   },
+   "elite_std": 0.5545,
+   "low_std": 0.5127,
+   "diff": 0.0418,
+   "diff_ci": [
+    -0.0039,
+    0.0876
+   ]
+  },
+  {
+   "label": "Mega Lopunny / Froslass",
+   "shared_opponents": 10,
+   "elite": {
+    "n": 310,
+    "w": 155,
+    "wr": 0.5,
+    "ci": [
+     0.4447,
+     0.5553
+    ]
+   },
+   "low": {
+    "n": 59,
+    "w": 27,
+    "wr": 0.4576,
+    "ci": [
+     0.337,
+     0.5834
+    ]
+   },
+   "elite_std": 0.5179,
+   "low_std": 0.3575,
+   "diff": 0.1605,
+   "diff_ci": [
+    0.0261,
+    0.3622
+   ]
+  },
+  {
+   "label": "Kangaskhan / Crustle",
+   "shared_opponents": 16,
+   "elite": {
+    "n": 177,
+    "w": 120,
+    "wr": 0.678,
+    "ci": [
+     0.606,
+     0.7424
+    ]
+   },
+   "low": {
+    "n": 105,
+    "w": 56,
+    "wr": 0.5333,
+    "ci": [
+     0.4384,
+     0.6259
+    ]
+   },
+   "elite_std": 0.7001,
+   "low_std": 0.53,
+   "diff": 0.1701,
+   "diff_ci": [
+    0.0554,
+    0.35
+   ]
+  },
+  {
+   "label": "Mega Lucario",
+   "shared_opponents": 5,
+   "elite": {
+    "n": 161,
+    "w": 86,
+    "wr": 0.5342,
+    "ci": [
+     0.4572,
+     0.6095
+    ]
+   },
+   "low": {
+    "n": 14,
+    "w": 9,
+    "wr": 0.6429,
+    "ci": [
+     0.3876,
+     0.8366
+    ]
+   },
+   "elite_std": 0.5321,
+   "low_std": 0.731,
+   "diff": -0.1989,
+   "diff_ci": [
+    -0.2329,
+    0.3462
+   ]
+  },
+  {
+   "label": "Ogerpon",
+   "shared_opponents": 8,
+   "elite": {
+    "n": 173,
+    "w": 34,
+    "wr": 0.1965,
+    "ci": [
+     0.1442,
+     0.2621
+    ]
+   },
+   "low": {
+    "n": 81,
+    "w": 20,
+    "wr": 0.2469,
+    "ci": [
+     0.1659,
+     0.3508
+    ]
+   },
+   "elite_std": 0.2146,
+   "low_std": 0.2308,
+   "diff": -0.0162,
+   "diff_ci": [
+    -0.0475,
+    0.071
+   ]
+  },
+  {
+   "label": "Alakazam",
+   "shared_opponents": 28,
+   "elite": {
+    "n": 117,
+    "w": 83,
+    "wr": 0.7094,
+    "ci": [
+     0.6215,
+     0.784
+    ]
+   },
+   "low": {
+    "n": 99,
+    "w": 69,
+    "wr": 0.697,
+    "ci": [
+     0.6005,
+     0.7787
+    ]
+   },
+   "elite_std": 0.7562,
+   "low_std": 0.6614,
+   "diff": 0.0948,
+   "diff_ci": [
+    -0.0356,
+    0.2767
+   ]
+  },
+  {
+   "label": "Dragapult",
+   "shared_opponents": 6,
+   "elite": {
+    "n": 61,
+    "w": 38,
+    "wr": 0.623,
+    "ci": [
+     0.4975,
+     0.7339
+    ]
+   },
+   "low": {
+    "n": 43,
+    "w": 20,
+    "wr": 0.4651,
+    "ci": [
+     0.3251,
+     0.6108
+    ]
+   },
+   "elite_std": 0.6503,
+   "low_std": 0.4484,
+   "diff": 0.2018,
+   "diff_ci": [
+    0.1145,
+    0.3489
+   ]
+  },
+  {
+   "label": "other: Team Rocket's Mewtwo ex",
+   "shared_opponents": 7,
+   "elite": {
+    "n": 48,
+    "w": 38,
+    "wr": 0.7917,
+    "ci": [
+     0.6574,
+     0.8827
+    ]
+   },
+   "low": {
+    "n": 67,
+    "w": 40,
+    "wr": 0.597,
+    "ci": [
+     0.4774,
+     0.7061
+    ]
+   },
+   "elite_std": 0.8028,
+   "low_std": 0.6043,
+   "diff": 0.1985,
+   "diff_ci": [
+    0.0622,
+    0.3257
+   ]
+  },
+  {
+   "label": "other: Cynthia's Garchomp ex",
+   "shared_opponents": 5,
+   "elite": {
+    "n": 50,
+    "w": 32,
+    "wr": 0.64,
+    "ci": [
+     0.5014,
+     0.7586
+    ]
+   },
+   "low": {
+    "n": 38,
+    "w": 15,
+    "wr": 0.3947,
+    "ci": [
+     0.256,
+     0.5528
+    ]
+   },
+   "elite_std": 0.6425,
+   "low_std": 0.3842,
+   "diff": 0.2583,
+   "diff_ci": [
+    0.0614,
+    0.3138
+   ]
+  },
+  {
+   "label": "other: Fezandipiti ex",
+   "shared_opponents": 7,
+   "elite": {
+    "n": 47,
+    "w": 24,
+    "wr": 0.5106,
+    "ci": [
+     0.3724,
+     0.6472
+    ]
+   },
+   "low": {
+    "n": 40,
+    "w": 18,
+    "wr": 0.45,
+    "ci": [
+     0.3071,
+     0.6017
+    ]
+   },
+   "elite_std": 0.5726,
+   "low_std": 0.4455,
+   "diff": 0.127,
+   "diff_ci": [
+    -0.0664,
+    0.4069
+   ]
+  }
+ ],
+ "grimmsnarl_hashes": [
+  {
+   "hash": "9714ab5c3996f6cc",
+   "teams": 55,
+   "example_teams": [
+    "@kdcyberdude",
+    "Sixth Sense",
+    "miya",
+    "MissingNo."
+   ],
+   "best_rating": 1220.2
+  },
+  {
+   "hash": "21c3f20980827cb2",
+   "teams": 7,
+   "example_teams": [
+    "ANDPAD kaggler team",
+    "JZ",
+    "Hancang Mi",
+    "haggle"
+   ],
+   "best_rating": 1066.2
+  },
+  {
+   "hash": "57961e5f51c03eaf",
+   "teams": 3,
+   "example_teams": [
+    "cm391",
+    "zhan renyi",
+    "jiatu.l"
+   ],
+   "best_rating": 1070.6
+  },
+  {
+   "hash": "3017232366addacc",
+   "teams": 1,
+   "example_teams": [
+    "hoshippi"
+   ],
+   "best_rating": null
+  },
+  {
+   "hash": "2f2726e9c4394ea3",
+   "teams": 1,
+   "example_teams": [
+    "e-toppo + kurupical"
+   ],
+   "best_rating": 1083.5
+  },
+  {
+   "hash": "800fe13b8300dd02",
+   "teams": 1,
+   "example_teams": [
+    "palsystem"
+   ],
+   "best_rating": 1017.0
+  },
+  {
+   "hash": "23ea4e343befd1a7",
+   "teams": 1,
+   "example_teams": [
+    "monnosuke"
+   ],
+   "best_rating": null
+  },
+  {
+   "hash": "98602045f4ac7b52",
+   "teams": 1,
+   "example_teams": [
+    "hyonu0620"
+   ],
+   "best_rating": null
+  }
+ ]
+}

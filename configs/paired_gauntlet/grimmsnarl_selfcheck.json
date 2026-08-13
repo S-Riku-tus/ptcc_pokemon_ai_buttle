@@ -1,0 +1,22 @@
+{
+  "champion": "grimmsnarl_ml_v21",
+  "challenger": "grimmsnarl_ml_v21",
+  "blocks": 500,
+  "both_seats": true,
+  "workers": 12,
+  "base_seed": 20260813,
+  "max_steps": 8000,
+  "calibration_blocks": 1,
+  "represented_ladder_weight": 0.46,
+  "unrepresented_matchups": [
+    "This is an instrument self-check, not a ladder-strength estimate"
+  ],
+  "opponents": [
+    {
+      "label": "Grimmsnarl mirror proxy",
+      "agent": "grimmsnarl_ml_v8",
+      "weight": 1.0
+    }
+  ],
+  "out": "artifacts/paired_gauntlet/grimmsnarl_v21_selfcheck_1000_per_treatment.json"
+}

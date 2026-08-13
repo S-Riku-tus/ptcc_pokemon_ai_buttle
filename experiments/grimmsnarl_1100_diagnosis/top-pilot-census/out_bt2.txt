@@ -1,0 +1,327 @@
+{
+ "n_nodes": 1209,
+ "n_edges": 6659,
+ "first_player_logodds": 0.1609,
+ "first_player_winprob": 0.5401,
+ "anchoring": {
+  "v15": {
+   "games": 62,
+   "opp_seen_in_field_corpus": 28,
+   "opp_with_ge20_field_games": 12,
+   "distinct_opponents": 60
+  },
+  "v15b": {
+   "games": 48,
+   "opp_seen_in_field_corpus": 17,
+   "opp_with_ge20_field_games": 4,
+   "distinct_opponents": 47
+  },
+  "v16": {
+   "games": 45,
+   "opp_seen_in_field_corpus": 14,
+   "opp_with_ge20_field_games": 1,
+   "distinct_opponents": 43
+  },
+  "v17": {
+   "games": 42,
+   "opp_seen_in_field_corpus": 11,
+   "opp_with_ge20_field_games": 1,
+   "distinct_opponents": 41
+  },
+  "v18": {
+   "games": 33,
+   "opp_seen_in_field_corpus": 8,
+   "opp_with_ge20_field_games": 1,
+   "distinct_opponents": 33
+  },
+  "v19a": {
+   "games": 42,
+   "opp_seen_in_field_corpus": 10,
+   "opp_with_ge20_field_games": 2,
+   "distinct_opponents": 42
+  },
+  "v19b": {
+   "games": 42,
+   "opp_seen_in_field_corpus": 11,
+   "opp_with_ge20_field_games": 3,
+   "distinct_opponents": 42
+  },
+  "v20": {
+   "games": 46,
+   "opp_seen_in_field_corpus": 19,
+   "opp_with_ge20_field_games": 3,
+   "distinct_opponents": 44
+  },
+  "v21": {
+   "games": 58,
+   "opp_seen_in_field_corpus": 22,
+   "opp_with_ge20_field_games": 7,
+   "distinct_opponents": 57
+  },
+  "v8": {
+   "games": 50,
+   "opp_seen_in_field_corpus": 31,
+   "opp_with_ge20_field_games": 13,
+   "distinct_opponents": 46
+  }
+ },
+ "strengths": {
+  "やる気元気ミワハルキ": {
+   "strength": 1.4244,
+   "elo": 247.4,
+   "boot_ci_elo": [
+    204.8,
+    286.7
+   ],
+   "kaggle_rating": 1220.2,
+   "field_games": 418
+  },
+  "LiamK": {
+   "strength": 1.1707,
+   "elo": 203.4,
+   "boot_ci_elo": [
+    160.4,
+    241.1
+   ],
+   "kaggle_rating": 1158.9,
+   "field_games": 338
+  },
+  "M Sato": {
+   "strength": 0.873,
+   "elo": 151.7,
+   "boot_ci_elo": [
+    95.6,
+    204.1
+   ],
+   "kaggle_rating": 1147.4,
+   "field_games": 150
+  },
+  "Raihan Ramadistra": {
+   "strength": 1.4842,
+   "elo": 257.8,
+   "boot_ci_elo": [
+    221.0,
+    294.3
+   ],
+   "kaggle_rating": 1142.4,
+   "field_games": 544
+  },
+  "@kdcyberdude": {
+   "strength": 1.1346,
+   "elo": 197.1,
+   "boot_ci_elo": [
+    155.5,
+    236.6
+   ],
+   "kaggle_rating": 1135.8,
+   "field_games": 374
+  },
+  "Sixth Sense": {
+   "strength": 1.3066,
+   "elo": 227.0,
+   "boot_ci_elo": [
+    191.4,
+    257.8
+   ],
+   "kaggle_rating": 1133.3,
+   "field_games": 351
+  },
+  "MissingNo.": {
+   "strength": 0.8621,
+   "elo": 149.8,
+   "boot_ci_elo": [
+    96.2,
+    200.2
+   ],
+   "kaggle_rating": 1125.9,
+   "field_games": 200
+  },
+  "Dries @ Tufa Labs": {
+   "strength": 1.1679,
+   "elo": 202.9,
+   "boot_ci_elo": [
+    167.7,
+    245.0
+   ],
+   "kaggle_rating": 1121.6,
+   "field_games": 312
+  },
+  "OURS:v21": {
+   "strength": 0.5429,
+   "elo": 94.3,
+   "boot_ci_elo": [
+    21.4,
+    182.9
+   ],
+   "kaggle_rating": null,
+   "field_games": 0
+  },
+  "OURS:v20": {
+   "strength": 0.6006,
+   "elo": 104.3,
+   "boot_ci_elo": [
+    15.8,
+    177.0
+   ],
+   "kaggle_rating": null,
+   "field_games": 0
+  },
+  "OURS:v15": {
+   "strength": 0.678,
+   "elo": 117.8,
+   "boot_ci_elo": [
+    48.0,
+    209.8
+   ],
+   "kaggle_rating": null,
+   "field_games": 0
+  }
+ },
+ "gap_v21_to_best_grimm": {
+  "team": "やる気元気ミワハルキ",
+  "elo": 153.1,
+  "boot_ci_elo": [
+   56.9,
+   238.7
+  ],
+  "p_v21_wins": 0.2929
+ },
+ "common_opponent": [
+  {
+   "team": "やる気元気ミワハルキ",
+   "kaggle_rating": 1220.2,
+   "shared_opponents": 14,
+   "our_games": 16,
+   "our_wr": 0.3125,
+   "our_ci": [
+    0.1416,
+    0.556
+   ],
+   "their_games": 93,
+   "their_wr": 0.5699,
+   "their_ci": [
+    0.4685,
+    0.6658
+   ]
+  },
+  {
+   "team": "LiamK",
+   "kaggle_rating": 1158.9,
+   "shared_opponents": 30,
+   "our_games": 40,
+   "our_wr": 0.375,
+   "our_ci": [
+    0.2422,
+    0.5297
+   ],
+   "their_games": 98,
+   "their_wr": 0.6122,
+   "their_ci": [
+    0.5133,
+    0.7027
+   ]
+  },
+  {
+   "team": "M Sato",
+   "kaggle_rating": 1147.4,
+   "shared_opponents": 19,
+   "our_games": 23,
+   "our_wr": 0.5217,
+   "our_ci": [
+    0.3296,
+    0.7076
+   ],
+   "their_games": 50,
+   "their_wr": 0.3,
+   "their_ci": [
+    0.191,
+    0.4375
+   ]
+  },
+  {
+   "team": "Raihan Ramadistra",
+   "kaggle_rating": 1142.4,
+   "shared_opponents": 32,
+   "our_games": 41,
+   "our_wr": 0.3171,
+   "our_ci": [
+    0.1956,
+    0.4698
+   ],
+   "their_games": 176,
+   "their_wr": 0.5227,
+   "their_ci": [
+    0.4492,
+    0.5952
+   ]
+  },
+  {
+   "team": "@kdcyberdude",
+   "kaggle_rating": 1135.8,
+   "shared_opponents": 41,
+   "our_games": 52,
+   "our_wr": 0.4231,
+   "our_ci": [
+    0.2987,
+    0.5581
+   ],
+   "their_games": 116,
+   "their_wr": 0.4483,
+   "their_ci": [
+    0.3609,
+    0.539
+   ]
+  },
+  {
+   "team": "Sixth Sense",
+   "kaggle_rating": 1133.3,
+   "shared_opponents": 21,
+   "our_games": 26,
+   "our_wr": 0.3077,
+   "our_ci": [
+    0.165,
+    0.4999
+   ],
+   "their_games": 80,
+   "their_wr": 0.575,
+   "their_ci": [
+    0.4657,
+    0.6774
+   ]
+  },
+  {
+   "team": "MissingNo.",
+   "kaggle_rating": 1125.9,
+   "shared_opponents": 35,
+   "our_games": 43,
+   "our_wr": 0.3488,
+   "our_ci": [
+    0.2242,
+    0.4983
+   ],
+   "their_games": 64,
+   "their_wr": 0.4375,
+   "their_ci": [
+    0.3229,
+    0.5591
+   ]
+  },
+  {
+   "team": "Dries @ Tufa Labs",
+   "kaggle_rating": 1121.6,
+   "shared_opponents": 31,
+   "our_games": 38,
+   "our_wr": 0.3421,
+   "our_ci": [
+    0.2121,
+    0.5011
+   ],
+   "their_games": 92,
+   "their_wr": 0.5435,
+   "their_ci": [
+    0.442,
+    0.6415
+   ]
+  }
+ ]
+}

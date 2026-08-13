@@ -1,0 +1,112 @@
+=== setup board (state at the first observation of shared turn 1) ===
+  v21    n=59 active: Impidimp=0.525, Munkidori=0.322, Snorunt=0.153
+         bench_size=0.525 impidimp_total=0.576 bench_snorunt=0.136 bench_munkidori=0.339
+  top5   n=1087 active: Impidimp=0.559, Munkidori=0.282, Snorunt=0.159
+         bench_size=0.494 impidimp_total=0.684 bench_snorunt=0.084 bench_munkidori=0.286
+  field  n=4204 active: Impidimp=0.542, Munkidori=0.283, Snorunt=0.176
+         bench_size=0.506 impidimp_total=0.650 bench_snorunt=0.088 bench_munkidori=0.309
+
+=== own turn 2: hold vs play, Rare Candy / Grimmsnarl ex ===
+  -- all --
+    v21    turns=   59 hold_candy=0.339 hold_candy+grim=0.203 candy_offered=0.322 candy_played=0.322 play|offered=1.000 play|hold_both=0.750
+    top5   turns= 1081 hold_candy=0.412 hold_candy+grim=0.232 candy_offered=0.456 candy_played=0.443 play|offered=0.972 play|hold_both=0.865
+    field  turns= 4189 hold_candy=0.407 hold_candy+grim=0.222 candy_offered=0.442 candy_played=0.433 play|offered=0.979 play|hold_both=0.893
+  -- first --
+    v21    turns=   36 hold_candy=0.389 hold_candy+grim=0.250 candy_offered=0.306 candy_played=0.306 play|offered=1.000 play|hold_both=0.667
+    top5   turns=  572 hold_candy=0.399 hold_candy+grim=0.187 candy_offered=0.414 candy_played=0.402 play|offered=0.970 play|hold_both=0.841
+    field  turns= 2158 hold_candy=0.394 hold_candy+grim=0.185 candy_offered=0.400 candy_played=0.394 play|offered=0.984 play|hold_both=0.882
+  -- second --
+    v21    turns=   23 hold_candy=0.261 hold_candy+grim=0.130 candy_offered=0.348 candy_played=0.348 play|offered=1.000 play|hold_both=1.000
+    top5   turns=  509 hold_candy=0.426 hold_candy+grim=0.283 candy_offered=0.503 candy_played=0.489 play|offered=0.973 play|hold_both=0.882
+    field  turns= 2031 hold_candy=0.422 hold_candy+grim=0.260 candy_offered=0.485 candy_played=0.474 play|offered=0.976 play|hold_both=0.902
+
+=== own turn 1 and 2: key cards HELD (mean copies in hand) ===
+  -- own turn 1 --
+                   v21    top5   field  v21-top5
+hand_size        6.712   6.929   6.878    -0.217
+Snorunt          0.000   0.117   0.091    -0.117
+Munkidori        0.017   0.128   0.112    -0.111
+SpikemuthGym     0.424   0.533   0.524    -0.109
+Boss             0.153   0.243   0.259    -0.090
+RareCandy        0.339   0.388   0.391    -0.049
+DarkEnergy       1.203   1.250   1.293    -0.047
+Lillie           0.525   0.557   0.544    -0.032
+NightStretcher   0.373   0.399   0.409    -0.026
+Morgrem          0.407   0.430   0.427    -0.023
+ToolScrapper     0.119   0.134   0.121    -0.015
+Poffin           0.508   0.518   0.526    -0.010
+Pokegear         0.136   0.142   0.131    -0.006
+Dawn             0.153   0.138   0.133     0.015
+Impidimp         0.085   0.070   0.073     0.015
+Froslass         0.288   0.263   0.265     0.025
+UnfairStamp      0.203   0.132   0.135     0.071
+Petrel           0.610   0.532   0.523     0.078
+GrimmsnarlEX     0.508   0.424   0.397     0.084
+PokePad          0.661   0.533   0.524     0.128
+deck_left       45.746  45.568  45.611     0.178
+  -- own turn 2 --
+                   v21    top5   field  v21-top5
+hand_size        5.576   5.975   5.962    -0.399
+DarkEnergy       0.695   0.852   0.843    -0.157
+RareCandy        0.339   0.473   0.477    -0.134
+Lillie           0.508   0.622   0.587    -0.114
+Froslass         0.339   0.426   0.439    -0.087
+Munkidori        0.068   0.127   0.095    -0.059
+Boss             0.220   0.273   0.296    -0.053
+NightStretcher   0.390   0.425   0.466    -0.035
+SpikemuthGym     0.186   0.215   0.238    -0.029
+ToolScrapper     0.119   0.141   0.136    -0.022
+Petrel           0.508   0.523   0.541    -0.015
+Snorunt          0.085   0.099   0.095    -0.014
+Impidimp         0.068   0.070   0.065    -0.002
+Pokegear         0.034   0.028   0.023     0.006
+GrimmsnarlEX     0.627   0.607   0.578     0.020
+Poffin           0.153   0.129   0.120     0.024
+UnfairStamp      0.186   0.152   0.164     0.034
+Dawn             0.169   0.126   0.122     0.043
+PokePad          0.186   0.098   0.095     0.088
+Morgrem          0.695   0.593   0.584     0.102
+deck_left       41.627  41.059  41.037     0.568
+  -- own turn 3 --
+                   v21    top5   field  v21-top5
+hand_size        4.932   5.584   5.469    -0.652
+Boss             0.186   0.341   0.326    -0.155
+SpikemuthGym     0.220   0.355   0.362    -0.135
+Petrel           0.390   0.499   0.483    -0.109
+NightStretcher   0.373   0.463   0.452    -0.090
+Munkidori        0.102   0.185   0.179    -0.083
+Morgrem          0.203   0.284   0.257    -0.081
+Snorunt          0.119   0.171   0.154    -0.052
+Pokegear         0.000   0.040   0.031    -0.040
+ToolScrapper     0.119   0.156   0.153    -0.037
+Impidimp         0.085   0.110   0.114    -0.025
+PokePad          0.102   0.127   0.124    -0.025
+DarkEnergy       0.797   0.810   0.800    -0.013
+UnfairStamp      0.136   0.140   0.185    -0.004
+Froslass         0.254   0.246   0.252     0.008
+Poffin           0.288   0.266   0.238     0.022
+Dawn             0.153   0.128   0.111     0.025
+RareCandy        0.322   0.288   0.291     0.034
+Lillie           0.492   0.444   0.435     0.048
+GrimmsnarlEX     0.593   0.530   0.521     0.063
+deck_left       35.898  34.007  34.324     1.891
+
+=== own turn 1 and 2: Spikemuth Gym hold / offer / play ===
+  t1 v21    hold=0.356 offered=0.356 played=0.356 play|offered=1.000 n=59
+  t1 top5   hold=0.448 offered=0.470 played=0.470 play|offered=1.000 n=1087
+  t1 field  hold=0.440 offered=0.449 played=0.438 play|offered=0.975 n=4204
+  t2 v21    hold=0.186 offered=0.068 played=0.068 play|offered=1.000 n=59
+  t2 top5   hold=0.202 offered=0.204 played=0.204 play|offered=1.000 n=1081
+  t2 field  hold=0.213 offered=0.186 played=0.180 play|offered=0.963 n=4189
+
+=== own turn 1 and 2: draw supporters hold / offer / play ===
+  Lillie       t1  v21: hold=0.441 off=0.169 play=0.136 p|o=0.800 | top5: hold=0.459 off=0.224 play=0.174 p|o=0.775 | field: hold=0.453 off=0.234 play=0.201 p|o=0.857
+  Lillie       t2  v21: hold=0.458 off=0.475 play=0.373 p|o=0.786 | top5: hold=0.517 off=0.531 play=0.462 p|o=0.869 | field: hold=0.487 off=0.499 play=0.444 p|o=0.889
+  Petrel       t1  v21: hold=0.458 off=0.254 play=0.136 p|o=0.533 | top5: hold=0.452 off=0.219 play=0.135 p|o=0.618 | field: hold=0.437 off=0.218 play=0.124 p|o=0.570
+  Petrel       t2  v21: hold=0.424 off=0.441 play=0.203 p|o=0.462 | top5: hold=0.434 off=0.445 play=0.235 p|o=0.528 | field: hold=0.441 off=0.451 play=0.230 p|o=0.510
+  Dawn         t1  v21: hold=0.153 off=0.017 play=0.000 p|o=0.000 | top5: hold=0.138 off=0.074 play=0.052 p|o=0.713 | field: hold=0.133 off=0.069 play=0.051 p|o=0.742
+  Dawn         t2  v21: hold=0.169 off=0.186 play=0.136 p|o=0.727 | top5: hold=0.126 off=0.128 play=0.074 p|o=0.580 | field: hold=0.122 off=0.127 play=0.080 p|o=0.630
+
+=== field: outcome by own-turn-2 Rare Candy, split by whether it was held ===
+  held candy at t2: 1707/4189 = 0.407, won 0.596; not held won 0.563
+  v21 held candy at t2: 20/59 = 0.339  p_vs_field=0.3503

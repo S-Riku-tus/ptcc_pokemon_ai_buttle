@@ -1,0 +1,140 @@
+C:\Users\shiba\ptcc_pokemon_ai_buttle\.venv\lib\site-packages\scipy\stats\_axis_nan_policy.py:586: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, **kwds)
+C:\Users\shiba\ptcc_pokemon_ai_buttle\.venv\lib\site-packages\scipy\stats\_axis_nan_policy.py:586: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, **kwds)
+C:\Users\shiba\ptcc_pokemon_ai_buttle\.venv\lib\site-packages\scipy\stats\_axis_nan_policy.py:586: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, **kwds)
+C:\Users\shiba\ptcc_pokemon_ai_buttle\.venv\lib\site-packages\scipy\stats\_axis_nan_policy.py:586: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, **kwds)
+=== opponent family mix ===
+                                  v21  field   top5  v21_n
+opponent_family                                           
+Grimmsnarl (mirror)             0.458  0.426  0.280   27.0
+Mega Lopunny / Froslass         0.034  0.111  0.238    2.0
+Kangaskhan / Crustle            0.119  0.094  0.098    7.0
+Alakazam                        0.119  0.085  0.087    7.0
+Ogerpon                         0.017  0.069  0.085    1.0
+Dragapult                       0.068  0.038  0.038    4.0
+other: Team Rocket's Mewtwo ex  0.017  0.036  0.026    1.0
+Mega Lucario                    0.068  0.034  0.065    4.0
+other: Cynthia's Garchomp ex    0.034  0.030  0.029    2.0
+other: Fezandipiti ex           0.000  0.024  0.018    NaN
+Archaludon                      0.034  0.010  0.002    2.0
+other: Mega Venusaur ex         0.000  0.009  0.007    NaN
+Dipplin                         0.000  0.007  0.003    NaN
+other: Mega Abomasnow ex        0.000  0.006  0.005    NaN
+other: Rillaboom                0.017  0.004  0.004    1.0
+other: Hydrapple ex             0.017  0.003  0.001    1.0
+other: Conkeldurr               0.000  0.003  0.005    NaN
+other: Arboliva ex              0.000  0.002  0.003    NaN
+other: Hop's Trevenant          0.000  0.001  0.001    NaN
+other: Iono’s Bellibolt ex      0.000  0.001  0.001    NaN
+other: Mega Starmie ex          0.000  0.001  0.002    NaN
+other: Ethan's Typhlosion       0.000  0.001  0.000    NaN
+other: Team Rocket's Honchkrow  0.000  0.001  0.002    NaN
+other: N’s Zoroark ex           0.000  0.001  0.001    NaN
+other: Dudunsparce              0.000  0.001  0.000    NaN
+other: Dusknoir                 0.000  0.001  0.000    NaN
+other: Arven's Mabosstiff ex    0.000  0.000  0.000    NaN
+other: Annihilape               0.000  0.000  0.000    NaN
+other: Latias ex                0.000  0.000  0.000    NaN
+other: Iron Thorns ex           0.000  0.000  0.000    NaN
+other: Brambleghast             0.000  0.000  0.000    NaN
+other: Drednaw                  0.000  0.000  0.000    NaN
+other: Comfey                   0.000  0.000  0.000    NaN
+other: Ceruledge ex             0.000  0.000  0.000    NaN
+other: Mega Manectric ex        0.000  0.000  0.001    NaN
+other: Mega Charizard X ex      0.000  0.000  0.000    NaN
+other: Raging Bolt ex           0.000  0.000  0.000    NaN
+other: Okidogi ex               0.000  0.000  0.000    NaN
+other: Mega Gardevoir ex        0.000  0.000  0.000    NaN
+other: Reuniclus                0.000  0.000  0.001    NaN
+other: Team Rocket's Crobat ex  0.000  0.000  0.000    NaN
+other: Tauros                   0.000  0.000  0.000    NaN
+other: Terapagos ex             0.000  0.000  0.000    NaN
+other: Walrein                  0.000  0.000  0.000    NaN
+
+=== turn-order interaction (is v21's second-seat deficit worse?) ===
+  v21 OR(first vs second)=2.479  field OR=1.359  z=1.08 p=0.279
+    v21 vs field: first p=0.389, second p=0.676
+  v21 OR(first vs second)=2.479  top5 OR=1.516  z=0.87 p=0.385
+    v21 vs top5: first p=0.479, second p=0.676
+  v21 OR(first vs second)=2.479  top10 OR=1.404  z=1.02 p=0.309
+    v21 vs top10: first p=0.387, second p=0.676
+
+=== own-turn gaps, v21 vs top5 / field (Fisher for rates, Welch for means) ===
+   vs  own_turn               metric    v21   them  delta  n_v21  n_them      p
+ top5         2 board_energy_in_play  2.203  2.924 -0.721     59    1081 0.0003
+field         2 board_energy_in_play  2.203  2.831 -0.628     59    4189 0.0010
+ top5         2      board_deck_left 36.763 34.902  1.861     59    1081 0.0018
+field         5 board_energy_in_play  4.483  5.201 -0.718     58    3821 0.0018
+ top5         5 board_energy_in_play  4.483  5.206 -0.723     58     987 0.0020
+field         2      board_deck_left 36.763 35.157  1.606     59    4189 0.0056
+ top5         4 board_energy_in_play  4.661  5.223 -0.562     59    1060 0.0091
+ top5         2             take_gym  0.068  0.204 -0.136     59    1081 0.0105
+field         4 board_energy_in_play  4.661  5.189 -0.528     59    4102 0.0120
+field         4         retreat_flag  0.339  0.200  0.139     59    4102 0.0132
+field         3 board_energy_in_play  4.119  4.676 -0.557     59    4162 0.0174
+ top5         3 board_energy_in_play  4.119  4.683 -0.564     59    1075 0.0182
+ top5         4         retreat_flag  0.339  0.208  0.131     59    1060 0.0220
+field         2             take_gym  0.068  0.180 -0.112     59    4189 0.0246
+ top5         2           board_hand  4.220  4.767 -0.547     59    1081 0.0258
+ top5         1           board_hand  4.729  5.149 -0.420     59    1087 0.0259
+ top5         3      board_deck_left 30.441 28.832  1.609     59    1075 0.0325
+ top5         2          take_attack  0.390  0.532 -0.142     59    1081 0.0439
+field         3          take_poffin  0.254  0.154  0.100     59    4162 0.0449
+field         2           board_hand  4.220  4.693 -0.473     59    4189 0.0484
+
+=== same, restricted to going second ===
+   vs  own_turn               metric   v21  them  delta  n_v21  n_them      p
+ top5         2 board_energy_in_play 2.304 3.187 -0.882     23     509 0.0055
+field         2 board_energy_in_play 2.304 3.056 -0.751     23    2031 0.0135
+field         3       main_decisions 6.217 7.394 -1.176     23    2024 0.0161
+ top5         3       main_decisions 6.217 7.376 -1.159     23     508 0.0194
+ top5         1           board_hand 4.913 5.595 -0.682     23     514 0.0367
+field         5 board_energy_in_play 4.273 5.113 -0.840     22    1788 0.0467
+field         1           board_hand 4.913 5.545 -0.632     23    2043 0.0483
+
+=== within-field: does behaviour at own turn 2 predict winning? ===
+  board_grim_ex_on_board     yes=0.641[0.619,0.663] n=1813 | no=0.527[0.507,0.547] n=2376  p=1.13e-13
+  take_attack                yes=0.611[0.590,0.632] n=2079 | no=0.542[0.521,0.563] n=2110  p=6.64e-06
+  supporter_flag             yes=0.620[0.604,0.637] n=3370 | no=0.396[0.363,0.429] n=819  p=3.48e-31
+  energy_attached_flag       yes=0.599[0.581,0.617] n=2829 | no=0.530[0.504,0.557] n=1360  p=2.97e-05
+
+  same, field going second only:
+  board_grim_ex_on_board     yes=0.609[0.578,0.639] n=962 | no=0.476[0.446,0.506] n=1069
+  take_attack                yes=0.580[0.550,0.609] n=1074 | no=0.493[0.462,0.525] n=957
+
+=== energy in play at own turn 2, by pilot rating band ===
+              turns  energy   grim  attack  supporter
+rating                                               
+(1000, 1075]   1438   2.917  0.422   0.477      0.803
+(1075, 1125]   1670   2.697  0.435   0.490      0.796
+(1125, 1300]   1081   2.924  0.443   0.532      0.820
+  v21: turns=59 energy=2.203 grim=0.322 attack=0.390 supporter=0.712
+
+=== per-pilot own-turn-2 board rate (is v21 below every pilot?) ===
+                 turns  grim2  energy2  attack2
+pilot    rating                                
+55167115 1220.2    265  0.472    2.664    0.566
+55171940 1172.6    107  0.458    2.860    0.533
+55177269 1151.0    299  0.408    2.796    0.532
+55090635 1141.3    299  0.448    3.304    0.508
+55170504 1126.3    111  0.441    2.928    0.514
+55109984 1121.6    299  0.405    2.100    0.462
+55138264 1101.8    298  0.406    2.681    0.483
+55168467 1094.8    148  0.439    3.101    0.568
+55160202 1086.7    196  0.418    2.735    0.480
+55132728 1085.9    281  0.466    2.199    0.498
+55171851 1082.1     70  0.443    3.200    0.486
+55156168 1080.3    217  0.442    3.018    0.498
+55163869 1077.6    161  0.497    3.634    0.472
+55167739 1073.9    130  0.431    2.662    0.531
+55153272 1073.8    204  0.436    2.740    0.431
+55016893 1064.7    299  0.448    3.435    0.505
+55090777 1063.4    298  0.393    2.174    0.473
+55174275 1062.3     61  0.328    3.016    0.443
+55148208 1050.6    154  0.409    3.214    0.500
+55159565 1048.5    103  0.485    3.689    0.524
+55164085 1046.4     87  0.402    2.540    0.425
+55157623 1046.3    102  0.422    3.275    0.412

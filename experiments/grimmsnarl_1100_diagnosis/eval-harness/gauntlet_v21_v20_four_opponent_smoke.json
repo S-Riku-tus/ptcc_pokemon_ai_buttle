@@ -1,0 +1,742 @@
+{
+  "valid": true,
+  "config": {
+    "champion": "grimmsnarl_ml_v20",
+    "challenger": "grimmsnarl_ml_v21",
+    "opponents": [
+      {
+        "label": "Grimmsnarl mirror proxy",
+        "agent": "grimmsnarl_ml_v8",
+        "weight": 0.46
+      },
+      {
+        "label": "Alakazam",
+        "agent": "alakazam_ml_v35",
+        "weight": 0.12
+      },
+      {
+        "label": "Kangaskhan generic proxy",
+        "agent": "generic:kangaskhan",
+        "weight": 0.06
+      },
+      {
+        "label": "Crustle generic proxy",
+        "agent": "generic:crustle",
+        "weight": 0.06
+      }
+    ],
+    "blocks": 4,
+    "both_seats": true,
+    "workers": 4,
+    "base_seed": 20260813,
+    "max_steps": 8000,
+    "calibration_blocks": 1,
+    "represented_ladder_weight": 0.7,
+    "unrepresented_matchups": [
+      "Mega Lucario",
+      "Dragapult",
+      "Ogerpon and long-tail archetypes"
+    ]
+  },
+  "engine": {
+    "engine_path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\vendor\\cg\\cg.dll",
+    "engine_sha256": "e758cdba51482102ac1463e58b621951431d6d5b0ce46b8facee65cae2ee17f9",
+    "installed": false,
+    "seed_instruction": "8b8f20020000",
+    "flag_instruction": "0fb6872b020000"
+  },
+  "throughput": {
+    "games": 24,
+    "primary_games": 16,
+    "wall_seconds": 111.68366129999777,
+    "games_per_hour": 773.6136064515082,
+    "mean_game_seconds": 15.425038583333844
+  },
+  "calibration": {
+    "duplicate_games_checked": 8,
+    "mismatches": 0,
+    "passed": true,
+    "details": []
+  },
+  "errors": [],
+  "overall": {
+    "complete_pairs": 8,
+    "seed_clusters": 4,
+    "challenger_minus_champion": -0.25,
+    "cluster_standard_error": 0.14433756729740643,
+    "cluster_95ci": [
+      -0.5329016319029166,
+      0.03290163190291662
+    ],
+    "mde_80pct_approx": 0.4043761285404139,
+    "discordant": {
+      "challenger_only_win": 0,
+      "champion_only_win": 2,
+      "same_outcome": 6
+    },
+    "treatments": {
+      "champion": {
+        "games": 8,
+        "wins": 5.0,
+        "win_rate": 0.625,
+        "wilson95": [
+          0.30573785458380187,
+          0.863158240538479
+        ]
+      },
+      "challenger": {
+        "games": 8,
+        "wins": 3.0,
+        "win_rate": 0.375,
+        "wilson95": [
+          0.13684175946152105,
+          0.6942621454161981
+        ]
+      }
+    },
+    "pair_rows": [
+      {
+        "opponent": "Grimmsnarl mirror proxy",
+        "seed": 20268732,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl mirror proxy",
+        "seed": 20268732,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl mirror proxy",
+        "seed": 20276651,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl mirror proxy",
+        "seed": 20276651,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 0.0,
+        "difference": -1.0
+      },
+      {
+        "opponent": "Grimmsnarl mirror proxy",
+        "seed": 20284570,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Grimmsnarl mirror proxy",
+        "seed": 20284570,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20292489,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 0.0,
+        "difference": -1.0
+      },
+      {
+        "opponent": "Alakazam",
+        "seed": 20292489,
+        "seat": 1,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      }
+    ]
+  },
+  "by_opponent": {
+    "Grimmsnarl mirror proxy": {
+      "complete_pairs": 6,
+      "seed_clusters": 3,
+      "challenger_minus_champion": -0.16666666666666666,
+      "cluster_standard_error": 0.16666666666666666,
+      "cluster_95ci": [
+        -0.4933333333333333,
+        0.16
+      ],
+      "mde_80pct_approx": 0.46693333333333337,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 1,
+        "same_outcome": 5
+      },
+      "treatments": {
+        "champion": {
+          "games": 6,
+          "wins": 3.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.18761280689940868,
+            0.8123871931005913
+          ]
+        },
+        "challenger": {
+          "games": 6,
+          "wins": 2.0,
+          "win_rate": 0.3333333333333333,
+          "wilson95": [
+            0.09676933255921683,
+            0.7000116786584712
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "Grimmsnarl mirror proxy",
+          "seed": 20268732,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl mirror proxy",
+          "seed": 20268732,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl mirror proxy",
+          "seed": 20276651,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl mirror proxy",
+          "seed": 20276651,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 0.0,
+          "difference": -1.0
+        },
+        {
+          "opponent": "Grimmsnarl mirror proxy",
+          "seed": 20284570,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "Grimmsnarl mirror proxy",
+          "seed": 20284570,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    "Alakazam": {
+      "complete_pairs": 2,
+      "seed_clusters": 1,
+      "challenger_minus_champion": -0.5,
+      "cluster_standard_error": null,
+      "cluster_95ci": [
+        null,
+        null
+      ],
+      "mde_80pct_approx": null,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 1,
+        "same_outcome": 1
+      },
+      "treatments": {
+        "champion": {
+          "games": 2,
+          "wins": 2.0,
+          "win_rate": 1.0,
+          "wilson95": [
+            0.34237195288961925,
+            1.0
+          ]
+        },
+        "challenger": {
+          "games": 2,
+          "wins": 1.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "Alakazam",
+          "seed": 20292489,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 0.0,
+          "difference": -1.0
+        },
+        {
+          "opponent": "Alakazam",
+          "seed": 20292489,
+          "seat": 1,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    "Kangaskhan generic proxy": {
+      "complete_pairs": 0,
+      "seed_clusters": 0,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": null,
+      "cluster_95ci": [
+        null,
+        null
+      ],
+      "mde_80pct_approx": null,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 0
+      },
+      "treatments": {
+        "champion": {
+          "games": 0,
+          "wins": 0,
+          "win_rate": null,
+          "wilson95": [
+            0.0,
+            0.0
+          ]
+        },
+        "challenger": {
+          "games": 0,
+          "wins": 0,
+          "win_rate": null,
+          "wilson95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pair_rows": []
+    },
+    "Crustle generic proxy": {
+      "complete_pairs": 0,
+      "seed_clusters": 0,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": null,
+      "cluster_95ci": [
+        null,
+        null
+      ],
+      "mde_80pct_approx": null,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 0
+      },
+      "treatments": {
+        "champion": {
+          "games": 0,
+          "wins": 0,
+          "win_rate": null,
+          "wilson95": [
+            0.0,
+            0.0
+          ]
+        },
+        "challenger": {
+          "games": 0,
+          "wins": 0,
+          "win_rate": null,
+          "wilson95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "pair_rows": []
+    }
+  },
+  "rows": [
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "moves": 193,
+      "seconds": 13.601405099994736,
+      "observable_hash": "a1ece89150875c833ffe411f1f3f0bf4134cce03a86b3ee721e678689e70e5e5",
+      "action_hash": "adb2f9da3d5e44c9ecf097996aec49f8cdb67c60187fdaef18b4a9cb79881e3f",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "moves": 204,
+      "seconds": 18.83846420000191,
+      "observable_hash": "f200f33922e7b2b0479c0446eff91f656795464598ff3dd58668f3593316306c",
+      "action_hash": "31291f229109c1398f9c6f13fc8a3095f4dac8d84023a3b1440513621bfbaccc",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "moves": 205,
+      "seconds": 11.874467300003744,
+      "observable_hash": "855c440d5903cff0a8fb8e31a00b0b1bb3fa9eee42bdf4ca4159144dd77127c8",
+      "action_hash": "675b26c431f9ff6401228e308482a73277379cdaaf23af5d6bd87b9a36433f96",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "moves": 173,
+      "seconds": 13.812405600001512,
+      "observable_hash": "2f59242fc54e9164bb127d94c60a2c2d387bfacadb207f3156a6cfb516e192cb",
+      "action_hash": "78c01fc1101b282e00e0d4f3cb3096d34acc810396ee068863b24ecb39623eb4",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "moves": 193,
+      "seconds": 13.111047400001553,
+      "observable_hash": "a1ece89150875c833ffe411f1f3f0bf4134cce03a86b3ee721e678689e70e5e5",
+      "action_hash": "adb2f9da3d5e44c9ecf097996aec49f8cdb67c60187fdaef18b4a9cb79881e3f",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "moves": 204,
+      "seconds": 19.3859861000019,
+      "observable_hash": "f200f33922e7b2b0479c0446eff91f656795464598ff3dd58668f3593316306c",
+      "action_hash": "31291f229109c1398f9c6f13fc8a3095f4dac8d84023a3b1440513621bfbaccc",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "moves": 205,
+      "seconds": 12.390712000000349,
+      "observable_hash": "855c440d5903cff0a8fb8e31a00b0b1bb3fa9eee42bdf4ca4159144dd77127c8",
+      "action_hash": "675b26c431f9ff6401228e308482a73277379cdaaf23af5d6bd87b9a36433f96",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "moves": 173,
+      "seconds": 14.537116900006367,
+      "observable_hash": "2f59242fc54e9164bb127d94c60a2c2d387bfacadb207f3156a6cfb516e192cb",
+      "action_hash": "78c01fc1101b282e00e0d4f3cb3096d34acc810396ee068863b24ecb39623eb4",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20276651,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 145,
+      "seconds": 8.724219000003359,
+      "observable_hash": "cf8babf6e9ed18ceca8ff4226b44a120bf46b383f665eff005f326111871dbab",
+      "action_hash": "1827b0d53bc9d340954590bd5bcf6941c6ea77e9da75ff6dc234df72a5257aed",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20276651,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 164,
+      "seconds": 15.863187599999947,
+      "observable_hash": "7713c6ebe8bc16ef4801adbc6ef2ac369fc860ca725975706c43073c6f664082",
+      "action_hash": "cd157e3dfad4f88e66fa5c74e6426ed815dfb6ba7e6c9473758e0ee012aa59a1",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20276651,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "moves": 209,
+      "seconds": 12.850221799999417,
+      "observable_hash": "631bfb3b26113c86c47863ebe435ca70133b982b18f4ee36c6c04d1f9a55b97b",
+      "action_hash": "33f8cd8e0d97be72875836be12dc06b068f2e6452903f24b9be343107f5becd3",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20276651,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "moves": 186,
+      "seconds": 15.102709500002675,
+      "observable_hash": "889d19ac1efd74f726aff5c7e4f999dffbcc31c115440bde10993f0467bf645d",
+      "action_hash": "4bca3a8a3521ea3537973faba2b139426708556ccdfbba397e4f49612560105a",
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20284570,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 216,
+      "seconds": 12.679125399998156,
+      "observable_hash": "a4338d426b1359bae1cdeb6a30b71ad3449f43e62595a2dc7519d92e13c04083",
+      "action_hash": "5c133e84cefabdde00fa5bf63bfbd04cda237cd6d813de55e1602c7f679f9c5c",
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20284570,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 193,
+      "seconds": 17.50970850000158,
+      "observable_hash": "1fe2eb3ec6bc5b096e10fade374312e395020cd7eb8f70b662491f8a2097d630",
+      "action_hash": "25f4f8c1f402a6c7fe39cf9ffad25246508397fd7938c253b89d43f60698e4d0",
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20284570,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "moves": 237,
+      "seconds": 16.579434599996603,
+      "observable_hash": "0184ca1256fc8fe42a5a06a7a3de2c2da11fd6f5cf55c337fa7d56bb1cd52ea4",
+      "action_hash": "60150cb7ab0d01054012d542d628f1e4733811dae33c1fe5bf001e936f16f3ce",
+      "error": null
+    },
+    {
+      "block_id": 2,
+      "opponent": "Grimmsnarl mirror proxy",
+      "seed": 20284570,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "moves": 242,
+      "seconds": 20.405908000000636,
+      "observable_hash": "6b8ccb81c69c338356a8f03c4d374b9a46964dcb4d6e9c64c891c2a633f3d81a",
+      "action_hash": "ca5cd9e8667d4632388883f995a72d6a46468d48d5820ea31b7f65290c15ebcd",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 169,
+      "seconds": 14.765823000001546,
+      "observable_hash": "0e3b9a59bb94e276d8c1a630b3a89dac29dc49f156940ee4d48443f8cbb3c929",
+      "action_hash": "848fdd36fcdcf5bb8a02e3cf99690110a30f40f87cfae317b26255615ecf4708",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "moves": 139,
+      "seconds": 17.954383500000404,
+      "observable_hash": "f308365126105c464d893ee17890bdf63289ca07f475dfc14c907bc2dd1e2053",
+      "action_hash": "6a2b503c9719252fdd53a07d497a61b1318bcd11377e865011d05da0094b203c",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "moves": 154,
+      "seconds": 20.72838950000005,
+      "observable_hash": "2800dd2beef6575b34996bc5cc01cc30dc20677acb53518b5231e5ad1ec45481",
+      "action_hash": "8e5ba68f35a5a71a7edb6cbe5cbdff66ed87ddfcb913d3a5fd9fa1c2785cf661",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 1,
+      "moves": 123,
+      "seconds": 15.312840600003256,
+      "observable_hash": "6ce9d341693c7ab6ff793fc36e572c09ec48b4947391e785b22d47da3264c694",
+      "action_hash": "10c3a10b5150859959a16e19f7be7f5a4feb24acd44b800431b952cece1fd199",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 1,
+      "moves": 169,
+      "seconds": 13.547057999996468,
+      "observable_hash": "0e3b9a59bb94e276d8c1a630b3a89dac29dc49f156940ee4d48443f8cbb3c929",
+      "action_hash": "848fdd36fcdcf5bb8a02e3cf99690110a30f40f87cfae317b26255615ecf4708",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "moves": 139,
+      "seconds": 17.368087599999853,
+      "observable_hash": "f308365126105c464d893ee17890bdf63289ca07f475dfc14c907bc2dd1e2053",
+      "action_hash": "6a2b503c9719252fdd53a07d497a61b1318bcd11377e865011d05da0094b203c",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 1,
+      "moves": 154,
+      "seconds": 19.44734569999855,
+      "observable_hash": "2800dd2beef6575b34996bc5cc01cc30dc20677acb53518b5231e5ad1ec45481",
+      "action_hash": "8e5ba68f35a5a71a7edb6cbe5cbdff66ed87ddfcb913d3a5fd9fa1c2785cf661",
+      "error": null
+    },
+    {
+      "block_id": 3,
+      "opponent": "Alakazam",
+      "seed": 20292489,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 1,
+      "moves": 123,
+      "seconds": 13.810879099997692,
+      "observable_hash": "6ce9d341693c7ab6ff793fc36e572c09ec48b4947391e785b22d47da3264c694",
+      "action_hash": "10c3a10b5150859959a16e19f7be7f5a4feb24acd44b800431b952cece1fd199",
+      "error": null
+    }
+  ]
+}

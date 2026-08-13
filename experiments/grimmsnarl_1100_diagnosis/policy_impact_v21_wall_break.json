@@ -1,0 +1,16 @@
+{
+  "source": "experiments\\grimmsnarl_ml_v21\\wall_break_legal_sweep.json",
+  "variant": "v21",
+  "verdict": "REJECT_TOO_SMALL",
+  "games": 529,
+  "changed_actions": 71,
+  "changed_actions_per_game": 0.1342155009451796,
+  "games_touched": null,
+  "games_touched_rate": null,
+  "thresholds": {
+    "reject_below_actions_per_game": 0.5,
+    "large_above_actions_per_game": 2.0
+  },
+  "required_paired_games": 0,
+  "interpretation": "Teacher-forced exposure only; passing this gate is necessary, not evidence of benefit."
+}

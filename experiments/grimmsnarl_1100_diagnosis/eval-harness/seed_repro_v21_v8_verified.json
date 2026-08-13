@@ -1,0 +1,80 @@
+{
+  "approved_for_crn": true,
+  "observable_replay_reproducible": true,
+  "opaque_search_payload_byte_stable": false,
+  "opaque_payload_note": "The native search payload is not byte-stable, but visible observations, real-agent actions, and results are stable. Every evaluated agent pair must still pass duplicate-game calibration in paired_gauntlet.py.",
+  "policies": [
+    "grimmsnarl_ml_v21",
+    "grimmsnarl_ml_v8"
+  ],
+  "seed": 20260813,
+  "wall_seconds": 31.956549299997278,
+  "engine": {
+    "engine_path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\vendor\\cg\\cg.dll",
+    "engine_sha256": "e758cdba51482102ac1463e58b621951431d6d5b0ce46b8facee65cae2ee17f9",
+    "installed": true,
+    "seed_instruction": "b9ab65350190",
+    "flag_instruction": "31c09090909090"
+  },
+  "same_seed": {
+    "games": 2,
+    "distinct_observable_hash": 1,
+    "distinct_search_input_hash": 2,
+    "distinct_action_hash": 1,
+    "distinct_result": 1,
+    "distinct_steps": 1,
+    "distinct_error": 1,
+    "results": {
+      "0": 2
+    },
+    "rows": [
+      {
+        "result": 0,
+        "steps": 217,
+        "observable_hash": "30a85898118453a18efe6d57c31f9b8e6dc7afcd9a03a3dbf8000bb76c201c05",
+        "search_input_hash": "a8e7e1011f1349538ea81725906d7f018968f81e9466f7ee46909a8f7d933b52",
+        "action_hash": "bb79f412c9a6fdf0e9ce28f6c0aa49c7bd4f2c5176f764a5a91b9692a33e256e",
+        "error": null
+      },
+      {
+        "result": 0,
+        "steps": 217,
+        "observable_hash": "30a85898118453a18efe6d57c31f9b8e6dc7afcd9a03a3dbf8000bb76c201c05",
+        "search_input_hash": "00c1a879d2460c6c7335b34bd7a5521b27ed1b04837f9818c79bd7d231681aa8",
+        "action_hash": "bb79f412c9a6fdf0e9ce28f6c0aa49c7bd4f2c5176f764a5a91b9692a33e256e",
+        "error": null
+      }
+    ]
+  },
+  "distinct_seeds": {
+    "games": 2,
+    "distinct_observable_hash": 2,
+    "distinct_search_input_hash": 2,
+    "distinct_action_hash": 2,
+    "distinct_result": 2,
+    "distinct_steps": 2,
+    "distinct_error": 1,
+    "results": {
+      "1": 1,
+      "0": 1
+    },
+    "rows": [
+      {
+        "result": 1,
+        "steps": 204,
+        "observable_hash": "f200f33922e7b2b0479c0446eff91f656795464598ff3dd58668f3593316306c",
+        "search_input_hash": "15e9040298ead35f7e74051ea61d8426b31007d047be78c2f4d44805908b2c33",
+        "action_hash": "31291f229109c1398f9c6f13fc8a3095f4dac8d84023a3b1440513621bfbaccc",
+        "error": null
+      },
+      {
+        "result": 0,
+        "steps": 164,
+        "observable_hash": "7713c6ebe8bc16ef4801adbc6ef2ac369fc860ca725975706c43073c6f664082",
+        "search_input_hash": "9b995ef83cbf80c22582651630692af3c7e53aaec26fab919907ea678232d267",
+        "action_hash": "cd157e3dfad4f88e66fa5c74e6426ed815dfb6ba7e6c9473758e0ee012aa59a1",
+        "error": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,539 @@
+{
+  "nodes": 1209,
+  "edges": 6659,
+  "home_first_advantage_logodds": 0.1608782904422865,
+  "first_player_win_prob_equal_strength": 0.5401330502133257,
+  "component_with_v21": 1207,
+  "calibration": {
+    "n_rated_teams": 57,
+    "alpha": 1029.1105222590172,
+    "beta": 46.004214311960034,
+    "pearson_r": 0.3540610770522514
+  },
+  "ours": {
+    "OURS:v15": {
+      "games": 62,
+      "strength": 0.678,
+      "strength_elo": 117.8,
+      "predicted_kaggle_rating": 1060.3
+    },
+    "OURS:v15b": {
+      "games": 48,
+      "strength": 0.3471,
+      "strength_elo": 60.3,
+      "predicted_kaggle_rating": 1045.1
+    },
+    "OURS:v16": {
+      "games": 45,
+      "strength": 0.5508,
+      "strength_elo": 95.7,
+      "predicted_kaggle_rating": 1054.5
+    },
+    "OURS:v17": {
+      "games": 42,
+      "strength": 0.5193,
+      "strength_elo": 90.2,
+      "predicted_kaggle_rating": 1053.0
+    },
+    "OURS:v18": {
+      "games": 33,
+      "strength": 0.0231,
+      "strength_elo": 4.0,
+      "predicted_kaggle_rating": 1030.2
+    },
+    "OURS:v19a": {
+      "games": 42,
+      "strength": 0.6624,
+      "strength_elo": 115.1,
+      "predicted_kaggle_rating": 1059.6
+    },
+    "OURS:v19b": {
+      "games": 42,
+      "strength": 0.5123,
+      "strength_elo": 89.0,
+      "predicted_kaggle_rating": 1052.7
+    },
+    "OURS:v20": {
+      "games": 46,
+      "strength": 0.6006,
+      "strength_elo": 104.3,
+      "predicted_kaggle_rating": 1056.7
+    },
+    "OURS:v21": {
+      "games": 58,
+      "strength": 0.5429,
+      "strength_elo": 94.3,
+      "predicted_kaggle_rating": 1054.1
+    },
+    "OURS:v8": {
+      "games": 50,
+      "strength": 0.4531,
+      "strength_elo": 78.7,
+      "predicted_kaggle_rating": 1050.0
+    }
+  },
+  "field_top": [
+    {
+      "team": "keidroid",
+      "games": 98,
+      "strength": 2.4073,
+      "strength_elo": 418.2,
+      "kaggle_rating": 1141.4,
+      "predicted_kaggle_rating": 1139.9,
+      "deck_hash": "97df7a2a423da1d8",
+      "arch": "Teal Mask Ogerpon ex"
+    },
+    {
+      "team": "Majkel1337",
+      "games": 847,
+      "strength": 1.8808,
+      "strength_elo": 326.7,
+      "kaggle_rating": 1102.4,
+      "predicted_kaggle_rating": 1115.6,
+      "deck_hash": "05f854e1b3b3ba0f",
+      "arch": "Mega Lucario ex"
+    },
+    {
+      "team": "Rmy",
+      "games": 132,
+      "strength": 1.6149,
+      "strength_elo": 280.5,
+      "kaggle_rating": 1040.7,
+      "predicted_kaggle_rating": 1103.4,
+      "deck_hash": "0dede7cb8026e473",
+      "arch": "Teal Mask Ogerpon ex"
+    },
+    {
+      "team": "Raihan Ramadistra",
+      "games": 546,
+      "strength": 1.4842,
+      "strength_elo": 257.8,
+      "kaggle_rating": 1142.4,
+      "predicted_kaggle_rating": 1097.4,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "やる気元気ミワハルキ",
+      "games": 419,
+      "strength": 1.4244,
+      "strength_elo": 247.4,
+      "kaggle_rating": 1220.2,
+      "predicted_kaggle_rating": 1094.6,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Luca",
+      "games": 142,
+      "strength": 1.3915,
+      "strength_elo": 241.7,
+      "kaggle_rating": 1064.5,
+      "predicted_kaggle_rating": 1093.1,
+      "deck_hash": "a7ee29914c1dce64",
+      "arch": "Mega Lopunny ex"
+    },
+    {
+      "team": "James Cox & Henry Chao",
+      "games": 73,
+      "strength": 1.3171,
+      "strength_elo": 228.8,
+      "kaggle_rating": 1138.6,
+      "predicted_kaggle_rating": 1089.7,
+      "deck_hash": "62088a8950aeae46",
+      "arch": "Mega Kangaskhan ex"
+    },
+    {
+      "team": "Sixth Sense",
+      "games": 352,
+      "strength": 1.3066,
+      "strength_elo": 227.0,
+      "kaggle_rating": 1133.3,
+      "predicted_kaggle_rating": 1089.2,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "sadwat",
+      "games": 225,
+      "strength": 1.2834,
+      "strength_elo": 223.0,
+      "kaggle_rating": 1040.9,
+      "predicted_kaggle_rating": 1088.2,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Team KASA.",
+      "games": 82,
+      "strength": 1.218,
+      "strength_elo": 211.6,
+      "kaggle_rating": 1065.5,
+      "predicted_kaggle_rating": 1085.1,
+      "deck_hash": "cc38cb450b86770a",
+      "arch": "Alakazam"
+    },
+    {
+      "team": "LiamK",
+      "games": 338,
+      "strength": 1.1707,
+      "strength_elo": 203.4,
+      "kaggle_rating": 1158.9,
+      "predicted_kaggle_rating": 1083.0,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Dries @ Tufa Labs",
+      "games": 313,
+      "strength": 1.1679,
+      "strength_elo": 202.9,
+      "kaggle_rating": 1121.6,
+      "predicted_kaggle_rating": 1082.8,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "カントー地方マスター(KantoRegionMaster)",
+      "games": 214,
+      "strength": 1.1642,
+      "strength_elo": 202.2,
+      "kaggle_rating": 1083.2,
+      "predicted_kaggle_rating": 1082.7,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "@kdcyberdude",
+      "games": 375,
+      "strength": 1.1346,
+      "strength_elo": 197.1,
+      "kaggle_rating": 1135.8,
+      "predicted_kaggle_rating": 1081.3,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "insuperabilehart",
+      "games": 133,
+      "strength": 1.1165,
+      "strength_elo": 194.0,
+      "kaggle_rating": 1007.3,
+      "predicted_kaggle_rating": 1080.5,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Dominic Peel",
+      "games": 251,
+      "strength": 1.116,
+      "strength_elo": 193.9,
+      "kaggle_rating": 1030.2,
+      "predicted_kaggle_rating": 1080.5,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Iliamna",
+      "games": 65,
+      "strength": 1.0942,
+      "strength_elo": 190.1,
+      "kaggle_rating": 1021.2,
+      "predicted_kaggle_rating": 1079.4,
+      "deck_hash": "711c221c9cc49384",
+      "arch": "Fezandipiti ex"
+    },
+    {
+      "team": "JZ",
+      "games": 353,
+      "strength": 1.0901,
+      "strength_elo": 189.4,
+      "kaggle_rating": 1016.3,
+      "predicted_kaggle_rating": 1079.3,
+      "deck_hash": "21c3f20980827cb2",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Octavi Grau",
+      "games": 78,
+      "strength": 1.0858,
+      "strength_elo": 188.6,
+      "kaggle_rating": 1088.2,
+      "predicted_kaggle_rating": 1079.1,
+      "deck_hash": "daff2ed17de6145d",
+      "arch": "Cynthia's Garchomp ex"
+    },
+    {
+      "team": "Yushin Ito",
+      "games": 207,
+      "strength": 1.0844,
+      "strength_elo": 188.4,
+      "kaggle_rating": 1228.6,
+      "predicted_kaggle_rating": 1079.0,
+      "deck_hash": "cc38cb450b86770a",
+      "arch": "Alakazam"
+    },
+    {
+      "team": "NguyenThanhNhan",
+      "games": 242,
+      "strength": 1.0811,
+      "strength_elo": 187.8,
+      "kaggle_rating": 1070.7,
+      "predicted_kaggle_rating": 1078.8,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "e-toppo + kurupical",
+      "games": 303,
+      "strength": 1.0651,
+      "strength_elo": 185.0,
+      "kaggle_rating": 1083.5,
+      "predicted_kaggle_rating": 1078.1,
+      "deck_hash": "2f2726e9c4394ea3",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "zhangshuosc",
+      "games": 171,
+      "strength": 1.0218,
+      "strength_elo": 177.5,
+      "kaggle_rating": 1077.6,
+      "predicted_kaggle_rating": 1076.1,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "LumenLiquidity",
+      "games": 84,
+      "strength": 0.9967,
+      "strength_elo": 173.2,
+      "kaggle_rating": 1036.9,
+      "predicted_kaggle_rating": 1075.0,
+      "deck_hash": "3c8a4e11aa165b1d",
+      "arch": "Dragapult ex"
+    },
+    {
+      "team": "vvs",
+      "games": 292,
+      "strength": 0.9962,
+      "strength_elo": 173.1,
+      "kaggle_rating": 1087.7,
+      "predicted_kaggle_rating": 1074.9,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "ANDPAD kaggler team",
+      "games": 338,
+      "strength": 0.9724,
+      "strength_elo": 168.9,
+      "kaggle_rating": 1066.2,
+      "predicted_kaggle_rating": 1073.8,
+      "deck_hash": "21c3f20980827cb2",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "szlachetny snieg",
+      "games": 242,
+      "strength": 0.9193,
+      "strength_elo": 159.7,
+      "kaggle_rating": 1030.1,
+      "predicted_kaggle_rating": 1071.4,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "SQUIRTLE (prime)",
+      "games": 314,
+      "strength": 0.8938,
+      "strength_elo": 155.3,
+      "kaggle_rating": 1063.4,
+      "predicted_kaggle_rating": 1070.2,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+      "games": 71,
+      "strength": 0.8804,
+      "strength_elo": 152.9,
+      "kaggle_rating": 1072.1,
+      "predicted_kaggle_rating": 1069.6,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "M Sato",
+      "games": 151,
+      "strength": 0.873,
+      "strength_elo": 151.7,
+      "kaggle_rating": 1147.4,
+      "predicted_kaggle_rating": 1069.3,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Roy Pidril",
+      "games": 105,
+      "strength": 0.8679,
+      "strength_elo": 150.8,
+      "kaggle_rating": 1048.5,
+      "predicted_kaggle_rating": 1069.0,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "MissingNo.",
+      "games": 200,
+      "strength": 0.8621,
+      "strength_elo": 149.8,
+      "kaggle_rating": 1125.9,
+      "predicted_kaggle_rating": 1068.8,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "matsurih",
+      "games": 76,
+      "strength": 0.8548,
+      "strength_elo": 148.5,
+      "kaggle_rating": 1062.2,
+      "predicted_kaggle_rating": 1068.4,
+      "deck_hash": "cc38cb450b86770a",
+      "arch": "Alakazam"
+    },
+    {
+      "team": "cm391",
+      "games": 287,
+      "strength": 0.7964,
+      "strength_elo": 138.3,
+      "kaggle_rating": 1070.6,
+      "predicted_kaggle_rating": 1065.7,
+      "deck_hash": "57961e5f51c03eaf",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Azat Akhtyamov",
+      "games": 318,
+      "strength": 0.7451,
+      "strength_elo": 129.4,
+      "kaggle_rating": 1064.7,
+      "predicted_kaggle_rating": 1063.4,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "Oshbocker",
+      "games": 93,
+      "strength": 0.7336,
+      "strength_elo": 127.4,
+      "kaggle_rating": 1046.0,
+      "predicted_kaggle_rating": 1062.9,
+      "deck_hash": "4717e5f31ba694d4",
+      "arch": "Mega Kangaskhan ex"
+    },
+    {
+      "team": "flg",
+      "games": 153,
+      "strength": 0.6447,
+      "strength_elo": 112.0,
+      "kaggle_rating": 1158.7,
+      "predicted_kaggle_rating": 1058.8,
+      "deck_hash": "9b415cc6bbdf6fd5",
+      "arch": "Mega Kangaskhan ex"
+    },
+    {
+      "team": "李秉叡（ntumlnoob）",
+      "games": 154,
+      "strength": 0.6234,
+      "strength_elo": 108.3,
+      "kaggle_rating": 1007.0,
+      "predicted_kaggle_rating": 1057.8,
+      "deck_hash": "a7ee29914c1dce64",
+      "arch": "Mega Lopunny ex"
+    },
+    {
+      "team": "miya",
+      "games": 139,
+      "strength": 0.5902,
+      "strength_elo": 102.5,
+      "kaggle_rating": 1046.3,
+      "predicted_kaggle_rating": 1056.3,
+      "deck_hash": "9714ab5c3996f6cc",
+      "arch": "Marnie's Grimmsnarl ex"
+    },
+    {
+      "team": "lolzpo+ emonga",
+      "games": 66,
+      "strength": 0.5889,
+      "strength_elo": 102.3,
+      "kaggle_rating": 1102.2,
+      "predicted_kaggle_rating": 1056.2,
+      "deck_hash": "3f1fae2704f11912",
+      "arch": "Mega Lopunny ex"
+    }
+  ],
+  "v21_vs_grimm_pilots": [
+    {
+      "team": "やる気元気ミワハルキ",
+      "kaggle_rating": 1220.2,
+      "p_v21_wins": 0.2929,
+      "elo_gap": 153.1
+    },
+    {
+      "team": "LiamK",
+      "kaggle_rating": 1158.9,
+      "p_v21_wins": 0.348,
+      "elo_gap": 109.1
+    },
+    {
+      "team": "M Sato",
+      "kaggle_rating": 1147.4,
+      "p_v21_wins": 0.4182,
+      "elo_gap": 57.3
+    },
+    {
+      "team": "Raihan Ramadistra",
+      "kaggle_rating": 1142.4,
+      "p_v21_wins": 0.2806,
+      "elo_gap": 163.5
+    },
+    {
+      "team": "@kdcyberdude",
+      "kaggle_rating": 1135.8,
+      "p_v21_wins": 0.3562,
+      "elo_gap": 102.8
+    },
+    {
+      "team": "Sixth Sense",
+      "kaggle_rating": 1133.3,
+      "p_v21_wins": 0.3178,
+      "elo_gap": 132.7
+    },
+    {
+      "team": "MissingNo.",
+      "kaggle_rating": 1125.9,
+      "p_v21_wins": 0.4209,
+      "elo_gap": 55.4
+    },
+    {
+      "team": "Dries @ Tufa Labs",
+      "kaggle_rating": 1121.6,
+      "p_v21_wins": 0.3486,
+      "elo_gap": 108.6
+    },
+    {
+      "team": "vvs",
+      "kaggle_rating": 1087.7,
+      "p_v21_wins": 0.3886,
+      "elo_gap": 78.7
+    },
+    {
+      "team": "カントー地方マスター(KantoRegionMaster)",
+      "kaggle_rating": 1083.2,
+      "p_v21_wins": 0.3495,
+      "elo_gap": 107.9
+    }
+  ]
+}

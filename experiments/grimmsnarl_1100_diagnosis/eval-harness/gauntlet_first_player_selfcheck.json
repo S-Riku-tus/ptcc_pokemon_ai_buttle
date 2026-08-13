@@ -1,0 +1,506 @@
+{
+  "valid": true,
+  "config": {
+    "champion": "grimmsnarl_ml_v21",
+    "challenger": "grimmsnarl_ml_v21",
+    "opponents": [
+      {
+        "label": "top-proxy",
+        "agent": "grimmsnarl_ml_v8@teacher_code=0",
+        "weight": 1.0
+      }
+    ],
+    "blocks": 2,
+    "both_seats": true,
+    "workers": 2,
+    "base_seed": 20260813,
+    "max_steps": 8000,
+    "calibration_blocks": 1,
+    "represented_ladder_weight": null,
+    "unrepresented_matchups": [],
+    "limitations": []
+  },
+  "engine": {
+    "engine_path": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\vendor\\cg\\cg.dll",
+    "engine_sha256": "e758cdba51482102ac1463e58b621951431d6d5b0ce46b8facee65cae2ee17f9",
+    "installed": false,
+    "seed_instruction": "8b8f20020000",
+    "flag_instruction": "0fb6872b020000"
+  },
+  "throughput": {
+    "games": 12,
+    "primary_games": 8,
+    "wall_seconds": 59.333500699998694,
+    "games_per_hour": 728.0878338601207,
+    "mean_game_seconds": 8.525558216664649
+  },
+  "calibration": {
+    "duplicate_games_checked": 4,
+    "mismatches": 0,
+    "passed": true,
+    "details": []
+  },
+  "errors": [],
+  "overall": {
+    "complete_pairs": 4,
+    "seed_clusters": 2,
+    "challenger_minus_champion": 0.0,
+    "cluster_standard_error": 0.0,
+    "cluster_95ci": [
+      0.0,
+      0.0
+    ],
+    "mde_80pct_approx": 0.0,
+    "paired_exact_p": 1.0,
+    "discordant": {
+      "challenger_only_win": 0,
+      "champion_only_win": 0,
+      "same_outcome": 4
+    },
+    "treatments": {
+      "champion": {
+        "games": 4,
+        "wins": 1.0,
+        "win_rate": 0.25,
+        "wilson95": [
+          0.045586062644636216,
+          0.6993639475573634
+        ]
+      },
+      "challenger": {
+        "games": 4,
+        "wins": 1.0,
+        "win_rate": 0.25,
+        "wilson95": [
+          0.045586062644636216,
+          0.6993639475573634
+        ]
+      }
+    },
+    "pair_rows": [
+      {
+        "opponent": "top-proxy",
+        "seed": 20268732,
+        "seat": 0,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "top-proxy",
+        "seed": 20268732,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "top-proxy",
+        "seed": 20276651,
+        "seat": 0,
+        "champion": 1.0,
+        "challenger": 1.0,
+        "difference": 0.0
+      },
+      {
+        "opponent": "top-proxy",
+        "seed": 20276651,
+        "seat": 1,
+        "champion": 0.0,
+        "challenger": 0.0,
+        "difference": 0.0
+      }
+    ]
+  },
+  "by_opponent": {
+    "top-proxy": {
+      "complete_pairs": 4,
+      "seed_clusters": 2,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 4
+      },
+      "treatments": {
+        "champion": {
+          "games": 4,
+          "wins": 1.0,
+          "win_rate": 0.25,
+          "wilson95": [
+            0.045586062644636216,
+            0.6993639475573634
+          ]
+        },
+        "challenger": {
+          "games": 4,
+          "wins": 1.0,
+          "win_rate": 0.25,
+          "wilson95": [
+            0.045586062644636216,
+            0.6993639475573634
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "top-proxy",
+          "seed": 20268732,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "top-proxy",
+          "seed": 20268732,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "top-proxy",
+          "seed": 20276651,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "top-proxy",
+          "seed": 20276651,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        }
+      ]
+    }
+  },
+  "by_evaluated_order": {
+    "first": {
+      "complete_pairs": 2,
+      "seed_clusters": 2,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 2
+      },
+      "treatments": {
+        "champion": {
+          "games": 2,
+          "wins": 1.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ]
+        },
+        "challenger": {
+          "games": 2,
+          "wins": 1.0,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "top-proxy",
+          "seed": 20268732,
+          "seat": 0,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "top-proxy",
+          "seed": 20276651,
+          "seat": 0,
+          "champion": 1.0,
+          "challenger": 1.0,
+          "difference": 0.0
+        }
+      ]
+    },
+    "second": {
+      "complete_pairs": 2,
+      "seed_clusters": 2,
+      "challenger_minus_champion": 0.0,
+      "cluster_standard_error": 0.0,
+      "cluster_95ci": [
+        0.0,
+        0.0
+      ],
+      "mde_80pct_approx": 0.0,
+      "paired_exact_p": 1.0,
+      "discordant": {
+        "challenger_only_win": 0,
+        "champion_only_win": 0,
+        "same_outcome": 2
+      },
+      "treatments": {
+        "champion": {
+          "games": 2,
+          "wins": 0.0,
+          "win_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576280471103807
+          ]
+        },
+        "challenger": {
+          "games": 2,
+          "wins": 0.0,
+          "win_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576280471103807
+          ]
+        }
+      },
+      "pair_rows": [
+        {
+          "opponent": "top-proxy",
+          "seed": 20268732,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        },
+        {
+          "opponent": "top-proxy",
+          "seed": 20276651,
+          "seat": 1,
+          "champion": 0.0,
+          "challenger": 0.0,
+          "difference": 0.0
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 218,
+      "seconds": 10.01315749999776,
+      "observable_hash": "aa288c1ffe1157da0cff7be7de4550a3bd143c31f6e39b00c99d7e024e89696a",
+      "action_hash": "aefd012405f8ccbc1c9e3059fc82db290c5ded34af3db2dbbc821d532597740e",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 218,
+      "seconds": 10.341474299995753,
+      "observable_hash": "aa288c1ffe1157da0cff7be7de4550a3bd143c31f6e39b00c99d7e024e89696a",
+      "action_hash": "aefd012405f8ccbc1c9e3059fc82db290c5ded34af3db2dbbc821d532597740e",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 168,
+      "seconds": 7.89417400000093,
+      "observable_hash": "37fe511cac23c55ba208d3c533423f35e2c304338600b12017c273d54e7698eb",
+      "action_hash": "4bbaa2b89d076307c7e80c1ea264c268f7915375e5a0731f082da46c5af118df",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 168,
+      "seconds": 7.4658404999936465,
+      "observable_hash": "37fe511cac23c55ba208d3c533423f35e2c304338600b12017c273d54e7698eb",
+      "action_hash": "4bbaa2b89d076307c7e80c1ea264c268f7915375e5a0731f082da46c5af118df",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 218,
+      "seconds": 10.447093299997505,
+      "observable_hash": "aa288c1ffe1157da0cff7be7de4550a3bd143c31f6e39b00c99d7e024e89696a",
+      "action_hash": "aefd012405f8ccbc1c9e3059fc82db290c5ded34af3db2dbbc821d532597740e",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 1,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 218,
+      "seconds": 10.017711099993903,
+      "observable_hash": "aa288c1ffe1157da0cff7be7de4550a3bd143c31f6e39b00c99d7e024e89696a",
+      "action_hash": "aefd012405f8ccbc1c9e3059fc82db290c5ded34af3db2dbbc821d532597740e",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 168,
+      "seconds": 7.758176700001059,
+      "observable_hash": "37fe511cac23c55ba208d3c533423f35e2c304338600b12017c273d54e7698eb",
+      "action_hash": "4bbaa2b89d076307c7e80c1ea264c268f7915375e5a0731f082da46c5af118df",
+      "error": null
+    },
+    {
+      "block_id": 0,
+      "opponent": "top-proxy",
+      "seed": 20268732,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 1,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 168,
+      "seconds": 7.434107200002472,
+      "observable_hash": "37fe511cac23c55ba208d3c533423f35e2c304338600b12017c273d54e7698eb",
+      "action_hash": "4bbaa2b89d076307c7e80c1ea264c268f7915375e5a0731f082da46c5af118df",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "top-proxy",
+      "seed": 20276651,
+      "evaluated_seat": 0,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 173,
+      "seconds": 7.916323099998408,
+      "observable_hash": "ad588f3e79c4b54f3ab44bf15af90e1130708d8b2350c95d56285bc5252be88f",
+      "action_hash": "625c5b2b6b09c3b3707c472f496a2e450e0bb687a1ae32016755c3bbabcc2deb",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "top-proxy",
+      "seed": 20276651,
+      "evaluated_seat": 0,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 1,
+      "first_player": 0,
+      "evaluated_went_first": 1,
+      "moves": 173,
+      "seconds": 7.65700569999899,
+      "observable_hash": "ad588f3e79c4b54f3ab44bf15af90e1130708d8b2350c95d56285bc5252be88f",
+      "action_hash": "625c5b2b6b09c3b3707c472f496a2e450e0bb687a1ae32016755c3bbabcc2deb",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "top-proxy",
+      "seed": 20276651,
+      "evaluated_seat": 1,
+      "treatment": "challenger",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 172,
+      "seconds": 7.748174499996821,
+      "observable_hash": "5e6af688e2734e18f09e86858f7728f78d0f994272c033eaa60c17ebf8759e18",
+      "action_hash": "1884de287f8a7ba2a7c3252f761ba153be5a8a12b0fa4577a5c6365b22310f12",
+      "error": null
+    },
+    {
+      "block_id": 1,
+      "opponent": "top-proxy",
+      "seed": 20276651,
+      "evaluated_seat": 1,
+      "treatment": "champion",
+      "repeat": 0,
+      "result": 0,
+      "evaluated_win": 0,
+      "first_player": 0,
+      "evaluated_went_first": 0,
+      "moves": 172,
+      "seconds": 7.613460699998541,
+      "observable_hash": "5e6af688e2734e18f09e86858f7728f78d0f994272c033eaa60c17ebf8759e18",
+      "action_hash": "1884de287f8a7ba2a7c3252f761ba153be5a8a12b0fa4577a5c6365b22310f12",
+      "error": null
+    }
+  ]
+}
