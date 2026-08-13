@@ -38,11 +38,15 @@ def _job(payload: tuple[str, str, int, str]) -> dict[str, Any]:
         return {"episode_id": episode_id, "error": _INIT_ERROR}
     try:
         replay = json.loads(Path(path).read_text(encoding="utf-8"))
+        base_answers = answers(_MODULES["base"], replay, seat)
+        candidate_answers = answers(_MODULES["candidate"], replay, seat)
+        snapshot_fn = getattr(_MODULES["candidate"], "diag_snapshot", None)
         return {
             "episode_id": episode_id,
             "family": family,
-            "base": answers(_MODULES["base"], replay, seat),
-            "candidate": answers(_MODULES["candidate"], replay, seat),
+            "base": base_answers,
+            "candidate": candidate_answers,
+            "candidate_diag": snapshot_fn() if callable(snapshot_fn) else {},
             "error": None,
         }
     except Exception as exc:  # noqa: BLE001
@@ -78,6 +82,19 @@ def _selected(args: argparse.Namespace) -> list[tuple[str, str, int, str]]:
                 (meta["episode_id"], str(path), seat, meta["opponent_family"])
             )
     return selected
+
+
+def _numeric_leaves(value: Any, prefix: str = "") -> dict[str, int | float]:
+    """Flatten numeric diagnostic counters for cross-game summation."""
+    if isinstance(value, dict):
+        out: dict[str, int | float] = {}
+        for key, child in value.items():
+            child_prefix = f"{prefix}.{key}" if prefix else str(key)
+            out.update(_numeric_leaves(child, child_prefix))
+        return out
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        return {prefix: value}
+    return {}
 
 
 def main() -> int:
@@ -116,12 +133,17 @@ def main() -> int:
     totals: Counter[str] = Counter()
     by_matchup: dict[str, Counter[str]] = defaultdict(Counter)
     by_context: Counter[int] = Counter()
+    candidate_diag_totals: Counter[str] = Counter()
+    candidate_diag_games_touched: Counter[str] = Counter()
     examples: list[dict[str, Any]] = []
     for row in rows:
         if row.get("error"):
             continue
         family = row["family"]
         base, candidate = row["base"], row["candidate"]
+        for key, value in _numeric_leaves(row.get("candidate_diag") or {}).items():
+            candidate_diag_totals[key] += value
+            candidate_diag_games_touched[key] += int(value > 0)
         totals["games"] += 1
         by_matchup[family]["games"] += 1
         touched = False
@@ -158,6 +180,10 @@ def main() -> int:
         "changed_actions_per_game": totals["changed"] / max(1, totals["games"]),
         "changed_share": totals["changed"] / max(1, totals["decisions"]),
         "by_context": dict(sorted(by_context.items())),
+        "candidate_diag_totals": dict(sorted(candidate_diag_totals.items())),
+        "candidate_diag_games_touched": dict(
+            sorted(candidate_diag_games_touched.items())
+        ),
         "by_matchup": {
             family: dict(counts)
             for family, counts in sorted(

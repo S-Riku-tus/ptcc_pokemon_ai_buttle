@@ -61,6 +61,15 @@ def answers(module: Any, replay: dict, seat: int) -> list[tuple[int, int, int, i
         if callable(fn):
             fn()
             break
+    # The proposed answer is diagnostic only.  Intra-turn history must advance
+    # exactly once, with the stored action below.  Without teacher_forced,
+    # ``module.agent`` commits its proposal and ``observe_external`` commits the
+    # replay action a second time, so later offer/pass features describe a turn
+    # that never happened.  layer_attribution.py already enforces this invariant;
+    # the shared footprint walker must do the same.
+    ranker = getattr(module, "_RANKER", None)
+    if ranker is not None and hasattr(ranker, "teacher_forced"):
+        ranker.teacher_forced = True
     for index, step in enumerate(steps[:-1]):
         if seat >= len(step) or seat >= len(steps[index + 1]):
             continue

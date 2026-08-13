@@ -1,0 +1,115 @@
+{
+  "name": "grimmsnarl_ml_v23",
+  "version": "23.0.0",
+  "role": "experimental_submission_candidate",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v22",
+  "created_at": "2026-08-13T22:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "V22 from own turn three onward; v8 teacher condition for own turns one and two; lexicographic route goals for opening attacker access and Alakazam backup continuity.",
+  "ranker": {
+    "source_agent": "grimmsnarl_ml_v22",
+    "trees": 2000,
+    "features": 823,
+    "default_teacher_team_id": 16371703,
+    "default_teacher_team_code": 0,
+    "opening_teacher_team_id": 16494330,
+    "opening_teacher_team_code": 16,
+    "opening_last_own_turn": 2,
+    "trees_changed": false,
+    "model_changed_from_v22": false,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1"
+  },
+  "strategy": {
+    "ordinary_policy": "v22 ranker plus inherited one-ply arithmetic planner",
+    "opening_goal": "Complete the first legal Grimmsnarl route before taking redundant Marnie-line pieces.",
+    "alakazam_goal": "Build a second Grimmsnarl route by own turn five while the first attacker is ready.",
+    "tie_break": "The active phase teacher's ranker score within goal-satisfying candidates.",
+    "matchup_detection": "Visible Abra, Kadabra, or Alakazam on the opponent board.",
+    "continuity_actions": ["deck-search route piece", "Grimmsnarl evolution", "first backup Impidimp bench"],
+    "boss_policy_changed": false,
+    "froslass_policy_changed_outside_goal_states": false
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "effective_runtime": "No separate escalation under the default v22 code-0 phase; the inherited class definition remains recorded for reproducibility."
+  },
+  "evidence": {
+    "v22_public_games": 44,
+    "v22_record": "33-11",
+    "v22_final_rating": 1006.9262,
+    "all_public_losses_in_main_matchups": "6 Alakazam, 5 mirror",
+    "mirror_loss_pattern": "All five losses lacked a Grimmsnarl ex on board by own turn two.",
+    "alakazam_loss_pattern": "Two games had first attack on own turn four or five; another attacked on turns two through four then had four consecutive own turns without an attack.",
+    "concrete_route_examples": [
+      "Episode 92626895 offered Rare Candy on own turn two with Grimmsnarl ex in hand but selected another card.",
+      "Episode 92641973 selected an optional Froslass piece while the only attacker had 20 HP and a visible Impidimp backup lacked its bridge."
+    ]
+  },
+  "change_scope": {
+    "changed_from_v22": [
+      "main.py",
+      "ml_runtime.py",
+      "v23_strategy.py",
+      "metadata.json"
+    ],
+    "byte_identical_to_v22": [
+      "deck.csv",
+      "fallback_policy.py",
+      "ml_features.py",
+      "ml_planner.py",
+      "policy_base.py",
+      "ranker_model.json"
+    ]
+  },
+  "validation": {
+    "unit_tests": "PASS",
+    "teacher_forced_footprint": {
+      "source_games": 44,
+      "decisions": 4079,
+      "changed_decisions": 259,
+      "changed_share": 0.06349595489090464,
+      "changed_actions_per_game": 5.886363636363637,
+      "games_touched": 43,
+      "phase_only_changed_decisions": 120,
+      "phase_only_changed_share": 0.029418975239029175,
+      "phase_only_games_touched": 42,
+      "opening_goal_exposure": 118,
+      "opening_goal_games_touched": 34,
+      "alakazam_goal_exposure": 46,
+      "alakazam_goal_games_touched": 10,
+      "feature_errors": 0,
+      "score_errors": 0,
+      "interpretation": "Exposure upper bound on fixed v22 boards; repeated same-turn opportunities disappear after a live override changes the board.",
+      "reports": [
+        "experiments/grimmsnarl_ml_v23/footprint_v22_public.json",
+        "experiments/grimmsnarl_ml_v23/footprint_v22_phase_only.json"
+      ]
+    },
+    "submission_package": {
+      "path": "artifacts/grimmsnarl_ml_v23_submission.tar.gz",
+      "bytes": 10929564,
+      "sha256": "939594e39ae289b8e17fde24ca2210c9c7fbfdc5193fbce5629b43df37fc2530",
+      "archive_entries": 19,
+      "python_files_compiled": 12,
+      "model_json_parse": "PASS",
+      "model_trees": 2000,
+      "model_features": 823,
+      "normalized_model_sha256": "a6a1f8230529fce6365fdd05d1322789c867e41077cbf17b7db1f367ebcc9db8",
+      "archive_static_integrity": "PASS",
+      "source_runtime_replay": "PASS: 44 games, zero feature/score errors",
+      "local_extracted_official_cg_import": "TIMEOUT after 180 seconds on Windows; Kaggle archive uses the official cg bundle and source runtime was fully loaded by replay validation"
+    }
+  },
+  "known_limits": [
+    "Teacher-forced replay can establish policy exposure and legality, not causal win-rate improvement.",
+    "The 44-game v22 sample is too small to establish a stable 1150 rating.",
+    "Alakazam specialization activates only after its evolution line is visible."
+  ],
+  "description": "V23 phase-routed Grimmsnarl agent built from measured v22 ladder failures."
+}

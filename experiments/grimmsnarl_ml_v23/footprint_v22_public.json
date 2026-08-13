@@ -1,0 +1,1090 @@
+{
+  "valid": true,
+  "base": "agents\\grimmsnarl\\grimmsnarl_ml_v22",
+  "candidate": "agents\\grimmsnarl\\grimmsnarl_ml_v23",
+  "workers": 4,
+  "elapsed_seconds": 233.61,
+  "selected_games": 44,
+  "errors": [],
+  "totals": {
+    "games": 44,
+    "decisions": 4079,
+    "changed": 259,
+    "games_touched": 43
+  },
+  "changed_actions_per_game": 5.886363636363637,
+  "changed_share": 0.06349595489090464,
+  "by_context": {
+    "0": 181,
+    "3": 1,
+    "7": 70,
+    "13": 2,
+    "15": 3,
+    "16": 1,
+    "21": 1
+  },
+  "candidate_diag_totals": {
+    "fallback.adrena_brains": 407,
+    "fallback.attackable_ends": 1,
+    "fallback.bench_evolves_active_avail": 233,
+    "fallback.boss_modes.ENGINE_KO": 34,
+    "fallback.boss_modes.HIGHER_PRIZE_KO": 2,
+    "fallback.boss_modes.TEMPO_GUST": 0,
+    "fallback.boss_modes.WALL_UNLOCK": 3,
+    "fallback.boss_modes.WIN_NOW": 24,
+    "fallback.boss_plays": 63,
+    "fallback.decisions": 4079,
+    "fallback.deck_returns": 0,
+    "fallback.emergency_basics": 17,
+    "fallback.fast_race_decisions": 421,
+    "fallback.locked_boss_unlocks": 3,
+    "fallback.obs_fallback": 0,
+    "fallback.poffin_offered": 52,
+    "fallback.poffin_taken": 36,
+    "fallback.poffin_trimmed": 16,
+    "fallback.policy_fallback": 0,
+    "fallback.policy_ok": 4079,
+    "fallback.punk_search_counts.0": 0,
+    "fallback.punk_search_counts.1": 9,
+    "fallback.punk_search_counts.2": 0,
+    "fallback.punk_search_counts.3": 0,
+    "fallback.punk_search_counts.4": 0,
+    "fallback.punk_search_counts.5": 0,
+    "fallback.punk_search_offered": 9,
+    "fallback.punk_search_taken": 9,
+    "fallback.punk_search_trimmed": 0,
+    "fallback.punk_up_searches": 9,
+    "fallback.punk_up_targets.backup": 81,
+    "fallback.punk_up_targets.current": 144,
+    "fallback.punk_up_targets.other": 0,
+    "fallback.retreats_to_attacker": 47,
+    "fallback.shadow_bullets": 389,
+    "fallback.temp_immunity_hits": 0,
+    "fallback.walled_bench_ko_attacks": 0,
+    "fallback.walled_shadow_bullets": 0,
+    "ml.escalation_moved": 0,
+    "ml.escalation_offered": 0,
+    "ml.escalation_offered_froslass_evolve": 0,
+    "ml.escalation_refused_trigger": 0,
+    "ml.escalation_scored": 0,
+    "ml.feature_errors": 0,
+    "ml.main_decisions": 3666,
+    "ml.non_main_decisions": 1855,
+    "ml.opening_teacher_scored": 759,
+    "ml.ranker_used": 3470,
+    "ml.score_errors": 0,
+    "ml.v22_teacher_scored": 2711,
+    "planner.boss_route_considered": 0,
+    "planner.boss_route_overrides": 0,
+    "planner.considered": 3470,
+    "planner.errors": 0,
+    "planner.froslass_considered": 49,
+    "planner.froslass_overrides": 0,
+    "planner.heal_considered": 144,
+    "planner.heal_overrides": 21,
+    "planner.punk_alloc_considered": 206,
+    "planner.punk_alloc_stack_overrides": 0,
+    "planner.punk_alloc_trigger_overrides": 1,
+    "planner.wall_unlock_considered": 0,
+    "planner.wall_unlock_overrides": 0,
+    "strategy.alakazam_bench_overrides": 2,
+    "strategy.alakazam_continuity_considered": 723,
+    "strategy.alakazam_continuity_overrides": 46,
+    "strategy.alakazam_energy_overrides": 0,
+    "strategy.alakazam_evolve_overrides": 37,
+    "strategy.alakazam_search_overrides": 7,
+    "strategy.decisions_seen": 3470,
+    "strategy.opening_bridge_overrides": 45,
+    "strategy.opening_complete_overrides": 70,
+    "strategy.opening_first_body_overrides": 3,
+    "strategy.opening_route_considered": 1376,
+    "strategy.opening_route_overrides": 118
+  },
+  "candidate_diag_games_touched": {
+    "fallback.adrena_brains": 42,
+    "fallback.attackable_ends": 1,
+    "fallback.bench_evolves_active_avail": 38,
+    "fallback.boss_modes.ENGINE_KO": 9,
+    "fallback.boss_modes.HIGHER_PRIZE_KO": 1,
+    "fallback.boss_modes.TEMPO_GUST": 0,
+    "fallback.boss_modes.WALL_UNLOCK": 2,
+    "fallback.boss_modes.WIN_NOW": 8,
+    "fallback.boss_plays": 17,
+    "fallback.decisions": 44,
+    "fallback.deck_returns": 0,
+    "fallback.emergency_basics": 12,
+    "fallback.fast_race_decisions": 10,
+    "fallback.locked_boss_unlocks": 2,
+    "fallback.obs_fallback": 0,
+    "fallback.poffin_offered": 25,
+    "fallback.poffin_taken": 25,
+    "fallback.poffin_trimmed": 15,
+    "fallback.policy_fallback": 0,
+    "fallback.policy_ok": 44,
+    "fallback.punk_search_counts.0": 0,
+    "fallback.punk_search_counts.1": 9,
+    "fallback.punk_search_counts.2": 0,
+    "fallback.punk_search_counts.3": 0,
+    "fallback.punk_search_counts.4": 0,
+    "fallback.punk_search_counts.5": 0,
+    "fallback.punk_search_offered": 9,
+    "fallback.punk_search_taken": 9,
+    "fallback.punk_search_trimmed": 0,
+    "fallback.punk_up_searches": 9,
+    "fallback.punk_up_targets.backup": 40,
+    "fallback.punk_up_targets.current": 44,
+    "fallback.punk_up_targets.other": 0,
+    "fallback.retreats_to_attacker": 17,
+    "fallback.shadow_bullets": 43,
+    "fallback.temp_immunity_hits": 0,
+    "fallback.walled_bench_ko_attacks": 0,
+    "fallback.walled_shadow_bullets": 0,
+    "ml.escalation_moved": 0,
+    "ml.escalation_offered": 0,
+    "ml.escalation_offered_froslass_evolve": 0,
+    "ml.escalation_refused_trigger": 0,
+    "ml.escalation_scored": 0,
+    "ml.feature_errors": 0,
+    "ml.main_decisions": 44,
+    "ml.non_main_decisions": 44,
+    "ml.opening_teacher_scored": 44,
+    "ml.ranker_used": 44,
+    "ml.score_errors": 0,
+    "ml.v22_teacher_scored": 44,
+    "planner.boss_route_considered": 0,
+    "planner.boss_route_overrides": 0,
+    "planner.considered": 44,
+    "planner.errors": 0,
+    "planner.froslass_considered": 30,
+    "planner.froslass_overrides": 0,
+    "planner.heal_considered": 34,
+    "planner.heal_overrides": 9,
+    "planner.punk_alloc_considered": 42,
+    "planner.punk_alloc_stack_overrides": 0,
+    "planner.punk_alloc_trigger_overrides": 1,
+    "planner.wall_unlock_considered": 0,
+    "planner.wall_unlock_overrides": 0,
+    "strategy.alakazam_bench_overrides": 1,
+    "strategy.alakazam_continuity_considered": 14,
+    "strategy.alakazam_continuity_overrides": 10,
+    "strategy.alakazam_energy_overrides": 0,
+    "strategy.alakazam_evolve_overrides": 6,
+    "strategy.alakazam_search_overrides": 6,
+    "strategy.decisions_seen": 44,
+    "strategy.opening_bridge_overrides": 27,
+    "strategy.opening_complete_overrides": 22,
+    "strategy.opening_first_body_overrides": 3,
+    "strategy.opening_route_considered": 44,
+    "strategy.opening_route_overrides": 34
+  },
+  "by_matchup": {
+    "v22 public ladder": {
+      "games": 44,
+      "decisions": 4079,
+      "changed": 259,
+      "games_touched": 43
+    }
+  },
+  "examples": [
+    {
+      "episode_id": "92610946",
+      "opponent": "v22 public ladder",
+      "step": 17,
+      "turn": 3,
+      "context": 0,
+      "base": 1,
+      "candidate": 7
+    },
+    {
+      "episode_id": "92610946",
+      "opponent": "v22 public ladder",
+      "step": 18,
+      "turn": 3,
+      "context": 7,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92610946",
+      "opponent": "v22 public ladder",
+      "step": 19,
+      "turn": 3,
+      "context": 7,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92610946",
+      "opponent": "v22 public ladder",
+      "step": 22,
+      "turn": 3,
+      "context": 0,
+      "base": 5,
+      "candidate": 6
+    },
+    {
+      "episode_id": "92610946",
+      "opponent": "v22 public ladder",
+      "step": 24,
+      "turn": 3,
+      "context": 0,
+      "base": 0,
+      "candidate": 6
+    },
+    {
+      "episode_id": "92610946",
+      "opponent": "v22 public ladder",
+      "step": 50,
+      "turn": 5,
+      "context": 7,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92611852",
+      "opponent": "v22 public ladder",
+      "step": 7,
+      "turn": 1,
+      "context": 7,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92611852",
+      "opponent": "v22 public ladder",
+      "step": 21,
+      "turn": 3,
+      "context": 13,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92611852",
+      "opponent": "v22 public ladder",
+      "step": 24,
+      "turn": 3,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92612806",
+      "opponent": "v22 public ladder",
+      "step": 19,
+      "turn": 2,
+      "context": 7,
+      "base": 4,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92612806",
+      "opponent": "v22 public ladder",
+      "step": 22,
+      "turn": 2,
+      "context": 3,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92612806",
+      "opponent": "v22 public ladder",
+      "step": 44,
+      "turn": 4,
+      "context": 15,
+      "base": 3,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 22,
+      "turn": 2,
+      "context": 7,
+      "base": 0,
+      "candidate": 4
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 25,
+      "turn": 2,
+      "context": 7,
+      "base": 1,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 32,
+      "turn": 4,
+      "context": 0,
+      "base": 4,
+      "candidate": 7
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 33,
+      "turn": 4,
+      "context": 0,
+      "base": 2,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 53,
+      "turn": 6,
+      "context": 0,
+      "base": 4,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 58,
+      "turn": 6,
+      "context": 0,
+      "base": 8,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 59,
+      "turn": 6,
+      "context": 0,
+      "base": 4,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 63,
+      "turn": 6,
+      "context": 0,
+      "base": 4,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92613745",
+      "opponent": "v22 public ladder",
+      "step": 67,
+      "turn": 6,
+      "context": 0,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92614685",
+      "opponent": "v22 public ladder",
+      "step": 14,
+      "turn": 2,
+      "context": 7,
+      "base": 7,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92615639",
+      "opponent": "v22 public ladder",
+      "step": 25,
+      "turn": 3,
+      "context": 0,
+      "base": 7,
+      "candidate": 8
+    },
+    {
+      "episode_id": "92615639",
+      "opponent": "v22 public ladder",
+      "step": 27,
+      "turn": 3,
+      "context": 0,
+      "base": 6,
+      "candidate": 8
+    },
+    {
+      "episode_id": "92615639",
+      "opponent": "v22 public ladder",
+      "step": 28,
+      "turn": 3,
+      "context": 0,
+      "base": 1,
+      "candidate": 6
+    },
+    {
+      "episode_id": "92615639",
+      "opponent": "v22 public ladder",
+      "step": 33,
+      "turn": 3,
+      "context": 0,
+      "base": 4,
+      "candidate": 5
+    },
+    {
+      "episode_id": "92615639",
+      "opponent": "v22 public ladder",
+      "step": 38,
+      "turn": 3,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92615639",
+      "opponent": "v22 public ladder",
+      "step": 39,
+      "turn": 3,
+      "context": 7,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92615639",
+      "opponent": "v22 public ladder",
+      "step": 54,
+      "turn": 5,
+      "context": 0,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 5,
+      "turn": 1,
+      "context": 0,
+      "base": 0,
+      "candidate": 4
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 6,
+      "turn": 1,
+      "context": 7,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 7,
+      "turn": 1,
+      "context": 0,
+      "base": 0,
+      "candidate": 4
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 11,
+      "turn": 1,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 22,
+      "turn": 3,
+      "context": 0,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 23,
+      "turn": 3,
+      "context": 7,
+      "base": 2,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 55,
+      "turn": 5,
+      "context": 0,
+      "base": 5,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 56,
+      "turn": 5,
+      "context": 7,
+      "base": 0,
+      "candidate": 4
+    },
+    {
+      "episode_id": "92616580",
+      "opponent": "v22 public ladder",
+      "step": 57,
+      "turn": 5,
+      "context": 0,
+      "base": 5,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 8,
+      "turn": 1,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 12,
+      "turn": 1,
+      "context": 7,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 22,
+      "turn": 3,
+      "context": 0,
+      "base": 11,
+      "candidate": 10
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 23,
+      "turn": 3,
+      "context": 7,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 43,
+      "turn": 5,
+      "context": 0,
+      "base": 9,
+      "candidate": 4
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 44,
+      "turn": 5,
+      "context": 7,
+      "base": 1,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 92,
+      "turn": 7,
+      "context": 0,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 93,
+      "turn": 7,
+      "context": 0,
+      "base": 2,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 111,
+      "turn": 9,
+      "context": 0,
+      "base": 11,
+      "candidate": 9
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 112,
+      "turn": 9,
+      "context": 0,
+      "base": 12,
+      "candidate": 9
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 113,
+      "turn": 9,
+      "context": 0,
+      "base": 11,
+      "candidate": 9
+    },
+    {
+      "episode_id": "92617522",
+      "opponent": "v22 public ladder",
+      "step": 117,
+      "turn": 9,
+      "context": 0,
+      "base": 11,
+      "candidate": 9
+    },
+    {
+      "episode_id": "92618462",
+      "opponent": "v22 public ladder",
+      "step": 23,
+      "turn": 3,
+      "context": 0,
+      "base": 5,
+      "candidate": 7
+    },
+    {
+      "episode_id": "92618462",
+      "opponent": "v22 public ladder",
+      "step": 24,
+      "turn": 3,
+      "context": 0,
+      "base": 0,
+      "candidate": 4
+    },
+    {
+      "episode_id": "92618462",
+      "opponent": "v22 public ladder",
+      "step": 25,
+      "turn": 3,
+      "context": 0,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92618462",
+      "opponent": "v22 public ladder",
+      "step": 26,
+      "turn": 3,
+      "context": 7,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92619385",
+      "opponent": "v22 public ladder",
+      "step": 32,
+      "turn": 4,
+      "context": 7,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92619385",
+      "opponent": "v22 public ladder",
+      "step": 33,
+      "turn": 4,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92619385",
+      "opponent": "v22 public ladder",
+      "step": 50,
+      "turn": 6,
+      "context": 0,
+      "base": 6,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92620337",
+      "opponent": "v22 public ladder",
+      "step": 18,
+      "turn": 2,
+      "context": 7,
+      "base": 0,
+      "candidate": 13
+    },
+    {
+      "episode_id": "92620337",
+      "opponent": "v22 public ladder",
+      "step": 34,
+      "turn": 4,
+      "context": 0,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92620337",
+      "opponent": "v22 public ladder",
+      "step": 36,
+      "turn": 4,
+      "context": 0,
+      "base": 1,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92620337",
+      "opponent": "v22 public ladder",
+      "step": 37,
+      "turn": 4,
+      "context": 0,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92620337",
+      "opponent": "v22 public ladder",
+      "step": 42,
+      "turn": 4,
+      "context": 0,
+      "base": 5,
+      "candidate": 6
+    },
+    {
+      "episode_id": "92620337",
+      "opponent": "v22 public ladder",
+      "step": 62,
+      "turn": 6,
+      "context": 0,
+      "base": 4,
+      "candidate": 5
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 12,
+      "turn": 2,
+      "context": 7,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 15,
+      "turn": 2,
+      "context": 7,
+      "base": 2,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 20,
+      "turn": 2,
+      "context": 7,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 21,
+      "turn": 2,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 48,
+      "turn": 4,
+      "context": 0,
+      "base": 6,
+      "candidate": 7
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 49,
+      "turn": 4,
+      "context": 0,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 50,
+      "turn": 4,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 56,
+      "turn": 4,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 57,
+      "turn": 4,
+      "context": 15,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 78,
+      "turn": 6,
+      "context": 0,
+      "base": 1,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 79,
+      "turn": 6,
+      "context": 0,
+      "base": 2,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 80,
+      "turn": 6,
+      "context": 0,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 82,
+      "turn": 6,
+      "context": 0,
+      "base": 2,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 84,
+      "turn": 6,
+      "context": 0,
+      "base": 0,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 85,
+      "turn": 6,
+      "context": 7,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 86,
+      "turn": 6,
+      "context": 0,
+      "base": 6,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92621271",
+      "opponent": "v22 public ladder",
+      "step": 117,
+      "turn": 8,
+      "context": 7,
+      "base": 3,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 10,
+      "turn": 2,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 15,
+      "turn": 2,
+      "context": 7,
+      "base": 4,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 39,
+      "turn": 4,
+      "context": 7,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 103,
+      "turn": 8,
+      "context": 0,
+      "base": 6,
+      "candidate": 13
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 104,
+      "turn": 8,
+      "context": 0,
+      "base": 13,
+      "candidate": 12
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 107,
+      "turn": 8,
+      "context": 0,
+      "base": 13,
+      "candidate": 12
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 111,
+      "turn": 8,
+      "context": 0,
+      "base": 3,
+      "candidate": 12
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 112,
+      "turn": 8,
+      "context": 0,
+      "base": 3,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 115,
+      "turn": 8,
+      "context": 0,
+      "base": 1,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 116,
+      "turn": 8,
+      "context": 0,
+      "base": 1,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 137,
+      "turn": 10,
+      "context": 0,
+      "base": 11,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92623138",
+      "opponent": "v22 public ladder",
+      "step": 138,
+      "turn": 10,
+      "context": 0,
+      "base": 11,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92624094",
+      "opponent": "v22 public ladder",
+      "step": 8,
+      "turn": 1,
+      "context": 7,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92624094",
+      "opponent": "v22 public ladder",
+      "step": 9,
+      "turn": 1,
+      "context": 0,
+      "base": 0,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92624094",
+      "opponent": "v22 public ladder",
+      "step": 11,
+      "turn": 1,
+      "context": 0,
+      "base": 3,
+      "candidate": 0
+    },
+    {
+      "episode_id": "92624094",
+      "opponent": "v22 public ladder",
+      "step": 24,
+      "turn": 3,
+      "context": 7,
+      "base": 1,
+      "candidate": 3
+    },
+    {
+      "episode_id": "92624094",
+      "opponent": "v22 public ladder",
+      "step": 51,
+      "turn": 5,
+      "context": 0,
+      "base": 0,
+      "candidate": 2
+    },
+    {
+      "episode_id": "92624094",
+      "opponent": "v22 public ladder",
+      "step": 53,
+      "turn": 5,
+      "context": 0,
+      "base": 3,
+      "candidate": 1
+    },
+    {
+      "episode_id": "92625043",
+      "opponent": "v22 public ladder",
+      "step": 25,
+      "turn": 4,
+      "context": 7,
+      "base": 3,
+      "candidate": 4
+    },
+    {
+      "episode_id": "92625043",
+      "opponent": "v22 public ladder",
+      "step": 27,
+      "turn": 4,
+      "context": 0,
+      "base": 4,
+      "candidate": 6
+    }
+  ]
+}
