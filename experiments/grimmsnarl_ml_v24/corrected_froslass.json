@@ -1,0 +1,203 @@
+{
+  "valid_for_mirror_question": true,
+  "legacy_mirror_mismatches": [],
+  "valid_for_all_matchups": false,
+  "legacy_mismatches": [
+    "92617522",
+    "92760159",
+    "92733385"
+  ],
+  "games": 194,
+  "mirrors": 56,
+  "legacy_column_definition": "Selected Froslass card actions excluding attack, ability, end and retreat; includes searches and true evolutions.",
+  "mirror_contrasts": {
+    "legacy_broad_action": {
+      "none": {
+        "games": 32,
+        "wins": 23,
+        "losses": 9,
+        "win_rate": 0.7188
+      },
+      "one_or_more": {
+        "games": 24,
+        "wins": 7,
+        "losses": 17,
+        "win_rate": 0.2917
+      },
+      "events": 53,
+      "fisher_p": 0.0026,
+      "controlled": {
+        "n": 52,
+        "elo": -366.8,
+        "z": -3.04,
+        "p": 0.0023
+      }
+    },
+    "true_evolution": {
+      "none": {
+        "games": 39,
+        "wins": 25,
+        "losses": 14,
+        "win_rate": 0.641
+      },
+      "one_or_more": {
+        "games": 17,
+        "wins": 5,
+        "losses": 12,
+        "win_rate": 0.2941
+      },
+      "events": 18,
+      "fisher_p": 0.0218,
+      "controlled": {
+        "n": 52,
+        "elo": -297.9,
+        "z": -2.37,
+        "p": 0.018
+      }
+    },
+    "froslass_to_hand": {
+      "none": {
+        "games": 45,
+        "wins": 26,
+        "losses": 19,
+        "win_rate": 0.5778
+      },
+      "one_or_more": {
+        "games": 11,
+        "wins": 4,
+        "losses": 7,
+        "win_rate": 0.3636
+      },
+      "events": 13,
+      "fisher_p": 0.313,
+      "controlled": {
+        "n": 52,
+        "elo": -190.9,
+        "z": -1.37,
+        "p": 0.1717
+      }
+    }
+  },
+  "binding": {
+    "true_evolutions": 18,
+    "publicly_bindable_evolutions": 18,
+    "games_with_true_evolution": 17,
+    "games_publicly_bindable": 17
+  },
+  "exact_60_current_symmetry": {
+    "games": 50,
+    "winner_evolutions_per_game": 0.18,
+    "loser_evolutions_per_game": 0.46,
+    "ours_in_wins_per_game": 0.222,
+    "ours_in_losses_per_game": 0.478,
+    "opponent_in_our_losses_per_game": 0.13
+  },
+  "v22_v24_footprint_audit": {
+    "available": true,
+    "valid": true,
+    "games": 194,
+    "decisions": 17376,
+    "changed": 18,
+    "games_touched": 17,
+    "replacements": {
+      "evolve:104 -> ability": 1,
+      "evolve:104 -> attack:934": 1,
+      "evolve:104 -> attack:937": 5,
+      "evolve:104 -> bench:646": 2,
+      "evolve:104 -> item:1086": 1,
+      "evolve:104 -> item:1097": 2,
+      "evolve:104 -> item:1122": 1,
+      "evolve:104 -> item:1152": 1,
+      "evolve:104 -> stamp:1080": 1,
+      "evolve:104 -> supporter:1227": 3
+    }
+  },
+  "by_run_true_evolution": {
+    "v22_a": {
+      "none": {
+        "games": 10,
+        "wins": 6,
+        "losses": 4,
+        "win_rate": 0.6
+      },
+      "one_or_more": {
+        "games": 3,
+        "wins": 0,
+        "losses": 3,
+        "win_rate": 0.0
+      },
+      "events": 3,
+      "fisher_p": 0.1923,
+      "controlled": {
+        "n": 12,
+        "elo": -3543.7,
+        "z": -0.0,
+        "p": 0.9971
+      }
+    },
+    "v22_b": {
+      "none": {
+        "games": 8,
+        "wins": 7,
+        "losses": 1,
+        "win_rate": 0.875
+      },
+      "one_or_more": {
+        "games": 5,
+        "wins": 2,
+        "losses": 3,
+        "win_rate": 0.4
+      },
+      "events": 6,
+      "fisher_p": 0.2168,
+      "controlled": {
+        "n": 12,
+        "elo": -3055.5,
+        "z": -0.21,
+        "p": 0.8323
+      }
+    },
+    "v22_c": {
+      "none": {
+        "games": 9,
+        "wins": 7,
+        "losses": 2,
+        "win_rate": 0.7778
+      },
+      "one_or_more": {
+        "games": 7,
+        "wins": 1,
+        "losses": 6,
+        "win_rate": 0.1429
+      },
+      "events": 7,
+      "fisher_p": 0.0406,
+      "controlled": {
+        "n": 15,
+        "elo": -2554.3,
+        "z": -0.19,
+        "p": 0.848
+      }
+    },
+    "v22_d": {
+      "none": {
+        "games": 12,
+        "wins": 5,
+        "losses": 7,
+        "win_rate": 0.4167
+      },
+      "one_or_more": {
+        "games": 2,
+        "wins": 2,
+        "losses": 0,
+        "win_rate": 1.0
+      },
+      "events": 2,
+      "fisher_p": 0.4615,
+      "controlled": {
+        "n": 13,
+        "error": "singular covariance"
+      }
+    }
+  }
+}

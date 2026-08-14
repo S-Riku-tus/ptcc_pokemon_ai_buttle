@@ -1,0 +1,152 @@
+{
+  "name": "grimmsnarl_ml_v24",
+  "version": "24.0.0",
+  "role": "experimental_submission_candidate",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v22",
+  "created_at": "2026-08-14T11:15:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Frozen v22 policy plus an unconditional veto of a selected Froslass evolution after the opponent has publicly revealed the Grimmsnarl line.",
+  "ranker": {
+    "source_agent": "grimmsnarl_ml_v22",
+    "trees": 2000,
+    "features": 823,
+    "teacher_team_id": 16371703,
+    "teacher_team_code": 0,
+    "trees_changed_from_v22": false,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1"
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_context": 0,
+    "trigger_feature": "evolve_froslass",
+    "effective_runtime": "Inherited from v22; the global teacher pin is already code 0, so it causes no separate teacher switch."
+  },
+  "mirror_froslass_guard": {
+    "module": "mirror_froslass.py",
+    "disable_env": "GRIMMSNARL_V24_FROSLASS_DISABLE=1",
+    "matchup_detection": "Opponent Active, Bench, discard, and public pre-evolutions only; no hand, deck, or prize information.",
+    "trigger": "The effective v22 choice after its inherited planner is a Froslass evolution in a publicly visible mirror.",
+    "action": "Veto every Froslass evolution option and take v22's highest-scored remaining option.",
+    "uses_shroud_net": false,
+    "scope_limit": "Does not suppress Snorunt setup or Froslass searches; evolution is the measured lever and v22 is otherwise frozen."
+  },
+  "evidence": {
+    "pool_games": 194,
+    "pool_record": "121-73",
+    "base_teacher_forcing": "17376/17376 stored actions reproduced by v22",
+    "legacy_broad_froslass_action_proxy": {
+      "definition_correction": "The inherited froslass_evolves CSV column counts selected Froslass card actions other than attack, ability, end and retreat; it includes searches and evolution-resolution prompts, not only true evolutions.",
+      "games": 56,
+      "no_broad_action": "23-9 (0.719)",
+      "one_or_more_broad_actions": "7-17 (0.292)",
+      "controlled_effect_elo": -366.8,
+      "controlled_p": 0.0023,
+      "fisher_p": 0.0026,
+      "bonferroni_20_levers_p": 0.046,
+      "replicated_in_all_four_v22_submissions": true
+    },
+    "corrected_true_froslass_evolution": {
+      "games": 56,
+      "true_evolution_events": 18,
+      "games_with_true_evolution": 17,
+      "no_true_evolution": "25-14 (0.641)",
+      "one_or_more_true_evolutions": "5-12 (0.294)",
+      "controlled_effect_elo": -297.9,
+      "controlled_p": 0.018,
+      "fisher_p": 0.0218,
+      "multiplicity_status": "Does not survive a fresh 20-lever Bonferroni correction; v24 is a causal ladder experiment, not a promoted fix.",
+      "publicly_bindable_events": "18/18 in 17/17 games",
+      "replication_limit": "Direction is adverse in v22_a, v22_b and v22_c but reversed in the two v22_d games; the all-four replication claim belongs only to the legacy broad proxy."
+    },
+    "non_mirror_placebo": {
+      "no_froslass_evolution": "17-10 (0.630)",
+      "one_or_more_froslass_evolutions": "74-37 (0.667)",
+      "interpretation": "No general Froslass penalty outside the mirror."
+    },
+    "rejected_gate": {
+      "rule": "Require shroud_net > 0",
+      "reason": "The ledger analysis was computed on the same legacy broad card-action events and points backwards even there; v24 therefore does not use shroud_net."
+    },
+    "historical_opponent_asymmetry_resolution": {
+      "old_measurement": "The 12/12 uptake came from 36 v15 mirrors and measured offered-turn imitation, not a causal win contrast for v22.",
+      "current_exact_list_mirrors": 50,
+      "winner_true_evolutions_per_game": 0.18,
+      "loser_true_evolutions_per_game": 0.46,
+      "our_wins_ours_per_game": 0.222,
+      "our_losses_ours_per_game": 0.478,
+      "our_losses_opponent_per_game": 0.13,
+      "interpretation": "In the current pool, opposing winners evolve less than our losing seat; the old 12/12 observation does not reverse the v24 direction."
+    },
+    "reports": [
+      "experiments/grimmsnarl_ml_v23/POOL_ANALYSIS_2026-08-14.md",
+      "experiments/grimmsnarl_ml_v23/pool_analysis.json",
+      "experiments/grimmsnarl_ml_v23/rates_and_mirror.json",
+      "experiments/grimmsnarl_ml_v23/shroud_ledger.json",
+      "experiments/grimmsnarl_ml_v24/corrected_froslass.json",
+      "experiments/grimmsnarl_ml_v24/footprint_v22_v24.json"
+    ]
+  },
+  "change_scope": {
+    "changed_from_v22": [
+      "main.py",
+      "metadata.json"
+    ],
+    "added_from_v22": [
+      "mirror_froslass.py",
+      "tests/test_v24_mirror_froslass.py"
+    ],
+    "byte_identical_to_v22": [
+      "deck.csv",
+      "fallback_policy.py",
+      "ml_features.py",
+      "ml_planner.py",
+      "ml_runtime.py",
+      "policy_base.py",
+      "ranker_model.json"
+    ],
+    "v23_strategy_inherited": false
+  },
+  "validation": {
+    "unit_tests": "PASS: 172 agent tests",
+    "teacher_forced_footprint": {
+      "valid": true,
+      "games": 194,
+      "decisions": 17376,
+      "v22_infidelity": 0,
+      "changed_decisions": 18,
+      "games_touched": 17,
+      "mirror_changed_decisions": 18,
+      "non_mirror_changed_decisions": 0,
+      "won_games_changed_decisions": 6,
+      "lost_games_changed_decisions": 12,
+      "all_replaced_actions": "Froslass evolution",
+      "replacement_attacks": 6,
+      "replacement_ends": 0,
+      "report": "experiments/grimmsnarl_ml_v24/footprint_v22_v24.json"
+    },
+    "submission_package": {
+      "path": "artifacts/grimmsnarl_ml_v24_submission.tar.gz",
+      "bytes": 10928225,
+      "sha256": "1b768103f04536b76df6b91cb5c21bb345fdd1de8782081755bd483f3fbf29a3",
+      "archive_entries": 19,
+      "deck_size": 60,
+      "model_trees": 2000,
+      "model_features": 823,
+      "mirror_guard_included": true,
+      "tests_excluded": true,
+      "metadata_excluded": true,
+      "python_compile": "PASS",
+      "extracted_import_smoke": "PASS: ranker and mirror guard loaded; no load errors"
+    }
+  },
+  "known_limits": [
+    "The corrected true-evolution association is observational and weaker than the original mislabeled broad proxy; ladder A/B is required for a causal promotion decision.",
+    "Teacher forcing measures binding and preservation on stored boards, not the downstream states created after an override.",
+    "The visible-mirror detector cannot act before the opponent publicly reveals Impidimp, Morgrem, or Grimmsnarl ex."
+  ],
+  "description": "V22 champion policy with one mirror-only, measured Froslass-evolution suppression experiment."
+}

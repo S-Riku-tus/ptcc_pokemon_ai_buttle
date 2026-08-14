@@ -1,0 +1,2467 @@
+{
+  "valid": true,
+  "base": "agents/grimmsnarl/grimmsnarl_ml_v22",
+  "candidate": "agents\\grimmsnarl\\grimmsnarl_ml_v24",
+  "games": 194,
+  "errors": [],
+  "base_infidelity": 0,
+  "elapsed_seconds": 367.5,
+  "totals": {
+    "decisions": 17376,
+    "changed": 18,
+    "games_touched": 17
+  },
+  "by_outcome": {
+    "won": {
+      "games": 121,
+      "decisions": 11427,
+      "changed": 6,
+      "games_touched": 5
+    },
+    "lost": {
+      "games": 73,
+      "decisions": 5949,
+      "changed": 12,
+      "games_touched": 12
+    }
+  },
+  "by_family": {
+    "Grimmsnarl (mirror)": {
+      "games": 56,
+      "decisions": 5312,
+      "changed": 18,
+      "games_touched": 17
+    },
+    "Alakazam": {
+      "games": 41,
+      "decisions": 3299,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "Dragapult": {
+      "games": 22,
+      "decisions": 1877,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "Mega Lopunny / Froslass": {
+      "games": 19,
+      "decisions": 1991,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "Kangaskhan / Crustle": {
+      "games": 15,
+      "decisions": 1694,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "Archaludon": {
+      "games": 9,
+      "decisions": 766,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "Mega Lucario": {
+      "games": 8,
+      "decisions": 732,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "Ogerpon": {
+      "games": 7,
+      "decisions": 535,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "Dipplin": {
+      "games": 4,
+      "decisions": 257,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Hydrapple ex": {
+      "games": 3,
+      "decisions": 246,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Team Rocket's Mewtwo ex": {
+      "games": 2,
+      "decisions": 117,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Fezandipiti ex": {
+      "games": 2,
+      "decisions": 151,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Mega Abomasnow ex": {
+      "games": 1,
+      "decisions": 23,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Cynthia's Garchomp ex": {
+      "games": 1,
+      "decisions": 64,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Ethan's Typhlosion": {
+      "games": 1,
+      "decisions": 91,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Arboliva ex": {
+      "games": 1,
+      "decisions": 50,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Dudunsparce": {
+      "games": 1,
+      "decisions": 99,
+      "changed": 0,
+      "games_touched": 0
+    },
+    "other: Brambleghast": {
+      "games": 1,
+      "decisions": 72,
+      "changed": 0,
+      "games_touched": 0
+    }
+  },
+  "by_context": {
+    "0": 18
+  },
+  "by_shared_turn": {
+    "3": 5,
+    "4": 2,
+    "5": 3,
+    "8": 2,
+    "10": 2,
+    "12": 2,
+    "13": 1,
+    "14": 1
+  },
+  "per_episode": [
+    {
+      "episode_id": "92690307",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1031.7178,
+      "own_first_shadow_turn": 4,
+      "decisions": 97,
+      "changed": 2
+    },
+    {
+      "episode_id": "92619385",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 795.2256,
+      "own_first_shadow_turn": 3,
+      "decisions": 61,
+      "changed": 1
+    },
+    {
+      "episode_id": "92644773",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1021.0118,
+      "own_first_shadow_turn": 3,
+      "decisions": 94,
+      "changed": 1
+    },
+    {
+      "episode_id": "92656803",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1036.7166,
+      "own_first_shadow_turn": 2,
+      "decisions": 78,
+      "changed": 1
+    },
+    {
+      "episode_id": "92662264",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 888.5367,
+      "own_first_shadow_turn": 2,
+      "decisions": 62,
+      "changed": 1
+    },
+    {
+      "episode_id": "92666088",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 949.2866,
+      "own_first_shadow_turn": 2,
+      "decisions": 93,
+      "changed": 1
+    },
+    {
+      "episode_id": "92667978",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 850.9658,
+      "own_first_shadow_turn": 3,
+      "decisions": 125,
+      "changed": 1
+    },
+    {
+      "episode_id": "92681128",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 995.1799,
+      "own_first_shadow_turn": 3,
+      "decisions": 96,
+      "changed": 1
+    },
+    {
+      "episode_id": "92691061",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": null,
+      "own_first_shadow_turn": 4,
+      "decisions": 90,
+      "changed": 1
+    },
+    {
+      "episode_id": "92692156",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 697.4333,
+      "own_first_shadow_turn": 3,
+      "decisions": 101,
+      "changed": 1
+    },
+    {
+      "episode_id": "92699646",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1066.1538,
+      "own_first_shadow_turn": 2,
+      "decisions": 87,
+      "changed": 1
+    },
+    {
+      "episode_id": "92717430",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1062.5651,
+      "own_first_shadow_turn": 5,
+      "decisions": 78,
+      "changed": 1
+    },
+    {
+      "episode_id": "92716501",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1084.2362,
+      "own_first_shadow_turn": 3,
+      "decisions": 109,
+      "changed": 1
+    },
+    {
+      "episode_id": "92720231",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 981.4707,
+      "own_first_shadow_turn": 2,
+      "decisions": 69,
+      "changed": 1
+    },
+    {
+      "episode_id": "92746237",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 956.3988,
+      "own_first_shadow_turn": 3,
+      "decisions": 76,
+      "changed": 1
+    },
+    {
+      "episode_id": "92691101",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": null,
+      "own_first_shadow_turn": 2,
+      "decisions": 93,
+      "changed": 1
+    },
+    {
+      "episode_id": "92793178",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 959.4206,
+      "own_first_shadow_turn": 2,
+      "decisions": 109,
+      "changed": 1
+    },
+    {
+      "episode_id": "92610946",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 724.634,
+      "own_first_shadow_turn": 2,
+      "decisions": 39,
+      "changed": 0
+    },
+    {
+      "episode_id": "92613745",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Archaludon",
+      "opponent_rating": 482.7813,
+      "own_first_shadow_turn": 3,
+      "decisions": 75,
+      "changed": 0
+    },
+    {
+      "episode_id": "92612806",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "other: Team Rocket's Mewtwo ex",
+      "opponent_rating": 603.4732,
+      "own_first_shadow_turn": 2,
+      "decisions": 68,
+      "changed": 0
+    },
+    {
+      "episode_id": "92616580",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 925.4335,
+      "own_first_shadow_turn": 2,
+      "decisions": 73,
+      "changed": 0
+    },
+    {
+      "episode_id": "92611852",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 535.031,
+      "own_first_shadow_turn": 3,
+      "decisions": 82,
+      "changed": 0
+    },
+    {
+      "episode_id": "92614685",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 722.3764,
+      "own_first_shadow_turn": 3,
+      "decisions": 95,
+      "changed": 0
+    },
+    {
+      "episode_id": "92617522",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 728.6774,
+      "own_first_shadow_turn": 3,
+      "decisions": 62,
+      "changed": 0
+    },
+    {
+      "episode_id": "92615639",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 955.8469,
+      "own_first_shadow_turn": 3,
+      "decisions": 122,
+      "changed": 0
+    },
+    {
+      "episode_id": "92610837",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": null,
+      "own_first_shadow_turn": 5,
+      "decisions": 108,
+      "changed": 0
+    },
+    {
+      "episode_id": "92618462",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 427.9847,
+      "own_first_shadow_turn": 3,
+      "decisions": 95,
+      "changed": 0
+    },
+    {
+      "episode_id": "92621271",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 897.1239,
+      "own_first_shadow_turn": 2,
+      "decisions": 77,
+      "changed": 0
+    },
+    {
+      "episode_id": "92620337",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 831.3654,
+      "own_first_shadow_turn": 3,
+      "decisions": 90,
+      "changed": 0
+    },
+    {
+      "episode_id": "92622204",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Mega Lucario",
+      "opponent_rating": 569.4695,
+      "own_first_shadow_turn": 2,
+      "decisions": 106,
+      "changed": 0
+    },
+    {
+      "episode_id": "92623138",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 925.8515,
+      "own_first_shadow_turn": 4,
+      "decisions": 82,
+      "changed": 0
+    },
+    {
+      "episode_id": "92626895",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 891.9153,
+      "own_first_shadow_turn": 5,
+      "decisions": 98,
+      "changed": 0
+    },
+    {
+      "episode_id": "92624094",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 894.8804,
+      "own_first_shadow_turn": 3,
+      "decisions": 98,
+      "changed": 0
+    },
+    {
+      "episode_id": "92625043",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1038.2313,
+      "own_first_shadow_turn": 3,
+      "decisions": 98,
+      "changed": 0
+    },
+    {
+      "episode_id": "92627855",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lucario",
+      "opponent_rating": 867.9465,
+      "own_first_shadow_turn": 3,
+      "decisions": 89,
+      "changed": 0
+    },
+    {
+      "episode_id": "92626016",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 792.2905,
+      "own_first_shadow_turn": 3,
+      "decisions": 111,
+      "changed": 0
+    },
+    {
+      "episode_id": "92628804",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 782.4416,
+      "own_first_shadow_turn": 3,
+      "decisions": 104,
+      "changed": 0
+    },
+    {
+      "episode_id": "92630690",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 929.7572,
+      "own_first_shadow_turn": 3,
+      "decisions": 74,
+      "changed": 0
+    },
+    {
+      "episode_id": "92633524",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 887.2068,
+      "own_first_shadow_turn": 2,
+      "decisions": 73,
+      "changed": 0
+    },
+    {
+      "episode_id": "92631643",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 535.1242,
+      "own_first_shadow_turn": 4,
+      "decisions": 92,
+      "changed": 0
+    },
+    {
+      "episode_id": "92629750",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 961.1291,
+      "own_first_shadow_turn": 3,
+      "decisions": 142,
+      "changed": 0
+    },
+    {
+      "episode_id": "92635387",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 883.7502,
+      "own_first_shadow_turn": 2,
+      "decisions": 67,
+      "changed": 0
+    },
+    {
+      "episode_id": "92635367",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 848.1306,
+      "own_first_shadow_turn": 3,
+      "decisions": 84,
+      "changed": 0
+    },
+    {
+      "episode_id": "92632577",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 918.0973,
+      "own_first_shadow_turn": 3,
+      "decisions": 106,
+      "changed": 0
+    },
+    {
+      "episode_id": "92634432",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 826.8889,
+      "own_first_shadow_turn": 3,
+      "decisions": 112,
+      "changed": 0
+    },
+    {
+      "episode_id": "92636318",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 902.0468,
+      "own_first_shadow_turn": 2,
+      "decisions": 79,
+      "changed": 0
+    },
+    {
+      "episode_id": "92640083",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "other: Mega Abomasnow ex",
+      "opponent_rating": 287.3067,
+      "own_first_shadow_turn": 2,
+      "decisions": 23,
+      "changed": 0
+    },
+    {
+      "episode_id": "92637253",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "other: Hydrapple ex",
+      "opponent_rating": 984.313,
+      "own_first_shadow_turn": 5,
+      "decisions": 70,
+      "changed": 0
+    },
+    {
+      "episode_id": "92641024",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 938.5691,
+      "own_first_shadow_turn": 2,
+      "decisions": 93,
+      "changed": 0
+    },
+    {
+      "episode_id": "92638214",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 889.4513,
+      "own_first_shadow_turn": 3,
+      "decisions": 99,
+      "changed": 0
+    },
+    {
+      "episode_id": "92641973",
+      "version": "v22_a",
+      "won": false,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 912.193,
+      "own_first_shadow_turn": 2,
+      "decisions": 103,
+      "changed": 0
+    },
+    {
+      "episode_id": "92642829",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 917.114,
+      "own_first_shadow_turn": 4,
+      "decisions": 104,
+      "changed": 0
+    },
+    {
+      "episode_id": "92639143",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 982.3497,
+      "own_first_shadow_turn": 2,
+      "decisions": 108,
+      "changed": 0
+    },
+    {
+      "episode_id": "92645759",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 999.213,
+      "own_first_shadow_turn": 2,
+      "decisions": 87,
+      "changed": 0
+    },
+    {
+      "episode_id": "92643843",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1018.8358,
+      "own_first_shadow_turn": 3,
+      "decisions": 122,
+      "changed": 0
+    },
+    {
+      "episode_id": "92656510",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": null,
+      "own_first_shadow_turn": 3,
+      "decisions": 62,
+      "changed": 0
+    },
+    {
+      "episode_id": "92646648",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 595.3618,
+      "own_first_shadow_turn": 3,
+      "decisions": 111,
+      "changed": 0
+    },
+    {
+      "episode_id": "92657522",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 698.3188,
+      "own_first_shadow_turn": 3,
+      "decisions": 32,
+      "changed": 0
+    },
+    {
+      "episode_id": "92647393",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1042.5118,
+      "own_first_shadow_turn": 3,
+      "decisions": 139,
+      "changed": 0
+    },
+    {
+      "episode_id": "92651224",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 992.8856,
+      "own_first_shadow_turn": 2,
+      "decisions": 116,
+      "changed": 0
+    },
+    {
+      "episode_id": "92648514",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 962.3118,
+      "own_first_shadow_turn": 3,
+      "decisions": 105,
+      "changed": 0
+    },
+    {
+      "episode_id": "92656601",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 612.4814,
+      "own_first_shadow_turn": 4,
+      "decisions": 101,
+      "changed": 0
+    },
+    {
+      "episode_id": "92659405",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 798.3031,
+      "own_first_shadow_turn": 3,
+      "decisions": 54,
+      "changed": 0
+    },
+    {
+      "episode_id": "92647581",
+      "version": "v22_a",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 973.5571,
+      "own_first_shadow_turn": 4,
+      "decisions": 151,
+      "changed": 0
+    },
+    {
+      "episode_id": "92658471",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lucario",
+      "opponent_rating": 630.6019,
+      "own_first_shadow_turn": 2,
+      "decisions": 67,
+      "changed": 0
+    },
+    {
+      "episode_id": "92663236",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 513.8171,
+      "own_first_shadow_turn": 3,
+      "decisions": 68,
+      "changed": 0
+    },
+    {
+      "episode_id": "92660365",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 833.0503,
+      "own_first_shadow_turn": 3,
+      "decisions": 95,
+      "changed": 0
+    },
+    {
+      "episode_id": "92661317",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 882.4722,
+      "own_first_shadow_turn": 4,
+      "decisions": 104,
+      "changed": 0
+    },
+    {
+      "episode_id": "92665345",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 787.094,
+      "own_first_shadow_turn": 3,
+      "decisions": 79,
+      "changed": 0
+    },
+    {
+      "episode_id": "92668916",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 923.3638,
+      "own_first_shadow_turn": 2,
+      "decisions": 68,
+      "changed": 0
+    },
+    {
+      "episode_id": "92664175",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 948.0082,
+      "own_first_shadow_turn": 2,
+      "decisions": 125,
+      "changed": 0
+    },
+    {
+      "episode_id": "92669860",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "False",
+      "family": "Ogerpon",
+      "opponent_rating": 1016.2314,
+      "own_first_shadow_turn": 3,
+      "decisions": 77,
+      "changed": 0
+    },
+    {
+      "episode_id": "92672673",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1004.8677,
+      "own_first_shadow_turn": 2,
+      "decisions": 66,
+      "changed": 0
+    },
+    {
+      "episode_id": "92670803",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 958.8572,
+      "own_first_shadow_turn": 2,
+      "decisions": 78,
+      "changed": 0
+    },
+    {
+      "episode_id": "92673673",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 936.9024,
+      "own_first_shadow_turn": 2,
+      "decisions": 44,
+      "changed": 0
+    },
+    {
+      "episode_id": "92667041",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 858.7002,
+      "own_first_shadow_turn": 3,
+      "decisions": 128,
+      "changed": 0
+    },
+    {
+      "episode_id": "92671748",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 973.8074,
+      "own_first_shadow_turn": 3,
+      "decisions": 95,
+      "changed": 0
+    },
+    {
+      "episode_id": "92680243",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 425.9386,
+      "own_first_shadow_turn": 3,
+      "decisions": 55,
+      "changed": 0
+    },
+    {
+      "episode_id": "92679101",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 844.456,
+      "own_first_shadow_turn": 2,
+      "decisions": 55,
+      "changed": 0
+    },
+    {
+      "episode_id": "92675511",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1017.1542,
+      "own_first_shadow_turn": 3,
+      "decisions": 93,
+      "changed": 0
+    },
+    {
+      "episode_id": "92678380",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 983.8616,
+      "own_first_shadow_turn": 2,
+      "decisions": 75,
+      "changed": 0
+    },
+    {
+      "episode_id": "92676506",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "False",
+      "family": "Mega Lucario",
+      "opponent_rating": 734.5618,
+      "own_first_shadow_turn": 5,
+      "decisions": 85,
+      "changed": 0
+    },
+    {
+      "episode_id": "92674589",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 1027.1772,
+      "own_first_shadow_turn": 2,
+      "decisions": 102,
+      "changed": 0
+    },
+    {
+      "episode_id": "92681172",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 967.9939,
+      "own_first_shadow_turn": 3,
+      "decisions": 67,
+      "changed": 0
+    },
+    {
+      "episode_id": "92677432",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 946.8826,
+      "own_first_shadow_turn": 2,
+      "decisions": 120,
+      "changed": 0
+    },
+    {
+      "episode_id": "92684939",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1088.5426,
+      "own_first_shadow_turn": 2,
+      "decisions": 95,
+      "changed": 0
+    },
+    {
+      "episode_id": "92683107",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 977.4167,
+      "own_first_shadow_turn": 3,
+      "decisions": 99,
+      "changed": 0
+    },
+    {
+      "episode_id": "92682163",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 907.1659,
+      "own_first_shadow_turn": 3,
+      "decisions": 96,
+      "changed": 0
+    },
+    {
+      "episode_id": "92688404",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "other: Cynthia's Garchomp ex",
+      "opponent_rating": 600.0,
+      "own_first_shadow_turn": 3,
+      "decisions": 64,
+      "changed": 0
+    },
+    {
+      "episode_id": "92685907",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1035.5526,
+      "own_first_shadow_turn": 5,
+      "decisions": 98,
+      "changed": 0
+    },
+    {
+      "episode_id": "92687848",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1047.7272,
+      "own_first_shadow_turn": 3,
+      "decisions": 84,
+      "changed": 0
+    },
+    {
+      "episode_id": "92684038",
+      "version": "v22_b",
+      "won": false,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 992.0135,
+      "own_first_shadow_turn": 2,
+      "decisions": 127,
+      "changed": 0
+    },
+    {
+      "episode_id": "92694015",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Ogerpon",
+      "opponent_rating": 941.3348,
+      "own_first_shadow_turn": 2,
+      "decisions": 33,
+      "changed": 0
+    },
+    {
+      "episode_id": "92688753",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "True",
+      "family": "other: Fezandipiti ex",
+      "opponent_rating": 1019.1425,
+      "own_first_shadow_turn": 2,
+      "decisions": 84,
+      "changed": 0
+    },
+    {
+      "episode_id": "92686847",
+      "version": "v22_b",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 914.9155,
+      "own_first_shadow_turn": 4,
+      "decisions": 133,
+      "changed": 0
+    },
+    {
+      "episode_id": "92691203",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 748.6483,
+      "own_first_shadow_turn": 2,
+      "decisions": 87,
+      "changed": 0
+    },
+    {
+      "episode_id": "92693065",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 717.5747,
+      "own_first_shadow_turn": 3,
+      "decisions": 83,
+      "changed": 0
+    },
+    {
+      "episode_id": "92695888",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Dipplin",
+      "opponent_rating": 992.3599,
+      "own_first_shadow_turn": 2,
+      "decisions": 71,
+      "changed": 0
+    },
+    {
+      "episode_id": "92694947",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 905.9764,
+      "own_first_shadow_turn": 4,
+      "decisions": 78,
+      "changed": 0
+    },
+    {
+      "episode_id": "92702478",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1160.4071,
+      "own_first_shadow_turn": null,
+      "decisions": 18,
+      "changed": 0
+    },
+    {
+      "episode_id": "92696827",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1002.8731,
+      "own_first_shadow_turn": 3,
+      "decisions": 86,
+      "changed": 0
+    },
+    {
+      "episode_id": "92698693",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 1081.8595,
+      "own_first_shadow_turn": 2,
+      "decisions": 68,
+      "changed": 0
+    },
+    {
+      "episode_id": "92697747",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1097.5645,
+      "own_first_shadow_turn": 3,
+      "decisions": 109,
+      "changed": 0
+    },
+    {
+      "episode_id": "92700593",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 978.3297,
+      "own_first_shadow_turn": 2,
+      "decisions": 86,
+      "changed": 0
+    },
+    {
+      "episode_id": "92703425",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 804.9956,
+      "own_first_shadow_turn": 2,
+      "decisions": 84,
+      "changed": 0
+    },
+    {
+      "episode_id": "92705291",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 1132.8349,
+      "own_first_shadow_turn": 3,
+      "decisions": 79,
+      "changed": 0
+    },
+    {
+      "episode_id": "92704474",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1060.7804,
+      "own_first_shadow_turn": 2,
+      "decisions": 85,
+      "changed": 0
+    },
+    {
+      "episode_id": "92704335",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1094.7195,
+      "own_first_shadow_turn": 5,
+      "decisions": 87,
+      "changed": 0
+    },
+    {
+      "episode_id": "92706226",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 734.7852,
+      "own_first_shadow_turn": 6,
+      "decisions": 73,
+      "changed": 0
+    },
+    {
+      "episode_id": "92701658",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1099.8047,
+      "own_first_shadow_turn": 5,
+      "decisions": 139,
+      "changed": 0
+    },
+    {
+      "episode_id": "92709044",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "other: Ethan's Typhlosion",
+      "opponent_rating": 587.6354,
+      "own_first_shadow_turn": 3,
+      "decisions": 91,
+      "changed": 0
+    },
+    {
+      "episode_id": "92708110",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 1036.4838,
+      "own_first_shadow_turn": 3,
+      "decisions": 83,
+      "changed": 0
+    },
+    {
+      "episode_id": "92712787",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 1117.2987,
+      "own_first_shadow_turn": 3,
+      "decisions": 55,
+      "changed": 0
+    },
+    {
+      "episode_id": "92707179",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1046.6026,
+      "own_first_shadow_turn": 4,
+      "decisions": 104,
+      "changed": 0
+    },
+    {
+      "episode_id": "92710940",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "other: Hydrapple ex",
+      "opponent_rating": 1150.3312,
+      "own_first_shadow_turn": 4,
+      "decisions": 82,
+      "changed": 0
+    },
+    {
+      "episode_id": "92710917",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 1010.5195,
+      "own_first_shadow_turn": 2,
+      "decisions": 84,
+      "changed": 0
+    },
+    {
+      "episode_id": "92711899",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 985.2903,
+      "own_first_shadow_turn": 3,
+      "decisions": 92,
+      "changed": 0
+    },
+    {
+      "episode_id": "92709986",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1021.5688,
+      "own_first_shadow_turn": 2,
+      "decisions": 120,
+      "changed": 0
+    },
+    {
+      "episode_id": "92718368",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Dipplin",
+      "opponent_rating": 1003.3748,
+      "own_first_shadow_turn": null,
+      "decisions": 42,
+      "changed": 0
+    },
+    {
+      "episode_id": "92713718",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1108.7972,
+      "own_first_shadow_turn": 3,
+      "decisions": 98,
+      "changed": 0
+    },
+    {
+      "episode_id": "92714638",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Ogerpon",
+      "opponent_rating": 1062.5762,
+      "own_first_shadow_turn": 3,
+      "decisions": 87,
+      "changed": 0
+    },
+    {
+      "episode_id": "92719304",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 956.0851,
+      "own_first_shadow_turn": 3,
+      "decisions": 104,
+      "changed": 0
+    },
+    {
+      "episode_id": "92715668",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 1030.2646,
+      "own_first_shadow_turn": 3,
+      "decisions": 132,
+      "changed": 0
+    },
+    {
+      "episode_id": "92722119",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 1062.8178,
+      "own_first_shadow_turn": 3,
+      "decisions": 91,
+      "changed": 0
+    },
+    {
+      "episode_id": "92721178",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1014.122,
+      "own_first_shadow_turn": 2,
+      "decisions": 102,
+      "changed": 0
+    },
+    {
+      "episode_id": "92724933",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 1016.3436,
+      "own_first_shadow_turn": null,
+      "decisions": 56,
+      "changed": 0
+    },
+    {
+      "episode_id": "92723046",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Ogerpon",
+      "opponent_rating": 988.5071,
+      "own_first_shadow_turn": 2,
+      "decisions": 93,
+      "changed": 0
+    },
+    {
+      "episode_id": "92723988",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Ogerpon",
+      "opponent_rating": 996.0422,
+      "own_first_shadow_turn": 3,
+      "decisions": 76,
+      "changed": 0
+    },
+    {
+      "episode_id": "92725901",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1005.3327,
+      "own_first_shadow_turn": 3,
+      "decisions": 65,
+      "changed": 0
+    },
+    {
+      "episode_id": "92741679",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 944.9866,
+      "own_first_shadow_turn": 2,
+      "decisions": 105,
+      "changed": 0
+    },
+    {
+      "episode_id": "92732440",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 1006.1884,
+      "own_first_shadow_turn": 5,
+      "decisions": 109,
+      "changed": 0
+    },
+    {
+      "episode_id": "92736142",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 995.2032,
+      "own_first_shadow_turn": 2,
+      "decisions": 96,
+      "changed": 0
+    },
+    {
+      "episode_id": "92750659",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 984.96,
+      "own_first_shadow_turn": 2,
+      "decisions": 112,
+      "changed": 0
+    },
+    {
+      "episode_id": "92765712",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1016.8163,
+      "own_first_shadow_turn": 3,
+      "decisions": 75,
+      "changed": 0
+    },
+    {
+      "episode_id": "92760159",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 1028.2847,
+      "own_first_shadow_turn": 7,
+      "decisions": 150,
+      "changed": 0
+    },
+    {
+      "episode_id": "92755592",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 986.8414,
+      "own_first_shadow_turn": 4,
+      "decisions": 113,
+      "changed": 0
+    },
+    {
+      "episode_id": "92775867",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 1025.5622,
+      "own_first_shadow_turn": 4,
+      "decisions": 73,
+      "changed": 0
+    },
+    {
+      "episode_id": "92785961",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 998.969,
+      "own_first_shadow_turn": 3,
+      "decisions": 63,
+      "changed": 0
+    },
+    {
+      "episode_id": "92793452",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 1111.89,
+      "own_first_shadow_turn": 4,
+      "decisions": 49,
+      "changed": 0
+    },
+    {
+      "episode_id": "92782964",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 1014.5928,
+      "own_first_shadow_turn": 2,
+      "decisions": 83,
+      "changed": 0
+    },
+    {
+      "episode_id": "92768266",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "False",
+      "family": "Dragapult",
+      "opponent_rating": 1065.5299,
+      "own_first_shadow_turn": 5,
+      "decisions": 101,
+      "changed": 0
+    },
+    {
+      "episode_id": "92796913",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "other: Arboliva ex",
+      "opponent_rating": 1058.3348,
+      "own_first_shadow_turn": null,
+      "decisions": 50,
+      "changed": 0
+    },
+    {
+      "episode_id": "92780529",
+      "version": "v22_c",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1134.2696,
+      "own_first_shadow_turn": 4,
+      "decisions": 100,
+      "changed": 0
+    },
+    {
+      "episode_id": "92798770",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 1020.2028,
+      "own_first_shadow_turn": 3,
+      "decisions": 74,
+      "changed": 0
+    },
+    {
+      "episode_id": "92780490",
+      "version": "v22_c",
+      "won": false,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 1011.0004,
+      "own_first_shadow_turn": 2,
+      "decisions": 116,
+      "changed": 0
+    },
+    {
+      "episode_id": "92693192",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lucario",
+      "opponent_rating": 910.1775,
+      "own_first_shadow_turn": 2,
+      "decisions": 82,
+      "changed": 0
+    },
+    {
+      "episode_id": "92691205",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Mega Lucario",
+      "opponent_rating": 608.1692,
+      "own_first_shadow_turn": 3,
+      "decisions": 88,
+      "changed": 0
+    },
+    {
+      "episode_id": "92693079",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 801.8775,
+      "own_first_shadow_turn": 2,
+      "decisions": 88,
+      "changed": 0
+    },
+    {
+      "episode_id": "92692137",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "other: Dudunsparce",
+      "opponent_rating": 714.6579,
+      "own_first_shadow_turn": 3,
+      "decisions": 99,
+      "changed": 0
+    },
+    {
+      "episode_id": "92696837",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 945.4784,
+      "own_first_shadow_turn": 3,
+      "decisions": 52,
+      "changed": 0
+    },
+    {
+      "episode_id": "92694031",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 845.3073,
+      "own_first_shadow_turn": 4,
+      "decisions": 114,
+      "changed": 0
+    },
+    {
+      "episode_id": "92695903",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 912.2911,
+      "own_first_shadow_turn": 2,
+      "decisions": 87,
+      "changed": 0
+    },
+    {
+      "episode_id": "92694969",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 869.144,
+      "own_first_shadow_turn": 4,
+      "decisions": 96,
+      "changed": 0
+    },
+    {
+      "episode_id": "92698721",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 935.5164,
+      "own_first_shadow_turn": 4,
+      "decisions": 66,
+      "changed": 0
+    },
+    {
+      "episode_id": "92698755",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 985.3695,
+      "own_first_shadow_turn": 3,
+      "decisions": 89,
+      "changed": 0
+    },
+    {
+      "episode_id": "92697765",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 941.3968,
+      "own_first_shadow_turn": 4,
+      "decisions": 111,
+      "changed": 0
+    },
+    {
+      "episode_id": "92699679",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 936.7265,
+      "own_first_shadow_turn": 2,
+      "decisions": 100,
+      "changed": 0
+    },
+    {
+      "episode_id": "92700621",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lucario",
+      "opponent_rating": 929.2763,
+      "own_first_shadow_turn": 3,
+      "decisions": 106,
+      "changed": 0
+    },
+    {
+      "episode_id": "92701678",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Archaludon",
+      "opponent_rating": 701.6773,
+      "own_first_shadow_turn": 3,
+      "decisions": 108,
+      "changed": 0
+    },
+    {
+      "episode_id": "92702513",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "other: Hydrapple ex",
+      "opponent_rating": 929.4623,
+      "own_first_shadow_turn": 2,
+      "decisions": 94,
+      "changed": 0
+    },
+    {
+      "episode_id": "92703471",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "False",
+      "family": "Ogerpon",
+      "opponent_rating": 958.606,
+      "own_first_shadow_turn": 4,
+      "decisions": 87,
+      "changed": 0
+    },
+    {
+      "episode_id": "92706281",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 962.1001,
+      "own_first_shadow_turn": 2,
+      "decisions": 47,
+      "changed": 0
+    },
+    {
+      "episode_id": "92704403",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 869.1837,
+      "own_first_shadow_turn": 4,
+      "decisions": 102,
+      "changed": 0
+    },
+    {
+      "episode_id": "92705338",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 840.4029,
+      "own_first_shadow_turn": 3,
+      "decisions": 94,
+      "changed": 0
+    },
+    {
+      "episode_id": "92707228",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Dipplin",
+      "opponent_rating": 1019.4073,
+      "own_first_shadow_turn": 3,
+      "decisions": 87,
+      "changed": 0
+    },
+    {
+      "episode_id": "92710059",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Dipplin",
+      "opponent_rating": 1018.0423,
+      "own_first_shadow_turn": 2,
+      "decisions": 57,
+      "changed": 0
+    },
+    {
+      "episode_id": "92702559",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 958.4412,
+      "own_first_shadow_turn": 2,
+      "decisions": 150,
+      "changed": 0
+    },
+    {
+      "episode_id": "92707230",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 896.8983,
+      "own_first_shadow_turn": 5,
+      "decisions": 98,
+      "changed": 0
+    },
+    {
+      "episode_id": "92708171",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Ogerpon",
+      "opponent_rating": 971.9079,
+      "own_first_shadow_turn": 3,
+      "decisions": 82,
+      "changed": 0
+    },
+    {
+      "episode_id": "92707249",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 977.5818,
+      "own_first_shadow_turn": 3,
+      "decisions": 123,
+      "changed": 0
+    },
+    {
+      "episode_id": "92709113",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 929.56,
+      "own_first_shadow_turn": 3,
+      "decisions": 98,
+      "changed": 0
+    },
+    {
+      "episode_id": "92711884",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 953.7054,
+      "own_first_shadow_turn": 3,
+      "decisions": 68,
+      "changed": 0
+    },
+    {
+      "episode_id": "92710066",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 1008.7302,
+      "own_first_shadow_turn": 3,
+      "decisions": 84,
+      "changed": 0
+    },
+    {
+      "episode_id": "92710994",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 909.8915,
+      "own_first_shadow_turn": 3,
+      "decisions": 102,
+      "changed": 0
+    },
+    {
+      "episode_id": "92716602",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 641.6728,
+      "own_first_shadow_turn": 8,
+      "decisions": 89,
+      "changed": 0
+    },
+    {
+      "episode_id": "92713807",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 978.4451,
+      "own_first_shadow_turn": 3,
+      "decisions": 103,
+      "changed": 0
+    },
+    {
+      "episode_id": "92714722",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 963.445,
+      "own_first_shadow_turn": 3,
+      "decisions": 90,
+      "changed": 0
+    },
+    {
+      "episode_id": "92712875",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 966.4511,
+      "own_first_shadow_turn": 5,
+      "decisions": 124,
+      "changed": 0
+    },
+    {
+      "episode_id": "92715554",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Alakazam",
+      "opponent_rating": 944.8493,
+      "own_first_shadow_turn": 2,
+      "decisions": 99,
+      "changed": 0
+    },
+    {
+      "episode_id": "92733385",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 922.9541,
+      "own_first_shadow_turn": 3,
+      "decisions": 72,
+      "changed": 0
+    },
+    {
+      "episode_id": "92760160",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "other: Team Rocket's Mewtwo ex",
+      "opponent_rating": 930.9674,
+      "own_first_shadow_turn": 2,
+      "decisions": 49,
+      "changed": 0
+    },
+    {
+      "episode_id": "92741712",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "other: Brambleghast",
+      "opponent_rating": 864.0756,
+      "own_first_shadow_turn": 4,
+      "decisions": 72,
+      "changed": 0
+    },
+    {
+      "episode_id": "92717397",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Dragapult",
+      "opponent_rating": 896.1862,
+      "own_first_shadow_turn": 4,
+      "decisions": 103,
+      "changed": 0
+    },
+    {
+      "episode_id": "92744490",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "other: Fezandipiti ex",
+      "opponent_rating": 696.1427,
+      "own_first_shadow_turn": 4,
+      "decisions": 67,
+      "changed": 0
+    },
+    {
+      "episode_id": "92725978",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 1020.6687,
+      "own_first_shadow_turn": 5,
+      "decisions": 127,
+      "changed": 0
+    },
+    {
+      "episode_id": "92742303",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 964.9852,
+      "own_first_shadow_turn": 3,
+      "decisions": 88,
+      "changed": 0
+    },
+    {
+      "episode_id": "92774872",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "False",
+      "family": "Alakazam",
+      "opponent_rating": 966.1039,
+      "own_first_shadow_turn": 2,
+      "decisions": 74,
+      "changed": 0
+    },
+    {
+      "episode_id": "92751777",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 992.3445,
+      "own_first_shadow_turn": 2,
+      "decisions": 137,
+      "changed": 0
+    },
+    {
+      "episode_id": "92768436",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 970.3624,
+      "own_first_shadow_turn": 7,
+      "decisions": 80,
+      "changed": 0
+    },
+    {
+      "episode_id": "92781439",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 917.2434,
+      "own_first_shadow_turn": 2,
+      "decisions": 88,
+      "changed": 0
+    },
+    {
+      "episode_id": "92816675",
+      "version": "v22_d",
+      "won": false,
+      "went_first": "True",
+      "family": "Mega Lopunny / Froslass",
+      "opponent_rating": 948.9498,
+      "own_first_shadow_turn": 3,
+      "decisions": 63,
+      "changed": 0
+    },
+    {
+      "episode_id": "92791598",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "True",
+      "family": "Grimmsnarl (mirror)",
+      "opponent_rating": 908.4185,
+      "own_first_shadow_turn": 3,
+      "decisions": 120,
+      "changed": 0
+    },
+    {
+      "episode_id": "92815623",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Mega Lucario",
+      "opponent_rating": 948.4717,
+      "own_first_shadow_turn": 3,
+      "decisions": 109,
+      "changed": 0
+    },
+    {
+      "episode_id": "92804419",
+      "version": "v22_d",
+      "won": true,
+      "went_first": "False",
+      "family": "Kangaskhan / Crustle",
+      "opponent_rating": 978.544,
+      "own_first_shadow_turn": 2,
+      "decisions": 146,
+      "changed": 0
+    }
+  ],
+  "diffs": {
+    "92619385": [
+      {
+        "step": 145,
+        "turn": 10,
+        "context": 0,
+        "v22": 0,
+        "v23": 1,
+        "played": 0
+      }
+    ],
+    "92644773": [
+      {
+        "step": 36,
+        "turn": 3,
+        "context": 0,
+        "v22": 0,
+        "v23": 2,
+        "played": 0
+      }
+    ],
+    "92656803": [
+      {
+        "step": 46,
+        "turn": 4,
+        "context": 0,
+        "v22": 6,
+        "v23": 5,
+        "played": 6
+      }
+    ],
+    "92662264": [
+      {
+        "step": 34,
+        "turn": 3,
+        "context": 0,
+        "v22": 0,
+        "v23": 1,
+        "played": 0
+      }
+    ],
+    "92666088": [
+      {
+        "step": 26,
+        "turn": 3,
+        "context": 0,
+        "v22": 1,
+        "v23": 6,
+        "played": 1
+      }
+    ],
+    "92667978": [
+      {
+        "step": 239,
+        "turn": 14,
+        "context": 0,
+        "v22": 1,
+        "v23": 0,
+        "played": 1
+      }
+    ],
+    "92681128": [
+      {
+        "step": 58,
+        "turn": 5,
+        "context": 0,
+        "v22": 0,
+        "v23": 2,
+        "played": 0
+      }
+    ],
+    "92691061": [
+      {
+        "step": 14,
+        "turn": 5,
+        "context": 0,
+        "v22": 1,
+        "v23": 3,
+        "played": 1
+      }
+    ],
+    "92690307": [
+      {
+        "step": 87,
+        "turn": 8,
+        "context": 0,
+        "v22": 2,
+        "v23": 0,
+        "played": 2
+      },
+      {
+        "step": 116,
+        "turn": 10,
+        "context": 0,
+        "v22": 3,
+        "v23": 4,
+        "played": 3
+      }
+    ],
+    "92692156": [
+      {
+        "step": 173,
+        "turn": 12,
+        "context": 0,
+        "v22": 0,
+        "v23": 2,
+        "played": 0
+      }
+    ],
+    "92699646": [
+      {
+        "step": 71,
+        "turn": 5,
+        "context": 0,
+        "v22": 0,
+        "v23": 1,
+        "played": 0
+      }
+    ],
+    "92717430": [
+      {
+        "step": 22,
+        "turn": 4,
+        "context": 0,
+        "v22": 1,
+        "v23": 0,
+        "played": 1
+      }
+    ],
+    "92716501": [
+      {
+        "step": 183,
+        "turn": 13,
+        "context": 0,
+        "v22": 1,
+        "v23": 0,
+        "played": 1
+      }
+    ],
+    "92720231": [
+      {
+        "step": 107,
+        "turn": 8,
+        "context": 0,
+        "v22": 2,
+        "v23": 0,
+        "played": 2
+      }
+    ],
+    "92746237": [
+      {
+        "step": 184,
+        "turn": 12,
+        "context": 0,
+        "v22": 0,
+        "v23": 1,
+        "played": 0
+      }
+    ],
+    "92691101": [
+      {
+        "step": 41,
+        "turn": 3,
+        "context": 0,
+        "v22": 0,
+        "v23": 2,
+        "played": 0
+      }
+    ],
+    "92793178": [
+      {
+        "step": 32,
+        "turn": 3,
+        "context": 0,
+        "v22": 0,
+        "v23": 1,
+        "played": 0
+      }
+    ]
+  }
+}
