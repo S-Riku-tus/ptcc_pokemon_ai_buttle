@@ -1,0 +1,129 @@
+{
+  "run": "data\\runs\\grimmsnarl\\20260814_grimmsnarl_ml_v22_b_sub55483874",
+  "games": 10,
+  "elapsed_seconds": 128.4,
+  "best_match": "agents\\grimmsnarl\\grimmsnarl_ml_v22",
+  "margin": 0.0662,
+  "results": [
+    {
+      "agent": "agents\\grimmsnarl\\grimmsnarl_ml_v22",
+      "games": 10,
+      "decisions": 770,
+      "matched": 770,
+      "agreement": 1.0
+    },
+    {
+      "agent": "agents\\grimmsnarl\\grimmsnarl_ml_v23",
+      "games": 10,
+      "decisions": 770,
+      "matched": 719,
+      "agreement": 0.9338
+    }
+  ],
+  "per_game": {
+    "agents\\grimmsnarl\\grimmsnarl_ml_v22": [
+      {
+        "episode_id": "92656510",
+        "decisions": 62,
+        "matched": 62
+      },
+      {
+        "episode_id": "92656601",
+        "decisions": 101,
+        "matched": 101
+      },
+      {
+        "episode_id": "92657522",
+        "decisions": 32,
+        "matched": 32
+      },
+      {
+        "episode_id": "92658471",
+        "decisions": 67,
+        "matched": 67
+      },
+      {
+        "episode_id": "92659405",
+        "decisions": 54,
+        "matched": 54
+      },
+      {
+        "episode_id": "92660365",
+        "decisions": 95,
+        "matched": 95
+      },
+      {
+        "episode_id": "92661317",
+        "decisions": 104,
+        "matched": 104
+      },
+      {
+        "episode_id": "92662264",
+        "decisions": 62,
+        "matched": 62
+      },
+      {
+        "episode_id": "92663236",
+        "decisions": 68,
+        "matched": 68
+      },
+      {
+        "episode_id": "92664175",
+        "decisions": 125,
+        "matched": 125
+      }
+    ],
+    "agents\\grimmsnarl\\grimmsnarl_ml_v23": [
+      {
+        "episode_id": "92656510",
+        "decisions": 62,
+        "matched": 55
+      },
+      {
+        "episode_id": "92656601",
+        "decisions": 101,
+        "matched": 95
+      },
+      {
+        "episode_id": "92657522",
+        "decisions": 32,
+        "matched": 31
+      },
+      {
+        "episode_id": "92658471",
+        "decisions": 67,
+        "matched": 59
+      },
+      {
+        "episode_id": "92659405",
+        "decisions": 54,
+        "matched": 49
+      },
+      {
+        "episode_id": "92660365",
+        "decisions": 95,
+        "matched": 86
+      },
+      {
+        "episode_id": "92661317",
+        "decisions": 104,
+        "matched": 102
+      },
+      {
+        "episode_id": "92662264",
+        "decisions": 62,
+        "matched": 58
+      },
+      {
+        "episode_id": "92663236",
+        "decisions": 68,
+        "matched": 62
+      },
+      {
+        "episode_id": "92664175",
+        "decisions": 125,
+        "matched": 122
+      }
+    ]
+  }
+}

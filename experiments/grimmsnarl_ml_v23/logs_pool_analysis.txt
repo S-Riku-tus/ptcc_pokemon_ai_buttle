@@ -1,0 +1,1438 @@
+{
+  "n_v22": 194,
+  "n_v23": 12,
+  "same_code_runs": {
+    "per_run": {
+      "v22_a": {
+        "games": 46,
+        "wins": 33,
+        "losses": 13,
+        "win_rate": 0.7174,
+        "wilson95": [
+          0.5745,
+          0.8268
+        ],
+        "opp_mean": 836.4
+      },
+      "v22_b": {
+        "games": 39,
+        "wins": 27,
+        "losses": 12,
+        "win_rate": 0.6923,
+        "wilson95": [
+          0.5358,
+          0.8143
+        ],
+        "opp_mean": 884.8
+      },
+      "v22_c": {
+        "games": 58,
+        "wins": 31,
+        "losses": 27,
+        "win_rate": 0.5345,
+        "wilson95": [
+          0.408,
+          0.6567
+        ],
+        "opp_mean": 1000.1
+      },
+      "v22_d": {
+        "games": 51,
+        "wins": 30,
+        "losses": 21,
+        "win_rate": 0.5882,
+        "wilson95": [
+          0.4517,
+          0.7125
+        ],
+        "opp_mean": 912.4
+      }
+    },
+    "pooled": {
+      "games": 194,
+      "wins": 121,
+      "losses": 73,
+      "win_rate": 0.6237,
+      "wilson95": [
+        0.5538,
+        0.6889
+      ],
+      "opp_mean": 915.2
+    },
+    "controlled_fit": {
+      "n": 190,
+      "wins": 120,
+      "terms": {
+        "opp_rating/400": {
+          "coef": -1.8961,
+          "elo": -329.4,
+          "se": 0.6271,
+          "z": -3.02,
+          "p": 0.0025
+        },
+        "went_first": {
+          "coef": -0.1396,
+          "elo": -24.2,
+          "se": 0.3197,
+          "z": -0.44,
+          "p": 0.6623
+        },
+        "is_v22_b": {
+          "coef": 0.0893,
+          "elo": 15.5,
+          "se": 0.514,
+          "z": 0.17,
+          "p": 0.8621
+        },
+        "is_v22_c": {
+          "coef": -0.1959,
+          "elo": -34.0,
+          "se": 0.4793,
+          "z": -0.41,
+          "p": 0.6827
+        },
+        "is_v22_d": {
+          "coef": -0.442,
+          "elo": -76.8,
+          "se": 0.4605,
+          "z": -0.96,
+          "p": 0.3371
+        }
+      }
+    },
+    "note": "all four runs are the same build; every is_* term is a zero effect by construction, so its Elo is the floor."
+  },
+  "by_opponent_band": {
+    "<700": {
+      "games": 19,
+      "wins": 18,
+      "losses": 1,
+      "win_rate": 0.9474,
+      "wilson95": [
+        0.7536,
+        0.9906
+      ],
+      "opp_mean": 565.7
+    },
+    "<800": {
+      "games": 14,
+      "wins": 10,
+      "losses": 4,
+      "win_rate": 0.7143,
+      "wilson95": [
+        0.4535,
+        0.8828
+      ],
+      "opp_mean": 748.8
+    },
+    "<900": {
+      "games": 25,
+      "wins": 18,
+      "losses": 7,
+      "win_rate": 0.72,
+      "wilson95": [
+        0.5242,
+        0.8572
+      ],
+      "opp_mean": 862.6
+    },
+    "<1000": {
+      "games": 78,
+      "wins": 47,
+      "losses": 31,
+      "win_rate": 0.6026,
+      "wilson95": [
+        0.4916,
+        0.7039
+      ],
+      "opp_mean": 954.6
+    },
+    "<1100": {
+      "games": 47,
+      "wins": 25,
+      "losses": 22,
+      "win_rate": 0.5319,
+      "wilson95": [
+        0.3923,
+        0.6667
+      ],
+      "opp_mean": 1036.6
+    },
+    ">=1100": {
+      "games": 7,
+      "wins": 2,
+      "losses": 5,
+      "win_rate": 0.2857,
+      "wilson95": [
+        0.0822,
+        0.6411
+      ],
+      "opp_mean": 1130.8
+    },
+    "unknown": {
+      "games": 4,
+      "wins": 1,
+      "losses": 3,
+      "win_rate": 0.25,
+      "wilson95": [
+        0.0456,
+        0.6994
+      ],
+      "opp_mean": null
+    }
+  },
+  "by_family": {
+    "Grimmsnarl (mirror)": {
+      "games": 56,
+      "wins": 30,
+      "losses": 26,
+      "win_rate": 0.5357,
+      "wilson95": [
+        0.407,
+        0.6598
+      ],
+      "opp_mean": 935.9
+    },
+    "Alakazam": {
+      "games": 41,
+      "wins": 30,
+      "losses": 11,
+      "win_rate": 0.7317,
+      "wilson95": [
+        0.5807,
+        0.8431
+      ],
+      "opp_mean": 897.6
+    },
+    "Dragapult": {
+      "games": 22,
+      "wins": 14,
+      "losses": 8,
+      "win_rate": 0.6364,
+      "wilson95": [
+        0.4295,
+        0.8027
+      ],
+      "opp_mean": 959.1
+    },
+    "Mega Lopunny / Froslass": {
+      "games": 19,
+      "wins": 10,
+      "losses": 9,
+      "win_rate": 0.5263,
+      "wilson95": [
+        0.3171,
+        0.7267
+      ],
+      "opp_mean": 982.3
+    },
+    "Kangaskhan / Crustle": {
+      "games": 15,
+      "wins": 11,
+      "losses": 4,
+      "win_rate": 0.7333,
+      "wilson95": [
+        0.4805,
+        0.891
+      ],
+      "opp_mean": 975.4
+    },
+    "Archaludon": {
+      "games": 9,
+      "wins": 6,
+      "losses": 3,
+      "win_rate": 0.6667,
+      "wilson95": [
+        0.3542,
+        0.8794
+      ],
+      "opp_mean": 714.7
+    },
+    "Mega Lucario": {
+      "games": 8,
+      "wins": 7,
+      "losses": 1,
+      "win_rate": 0.875,
+      "wilson95": [
+        0.5291,
+        0.9776
+      ],
+      "opp_mean": 774.8
+    },
+    "Ogerpon": {
+      "games": 7,
+      "wins": 1,
+      "losses": 6,
+      "win_rate": 0.1429,
+      "wilson95": [
+        0.0257,
+        0.5131
+      ],
+      "opp_mean": 990.7
+    },
+    "Dipplin": {
+      "games": 4,
+      "wins": 3,
+      "losses": 1,
+      "win_rate": 0.75,
+      "wilson95": [
+        0.3006,
+        0.9544
+      ],
+      "opp_mean": 1008.3
+    },
+    "other: Hydrapple ex": {
+      "games": 3,
+      "wins": 2,
+      "losses": 1,
+      "win_rate": 0.6667,
+      "wilson95": [
+        0.2077,
+        0.9385
+      ],
+      "opp_mean": 1021.4
+    },
+    "other: Team Rocket's Mewtwo ex": {
+      "games": 2,
+      "wins": 1,
+      "losses": 1,
+      "win_rate": 0.5,
+      "wilson95": [
+        0.0945,
+        0.9055
+      ],
+      "opp_mean": 767.2
+    },
+    "other: Fezandipiti ex": {
+      "games": 2,
+      "wins": 2,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.3424,
+        1.0
+      ],
+      "opp_mean": 857.6
+    },
+    "other: Mega Abomasnow ex": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "opp_mean": 287.3
+    },
+    "other: Cynthia's Garchomp ex": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "opp_mean": 600.0
+    },
+    "other: Ethan's Typhlosion": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "opp_mean": 587.6
+    },
+    "other: Arboliva ex": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "opp_mean": 1058.3
+    },
+    "other: Dudunsparce": {
+      "games": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.2065,
+        1.0
+      ],
+      "opp_mean": 714.7
+    },
+    "other: Brambleghast": {
+      "games": 1,
+      "wins": 0,
+      "losses": 1,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.7935
+      ],
+      "opp_mean": 864.1
+    }
+  },
+  "deficit_ranking": [
+    {
+      "family": "Grimmsnarl (mirror)",
+      "games": 56,
+      "win_rate": 0.5357,
+      "games_lost_vs_pool": 4.93
+    },
+    {
+      "family": "Ogerpon",
+      "games": 7,
+      "win_rate": 0.1429,
+      "games_lost_vs_pool": 3.37
+    },
+    {
+      "family": "Mega Lopunny / Froslass",
+      "games": 19,
+      "win_rate": 0.5263,
+      "games_lost_vs_pool": 1.85
+    },
+    {
+      "family": "other: Arboliva ex",
+      "games": 1,
+      "win_rate": 0.0,
+      "games_lost_vs_pool": 0.62
+    },
+    {
+      "family": "other: Brambleghast",
+      "games": 1,
+      "win_rate": 0.0,
+      "games_lost_vs_pool": 0.62
+    },
+    {
+      "family": "other: Team Rocket's Mewtwo ex",
+      "games": 2,
+      "win_rate": 0.5,
+      "games_lost_vs_pool": 0.25
+    },
+    {
+      "family": "other: Hydrapple ex",
+      "games": 3,
+      "win_rate": 0.6667,
+      "games_lost_vs_pool": -0.13
+    },
+    {
+      "family": "Dragapult",
+      "games": 22,
+      "win_rate": 0.6364,
+      "games_lost_vs_pool": -0.28
+    },
+    {
+      "family": "other: Mega Abomasnow ex",
+      "games": 1,
+      "win_rate": 1.0,
+      "games_lost_vs_pool": -0.38
+    },
+    {
+      "family": "other: Cynthia's Garchomp ex",
+      "games": 1,
+      "win_rate": 1.0,
+      "games_lost_vs_pool": -0.38
+    },
+    {
+      "family": "other: Ethan's Typhlosion",
+      "games": 1,
+      "win_rate": 1.0,
+      "games_lost_vs_pool": -0.38
+    },
+    {
+      "family": "other: Dudunsparce",
+      "games": 1,
+      "win_rate": 1.0,
+      "games_lost_vs_pool": -0.38
+    },
+    {
+      "family": "Archaludon",
+      "games": 9,
+      "win_rate": 0.6667,
+      "games_lost_vs_pool": -0.39
+    },
+    {
+      "family": "Dipplin",
+      "games": 4,
+      "win_rate": 0.75,
+      "games_lost_vs_pool": -0.51
+    },
+    {
+      "family": "other: Fezandipiti ex",
+      "games": 2,
+      "win_rate": 1.0,
+      "games_lost_vs_pool": -0.75
+    },
+    {
+      "family": "Kangaskhan / Crustle",
+      "games": 15,
+      "win_rate": 0.7333,
+      "games_lost_vs_pool": -1.64
+    },
+    {
+      "family": "Mega Lucario",
+      "games": 8,
+      "win_rate": 0.875,
+      "games_lost_vs_pool": -2.01
+    },
+    {
+      "family": "Alakazam",
+      "games": 41,
+      "win_rate": 0.7317,
+      "games_lost_vs_pool": -4.43
+    }
+  ],
+  "turn_order": {
+    "first": {
+      "games": 104,
+      "wins": 63,
+      "losses": 41,
+      "win_rate": 0.6058,
+      "wilson95": [
+        0.5097,
+        0.6943
+      ],
+      "opp_mean": 911.4
+    },
+    "second": {
+      "games": 90,
+      "wins": 58,
+      "losses": 32,
+      "win_rate": 0.6444,
+      "wilson95": [
+        0.5415,
+        0.7356
+      ],
+      "opp_mean": 919.4
+    },
+    "controlled": {
+      "n": 190,
+      "wins": 120,
+      "terms": {
+        "opp_rating/400": {
+          "coef": -1.948,
+          "elo": -338.4,
+          "se": 0.5636,
+          "z": -3.46,
+          "p": 0.0005
+        },
+        "went_first": {
+          "coef": -0.1682,
+          "elo": -29.2,
+          "se": 0.3143,
+          "z": -0.54,
+          "p": 0.5926
+        }
+      }
+    }
+  },
+  "turn_order_by_family": {
+    "Grimmsnarl (mirror)": {
+      "first": {
+        "games": 29,
+        "wins": 14,
+        "losses": 15,
+        "win_rate": 0.4828,
+        "wilson95": [
+          0.3139,
+          0.6557
+        ],
+        "opp_mean": 942.8
+      },
+      "second": {
+        "games": 27,
+        "wins": 16,
+        "losses": 11,
+        "win_rate": 0.5926,
+        "wilson95": [
+          0.4073,
+          0.7549
+        ],
+        "opp_mean": 929.6
+      }
+    },
+    "Alakazam": {
+      "first": {
+        "games": 20,
+        "wins": 16,
+        "losses": 4,
+        "win_rate": 0.8,
+        "wilson95": [
+          0.584,
+          0.9193
+        ],
+        "opp_mean": 878.8
+      },
+      "second": {
+        "games": 21,
+        "wins": 14,
+        "losses": 7,
+        "win_rate": 0.6667,
+        "wilson95": [
+          0.4537,
+          0.8281
+        ],
+        "opp_mean": 915.5
+      }
+    },
+    "Dragapult": {
+      "first": {
+        "games": 14,
+        "wins": 8,
+        "losses": 6,
+        "win_rate": 0.5714,
+        "wilson95": [
+          0.3259,
+          0.7862
+        ],
+        "opp_mean": 935.1
+      },
+      "second": {
+        "games": 8,
+        "wins": 6,
+        "losses": 2,
+        "win_rate": 0.75,
+        "wilson95": [
+          0.4093,
+          0.9285
+        ],
+        "opp_mean": 1001.3
+      }
+    },
+    "Mega Lopunny / Froslass": {
+      "first": {
+        "games": 13,
+        "wins": 6,
+        "losses": 7,
+        "win_rate": 0.4615,
+        "wilson95": [
+          0.2321,
+          0.7086
+        ],
+        "opp_mean": 996.3
+      },
+      "second": {
+        "games": 6,
+        "wins": 4,
+        "losses": 2,
+        "win_rate": 0.6667,
+        "wilson95": [
+          0.3,
+          0.9032
+        ],
+        "opp_mean": 952.0
+      }
+    },
+    "Kangaskhan / Crustle": {
+      "first": {
+        "games": 3,
+        "wins": 2,
+        "losses": 1,
+        "win_rate": 0.6667,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ],
+        "opp_mean": 981.0
+      },
+      "second": {
+        "games": 12,
+        "wins": 9,
+        "losses": 3,
+        "win_rate": 0.75,
+        "wilson95": [
+          0.4677,
+          0.9111
+        ],
+        "opp_mean": 974.1
+      }
+    },
+    "Archaludon": {
+      "first": {
+        "games": 8,
+        "wins": 5,
+        "losses": 3,
+        "win_rate": 0.625,
+        "wilson95": [
+          0.3057,
+          0.8632
+        ],
+        "opp_mean": 743.7
+      },
+      "second": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "wilson95": [
+          0.2065,
+          1.0
+        ],
+        "opp_mean": 482.8
+      }
+    }
+  },
+  "levers": {
+    "own_first_shadow_turn": {
+      "raw": {
+        ">=4": {
+          "games": 42,
+          "wins": 26,
+          "losses": 16,
+          "win_rate": 0.619,
+          "wilson95": [
+            0.4681,
+            0.75
+          ],
+          "opp_mean": 931.6
+        },
+        "<=2": {
+          "games": 64,
+          "wins": 43,
+          "losses": 21,
+          "win_rate": 0.6719,
+          "wilson95": [
+            0.55,
+            0.7743
+          ],
+          "opp_mean": 927.7
+        },
+        "3": {
+          "games": 84,
+          "wins": 52,
+          "losses": 32,
+          "win_rate": 0.619,
+          "wilson95": [
+            0.5122,
+            0.7155
+          ],
+          "opp_mean": 890.9
+        },
+        "missing": {
+          "games": 4,
+          "wins": 0,
+          "losses": 4,
+          "win_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.4899
+          ],
+          "opp_mean": 1059.6
+        }
+      },
+      "controlled": {
+        "coef": -0.1429,
+        "elo": -24.8,
+        "se": 0.1509,
+        "z": -0.95,
+        "p": 0.3436
+      }
+    },
+    "own_first_ready_turn": {
+      "raw": {
+        ">=4": {
+          "games": 39,
+          "wins": 24,
+          "losses": 15,
+          "win_rate": 0.6154,
+          "wilson95": [
+            0.459,
+            0.7511
+          ],
+          "opp_mean": 942.7
+        },
+        "<=2": {
+          "games": 69,
+          "wins": 48,
+          "losses": 21,
+          "win_rate": 0.6957,
+          "wilson95": [
+            0.5792,
+            0.7915
+          ],
+          "opp_mean": 919.3
+        },
+        "3": {
+          "games": 82,
+          "wins": 49,
+          "losses": 33,
+          "win_rate": 0.5976,
+          "wilson95": [
+            0.4894,
+            0.697
+          ],
+          "opp_mean": 892.1
+        },
+        "missing": {
+          "games": 4,
+          "wins": 0,
+          "losses": 4,
+          "win_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.4899
+          ],
+          "opp_mean": 1059.6
+        }
+      },
+      "controlled": {
+        "coef": -0.1987,
+        "elo": -34.5,
+        "se": 0.1519,
+        "z": -1.31,
+        "p": 0.191
+      }
+    },
+    "shadow_attacks": {
+      "raw": {
+        ">=4": {
+          "games": 101,
+          "wins": 74,
+          "losses": 27,
+          "win_rate": 0.7327,
+          "wilson95": [
+            0.639,
+            0.8093
+          ],
+          "opp_mean": 916.3
+        },
+        "<3": {
+          "games": 46,
+          "wins": 19,
+          "losses": 27,
+          "win_rate": 0.413,
+          "wilson95": [
+            0.2829,
+            0.5566
+          ],
+          "opp_mean": 904.2
+        },
+        "3-3": {
+          "games": 47,
+          "wins": 28,
+          "losses": 19,
+          "win_rate": 0.5957,
+          "wilson95": [
+            0.4534,
+            0.7236
+          ],
+          "opp_mean": 923.6
+        }
+      },
+      "controlled": {
+        "coef": 0.469,
+        "elo": 81.5,
+        "se": 0.1247,
+        "z": 3.76,
+        "p": 0.0002
+      }
+    },
+    "attacks": {
+      "raw": {
+        "4-4": {
+          "games": 61,
+          "wins": 38,
+          "losses": 23,
+          "win_rate": 0.623,
+          "wilson95": [
+            0.4975,
+            0.7339
+          ],
+          "opp_mean": 910.7
+        },
+        "<4": {
+          "games": 74,
+          "wins": 37,
+          "losses": 37,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.3889,
+            0.6111
+          ],
+          "opp_mean": 907.7
+        },
+        ">=5": {
+          "games": 59,
+          "wins": 46,
+          "losses": 13,
+          "win_rate": 0.7797,
+          "wilson95": [
+            0.6587,
+            0.8665
+          ],
+          "opp_mean": 928.9
+        }
+      },
+      "controlled": {
+        "coef": 0.3641,
+        "elo": 63.3,
+        "se": 0.1179,
+        "z": 3.09,
+        "p": 0.002
+      }
+    },
+    "grim_evolutions": {
+      "raw": {
+        ">=2": {
+          "games": 143,
+          "wins": 89,
+          "losses": 54,
+          "win_rate": 0.6224,
+          "wilson95": [
+            0.5407,
+            0.6977
+          ],
+          "opp_mean": 934.0
+        },
+        "1-1": {
+          "games": 47,
+          "wins": 32,
+          "losses": 15,
+          "win_rate": 0.6809,
+          "wilson95": [
+            0.5383,
+            0.796
+          ],
+          "opp_mean": 845.4
+        },
+        "<1": {
+          "games": 4,
+          "wins": 0,
+          "losses": 4,
+          "win_rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.4899
+          ],
+          "opp_mean": 1059.6
+        }
+      },
+      "controlled": {
+        "coef": 0.2721,
+        "elo": 47.3,
+        "se": 0.2014,
+        "z": 1.35,
+        "p": 0.1767
+      }
+    },
+    "rare_candies": {
+      "raw": {
+        "<1": {
+          "games": 61,
+          "wins": 34,
+          "losses": 27,
+          "win_rate": 0.5574,
+          "wilson95": [
+            0.433,
+            0.6749
+          ],
+          "opp_mean": 911.2
+        },
+        "1-1": {
+          "games": 102,
+          "wins": 66,
+          "losses": 36,
+          "win_rate": 0.6471,
+          "wilson95": [
+            0.5505,
+            0.7329
+          ],
+          "opp_mean": 914.7
+        },
+        ">=2": {
+          "games": 31,
+          "wins": 21,
+          "losses": 10,
+          "win_rate": 0.6774,
+          "wilson95": [
+            0.5014,
+            0.8143
+          ],
+          "opp_mean": 924.7
+        }
+      },
+      "controlled": {
+        "coef": 0.2672,
+        "elo": 46.4,
+        "se": 0.2136,
+        "z": 1.25,
+        "p": 0.211
+      }
+    },
+    "adrena_brains": {
+      "raw": {
+        ">=3": {
+          "games": 158,
+          "wins": 108,
+          "losses": 50,
+          "win_rate": 0.6835,
+          "wilson95": [
+            0.6074,
+            0.751
+          ],
+          "opp_mean": 920.1
+        },
+        "<2": {
+          "games": 25,
+          "wins": 11,
+          "losses": 14,
+          "win_rate": 0.44,
+          "wilson95": [
+            0.2667,
+            0.6293
+          ],
+          "opp_mean": 891.2
+        },
+        "2-2": {
+          "games": 11,
+          "wins": 2,
+          "losses": 9,
+          "win_rate": 0.1818,
+          "wilson95": [
+            0.0514,
+            0.477
+          ],
+          "opp_mean": 901.5
+        }
+      },
+      "controlled": {
+        "coef": 0.3089,
+        "elo": 53.7,
+        "se": 0.0601,
+        "z": 5.14,
+        "p": 0.0
+      }
+    },
+    "stamps": {
+      "raw": {
+        "1-1": {
+          "games": 68,
+          "wins": 41,
+          "losses": 27,
+          "win_rate": 0.6029,
+          "wilson95": [
+            0.4842,
+            0.7107
+          ],
+          "opp_mean": 908.8
+        },
+        "<1": {
+          "games": 45,
+          "wins": 29,
+          "losses": 16,
+          "win_rate": 0.6444,
+          "wilson95": [
+            0.4984,
+            0.7678
+          ],
+          "opp_mean": 870.0
+        },
+        ">=2": {
+          "games": 81,
+          "wins": 51,
+          "losses": 30,
+          "win_rate": 0.6296,
+          "wilson95": [
+            0.5208,
+            0.7267
+          ],
+          "opp_mean": 945.9
+        }
+      },
+      "controlled": {
+        "coef": 0.1157,
+        "elo": 20.1,
+        "se": 0.1985,
+        "z": 0.58,
+        "p": 0.5601
+      }
+    },
+    "bosses": {
+      "raw": {
+        "<1": {
+          "games": 77,
+          "wins": 49,
+          "losses": 28,
+          "win_rate": 0.6364,
+          "wilson95": [
+            0.5248,
+            0.7349
+          ],
+          "opp_mean": 902.0
+        },
+        "1-1": {
+          "games": 86,
+          "wins": 52,
+          "losses": 34,
+          "win_rate": 0.6047,
+          "wilson95": [
+            0.499,
+            0.7014
+          ],
+          "opp_mean": 909.6
+        },
+        ">=2": {
+          "games": 31,
+          "wins": 20,
+          "losses": 11,
+          "win_rate": 0.6452,
+          "wilson95": [
+            0.4695,
+            0.7888
+          ],
+          "opp_mean": 966.4
+        }
+      },
+      "controlled": {
+        "coef": 0.1602,
+        "elo": 27.8,
+        "se": 0.2143,
+        "z": 0.75,
+        "p": 0.4546
+      }
+    },
+    "froslass_evolves": {
+      "raw": {
+        "1-1": {
+          "games": 23,
+          "wins": 8,
+          "losses": 15,
+          "win_rate": 0.3478,
+          "wilson95": [
+            0.1881,
+            0.5511
+          ],
+          "opp_mean": 876.7
+        },
+        ">=2": {
+          "games": 112,
+          "wins": 73,
+          "losses": 39,
+          "win_rate": 0.6518,
+          "wilson95": [
+            0.5599,
+            0.7337
+          ],
+          "opp_mean": 911.9
+        },
+        "<1": {
+          "games": 59,
+          "wins": 40,
+          "losses": 19,
+          "win_rate": 0.678,
+          "wilson95": [
+            0.5511,
+            0.7831
+          ],
+          "opp_mean": 935.5
+        }
+      },
+      "controlled": {
+        "coef": 0.0561,
+        "elo": 9.7,
+        "se": 0.0638,
+        "z": 0.88,
+        "p": 0.3791
+      }
+    },
+    "our_turns": {
+      "raw": {
+        ">=7": {
+          "games": 66,
+          "wins": 48,
+          "losses": 18,
+          "win_rate": 0.7273,
+          "wilson95": [
+            0.6096,
+            0.82
+          ],
+          "opp_mean": 935.4
+        },
+        "<6": {
+          "games": 58,
+          "wins": 28,
+          "losses": 30,
+          "win_rate": 0.4828,
+          "wilson95": [
+            0.3593,
+            0.6084
+          ],
+          "opp_mean": 920.6
+        },
+        "6-6": {
+          "games": 70,
+          "wins": 45,
+          "losses": 25,
+          "win_rate": 0.6429,
+          "wilson95": [
+            0.5259,
+            0.745
+          ],
+          "opp_mean": 892.4
+        }
+      },
+      "controlled": {
+        "coef": 0.2483,
+        "elo": 43.1,
+        "se": 0.1199,
+        "z": 2.07,
+        "p": 0.0384
+      }
+    }
+  },
+  "gates": {
+    "v15_attack_access": {
+      "violations": 10,
+      "violation_share": 0.0515,
+      "violation_block": {
+        "games": 10,
+        "wins": 9,
+        "losses": 1,
+        "win_rate": 0.9,
+        "wilson95": [
+          0.5958,
+          0.9821
+        ],
+        "opp_mean": 858.9
+      },
+      "clean_block": {
+        "games": 184,
+        "wins": 112,
+        "losses": 72,
+        "win_rate": 0.6087,
+        "wilson95": [
+          0.5366,
+          0.6763
+        ],
+        "opp_mean": 918.3
+      }
+    },
+    "never_shadowed": {
+      "games": 4,
+      "wins": 0,
+      "losses": 4,
+      "win_rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.4899
+      ],
+      "opp_mean": 1059.6
+    },
+    "board_by_own_turn_2": {
+      "yes": {
+        "games": 69,
+        "wins": 48,
+        "losses": 21,
+        "win_rate": 0.6957,
+        "wilson95": [
+          0.5792,
+          0.7915
+        ],
+        "opp_mean": 919.3
+      },
+      "no": {
+        "games": 125,
+        "wins": 73,
+        "losses": 52,
+        "win_rate": 0.584,
+        "wilson95": [
+          0.4964,
+          0.6666
+        ],
+        "opp_mean": 912.9
+      }
+    },
+    "dead_stamp_proxy_zero_stamps": {
+      "zero": {
+        "games": 45,
+        "wins": 29,
+        "losses": 16,
+        "win_rate": 0.6444,
+        "wilson95": [
+          0.4984,
+          0.7678
+        ],
+        "opp_mean": 870.0
+      },
+      "some": {
+        "games": 149,
+        "wins": 92,
+        "losses": 57,
+        "win_rate": 0.6174,
+        "wilson95": [
+          0.5374,
+          0.6916
+        ],
+        "opp_mean": 929.2
+      }
+    }
+  },
+  "loss_anatomy": {
+    "losses": 73,
+    "prizes_taken_on_loss": {
+      "0": 8,
+      "1": 8,
+      "2": 15,
+      "3": 10,
+      "4": 19,
+      "5": 13
+    },
+    "blowouts_5plus_left": 16,
+    "one_prize_from_winning": 13,
+    "board_out": 3,
+    "deck_out": 0,
+    "mean_turns_loss": 12.41,
+    "mean_turns_win": 12.13,
+    "mean_own_first_shadow_loss": 3.14,
+    "mean_own_first_shadow_win": 2.94,
+    "by_family": {
+      "Grimmsnarl (mirror)": {
+        "losses": 26,
+        "blowouts": 5,
+        "close": 14
+      },
+      "Alakazam": {
+        "losses": 11,
+        "blowouts": 0,
+        "close": 4
+      },
+      "Dragapult": {
+        "losses": 8,
+        "blowouts": 2,
+        "close": 2
+      },
+      "Mega Lopunny / Froslass": {
+        "losses": 9,
+        "blowouts": 3,
+        "close": 4
+      },
+      "Kangaskhan / Crustle": {
+        "losses": 4,
+        "blowouts": 3,
+        "close": 1
+      },
+      "Archaludon": {
+        "losses": 3,
+        "blowouts": 1,
+        "close": 0
+      },
+      "Mega Lucario": {
+        "losses": 1,
+        "blowouts": 0,
+        "close": 1
+      },
+      "Ogerpon": {
+        "losses": 6,
+        "blowouts": 0,
+        "close": 4
+      }
+    }
+  },
+  "v23": {
+    "overall": {
+      "games": 12,
+      "wins": 7,
+      "losses": 5,
+      "win_rate": 0.5833,
+      "wilson95": [
+        0.3195,
+        0.8067
+      ],
+      "opp_mean": 771.2
+    },
+    "by_family": {
+      "Alakazam": {
+        "games": 3,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 0.3333,
+        "wilson95": [
+          0.0615,
+          0.7923
+        ],
+        "opp_mean": 736.6
+      },
+      "Dragapult": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "wilson95": [
+          0.2065,
+          1.0
+        ],
+        "opp_mean": 575.0
+      },
+      "Grimmsnarl (mirror)": {
+        "games": 4,
+        "wins": 3,
+        "losses": 1,
+        "win_rate": 0.75,
+        "wilson95": [
+          0.3006,
+          0.9544
+        ],
+        "opp_mean": 785.0
+      },
+      "Ogerpon": {
+        "games": 2,
+        "wins": 1,
+        "losses": 1,
+        "win_rate": 0.5,
+        "wilson95": [
+          0.0945,
+          0.9055
+        ],
+        "opp_mean": 766.6
+      },
+      "other: Hydrapple ex": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.7935
+        ],
+        "opp_mean": 943.4
+      },
+      "other: Team Rocket's Porygon-Z": {
+        "games": 1,
+        "wins": 1,
+        "losses": 0,
+        "win_rate": 1.0,
+        "wilson95": [
+          0.2065,
+          1.0
+        ],
+        "opp_mean": 867.0
+      }
+    },
+    "own_first_shadow_turn": [
+      3.0,
+      3.0,
+      2.0,
+      2.0,
+      3.0,
+      3.0,
+      3.0,
+      6.0,
+      2.0,
+      5.0,
+      2.0,
+      2.0
+    ],
+    "note": "12 games; the run was truncated. Not comparable on outcomes."
+  }
+}
+report: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v23\pool_analysis.json
+

@@ -1,0 +1,72 @@
+games: 194
+progress 10/194
+progress 20/194
+progress 30/194
+progress 40/194
+progress 50/194
+progress 60/194
+progress 70/194
+progress 80/194
+progress 90/194
+progress 100/194
+progress 110/194
+progress 120/194
+progress 130/194
+progress 140/194
+progress 150/194
+progress 160/194
+progress 170/194
+progress 180/194
+progress 190/194
+progress 194/194
+{
+  "valid": true,
+  "base": "agents/grimmsnarl/grimmsnarl_ml_v22",
+  "candidate": "agents/grimmsnarl/grimmsnarl_ml_v23",
+  "games": 194,
+  "errors": [],
+  "base_infidelity": 0,
+  "elapsed_seconds": 399.6,
+  "totals": {
+    "decisions": 17376,
+    "changed": 1094,
+    "games_touched": 190
+  },
+  "by_outcome": {
+    "won": {
+      "games": 121,
+      "decisions": 11427,
+      "changed": 725,
+      "games_touched": 118
+    },
+    "lost": {
+      "games": 73,
+      "decisions": 5949,
+      "changed": 369,
+      "games_touched": 72
+    }
+  },
+  "by_context": {
+    "0": 721,
+    "3": 1,
+    "4": 2,
+    "7": 340,
+    "13": 8,
+    "15": 20,
+    "16": 1,
+    "21": 1
+  },
+  "by_shared_turn": {
+    "1": 108,
+    "2": 184,
+    "3": 213,
+    "4": 245,
+    "5": 127,
+    "6": 103,
+    "7": 17,
+    "8": 57,
+    "9": 26,
+    "10": 14
+  }
+}
+report: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v23\footprint_per_episode.json

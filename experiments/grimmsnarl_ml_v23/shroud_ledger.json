@@ -1,0 +1,70 @@
+{
+  "games": 194,
+  "mirror": {
+    "games": 56,
+    "evolutions": 53,
+    "net_histogram": {
+      "-3": 1,
+      "-2": 8,
+      "-1": 7,
+      "0": 10,
+      "1": 14,
+      "2": 7,
+      "3": 3,
+      "4": 3
+    },
+    "net_nonpositive": 26,
+    "net_positive": 27,
+    "mean_our_targets": 2.83,
+    "mean_opp_targets": 3.26,
+    "games_with_nonpositive": {
+      "games": 14,
+      "wins": 6,
+      "win_rate": 0.429,
+      "wilson95": [
+        0.214,
+        0.674
+      ]
+    },
+    "games_all_positive": {
+      "games": 10,
+      "wins": 1,
+      "win_rate": 0.1,
+      "wilson95": [
+        0.018,
+        0.404
+      ]
+    },
+    "games_none": {
+      "games": 32,
+      "wins": 23,
+      "win_rate": 0.719,
+      "wilson95": [
+        0.546,
+        0.844
+      ]
+    }
+  },
+  "all_matchups": {
+    "evolutions": 490,
+    "net_histogram": {
+      "-5": 2,
+      "-4": 8,
+      "-3": 37,
+      "-2": 73,
+      "-1": 79,
+      "0": 112,
+      "1": 81,
+      "2": 48,
+      "3": 28,
+      "4": 17,
+      "5": 5
+    },
+    "net_nonpositive": 311
+  },
+  "gate_preview_mirror": {
+    "note": "how many mirror evolutions a 'require shroud_net > 0' gate would have refused, and in how many games",
+    "refused_evolutions": 26,
+    "games_touched": 14
+  }
+}

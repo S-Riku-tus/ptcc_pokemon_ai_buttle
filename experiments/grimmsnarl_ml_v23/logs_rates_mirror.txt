@@ -1,0 +1,669 @@
+{
+  "rate_levers": {
+    "shadow_attacks_per_own_turn": {
+      "controlled": {
+        "elo": 451.3,
+        "z": 3.04,
+        "p": 0.0024
+      },
+      "tercile": {
+        "cuts": [
+          0.5,
+          0.667
+        ],
+        "mid": {
+          "games": 58,
+          "wins": 37,
+          "win_rate": 0.638,
+          "wilson95": [
+            0.509,
+            0.75
+          ]
+        },
+        "high": {
+          "games": 86,
+          "wins": 62,
+          "win_rate": 0.721,
+          "wilson95": [
+            0.618,
+            0.805
+          ]
+        },
+        "low": {
+          "games": 50,
+          "wins": 22,
+          "win_rate": 0.44,
+          "wilson95": [
+            0.312,
+            0.577
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 78.2,
+        "z": 3.36,
+        "p": 0.0008
+      }
+    },
+    "attacks_per_own_turn": {
+      "controlled": {
+        "elo": 313.0,
+        "z": 2.05,
+        "p": 0.0407
+      },
+      "tercile": {
+        "cuts": [
+          0.6,
+          0.714
+        ],
+        "low": {
+          "games": 62,
+          "wins": 36,
+          "win_rate": 0.581,
+          "wilson95": [
+            0.457,
+            0.695
+          ]
+        },
+        "mid": {
+          "games": 53,
+          "wins": 29,
+          "win_rate": 0.547,
+          "wilson95": [
+            0.414,
+            0.673
+          ]
+        },
+        "high": {
+          "games": 79,
+          "wins": 56,
+          "win_rate": 0.709,
+          "wilson95": [
+            0.601,
+            0.797
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 57.8,
+        "z": 2.52,
+        "p": 0.0117
+      }
+    },
+    "adrena_brains_per_own_turn": {
+      "controlled": {
+        "elo": 397.0,
+        "z": 5.28,
+        "p": 0.0
+      },
+      "tercile": {
+        "cuts": [
+          0.667,
+          1.167
+        ],
+        "mid": {
+          "games": 64,
+          "wins": 40,
+          "win_rate": 0.625,
+          "wilson95": [
+            0.502,
+            0.733
+          ]
+        },
+        "low": {
+          "games": 64,
+          "wins": 25,
+          "win_rate": 0.391,
+          "wilson95": [
+            0.281,
+            0.513
+          ]
+        },
+        "high": {
+          "games": 66,
+          "wins": 56,
+          "win_rate": 0.848,
+          "wilson95": [
+            0.743,
+            0.916
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 66.7,
+        "z": 5.03,
+        "p": 0.0
+      }
+    },
+    "stamps_per_own_turn": {
+      "controlled": {
+        "elo": -0.0,
+        "z": -0.0,
+        "p": 1.0
+      },
+      "tercile": {
+        "cuts": [
+          0.143,
+          0.286
+        ],
+        "low": {
+          "games": 57,
+          "wins": 35,
+          "win_rate": 0.614,
+          "wilson95": [
+            0.484,
+            0.729
+          ]
+        },
+        "high": {
+          "games": 72,
+          "wins": 45,
+          "win_rate": 0.625,
+          "wilson95": [
+            0.509,
+            0.728
+          ]
+        },
+        "mid": {
+          "games": 65,
+          "wins": 41,
+          "win_rate": 0.631,
+          "wilson95": [
+            0.509,
+            0.738
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 16.1,
+        "z": 0.46,
+        "p": 0.6465
+      }
+    },
+    "bosses_per_own_turn": {
+      "controlled": {
+        "elo": 24.0,
+        "z": 0.1,
+        "p": 0.9174
+      },
+      "tercile": {
+        "cuts": [
+          0.0,
+          0.167
+        ],
+        "mid": {
+          "games": 111,
+          "wins": 74,
+          "win_rate": 0.667,
+          "wilson95": [
+            0.575,
+            0.748
+          ]
+        },
+        "high": {
+          "games": 83,
+          "wins": 47,
+          "win_rate": 0.566,
+          "wilson95": [
+            0.459,
+            0.668
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 2.1,
+        "z": 0.05,
+        "p": 0.9578
+      }
+    },
+    "rare_candies_per_own_turn": {
+      "controlled": {
+        "elo": 114.1,
+        "z": 0.54,
+        "p": 0.5917
+      },
+      "tercile": {
+        "cuts": [
+          0.111,
+          0.2
+        ],
+        "low": {
+          "games": 62,
+          "wins": 35,
+          "win_rate": 0.565,
+          "wilson95": [
+            0.441,
+            0.681
+          ]
+        },
+        "high": {
+          "games": 66,
+          "wins": 41,
+          "win_rate": 0.621,
+          "wilson95": [
+            0.501,
+            0.729
+          ]
+        },
+        "mid": {
+          "games": 66,
+          "wins": 45,
+          "win_rate": 0.682,
+          "wilson95": [
+            0.562,
+            0.781
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 46.4,
+        "z": 1.22,
+        "p": 0.2216
+      }
+    },
+    "froslass_evolves_per_own_turn": {
+      "controlled": {
+        "elo": 31.5,
+        "z": 0.5,
+        "p": 0.617
+      },
+      "tercile": {
+        "cuts": [
+          0.143,
+          0.5
+        ],
+        "low": {
+          "games": 64,
+          "wins": 42,
+          "win_rate": 0.656,
+          "wilson95": [
+            0.534,
+            0.761
+          ]
+        },
+        "high": {
+          "games": 74,
+          "wins": 51,
+          "win_rate": 0.689,
+          "wilson95": [
+            0.577,
+            0.783
+          ]
+        },
+        "mid": {
+          "games": 56,
+          "wins": 28,
+          "win_rate": 0.5,
+          "wilson95": [
+            0.373,
+            0.627
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 10.4,
+        "z": 0.93,
+        "p": 0.3506
+      }
+    },
+    "grim_evolutions_per_own_turn": {
+      "controlled": {
+        "elo": -82.6,
+        "z": -0.43,
+        "p": 0.6658
+      },
+      "tercile": {
+        "cuts": [
+          0.286,
+          0.4
+        ],
+        "mid": {
+          "games": 61,
+          "wins": 45,
+          "win_rate": 0.738,
+          "wilson95": [
+            0.616,
+            0.832
+          ]
+        },
+        "high": {
+          "games": 79,
+          "wins": 45,
+          "win_rate": 0.57,
+          "wilson95": [
+            0.46,
+            0.673
+          ]
+        },
+        "low": {
+          "games": 54,
+          "wins": 31,
+          "win_rate": 0.574,
+          "wilson95": [
+            0.442,
+            0.697
+          ]
+        }
+      },
+      "count_controlled_for_length": {
+        "elo": 41.0,
+        "z": 1.14,
+        "p": 0.2531
+      }
+    }
+  },
+  "game_length": {
+    "our_turns_tercile": {
+      "cuts": [
+        6.0,
+        7.0
+      ],
+      "high": {
+        "games": 66,
+        "wins": 48,
+        "win_rate": 0.727,
+        "wilson95": [
+          0.61,
+          0.82
+        ]
+      },
+      "low": {
+        "games": 58,
+        "wins": 28,
+        "win_rate": 0.483,
+        "wilson95": [
+          0.359,
+          0.608
+        ]
+      },
+      "mid": {
+        "games": 70,
+        "wins": 45,
+        "win_rate": 0.643,
+        "wilson95": [
+          0.526,
+          0.745
+        ]
+      }
+    },
+    "mean_our_turns_win": 6.31,
+    "mean_our_turns_loss": 5.99
+  },
+  "mirror": {
+    "overall": {
+      "games": 56,
+      "wins": 30,
+      "win_rate": 0.536,
+      "wilson95": [
+        0.407,
+        0.66
+      ]
+    },
+    "others": {
+      "games": 138,
+      "wins": 91,
+      "win_rate": 0.659,
+      "wilson95": [
+        0.577,
+        0.733
+      ]
+    },
+    "turn_order": {
+      "first": {
+        "games": 29,
+        "wins": 14,
+        "win_rate": 0.483,
+        "wilson95": [
+          0.314,
+          0.656
+        ]
+      },
+      "second": {
+        "games": 27,
+        "wins": 16,
+        "win_rate": 0.593,
+        "wilson95": [
+          0.407,
+          0.755
+        ]
+      }
+    },
+    "win_vs_loss": {
+      "own_first_shadow_turn": {
+        "win_mean": 2.767,
+        "loss_mean": 3.0,
+        "diff": -0.233,
+        "t": -1.07
+      },
+      "own_first_ready_turn": {
+        "win_mean": 2.7,
+        "loss_mean": 3.0,
+        "diff": -0.3,
+        "t": -1.39
+      },
+      "shadow_attacks": {
+        "win_mean": 4.4,
+        "loss_mean": 3.808,
+        "diff": 0.592,
+        "t": 2.32
+      },
+      "attacks": {
+        "win_mean": 4.433,
+        "loss_mean": 3.962,
+        "diff": 0.472,
+        "t": 1.79
+      },
+      "adrena_brains": {
+        "win_mean": 8.367,
+        "loss_mean": 4.115,
+        "diff": 4.251,
+        "t": 7.41
+      },
+      "stamps": {
+        "win_mean": 1.033,
+        "loss_mean": 1.231,
+        "diff": -0.197,
+        "t": -0.87
+      },
+      "bosses": {
+        "win_mean": 1.0,
+        "loss_mean": 0.769,
+        "diff": 0.231,
+        "t": 1.02
+      },
+      "rare_candies": {
+        "win_mean": 0.933,
+        "loss_mean": 0.692,
+        "diff": 0.241,
+        "t": 1.31
+      },
+      "froslass_evolves": {
+        "win_mean": 0.633,
+        "loss_mean": 1.308,
+        "diff": -0.674,
+        "t": -1.64
+      },
+      "grim_evolutions": {
+        "win_mean": 2.467,
+        "loss_mean": 2.269,
+        "diff": 0.197,
+        "t": 1.12
+      },
+      "our_turns": {
+        "win_mean": 6.433,
+        "loss_mean": 5.923,
+        "diff": 0.51,
+        "t": 2.09
+      },
+      "turns": {
+        "win_mean": 12.4,
+        "loss_mean": 12.269,
+        "diff": 0.131,
+        "t": 0.27
+      },
+      "opp_first_attack_turn": {
+        "win_mean": 4.966,
+        "loss_mean": 4.808,
+        "diff": 0.158,
+        "t": 0.33
+      },
+      "opponent_rating": {
+        "win_mean": 911.861,
+        "loss_mean": 966.259,
+        "diff": -54.397,
+        "t": -2.21
+      }
+    },
+    "controlled_in_mirror": {
+      "n": 52,
+      "terms": {
+        "opp_rating/400": {
+          "elo": -657.2,
+          "z": -2.2,
+          "p": 0.0277
+        },
+        "went_first": {
+          "elo": -45.0,
+          "z": -0.43,
+          "p": 0.6641
+        },
+        "shadow_per_turn": {
+          "elo": 780.7,
+          "z": 1.22,
+          "p": 0.2216
+        },
+        "own_first_shadow_turn": {
+          "elo": 44.3,
+          "z": 0.45,
+          "p": 0.6549
+        }
+      }
+    },
+    "prizes_taken_on_loss": {
+      "0": 1,
+      "1": 4,
+      "2": 4,
+      "3": 3,
+      "4": 6,
+      "5": 8
+    },
+    "opp_first_attack": {
+      "we_attack_first": {
+        "games": 22,
+        "wins": 12,
+        "win_rate": 0.545,
+        "wilson95": [
+          0.347,
+          0.731
+        ]
+      },
+      "they_attack_first": {
+        "games": 33,
+        "wins": 17,
+        "win_rate": 0.515,
+        "wilson95": [
+          0.352,
+          0.675
+        ]
+      }
+    }
+  },
+  "all_games_win_vs_loss": {
+    "own_first_shadow_turn": {
+      "win_mean": 2.942,
+      "loss_mean": 3.145,
+      "diff": -0.203,
+      "t": -1.2
+    },
+    "own_first_ready_turn": {
+      "win_mean": 2.868,
+      "loss_mean": 3.13,
+      "diff": -0.263,
+      "t": -1.57
+    },
+    "shadow_attacks": {
+      "win_mean": 3.901,
+      "loss_mean": 3.055,
+      "diff": 0.846,
+      "t": 3.87
+    },
+    "attacks": {
+      "win_mean": 4.248,
+      "loss_mean": 3.521,
+      "diff": 0.727,
+      "t": 3.24
+    },
+    "adrena_brains": {
+      "win_mean": 6.835,
+      "loss_mean": 3.986,
+      "diff": 2.848,
+      "t": 6.18
+    },
+    "stamps": {
+      "win_mean": 1.19,
+      "loss_mean": 1.205,
+      "diff": -0.015,
+      "t": -0.13
+    },
+    "bosses": {
+      "win_mean": 0.777,
+      "loss_mean": 0.767,
+      "diff": 0.01,
+      "t": 0.09
+    },
+    "rare_candies": {
+      "win_mean": 0.934,
+      "loss_mean": 0.781,
+      "diff": 0.153,
+      "t": 1.41
+    },
+    "froslass_evolves": {
+      "win_mean": 2.711,
+      "loss_mean": 2.219,
+      "diff": 0.492,
+      "t": 1.37
+    },
+    "grim_evolutions": {
+      "win_mean": 2.066,
+      "loss_mean": 1.986,
+      "diff": 0.08,
+      "t": 0.65
+    },
+    "our_turns": {
+      "win_mean": 6.314,
+      "loss_mean": 5.986,
+      "diff": 0.328,
+      "t": 1.44
+    },
+    "turns": {
+      "win_mean": 12.132,
+      "loss_mean": 12.411,
+      "diff": -0.279,
+      "t": -0.61
+    },
+    "opp_first_attack_turn": {
+      "win_mean": 4.431,
+      "loss_mean": 3.808,
+      "diff": 0.623,
+      "t": 2.2
+    },
+    "opponent_rating": {
+      "win_mean": 884.879,
+      "loss_mean": 967.212,
+      "diff": -82.333,
+      "t": -4.32
+    }
+  },
+  "repeat_opponents": {
+    "55481866": {
+      "games": 3,
+      "wins": 2,
+      "win_rate": 0.667,
+      "wilson95": [
+        0.208,
+        0.939
+      ]
+    }
+  },
+  "distinct_opponents": 185
+}

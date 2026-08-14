@@ -1,0 +1,2672 @@
+{
+  "games": 194,
+  "adrena": {
+    "offers": 2450,
+    "takes": 1118,
+    "uptake": 0.4563,
+    "declines": 1332,
+    "uptake_win": 0.4625,
+    "uptake_loss": 0.4396,
+    "offers_per_game": {
+      "win_mean": 14.777,
+      "loss_mean": 9.068,
+      "t": 5.75
+    },
+    "decline_turn_hist": {
+      "2": 121,
+      "3": 310,
+      "4": 309,
+      "5": 290,
+      "6": 182,
+      "7": 82,
+      "8": 25,
+      "9": 11,
+      "10": 1,
+      "12": 1
+    }
+  },
+  "grimmsnarl_evolve": {
+    "offers": 1369,
+    "takes": 395,
+    "uptake": 0.2885
+  },
+  "froslass": {
+    "offers": 1703,
+    "takes": 489,
+    "uptake_all": 0.2871,
+    "uptake_mirror": 0.1312,
+    "mirror_offers_per_game": 7.21,
+    "evolve_own_turn_hist_mirror": {
+      "1": 1,
+      "2": 10,
+      "3": 6,
+      "4": 10,
+      "5": 12,
+      "6": 6,
+      "7": 6,
+      "8": 2
+    },
+    "first_evolve_turn": {
+      "win_mean": 3.857,
+      "loss_mean": 4.176,
+      "t": -0.33
+    },
+    "prize_state_at_evolve_mirror": {
+      "behind": 14,
+      "even": 22,
+      "ahead": 17
+    },
+    "early_only_mirror": {
+      "games": 8,
+      "wins": 3,
+      "win_rate": 0.375,
+      "wilson95": [
+        0.137,
+        0.694
+      ]
+    },
+    "late_only_mirror": {
+      "games": 16,
+      "wins": 4,
+      "win_rate": 0.25,
+      "wilson95": [
+        0.102,
+        0.495
+      ]
+    },
+    "none_mirror": {
+      "games": 32,
+      "wins": 23,
+      "win_rate": 0.719,
+      "wilson95": [
+        0.546,
+        0.844
+      ]
+    },
+    "offered_but_declined_mirror": {
+      "games": 31,
+      "wins": 22,
+      "win_rate": 0.71,
+      "wilson95": [
+        0.534,
+        0.839
+      ]
+    },
+    "never_offered_mirror": {
+      "games": 1,
+      "wins": 1,
+      "win_rate": 1.0,
+      "wilson95": [
+        0.206,
+        1.0
+      ]
+    },
+    "mirror_fisher_p": 0.00263
+  },
+  "per_game": [
+    {
+      "episode_id": "92610837",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 11,
+      "adrena_taken": 8,
+      "fros_offered": 5,
+      "fros_taken": 1,
+      "fros_turns": [
+        6
+      ]
+    },
+    {
+      "episode_id": "92610946",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 4,
+      "adrena_taken": 1,
+      "fros_offered": 5,
+      "fros_taken": 4,
+      "fros_turns": [
+        2,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92611852",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 19,
+      "adrena_taken": 6,
+      "fros_offered": 16,
+      "fros_taken": 7,
+      "fros_turns": [
+        2,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92612806",
+      "won": true,
+      "family": "other: Team Rocket's Mewtwo ex",
+      "adrena_offered": 10,
+      "adrena_taken": 2,
+      "fros_offered": 5,
+      "fros_taken": 3,
+      "fros_turns": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92613745",
+      "won": true,
+      "family": "Archaludon",
+      "adrena_offered": 14,
+      "adrena_taken": 8,
+      "fros_offered": 13,
+      "fros_taken": 8,
+      "fros_turns": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92614685",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 15,
+      "adrena_taken": 6,
+      "fros_offered": 16,
+      "fros_taken": 4,
+      "fros_turns": [
+        1,
+        2,
+        2,
+        5
+      ]
+    },
+    {
+      "episode_id": "92615639",
+      "won": true,
+      "family": "Archaludon",
+      "adrena_offered": 28,
+      "adrena_taken": 10,
+      "fros_offered": 18,
+      "fros_taken": 7,
+      "fros_turns": [
+        2,
+        3,
+        5,
+        5,
+        5,
+        5,
+        7
+      ]
+    },
+    {
+      "episode_id": "92616580",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 9,
+      "adrena_taken": 2,
+      "fros_offered": 7,
+      "fros_taken": 3,
+      "fros_turns": [
+        4,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92617522",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 5,
+      "adrena_taken": 1,
+      "fros_offered": 11,
+      "fros_taken": 4,
+      "fros_turns": [
+        1,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92618462",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 25,
+      "adrena_taken": 8,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92619385",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 4,
+      "adrena_taken": 2,
+      "fros_offered": 7,
+      "fros_taken": 1,
+      "fros_turns": [
+        5
+      ]
+    },
+    {
+      "episode_id": "92620337",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 18,
+      "adrena_taken": 6,
+      "fros_offered": 14,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        2,
+        4,
+        4,
+        6
+      ]
+    },
+    {
+      "episode_id": "92621271",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 7,
+      "adrena_taken": 3,
+      "fros_offered": 6,
+      "fros_taken": 4,
+      "fros_turns": [
+        2,
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92622204",
+      "won": true,
+      "family": "Mega Lucario",
+      "adrena_offered": 20,
+      "adrena_taken": 7,
+      "fros_offered": 5,
+      "fros_taken": 2,
+      "fros_turns": [
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92623138",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 15,
+      "adrena_taken": 5,
+      "fros_offered": 7,
+      "fros_taken": 4,
+      "fros_turns": [
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "episode_id": "92624094",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 11,
+      "adrena_taken": 4,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92625043",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 14,
+      "adrena_taken": 7,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92626016",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 21,
+      "adrena_taken": 11,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92626895",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 7,
+      "adrena_taken": 4,
+      "fros_offered": 7,
+      "fros_taken": 2,
+      "fros_turns": [
+        3,
+        4
+      ]
+    },
+    {
+      "episode_id": "92627855",
+      "won": true,
+      "family": "Mega Lucario",
+      "adrena_offered": 27,
+      "adrena_taken": 10,
+      "fros_offered": 18,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        4,
+        5,
+        5,
+        6
+      ]
+    },
+    {
+      "episode_id": "92628804",
+      "won": true,
+      "family": "Archaludon",
+      "adrena_offered": 10,
+      "adrena_taken": 5,
+      "fros_offered": 2,
+      "fros_taken": 1,
+      "fros_turns": [
+        6
+      ]
+    },
+    {
+      "episode_id": "92629750",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 23,
+      "adrena_taken": 12,
+      "fros_offered": 4,
+      "fros_taken": 2,
+      "fros_turns": [
+        8,
+        9
+      ]
+    },
+    {
+      "episode_id": "92630690",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 7,
+      "adrena_taken": 4,
+      "fros_offered": 13,
+      "fros_taken": 6,
+      "fros_turns": [
+        1,
+        2,
+        3,
+        3,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92631643",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 25,
+      "adrena_taken": 9,
+      "fros_offered": 8,
+      "fros_taken": 1,
+      "fros_turns": [
+        5
+      ]
+    },
+    {
+      "episode_id": "92632577",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 17,
+      "adrena_taken": 8,
+      "fros_offered": 29,
+      "fros_taken": 2,
+      "fros_turns": [
+        5,
+        6
+      ]
+    },
+    {
+      "episode_id": "92633524",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 14,
+      "adrena_taken": 3,
+      "fros_offered": 0,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92634432",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 20,
+      "adrena_taken": 10,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92635367",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 12,
+      "fros_taken": 2,
+      "fros_turns": [
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92635387",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 5,
+      "fros_taken": 2,
+      "fros_turns": [
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92636318",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 4,
+      "adrena_taken": 1,
+      "fros_offered": 5,
+      "fros_taken": 2,
+      "fros_turns": [
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92637253",
+      "won": true,
+      "family": "other: Hydrapple ex",
+      "adrena_offered": 16,
+      "adrena_taken": 7,
+      "fros_offered": 12,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        2,
+        2,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92638214",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 10,
+      "adrena_taken": 7,
+      "fros_offered": 9,
+      "fros_taken": 4,
+      "fros_turns": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92639143",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 25,
+      "adrena_taken": 9,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92640083",
+      "won": true,
+      "family": "other: Mega Abomasnow ex",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 1,
+      "fros_taken": 1,
+      "fros_turns": [
+        2
+      ]
+    },
+    {
+      "episode_id": "92641024",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 22,
+      "adrena_taken": 7,
+      "fros_offered": 10,
+      "fros_taken": 4,
+      "fros_turns": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92641973",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 13,
+      "adrena_taken": 7,
+      "fros_offered": 12,
+      "fros_taken": 3,
+      "fros_turns": [
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92642829",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 7,
+      "adrena_taken": 5,
+      "fros_offered": 16,
+      "fros_taken": 6,
+      "fros_turns": [
+        2,
+        5,
+        5,
+        5,
+        5,
+        6
+      ]
+    },
+    {
+      "episode_id": "92643843",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 13,
+      "adrena_taken": 7,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92644773",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 4,
+      "adrena_taken": 3,
+      "fros_offered": 18,
+      "fros_taken": 1,
+      "fros_turns": [
+        2
+      ]
+    },
+    {
+      "episode_id": "92645759",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 9,
+      "adrena_taken": 4,
+      "fros_offered": 15,
+      "fros_taken": 2,
+      "fros_turns": [
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92646648",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 20,
+      "adrena_taken": 10,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92647393",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 23,
+      "adrena_taken": 12,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92647581",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 22,
+      "adrena_taken": 16,
+      "fros_offered": 5,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        14
+      ]
+    },
+    {
+      "episode_id": "92648514",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 22,
+      "adrena_taken": 10,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92651224",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 25,
+      "adrena_taken": 11,
+      "fros_offered": 0,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92656803",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 5,
+      "adrena_taken": 3,
+      "fros_offered": 23,
+      "fros_taken": 6,
+      "fros_turns": [
+        2,
+        2,
+        3,
+        3,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92656510",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 12,
+      "adrena_taken": 3,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92656601",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 19,
+      "adrena_taken": 9,
+      "fros_offered": 19,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        4,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "episode_id": "92657522",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92658471",
+      "won": true,
+      "family": "Mega Lucario",
+      "adrena_offered": 2,
+      "adrena_taken": 1,
+      "fros_offered": 7,
+      "fros_taken": 2,
+      "fros_turns": [
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92659405",
+      "won": false,
+      "family": "Archaludon",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 7,
+      "fros_taken": 3,
+      "fros_turns": [
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92660365",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 12,
+      "adrena_taken": 8,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92661317",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 22,
+      "adrena_taken": 8,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92662264",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 6,
+      "adrena_taken": 2,
+      "fros_offered": 14,
+      "fros_taken": 1,
+      "fros_turns": [
+        2
+      ]
+    },
+    {
+      "episode_id": "92663236",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 1,
+      "adrena_taken": 1,
+      "fros_offered": 8,
+      "fros_taken": 5,
+      "fros_turns": [
+        1,
+        2,
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92664175",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 20,
+      "adrena_taken": 9,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92665345",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 21,
+      "adrena_taken": 5,
+      "fros_offered": 17,
+      "fros_taken": 3,
+      "fros_turns": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "episode_id": "92666088",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 9,
+      "adrena_taken": 4,
+      "fros_offered": 17,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        5
+      ]
+    },
+    {
+      "episode_id": "92667041",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 20,
+      "adrena_taken": 7,
+      "fros_offered": 25,
+      "fros_taken": 9,
+      "fros_turns": [
+        3,
+        6,
+        7,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "episode_id": "92667978",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 23,
+      "adrena_taken": 10,
+      "fros_offered": 5,
+      "fros_taken": 1,
+      "fros_turns": [
+        7
+      ]
+    },
+    {
+      "episode_id": "92668916",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 5,
+      "adrena_taken": 2,
+      "fros_offered": 10,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        2
+      ]
+    },
+    {
+      "episode_id": "92669860",
+      "won": false,
+      "family": "Ogerpon",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 11,
+      "fros_taken": 5,
+      "fros_turns": [
+        1,
+        1,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "episode_id": "92670803",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 9,
+      "adrena_taken": 6,
+      "fros_offered": 14,
+      "fros_taken": 3,
+      "fros_turns": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "episode_id": "92671748",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 22,
+      "adrena_taken": 7,
+      "fros_offered": 10,
+      "fros_taken": 2,
+      "fros_turns": [
+        3,
+        4
+      ]
+    },
+    {
+      "episode_id": "92672673",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 1,
+      "adrena_taken": 1,
+      "fros_offered": 8,
+      "fros_taken": 3,
+      "fros_turns": [
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "episode_id": "92673673",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 4,
+      "fros_taken": 3,
+      "fros_turns": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92674589",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 15,
+      "adrena_taken": 6,
+      "fros_offered": 14,
+      "fros_taken": 6,
+      "fros_turns": [
+        2,
+        2,
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92675511",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 6,
+      "adrena_taken": 5,
+      "fros_offered": 6,
+      "fros_taken": 1,
+      "fros_turns": [
+        8
+      ]
+    },
+    {
+      "episode_id": "92676506",
+      "won": false,
+      "family": "Mega Lucario",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 12,
+      "fros_taken": 7,
+      "fros_turns": [
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        6
+      ]
+    },
+    {
+      "episode_id": "92677432",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 20,
+      "adrena_taken": 11,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92678380",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 6,
+      "fros_taken": 5,
+      "fros_turns": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92679101",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 2,
+      "adrena_taken": 1,
+      "fros_offered": 6,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        3,
+        4,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92680243",
+      "won": true,
+      "family": "Archaludon",
+      "adrena_offered": 12,
+      "adrena_taken": 4,
+      "fros_offered": 15,
+      "fros_taken": 9,
+      "fros_turns": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92681128",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 4,
+      "adrena_taken": 4,
+      "fros_offered": 18,
+      "fros_taken": 5,
+      "fros_turns": [
+        3,
+        3,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92681172",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 9,
+      "adrena_taken": 4,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92682163",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 17,
+      "adrena_taken": 7,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92683107",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 17,
+      "adrena_taken": 7,
+      "fros_offered": 16,
+      "fros_taken": 5,
+      "fros_turns": [
+        4,
+        4,
+        4,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92684038",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 25,
+      "adrena_taken": 10,
+      "fros_offered": 21,
+      "fros_taken": 8,
+      "fros_turns": [
+        3,
+        3,
+        3,
+        3,
+        4,
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "episode_id": "92684939",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 15,
+      "adrena_taken": 7,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92685907",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 15,
+      "adrena_taken": 11,
+      "fros_offered": 30,
+      "fros_taken": 8,
+      "fros_turns": [
+        2,
+        4,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92686847",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 32,
+      "adrena_taken": 13,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92687848",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 4,
+      "fros_taken": 1,
+      "fros_turns": [
+        5
+      ]
+    },
+    {
+      "episode_id": "92688404",
+      "won": true,
+      "family": "other: Cynthia's Garchomp ex",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 12,
+      "fros_taken": 7,
+      "fros_turns": [
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92688753",
+      "won": true,
+      "family": "other: Fezandipiti ex",
+      "adrena_offered": 6,
+      "adrena_taken": 4,
+      "fros_offered": 12,
+      "fros_taken": 6,
+      "fros_turns": [
+        2,
+        3,
+        3,
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92690307",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 10,
+      "adrena_taken": 6,
+      "fros_offered": 24,
+      "fros_taken": 3,
+      "fros_turns": [
+        4,
+        5,
+        7
+      ]
+    },
+    {
+      "episode_id": "92691061",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 13,
+      "adrena_taken": 4,
+      "fros_offered": 16,
+      "fros_taken": 1,
+      "fros_turns": [
+        3
+      ]
+    },
+    {
+      "episode_id": "92691203",
+      "won": true,
+      "family": "Archaludon",
+      "adrena_offered": 7,
+      "adrena_taken": 4,
+      "fros_offered": 0,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92692156",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 14,
+      "adrena_taken": 6,
+      "fros_offered": 25,
+      "fros_taken": 3,
+      "fros_turns": [
+        6,
+        6,
+        7
+      ]
+    },
+    {
+      "episode_id": "92693065",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 8,
+      "adrena_taken": 4,
+      "fros_offered": 13,
+      "fros_taken": 2,
+      "fros_turns": [
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92694015",
+      "won": true,
+      "family": "Ogerpon",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92694947",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 10,
+      "adrena_taken": 4,
+      "fros_offered": 11,
+      "fros_taken": 2,
+      "fros_turns": [
+        3,
+        4
+      ]
+    },
+    {
+      "episode_id": "92695888",
+      "won": true,
+      "family": "Dipplin",
+      "adrena_offered": 9,
+      "adrena_taken": 3,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92696827",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 15,
+      "adrena_taken": 8,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92697747",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 15,
+      "adrena_taken": 6,
+      "fros_offered": 15,
+      "fros_taken": 1,
+      "fros_turns": [
+        2
+      ]
+    },
+    {
+      "episode_id": "92698693",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 5,
+      "adrena_taken": 3,
+      "fros_offered": 11,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        5
+      ]
+    },
+    {
+      "episode_id": "92699646",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 11,
+      "adrena_taken": 3,
+      "fros_offered": 15,
+      "fros_taken": 4,
+      "fros_turns": [
+        3,
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92700593",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 9,
+      "adrena_taken": 4,
+      "fros_offered": 6,
+      "fros_taken": 2,
+      "fros_turns": [
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92701658",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 31,
+      "adrena_taken": 15,
+      "fros_offered": 0,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92702478",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 0,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92703425",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 14,
+      "adrena_taken": 8,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92704335",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 10,
+      "adrena_taken": 5,
+      "fros_offered": 9,
+      "fros_taken": 2,
+      "fros_turns": [
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92704474",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 14,
+      "adrena_taken": 5,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92705291",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 0,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92706226",
+      "won": false,
+      "family": "Archaludon",
+      "adrena_offered": 3,
+      "adrena_taken": 3,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92707179",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 20,
+      "adrena_taken": 7,
+      "fros_offered": 4,
+      "fros_taken": 1,
+      "fros_turns": [
+        4
+      ]
+    },
+    {
+      "episode_id": "92708110",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 16,
+      "fros_taken": 10,
+      "fros_turns": [
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92709044",
+      "won": true,
+      "family": "other: Ethan's Typhlosion",
+      "adrena_offered": 20,
+      "adrena_taken": 8,
+      "fros_offered": 8,
+      "fros_taken": 2,
+      "fros_turns": [
+        1,
+        2
+      ]
+    },
+    {
+      "episode_id": "92709986",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 27,
+      "adrena_taken": 8,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92710917",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 4,
+      "adrena_taken": 2,
+      "fros_offered": 11,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        2
+      ]
+    },
+    {
+      "episode_id": "92710940",
+      "won": true,
+      "family": "other: Hydrapple ex",
+      "adrena_offered": 2,
+      "adrena_taken": 1,
+      "fros_offered": 11,
+      "fros_taken": 7,
+      "fros_turns": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92711899",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 14,
+      "adrena_taken": 6,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92712787",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 2,
+      "adrena_taken": 1,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92713718",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 15,
+      "adrena_taken": 7,
+      "fros_offered": 6,
+      "fros_taken": 2,
+      "fros_turns": [
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92714638",
+      "won": false,
+      "family": "Ogerpon",
+      "adrena_offered": 22,
+      "adrena_taken": 7,
+      "fros_offered": 16,
+      "fros_taken": 8,
+      "fros_turns": [
+        2,
+        2,
+        2,
+        3,
+        4,
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92715668",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 16,
+      "adrena_taken": 13,
+      "fros_offered": 5,
+      "fros_taken": 2,
+      "fros_turns": [
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92716501",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 16,
+      "adrena_taken": 7,
+      "fros_offered": 11,
+      "fros_taken": 4,
+      "fros_turns": [
+        7,
+        7,
+        7,
+        8
+      ]
+    },
+    {
+      "episode_id": "92717430",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 14,
+      "adrena_taken": 7,
+      "fros_offered": 3,
+      "fros_taken": 1,
+      "fros_turns": [
+        2
+      ]
+    },
+    {
+      "episode_id": "92718368",
+      "won": false,
+      "family": "Dipplin",
+      "adrena_offered": 6,
+      "adrena_taken": 1,
+      "fros_offered": 6,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        2
+      ]
+    },
+    {
+      "episode_id": "92719304",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 15,
+      "adrena_taken": 10,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92720231",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 4,
+      "adrena_taken": 2,
+      "fros_offered": 6,
+      "fros_taken": 1,
+      "fros_turns": [
+        4
+      ]
+    },
+    {
+      "episode_id": "92721178",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 16,
+      "adrena_taken": 7,
+      "fros_offered": 14,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92722119",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 11,
+      "adrena_taken": 9,
+      "fros_offered": 20,
+      "fros_taken": 3,
+      "fros_turns": [
+        3,
+        3,
+        5
+      ]
+    },
+    {
+      "episode_id": "92723046",
+      "won": false,
+      "family": "Ogerpon",
+      "adrena_offered": 15,
+      "adrena_taken": 4,
+      "fros_offered": 12,
+      "fros_taken": 7,
+      "fros_turns": [
+        1,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92723988",
+      "won": false,
+      "family": "Ogerpon",
+      "adrena_offered": 18,
+      "adrena_taken": 4,
+      "fros_offered": 14,
+      "fros_taken": 8,
+      "fros_turns": [
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92724933",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 4,
+      "adrena_taken": 4,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92725901",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 6,
+      "adrena_taken": 3,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92732440",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 21,
+      "adrena_taken": 14,
+      "fros_offered": 21,
+      "fros_taken": 7,
+      "fros_turns": [
+        2,
+        3,
+        3,
+        6,
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "episode_id": "92736142",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 24,
+      "adrena_taken": 7,
+      "fros_offered": 17,
+      "fros_taken": 5,
+      "fros_turns": [
+        1,
+        2,
+        3,
+        3,
+        5
+      ]
+    },
+    {
+      "episode_id": "92741679",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 12,
+      "adrena_taken": 8,
+      "fros_offered": 10,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        2,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "episode_id": "92746237",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 8,
+      "adrena_taken": 4,
+      "fros_offered": 6,
+      "fros_taken": 1,
+      "fros_turns": [
+        6
+      ]
+    },
+    {
+      "episode_id": "92750659",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 16,
+      "adrena_taken": 8,
+      "fros_offered": 1,
+      "fros_taken": 1,
+      "fros_turns": [
+        5
+      ]
+    },
+    {
+      "episode_id": "92755592",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 22,
+      "adrena_taken": 9,
+      "fros_offered": 9,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92760159",
+      "won": false,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 18,
+      "adrena_taken": 14,
+      "fros_offered": 5,
+      "fros_taken": 3,
+      "fros_turns": [
+        9,
+        9,
+        13
+      ]
+    },
+    {
+      "episode_id": "92765712",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 5,
+      "adrena_taken": 2,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92768266",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 12,
+      "adrena_taken": 8,
+      "fros_offered": 18,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        3,
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92775867",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 9,
+      "adrena_taken": 5,
+      "fros_offered": 6,
+      "fros_taken": 4,
+      "fros_turns": [
+        2,
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92780490",
+      "won": false,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 5,
+      "adrena_taken": 4,
+      "fros_offered": 8,
+      "fros_taken": 3,
+      "fros_turns": [
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92780529",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 5,
+      "adrena_taken": 4,
+      "fros_offered": 26,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        4,
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92782964",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 16,
+      "adrena_taken": 7,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92785961",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 5,
+      "adrena_taken": 1,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92793452",
+      "won": false,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 3,
+      "adrena_taken": 1,
+      "fros_offered": 3,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        2
+      ]
+    },
+    {
+      "episode_id": "92796913",
+      "won": false,
+      "family": "other: Arboliva ex",
+      "adrena_offered": 3,
+      "adrena_taken": 3,
+      "fros_offered": 4,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        3
+      ]
+    },
+    {
+      "episode_id": "92798770",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 13,
+      "adrena_taken": 4,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92691101",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 18,
+      "adrena_taken": 8,
+      "fros_offered": 26,
+      "fros_taken": 6,
+      "fros_turns": [
+        2,
+        2,
+        4,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92691205",
+      "won": true,
+      "family": "Mega Lucario",
+      "adrena_offered": 8,
+      "adrena_taken": 5,
+      "fros_offered": 8,
+      "fros_taken": 1,
+      "fros_turns": [
+        2
+      ]
+    },
+    {
+      "episode_id": "92692137",
+      "won": true,
+      "family": "other: Dudunsparce",
+      "adrena_offered": 15,
+      "adrena_taken": 10,
+      "fros_offered": 19,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        5,
+        5,
+        6,
+        6
+      ]
+    },
+    {
+      "episode_id": "92693079",
+      "won": false,
+      "family": "Archaludon",
+      "adrena_offered": 16,
+      "adrena_taken": 6,
+      "fros_offered": 10,
+      "fros_taken": 1,
+      "fros_turns": [
+        6
+      ]
+    },
+    {
+      "episode_id": "92693192",
+      "won": true,
+      "family": "Mega Lucario",
+      "adrena_offered": 11,
+      "adrena_taken": 5,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92694031",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 12,
+      "adrena_taken": 8,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92694969",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 23,
+      "adrena_taken": 8,
+      "fros_offered": 14,
+      "fros_taken": 4,
+      "fros_turns": [
+        1,
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "episode_id": "92695903",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 9,
+      "adrena_taken": 4,
+      "fros_offered": 7,
+      "fros_taken": 2,
+      "fros_turns": [
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92696837",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 8,
+      "adrena_taken": 1,
+      "fros_offered": 4,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92697765",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 15,
+      "adrena_taken": 6,
+      "fros_offered": 3,
+      "fros_taken": 1,
+      "fros_turns": [
+        8
+      ]
+    },
+    {
+      "episode_id": "92698721",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 8,
+      "adrena_taken": 2,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92698755",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 14,
+      "adrena_taken": 6,
+      "fros_offered": 8,
+      "fros_taken": 2,
+      "fros_turns": [
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92699679",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 16,
+      "adrena_taken": 6,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92700621",
+      "won": true,
+      "family": "Mega Lucario",
+      "adrena_offered": 12,
+      "adrena_taken": 6,
+      "fros_offered": 0,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92701678",
+      "won": true,
+      "family": "Archaludon",
+      "adrena_offered": 19,
+      "adrena_taken": 8,
+      "fros_offered": 18,
+      "fros_taken": 5,
+      "fros_turns": [
+        6,
+        6,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "episode_id": "92702513",
+      "won": false,
+      "family": "other: Hydrapple ex",
+      "adrena_offered": 8,
+      "adrena_taken": 5,
+      "fros_offered": 14,
+      "fros_taken": 4,
+      "fros_turns": [
+        2,
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92702559",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 28,
+      "adrena_taken": 14,
+      "fros_offered": 17,
+      "fros_taken": 3,
+      "fros_turns": [
+        2,
+        9,
+        9
+      ]
+    },
+    {
+      "episode_id": "92703471",
+      "won": false,
+      "family": "Ogerpon",
+      "adrena_offered": 19,
+      "adrena_taken": 6,
+      "fros_offered": 16,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        2,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "episode_id": "92704403",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 17,
+      "adrena_taken": 11,
+      "fros_offered": 3,
+      "fros_taken": 2,
+      "fros_turns": [
+        1,
+        4
+      ]
+    },
+    {
+      "episode_id": "92705338",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 16,
+      "adrena_taken": 5,
+      "fros_offered": 3,
+      "fros_taken": 1,
+      "fros_turns": [
+        6
+      ]
+    },
+    {
+      "episode_id": "92706281",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 1,
+      "adrena_taken": 1,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92707228",
+      "won": true,
+      "family": "Dipplin",
+      "adrena_offered": 14,
+      "adrena_taken": 5,
+      "fros_offered": 15,
+      "fros_taken": 9,
+      "fros_turns": [
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        4,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92707230",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 27,
+      "adrena_taken": 10,
+      "fros_offered": 20,
+      "fros_taken": 8,
+      "fros_turns": [
+        2,
+        3,
+        3,
+        3,
+        4,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92707249",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 25,
+      "adrena_taken": 14,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92708171",
+      "won": false,
+      "family": "Ogerpon",
+      "adrena_offered": 3,
+      "adrena_taken": 2,
+      "fros_offered": 14,
+      "fros_taken": 3,
+      "fros_turns": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "episode_id": "92709113",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 11,
+      "adrena_taken": 5,
+      "fros_offered": 13,
+      "fros_taken": 5,
+      "fros_turns": [
+        3,
+        3,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "episode_id": "92710059",
+      "won": true,
+      "family": "Dipplin",
+      "adrena_offered": 9,
+      "adrena_taken": 3,
+      "fros_offered": 8,
+      "fros_taken": 3,
+      "fros_turns": [
+        2,
+        3,
+        3
+      ]
+    },
+    {
+      "episode_id": "92710066",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 13,
+      "adrena_taken": 6,
+      "fros_offered": 13,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        3
+      ]
+    },
+    {
+      "episode_id": "92710994",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 22,
+      "adrena_taken": 8,
+      "fros_offered": 20,
+      "fros_taken": 1,
+      "fros_turns": [
+        3
+      ]
+    },
+    {
+      "episode_id": "92711884",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 11,
+      "adrena_taken": 3,
+      "fros_offered": 3,
+      "fros_taken": 1,
+      "fros_turns": [
+        5
+      ]
+    },
+    {
+      "episode_id": "92712875",
+      "won": false,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 16,
+      "adrena_taken": 10,
+      "fros_offered": 19,
+      "fros_taken": 6,
+      "fros_turns": [
+        1,
+        2,
+        5,
+        6,
+        6,
+        7
+      ]
+    },
+    {
+      "episode_id": "92713807",
+      "won": true,
+      "family": "Alakazam",
+      "adrena_offered": 27,
+      "adrena_taken": 10,
+      "fros_offered": 14,
+      "fros_taken": 3,
+      "fros_turns": [
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "episode_id": "92714722",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 14,
+      "adrena_taken": 7,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92715554",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 21,
+      "adrena_taken": 6,
+      "fros_offered": 16,
+      "fros_taken": 8,
+      "fros_turns": [
+        1,
+        2,
+        3,
+        3,
+        4,
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92716602",
+      "won": false,
+      "family": "Dragapult",
+      "adrena_offered": 13,
+      "adrena_taken": 6,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92717397",
+      "won": true,
+      "family": "Dragapult",
+      "adrena_offered": 12,
+      "adrena_taken": 6,
+      "fros_offered": 14,
+      "fros_taken": 4,
+      "fros_turns": [
+        3,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92725978",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 20,
+      "adrena_taken": 15,
+      "fros_offered": 12,
+      "fros_taken": 5,
+      "fros_turns": [
+        2,
+        2,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "episode_id": "92733385",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 4,
+      "adrena_taken": 1,
+      "fros_offered": 5,
+      "fros_taken": 1,
+      "fros_turns": [
+        2
+      ]
+    },
+    {
+      "episode_id": "92741712",
+      "won": false,
+      "family": "other: Brambleghast",
+      "adrena_offered": 8,
+      "adrena_taken": 2,
+      "fros_offered": 5,
+      "fros_taken": 2,
+      "fros_turns": [
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92742303",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 9,
+      "adrena_taken": 5,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92744490",
+      "won": true,
+      "family": "other: Fezandipiti ex",
+      "adrena_offered": 7,
+      "adrena_taken": 4,
+      "fros_offered": 6,
+      "fros_taken": 2,
+      "fros_turns": [
+        4,
+        4
+      ]
+    },
+    {
+      "episode_id": "92751777",
+      "won": true,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 23,
+      "adrena_taken": 11,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92760160",
+      "won": false,
+      "family": "other: Team Rocket's Mewtwo ex",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 8,
+      "fros_taken": 4,
+      "fros_turns": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "episode_id": "92768436",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 13,
+      "adrena_taken": 6,
+      "fros_offered": 11,
+      "fros_taken": 7,
+      "fros_turns": [
+        2,
+        4,
+        4,
+        4,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "episode_id": "92774872",
+      "won": false,
+      "family": "Alakazam",
+      "adrena_offered": 11,
+      "adrena_taken": 4,
+      "fros_offered": 7,
+      "fros_taken": 2,
+      "fros_turns": [
+        2,
+        2
+      ]
+    },
+    {
+      "episode_id": "92781439",
+      "won": false,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 4,
+      "adrena_taken": 3,
+      "fros_offered": 1,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92791598",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 19,
+      "adrena_taken": 12,
+      "fros_offered": 3,
+      "fros_taken": 0,
+      "fros_turns": []
+    },
+    {
+      "episode_id": "92793178",
+      "won": true,
+      "family": "Grimmsnarl (mirror)",
+      "adrena_offered": 19,
+      "adrena_taken": 10,
+      "fros_offered": 27,
+      "fros_taken": 3,
+      "fros_turns": [
+        2,
+        2,
+        4
+      ]
+    },
+    {
+      "episode_id": "92804419",
+      "won": true,
+      "family": "Kangaskhan / Crustle",
+      "adrena_offered": 18,
+      "adrena_taken": 11,
+      "fros_offered": 10,
+      "fros_taken": 3,
+      "fros_turns": [
+        4,
+        4,
+        6
+      ]
+    },
+    {
+      "episode_id": "92815623",
+      "won": true,
+      "family": "Mega Lucario",
+      "adrena_offered": 21,
+      "adrena_taken": 11,
+      "fros_offered": 8,
+      "fros_taken": 2,
+      "fros_turns": [
+        1,
+        2
+      ]
+    },
+    {
+      "episode_id": "92816675",
+      "won": false,
+      "family": "Mega Lopunny / Froslass",
+      "adrena_offered": 0,
+      "adrena_taken": 0,
+      "fros_offered": 2,
+      "fros_taken": 0,
+      "fros_turns": []
+    }
+  ]
+}
