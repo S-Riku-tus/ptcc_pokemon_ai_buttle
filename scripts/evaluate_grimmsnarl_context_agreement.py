@@ -172,6 +172,13 @@ def main() -> int:
         "--data-root", type=Path,
         default=ROOT / "data" / "kaggle_grimmsnarl_top50",
     )
+    parser.add_argument(
+        "--index", type=Path,
+        help=(
+            "Optional relation manifest. Rows may include replay_path; "
+            "otherwise the legacy data-root/replays layout is used."
+        ),
+    )
     parser.add_argument("--team", type=int)
     parser.add_argument("--min-episode", type=int, default=0)
     parser.add_argument("--limit", type=int, default=60)
@@ -184,7 +191,8 @@ def main() -> int:
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
-    index = pd.read_csv(args.data_root / "indexes" / "episodes.csv")
+    index_path = args.index or args.data_root / "indexes" / "episodes.csv"
+    index = pd.read_csv(index_path)
     index = index[index["download_status"] == "success"]
     if args.episodes_from:
         wanted = json.loads(args.episodes_from.read_text(encoding="utf-8"))
@@ -228,7 +236,16 @@ def main() -> int:
     mismatch_examples: dict[int, list[dict[str, Any]]] = defaultdict(list)
 
     for _, row in index.iterrows():
-        path = args.data_root / "replays" / f"episode_{row.episode_id}.json"
+        replay_path = getattr(row, "replay_path", None)
+        if replay_path is not None and not pd.isna(replay_path):
+            path = Path(str(replay_path))
+            if not path.is_absolute():
+                path = args.data_root / path
+        else:
+            path = (
+                args.data_root / "replays"
+                / f"episode_{row.episode_id}.json"
+            )
         replay = json.loads(path.read_text(encoding="utf-8"))
         seat = int(row.seat_index)
         steps = replay.get("steps") or []

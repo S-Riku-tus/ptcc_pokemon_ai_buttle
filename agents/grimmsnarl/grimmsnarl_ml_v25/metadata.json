@@ -1,0 +1,72 @@
+{
+  "name": "grimmsnarl_ml_v25",
+  "version": "25.0.0",
+  "role": "challenger_submission_candidate",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v22",
+  "created_at": "2026-08-14T00:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "The measured v22 runtime retrained on 120 current same-deck AlphaTCG games and conditioned on that 1095.3-rated pilot. No v24 Froslass veto and no unvalidated search override.",
+  "ranker": {
+    "source_corpus": "data/ml/grimmsnarl/processed/corpus_v25_with_alphatcg.npz",
+    "relations": 4217,
+    "teams": 22,
+    "alpha_games": 120,
+    "alpha_decisions": 9164,
+    "focus_team_id": 16381823,
+    "focus_weight": 3.0,
+    "teacher_team_id": 16381823,
+    "teacher_team_code": 3,
+    "trees": 228,
+    "features": 823,
+    "sha256": "98b16b8b6fa3f628fc08a8ce3a94f964cc49e02b9f12c0650fc6e74b6b3a79c1"
+  },
+  "offline_gate": {
+    "split": "per-team chronological test",
+    "episodes": 14,
+    "decisions": 901,
+    "v22_top1": 0.7714,
+    "v25_top1": 0.8635,
+    "absolute_delta": 0.0921,
+    "v25_wilson95": [0.8395, 0.8844],
+    "v25_order_insensitive_top1": 0.9512,
+    "episode_bootstrap_delta95": [0.0723, 0.1123],
+    "training_report": "experiments/grimmsnarl_ml_v25/train_alphatcg_focus3.json",
+    "baseline_report": "experiments/grimmsnarl_ml_v25/v22_on_alphatcg_test.json",
+    "paired_report": "experiments/grimmsnarl_ml_v25/paired_v25_vs_v22_alphatcg_test.json"
+  },
+  "change_scope": {
+    "policy_files_changed_from_v22": [
+      "ranker_model.json",
+      "ml_runtime.py"
+    ],
+    "documentation_files_changed_from_v22": ["main.py", "metadata.json"],
+    "identical_runtime_files": [
+      "deck.csv",
+      "fallback_policy.py",
+      "ml_features.py",
+      "ml_planner.py",
+      "policy_base.py"
+    ],
+    "v24_froslass_veto_included": false,
+    "explicit_search_included": false
+  },
+  "policy_escalation": {
+    "mode": "off",
+    "legacy_teacher_team_id": 16371703,
+    "legacy_teacher_code": 0,
+    "reason": "The old Froslass class switch must remain inert after moving the global pilot pin from code 0 to code 3."
+  },
+  "design_rationale": [
+    "Logged outcomes identify only the chosen trajectory, so they cannot provide unbiased Q targets for unchosen actions.",
+    "The same-deck top pilot's actions encode multi-turn exchange judgement and can be learned without counterfactual target leakage.",
+    "Prior v7/v12 search stopped before the opponent response or used a local arithmetic leaf and did not pass ladder validation."
+  ],
+  "known_limits": [
+    "Offline action agreement is a proxy; strength remains unverified until a controlled ladder intervention.",
+    "The ranker still acts one decision at a time; explicit opponent-response search is deferred until a branch-sensitive H2 value model passes offline gates.",
+    "AlphaTCG's reported 0.750 high-band mirror result contains only eight games."
+  ],
+  "description": "v25 challenger: compact AlphaTCG-conditioned ranker on the stable v22 runtime."
+}

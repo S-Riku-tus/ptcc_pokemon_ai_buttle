@@ -1,0 +1,169 @@
+{
+  "loaded": {
+    "v22": 194,
+    "v24": 87
+  },
+  "v22": {
+    "pool": "v22",
+    "all_games": {
+      "games": 194,
+      "wins": 121,
+      "losses": 73,
+      "win_rate": 0.6237,
+      "true_evo_per_game": 0.8608,
+      "legacy_actions_per_game": 2.5052
+    },
+    "mirror_family": {
+      "games": 56,
+      "wins": 30,
+      "losses": 26,
+      "win_rate": 0.5357,
+      "true_evo_per_game": 0.3214,
+      "bindable_evo_per_game": 0.3214,
+      "games_with_true_evo": 17,
+      "games_with_bindable_evo": 17,
+      "opponent_true_evo_per_game": 0.3036
+    },
+    "exact_list_mirror": {
+      "games": 50,
+      "wins": 27,
+      "losses": 23,
+      "win_rate": 0.54,
+      "true_evo_per_game": 0.34,
+      "bindable_evo_per_game": 0.34
+    },
+    "non_mirror": {
+      "games": 138,
+      "wins": 91,
+      "losses": 47,
+      "win_rate": 0.6594,
+      "true_evo_per_game": 1.0797
+    },
+    "legacy_proxy_contrast": {
+      "none": {
+        "games": 60,
+        "wins": 40,
+        "losses": 20,
+        "win_rate": 0.6667
+      },
+      "one_or_more": {
+        "games": 134,
+        "wins": 81,
+        "losses": 53,
+        "win_rate": 0.6045
+      },
+      "events": 486,
+      "fisher_p": 0.4279,
+      "controlled": {
+        "n": 190,
+        "elo": -77.6,
+        "z": -1.29,
+        "p": 0.1966
+      }
+    },
+    "true_evo_contrast": {
+      "none": {
+        "games": 70,
+        "wins": 44,
+        "losses": 26,
+        "win_rate": 0.6286
+      },
+      "one_or_more": {
+        "games": 124,
+        "wins": 77,
+        "losses": 47,
+        "win_rate": 0.621
+      },
+      "events": 167,
+      "fisher_p": 1.0,
+      "controlled": {
+        "n": 190,
+        "elo": -41.1,
+        "z": -0.72,
+        "p": 0.4719
+      }
+    }
+  },
+  "v24": {
+    "pool": "v24",
+    "all_games": {
+      "games": 87,
+      "wins": 57,
+      "losses": 30,
+      "win_rate": 0.6552,
+      "true_evo_per_game": 0.5862,
+      "legacy_actions_per_game": 2.1494
+    },
+    "mirror_family": {
+      "games": 28,
+      "wins": 19,
+      "losses": 9,
+      "win_rate": 0.6786,
+      "true_evo_per_game": 0.0,
+      "bindable_evo_per_game": 0.0,
+      "games_with_true_evo": 0,
+      "games_with_bindable_evo": 0,
+      "opponent_true_evo_per_game": 0.3929
+    },
+    "exact_list_mirror": {
+      "games": 26,
+      "wins": 17,
+      "losses": 9,
+      "win_rate": 0.6538,
+      "true_evo_per_game": 0.0,
+      "bindable_evo_per_game": 0.0
+    },
+    "non_mirror": {
+      "games": 59,
+      "wins": 38,
+      "losses": 21,
+      "win_rate": 0.6441,
+      "true_evo_per_game": 0.8644
+    },
+    "legacy_proxy_contrast": {
+      "none": {
+        "games": 31,
+        "wins": 23,
+        "losses": 8,
+        "win_rate": 0.7419
+      },
+      "one_or_more": {
+        "games": 56,
+        "wins": 34,
+        "losses": 22,
+        "win_rate": 0.6071
+      },
+      "events": 187,
+      "fisher_p": 0.2445,
+      "controlled": {
+        "n": 85,
+        "elo": -227.1,
+        "z": -2.25,
+        "p": 0.0247
+      }
+    },
+    "true_evo_contrast": {
+      "none": {
+        "games": 45,
+        "wins": 32,
+        "losses": 13,
+        "win_rate": 0.7111
+      },
+      "one_or_more": {
+        "games": 42,
+        "wins": 25,
+        "losses": 17,
+        "win_rate": 0.5952
+      },
+      "events": 51,
+      "fisher_p": 0.2701,
+      "controlled": {
+        "n": 85,
+        "elo": -191.7,
+        "z": -2.04,
+        "p": 0.0415
+      }
+    }
+  },
+  "v24_mirror_games_with_surviving_evolution": []
+}

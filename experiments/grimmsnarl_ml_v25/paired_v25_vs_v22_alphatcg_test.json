@@ -1,0 +1,341 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v25_with_alphatcg.npz",
+  "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\models\\ranker_v25_alphatcg_focus3.txt",
+  "model_iterations": 228,
+  "split": "test",
+  "split_mode": "per-team",
+  "split_boundaries": {
+    "16371703": [
+      89436307,
+      89447054
+    ],
+    "16375320": [
+      89416344,
+      89423275
+    ],
+    "16376653": [
+      89411560,
+      89418571
+    ],
+    "16381823": [
+      92739644,
+      92830563
+    ],
+    "16381904": [
+      89408949,
+      89418509
+    ],
+    "16385817": [
+      89427143,
+      89430449
+    ],
+    "16388364": [
+      89390385,
+      89418138
+    ],
+    "16388654": [
+      89377994,
+      89414228
+    ],
+    "16407282": [
+      89399396,
+      89411624
+    ],
+    "16421840": [
+      89408059,
+      89421832
+    ],
+    "16422241": [
+      90020338,
+      90035170
+    ],
+    "16430670": [
+      89450767,
+      89454592
+    ],
+    "16431331": [
+      89393767,
+      89421100
+    ],
+    "16452116": [
+      89404188,
+      89419059
+    ],
+    "16461850": [
+      89414744,
+      89420741
+    ],
+    "16462035": [
+      89305369,
+      89408446
+    ],
+    "16463316": [
+      89410517,
+      89423312
+    ],
+    "16494330": [
+      89409969,
+      89418031
+    ],
+    "16514272": [
+      89414701,
+      89422418
+    ],
+    "16531269": [
+      89407855,
+      89421243
+    ],
+    "16556346": [
+      89414696,
+      89423404
+    ],
+    "16561259": [
+      89422313,
+      89426638
+    ]
+  },
+  "label_teams": [
+    16381823
+  ],
+  "pin_team": 16381823,
+  "pin_team_code": 3,
+  "baseline_pin_team_code": 0,
+  "team_feature": true,
+  "episodes": 14,
+  "submissions": 1,
+  "decisions": 901,
+  "top1": 0.8635,
+  "top1_hits": 778,
+  "top1_wilson95": [
+    0.8395,
+    0.8844
+  ],
+  "top2": 0.9634,
+  "top3": 0.9922,
+  "taxonomy": {
+    "counts": {
+      "correct": 778,
+      "same_turn_ordering": 79,
+      "divergence": 17,
+      "same_action_type_divergence": 27
+    },
+    "rates": {
+      "correct": 0.8635,
+      "same_turn_ordering": 0.0877,
+      "divergence": 0.0189,
+      "same_action_type_divergence": 0.03
+    },
+    "order_insensitive_top1": 0.9512,
+    "top_action_confusions": [
+      {
+        "teacher": 12,
+        "predicted": 12,
+        "count": 39
+      },
+      {
+        "teacher": 8,
+        "predicted": 8,
+        "count": 6
+      },
+      {
+        "teacher": 8,
+        "predicted": 0,
+        "count": 6
+      },
+      {
+        "teacher": 8,
+        "predicted": 14,
+        "count": 4
+      },
+      {
+        "teacher": 0,
+        "predicted": 2,
+        "count": 3
+      },
+      {
+        "teacher": 2,
+        "predicted": 2,
+        "count": 3
+      },
+      {
+        "teacher": 16,
+        "predicted": 0,
+        "count": 3
+      },
+      {
+        "teacher": 11,
+        "predicted": 4,
+        "count": 2
+      },
+      {
+        "teacher": 3,
+        "predicted": 5,
+        "count": 2
+      },
+      {
+        "teacher": 4,
+        "predicted": 1,
+        "count": 2
+      },
+      {
+        "teacher": 16,
+        "predicted": 11,
+        "count": 2
+      },
+      {
+        "teacher": 16,
+        "predicted": 6,
+        "count": 2
+      }
+    ]
+  },
+  "top1_by_team": {
+    "16381823": {
+      "decisions": 901,
+      "top1": 0.8635
+    }
+  },
+  "top1_by_context": {
+    "0": {
+      "decisions": 490,
+      "top1": 0.8306
+    },
+    "1": {
+      "decisions": 8,
+      "top1": 0.875
+    },
+    "3": {
+      "decisions": 18,
+      "top1": 0.8333
+    },
+    "4": {
+      "decisions": 28,
+      "top1": 0.9643
+    },
+    "7": {
+      "decisions": 95,
+      "top1": 0.8421
+    },
+    "13": {
+      "decisions": 50,
+      "top1": 0.9
+    },
+    "15": {
+      "decisions": 31,
+      "top1": 0.7742
+    },
+    "16": {
+      "decisions": 28,
+      "top1": 0.8571
+    },
+    "21": {
+      "decisions": 69,
+      "top1": 0.9565
+    },
+    "37": {
+      "decisions": 1,
+      "top1": 1.0
+    },
+    "38": {
+      "decisions": 2,
+      "top1": 1.0
+    },
+    "40": {
+      "decisions": 46,
+      "top1": 0.9783
+    },
+    "41": {
+      "decisions": 9,
+      "top1": 1.0
+    },
+    "43": {
+      "decisions": 26,
+      "top1": 1.0
+    }
+  },
+  "top1_by_teacher_action": {
+    "0": {
+      "decisions": 102,
+      "top1": 0.902
+    },
+    "1": {
+      "decisions": 43,
+      "top1": 0.8837
+    },
+    "2": {
+      "decisions": 58,
+      "top1": 0.8621
+    },
+    "3": {
+      "decisions": 6,
+      "top1": 0.3333
+    },
+    "4": {
+      "decisions": 11,
+      "top1": 0.5455
+    },
+    "5": {
+      "decisions": 43,
+      "top1": 0.8605
+    },
+    "6": {
+      "decisions": 60,
+      "top1": 0.9167
+    },
+    "7": {
+      "decisions": 35,
+      "top1": 1.0
+    },
+    "8": {
+      "decisions": 85,
+      "top1": 0.7529
+    },
+    "9": {
+      "decisions": 48,
+      "top1": 0.9792
+    },
+    "11": {
+      "decisions": 13,
+      "top1": 0.6154
+    },
+    "12": {
+      "decisions": 327,
+      "top1": 0.8807
+    },
+    "14": {
+      "decisions": 21,
+      "top1": 0.8571
+    },
+    "15": {
+      "decisions": 9,
+      "top1": 0.7778
+    },
+    "16": {
+      "decisions": 40,
+      "top1": 0.775
+    }
+  },
+  "baseline": {
+    "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\models\\ranker_v5_data_refresh_base.txt",
+    "model_iterations": 2000,
+    "top1": 0.7714,
+    "top1_hits": 695
+  },
+  "paired_comparison": {
+    "candidate_minus_baseline_top1": 0.0921,
+    "both_correct": 675,
+    "candidate_only_correct": 103,
+    "baseline_only_correct": 20,
+    "neither_correct": 103,
+    "net_correct_decisions": 83,
+    "cluster_bootstrap": {
+      "unit": "episode",
+      "samples": 2000,
+      "seed": 17,
+      "delta_top1_95": [
+        0.0723,
+        0.1123
+      ]
+    }
+  }
+}

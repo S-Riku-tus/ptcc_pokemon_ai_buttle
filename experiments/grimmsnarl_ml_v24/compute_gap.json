@@ -1,0 +1,180 @@
+{
+  "compute": {
+    "our_mean_spend_s": 12.14,
+    "opp_mean_spend_s": 45.5,
+    "bank_s": 600.0,
+    "buckets": {
+      "opp <20s (no search)": {
+        "games": 194,
+        "wins": 134
+      },
+      "opp >=150s (deep search)": {
+        "games": 27,
+        "wins": 16
+      },
+      "opp 20-60s": {
+        "games": 47,
+        "wins": 25
+      },
+      "opp 60-150s": {
+        "games": 13,
+        "wins": 3
+      }
+    },
+    "controlled_seconds": {
+      "n": 275,
+      "term": "opp_spend_seconds",
+      "elo": 0.0,
+      "z": 0.18,
+      "p": 0.8539
+    },
+    "controlled_deep": {
+      "n": 275,
+      "term": "opp_spend>=60s",
+      "elo": -87.4,
+      "z": -1.4,
+      "p": 0.1604
+    }
+  },
+  "top40_expected_win_rate": 0.630669811784363,
+  "by_deck": {
+    "202ee2cec6cbe8b4": {
+      "slots": 9,
+      "best": 1254.5,
+      "games": 14,
+      "wins": 9
+    },
+    "4867fd964a4c9662": {
+      "slots": 1,
+      "best": 1220.7,
+      "games": 0,
+      "wins": 0
+    },
+    "82879abd3807469b": {
+      "slots": 1,
+      "best": 1203.8,
+      "games": 1,
+      "wins": 0
+    },
+    "f39b7a1dd837f526": {
+      "slots": 5,
+      "best": 1196.3,
+      "games": 2,
+      "wins": 0
+    },
+    "611321e2060e5fee": {
+      "slots": 1,
+      "best": 1191.0,
+      "games": 0,
+      "wins": 0
+    },
+    "05f854e1b3b3ba0f": {
+      "slots": 1,
+      "best": 1181.4,
+      "games": 3,
+      "wins": 3
+    },
+    "42972e2eccd5e0aa": {
+      "slots": 1,
+      "best": 1161.4,
+      "games": 1,
+      "wins": 0
+    },
+    "63e16702d79a67b5": {
+      "slots": 1,
+      "best": 1158.5,
+      "games": 0,
+      "wins": 0
+    },
+    "48dd99dd2b5aba68": {
+      "slots": 1,
+      "best": 1151.3,
+      "games": 0,
+      "wins": 0
+    },
+    "f1f6f7e399da38d2": {
+      "slots": 1,
+      "best": 1136.7,
+      "games": 0,
+      "wins": 0
+    },
+    "d9f935d23302a6f4": {
+      "slots": 1,
+      "best": 1119.6,
+      "games": 0,
+      "wins": 0
+    },
+    "9b415cc6bbdf6fd5": {
+      "slots": 2,
+      "best": 1113.5,
+      "games": 2,
+      "wins": 1
+    },
+    "22e7836339c38c73": {
+      "slots": 1,
+      "best": 1101.6,
+      "games": 0,
+      "wins": 0
+    },
+    "21c3f20980827cb2": {
+      "slots": 1,
+      "best": 1097.3,
+      "games": 3,
+      "wins": 1
+    },
+    "9714ab5c3996f6cc": {
+      "slots": 2,
+      "best": 1095.3,
+      "games": 76,
+      "wins": 44
+    },
+    "a7ee29914c1dce64": {
+      "slots": 4,
+      "best": 1093.0,
+      "games": 18,
+      "wins": 11
+    },
+    "6e5a0a56c7ef2514": {
+      "slots": 1,
+      "best": 1089.8,
+      "games": 1,
+      "wins": 1
+    },
+    "75dd701aecdd4872": {
+      "slots": 1,
+      "best": 1082.7,
+      "games": 0,
+      "wins": 0
+    },
+    "abdb89aa6dabc48c": {
+      "slots": 1,
+      "best": 1074.5,
+      "games": 0,
+      "wins": 0
+    },
+    "78a27b6e506d4015": {
+      "slots": 1,
+      "best": 1070.3,
+      "games": 0,
+      "wins": 0
+    },
+    "9ad3143fbfcfc93e": {
+      "slots": 1,
+      "best": 1069.6,
+      "games": 0,
+      "wins": 0
+    },
+    "e57bfe5c6a8df32a": {
+      "slots": 1,
+      "best": 1064.8,
+      "games": 0,
+      "wins": 0
+    },
+    "f28177e6f00410a7": {
+      "slots": 1,
+      "best": 1063.3,
+      "games": 1,
+      "wins": 0
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "data_root": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\runs\\grimmsnarl\\20260814_peer_alphatcg_sub55350342",
+  "index_source": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\grimmsnarl_ml_v25\\alphatcg_selection.csv",
+  "selection_mode": "manifest",
+  "accepted_download_statuses": [
+    "success"
+  ],
+  "limit_per_team": 0,
+  "latest_per_team": 0,
+  "selection_manifest_in": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\grimmsnarl_ml_v25\\alphatcg_selection.csv",
+  "selection_manifest_out": "",
+  "selection_manifest_sha256": "f40a9fae0d6a305911449a6640749a2fdf9c3309f73c195b695803f71d3457a5",
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v22",
+  "deck_hash": "9714ab5c3996f6cc",
+  "excluded_teams": [],
+  "cache": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v25_alphatcg.npz",
+  "trajectories": 120,
+  "teams": 1,
+  "submissions": 1,
+  "selected_rows_by_status": {
+    "success": 120
+  },
+  "selected_rows_by_team": {
+    "16381823": 120
+  },
+  "selected_rows_by_submission": {
+    "55350342": 120
+  },
+  "episodes": 120,
+  "win_rate": 0.5417,
+  "decisions": 9164,
+  "candidate_rows": 43468,
+  "features": 822,
+  "base_features": 814,
+  "turn_features": [
+    "turn_decision_index",
+    "turn_candidate_offer_count",
+    "turn_candidate_passed_over",
+    "turn_candidate_offered_previous",
+    "turn_candidate_first_offer_index",
+    "turn_class_passed_over",
+    "turn_class_offer_count",
+    "turn_new_candidate"
+  ],
+  "validation_min_episode": 92739644,
+  "test_min_episode": 92830563,
+  "split_decisions": {
+    "train": 7280,
+    "validation": 983,
+    "test": 901
+  },
+  "split_episodes": {
+    "train": 92,
+    "validation": 14,
+    "test": 14
+  },
+  "mean_candidates_per_decision": 4.743,
+  "extraction_stats": {
+    "episodes": 120,
+    "wins": 65,
+    "decisions": 9164,
+    "decisions_ctx41": 63,
+    "decisions_ctx1": 45,
+    "duplicate_candidates_collapsed": 11039,
+    "decisions_ctx0": 4861,
+    "decisions_ctx7": 942,
+    "decisions_single_distinct_option": 519,
+    "decisions_ctx43": 238,
+    "decisions_ctx21": 597,
+    "decisions_ctx3": 187,
+    "decisions_ctx15": 351,
+    "decisions_ctx4": 247,
+    "decisions_ctx16": 341,
+    "decisions_ctx40": 596,
+    "decisions_ctx13": 637,
+    "decisions_ctx38": 28,
+    "decisions_ctx37": 27,
+    "decisions_ctx5": 3,
+    "decisions_ctx8": 1
+  }
+}

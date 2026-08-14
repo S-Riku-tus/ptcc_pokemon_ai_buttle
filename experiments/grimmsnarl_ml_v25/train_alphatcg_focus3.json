@@ -1,0 +1,838 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v25_with_alphatcg.npz",
+  "teams": "all",
+  "leave_out_team": null,
+  "focus_team": 16381823,
+  "focus_weight": 3.0,
+  "win_weight": 1.0,
+  "hard_state_weight": 1.0,
+  "hard_state_set": "v21",
+  "hard_state_support": {
+    "train": {
+      "delayed_attack_access": 49402,
+      "attack_chain_gap": 135043,
+      "punk_allocation": 0,
+      "ready_promotion": 0,
+      "wall_recovery": 18388,
+      "mirror_endgame": 13684,
+      "retreat_lock": 0,
+      "bench_locked": 0,
+      "boss_prize_route": 78091,
+      "dead_shadow_with_route": 61290
+    },
+    "validation": {
+      "delayed_attack_access": 280,
+      "attack_chain_gap": 375,
+      "punk_allocation": 0,
+      "ready_promotion": 0,
+      "wall_recovery": 0,
+      "mirror_endgame": 0,
+      "retreat_lock": 0,
+      "bench_locked": 0,
+      "boss_prize_route": 265,
+      "dead_shadow_with_route": 163
+    },
+    "test": {
+      "delayed_attack_access": 228,
+      "attack_chain_gap": 388,
+      "punk_allocation": 0,
+      "ready_promotion": 0,
+      "wall_recovery": 0,
+      "mirror_endgame": 13,
+      "retreat_lock": 0,
+      "bench_locked": 0,
+      "boss_prize_route": 239,
+      "dead_shadow_with_route": 197
+    }
+  },
+  "rating_weight": 0.0,
+  "ratings": {},
+  "eval_team": 16381823,
+  "train_context_support": {
+    "0": 130106,
+    "1": 1095,
+    "3": 4622,
+    "4": 6430,
+    "5": 208,
+    "7": 25524,
+    "8": 109,
+    "13": 18543,
+    "15": 10151,
+    "16": 12073,
+    "21": 15044,
+    "37": 934,
+    "38": 778,
+    "40": 18251,
+    "41": 1616,
+    "43": 6973
+  },
+  "params": {
+    "objective": "lambdarank",
+    "num_leaves": 255,
+    "learning_rate": 0.05,
+    "min_data_in_leaf": 40,
+    "feature_fraction": 0.5,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "seed": 17,
+    "verbosity": -1,
+    "num_threads": 20,
+    "metric": "None",
+    "lambdarank_truncation_level": 12,
+    "label_gain": [
+      0,
+      1
+    ]
+  },
+  "best_iteration": 228,
+  "num_boost_round": 2500,
+  "team_feature": true,
+  "split_mode": "per-team",
+  "split_boundaries": {
+    "16371703": [
+      89436307,
+      89447054
+    ],
+    "16375320": [
+      89416344,
+      89423275
+    ],
+    "16376653": [
+      89411560,
+      89418571
+    ],
+    "16381823": [
+      92739644,
+      92830563
+    ],
+    "16381904": [
+      89408949,
+      89418509
+    ],
+    "16385817": [
+      89427143,
+      89430449
+    ],
+    "16388364": [
+      89390385,
+      89418138
+    ],
+    "16388654": [
+      89377994,
+      89414228
+    ],
+    "16407282": [
+      89399396,
+      89411624
+    ],
+    "16421840": [
+      89408059,
+      89421832
+    ],
+    "16422241": [
+      90020338,
+      90035170
+    ],
+    "16430670": [
+      89450767,
+      89454592
+    ],
+    "16431331": [
+      89393767,
+      89421100
+    ],
+    "16452116": [
+      89404188,
+      89419059
+    ],
+    "16461850": [
+      89414744,
+      89420741
+    ],
+    "16462035": [
+      89305369,
+      89408446
+    ],
+    "16463316": [
+      89410517,
+      89423312
+    ],
+    "16494330": [
+      89409969,
+      89418031
+    ],
+    "16514272": [
+      89414701,
+      89422418
+    ],
+    "16531269": [
+      89407855,
+      89421243
+    ],
+    "16556346": [
+      89414696,
+      89423404
+    ],
+    "16561259": [
+      89422313,
+      89426638
+    ]
+  },
+  "split_decisions": {
+    "train": 252457,
+    "validation": 983,
+    "test": 901
+  },
+  "split_episodes": {
+    "train": 3124,
+    "validation": 14,
+    "test": 14
+  },
+  "split_submissions": {
+    "train": 22,
+    "validation": 1,
+    "test": 1
+  },
+  "validation": {
+    "decisions": 983,
+    "top1": 0.8769,
+    "top1_wilson95": [
+      0.8549,
+      0.896
+    ],
+    "top2": 0.9725,
+    "top3": 0.9888,
+    "taxonomy": {
+      "counts": {
+        "correct": 862,
+        "same_turn_ordering": 64,
+        "same_action_type_divergence": 38,
+        "divergence": 19
+      },
+      "rates": {
+        "correct": 0.8769,
+        "same_turn_ordering": 0.0651,
+        "same_action_type_divergence": 0.0387,
+        "divergence": 0.0193
+      },
+      "order_insensitive_top1": 0.942,
+      "top_action_confusions": [
+        {
+          "teacher": 12,
+          "predicted": 12,
+          "count": 47
+        },
+        {
+          "teacher": 8,
+          "predicted": 0,
+          "count": 3
+        },
+        {
+          "teacher": 16,
+          "predicted": 16,
+          "count": 3
+        },
+        {
+          "teacher": 0,
+          "predicted": 8,
+          "count": 3
+        },
+        {
+          "teacher": 16,
+          "predicted": 8,
+          "count": 3
+        },
+        {
+          "teacher": 8,
+          "predicted": 11,
+          "count": 3
+        },
+        {
+          "teacher": 8,
+          "predicted": 6,
+          "count": 2
+        },
+        {
+          "teacher": 6,
+          "predicted": 6,
+          "count": 2
+        },
+        {
+          "teacher": 2,
+          "predicted": 14,
+          "count": 2
+        },
+        {
+          "teacher": 8,
+          "predicted": 5,
+          "count": 2
+        },
+        {
+          "teacher": 2,
+          "predicted": 8,
+          "count": 2
+        },
+        {
+          "teacher": 8,
+          "predicted": 8,
+          "count": 2
+        }
+      ]
+    },
+    "top1_by_teacher_action": {
+      "0": {
+        "decisions": 115,
+        "top1": 0.9304
+      },
+      "1": {
+        "decisions": 45,
+        "top1": 0.8667
+      },
+      "2": {
+        "decisions": 66,
+        "top1": 0.8636
+      },
+      "3": {
+        "decisions": 9,
+        "top1": 0.4444
+      },
+      "4": {
+        "decisions": 21,
+        "top1": 0.8571
+      },
+      "5": {
+        "decisions": 58,
+        "top1": 0.8793
+      },
+      "6": {
+        "decisions": 57,
+        "top1": 0.8947
+      },
+      "7": {
+        "decisions": 31,
+        "top1": 1.0
+      },
+      "8": {
+        "decisions": 81,
+        "top1": 0.8272
+      },
+      "9": {
+        "decisions": 62,
+        "top1": 1.0
+      },
+      "11": {
+        "decisions": 13,
+        "top1": 0.7692
+      },
+      "12": {
+        "decisions": 353,
+        "top1": 0.8669
+      },
+      "14": {
+        "decisions": 24,
+        "top1": 0.9167
+      },
+      "15": {
+        "decisions": 7,
+        "top1": 0.8571
+      },
+      "16": {
+        "decisions": 41,
+        "top1": 0.7561
+      }
+    },
+    "top1_by_context": {
+      "0": {
+        "decisions": 533,
+        "top1": 0.8612
+      },
+      "7": {
+        "decisions": 102,
+        "top1": 0.8235
+      },
+      "13": {
+        "decisions": 70,
+        "top1": 0.8571
+      },
+      "21": {
+        "decisions": 61,
+        "top1": 0.918
+      },
+      "40": {
+        "decisions": 58,
+        "top1": 1.0
+      },
+      "15": {
+        "decisions": 37,
+        "top1": 0.8378
+      },
+      "4": {
+        "decisions": 28,
+        "top1": 0.8929
+      },
+      "16": {
+        "decisions": 28,
+        "top1": 0.8929
+      },
+      "43": {
+        "decisions": 25,
+        "top1": 1.0
+      },
+      "3": {
+        "decisions": 21,
+        "top1": 0.9524
+      },
+      "41": {
+        "decisions": 6,
+        "top1": 1.0
+      },
+      "1": {
+        "decisions": 6,
+        "top1": 0.8333
+      },
+      "37": {
+        "decisions": 4,
+        "top1": 1.0
+      },
+      "38": {
+        "decisions": 4,
+        "top1": 1.0
+      }
+    },
+    "top1_by_team": {
+      "16381823": {
+        "decisions": 983,
+        "top1": 0.8769
+      }
+    },
+    "top1_by_hard_state": {
+      "delayed_attack_access": {
+        "decisions": 280,
+        "top1": 0.8643
+      },
+      "attack_chain_gap": {
+        "decisions": 375,
+        "top1": 0.864
+      },
+      "punk_allocation": {
+        "decisions": 0,
+        "top1": null
+      },
+      "ready_promotion": {
+        "decisions": 0,
+        "top1": null
+      },
+      "wall_recovery": {
+        "decisions": 0,
+        "top1": null
+      },
+      "mirror_endgame": {
+        "decisions": 0,
+        "top1": null
+      },
+      "retreat_lock": {
+        "decisions": 0,
+        "top1": null
+      },
+      "bench_locked": {
+        "decisions": 0,
+        "top1": null
+      },
+      "boss_prize_route": {
+        "decisions": 265,
+        "top1": 0.8566
+      },
+      "dead_shadow_with_route": {
+        "decisions": 163,
+        "top1": 0.9018
+      }
+    }
+  },
+  "test": {
+    "decisions": 901,
+    "top1": 0.8635,
+    "top1_wilson95": [
+      0.8395,
+      0.8844
+    ],
+    "top2": 0.9634,
+    "top3": 0.9922,
+    "taxonomy": {
+      "counts": {
+        "correct": 778,
+        "same_turn_ordering": 79,
+        "divergence": 17,
+        "same_action_type_divergence": 27
+      },
+      "rates": {
+        "correct": 0.8635,
+        "same_turn_ordering": 0.0877,
+        "divergence": 0.0189,
+        "same_action_type_divergence": 0.03
+      },
+      "order_insensitive_top1": 0.9512,
+      "top_action_confusions": [
+        {
+          "teacher": 12,
+          "predicted": 12,
+          "count": 39
+        },
+        {
+          "teacher": 8,
+          "predicted": 8,
+          "count": 6
+        },
+        {
+          "teacher": 8,
+          "predicted": 0,
+          "count": 6
+        },
+        {
+          "teacher": 8,
+          "predicted": 14,
+          "count": 4
+        },
+        {
+          "teacher": 0,
+          "predicted": 2,
+          "count": 3
+        },
+        {
+          "teacher": 2,
+          "predicted": 2,
+          "count": 3
+        },
+        {
+          "teacher": 16,
+          "predicted": 0,
+          "count": 3
+        },
+        {
+          "teacher": 11,
+          "predicted": 4,
+          "count": 2
+        },
+        {
+          "teacher": 3,
+          "predicted": 5,
+          "count": 2
+        },
+        {
+          "teacher": 4,
+          "predicted": 1,
+          "count": 2
+        },
+        {
+          "teacher": 16,
+          "predicted": 11,
+          "count": 2
+        },
+        {
+          "teacher": 16,
+          "predicted": 6,
+          "count": 2
+        }
+      ]
+    },
+    "top1_by_teacher_action": {
+      "0": {
+        "decisions": 102,
+        "top1": 0.902
+      },
+      "1": {
+        "decisions": 43,
+        "top1": 0.8837
+      },
+      "2": {
+        "decisions": 58,
+        "top1": 0.8621
+      },
+      "3": {
+        "decisions": 6,
+        "top1": 0.3333
+      },
+      "4": {
+        "decisions": 11,
+        "top1": 0.5455
+      },
+      "5": {
+        "decisions": 43,
+        "top1": 0.8605
+      },
+      "6": {
+        "decisions": 60,
+        "top1": 0.9167
+      },
+      "7": {
+        "decisions": 35,
+        "top1": 1.0
+      },
+      "8": {
+        "decisions": 85,
+        "top1": 0.7529
+      },
+      "9": {
+        "decisions": 48,
+        "top1": 0.9792
+      },
+      "11": {
+        "decisions": 13,
+        "top1": 0.6154
+      },
+      "12": {
+        "decisions": 327,
+        "top1": 0.8807
+      },
+      "14": {
+        "decisions": 21,
+        "top1": 0.8571
+      },
+      "15": {
+        "decisions": 9,
+        "top1": 0.7778
+      },
+      "16": {
+        "decisions": 40,
+        "top1": 0.775
+      }
+    },
+    "top1_by_context": {
+      "0": {
+        "decisions": 490,
+        "top1": 0.8306
+      },
+      "7": {
+        "decisions": 95,
+        "top1": 0.8421
+      },
+      "21": {
+        "decisions": 69,
+        "top1": 0.9565
+      },
+      "13": {
+        "decisions": 50,
+        "top1": 0.9
+      },
+      "40": {
+        "decisions": 46,
+        "top1": 0.9783
+      },
+      "15": {
+        "decisions": 31,
+        "top1": 0.7742
+      },
+      "4": {
+        "decisions": 28,
+        "top1": 0.9643
+      },
+      "16": {
+        "decisions": 28,
+        "top1": 0.8571
+      },
+      "43": {
+        "decisions": 26,
+        "top1": 1.0
+      },
+      "3": {
+        "decisions": 18,
+        "top1": 0.8333
+      },
+      "41": {
+        "decisions": 9,
+        "top1": 1.0
+      },
+      "1": {
+        "decisions": 8,
+        "top1": 0.875
+      },
+      "38": {
+        "decisions": 2,
+        "top1": 1.0
+      },
+      "37": {
+        "decisions": 1,
+        "top1": 1.0
+      }
+    },
+    "top1_by_team": {
+      "16381823": {
+        "decisions": 901,
+        "top1": 0.8635
+      }
+    },
+    "top1_by_hard_state": {
+      "delayed_attack_access": {
+        "decisions": 228,
+        "top1": 0.8596
+      },
+      "attack_chain_gap": {
+        "decisions": 388,
+        "top1": 0.866
+      },
+      "punk_allocation": {
+        "decisions": 0,
+        "top1": null
+      },
+      "ready_promotion": {
+        "decisions": 0,
+        "top1": null
+      },
+      "wall_recovery": {
+        "decisions": 0,
+        "top1": null
+      },
+      "mirror_endgame": {
+        "decisions": 13,
+        "top1": 0.9231
+      },
+      "retreat_lock": {
+        "decisions": 0,
+        "top1": null
+      },
+      "bench_locked": {
+        "decisions": 0,
+        "top1": null
+      },
+      "boss_prize_route": {
+        "decisions": 239,
+        "top1": 0.8954
+      },
+      "dead_shadow_with_route": {
+        "decisions": 197,
+        "top1": 0.8985
+      }
+    }
+  },
+  "top_features": [
+    {
+      "name": "action_type_id",
+      "gain": 312140.8
+    },
+    {
+      "name": "candidate_card_id",
+      "gain": 209421.3
+    },
+    {
+      "name": "option_type",
+      "gain": 153990.1
+    },
+    {
+      "name": "candidate_target_id",
+      "gain": 145653.8
+    },
+    {
+      "name": "teacher_team_id",
+      "gain": 145578.9
+    },
+    {
+      "name": "opp_active_id",
+      "gain": 116760.6
+    },
+    {
+      "name": "select_context",
+      "gain": 102413.8
+    },
+    {
+      "name": "energy_enables_munkidori",
+      "gain": 93410.2
+    },
+    {
+      "name": "ctx_number",
+      "gain": 80541.9
+    },
+    {
+      "name": "candidate_same_card_preceding",
+      "gain": 72096.3
+    },
+    {
+      "name": "offered_card_112_count",
+      "gain": 69062.5
+    },
+    {
+      "name": "candidate_target_dark_energy",
+      "gain": 65003.1
+    },
+    {
+      "name": "ctx_option_type",
+      "gain": 62925.9
+    },
+    {
+      "name": "candidate_is_only_end",
+      "gain": 60167.1
+    },
+    {
+      "name": "ctx_movable_counter_deficit",
+      "gain": 54934.2
+    },
+    {
+      "name": "turn_candidate_passed_over",
+      "gain": 54621.7
+    },
+    {
+      "name": "energy_target_is_munkidori",
+      "gain": 53789.1
+    },
+    {
+      "name": "candidate_inplay_area",
+      "gain": 44109.8
+    },
+    {
+      "name": "candidate_target_hp",
+      "gain": 44067.6
+    },
+    {
+      "name": "ctx_target_hp",
+      "gain": 41681.3
+    },
+    {
+      "name": "candidate_target_energy",
+      "gain": 40772.0
+    },
+    {
+      "name": "ctx_is_damage_context",
+      "gain": 35472.2
+    },
+    {
+      "name": "history_self_log_type_4",
+      "gain": 32369.1
+    },
+    {
+      "name": "candidate_raw_index",
+      "gain": 32168.6
+    },
+    {
+      "name": "recent_log_0_type",
+      "gain": 31871.2
+    },
+    {
+      "name": "offered_number_count",
+      "gain": 31568.7
+    },
+    {
+      "name": "ctx_target_hp_after_swing",
+      "gain": 29795.7
+    },
+    {
+      "name": "turn_class_passed_over",
+      "gain": 29782.6
+    },
+    {
+      "name": "candidate_target_max_hp",
+      "gain": 29039.5
+    },
+    {
+      "name": "candidate_same_action_preceding",
+      "gain": 29001.4
+    }
+  ],
+  "validation_curve_tail": {
+    "top1": [
+      0.8657,
+      0.8657,
+      0.8657,
+      0.8657,
+      0.8667
+    ]
+  }
+}

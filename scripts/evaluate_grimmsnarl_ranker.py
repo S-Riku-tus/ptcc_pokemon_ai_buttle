@@ -88,6 +88,10 @@ def main() -> int:
         "--num-iteration", type=int,
         help="Evaluate only the first N trees of --model.",
     )
+    parser.add_argument(
+        "--baseline-num-iteration", type=int,
+        help="Evaluate only the first N trees of --baseline-model.",
+    )
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--split", default="test",
                         choices=["train", "validation", "test"])
@@ -105,6 +109,14 @@ def main() -> int:
             "teacher set (and therefore automatic dense mapping) changed."
         ),
     )
+    parser.add_argument(
+        "--baseline-pin-team-code", type=int,
+        help=(
+            "Categorical pilot code used only by --baseline-model. This "
+            "allows a paired comparison when candidate and baseline were "
+            "trained with different dense teacher mappings."
+        ),
+    )
     parser.add_argument("--team-feature", action="store_true")
     parser.add_argument("--split-mode", default="per-team",
                         choices=["global", "per-team"])
@@ -113,6 +125,13 @@ def main() -> int:
     args = parser.parse_args()
     if args.num_iteration is not None and args.num_iteration <= 0:
         parser.error("--num-iteration must be positive")
+    if (
+        args.baseline_num_iteration is not None
+        and args.baseline_num_iteration <= 0
+    ):
+        parser.error("--baseline-num-iteration must be positive")
+    if args.baseline_num_iteration is not None and args.baseline_model is None:
+        parser.error("--baseline-num-iteration requires --baseline-model")
 
     corpus = Corpus(args.corpus)
     boundaries = None
@@ -140,6 +159,16 @@ def main() -> int:
             corpus.team_codes[args.pin_team] = args.pin_team_code
     elif args.pin_team_code is not None:
         parser.error("--pin-team-code requires --pin-team")
+    if args.baseline_pin_team_code is not None:
+        if args.baseline_model is None:
+            parser.error("--baseline-pin-team-code requires --baseline-model")
+        if args.pin_team is None or not args.team_feature:
+            parser.error(
+                "--baseline-pin-team-code requires --pin-team and "
+                "--team-feature"
+            )
+        if args.baseline_pin_team_code < 0:
+            parser.error("--baseline-pin-team-code cannot be negative")
 
     def load_model(path: Path) -> lgb.Booster:
         model = lgb.Booster(model_file=str(path))
@@ -169,7 +198,20 @@ def main() -> int:
 
     matrix = corpus.matrix(decisions, pin_team=args.pin_team)
     scores = booster.predict(matrix, num_iteration=args.num_iteration)
-    baseline_scores = baseline.predict(matrix) if baseline is not None else None
+    if baseline is not None:
+        if args.baseline_pin_team_code is None:
+            baseline_scores = baseline.predict(
+                matrix, num_iteration=args.baseline_num_iteration
+            )
+        else:
+            baseline_matrix = matrix.copy()
+            baseline_matrix[:, -1] = args.baseline_pin_team_code
+            baseline_scores = baseline.predict(
+                baseline_matrix, num_iteration=args.baseline_num_iteration
+            )
+            del baseline_matrix
+    else:
+        baseline_scores = None
     del matrix
     sizes = corpus.groups[decisions]
     offsets = np.r_[0, np.cumsum(sizes)[:-1]].astype(np.int64)
@@ -192,6 +234,7 @@ def main() -> int:
             corpus.team_codes[args.pin_team]
             if args.pin_team is not None else None
         ),
+        "baseline_pin_team_code": args.baseline_pin_team_code,
         "team_feature": args.team_feature,
         "episodes": int(len(np.unique(corpus.episode_ids[decisions]))),
         "submissions": int(len(np.unique(corpus.submission_ids[decisions]))),
@@ -220,7 +263,10 @@ def main() -> int:
         neither = int(np.sum(~correct & ~baseline_correct))
         result["baseline"] = {
             "model": str(args.baseline_model.resolve()),
-            "model_iterations": int(baseline.num_trees()),
+            "model_iterations": int(min(
+                baseline.num_trees(),
+                args.baseline_num_iteration or baseline.num_trees(),
+            )),
             "top1": round(float(baseline_correct.mean()), 4),
             "top1_hits": int(baseline_correct.sum()),
         }
