@@ -1,0 +1,122 @@
+{
+  "name": "grimmsnarl_ml_v26",
+  "version": "26.0.0",
+  "role": "submission_candidate",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v22",
+  "created_at": "2026-08-15T00:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "v22 is the default policy. v25 supplies a root candidate only in a public same-deck mirror; a three-determinization Search-API rollout advances through the opponent reply and our next turn, and may override only under unanimous value and prize-safety gates. Public wall routes and imminent Lillie deck-outs are handled by deterministic guards.",
+  "champion_ranker": {
+    "source_agent": "grimmsnarl_ml_v22",
+    "teacher_team_id": 16371703,
+    "teacher_team_code": 0,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1"
+  },
+  "peer_candidate_ranker": {
+    "source_agent": "grimmsnarl_ml_v25",
+    "teacher": "AlphaTCG focus model",
+    "default_policy": false,
+    "sha256": "98b16b8b6fa3f628fc08a8ce3a94f964cc49e02b9f12c0650fc6e74b6b3a79c1"
+  },
+  "value_model": {
+    "source_corpus": "corpus_v25_with_alphatcg.npz",
+    "episodes": 4054,
+    "teams": 22,
+    "best_iteration": 552,
+    "validation_auc": 0.8434,
+    "test_auc": 0.8569,
+    "test_logloss": 0.4669,
+    "test_episode_mean_auc": 0.9397,
+    "sha256": "8f5e4671bc2de2a31df8fa8d63f6719fe552b0093782e9d526bf391657b2bdb2",
+    "training_report": "experiments/grimmsnarl_ml_v26/value_training.json"
+  },
+  "h2_search": {
+    "enabled_by_default": true,
+    "matchup": "public Grimmsnarl plus Froslass/Snorunt or Munkidori signature only",
+    "minimum_turn": 5,
+    "horizon": "current own turn + opponent turn + next own turn",
+    "determinizations": 3,
+    "candidates": 3,
+    "minimum_mean_probability_gain": 0.04,
+    "acceptance": "same winner in every determinization; no sample below v22; no worse two-turn prize exchange; no new deck-out",
+    "fallback": "v22 on every tie, disagreement, missing state, engine error, incomplete branch, or budget stop",
+    "episode_search_budget_seconds": 180,
+    "overage_reserve_seconds": 200
+  },
+  "wall_recovery": {
+    "reactive_guard_source": "grimmsnarl_ml_v21/wall_break.py",
+    "proactive_route": [
+      "concentrate spare Punk Up energy on one Morgrem",
+      "complete a one-energy Morgrem without starving the primary attacker",
+      "preserve the last non-ex breaker",
+      "reserve the fifth Bench slot when a third Munkidori would erase the route"
+    ]
+  },
+  "deck_clock": {
+    "scope": "turn 10+, optional Lillie refill can empty deck, while ahead or already attack-ready",
+    "replacement": "highest v22-scored non-Lillie legal action"
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_feature": "evolve_froslass",
+    "effective_runtime": "same as v22; the global teacher pin already equals the escalation teacher"
+  },
+  "change_scope": {
+    "identical_to_v22": [
+      "deck.csv",
+      "fallback_policy.py",
+      "ml_features.py",
+      "ml_planner.py",
+      "policy_base.py",
+      "ranker_model.json"
+    ],
+    "new_runtime_files": [
+      "deck_clock.py",
+      "h2_search.py",
+      "policy_router.py",
+      "ranker_v25_model.json",
+      "value_features.py",
+      "value_model.json",
+      "wall_break.py",
+      "wall_trajectory.py"
+    ],
+    "modified_runtime_files": [
+      "main.py",
+      "ml_runtime.py"
+    ]
+  },
+  "validation": {
+    "unit_and_regression_tests": 219,
+    "test_result": "PASS",
+    "replay_decisions": 1269,
+    "wall_cell_changes": 38,
+    "ordinary_control_changes": 0,
+    "mirror_control_changes_with_h2_disabled": 0,
+    "h2_real_engine_branches": 9,
+    "h2_real_engine_seconds": 12.808,
+    "reports": [
+      "experiments/grimmsnarl_ml_v26/value_training.json",
+      "experiments/grimmsnarl_ml_v26/replay_probe.json",
+      "experiments/grimmsnarl_ml_v26/h2_engine_probe.json"
+    ]
+  },
+  "submission_package": {
+    "path": "artifacts/grimmsnarl_ml_v26_submission.tar.gz",
+    "bytes": 12331007,
+    "sha256": "6d54e3e490d86192a4c7109023666cd19eb7e1ee169368922913df83f12ad37c",
+    "archive_entries": 26,
+    "extracted_import_smoke": "PASS",
+    "deck_size": 60,
+    "h2_enabled_after_extract": true
+  },
+  "known_limits": [
+    "The H2 opponent policy is used only after both the Grimmsnarl line and this list's Froslass/Snorunt or Munkidori engine are public.",
+    "The value model is weakest on turns 1-4 (AUC 0.7196), so H2 is disabled there.",
+    "Ladder strength remains unverified until paired v22/v26 submissions are collected in the same window."
+  ],
+  "description": "Conservative real two-ply planner with v22 fallback, v25 peer candidates, and targeted wall/deck-out recovery."
+}

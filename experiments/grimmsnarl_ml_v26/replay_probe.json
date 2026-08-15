@@ -1,0 +1,370 @@
+{
+  "runs": [
+    "data\\runs\\grimmsnarl\\20260815_grimmsnarl_ml_v25_sub55507909",
+    "data\\runs\\grimmsnarl\\20260815_grimmsnarl_ml_v25_b_sub55517142"
+  ],
+  "available_episodes": 87,
+  "wall_episodes": 11,
+  "control_episodes": 12,
+  "episodes": 23,
+  "counts": {
+    "decisions": 1269,
+    "wall_public_decisions": 376,
+    "wall_public_changes": 4,
+    "wall_active_decisions": 797,
+    "wall_active_changes": 34,
+    "ordinary_decisions": 77,
+    "ordinary_changes": 0,
+    "mirror_decisions": 19,
+    "mirror_changes": 0
+  },
+  "guard_stats": {
+    "wall_trajectory.considered": 1173,
+    "wall_trajectory.munkidori_activation_preserved": 63,
+    "wall_trajectory.punk_trigger_not_ready": 24,
+    "wall_trajectory.punk_concentrated_kept": 5,
+    "wall_trajectory.punk_concentrated": 3,
+    "wall_trajectory.overrides": 10,
+    "wall_trajectory.last_bench_slot_kept_open": 6,
+    "wall_trajectory.wall_known": 11,
+    "wall_trajectory.committed_serial": 460,
+    "wall_break.considered": 1269,
+    "wall_break.main_decisions": 662,
+    "wall_break.dead_swing_turns": 92,
+    "wall_break.dead_swing_decisions": 401,
+    "wall_break.boss_prize_deferred": 39,
+    "wall_break.no_breaker_in_play": 0,
+    "wall_break.breaker_too_slow": 115,
+    "wall_break.breaker_would_be_sacrificed": 52,
+    "wall_break.attack_forced": 0,
+    "wall_break.fuel_attach_forced": 27,
+    "wall_break.escape_attach_forced": 0,
+    "wall_break.retreat_forced": 1,
+    "wall_break.attachment_redirected": 22,
+    "wall_break.dead_shadow_replaced": 6,
+    "wall_break.end_replaced": 0,
+    "wall_break.route_compatible_kept": 1,
+    "wall_break.promote_forced": 0,
+    "wall_break.promote_already_right": 0,
+    "wall_break.last_breaker_evolve_refused": 0,
+    "wall_break.last_breaker_evolve_kept": 0,
+    "wall_break.last_breaker_only_body": 0,
+    "wall_break.last_breaker_fastest_route": 0,
+    "wall_break.last_breaker_preserve_shadow": 0,
+    "wall_break.last_breaker_preserve_end": 0,
+    "wall_break.punk_breaker_considered": 2,
+    "wall_break.punk_breaker_forced": 0,
+    "wall_break.punk_breaker_kept": 2,
+    "wall_break.new_game_detected": 0,
+    "wall_break.errors": 0,
+    "deck_clock.lillie_considered": 24,
+    "wall_trajectory.manual_attachment_completed": 1,
+    "wall_trajectory.skip_non_wall": 96
+  },
+  "differences": [
+    {
+      "episode_id": 93093465,
+      "turn": 7,
+      "cell": "wall_public",
+      "played": 2,
+      "v22": 2,
+      "v26": 1
+    },
+    {
+      "episode_id": 93093465,
+      "turn": 9,
+      "cell": "wall_active",
+      "played": 9,
+      "v22": 9,
+      "v26": 15
+    },
+    {
+      "episode_id": 93093465,
+      "turn": 13,
+      "cell": "wall_active",
+      "played": 3,
+      "v22": 3,
+      "v26": 6
+    },
+    {
+      "episode_id": 93093465,
+      "turn": 19,
+      "cell": "wall_active",
+      "played": 7,
+      "v22": 7,
+      "v26": 5
+    },
+    {
+      "episode_id": 93093465,
+      "turn": 21,
+      "cell": "wall_active",
+      "played": 1,
+      "v22": 1,
+      "v26": 3
+    },
+    {
+      "episode_id": 93080769,
+      "turn": 5,
+      "cell": "wall_active",
+      "played": 2,
+      "v22": 2,
+      "v26": 3
+    },
+    {
+      "episode_id": 93080769,
+      "turn": 7,
+      "cell": "wall_active",
+      "played": 12,
+      "v22": 1,
+      "v26": 13
+    },
+    {
+      "episode_id": 93080769,
+      "turn": 7,
+      "cell": "wall_active",
+      "played": 1,
+      "v22": 1,
+      "v26": 12
+    },
+    {
+      "episode_id": 93075134,
+      "turn": 13,
+      "cell": "wall_active",
+      "played": 7,
+      "v22": 7,
+      "v26": 3
+    },
+    {
+      "episode_id": 93075134,
+      "turn": 15,
+      "cell": "wall_active",
+      "played": 7,
+      "v22": 7,
+      "v26": 3
+    },
+    {
+      "episode_id": 93075134,
+      "turn": 17,
+      "cell": "wall_active",
+      "played": 7,
+      "v22": 7,
+      "v26": 3
+    },
+    {
+      "episode_id": 93075134,
+      "turn": 21,
+      "cell": "wall_active",
+      "played": 7,
+      "v22": 7,
+      "v26": 3
+    },
+    {
+      "episode_id": 93054807,
+      "turn": 6,
+      "cell": "wall_active",
+      "played": 2,
+      "v22": 2,
+      "v26": 1
+    },
+    {
+      "episode_id": 93054807,
+      "turn": 8,
+      "cell": "wall_active",
+      "played": 6,
+      "v22": 6,
+      "v26": 14
+    },
+    {
+      "episode_id": 93036269,
+      "turn": 13,
+      "cell": "wall_active",
+      "played": 0,
+      "v22": 0,
+      "v26": 1
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 11,
+      "cell": "wall_active",
+      "played": 16,
+      "v22": 16,
+      "v26": 18
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 11,
+      "cell": "wall_active",
+      "played": 12,
+      "v22": 5,
+      "v26": 1
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 11,
+      "cell": "wall_active",
+      "played": 5,
+      "v22": 5,
+      "v26": 1
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 13,
+      "cell": "wall_active",
+      "played": 1,
+      "v22": 1,
+      "v26": 2
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 15,
+      "cell": "wall_active",
+      "played": 1,
+      "v22": 1,
+      "v26": 0
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 23,
+      "cell": "wall_active",
+      "played": 6,
+      "v22": 0,
+      "v26": 1
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 23,
+      "cell": "wall_active",
+      "played": 6,
+      "v22": 0,
+      "v26": 1
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 23,
+      "cell": "wall_active",
+      "played": 0,
+      "v22": 0,
+      "v26": 1
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 25,
+      "cell": "wall_active",
+      "played": 0,
+      "v22": 0,
+      "v26": 1
+    },
+    {
+      "episode_id": 93033449,
+      "turn": 35,
+      "cell": "wall_active",
+      "played": 6,
+      "v22": 6,
+      "v26": 3
+    },
+    {
+      "episode_id": 93030632,
+      "turn": 8,
+      "cell": "wall_active",
+      "played": 6,
+      "v22": 6,
+      "v26": 7
+    },
+    {
+      "episode_id": 93030632,
+      "turn": 10,
+      "cell": "wall_active",
+      "played": 10,
+      "v22": 10,
+      "v26": 8
+    },
+    {
+      "episode_id": 93030632,
+      "turn": 22,
+      "cell": "wall_active",
+      "played": 4,
+      "v22": 4,
+      "v26": 1
+    },
+    {
+      "episode_id": 93030632,
+      "turn": 30,
+      "cell": "wall_active",
+      "played": 6,
+      "v22": 6,
+      "v26": 2
+    },
+    {
+      "episode_id": 93159147,
+      "turn": 11,
+      "cell": "wall_active",
+      "played": 9,
+      "v22": 7,
+      "v26": 4
+    },
+    {
+      "episode_id": 93159147,
+      "turn": 11,
+      "cell": "wall_active",
+      "played": 8,
+      "v22": 7,
+      "v26": 4
+    },
+    {
+      "episode_id": 93159147,
+      "turn": 11,
+      "cell": "wall_public",
+      "played": 7,
+      "v22": 7,
+      "v26": 4
+    },
+    {
+      "episode_id": 93159147,
+      "turn": 13,
+      "cell": "wall_public",
+      "played": 8,
+      "v22": 8,
+      "v26": 4
+    },
+    {
+      "episode_id": 93157287,
+      "turn": 17,
+      "cell": "wall_public",
+      "played": 0,
+      "v22": 0,
+      "v26": 3
+    },
+    {
+      "episode_id": 93156345,
+      "turn": 7,
+      "cell": "wall_active",
+      "played": 4,
+      "v22": 4,
+      "v26": 1
+    },
+    {
+      "episode_id": 93156345,
+      "turn": 9,
+      "cell": "wall_active",
+      "played": 8,
+      "v22": 5,
+      "v26": 1
+    },
+    {
+      "episode_id": 93156345,
+      "turn": 9,
+      "cell": "wall_active",
+      "played": 8,
+      "v22": 5,
+      "v26": 1
+    },
+    {
+      "episode_id": 93156345,
+      "turn": 9,
+      "cell": "wall_active",
+      "played": 5,
+      "v22": 5,
+      "v26": 1
+    }
+  ]
+}

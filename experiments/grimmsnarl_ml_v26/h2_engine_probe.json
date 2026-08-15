@@ -1,0 +1,38 @@
+{
+  "episode_id": 93123216,
+  "turn": 6,
+  "stored_answer": 23,
+  "initial_trace": {
+    "route": "v8_mirror",
+    "rule": 16,
+    "ranker": 23,
+    "peer": 22,
+    "planner": 23,
+    "h2": 23,
+    "deck_clock": 23,
+    "wall_trajectory": 23,
+    "wall_break": 23,
+    "final": 23
+  },
+  "v22": 23,
+  "v25_peer": 22,
+  "v26_h2": 23,
+  "search": {
+    "considered": 1,
+    "branches": 9,
+    "searched": 1,
+    "skip_not_dominant": 1,
+    "search_seconds": 12.808,
+    "search_seconds_mean": 12.808,
+    "budget_searches": 1,
+    "budget_stops": 0,
+    "overage_remaining_last": 597.59,
+    "overage_remaining_min": 597.59,
+    "enabled": true,
+    "load_error": null,
+    "min_turn": 5,
+    "determinizations": 3,
+    "min_mean_value_gain": 0.04,
+    "records": []
+  }
+}

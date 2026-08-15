@@ -1,0 +1,280 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\grimmsnarl\\processed\\corpus_v25_with_alphatcg.npz",
+  "model": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\grimmsnarl\\grimmsnarl_ml_v26\\value_model.json",
+  "model_sha256": "8f5e4671bc2de2a31df8fa8d63f6719fe552b0093782e9d526bf391657b2bdb2",
+  "state_features": 381,
+  "categorical_features": [
+    "opp_active_id",
+    "self_active_id",
+    "stadium_id"
+  ],
+  "decisions": 332139,
+  "episodes": 4054,
+  "teams": [
+    16371703,
+    16375320,
+    16376653,
+    16381823,
+    16381904,
+    16385817,
+    16388364,
+    16388654,
+    16407282,
+    16421840,
+    16422241,
+    16430670,
+    16431331,
+    16452116,
+    16461850,
+    16462035,
+    16463316,
+    16494330,
+    16514272,
+    16531269,
+    16556346,
+    16561259
+  ],
+  "split_states": {
+    "train": 254072,
+    "validation": 40626,
+    "test": 37441
+  },
+  "split_episodes": {
+    "train": 3081,
+    "validation": 486,
+    "test": 487
+  },
+  "params": {
+    "objective": "binary",
+    "n_estimators": 1500,
+    "learning_rate": 0.025,
+    "num_leaves": 31,
+    "max_depth": 8,
+    "min_child_samples": 180,
+    "subsample": 0.85,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.75,
+    "reg_alpha": 0.25,
+    "reg_lambda": 3.0,
+    "random_state": 26026,
+    "n_jobs": 16,
+    "verbosity": -1
+  },
+  "best_iteration": 552,
+  "validation": {
+    "states": 40626,
+    "episodes": 486,
+    "win_rate": 0.542,
+    "auc": 0.8434,
+    "logloss": 0.4801,
+    "accuracy": 0.7488,
+    "episode_mean_auc": 0.91
+  },
+  "test": {
+    "states": 37441,
+    "episodes": 487,
+    "win_rate": 0.5355,
+    "auc": 0.8569,
+    "logloss": 0.4669,
+    "accuracy": 0.7515,
+    "episode_mean_auc": 0.9397
+  },
+  "test_by_turn": {
+    "turn_1_4": {
+      "states": 8617,
+      "episodes": 487,
+      "win_rate": 0.5305,
+      "auc": 0.7196,
+      "logloss": 0.6241,
+      "accuracy": 0.637,
+      "episode_mean_auc": 0.7189
+    },
+    "turn_5_8": {
+      "states": 13364,
+      "episodes": 482,
+      "win_rate": 0.5421,
+      "auc": 0.8648,
+      "logloss": 0.4585,
+      "accuracy": 0.7653,
+      "episode_mean_auc": 0.8726
+    },
+    "turn_9_plus": {
+      "states": 14926,
+      "episodes": 445,
+      "win_rate": 0.533,
+      "auc": 0.9275,
+      "logloss": 0.3475,
+      "accuracy": 0.8334,
+      "episode_mean_auc": 0.9681
+    }
+  },
+  "test_calibration": [
+    {
+      "range": [
+        0.0,
+        0.2
+      ],
+      "states": 5665,
+      "mean_prediction": 0.0901,
+      "win_rate": 0.0817
+    },
+    {
+      "range": [
+        0.2,
+        0.4
+      ],
+      "states": 4801,
+      "mean_prediction": 0.303,
+      "win_rate": 0.3228
+    },
+    {
+      "range": [
+        0.4,
+        0.6
+      ],
+      "states": 6694,
+      "mean_prediction": 0.5094,
+      "win_rate": 0.4806
+    },
+    {
+      "range": [
+        0.6,
+        0.8
+      ],
+      "states": 8259,
+      "mean_prediction": 0.7024,
+      "win_rate": 0.6104
+    },
+    {
+      "range": [
+        0.8,
+        1.0
+      ],
+      "states": 12022,
+      "mean_prediction": 0.912,
+      "win_rate": 0.9063
+    }
+  ],
+  "top_gain_features": [
+    {
+      "name": "prize_lead",
+      "gain": 742731.19
+    },
+    {
+      "name": "opp_active_id",
+      "gain": 614372.49
+    },
+    {
+      "name": "shroud_net",
+      "gain": 152569.31
+    },
+    {
+      "name": "munkidori_ready_count",
+      "gain": 142274.75
+    },
+    {
+      "name": "opp_total_hp",
+      "gain": 69464.85
+    },
+    {
+      "name": "opp_deck_count",
+      "gain": 52528.83
+    },
+    {
+      "name": "opp_field_112",
+      "gain": 52251.17
+    },
+    {
+      "name": "opp_prize_count",
+      "gain": 45917.77
+    },
+    {
+      "name": "self_active_heals_available",
+      "gain": 42795.37
+    },
+    {
+      "name": "opp_bench_min_hp",
+      "gain": 41750.97
+    },
+    {
+      "name": "self_prize_count",
+      "gain": 41572.54
+    },
+    {
+      "name": "opp_hand_count",
+      "gain": 38614.24
+    },
+    {
+      "name": "marnie_body_count",
+      "gain": 37179.44
+    },
+    {
+      "name": "discard_7",
+      "gain": 36811.34
+    },
+    {
+      "name": "route_no_boss_prizes",
+      "gain": 35653.96
+    },
+    {
+      "name": "self_hand_count",
+      "gain": 33595.63
+    },
+    {
+      "name": "opp_bench_slot_0_id",
+      "gain": 32384.6
+    },
+    {
+      "name": "self_deck_count",
+      "gain": 28454.12
+    },
+    {
+      "name": "opp_bench_total_energy",
+      "gain": 28286.62
+    },
+    {
+      "name": "opp_bench_max_energy",
+      "gain": 25408.52
+    },
+    {
+      "name": "opp_active_damage",
+      "gain": 25370.78
+    },
+    {
+      "name": "shroud_net_favourable",
+      "gain": 23076.47
+    },
+    {
+      "name": "field_104",
+      "gain": 22246.91
+    },
+    {
+      "name": "has_ready_munkidori",
+      "gain": 21970.96
+    },
+    {
+      "name": "self_total_dark_energy",
+      "gain": 21677.78
+    },
+    {
+      "name": "deck_runway_margin",
+      "gain": 21059.9
+    },
+    {
+      "name": "self_active_id",
+      "gain": 20869.69
+    },
+    {
+      "name": "opp_active_survives_shadow_bullet_by",
+      "gain": 19976.04
+    },
+    {
+      "name": "opp_bench_max_hp",
+      "gain": 19794.3
+    },
+    {
+      "name": "self_total_hp",
+      "gain": 19646.75
+    }
+  ]
+}
