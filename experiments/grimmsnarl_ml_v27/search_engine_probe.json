@@ -1,0 +1,59 @@
+{
+  "episode_id": 93204587,
+  "turn": 5,
+  "root_trace": {
+    "route": "v8_mirror",
+    "rule": 0,
+    "ranker": 5,
+    "peer": 2,
+    "planner": 5,
+    "mirror_froslass": 5,
+    "h2": 5,
+    "deck_clock": 5,
+    "wall_trajectory": 5,
+    "wall_break": 5,
+    "final": 5
+  },
+  "v22": 5,
+  "v24_guarded": 5,
+  "v25_peer": 2,
+  "direct_h3": {
+    "completed_branches": 2,
+    "values": {
+      "5": 0.596505,
+      "2": 0.596505
+    },
+    "seconds": 4.969
+  },
+  "v27": 5,
+  "adaptive_search": {
+    "considered": 1,
+    "branches": 6,
+    "h2_branches": 6,
+    "opponent_policy_rule": 4,
+    "opponent_policy_peer": 2,
+    "belief_confidence_milli": 545,
+    "skip_h3_low_confidence": 1,
+    "searched": 1,
+    "skip_not_dominant": 1,
+    "search_seconds": 9.069,
+    "search_seconds_mean": 9.0685,
+    "budget_searches": 1,
+    "budget_stops": 0,
+    "overage_remaining_last": 591.18,
+    "overage_remaining_min": 591.18,
+    "enabled": true,
+    "load_error": null,
+    "min_turn": 5,
+    "determinizations": 3,
+    "adaptive_h3_sample_stages": [
+      3,
+      5,
+      7,
+      9
+    ],
+    "min_belief_confidence": 0.55,
+    "min_mean_value_gain": 0.04,
+    "records": []
+  }
+}

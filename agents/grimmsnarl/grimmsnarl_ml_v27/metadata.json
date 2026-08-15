@@ -1,0 +1,147 @@
+{
+  "name": "grimmsnarl_ml_v27",
+  "version": "27.0.0",
+  "role": "submission_candidate",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v26",
+  "champion_policy": "grimmsnarl_ml_v22",
+  "created_at": "2026-08-15T00:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "v22 remains the default policy. The measured v24 mirror Froslass guard is restored. In a public exact-list mirror only, v25 supplies a candidate and an exact-card-count belief search first evaluates H2; only ambiguous, tactical, sufficiently observed positions may extend to H3 with 3, 5, 7, or 9 worlds. Every override must dominate v22 in every sampled world, preserve prize/deck-out safety, and clear a 0.04 mean value margin.",
+  "champion_ranker": {
+    "source_agent": "grimmsnarl_ml_v22",
+    "teacher_team_id": 16371703,
+    "teacher_team_code": 0,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1"
+  },
+  "peer_candidate_ranker": {
+    "source_agent": "grimmsnarl_ml_v25",
+    "teacher": "AlphaTCG focus model",
+    "default_policy": false,
+    "opponent_ensemble_member": true,
+    "sha256": "98b16b8b6fa3f628fc08a8ce3a94f964cc49e02b9f12c0650fc6e74b6b3a79c1"
+  },
+  "value_model": {
+    "source_corpus": "corpus_v25_with_alphatcg.npz",
+    "episodes": 4054,
+    "teams": 22,
+    "best_iteration": 552,
+    "validation_auc": 0.8434,
+    "test_auc": 0.8569,
+    "test_logloss": 0.4669,
+    "test_episode_mean_auc": 0.9397,
+    "sha256": "8f5e4671bc2de2a31df8fa8d63f6719fe552b0093782e9d526bf391657b2bdb2",
+    "training_report": "experiments/grimmsnarl_ml_v26/value_training.json"
+  },
+  "belief_search": {
+    "enabled_by_default": true,
+    "matchup": "public exact-list Grimmsnarl mirror signature only",
+    "minimum_turn": 5,
+    "base_horizon": "current own turn + opponent turn + next own turn",
+    "adaptive_horizon": "one additional opponent and own turn (H3) only after an ambiguous H2",
+    "sample_stages": [3, 5, 7, 9],
+    "minimum_belief_confidence": 0.55,
+    "minimum_mean_probability_gain": 0.04,
+    "opponent_policy": "determinization-level ensemble alternating deterministic rules and the v25 peer ranker",
+    "hidden_state": "strict without-replacement sampling after subtracting all public evolution stacks, attachments, tools, stadiums, known hand cards, and known prizes",
+    "acceptance": "no sampled world below v22; no worse prize exchange; no new deck-out; at least five H3 worlds and 0.04 mean gain for an H3 override",
+    "fallback": "v22 on disagreement, weak belief, non-tactical state, missing state, impossible card counts, engine error, incomplete branch, or budget stop",
+    "episode_search_budget_seconds": 180,
+    "overage_reserve_seconds": 200
+  },
+  "mirror_froslass": {
+    "source_agent": "grimmsnarl_ml_v24",
+    "scope": "same-deck mirror only",
+    "behavior": "avoid an unnecessary additional Froslass when a legal alternative exists",
+    "default_outside_scope": "v22"
+  },
+  "wall_recovery": {
+    "reactive_guard_source": "grimmsnarl_ml_v21/wall_break.py",
+    "proactive_route": [
+      "concentrate spare Punk Up energy on one Morgrem",
+      "complete a one-energy Morgrem without starving the primary attacker",
+      "preserve the last non-ex breaker",
+      "reserve the fifth Bench slot when a third Munkidori would erase the route"
+    ]
+  },
+  "deck_clock": {
+    "scope": "turn 10+, optional Lillie refill can empty deck, while ahead or already attack-ready",
+    "replacement": "highest v22-scored non-Lillie legal action"
+  },
+  "policy_escalation": {
+    "mode": "class",
+    "teacher_team_id": 16371703,
+    "teacher_code": 0,
+    "trigger_feature": "evolve_froslass",
+    "effective_runtime": "same as v22; the global teacher pin already equals the escalation teacher"
+  },
+  "v26_early_ladder_diagnosis": {
+    "submission_id": 55520389,
+    "games": 15,
+    "record": "9-6",
+    "first": "8-0",
+    "second": "1-6",
+    "mirror_games": 1,
+    "mirror_record": "1-0",
+    "interpretation": "too small and turn-order-skewed to identify an H2 regression; fourteen of fifteen games were outside H2's mirror scope"
+  },
+  "change_scope": {
+    "identical_to_v22": [
+      "deck.csv",
+      "fallback_policy.py",
+      "ml_features.py",
+      "ml_planner.py",
+      "policy_base.py",
+      "ranker_model.json"
+    ],
+    "inherited_from_v26": [
+      "deck_clock.py",
+      "policy_router.py",
+      "ranker_v25_model.json",
+      "value_features.py",
+      "value_model.json",
+      "wall_break.py",
+      "wall_trajectory.py"
+    ],
+    "new_or_modified_runtime_files": [
+      "h2_search.py",
+      "main.py",
+      "mirror_froslass.py"
+    ]
+  },
+  "validation": {
+    "unit_and_regression_tests": 232,
+    "test_result": "PASS",
+    "replay_decisions": 1269,
+    "wall_cell_changes": 38,
+    "ordinary_control_changes": 0,
+    "mirror_control_changes_with_search_disabled": 0,
+    "strict_belief_real_engine_result": "PASS",
+    "direct_h3_real_engine_branches": 2,
+    "direct_h3_real_engine_seconds": 4.969,
+    "adaptive_h2_real_engine_branches": 6,
+    "adaptive_h2_real_engine_seconds": 9.069,
+    "reports": [
+      "experiments/grimmsnarl_ml_v27/replay_probe.json",
+      "experiments/grimmsnarl_ml_v27/search_engine_probe.json"
+    ]
+  },
+  "submission_package": {
+    "path": "artifacts/grimmsnarl_ml_v27_submission.tar.gz",
+    "bytes": 12336408,
+    "sha256": "c07c5707f18fa3ef97560d7456d7f51b1eea4ac98437681a47eceb8ae67cb248",
+    "archive_entries": 27,
+    "extracted_import_smoke": "PASS",
+    "deck_size": 60,
+    "belief_search_enabled_after_extract": true,
+    "component_load_errors": 0
+  },
+  "known_limits": [
+    "H3 is intentionally limited to public exact-list mirrors and tactical positions; it is not a universal minimax search.",
+    "The value model is weakest on turns 1-4 (AUC 0.7196), so search is disabled there.",
+    "A sampled hidden world is plausible under the known deck multiset, not a prediction of the opponent's actual hand.",
+    "v27 ladder strength remains unverified until it is submitted and compared over a materially larger, turn-order-balanced sample."
+  ],
+  "description": "Belief-corrected adaptive H2/H3 mirror planner with v22 fallback, v24 Froslass guard, v25 peer/opponent candidates, and targeted wall/deck-out recovery."
+}
