@@ -1,0 +1,312 @@
+
+==============================================================================
+1. Every version as a rate, not as a final number
+==============================================================================
+strength = mean(opponent rating) + 400*log10(w/(1-w))
+
+v22      n=190  120-70  0.632 [0.561,0.697]  opp  915.2  strength  1008.8
+v24      n= 85   56-29  0.659 [0.553,0.751]  opp  816.4  strength   930.7
+v25      n= 85   49-36  0.576 [0.470,0.676]  opp  824.7  strength   878.2
+v26      n= 40   28-12  0.700 [0.546,0.819]  opp  706.6  strength   853.8
+v27      n= 34   21-13  0.618 [0.450,0.761]  opp  789.0  strength   872.3
+v28      n= 35   24-11  0.686 [0.520,0.815]  opp  860.5  strength   996.0
+
+same table, restricted to opponents rated >= 950:
+v22      n= 97   54-43  0.557 [0.458,0.651]  opp 1016.5  strength  1056.1
+v24      n= 12    3-9   0.250 [0.089,0.532]  opp  983.3  strength   792.4
+v25      n= 15    3-12  0.200 [0.070,0.452]  opp  992.1  strength   751.3
+v26      n=  1    0-1   0.000 [0.000,0.793]  opp 1048.1  strength  -551.9
+v27      n=  0
+v28      n=  7    3-4   0.429 [0.158,0.750]  opp 1000.0  strength   950.0
+
+==============================================================================
+2. Is v28 converged?
+==============================================================================
+Kaggle starts every submission at 600, so early games are a climb.
+  #     opp seat   W/L  rating after  opponent family
+  1   679.5 first  W           733.3  Mega Lucario
+  2   790.3 first  W           845.7  Grimmsnarl (mirror)
+  3   880.2 second L           769.7  other: Dusknoir
+  4   587.4 second L           654.9  Alakazam
+  5   560.5 second W           699.2  other: Raging Bolt ex
+  6   688.7 first  W           749.8  Archaludon
+  7   706.2 first  W           788.2  Alakazam
+  8   865.9 first  W           837.5  Ogerpon
+  9   893.6 second W           878.4  Mega Lucario
+ 10   836.5 first  L           843.6  Grimmsnarl (mirror)
+ 11   847.4 first  W           871.1  Ogerpon
+ 12   786.8 first  W           889.1  Archaludon
+ 13   866.4 first  L           864.2  Ogerpon
+ 14   831.5 first  W           883.2  Grimmsnarl (mirror)
+ 15   888.4 second W           903.5  other: Dusknoir
+ 16   932.2 first  W           924.1  Grimmsnarl (mirror)
+ 17  1024.2 second W           948.1  Alakazam
+ 18   945.7 second W           963.7  Dragapult
+ 19   945.9 second W           978.0  Mega Lopunny / Froslass
+ 20   917.3 second L           960.1  Grimmsnarl (mirror)
+ 21   929.0 second W           972.4  Alakazam
+ 22   905.1 second L           956.0  Alakazam
+ 23   993.0 second W           970.3  Grimmsnarl (mirror)
+ 24   987.3 second L           959.0  other: Hydrapple ex
+ 25   849.5 second W           966.4  Grimmsnarl (mirror)
+ 26   494.2 first  W           967.0  Mega Lucario
+ 27   858.0 first  L           951.3  Ogerpon
+ 28   957.0 second L           940.9  Mega Lopunny / Froslass
+ 29   941.4 second W           951.1  Grimmsnarl (mirror)
+ 30   926.9 first  W           960.0  Grimmsnarl (mirror)
+ 31   851.9 second W           966.2  Grimmsnarl (mirror)
+ 32   999.7 first  W           976.6  Alakazam
+ 33  1011.7 first  L           968.7  Dragapult
+ 34  1026.9 first  L           968.7  Mega Lopunny / Froslass
+ 35   910.9 second W           975.7  Grimmsnarl (mirror)
+
+first half vs second half:
+  first half   n= 17   13-4   0.765 [0.527,0.904]  opp  803.9  strength  1008.6
+  second half  n= 18   11-7   0.611 [0.386,0.797]  opp  914.0  strength   992.5
+  last 10      n= 10    6-4   0.600 [0.313,0.832]  opp  897.9  strength   968.3
+
+==============================================================================
+3. Opponent band
+==============================================================================
+
+v22:
+  0-700        n= 19   18-1   0.947 [0.754,0.991]  opp  565.7  strength  1067.8
+  700-800      n= 14   10-4   0.714 [0.454,0.883]  opp  748.8  strength   908.0
+  800-900      n= 25   18-7   0.720 [0.524,0.857]  opp  862.6  strength  1026.7
+  900-950      n= 35   20-15  0.571 [0.409,0.720]  opp  928.3  strength   978.2
+  950-1050     n= 77   46-31  0.597 [0.486,0.700]  opp  996.1  strength  1064.7
+  >=1050       n= 20    8-12  0.400 [0.219,0.613]  opp 1095.1  strength  1024.6
+
+v24:
+  0-700        n= 16   13-3   0.812 [0.570,0.934]  opp  575.1  strength   829.8
+  700-800      n= 10    7-3   0.700 [0.397,0.892]  opp  744.8  strength   892.0
+  800-900      n= 33   27-6   0.818 [0.656,0.914]  opp  847.0  strength  1108.3
+  900-950      n= 14    6-8   0.429 [0.214,0.674]  opp  928.3  strength   878.3
+  950-1050     n= 12    3-9   0.250 [0.089,0.532]  opp  983.3  strength   792.4
+
+v25:
+  0-700        n= 16   14-2   0.875 [0.640,0.965]  opp  614.5  strength   952.6
+  700-800      n= 19   12-7   0.632 [0.410,0.808]  opp  757.5  strength   851.2
+  800-900      n= 20   12-8   0.600 [0.387,0.781]  opp  855.8  strength   926.2
+  900-950      n= 15    8-7   0.533 [0.301,0.752]  opp  925.0  strength   948.2
+  950-1050     n= 13    3-10  0.231 [0.082,0.503]  opp  980.6  strength   771.4
+  >=1050       n=  2    0-2   0.000 [0.000,0.658]  opp 1066.8  strength  -533.1
+
+v26:
+  0-700        n= 18   15-3   0.833 [0.608,0.942]  opp  584.8  strength   864.4
+  700-800      n= 10    6-4   0.600 [0.313,0.832]  opp  750.3  strength   820.7
+  800-900      n= 11    7-4   0.636 [0.354,0.848]  opp  835.3  strength   932.5
+  950-1050     n=  1    0-1   0.000 [0.000,0.793]  opp 1048.1  strength  -551.9
+
+v27:
+  0-700        n=  6    6-0   1.000 [0.610,1.000]  opp  660.0  strength  2259.9
+  700-800      n= 13    9-4   0.692 [0.424,0.873]  opp  770.7  strength   911.6
+  800-900      n= 13    5-8   0.385 [0.177,0.645]  opp  846.4  strength   764.8
+  900-950      n=  2    1-1   0.500 [0.095,0.905]  opp  921.9  strength   921.9
+
+v28:
+  0-700        n=  5    4-1   0.800 [0.376,0.964]  opp  602.1  strength   842.9
+  700-800      n=  3    3-0   1.000 [0.439,1.000]  opp  761.1  strength  2361.1
+  800-900      n= 11    7-4   0.636 [0.354,0.848]  opp  860.8  strength   958.1
+  900-950      n=  9    7-2   0.778 [0.453,0.937]  opp  928.3  strength  1145.9
+  950-1050     n=  7    3-4   0.429 [0.158,0.750]  opp 1000.0  strength   950.0
+
+==============================================================================
+4. Archetype cells
+==============================================================================
+family                               v22           v24           v25           v26           v27           v28
+--------------------------------------------------------------------------------------------------------------
+Alakazam                      30-11         10-4          13-6           5-5           4-2           4-2      
+Archaludon                     6-3           5-1           1-2           2-0           3-0           2-0      
+Dipplin                        3-1           0-1                   -             -             -             -
+Dragapult                     14-8           1-2           6-2           2-2           0-1           1-1      
+Grimmsnarl (mirror)           29-23         18-8          13-6           5-0           3-4           9-2      
+Kangaskhan / Crustle          11-4           6-1           2-5           1-0           3-0                   -
+Mega Lopunny / Froslass       10-9           3-3           1-3           0-1                   -     1-2      
+Mega Lucario                   7-1           6-0           5-2           4-1           5-0           3-0      
+Ogerpon                        1-6           0-6           1-2           0-2           0-3           2-2      
+other: Arboliva ex             0-1                   -             -             -             -             -
+other: Brambleghast            0-1           1-0                   -             -             -             -
+other: Conkeldurr                      -     0-1           0-2                   -             -             -
+other: Cynthia's Garchomp ex     1-0           1-0           1-1           2-0           1-1                   -
+other: Dudunsparce             1-0                   -             -     1-0                   -             -
+other: Dusknoir                        -             -             -             -             -     1-1      
+other: Ethan's Typhlosion      1-0                   -             -             -             -             -
+other: Fezandipiti ex          2-0                   -             -             -             -             -
+other: Hydrapple ex            2-1           0-2           2-3           0-1                   -     0-1      
+other: Iono’s Bellibolt ex             -     2-0                   -     2-0                   -             -
+other: Iron Thorns ex                  -             -     1-0                   -             -             -
+other: Mega Abomasnow ex       1-0           2-0                   -     3-0           0-1                   -
+other: Mega Gardevoir ex               -             -     0-1                   -             -             -
+other: Mega Starmie ex                 -     1-0                   -     1-0                   -             -
+other: Mega Venusaur ex                -             -     0-1                   -             -             -
+other: N’s Zoroark ex                  -             -     1-0                   -     0-1                   -
+other: Raging Bolt ex                  -             -             -             -             -     1-0      
+other: Team Rocket's Mewtwo ex     1-1                   -     1-0                   -     1-0                   -
+other: Team Rocket's Porygon-Z             -             -             -             -             -             -
+other: Walrein                         -             -     1-0                   -     1-0                   -
+
+wall families (Grimmsnarl ex's Shadow Bullet can be blanked):
+  v22      n= 22   12-10  0.545 [0.347,0.731]  opp  980.3  strength  1012.0
+  v24      n= 13    6-7   0.462 [0.232,0.709]  opp  850.2  strength   823.4
+  v25      n= 10    3-7   0.300 [0.108,0.603]  opp  849.6  strength   702.4
+  v26      n=  3    1-2   0.333 [0.061,0.792]  opp  784.6  strength   664.2
+  v27      n=  6    3-3   0.500 [0.188,0.812]  opp  801.3  strength   801.3
+  v28      n=  4    2-2   0.500 [0.150,0.850]  opp  859.4  strength   859.4
+
+non-wall:
+  v22      n=168  108-60  0.643 [0.568,0.711]  opp  906.7  strength  1008.8
+  v24      n= 72   50-22  0.694 [0.581,0.789]  opp  810.3  strength   953.0
+  v25      n= 75   46-29  0.613 [0.500,0.715]  opp  821.4  strength   901.5
+  v26      n= 37   27-10  0.730 [0.570,0.846]  opp  700.3  strength   872.9
+  v27      n= 28   18-10  0.643 [0.458,0.793]  opp  786.4  strength   888.5
+  v28      n= 31   22-9   0.710 [0.534,0.839]  opp  860.6  strength  1015.9
+
+exact mirror (our own 60):
+  v22      n= 46   26-20  0.565 [0.422,0.698]  opp  938.1  strength   983.7
+  v24      n= 24   16-8   0.667 [0.467,0.820]  opp  887.8  strength  1008.2
+  v25      n= 17   13-4   0.765 [0.527,0.904]  opp  839.0  strength  1043.8
+  v26      n=  3    3-0   1.000 [0.439,1.000]  opp  778.8  strength  2378.8
+  v27      n=  6    3-3   0.500 [0.188,0.812]  opp  830.5  strength   830.5
+  v28      n= 10    8-2   0.800 [0.490,0.943]  opp  887.1  strength  1127.9
+
+==============================================================================
+5. What v25 would have scored on v28's exposure
+==============================================================================
+
+stratified by archetype family: observed 24 vs expected 20.15 (residual +3.85, z=1.4, 3 games in uncovered cells)
+  Dragapult                    v28 1/2   vs v25 rate 0.750 (n=8  ) residual -0.50
+  other: Hydrapple ex          v28 0/1   vs v25 rate 0.400 (n=5  ) residual -0.40
+  other: Dusknoir              v28 1/2   vs v25 rate 0.577 (n=0  ) residual -0.15
+  Alakazam                     v28 4/6   vs v25 rate 0.684 (n=19 ) residual -0.11
+  Mega Lopunny / Froslass      v28 1/3   vs v25 rate 0.250 (n=4  ) residual +0.25
+  other: Raging Bolt ex        v28 1/1   vs v25 rate 0.577 (n=0  ) residual +0.42
+  Ogerpon                      v28 2/4   vs v25 rate 0.333 (n=3  ) residual +0.67
+  Mega Lucario                 v28 3/3   vs v25 rate 0.714 (n=7  ) residual +0.86
+  Archaludon                   v28 2/2   vs v25 rate 0.333 (n=3  ) residual +1.33
+  Grimmsnarl (mirror)          v28 9/11  vs v25 rate 0.684 (n=19 ) residual +1.47
+
+stratified by opponent band: observed 24 vs expected 19.29 (residual +4.71, z=1.74, 0 games in uncovered cells)
+  0-700                        v28 4/5   vs v25 rate 0.875 (n=16 ) residual -0.38
+  800-900                      v28 7/11  vs v25 rate 0.600 (n=20 ) residual +0.40
+  700-800                      v28 3/3   vs v25 rate 0.632 (n=19 ) residual +1.11
+  950-1050                     v28 3/7   vs v25 rate 0.231 (n=13 ) residual +1.38
+  900-950                      v28 7/9   vs v25 rate 0.533 (n=15 ) residual +2.20
+
+stratified by turn order: observed 24 vs expected 20.06 (residual +3.94, z=1.35, 0 games in uncovered cells)
+  second                       v28 12/18  vs v25 rate 0.559 (n=34 ) residual +1.94
+  first                        v28 12/17  vs v25 rate 0.588 (n=51 ) residual +2.00
+
+stratified by wall vs race: observed 24 vs expected 20.21 (residual +3.79, z=1.32, 0 games in uncovered cells)
+  wall                         v28 2/4   vs v25 rate 0.300 (n=10 ) residual +0.80
+  race                         v28 22/31  vs v25 rate 0.613 (n=75 ) residual +2.99
+
+==============================================================================
+6. Behaviour: did anything actually change on the board?
+==============================================================================
+metric                             v22       v24       v25       v26       v27       v28
+----------------------------------------------------------------------------------------
+first Shadow (own turn)           3.01      2.79      3.18      3.39      3.00      2.71
+first ready (own turn)            2.95      2.72      2.95      3.34      2.88      2.71
+first attack (shared turn)        4.78      4.60      5.40      4.54      4.76      4.20
+opp first attack                  4.18      3.91      3.98      3.61      3.62      3.83
+our turns                         6.19      6.05      6.59      6.08      5.94      5.80
+attacks                           3.99      3.99      4.05      3.62      3.88      3.91
+Shadow Bullet attacks             3.59      3.71      3.75      3.05      3.41      3.29
+Grimmsnarl ex evolutions          2.03      2.02      1.96      1.70      2.06      2.14
+Rare Candy                        0.88      1.00      1.07      0.78      1.09      0.94
+Adrena-Brain                      5.76      5.86      6.18      5.38      5.62      5.91
+Froslass evolutions               0.87      0.60      0.85      0.78      0.71      0.66
+Unfair Stamp                      1.19      0.92      1.15      1.07      1.06      1.14
+Boss's Orders                     0.76      0.75      0.55      0.50      0.53      0.57
+Lillie's Determination            1.81      1.79      2.02      1.73      1.74      1.94
+our prizes left                   2.19      2.16      2.20      2.10      2.18      2.23
+opp prizes left                   2.58      2.86      2.88      3.35      2.65      2.71
+our deck left                    18.72     19.74     18.72     20.82     19.53     18.77
+our bodies left                   4.78      4.80      4.94      4.92      4.97      5.06
+decisions                        93.13     91.51     97.36     86.85     90.35     92.71
+overage seconds used             12.20     11.96      4.61     13.58     14.86     12.80
+
+same table restricted to wall families:
+metric                             v22       v24       v25       v26       v27       v28
+first Shadow (own turn)           3.55      2.69      4.00      2.67      3.50      2.25
+first ready (own turn)            3.55      2.62      3.40      2.67      3.50      2.25
+first attack (shared turn)        5.00      3.85      6.90      5.00      5.67      3.50
+opp first attack                  4.64      3.42      4.33      3.33      4.00      3.50
+our turns                         7.55      6.62     11.30      6.67      6.83      5.75
+attacks                           4.95      4.38      8.00      4.00      3.50      4.50
+Shadow Bullet attacks             3.77      3.62      7.80      3.00      2.67      2.50
+Grimmsnarl ex evolutions          1.73      2.00      1.60      2.00      1.83      2.50
+Rare Candy                        0.77      1.15      1.40      0.67      0.67      0.75
+Adrena-Brain                      7.68      6.54     10.50      4.67      8.50      2.50
+Froslass evolutions               1.64      1.00      1.00      1.33      1.17      0.75
+Unfair Stamp                      1.41      1.00      1.00      0.33      1.50      1.00
+Boss's Orders                     1.05      0.62      1.40      0.67      0.50      0.50
+Lillie's Determination            1.91      1.69      3.00      1.67      2.17      1.75
+
+gate violations and board/deck-out counts:
+  v22   gate_violation  10  board_out   3  deck_out   0  odd_status 0
+  v24   gate_violation   5  board_out   2  deck_out   0  odd_status 0
+  v25   gate_violation  11  board_out   1  deck_out   3  odd_status 0
+  v26   gate_violation   2  board_out   1  deck_out   0  odd_status 0
+  v27   gate_violation   3  board_out   1  deck_out   0  odd_status 0
+  v28   gate_violation   0  board_out   0  deck_out   0  odd_status 0
+
+==============================================================================
+7. Controlled effect vs the reference pool
+==============================================================================
+is_v22  vs v25 pool: {"n": 275, "elo": 141.4, "z": 2.61, "p": 0.0089}
+is_v24  vs v25 pool: {"n": 170, "elo": 68.0, "z": 1.13, "p": 0.2582}
+is_v26  vs v25 pool: {"n": 125, "elo": -31.6, "z": -0.38, "p": 0.7063}
+is_v27  vs v25 pool: {"n": 119, "elo": -23.3, "z": -0.29, "p": 0.7717}
+is_v28  vs v25 pool: {"n": 120, "elo": 135.3, "z": 1.68, "p": 0.0926}
+
+==============================================================================
+8. Turn order
+==============================================================================
+  v22 first      n=100   62-38  0.620 [0.522,0.709]  opp  911.4  strength   996.5
+  v22 second     n= 90   58-32  0.644 [0.541,0.736]  opp  919.4  strength  1022.7
+  v24 first      n= 46   33-13  0.717 [0.575,0.827]  opp  810.0  strength   971.8
+  v24 second     n= 39   23-16  0.590 [0.434,0.729]  opp  824.1  strength   887.1
+  v25 first      n= 51   30-21  0.588 [0.452,0.713]  opp  815.4  strength   877.3
+  v25 second     n= 34   19-15  0.559 [0.395,0.711]  opp  838.7  strength   879.7
+  v26 first      n= 24   21-3   0.875 [0.690,0.957]  opp  678.7  strength  1016.8
+  v26 second     n= 16    7-9   0.438 [0.231,0.668]  opp  748.5  strength   704.8
+  v27 first      n= 17   14-3   0.824 [0.590,0.938]  opp  756.1  strength  1023.7
+  v27 second     n= 17    7-10  0.412 [0.216,0.640]  opp  821.9  strength   759.9
+  v28 first      n= 17   12-5   0.706 [0.469,0.867]  opp  832.3  strength   984.4
+  v28 second     n= 18   12-6   0.667 [0.438,0.837]  opp  887.1  strength  1007.5
+
+==============================================================================
+9. Calendar day: the field drifts, so only same-day rows compare
+==============================================================================
+
+2026-08-13:
+  v22      n=188  119-69  0.633 [0.562,0.699]  opp  914.9  strength  1009.5
+
+2026-08-14:
+  v22      n=  2    1-1   0.500 [0.095,0.905]  opp  948.7  strength   948.7
+  v24      n= 85   56-29  0.659 [0.553,0.751]  opp  816.4  strength   930.7
+  v25      n= 49   26-23  0.531 [0.394,0.663]  opp  894.8  strength   916.1
+
+2026-08-15:
+  v25      n= 36   23-13  0.639 [0.476,0.775]  opp  729.2  strength   828.3
+  v26      n= 40   28-12  0.700 [0.546,0.819]  opp  706.6  strength   853.8
+  v27      n= 34   21-13  0.618 [0.450,0.761]  opp  789.0  strength   872.3
+  v28      n= 35   24-11  0.686 [0.520,0.815]  opp  860.5  strength   996.0
+
+all other versions on ['2026-08-15']:
+  others   n=110   72-38  0.655 [0.562,0.737]  opp  739.5  strength   850.5
+  v28      n= 35   24-11  0.686 [0.520,0.815]  opp  860.5  strength   996.0
+
+==============================================================================
+10. Opponent field composition
+==============================================================================
+  v22   n=190  distinct opponents 181  Grimmsnarl (mirror) 52, Alakazam 41, Dragapult 22, Mega Lopunny / Froslass 19, Kangaskhan / Crustle 15, Archaludon 9
+  v24   n=85   distinct opponents 84   Grimmsnarl (mirror) 26, Alakazam 14, Kangaskhan / Crustle 7, Archaludon 6, Mega Lucario 6, Mega Lopunny / Froslass 6
+  v25   n=85   distinct opponents 84   Alakazam 19, Grimmsnarl (mirror) 19, Dragapult 8, Mega Lucario 7, Kangaskhan / Crustle 7, other: Hydrapple ex 5
+  v26   n=40   distinct opponents 40   Alakazam 10, Mega Lucario 5, Grimmsnarl (mirror) 5, Dragapult 4, other: Mega Abomasnow ex 3, Archaludon 2
+  v27   n=34   distinct opponents 32   Grimmsnarl (mirror) 7, Alakazam 6, Mega Lucario 5, Kangaskhan / Crustle 3, Ogerpon 3, Archaludon 3
+  v28   n=35   distinct opponents 34   Grimmsnarl (mirror) 11, Alakazam 6, Ogerpon 4, Mega Lucario 3, Mega Lopunny / Froslass 3, other: Dusknoir 2
+
+wrote experiments\grimmsnarl_ml_v28\ladder_verdict_vs_v25.json

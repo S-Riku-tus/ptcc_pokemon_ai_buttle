@@ -1,0 +1,235 @@
+
+==============================================================================
+1. The board right now
+==============================================================================
+snapshot: pokemon-tcg-ai-battle retrieved 2026-08-15T23:16:25.418721+09:00, 6827 teams
+  rank     1:   1225.1
+  rank     3:   1213.0
+  rank     5:   1200.6
+  rank    10:   1190.3
+  rank    20:   1131.9
+  rank    30:   1102.2
+  rank    50:   1068.7
+  rank   100:   1012.4
+  rank   150:    982.0
+  rank   200:    960.0
+  rank   300:    923.7
+  rank   500:    872.0
+  rank  1000:    794.9
+
+our submissions on the board:
+  v28    sub 55526859  rank   175 score    968.7  team yoshitaka agent
+
+==============================================================================
+2. Who v28 played, and where those opponents stand now
+==============================================================================
+       ep res seat    pairing      now   rank  family                   team
+ 93296675 W   first     679.5      nan      0  Mega Lucario             (not on board)
+ 93297568 W   first     790.3    785.6   1063  Grimmsnarl (mirror)      Baidalin Adilzhan [dsml.kz]
+ 93298475 L   second    880.2      nan      0  other: Dusknoir          (not on board)
+ 93299411 L   second    587.4      nan      0  Alakazam                 (not on board)
+ 93300336 W   second    560.5    557.7   4187  other: Raging Bolt ex    onechan1
+ 93301242 W   first     688.7      nan      0  Archaludon               (not on board)
+ 93302142 W   first     706.2    705.5   1925  Alakazam                 prvsiyan
+ 93303045 W   first     865.9      nan      0  Ogerpon                  (not on board)
+ 93303958 W   second    893.6    888.6    426  Mega Lucario             fujiborozoukin
+ 93304856 L   first     836.5    843.9    656  Grimmsnarl (mirror)      kmizunoster
+ 93305762 W   first     847.4    841.0    674  Ogerpon                  mtskggle
+ 93306648 W   first     786.8    771.5   1171  Archaludon               Abiram Bharathi S.A
+ 93307572 L   first     866.4      nan      0  Ogerpon                  (not on board)
+ 93308478 W   first     831.5    823.5    779  Grimmsnarl (mirror)      Reki
+ 93309375 W   second    888.4      nan      0  other: Dusknoir          (not on board)
+ 93310287 W   first     932.2    932.0    276  Grimmsnarl (mirror)      tangai1
+ 93311195 W   second   1024.2   1014.6     96  Alakazam                 NorthStar
+ 93312087 W   second    945.7      nan      0  Dragapult                (not on board)
+ 93313051 W   second    945.9    935.1    267  Mega Lopunny / Froslass  低消650元任你吃啊
+ 93313902 L   second    917.3      nan      0  Grimmsnarl (mirror)      (not on board)
+ 93314808 W   second    929.0    925.1    296  Alakazam                 Umataro Tenma
+ 93315704 L   second    905.1      nan      0  Alakazam                 (not on board)
+ 93316615 W   second    993.0    988.2    135  Grimmsnarl (mirror)      我脑子不太好
+ 93317519 L   second    987.3      nan      0  other: Hydrapple ex      (not on board)
+ 93318310 W   second    849.5    852.5    616  Grimmsnarl (mirror)      Cappa
+ 93319312 W   first     494.2    493.9   4942  Mega Lucario             赤いきつね
+ 93320220 L   first     858.0    871.6    503  Ogerpon                  JovanaLab
+ 93321163 L   second    957.0    954.6    216  Mega Lopunny / Froslass  Fitalabs
+ 93322049 W   second    941.4    940.2    253  Grimmsnarl (mirror)      takataok_42
+ 93322998 W   first     926.9      nan      0  Grimmsnarl (mirror)      (not on board)
+ 93323725 W   second    851.9    848.8    641  Grimmsnarl (mirror)      jbreezy
+ 93324758 W   first     999.7    992.8    126  Alakazam                 yumizu
+ 93325664 L   first    1011.7      nan      0  Dragapult                (not on board)
+ 93326585 L   first    1026.9   1030.5     80  Mega Lopunny / Froslass  stnick
+ 93327489 W   second    910.9    907.1    362  Grimmsnarl (mirror)      Yichen Ao
+
+22/35 opponents still active on the board
+  vs teams currently ranked <=  100: 1-1 (0.500)
+  vs teams currently ranked <=  200: 3-1 (0.750)
+  vs teams currently ranked <=  500: 9-2 (0.818)
+  vs teams currently ranked <= 1000: 13-4 (0.765)
+
+==============================================================================
+3. The field by archetype: who is strong, and do we beat them
+==============================================================================
+family                      opps on board median now top rank   our record (all versions / v28)
+Grimmsnarl (mirror)          116       36      852.5       82   80-43 / 9-2
+Alakazam                      94       30      795.5       96   67-32 / 4-2
+Dragapult                     40        4      677.0     2293   25-16 / 1-1
+Mega Lucario                  33       20      675.6      426   30-4 / 3-0
+Kangaskhan / Crustle          30        8      820.3      258   23-10
+Mega Lopunny / Froslass       29       11      959.8       58   15-18 / 1-2
+Archaludon                    23       15      740.5      854   19-6 / 2-0
+Ogerpon                       21        8      913.3      130   5-22 / 2-2
+other: Hydrapple ex           11        3     1070.4       41   4-9 / 0-1
+other: Cynthia's Garchomp ex     8        2      940.7      251   6-2
+other: Mega Abomasnow ex       7        4      473.6     5127   6-1
+Dipplin                        5        1      939.7      256   3-2
+other: Team Rocket's Mewtwo ex     4        2      921.9      310   3-1
+other: Iono’s Bellibolt ex     4        4      738.7     1379   4-0
+other: Conkeldurr              3        0          -        0   0-3
+other: Fezandipiti ex          2        0          -        0   2-0
+other: Dudunsparce             2        1      668.8     2549   2-0
+other: Brambleghast            2        0          -        0   1-1
+other: Mega Starmie ex         2        1      779.3     1114   2-0
+other: N’s Zoroark ex          2        1      885.3      441   1-1
+other: Team Rocket's Porygon-Z     1        1      854.2      602   1-0
+other: Ethan's Typhlosion      1        1      563.8     4104   1-0
+other: Arboliva ex             1        1     1225.1        1   0-1
+other: Mega Gardevoir ex       1        0          -        0   0-1
+other: Walrein                 1        1      685.8     2249   2-0
+other: Iron Thorns ex          1        1      335.9     6214   1-0
+other: Mega Venusaur ex        1        0          -        0   0-1
+other: Dusknoir                1        0          -        0   1-1 / 1-1
+other: Raging Bolt ex          1        1      557.7     4187   1-0 / 1-0
+
+the same table weighted by how strong those opponents are now:
+  Mega Lopunny / Froslass      3 opponents currently >= 1000
+  Alakazam                     2 opponents currently >= 1000
+  Grimmsnarl (mirror)          2 opponents currently >= 1000
+  other: Hydrapple ex          2 opponents currently >= 1000
+  other: Arboliva ex           1 opponents currently >= 1000
+
+==============================================================================
+4. Same-deck peers: both seats of every exact mirror
+==============================================================================
+107 mirror games across all versions, 10 for v28
+walked 107 mirror games from both seats (0 skipped)
+
+v28: all mirrors  (n=10 games)
+  per own turn                      us      peer     delta
+  attacks                        0.678     0.589     0.089
+  shadow_attacks                 0.627     0.554     0.074
+  adrena_brains                  1.136     0.714     0.421
+  grim_evolutions                0.390     0.321     0.068
+  rare_candies                   0.169     0.089     0.080
+  froslass_true_evolutions       0.051     0.054    -0.003
+  stamps                         0.169     0.161     0.009
+  bosses                         0.085     0.054     0.031
+  lillies                        0.356     0.268     0.088
+  our_multi_pick                 0.712     0.589     0.123
+  our_ends                       0.271     0.393    -0.122
+  own_first_shadow_turn (mean)      2.90      3.00     -0.10
+  own_first_ready_turn (mean)      2.90      3.00     -0.10
+  our_turns (mean)                5.90      5.60      0.30
+  our_prize_left (mean)           1.90      3.00     -1.10
+  our_bodies_left (mean)          5.00      3.60      1.40
+  our_decisions (mean)           98.50     79.30     19.20
+  record 8-2
+
+v28: peer rated above us at pairing  (n=4 games)
+  per own turn                      us      peer     delta
+  attacks                        0.625     0.500     0.125
+  shadow_attacks                 0.625     0.409     0.216
+  adrena_brains                  1.250     0.636     0.614
+  grim_evolutions                0.292     0.273     0.019
+  rare_candies                   0.250     0.091     0.159
+  froslass_true_evolutions       0.083     0.000     0.083
+  stamps                         0.167     0.045     0.121
+  bosses                         0.000     0.045    -0.045
+  lillies                        0.292     0.227     0.064
+  our_multi_pick                 0.625     0.409     0.216
+  our_ends                       0.292     0.500    -0.208
+  own_first_shadow_turn (mean)      2.75      3.75     -1.00
+  own_first_ready_turn (mean)      2.75      3.75     -1.00
+  our_turns (mean)                6.00      5.50      0.50
+  our_prize_left (mean)           1.25      4.50     -3.25
+  our_bodies_left (mean)          5.75      2.75      3.00
+  our_decisions (mean)           94.00     66.00     28.00
+  record 4-0
+
+v28: peer rated below us at pairing  (n=6 games)
+  per own turn                      us      peer     delta
+  attacks                        0.714     0.647     0.067
+  shadow_attacks                 0.629     0.647    -0.018
+  adrena_brains                  1.057     0.765     0.292
+  grim_evolutions                0.457     0.353     0.104
+  rare_candies                   0.114     0.088     0.026
+  froslass_true_evolutions       0.029     0.088    -0.060
+  stamps                         0.171     0.235    -0.064
+  bosses                         0.143     0.059     0.084
+  lillies                        0.400     0.294     0.106
+  our_multi_pick                 0.771     0.706     0.066
+  our_ends                       0.257     0.324    -0.066
+  own_first_shadow_turn (mean)      3.00      2.50      0.50
+  own_first_ready_turn (mean)      3.00      2.50      0.50
+  our_turns (mean)                5.83      5.67      0.17
+  our_prize_left (mean)           2.33      2.00      0.33
+  our_bodies_left (mean)          4.50      4.17      0.33
+  our_decisions (mean)          101.50     88.17     13.33
+  record 4-2
+
+v22: all mirrors  (n=46 games)
+  per own turn                      us      peer     delta
+  attacks                        0.689     0.688     0.001
+  shadow_attacks                 0.671     0.663     0.008
+  adrena_brains                  1.050     0.907     0.143
+  grim_evolutions                0.400     0.412    -0.012
+  rare_candies                   0.146     0.122     0.025
+  froslass_true_evolutions       0.054     0.054    -0.000
+  stamps                         0.189     0.186     0.003
+  bosses                         0.132     0.082     0.050
+  lillies                        0.311     0.276     0.035
+  our_multi_pick                 0.682     0.649     0.033
+  our_ends                       0.293     0.297    -0.005
+  own_first_shadow_turn (mean)      2.83      2.89     -0.07
+  own_first_ready_turn (mean)      2.80      2.74      0.07
+  our_turns (mean)                6.09      6.07      0.02
+  our_prize_left (mean)           1.96      2.07     -0.11
+  our_bodies_left (mean)          4.17      3.93      0.24
+  our_decisions (mean)           98.46     94.85      3.61
+  record 26-20
+
+all versions: peer rated 950+  (n=31 games)
+  per own turn                      us      peer     delta
+  attacks                        0.708     0.655     0.054
+  shadow_attacks                 0.688     0.624     0.064
+  adrena_brains                  0.953     0.985    -0.031
+  grim_evolutions                0.391     0.387     0.004
+  rare_candies                   0.161     0.119     0.043
+  froslass_true_evolutions       0.057     0.031     0.026
+  stamps                         0.172     0.180    -0.009
+  bosses                         0.115     0.082     0.032
+  lillies                        0.307     0.253     0.055
+  our_multi_pick                 0.682     0.588     0.095
+  our_ends                       0.281     0.330    -0.049
+  own_first_shadow_turn (mean)      2.77      3.13     -0.35
+  own_first_ready_turn (mean)      2.71      3.00     -0.29
+  our_turns (mean)                6.19      6.26     -0.06
+  our_prize_left (mean)           2.16      2.16      0.00
+  our_bodies_left (mean)          4.03      4.06     -0.03
+  our_decisions (mean)           95.94     96.45     -0.52
+  record 15-16
+
+==============================================================================
+5. Mirror peers by their current board position
+==============================================================================
+  ep 93297568 W  pairing   790.3  now   785.6 rank  1063  Baidalin Adilzhan [dsml.kz]
+  ep 93304856 L  pairing   836.5  now   843.9 rank   656  kmizunoster
+  ep 93308478 W  pairing   831.5  now   823.5 rank   779  Reki
+  ep 93310287 W  pairing   932.2  now   932.0 rank   276  tangai1
+  ep 93313902 L  pairing   917.3  now     nan rank     0  (not on board)
+  ep 93316615 W  pairing   993.0  now   988.2 rank   135  我脑子不太好
+  ep 93318310 W  pairing   849.5  now   852.5 rank   616  Cappa
+  ep 93322049 W  pairing   941.4  now   940.2 rank   253  takataok_42
+  ep 93322998 W  pairing   926.9  now     nan rank     0  (not on board)
+  ep 93323725 W  pairing   851.9  now   848.8 rank   641  jbreezy
+
+wrote C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v28\field.json

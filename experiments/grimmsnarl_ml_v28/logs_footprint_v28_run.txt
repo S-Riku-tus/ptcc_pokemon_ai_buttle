@@ -1,0 +1,54 @@
+episodes=36 load_errors={"race_v25": null, "wall_v22": null, "planner": null, "router": null, "wall_trajectory": null, "wall_break": null, "deck_clock": null}
+[01/36] episode=93296584 changes=16
+[02/36] episode=93296675 changes=14
+[03/36] episode=93297568 changes=12
+[04/36] episode=93298475 changes=12
+[05/36] episode=93299411 changes=7
+[06/36] episode=93300336 changes=8
+[07/36] episode=93301242 changes=15
+[08/36] episode=93302142 changes=14
+[09/36] episode=93303045 changes=12
+[10/36] episode=93303958 changes=8
+[11/36] episode=93304856 changes=7
+[12/36] episode=93305762 changes=2
+[13/36] episode=93306648 changes=24
+[14/36] episode=93307572 changes=5
+[15/36] episode=93308478 changes=16
+[16/36] episode=93309375 changes=23
+[17/36] episode=93310287 changes=18
+[18/36] episode=93311195 changes=14
+[19/36] episode=93312087 changes=15
+[20/36] episode=93313051 changes=16
+[21/36] episode=93313902 changes=2
+[22/36] episode=93314808 changes=16
+[23/36] episode=93315704 changes=11
+[24/36] episode=93316615 changes=20
+[25/36] episode=93317519 changes=4
+[26/36] episode=93318310 changes=26
+[27/36] episode=93319312 changes=11
+[28/36] episode=93320220 changes=7
+[29/36] episode=93321163 changes=21
+[30/36] episode=93322049 changes=23
+[31/36] episode=93322998 changes=17
+[32/36] episode=93323725 changes=11
+[33/36] episode=93324758 changes=8
+[34/36] episode=93325664 changes=9
+[35/36] episode=93326585 changes=26
+[36/36] episode=93327489 changes=17
+{
+  "episodes": 36,
+  "evaluated": 2898,
+  "comparable": 2741,
+  "final_vs_v22": 487,
+  "final_vs_v22_pct": 0.16804692891649414,
+  "normalized_changes_per_35_games": 473.47222222222223,
+  "promotion_footprint_gate": "PASS",
+  "ranker_disagreements": 497,
+  "ranker_disagreement_pct": 0.1813206858810653,
+  "final_played_agreement": 1.0,
+  "v22_played_agreement": 0.7781228433402346,
+  "v25_played_agreement": 0.9337474120082816,
+  "seconds": 345.4864785000682,
+  "seconds_per_game": 9.596846625001895
+}
+JSON: experiments\grimmsnarl_ml_v28\footprint_v28_run.json

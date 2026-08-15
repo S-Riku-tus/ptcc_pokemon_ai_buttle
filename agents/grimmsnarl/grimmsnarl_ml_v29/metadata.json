@@ -1,0 +1,159 @@
+{
+  "name": "grimmsnarl_ml_v29",
+  "version": "29.0.0",
+  "status": "challenger_submission_candidate",
+  "role": "matchup_conditioned_policy_mixture",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agent": "grimmsnarl_ml_v28",
+  "created_at": "2026-08-15T00:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_sha256": "48f1a03e8ab8162f6dc608e6743a4f3b32004cb702ca447050e62055b85defbf",
+  "deck_changed": false,
+  "policy": "Retain v28's AlphaTCG-conditioned v25 ranker for ordinary races, mirrors, Alakazam, and pure Teal Mask Ogerpon. Use the synchronized 1220-rated v22 elite-teacher ranker for public walls, Mega Lopunny/Mega Froslass, and Teal Ogerpon plus the Applin/Hydrapple line. Preserve all deterministic v28 guards.",
+  "race_ranker": {
+    "source_agent": "grimmsnarl_ml_v25",
+    "teacher_team_id": 16381823,
+    "teacher_rating_at_collection": 1095.3,
+    "teacher_team_code": 3,
+    "trees": 228,
+    "features": 823,
+    "sha256": "98b16b8b6fa3f628fc08a8ce3a94f964cc49e02b9f12c0650fc6e74b6b3a79c1",
+    "routes": [
+      "ordinary",
+      "mirror",
+      "Alakazam",
+      "pure Teal Mask Ogerpon"
+    ]
+  },
+  "elite_ranker": {
+    "source_agent": "grimmsnarl_ml_v22",
+    "teacher_team_id": 16371703,
+    "teacher_rating_at_collection": 1220.2,
+    "teacher_team_code": 0,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1",
+    "routes": [
+      "public damage-immune wall or Neutralization Zone",
+      "Mega Lopunny ex or Mega Froslass ex line",
+      "Hydrapple ex, or Teal Mask Ogerpon plus Applin/Dipplin"
+    ],
+    "histories_synchronized_before_switch": true
+  },
+  "wall_ranker": {
+    "source_agent": "grimmsnarl_ml_v22",
+    "teacher_team_id": 16371703,
+    "teacher_team_code": 0,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1",
+    "activation": "public wall evidence; the same synchronized elite ranker also owns v29's Lopunny/Froslass and Hydrapple routes",
+    "histories_synchronized_before_switch": true
+  },
+  "evidence": {
+    "target_pool": {
+      "families": [
+        "Mega Lopunny / Froslass",
+        "Hydrapple ex"
+      ],
+      "v22": {
+        "wins": 12,
+        "games": 22,
+        "opponent_mean": 987.6,
+        "implied_strength": 1019.3
+      },
+      "v25": {
+        "wins": 3,
+        "games": 9,
+        "opponent_mean": 944.4,
+        "implied_strength": 824.0
+      },
+      "controlled_v22_dummy_elo": 186.4,
+      "controlled_p": 0.244,
+      "interpretation": "directional small-sample evidence for a bounded challenger, not proof of a true 186 Elo gain"
+    },
+    "pure_ogerpon_negative_control": {
+      "v22": "1-6 at opponent mean 990.7",
+      "v25": "1-2 at opponent mean 878.2",
+      "decision": "retain v25; neither policy solves the Grass-weakness exchange"
+    },
+    "adrena_brain_option_audit": {
+      "games": 35,
+      "offered_turns": 108,
+      "used_turns": 108,
+      "live_uptake": 1.0,
+      "decision": "no v29 override; the inferred 30-game missed-use lever was refuted by legal-option logs"
+    }
+  },
+  "unchanged_from_v28": [
+    "60-card deck",
+    "one-ply arithmetic planner",
+    "deck clock guard",
+    "proactive wall trajectory",
+    "reactive wall breaker",
+    "multi-pick fallback",
+    "legacy Froslass escalation remains off",
+    "no belief search",
+    "no mirror-Froslass veto"
+  ],
+  "policy_escalation": {
+    "mode": "off",
+    "legacy_teacher_team_id": 16371703,
+    "legacy_teacher_code": 0,
+    "reason": "The AlphaTCG default uses teacher code 3; enabling the legacy Froslass class switch would reintroduce v24's observationally refuted intervention."
+  },
+  "validation": {
+    "unit_and_regression_tests": 214,
+    "test_result": "PASS",
+    "static_validation": "PASS; 60 cards, 19 unique cards, zero warnings",
+    "extracted_archive_import_smoke": "PASS; agent callable, deck 60, all optional components loaded",
+    "v28_ladder_teacher_forcing": {
+      "episodes": 36,
+      "evaluated_single_pick_decisions": 2898,
+      "v29_matches_v28_played": 2832,
+      "v29_match_rate": 0.9772,
+      "changed_decisions": 66,
+      "changed_share": 0.0228,
+      "v22_policy_decisions": 441,
+      "v25_policy_decisions": 2457,
+      "seconds_per_game": 5.5,
+      "component_load_errors": 0,
+      "report": "experiments/grimmsnarl_ml_v29/footprint_on_v28_run.json"
+    },
+    "target_route_audit": {
+      "lopunny_froslass_games": 3,
+      "lopunny_froslass_changed_decisions": 62,
+      "hydrapple_games": 1,
+      "hydrapple_changed_decisions": 4,
+      "ogerpon_negative_control_games": 4,
+      "ogerpon_changed_decisions": 0,
+      "report": "experiments/grimmsnarl_ml_v29/matchup_routes.json"
+    }
+  },
+  "promotion_contract": {
+    "run_against": "v28 control in the same ladder window",
+    "primary": [
+      "opponent-rating-adjusted result in Mega Lopunny/Froslass and Hydrapple",
+      "950+ opponent band"
+    ],
+    "non_inferiority": [
+      "ordinary race",
+      "exact mirror",
+      "pure Teal Mask Ogerpon",
+      "wall/tank"
+    ],
+    "do_not_claim": "teacher-forced action changes are not counterfactual wins; v29 is not proven stronger until paired ladder evidence"
+  },
+  "known_limits": [
+    "Pure Teal Mask Ogerpon remains a structural Grass-weakness matchup and is intentionally unchanged.",
+    "The target-policy comparison is observational and small (31 v22/v25 games; p=0.244).",
+    "Hydrapple has only 8 v22/v25 games, so its direction cannot be estimated precisely.",
+    "The same-turn ordering differences in teacher-forced replay do not by themselves imply game value.",
+    "A stable rating gain cannot be guaranteed before a paired ladder run."
+  ],
+  "submission_package": {
+    "path": "artifacts/grimmsnarl_ml_v29_submission.tar.gz",
+    "status": "built and extracted-import verified",
+    "bytes": 11999031,
+    "sha256": "3c49cc508ffe71c5ac9baea10ffaf75a1148f42e0b0d8b63b0658640ed7a57ee",
+    "archive_entries": 23,
+    "deck_size": 60
+  },
+  "description": "v28 plus measured elite-teacher routing for Mega Lopunny/Mega Froslass and Hydrapple, with pure Ogerpon and all proven v28 cells preserved."
+}

@@ -1,0 +1,137 @@
+{
+  "source_games": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\grimmsnarl_ml_v28\\version_games.csv",
+  "target_families": [
+    "Mega Lopunny / Froslass",
+    "other: Hydrapple ex"
+  ],
+  "cells": {
+    "Mega Lopunny / Froslass": {
+      "v22": {
+        "games": 19,
+        "wins": 10,
+        "losses": 9,
+        "win_rate": 0.5263,
+        "opponent_mean": 982.3,
+        "implied_strength": 1000.6
+      },
+      "v25": {
+        "games": 4,
+        "wins": 1,
+        "losses": 3,
+        "win_rate": 0.25,
+        "opponent_mean": 894.3,
+        "implied_strength": 703.5
+      },
+      "v28": {
+        "games": 3,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 0.3333,
+        "opponent_mean": 976.6,
+        "implied_strength": 856.2
+      }
+    },
+    "other: Hydrapple ex": {
+      "v22": {
+        "games": 3,
+        "wins": 2,
+        "losses": 1,
+        "win_rate": 0.6667,
+        "opponent_mean": 1021.4,
+        "implied_strength": 1141.8
+      },
+      "v25": {
+        "games": 5,
+        "wins": 2,
+        "losses": 3,
+        "win_rate": 0.4,
+        "opponent_mean": 984.5,
+        "implied_strength": 914.1
+      },
+      "v28": {
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "win_rate": 0.0,
+        "opponent_mean": 987.3,
+        "implied_strength": null
+      }
+    },
+    "Ogerpon": {
+      "v22": {
+        "games": 7,
+        "wins": 1,
+        "losses": 6,
+        "win_rate": 0.1429,
+        "opponent_mean": 990.7,
+        "implied_strength": 679.5
+      },
+      "v25": {
+        "games": 3,
+        "wins": 1,
+        "losses": 2,
+        "win_rate": 0.3333,
+        "opponent_mean": 878.2,
+        "implied_strength": 757.8
+      },
+      "v28": {
+        "games": 4,
+        "wins": 2,
+        "losses": 2,
+        "win_rate": 0.5,
+        "opponent_mean": 859.4,
+        "implied_strength": 859.4
+      }
+    }
+  },
+  "combined": {
+    "v22": {
+      "games": 22,
+      "wins": 12,
+      "losses": 10,
+      "win_rate": 0.5455,
+      "opponent_mean": 987.6,
+      "implied_strength": 1019.3
+    },
+    "v25": {
+      "games": 9,
+      "wins": 3,
+      "losses": 6,
+      "win_rate": 0.3333,
+      "opponent_mean": 944.4,
+      "implied_strength": 824.0
+    },
+    "v28": {
+      "games": 4,
+      "wins": 1,
+      "losses": 3,
+      "win_rate": 0.25,
+      "opponent_mean": 979.3,
+      "implied_strength": 788.4
+    }
+  },
+  "controlled_v22_dummy_vs_v25": {
+    "n": 31,
+    "elo": 186.4,
+    "z": 1.16,
+    "p": 0.244
+  },
+  "controlled_by_family": {
+    "Mega Lopunny / Froslass": {
+      "n": 23,
+      "elo": 384.5,
+      "z": 1.37,
+      "p": 0.1713
+    },
+    "other: Hydrapple ex": {
+      "n": 8,
+      "error": "insufficient variation"
+    }
+  },
+  "interpretation": {
+    "v22_source": "1220-rated elite-teacher ranker",
+    "v25_source": "1095-rated current AlphaTCG ranker",
+    "selection_rule": "use v22 only in target families and existing wall routes; retain v25 elsewhere",
+    "caveat": "observational, small cells; teacher-forced footprint does not reveal counterfactual game outcomes"
+  }
+}

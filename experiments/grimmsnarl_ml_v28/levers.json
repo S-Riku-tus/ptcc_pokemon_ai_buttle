@@ -1,0 +1,599 @@
+{
+  "pooled": [
+    {
+      "flag": "first Shadow by own turn 2",
+      "on": [
+        127,
+        176
+      ],
+      "off": [
+        177,
+        290
+      ],
+      "on_rate": 0.7216,
+      "off_rate": 0.6103,
+      "n": 466,
+      "elo": 104.3,
+      "z": 2.75,
+      "p": 0.006
+    },
+    {
+      "flag": "first Shadow by own turn 3",
+      "on": [
+        236,
+        355
+      ],
+      "off": [
+        68,
+        111
+      ],
+      "on_rate": 0.6648,
+      "off_rate": 0.6126,
+      "n": 466,
+      "elo": 53.1,
+      "z": 1.28,
+      "p": 0.2018
+    },
+    {
+      "flag": "never landed a Shadow",
+      "on": [
+        1,
+        14
+      ],
+      "off": [
+        304,
+        466
+      ],
+      "on_rate": 0.0714,
+      "off_rate": 0.6524,
+      "n": 480,
+      "elo": -628.7,
+      "z": -3.3,
+      "p": 0.001
+    },
+    {
+      "flag": "we attacked before they did",
+      "on": [
+        103,
+        159
+      ],
+      "off": [
+        186,
+        299
+      ],
+      "on_rate": 0.6478,
+      "off_rate": 0.6221,
+      "n": 458,
+      "elo": 50.2,
+      "z": 1.35,
+      "p": 0.1771
+    },
+    {
+      "flag": "opp attacked by shared turn 3",
+      "on": [
+        146,
+        241
+      ],
+      "off": [
+        143,
+        222
+      ],
+      "on_rate": 0.6058,
+      "off_rate": 0.6441,
+      "n": 463,
+      "elo": -50.0,
+      "z": -1.39,
+      "p": 0.1635
+    },
+    {
+      "flag": "2+ Grimmsnarl ex evolved",
+      "on": [
+        220,
+        341
+      ],
+      "off": [
+        85,
+        139
+      ],
+      "on_rate": 0.6452,
+      "off_rate": 0.6115,
+      "n": 480,
+      "elo": 75.5,
+      "z": 1.92,
+      "p": 0.0545
+    },
+    {
+      "flag": "3+ Grimmsnarl ex evolved",
+      "on": [
+        96,
+        148
+      ],
+      "off": [
+        209,
+        332
+      ],
+      "on_rate": 0.6486,
+      "off_rate": 0.6295,
+      "n": 480,
+      "elo": 41.3,
+      "z": 1.09,
+      "p": 0.2737
+    },
+    {
+      "flag": "Rare Candy used",
+      "on": [
+        231,
+        342
+      ],
+      "off": [
+        74,
+        138
+      ],
+      "on_rate": 0.6754,
+      "off_rate": 0.5362,
+      "n": 480,
+      "elo": 109.1,
+      "z": 2.89,
+      "p": 0.0039
+    },
+    {
+      "flag": "Froslass evolved",
+      "on": [
+        181,
+        287
+      ],
+      "off": [
+        124,
+        193
+      ],
+      "on_rate": 0.6307,
+      "off_rate": 0.6425,
+      "n": 480,
+      "elo": -17.4,
+      "z": -0.49,
+      "p": 0.6207
+    },
+    {
+      "flag": "Boss's Orders used",
+      "on": [
+        158,
+        246
+      ],
+      "off": [
+        147,
+        234
+      ],
+      "on_rate": 0.6423,
+      "off_rate": 0.6282,
+      "n": 480,
+      "elo": 46.4,
+      "z": 1.31,
+      "p": 0.1886
+    },
+    {
+      "flag": "2+ Unfair Stamp",
+      "on": [
+        120,
+        184
+      ],
+      "off": [
+        185,
+        296
+      ],
+      "on_rate": 0.6522,
+      "off_rate": 0.625,
+      "n": 480,
+      "elo": 63.8,
+      "z": 1.76,
+      "p": 0.0784
+    },
+    {
+      "flag": "2+ Lillie's Determination",
+      "on": [
+        205,
+        309
+      ],
+      "off": [
+        100,
+        171
+      ],
+      "on_rate": 0.6634,
+      "off_rate": 0.5848,
+      "n": 480,
+      "elo": 98.0,
+      "z": 2.67,
+      "p": 0.0077
+    },
+    {
+      "flag": "5+ Adrena-Brain",
+      "on": [
+        216,
+        282
+      ],
+      "off": [
+        89,
+        198
+      ],
+      "on_rate": 0.766,
+      "off_rate": 0.4495,
+      "n": 480,
+      "elo": 289.7,
+      "z": 7.52,
+      "p": 0.0
+    },
+    {
+      "flag": "zero Adrena-Brain",
+      "on": [
+        13,
+        43
+      ],
+      "off": [
+        292,
+        437
+      ],
+      "on_rate": 0.3023,
+      "off_rate": 0.6682,
+      "n": 480,
+      "elo": -315.0,
+      "z": -4.78,
+      "p": 0.0
+    },
+    {
+      "flag": "gate violation",
+      "on": [
+        20,
+        31
+      ],
+      "off": [
+        285,
+        449
+      ],
+      "on_rate": 0.6452,
+      "off_rate": 0.6347,
+      "n": 480,
+      "elo": -17.2,
+      "z": -0.25,
+      "p": 0.8052
+    },
+    {
+      "flag": "went first",
+      "on": [
+        178,
+        263
+      ],
+      "off": [
+        127,
+        217
+      ],
+      "on_rate": 0.6768,
+      "off_rate": 0.5853,
+      "n": 480
+    }
+  ],
+  "target": [
+    {
+      "flag": "first Shadow by own turn 2",
+      "on": [
+        14,
+        16
+      ],
+      "off": [
+        10,
+        18
+      ],
+      "on_rate": 0.875,
+      "off_rate": 0.5556,
+      "n": 34,
+      "elo": 309.5,
+      "z": 1.96,
+      "p": 0.0504
+    },
+    {
+      "flag": "first Shadow by own turn 3",
+      "on": [
+        21,
+        29
+      ],
+      "off": [
+        3,
+        5
+      ],
+      "on_rate": 0.7241,
+      "off_rate": 0.6,
+      "n": 34,
+      "elo": 104.6,
+      "z": 0.59,
+      "p": 0.555
+    },
+    {
+      "flag": "never landed a Shadow",
+      "on": [
+        0,
+        1
+      ],
+      "off": [
+        24,
+        34
+      ],
+      "on_rate": 0.0,
+      "off_rate": 0.7059,
+      "n": 35,
+      "elo": -1982.7,
+      "z": -0.06,
+      "p": 0.9515
+    },
+    {
+      "flag": "we attacked before they did",
+      "on": [
+        8,
+        15
+      ],
+      "off": [
+        16,
+        20
+      ],
+      "on_rate": 0.5333,
+      "off_rate": 0.8,
+      "n": 35,
+      "elo": -191.9,
+      "z": -1.37,
+      "p": 0.1707
+    },
+    {
+      "flag": "opp attacked by shared turn 3",
+      "on": [
+        16,
+        21
+      ],
+      "off": [
+        8,
+        14
+      ],
+      "on_rate": 0.7619,
+      "off_rate": 0.5714,
+      "n": 35,
+      "elo": 146.6,
+      "z": 1.04,
+      "p": 0.2991
+    },
+    {
+      "flag": "2+ Grimmsnarl ex evolved",
+      "on": [
+        19,
+        27
+      ],
+      "off": [
+        5,
+        8
+      ],
+      "on_rate": 0.7037,
+      "off_rate": 0.625,
+      "n": 35,
+      "elo": 71.6,
+      "z": 0.48,
+      "p": 0.6347
+    },
+    {
+      "flag": "3+ Grimmsnarl ex evolved",
+      "on": [
+        9,
+        14
+      ],
+      "off": [
+        15,
+        21
+      ],
+      "on_rate": 0.6429,
+      "off_rate": 0.7143,
+      "n": 35,
+      "elo": -50.1,
+      "z": -0.38,
+      "p": 0.7036
+    },
+    {
+      "flag": "Rare Candy used",
+      "on": [
+        19,
+        24
+      ],
+      "off": [
+        5,
+        11
+      ],
+      "on_rate": 0.7917,
+      "off_rate": 0.4545,
+      "n": 35,
+      "elo": 257.6,
+      "z": 1.84,
+      "p": 0.0656
+    },
+    {
+      "flag": "Froslass evolved",
+      "on": [
+        15,
+        21
+      ],
+      "off": [
+        9,
+        14
+      ],
+      "on_rate": 0.7143,
+      "off_rate": 0.6429,
+      "n": 35,
+      "elo": 43.1,
+      "z": 0.33,
+      "p": 0.7423
+    },
+    {
+      "flag": "Boss's Orders used",
+      "on": [
+        13,
+        15
+      ],
+      "off": [
+        11,
+        20
+      ],
+      "on_rate": 0.8667,
+      "off_rate": 0.55,
+      "n": 35,
+      "elo": 324.3,
+      "z": 2.04,
+      "p": 0.0412
+    },
+    {
+      "flag": "2+ Unfair Stamp",
+      "on": [
+        9,
+        14
+      ],
+      "off": [
+        15,
+        21
+      ],
+      "on_rate": 0.6429,
+      "off_rate": 0.7143,
+      "n": 35,
+      "elo": -9.8,
+      "z": -0.07,
+      "p": 0.9442
+    },
+    {
+      "flag": "2+ Lillie's Determination",
+      "on": [
+        16,
+        22
+      ],
+      "off": [
+        8,
+        13
+      ],
+      "on_rate": 0.7273,
+      "off_rate": 0.6154,
+      "n": 35,
+      "elo": 89.7,
+      "z": 0.68,
+      "p": 0.4989
+    },
+    {
+      "flag": "5+ Adrena-Brain",
+      "on": [
+        20,
+        24
+      ],
+      "off": [
+        4,
+        11
+      ],
+      "on_rate": 0.8333,
+      "off_rate": 0.3636,
+      "n": 35,
+      "elo": 507.5,
+      "z": 2.69,
+      "p": 0.0071
+    },
+    {
+      "flag": "zero Adrena-Brain",
+      "on": [
+        1,
+        5
+      ],
+      "off": [
+        23,
+        30
+      ],
+      "on_rate": 0.2,
+      "off_rate": 0.7667,
+      "n": 35,
+      "elo": -440.7,
+      "z": -2.04,
+      "p": 0.0415
+    },
+    {
+      "flag": "gate violation",
+      "on": [
+        0,
+        0
+      ],
+      "off": [
+        24,
+        35
+      ],
+      "on_rate": null,
+      "off_rate": 0.6857,
+      "n": 35
+    },
+    {
+      "flag": "went first",
+      "on": [
+        12,
+        17
+      ],
+      "off": [
+        12,
+        18
+      ],
+      "on_rate": 0.7059,
+      "off_rate": 0.6667,
+      "n": 35
+    }
+  ],
+  "families": [
+    {
+      "family": "Alakazam",
+      "games": 99,
+      "win_rate": 0.6768,
+      "shadow_turn_wins": 2.8955223880597014,
+      "shadow_turn_losses": 3.2
+    },
+    {
+      "family": "Archaludon",
+      "games": 25,
+      "win_rate": 0.76,
+      "shadow_turn_wins": 2.8947368421052633,
+      "shadow_turn_losses": 3.5
+    },
+    {
+      "family": "Dragapult",
+      "games": 41,
+      "win_rate": 0.6098,
+      "shadow_turn_wins": 3.12,
+      "shadow_turn_losses": 3.769230769230769
+    },
+    {
+      "family": "Grimmsnarl (mirror)",
+      "games": 123,
+      "win_rate": 0.6504,
+      "shadow_turn_wins": 2.7848101265822787,
+      "shadow_turn_losses": 2.9767441860465116
+    },
+    {
+      "family": "Kangaskhan / Crustle",
+      "games": 33,
+      "win_rate": 0.697,
+      "shadow_turn_wins": 3.4347826086956523,
+      "shadow_turn_losses": 4.4
+    },
+    {
+      "family": "Mega Lopunny / Froslass",
+      "games": 33,
+      "win_rate": 0.4545,
+      "shadow_turn_wins": 2.933333333333333,
+      "shadow_turn_losses": 2.8823529411764706
+    },
+    {
+      "family": "Mega Lucario",
+      "games": 34,
+      "win_rate": 0.8824,
+      "shadow_turn_wins": 2.6666666666666665,
+      "shadow_turn_losses": 4.25
+    },
+    {
+      "family": "Ogerpon",
+      "games": 27,
+      "win_rate": 0.1852,
+      "shadow_turn_wins": 2.2,
+      "shadow_turn_losses": 2.8181818181818183
+    }
+  ]
+}

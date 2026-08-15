@@ -1,0 +1,77 @@
+
+==============================================================================
+1. Win/loss states, all 480 stored games
+==============================================================================
+  elo = controlled effect of the flag on winning (opponent rating and turn order held fixed)
+  first Shadow by own turn 2       on 127/176 0.722   off 177/290 0.610   elo   104.3  p  0.006
+  first Shadow by own turn 3       on 236/355 0.665   off  68/111 0.613   elo    53.1  p 0.2018
+  never landed a Shadow            on   1/14  0.071   off 304/466 0.652   elo  -628.7  p  0.001
+  we attacked before they did      on 103/159 0.648   off 186/299 0.622   elo    50.2  p 0.1771
+  opp attacked by shared turn 3    on 146/241 0.606   off 143/222 0.644   elo   -50.0  p 0.1635
+  2+ Grimmsnarl ex evolved         on 220/341 0.645   off  85/139 0.612   elo    75.5  p 0.0545
+  3+ Grimmsnarl ex evolved         on  96/148 0.649   off 209/332 0.630   elo    41.3  p 0.2737
+  Rare Candy used                  on 231/342 0.675   off  74/138 0.536   elo   109.1  p 0.0039
+  Froslass evolved                 on 181/287 0.631   off 124/193 0.642   elo   -17.4  p 0.6207
+  Boss's Orders used               on 158/246 0.642   off 147/234 0.628   elo    46.4  p 0.1886
+  2+ Unfair Stamp                  on 120/184 0.652   off 185/296 0.625   elo    63.8  p 0.0784
+  2+ Lillie's Determination        on 205/309 0.663   off 100/171 0.585   elo    98.0  p 0.0077
+  5+ Adrena-Brain                  on 216/282 0.766   off  89/198 0.449   elo   289.7  p    0.0
+  zero Adrena-Brain                on  13/43  0.302   off 292/437 0.668   elo  -315.0  p    0.0
+  gate violation                   on  20/31  0.645   off 285/449 0.635   elo   -17.2  p 0.8052
+  went first                       on 178/263 0.677   off 127/217 0.585   elo       -  p      -
+
+==============================================================================
+2. The same flags inside v28 alone
+==============================================================================
+  first Shadow by own turn 2       on  14/16  0.875   off  10/18  0.556   elo   309.5  p 0.0504
+  first Shadow by own turn 3       on  21/29  0.724   off   3/5   0.600   elo   104.6  p  0.555
+  never landed a Shadow            on   0/1   0.000   off  24/34  0.706   elo -1982.7  p 0.9515
+  we attacked before they did      on   8/15  0.533   off  16/20  0.800   elo  -191.9  p 0.1707
+  opp attacked by shared turn 3    on  16/21  0.762   off   8/14  0.571   elo   146.6  p 0.2991
+  2+ Grimmsnarl ex evolved         on  19/27  0.704   off   5/8   0.625   elo    71.6  p 0.6347
+  3+ Grimmsnarl ex evolved         on   9/14  0.643   off  15/21  0.714   elo   -50.1  p 0.7036
+  Rare Candy used                  on  19/24  0.792   off   5/11  0.455   elo   257.6  p 0.0656
+  Froslass evolved                 on  15/21  0.714   off   9/14  0.643   elo    43.1  p 0.7423
+  Boss's Orders used               on  13/15  0.867   off  11/20  0.550   elo   324.3  p 0.0412
+  2+ Unfair Stamp                  on   9/14  0.643   off  15/21  0.714   elo    -9.8  p 0.9442
+  2+ Lillie's Determination        on  16/22  0.727   off   8/13  0.615   elo    89.7  p 0.4989
+  5+ Adrena-Brain                  on  20/24  0.833   off   4/11  0.364   elo   507.5  p 0.0071
+  zero Adrena-Brain                on   1/5   0.200   off  23/30  0.767   elo  -440.7  p 0.0415
+  gate violation                   on   0/0   nan   off  24/35  0.686   elo       -  p      -
+  went first                       on  12/17  0.706   off  12/18  0.667   elo       -  p      -
+
+==============================================================================
+3. How the games end
+==============================================================================
+
+all versions: 305 wins / 175 losses
+  wins    our prizes left 1.58  opp prizes left 3.51  our turns 6.17  first Shadow own turn 2.90  bodies left 5.53
+  losses  our prizes left 3.27  opp prizes left 1.48  our turns 6.15  first Shadow own turn 3.22  bodies left 3.68
+  losses with 4+ of our prizes still unclaimed: 77/175   losses within 2 prizes: 68/175
+
+v28: 24 wins / 11 losses
+  wins    our prizes left 1.33  opp prizes left 3.38  our turns 5.92  first Shadow own turn 2.58  bodies left 5.67
+  losses  our prizes left 4.18  opp prizes left 1.27  our turns 5.55  first Shadow own turn 3.00  bodies left 3.73
+  losses with 4+ of our prizes still unclaimed: 8/11   losses within 2 prizes: 1/11
+
+==============================================================================
+4. Prize spread distribution
+==============================================================================
+  spread = opponent prizes left - our prizes left (positive = we were ahead)
+  all versions   n=480  min  -5  p25  -1  median   1  p75   2  max   5  mean +0.57
+  v28            n=35   min  -5  p25  -2  median   1  p75   3  max   5  mean +0.49
+
+==============================================================================
+5. First-Shadow turn against outcome, per family
+==============================================================================
+  family                     games  win rate  Shadow t (W)  Shadow t (L)
+  Alakazam                      99     0.677          2.90          3.20
+  Archaludon                    25     0.760          2.89          3.50
+  Dragapult                     41     0.610          3.12          3.77
+  Grimmsnarl (mirror)          123     0.650          2.78          2.98
+  Kangaskhan / Crustle          33     0.697          3.43          4.40
+  Mega Lopunny / Froslass       33     0.455          2.93          2.88
+  Mega Lucario                  34     0.882          2.67          4.25
+  Ogerpon                       27     0.185          2.20          2.82
+
+wrote C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v28\levers.json

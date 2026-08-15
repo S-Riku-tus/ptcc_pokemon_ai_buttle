@@ -1,0 +1,24 @@
+all            n=480  wr 0.635  hard-3 share 15.2% (24-49, 0.329)  rest (281-126, 0.690)
+   top families: Grimmsnarl (mirror) 123, Alakazam 99, Dragapult 41, Mega Lucario 34, Kangaskhan / Crustle 33, Mega Lopunny / Froslass 33
+opp < 900      n=271  wr 0.738  hard-3 share 7.0% (9-10, 0.474)  rest (191-61, 0.758)
+   top families: Alakazam 64, Grimmsnarl (mirror) 63, Mega Lucario 28, Archaludon 24, Dragapult 18, Kangaskhan / Crustle 16
+opp 900-950    n=76   wr 0.553  hard-3 share 15.8% (3-9, 0.250)  rest (39-25, 0.609)
+   top families: Grimmsnarl (mirror) 27, Alakazam 20, other: Hydrapple ex 5, Mega Lucario 5, Dragapult 5, Mega Lopunny / Froslass 4
+opp >= 950     n=133  wr 0.474  hard-3 share 31.6% (12-30, 0.286)  rest (51-40, 0.560)
+   top families: Grimmsnarl (mirror) 33, Mega Lopunny / Froslass 21, Dragapult 18, Kangaskhan / Crustle 15, Alakazam 15, Ogerpon 13
+opp >= 1000    n=66   wr 0.455  hard-3 share 24.2% (6-10, 0.375)  rest (24-26, 0.480)
+   top families: Grimmsnarl (mirror) 15, Dragapult 14, Mega Lopunny / Froslass 11, Kangaskhan / Crustle 9, Alakazam 5, Dipplin 3
+
+per family inside the >=950 band:
+  Alakazam                    11-4   0.733  n=15
+  Dipplin                      3-1   0.750  n=4
+  Dragapult                   10-8   0.556  n=18
+  Grimmsnarl (mirror)         16-17  0.485  n=33
+  Kangaskhan / Crustle         9-6   0.600  n=15
+  Mega Lopunny / Froslass      9-12  0.429  n=21
+  Ogerpon                      0-13  0.000  n=13
+  other: Hydrapple ex          3-5   0.375  n=8
+
+what fixing the hard-3 to 0.500 would be worth overall:
+  pooled 0.6354 -> 0.6615  = +19.9 Elo
+  >=950  0.4737 -> 0.5414  = +47.1 Elo (hard-3 is 42/133 of that band)

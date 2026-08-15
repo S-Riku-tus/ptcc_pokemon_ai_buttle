@@ -1,0 +1,66 @@
+walked 480 games (0 missing)
+
+==============================================================================
+1. Adrena-Brain split by when it happened
+==============================================================================
+  early = our own turns 1-3, late = own turn 4 onward
+  any early Adrena-Brain             on 206/286 0.720   off  99/194 0.510   elo   177.8  p 0.0
+  2+ early Adrena-Brain              on 120/153 0.784   off 185/327 0.566   elo   179.8  p 0.0
+  3+ early Adrena-Brain              on  42/50  0.840   off 263/430 0.612   elo   229.0  p 0.0014
+  any late Adrena-Brain              on 283/420 0.674   off  22/60  0.367   elo   277.0  p 0.0
+  3+ late Adrena-Brain               on 241/329 0.733   off  64/151 0.424   elo   282.2  p 0.0
+  Munkidori in play by own turn 2    on 278/432 0.644   off  27/48  0.562   elo    78.0  p 0.171
+
+==============================================================================
+2. Early Adrena-Brain, restricted to games we could still lose
+==============================================================================
+  the late count is unusable if the game was already decided, so the early count is repeated inside the games that reached own turn 5+
+  any early Adrena-Brain             on 191/264 0.723   off  88/166 0.530   elo   160.3  p 0.0
+  2+ early Adrena-Brain              on 109/139 0.784   off 170/291 0.584   elo   163.6  p 0.0001
+
+==============================================================================
+3. Per version and per family
+==============================================================================
+  version  games  early/game  late/game  munki by t2
+  v22        190        1.01       4.76         0.90
+  v24         85        1.11       4.75         0.94
+  v25         85        1.06       5.12         0.91
+  v26         40        1.00       4.38         0.80
+  v27         34        1.03       4.59         0.88
+  v28         35        1.20       4.71         0.91
+
+  family                     games     wr  early W  early L  munki t2 W  munki t2 L
+  Alakazam                      99  0.677     1.01     0.38        0.88        0.88
+  Archaludon                    25  0.760     1.84     1.00        1.00        0.50
+  Dragapult                     41  0.610     1.28     1.12        0.92        0.81
+  Grimmsnarl (mirror)          123  0.650     1.59     1.12        0.97        0.91
+  Kangaskhan / Crustle          33  0.697     0.70     0.60        0.87        0.90
+  Mega Lopunny / Froslass       33  0.455     1.00     0.39        0.93        0.89
+  Mega Lucario                  34  0.882     1.30     0.75        0.90        0.75
+  Ogerpon                       27  0.185     0.60     0.64        0.80        0.95
+
+==============================================================================
+4. What blocks an early Adrena-Brain
+==============================================================================
+  the ability needs a {D} Energy on Munkidori and a damage counter on one of our own Pokemon, so a missing early use is one of three states
+  194 games with no Adrena-Brain in own turns 1-3:
+    no damage         120 (61.9%) win rate 0.525
+    no munkidori       27 (13.9%) win rate 0.481
+    no energy          17 (8.8%)  win rate 0.588
+    had it, skipped    30 (15.5%) win rate 0.433
+    used it           286         win rate 0.720
+
+  the same states as win-rate flags:
+  Munkidori energised by own t2    on 255/395 0.646   off  50/85  0.588   elo    63.8  p 0.1569
+  Munkidori energised by own t3    on 282/436 0.647   off  23/44  0.523   elo   148.7  p 0.0138
+  own damage by own t3             on 233/344 0.677   off  72/136 0.529   elo   117.7  p 0.0021
+
+  energised-by-t3 rate per version:
+    v22    0.916   early AB/game 1.01
+    v24    0.965   early AB/game 1.11
+    v25    0.882   early AB/game 1.06
+    v26    0.875   early AB/game 1.00
+    v27    0.853   early AB/game 1.03
+    v28    0.914   early AB/game 1.20
+
+wrote C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v28\adrena_lever.json
