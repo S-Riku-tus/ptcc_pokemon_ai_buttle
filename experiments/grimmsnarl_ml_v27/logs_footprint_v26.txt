@@ -1,0 +1,72 @@
+episodes: 41  decisions: 3413  evaluated: 3051
+load errors: {"ranker": null, "peer": null, "planner": null, "router": null, "wall_trajectory": null, "wall_break": null, "deck_clock": null, "h2_search": null}
+
+--- reproduction ---
+evaluated single-pick decisions: 3051
+v27 reproduces the played action: 3050 (0.9997)
+v22 baseline reproduces it:      3042 (0.9971)
+
+--- override footprint (v27 final != v22 planner answer) ---
+total overrides: 8 of 3051 (0.2622%)
+  ordinary        0 / 2204  (0.0000%)
+  mirror          0 / 591   (0.0000%)
+  wall_public     0 / 48    (0.0000%)
+  wall_active     8 / 208   (3.8462%)
+
+by layer:
+  wall_break         7
+  wall_trajectory    1
+
+by layer x cell:
+  wall_break|wall_active           7
+  wall_trajectory|wall_active      1
+
+--- games containing at least one override ---
+  with override  n=  3  2-1  0.667
+  without        n= 38  27-11  0.711
+
+per-game override counts (episode, won, overrides):
+  93217269  won=0  overrides=1  {'overrides': 1, 'wall_break': 1}
+  93234369  won=1  overrides=1  {'overrides': 1, 'wall_trajectory': 1}
+  93237065  won=1  overrides=6  {'overrides': 6, 'wall_break': 6}
+
+--- guard internal counters (summed over games) ---
+  deck_clock.lillie_considered                 59
+  h2_search.determinizations                   123
+  h2_search.min_turn                           205
+  h2_search.skip_disabled                      2839
+  wall_break.attachment_redirected             1
+  wall_break.attack_forced                     1
+  wall_break.boss_prize_deferred               1
+  wall_break.breaker_too_slow                  12
+  wall_break.breaker_would_be_sacrificed       14
+  wall_break.considered                        3051
+  wall_break.dead_shadow_replaced              5
+  wall_break.dead_swing_decisions              71
+  wall_break.dead_swing_turns                  12
+  wall_break.fuel_attach_forced                2
+  wall_break.main_decisions                    1513
+  wall_break.no_breaker_in_play                3
+  wall_break.promote_already_right             2
+  wall_break.promote_forced                    1
+  wall_break.punk_breaker_considered           2
+  wall_break.punk_breaker_kept                 2
+  wall_break.retreat_forced                    3
+  wall_break.route_compatible_kept             4
+  wall_trajectory.committed_serial             24
+  wall_trajectory.considered                   256
+  wall_trajectory.munkidori_activation_preserved 6
+  wall_trajectory.overrides                    1
+  wall_trajectory.primary_attachment_preserved 1
+  wall_trajectory.punk_concentrated            1
+  wall_trajectory.punk_concentrated_kept       6
+  wall_trajectory.punk_trigger_not_ready       5
+  wall_trajectory.skip_non_wall                2795
+Traceback (most recent call last):
+  File "C:\Users\shiba\ptcc_pokemon_ai_buttle\scripts\probe_grimmsnarl_v27_ladder_footprint.py", line 293, in <module>
+    raise SystemExit(main())
+  File "C:\Users\shiba\ptcc_pokemon_ai_buttle\scripts\probe_grimmsnarl_v27_ladder_footprint.py", line 275, in main
+    "run": str(args.run.relative_to(ROOT)),
+  File "C:\Users\shiba\.pyenv\pyenv-win\versions\3.10.11\lib\pathlib.py", line 818, in relative_to
+    raise ValueError("{!r} is not in the subpath of {!r}"
+ValueError: 'data\\runs\\grimmsnarl\\20260815_grimmsnarl_ml_v26_sub55520389' is not in the subpath of 'C:\\Users\\shiba\\ptcc_pokemon_ai_buttle' OR one path is relative and the other is absolute.

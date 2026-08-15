@@ -1,0 +1,84 @@
+=== 1. how fast the opponent's deck attacked, by calendar day ===
+opp_own_first_attack = the opponent's own turn ordinal on which it made its first attack.  Lower = faster field.
+
+window      n  opp 1st atk  never atk  our 1st shadow   turns   our wr
+08-13     199         2.33          5            3.01   12.18    0.633
+08-14     136         2.28          6            2.97   12.58    0.610
+08-15     110         1.98          6            3.16   11.85    0.655
+
+08-15 vs earlier, opponent first attack turn, Mann-Whitney one-sided earlier: U=13664 p=0.00102  (means 1.98 vs 2.31)
+
+same, per version:
+  v22   n=190  opp 1st atk 2.33   our 1st shadow 3.01   our 1st ready 2.95
+  v23   n=11   opp 1st atk 2.18   our 1st shadow 3.00   our 1st ready 3.00
+  v24   n=85   opp 1st atk 2.20   our 1st shadow 2.79   our 1st ready 2.72
+  v25   n=85   opp 1st atk 2.20   our 1st shadow 3.18   our 1st ready 2.95
+  v26   n=40   opp 1st atk 2.03   our 1st shadow 3.39   our 1st ready 3.34
+  v27   n=34   opp 1st atk 2.06   our 1st shadow 3.00   our 1st ready 2.88
+
+=== 2. turn order x window ===
+window           first        second    diff   fisher
+08-13      68-39 0.636   58-34 0.630  +0.005   1.0000
+08-14      47-27 0.635   36-26 0.581  +0.054   0.5972
+08-15      51-14 0.785   21-24 0.467  +0.318   0.0010
+
+=== 3. what the second seat lost to, 08-15 vs earlier ===
+earlier, second  n=154  wr 0.610   opp 1st atk 2.64   our 1st shadow 2.84   prizes left on loss 3.63   blowout losses (>=5 left) 20/60
+08-15,  second  n=45   wr 0.467   opp 1st atk 2.44   our 1st shadow 3.07   prizes left on loss 3.50   blowout losses (>=5 left) 8/24
+earlier, first   n=181  wr 0.635   opp 1st atk 2.01   our 1st shadow 3.11   prizes left on loss 2.80   blowout losses (>=5 left) 9/66
+08-15,  first   n=65   wr 0.785   opp 1st atk 1.63   our 1st shadow 3.23   prizes left on loss 2.79   blowout losses (>=5 left) 3/14
+
+=== 4. mirror x turn order ===
+group      mirror first   mirror second     other first    other second
+v22         11-10 0.524     15-10 0.600     51-28 0.646     43-22 0.662
+v23          1-0  1.000               -      5-2  0.714      1-2  0.333
+v24          9-4  0.692      7-4  0.636     24-9  0.727     16-12 0.571
+v25          7-3  0.700      6-1  0.857     23-18 0.561     13-14 0.481
+v26          2-0  1.000      1-0  1.000     19-3  0.864      6-9  0.400
+v27          1-0  1.000      2-3  0.400     13-3  0.812      5-7  0.417
+
+=== 5. family x turn order, 08-15 window ===
+  Alakazam                       first  10-3  0.769   second   5-7  0.417
+  Grimmsnarl (mirror)            first   5-1  0.833   second   7-6  0.538
+  Mega Lucario                   first   7-2  0.778   second   4-0  1.000
+  Dragapult                      first   6-1  0.857   second   1-2  0.333
+  Archaludon                     first   5-2  0.714   second      -
+  Kangaskhan / Crustle           first   4-1  0.800   second   1-0  1.000
+  Ogerpon                        first   1-2  0.333   second   0-3  0.000
+  other: Cynthia's Garchomp ex   first   2-0  1.000   second   1-2  0.333
+  other: Mega Abomasnow ex       first   3-0  1.000   second   0-1  0.000
+  Mega Lopunny / Froslass        first   1-1  0.500   second   0-1  0.000
+  other: Walrein                 first   2-0  1.000   second      -
+  other: Team Rocket's Mewtwo ex first   1-0  1.000   second   1-0  1.000
+  other: Iono’s Bellibolt ex     first   2-0  1.000   second      -
+  other: Iron Thorns ex          first   1-0  1.000   second      -
+  other: Mega Venusaur ex        first      -         second   0-1  0.000
+  other: Dudunsparce             first      -         second   1-0  1.000
+  other: Hydrapple ex            first      -         second   0-1  0.000
+  other: Mega Starmie ex         first   1-0  1.000   second      -
+  other: N’s Zoroark ex          first   0-1  0.000   second      -
+
+=== 6. our own clock, by turn order ===
+If the second seat is losing because our own setup is slower there, the gap shows up here; if not, the clock is the field's.
+
+group  order     1st ready  1st shadow  shadow/game  our turns      wr
+v22    first          3.04        3.12         3.65       6.24   0.620
+v22    second         2.85        2.87         3.52       6.13   0.644
+v24    first          2.76        2.87         3.91       6.28   0.717
+v24    second         2.67        2.69         3.46       5.77   0.590
+v26    first          3.26        3.30         3.25       6.33   0.875
+v26    second         3.47        3.53         2.75       5.69   0.438
+v27    first          2.88        2.94         3.65       6.12   0.824
+v27    second         2.88        3.06         3.18       5.76   0.412
+
+=== 7. pooled 'v22-equivalent' policy (v22 + v26 + v27) ===
+v27 reproduces v22's action on 2747 of 2755 stored decisions, so these three runs are one policy sampled at three times.
+
+  pooled                   n=264  169-95  0.640 [0.581,0.696]
+  pooled, first            n=141  97-44  0.688 [0.607,0.759]
+  pooled, second           n=123  72-51  0.585 [0.497,0.669]
+  pooled, opp>=950         n= 98  54-44  0.551 [0.453,0.646]
+  pooled, opp>=950 first   n= 46  25-21  0.543 [0.402,0.678]
+  pooled, opp>=950 second  n= 52  29-23  0.558 [0.423,0.684]
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\field_speed.json

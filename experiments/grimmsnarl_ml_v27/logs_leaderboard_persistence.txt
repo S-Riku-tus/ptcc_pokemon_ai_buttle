@@ -1,0 +1,78 @@
+=== 1. the board itself ===
+day           teams    rank1    top10    top50   top100   median      p90
+2026-08-05     6286   1300.3   1116.3   1040.0    998.2    634.0    838.5
+2026-08-07     6471   1158.9   1122.2   1040.9   1006.7    630.8    838.2
+2026-08-14     6812   1254.5   1158.5   1046.5   1005.4    617.2    843.1
+
+the #1 team is a different team in all three snapshots:
+  2026-08-05  team 16374395  score 1300.3
+  2026-08-07  team 16463316  score 1158.9
+  2026-08-14  team 16380946  score 1254.5
+
+=== 2. persistence between snapshots ===
+window                       both  spearman  pearson  sd of change
+08-05 -> 08-07                6274     0.947    0.950          58.5
+08-07 -> 08-14                6379     0.892    0.896          84.4
+08-05 -> 08-14                6196     0.881    0.885          89.0
+
+=== 3. what happens to the teams that were on top ===
+field mean on 2026-08-14: 603.6 over 6196 teams present in both snapshots
+bucket on 08-05         n  score 08-05  score 08-14    kept  still top50  still top200
+rank 1-10              10       1154.0       1064.7    0.84        70.0%         70.0%
+rank 11-50             40       1062.5       1011.8    0.89        37.5%         70.0%
+rank 51-100            50       1013.8        954.3    0.85        14.0%         58.0%
+rank 101-250          150        961.3        892.1    0.81         6.0%         28.7%
+rank 251-500          250        894.1        844.1    0.83         1.6%         13.2%
+rank 501-1000         500        818.0        774.9    0.80         0.8%          2.6%
+
+'kept' is the fraction of the team's edge over the field that
+survived nine days. 0.00 would be pure luck fully regressing;
+1.00 would be a perfectly stable skill ordering.
+
+=== 4. same team, two live slots, same day ===
+teams with two scored slots: 60
+  gap between a team's own two slots: median 92.0, mean 131.3, p25 48.9, p75 159.7, max 823.7
+  share above 100 points: 45.0%; above 150: 30.0%
+
+  the ten highest-scoring teams and their own internal gap:
+          team     best   gap to their other slot
+      16380946   1254.5                      80.5
+      16375635   1220.7                     151.7
+      16372168   1203.8                     292.2
+      16581741   1196.3                      77.7
+      16463316   1191.0                      24.5
+      16411029   1190.1                      61.5
+      16561259   1181.4                      75.4
+      16425135   1161.6                      18.7
+      16536318   1161.4                      49.0
+      16452116   1158.5                     169.4
+
+=== 5. where our runs sit ===
+run        rating    rank  percentile
+v22_c      1020.4      72       98.9%
+v22_b      1018.6      78       98.9%
+v22_a      1000.6     111       98.4%
+v22_d       952.8     205       97.0%
+v24_b       928.1     284       95.8%
+v24_a       911.3     341       95.0%
+v25_a       910.7     341       95.0%
+v27         853.3     600       91.2%
+v26         835.5     724       89.4%
+v25_b       808.4     897       86.8%
+
+score needed for a given rank on 2026-08-14:
+  rank    1: 1254.5
+  rank    3: 1203.8
+  rank   10: 1158.5
+  rank   25: 1089.8
+  rank   50: 1046.5
+  rank  100: 1005.4
+  rank  200: 956.0
+  rank  400: 891.9
+
+=== 6. how big is the skill spread compared with run noise? ===
+field sd of team scores on 08-14: 185.4
+sd of a team's own change over nine days: 89.0
+sd of our four byte-identical v22 runs: 31.5 (range 67.6)
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\leaderboard_persistence.json

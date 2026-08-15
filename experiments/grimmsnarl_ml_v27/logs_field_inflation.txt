@@ -1,0 +1,88 @@
+445 rated games from 2026-08-13T09:55:37.324188 to 2026-08-15T08:44:14.758065 (46.8 h span)
+
+=== 1. per-run rate in the 700-900 band against calendar time ===
+run    start              700-900 n      wr            wilson  all n  all wr
+v22_a  08-13 09:55               16   0.750       [0.51,0.90]     45   0.733
+v22_b  08-13 13:11                9   0.667       [0.35,0.88]     38   0.711
+v23    08-13 14:59                6   0.667       [0.30,0.90]     11   0.636
+v22_c  08-13 15:39                4   0.750       [0.30,0.95]     57   0.544
+v22_d  08-13 15:39               10   0.700       [0.40,0.89]     50   0.580
+v24_a  08-14 02:48               21   0.810       [0.60,0.92]     38   0.684
+v24_b  08-14 03:24               22   0.773       [0.57,0.90]     47   0.638
+v25_a  08-14 14:58               18   0.722       [0.49,0.88]     51   0.529
+v25_b  08-15 01:20               21   0.524       [0.32,0.72]     34   0.647
+v26    08-15 05:04               21   0.619       [0.41,0.79]     40   0.700
+v27    08-15 06:44               26   0.538       [0.35,0.71]     34   0.618
+
+first 24h  66-22 (0.750)   after 24h 51-35 (0.593)   Fisher p=0.0356
+
+=== 2. time covariate against the lineage dummy ===
+rating + order only        {"n": 445, "opp_rating": {"elo": -320.5, "z": -5.78, "p": 0.0}, "went_first": {"elo": 58.3, "z": 1.62, "p": 0.1047}}
++ lineage dummy            {"n": 445, "opp_rating": {"elo": -383.3, "z": -6.1, "p": 0.0}, "went_first": {"elo": 58.2, "z": 1.61, "p": 0.1083}, "is_lineage": {"elo": -115.1, "z": -2.8, "p": 0.0051}}
++ hours                    {"n": 445, "opp_rating": {"elo": -410.8, "z": -6.14, "p": 0.0}, "went_first": {"elo": 55.3, "z": 1.52, "p": 0.1283}, "hours_per_day": {"elo": -100.6, "z": -3.16, "p": 0.0016}}
++ hours + lineage          {"n": 445, "opp_rating": {"elo": -411.5, "z": -6.13, "p": 0.0}, "went_first": {"elo": 55.0, "z": 1.51, "p": 0.1306}, "hours_per_day": {"elo": -111.0, "z": -1.56, "p": 0.1189}, "is_lineage": {"elo": 15.2, "z": 0.16, "p": 0.8693}}
++ hours + v24 + lineage    {"n": 445, "opp_rating": {"elo": -415.2, "z": -6.13, "p": 0.0}, "went_first": {"elo": 55.5, "z": 1.52, "p": 0.1276}, "hours_per_day": {"elo": -82.0, "z": -0.83, "p": 0.4054}, "is_v24": {"elo": -31.0, "z": -0.43, "p": 0.6698}, "is_lineage": {"elo": -30.7, "z": -0.22, "p": 0.8283}}
+
+same, restricted to opponents rated 700-900 (the only band all versions share):
++ lineage dummy            {"n": 174, "opp_rating": {"elo": -173.4, "z": -0.8, "p": 0.4228}, "went_first": {"elo": 134.8, "z": 2.31, "p": 0.0208}, "is_lineage": {"elo": -116.0, "z": -1.95, "p": 0.0509}}
++ hours                    {"n": 174, "opp_rating": {"elo": -168.2, "z": -0.78, "p": 0.4377}, "went_first": {"elo": 134.5, "z": 2.31, "p": 0.0211}, "hours_per_day": {"elo": -71.7, "z": -1.64, "p": 0.1008}}
++ hours + lineage          {"n": 174, "opp_rating": {"elo": -168.5, "z": -0.78, "p": 0.436}, "went_first": {"elo": 136.7, "z": 2.33, "p": 0.0197}, "hours_per_day": {"elo": 36.9, "z": 0.35, "p": 0.7288}, "is_lineage": {"elo": -162.1, "z": -1.11, "p": 0.2667}}
+
+=== 3. external underrating: team leaderboard score minus rating at pairing ===
+Positive = the opponent was rated below what its team is currently worth, i.e. a strong agent early in its own climb.
+
+group    identified   mean gap  gap>100   our wr vs gap>100   our wr vs gap<=0
+v22        65/190         -4.4        2               0.000              0.531
+v23         4/11           4.7        0                 nan              0.000
+v24        43/85           6.8        1               1.000              0.840
+v25        30/85           7.2        2               0.500              0.750
+v26        16/40           5.0        0                 nan              0.714
+v27        18/34          11.3        0                 nan              0.600
+
+pooled over 176 identified games, outcome on the underrating gap:
+{"n": 176, "opp_rating": {"elo": -415.9, "z": -4.45, "p": 0.0}, "went_first": {"elo": 48.4, "z": 0.8, "p": 0.4232}, "underrating_per_400": {"elo": -284.3, "z": -1.41, "p": 0.1578}}
+
+=== 4. matchup composition drift in the 700-900 band ===
+v22     n=39   Grimmsnarl (mirror) 13, Alakazam 11, Archaludon 6, Kangaskhan / Crustle 2, Mega Lucario 2, Dragapult 2
+v23     n=6    Grimmsnarl (mirror) 3, Alakazam 2, Team Rocket's Porygon-Z 1
+v24     n=43   Grimmsnarl (mirror) 15, Alakazam 10, Archaludon 5, Kangaskhan / Crustle 4, Mega Lopunny / Froslass 2, Conkeldurr 1
+v25     n=39   Alakazam 12, Grimmsnarl (mirror) 12, Kangaskhan / Crustle 3, Archaludon 2, Mega Lucario 2, Mega Lopunny / Froslass 2
+v26     n=21   Alakazam 7, Grimmsnarl (mirror) 5, Mega Lucario 2, Cynthia's Garchomp ex 1, Mega Lopunny / Froslass 1, Dragapult 1
+v27     n=26   Grimmsnarl (mirror) 6, Alakazam 6, Ogerpon 3, Kangaskhan / Crustle 2, Mega Lucario 2, Cynthia's Garchomp ex 2
+
+=== 5. the turn-order split, which is the one randomised comparison we have ===
+Going first/second is a coin flip inside the episode, so within a single run the contrast is causally identified.  Whether the split *differs by version* is not randomised, so it is tested against calendar time as well.
+
+run           first      second    diff  fisher p
+v22_a    17-4 0.810  16-8 0.667  +0.143    0.3293
+v22_b    13-9 0.591  14-2 0.875  -0.284    0.0776
+v23       6-2 0.750   1-2 0.333  +0.417    0.4909
+v22_c   15-10 0.600 16-16 0.500  +0.100    0.5931
+v22_d   17-15 0.531  12-6 0.667  -0.135    0.3883
+v24_a    18-6 0.750   8-6 0.571  +0.179    0.2964
+v24_b    15-7 0.682 15-10 0.600  +0.082    0.7617
+v25_a   15-14 0.517 12-10 0.545  -0.028    1.0000
+v25_b    15-7 0.682   7-5 0.583  +0.098    0.7113
+v26      21-3 0.875   7-9 0.438  +0.438    0.0050
+v27      14-3 0.824  7-10 0.412  +0.412    0.0324
+08-13 runs   first 100-51 (0.662)  second  77-50 (0.606)  Fisher p=0.3812
+08-14 runs   first  15-15 (0.500)  second  17-10 (0.630)  Fisher p=0.4247
+08-15 runs   first  51-14 (0.785)  second  21-24 (0.467)  Fisher p=0.0010
+v26+v27      first  35-6  (0.854)  second  14-19 (0.424)  Fisher p=0.0002
+v22 only     first  62-38 (0.620)  second  58-32 (0.644)  Fisher p=0.7646
+
+interaction fits:
+  order x hours          {"n": 445, "opp_rating": {"elo": -407.5, "z": -6.06, "p": 0.0}, "went_first": {"elo": -45.7, "z": -0.76, "p": 0.4486}, "hours_per_day": {"elo": -161.2, "z": -3.71, "p": 0.0002}, "first_x_hours": {"elo": 117.6, "z": 2.09, "p": 0.0368}}
+  order x late-lineage   {"n": 445, "opp_rating": {"elo": -344.9, "z": -5.66, "p": 0.0}, "went_first": {"elo": 9.2, "z": 0.23, "p": 0.815}, "is_v26_v27": {"elo": -222.9, "z": -3.1, "p": 0.0019}, "first_x_v26_v27": {"elo": 310.0, "z": 2.88, "p": 0.004}}
+
+=== 6. archetype share of the field over time ===
+Ogerpon is the one family with no answer on this deck; its share is the tax we cannot play around.
+
+v22     n=190  Ogerpon   7 ( 3.7%, 1-6)   wall families  22 (11.6%)   mirror  52 (27.4%)
+v23     n=11   Ogerpon   2 (18.2%, 1-1)   wall families   2 (18.2%)   mirror   3 (27.3%)
+v24     n=85   Ogerpon   6 ( 7.1%, 0-6)   wall families  13 (15.3%)   mirror  26 (30.6%)
+v25     n=85   Ogerpon   3 ( 3.5%, 1-2)   wall families  10 (11.8%)   mirror  19 (22.4%)
+v26     n=40   Ogerpon   2 ( 5.0%, 0-2)   wall families   3 ( 7.5%)   mirror   5 (12.5%)
+v27     n=34   Ogerpon   3 ( 8.8%, 0-3)   wall families   6 (17.6%)   mirror   7 (20.6%)
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\field_inflation.json

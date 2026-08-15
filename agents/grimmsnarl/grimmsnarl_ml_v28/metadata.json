@@ -1,0 +1,122 @@
+{
+  "name": "grimmsnarl_ml_v28",
+  "version": "28.0.0",
+  "role": "challenger_submission_candidate",
+  "archetype": "marnies_grimmsnarl_ex",
+  "parent_agents": ["grimmsnarl_ml_v22", "grimmsnarl_ml_v25", "grimmsnarl_ml_v26"],
+  "created_at": "2026-08-15T00:00:00+09:00",
+  "deck_hash": "9714ab5c3996f6cc",
+  "deck_changed": false,
+  "policy": "Use the AlphaTCG-conditioned v25 ranker for ordinary prize races and switch to the synchronized v22 ranker after public wall evidence. Apply the measured one-ply planner, deck-clock guard, proactive wall trajectory, and reactive wall breaker. No belief search and no mirror-Froslass veto.",
+  "race_ranker": {
+    "source_agent": "grimmsnarl_ml_v25",
+    "teacher_team_id": 16381823,
+    "teacher_team_code": 3,
+    "trees": 228,
+    "features": 823,
+    "sha256": "98b16b8b6fa3f628fc08a8ce3a94f964cc49e02b9f12c0650fc6e74b6b3a79c1",
+    "default_policy": true
+  },
+  "wall_ranker": {
+    "source_agent": "grimmsnarl_ml_v22",
+    "teacher_team_id": 16371703,
+    "teacher_team_code": 0,
+    "sha256": "c2a614001c9420c44fb54d6ca129042c8961f61f09ac48e71cd4e4e731e4b0c1",
+    "activation": "public Crustle/Cornerstone-style wall card or Neutralization Zone",
+    "histories_synchronized_before_switch": true
+  },
+  "evidence": {
+    "ordinary_race": {
+      "v25": {"wins": 25, "games": 34, "rate": 0.735},
+      "v22": {"wins": 94, "games": 144, "rate": 0.653},
+      "interpretation": "point-estimate advantage; not individually significant"
+    },
+    "wall_tank": {
+      "v25": {"wins": 3, "games": 18, "rate": 0.167},
+      "v22": {"wins": 27, "games": 50, "rate": 0.54},
+      "interpretation": "the observed v25 deficit is concentrated here"
+    },
+    "alphatcg_chronological_test": {
+      "episodes": 14,
+      "decisions": 901,
+      "v25_top1": 0.8635,
+      "v22_top1": 0.7714,
+      "absolute_delta": 0.0921,
+      "delta95": [0.0723, 0.1123]
+    }
+  },
+  "multi_pick_policy": {
+    "source": "unchanged v22 fallback derived from 3710 exact-deck top-pilot replays",
+    "punk_up_mean_candidate": 2.62,
+    "punk_up_mean_elite": 2.65,
+    "poffin_mean_candidate": 1.60,
+    "poffin_mean_elite": 1.64,
+    "reason_unchanged": "contexts 22 and multi-pick context 5 bypass the ranker but already match elite search budgets"
+  },
+  "deterministic_guards": {
+    "wall_trajectory": [
+      "concentrate spare Punk Up energy on one Morgrem",
+      "complete a one-energy Morgrem without starving Adrena-Brain",
+      "preserve the last non-ex breaker",
+      "reserve the last Bench slot for a missing wall route"
+    ],
+    "wall_break": "avoid ineffective attacks and preserve/use the non-ex breaker route",
+    "deck_clock": "veto an optional lethal Lillie refill in a long winning game"
+  },
+  "removed_from_v27": {
+    "belief_search": "removed: 301 considered, 23 searched, 336 branches, zero overrides in the v27 ladder replay",
+    "mirror_froslass_veto": "removed: inherited v24 lever was previously measured at -72.7 Elo and non-causal",
+    "value_model": "removed with the search path"
+  },
+  "policy_escalation": {
+    "mode": "off",
+    "legacy_teacher_team_id": 16371703,
+    "legacy_teacher_code": 0,
+    "reason": "The AlphaTCG default is teacher code 3; enabling the old Froslass class switch would restore the refuted v24-era intervention."
+  },
+  "promotion_contract": {
+    "expected_policy_footprint": "at least 50 changed single-pick decisions per 35 games versus v22",
+    "measurement": "submit v28 and v22 simultaneously in the same ladder window",
+    "primary_cells": [
+      "ordinary race win rate",
+      "wall/tank win rate",
+      "second-seat turn-2 Grimmsnarl ex and attack access",
+      "confirmed-strength opponents rated 950+"
+    ],
+    "do_not_claim": "A 34-game standalone rating cannot establish a sub-130-Elo improvement"
+  },
+  "validation": {
+    "unit_and_regression_tests": 208,
+    "test_result": "PASS",
+    "static_validation": "PASS; 60 cards, 19 unique cards, zero warnings",
+    "v27_board_distribution": {
+      "episodes": 35,
+      "evaluated_single_pick_decisions": 2755,
+      "comparable_two_ranker_decisions": 2595,
+      "v25_v22_ranker_disagreements": 470,
+      "final_changes_from_v22_ranker": 411,
+      "final_change_rate": 0.1492,
+      "ordinary_changes": 276,
+      "mirror_changes": 133,
+      "public_wall_changes": 2,
+      "promotion_footprint_gate": "PASS",
+      "local_teacher_forced_seconds_per_game": 5.87,
+      "component_load_errors": 0,
+      "report": "experiments/grimmsnarl_ml_v28/footprint_v27_run.json"
+    },
+    "extracted_archive_import_smoke": "PASS; both rankers and every optional component loaded"
+  },
+  "submission_package": {
+    "path": "artifacts/grimmsnarl_ml_v28_submission.tar.gz",
+    "bytes": 11998330,
+    "sha256": "db0d4d21381c9aafb82d0b07e5fa7decfcc0b19c493706e4aa32ffaa726ad5f4",
+    "archive_entries": 23,
+    "deck_size": 60
+  },
+  "known_limits": [
+    "Teal Mask Ogerpon is a structural Grass-weakness race and is not solved by the wall switch.",
+    "The race advantage and wall recovery come from observational cells, so v28 remains a challenger until paired measurement.",
+    "The exact archetype's known matchup fixes explain about 25 Elo, below the roughly 78 Elo estimated for top 50 and 192 for top 10. A stable +200 cannot honestly be guaranteed by this policy change."
+  ],
+  "description": "Measurable v25/v22 mixture: current-pilot race policy, synchronized champion wall specialist, no dead search."
+}

@@ -1,0 +1,140 @@
+=== 1. the update rule ===
+replaying every run with the fitted K(n) reproduces the stored rating to within 97.60 points, so the model is exact.
+
+  game        K   cumulative K  share of total
+     1    215.9            216           10.9%
+     2    199.4            415           21.0%
+     3    173.6            589           29.8%
+     5    122.6            857           43.3%
+    10     61.8           1254           63.4%
+    15     39.6           1495           75.6%
+    20     30.8           1667           84.2%
+    25     24.3           1798           90.9%
+    30     20.5           1905           96.3%
+    34     17.8           1978          100.0%
+
+games 1-10 carry 63.4% of the total K available in a 34-game run.
+
+=== 2. rating path, first 12 games ===
+
+v22_a: final 1000.6 over 45 games
+    #     opp  res   delta   rating  seat   matchup
+    1     725    W   148.0    748.0  first  Alakazam
+    2     535    W    47.0    795.0  first  Alakazam
+    3     603    W    43.5    838.5  second other: Team Rocket's Mewtwo ex
+    4     483    W    16.2    854.7  second Archaludon
+    5     722    W    42.2    896.9  second Kangaskhan / Crustle
+    6     956    W    63.3    960.2  first  Archaludon
+    7     925    L   -54.4    905.8  first  Alakazam
+    8     729    W    20.8    926.6  first  Alakazam
+    9     428    W     2.3    928.9  first  Dragapult
+   10     795    L   -55.2    873.7  second Grimmsnarl (mirror)
+   11     831    W    27.7    901.5  second Alakazam
+   12     897    W    29.0    930.4  second Alakazam
+  first 10: 8-2, opponent mean 690, rating after 10 = 873.7
+
+v24_a: final 911.3 over 38 games
+    #     opp  res   delta   rating  seat   matchup
+    1     638    W   119.8    719.8  first  Archaludon
+    2     423    W    32.8    752.6  first  other: Iono’s Bellibolt ex
+    3     654    L  -110.0    642.6  first  Alakazam
+    4     677    W    80.5    723.0  second Mega Lucario
+    5     734    W    63.3    786.3  first  Archaludon
+    6     781    L   -51.5    734.9  first  other: Conkeldurr
+    7     673    W    34.8    769.6  second Grimmsnarl (mirror)
+    8     725    L   -44.6    725.0  first  Archaludon
+    9     717    W    33.0    758.0  second Alakazam
+   10     662    W    21.2    779.2  first  Alakazam
+   11     806    W    30.3    809.5  first  Mega Lopunny / Froslass
+   12     679    L   -26.9    815.5  second Alakazam
+  first 10: 7-3, opponent mean 669, rating after 10 = 779.2
+
+v26: final 835.5 over 40 games
+    #     opp  res   delta   rating  seat   matchup
+    1     668    W   129.7    729.7  first  Archaludon
+    2     699    W    88.2    817.9  first  other: Iono’s Bellibolt ex
+    3     399    L  -207.4    610.5  second Dragapult
+    4     576    W    65.1    675.6  first  Mega Lucario
+    5     475    W    28.7    704.3  first  other: Mega Abomasnow ex
+    6     681    W    50.3    754.6  second other: Dudunsparce
+    7     758    L   -45.7    708.9  second Alakazam
+    8     764    L   -32.1    696.3  second Alakazam
+    9     528    W    19.5    728.4  first  other: Cynthia's Garchomp ex
+   10    1048    L    -4.0    674.4  second other: Hydrapple ex
+   11     629    L   -40.6    655.7  second Alakazam
+   12     587    W    22.7    678.4  first  other: Mega Starmie ex
+  first 10: 6-4, opponent mean 660, rating after 10 = 674.4
+
+v27: final 853.3 over 34 games
+    #     opp  res   delta   rating  seat   matchup
+    1     576    W   101.7    701.7  first  Mega Lucario
+    2     662    W    85.9    787.6  first  Mega Lucario
+    3     900    L   -58.7    728.9  second Grimmsnarl (mirror)
+    4     690    W    63.9    792.9  first  Mega Lucario
+    5     752    W    53.4    846.2  first  Kangaskhan / Crustle
+    6     773    W    40.1    886.3  first  Grimmsnarl (mirror)
+    7     820    L   -51.8    834.5  second Alakazam
+    8     877    W    44.4    878.9  second Alakazam
+    9     783    W    24.1    903.0  first  Mega Lucario
+   10     866    L   -34.9    868.0  first  Ogerpon
+   11     810    L   -33.9    834.2  second other: Cynthia's Garchomp ex
+   12     864    L   -22.8    811.4  second Ogerpon
+  first 10: 7-3, opponent mean 770, rating after 10 = 868.0
+
+=== 3. first-10 record and where each run ended ===
+run       first10   opp10     r@10      full   oppall    final  equilib
+v22_a         8-2     690    873.7     33-12      836   1000.6   1012.2
+v22_b         8-2     759    888.3     27-11      885   1018.6   1040.8
+v22_c         9-1     925   1100.3     31-26     1000   1020.4   1030.7
+v22_d         7-3     848    938.5     29-21      912    952.8    968.5
+v23           6-4     766    797.4       7-4      771    827.4    868.4
+v24_a         7-3     669    779.2     26-12      797    911.3    931.4
+v24_b         8-2     709    883.6     30-17      832    928.1    930.8
+v25_a         8-2     794    985.8     27-24      896    910.7    916.7
+v25_b         7-3     670    780.8     22-12      717    808.4    822.7
+v26           6-4     660    674.4     28-12      707    835.5    853.8
+v27           7-3     770    868.0     21-13      789    853.3    872.3
+
+=== 4. ordering alone: permute each run's own games ===
+run        actual     mean     sd      p05      p95   pctile
+v22_a      1000.6   1016.9   14.1    995.3   1041.4    11.3%
+v22_b      1018.6   1033.3   13.0   1012.9   1055.4    12.1%
+v22_c      1020.4   1014.3   11.7    993.5   1031.0    69.6%
+v22_d       952.8    956.2    9.8    939.9    971.4    34.1%
+v23         827.4    834.3    8.2    821.5    848.7    20.0%
+v24_a       911.3    926.0   12.0    907.6    947.1     9.7%
+v24_b       928.1    931.8   10.9    914.3    950.0    36.3%
+v25_a       910.7    904.4    9.5    887.8    918.3    75.4%
+v25_b       808.4    820.4    9.5    806.1    837.2     8.7%
+v26         835.5    859.4   13.4    839.1    882.9     2.3%
+v27         853.3    860.9    8.5    848.0    875.4    17.9%
+
+=== 5. the full 34-game noise floor of the pooled policy ===
+pool = v22_a + v22_b + v22_c + v22_d + v26 + v27: 169-95 (0.640) over 264 games, Wilson [0.581, 0.696]
+   34-game bootstrap: mean   959.4  sd  65.2  [p05 851, p95 1066]  90% width 215
+      v27    finished   853.3 -> percentile 5.3%
+      v26    finished   835.5 -> percentile 3.1%
+      v22_a  finished  1000.6 -> percentile 73.4%
+      v22_c  finished  1020.4 -> percentile 82.7%
+   45-game bootstrap: mean   964.3  sd  57.7  [p05 869, p95 1059]  90% width 190
+
+=== 6. draw quality: same results, another run's opponents ===
+each cell replays the row run's win/loss sequence against the column run's opponent ratings (truncated to the shorter run).
+results        v22_a     v22_c     v24_a       v26       v27
+v22_a          999.2    1138.8     932.1     868.8     941.8
+v22_c          910.9    1036.6     861.6     776.3     883.0
+v24_a          941.7    1102.7     913.5     828.8     920.6
+v26            948.7    1109.6     911.0     837.8     900.8
+v27            872.4    1043.8     851.7     762.1     855.5
+
+=== 7. what a given first-10 record is worth ===
+v27's own remaining games, replayed after every possible first-10 record drawn from the pooled policy.
+  first 10 = 4-6  ->  final   785.1  (sd 4.8)
+  first 10 = 5-5  ->  final   810.9  (sd 3.7)
+  first 10 = 6-4  ->  final   834.6  (sd 3.1)
+  first 10 = 7-3  ->  final   857.4  (sd 2.8)
+  first 10 = 8-2  ->  final   880.4  (sd 2.6)
+  first 10 = 9-1  ->  final   904.6  (sd 2.3)
+  first 10 = 10-0  ->  final   931.6  (sd 0.0)
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\rating_mechanics.json

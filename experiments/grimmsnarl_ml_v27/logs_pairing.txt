@@ -1,0 +1,97 @@
+=== 0. what a random opponent would look like ===
+the live field of 6812 teams has median 617, mean 605, p25 480, p75 723
+our 445 opponents averaged 847, so pairing is not uniform
+
+=== 1. is pairing rating-proximate? ===
+corr(our rating before the game, opponent rating) = pearson 0.692, spearman 0.768, n = 445
+opponent minus us: mean -40.7, median -21.4, sd 113.3
+
+opponent rating by the band we were sitting in:
+our rating          n  opp mean   opp sd  opp - us
+0-700              27       625      140       -16
+700-800            82       722      104       -38
+800-900            93       804      109       -44
+900-1000          182       906      122       -39
+1000-1100          47       993      106       -48
+1100-9999          14      1037      120       -89
+
+the pool tracks us with a slope well under one, so a run that
+sits low is fed opponents it beats but gains almost nothing from.
+
+=== 2. opponent stream per run, by phase of the run ===
+run         g1-5   g6-10   g11-20   g21-34    g35+     r@10    final
+v22_a        614     767      849      841     952    873.7   1000.6
+v22_b        715     804      950      917     925    888.3   1018.6
+v22_c        802    1048     1015     1012    1019   1100.3   1020.4
+v22_d        776     921      907      941     930    938.5    952.8
+v23          735     798      820        -       -    797.4    827.4
+v24_a        625     712      795      868     876    779.2    911.3
+v24_b        633     785      871      881     844    883.6    928.1
+v25_a        677     911      912      919     929    985.8    910.7
+v25_b        641     700      714      753       -    780.8    808.4
+v26          563     756      622      749     827    674.4    835.5
+v27          716     824      781      808       -    868.0    853.3
+
+=== 3. rating at game 10 predicts the rest of the ladder ===
+run          r@10  opp after 10  wr after 10    final
+v22_a       873.7           878        0.714   1000.6
+v22_b       888.3           930        0.679   1018.6
+v22_c      1100.3          1016        0.468   1020.4
+v22_d       938.5           928        0.550    952.8
+v23         797.4           820        1.000    827.4
+v24_a       779.2           843        0.679    911.3
+v24_b       883.6           865        0.595    928.1
+v25_a       985.8           921        0.463    910.7
+v25_b       780.8           737        0.625    808.4
+v26         674.4           722        0.733    835.5
+v27         868.0           797        0.583    853.3
+
+corr(rating at game 10, opponent mean afterwards) = 0.905 (p = 0.0001, n = 11)
+corr(rating at game 10, final rating)             = 0.683 (p = 0.0205)
+corr(win rate after game 10, final rating)        = -0.391 (p = 0.2342)
+
+the opening predicts the finish; the win rate after the opening
+barely does. That is the trap, stated as a correlation.
+
+=== 4. slope: how much final rating per point at game 10 ===
+final = 513.8 + 0.461 * rating_at_game_10
+final = 438.6 + 0.508 * rating_at_game_10 + 54.2 * win_rate_after_game_10
+
+=== 5. an escape check: can a run climb out after game 10? ===
+for each run, the rating gained from game 11 to the end, and the
+rating that same tail would have produced from a 1000-point start.
+run          r@10    final    moved  tail n  tail wr  from 1000
+v22_a       873.7   1000.6    126.8      35    0.714     1035.8
+v22_b       888.3   1018.6    130.3      28    0.679     1045.9
+v22_c      1100.3   1020.4    -79.9      47    0.468     1003.1
+v22_d       938.5    952.8     14.3      40    0.550      975.9
+v23         797.4    827.4     30.0       1    1.000     1015.1
+v24_a       779.2    911.3    132.1      28    0.679      991.7
+v24_b       883.6    928.1     44.4      37    0.595      967.6
+v25_a       985.8    910.7    -75.2      41    0.463      927.6
+v25_b       780.8    808.4     27.7      24    0.625      900.2
+v26         674.4    835.5    161.2      30    0.733      950.0
+v27         868.0    853.3    -14.7      24    0.583      904.1
+
+'from 1000' replays the identical tail games starting at 1000
+instead of where the run actually was. Where that column stays
+near 1000, the tail could not have punished a good opening.
+
+=== 6. the ceiling the draw imposes ===
+even a perfect agent is capped at opponent mean + Elo(win rate).
+run       opp mean   at 0.70   at 0.80   at 0.90    actual
+v22_a          836       984      1077      1218    1000.6
+v22_b          885      1032      1126      1267    1018.6
+v22_c         1000      1147      1241      1382    1020.4
+v22_d          912      1060      1153      1294     952.8
+v23            771       918      1012      1153     827.4
+v24_a          797       944      1038      1179     911.3
+v24_b          832       979      1073      1214     928.1
+v25_a          896      1043      1137      1278     910.7
+v25_b          717       865       958      1099     808.4
+v26            707       854       947      1088     835.5
+v27            789       936      1030      1171     853.3
+
+v27's draw (mean 789) caps a 90%-winning agent at 971.
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\pairing.json

@@ -1,0 +1,36 @@
+pooled v22-equivalent policy, by day
+day             n    record      wr            wilson  opp mean  strength
+2026-08-13    188    119-69   0.633       [0.56,0.70]     914.9    1009.5
+2026-08-14      2       1-1   0.500       [0.09,0.91]     948.7     948.7
+2026-08-15     74     49-25   0.662       [0.55,0.76]     744.5     861.4
+
+same, restricted to opponents rated 700-900
+2026-08-13     39     28-11   0.718       [0.56,0.83]
+2026-08-15     47     27-20   0.574       [0.43,0.70]
+
+same, split by turn order
+2026-08-13    first  62-37  0.626  second  57-32  0.640
+2026-08-14    first   0-1   0.000  second   1-0   1.000
+2026-08-15    first  35-6   0.854  second  14-19  0.424
+--- by date, all opponent ratings ---
+08-13 (v22)                        first  62-38 (0.620)  second  58-32 (0.644)  diff -0.024  p=0.7646
+08-15 (v26+v27)                    first  35-6  (0.854)  second  14-19 (0.424)  diff +0.429  p=0.0002
+
+--- restricted to opponents rated < 900 ---
+08-13, opp<900                     first  27-8  (0.771)  second  19-4  (0.826)  diff -0.055  p=0.7463
+08-15, opp<900                     first  34-6  (0.850)  second  14-17 (0.452)  diff +0.398  p=0.0007
+
+--- restricted to opponents rated 700-900 ---
+08-13, 700-900                     first  19-7  (0.731)  second   9-4  (0.692)  diff +0.038  p=1.0000
+08-15, 700-900                     first  15-6  (0.714)  second  12-14 (0.462)  diff +0.253  p=0.1374
+
+--- v22 alone, by opponent band (is the split rating-dependent?) ---
+08-13, opp 0-700                   first   8-1  (0.889)  second  10-0  (1.000)  diff -0.111  p=0.4737
+08-13, opp 700-800                 first   8-2  (0.800)  second   2-2  (0.500)  diff +0.300  p=0.5205
+08-13, opp 800-900                 first  11-5  (0.688)  second   7-2  (0.778)  diff -0.090  p=1.0000
+08-13, opp 900-1000                first  22-17 (0.564)  second  25-14 (0.641)  diff -0.077  p=0.6439
+08-13, opp 1000-9999               first  13-13 (0.500)  second  14-14 (0.500)  diff +0.000  p=1.0000
+
+--- excluding the mirror and Ogerpon, which move with the meta ---
+08-13, no mirror/Ogerpon           first  48-24 (0.667)  second  42-17 (0.712)  diff -0.045  p=0.7052
+08-15, no mirror/Ogerpon           first  31-4  (0.886)  second  10-12 (0.455)  diff +0.431  p=0.0007

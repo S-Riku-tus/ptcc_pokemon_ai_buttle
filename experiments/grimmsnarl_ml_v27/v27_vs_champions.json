@@ -1,0 +1,1359 @@
+{
+  "inventory": [
+    {
+      "version": "v22_a",
+      "games": 45,
+      "wins": 33,
+      "final_rating": 1000.5752,
+      "opponent_mean": 836.4
+    },
+    {
+      "version": "v22_b",
+      "games": 38,
+      "wins": 27,
+      "final_rating": 1018.6277,
+      "opponent_mean": 884.8
+    },
+    {
+      "version": "v22_c",
+      "games": 57,
+      "wins": 31,
+      "final_rating": 1020.4129,
+      "opponent_mean": 1000.1
+    },
+    {
+      "version": "v22_d",
+      "games": 50,
+      "wins": 29,
+      "final_rating": 952.8409,
+      "opponent_mean": 912.4
+    },
+    {
+      "version": "v23",
+      "games": 11,
+      "wins": 7,
+      "final_rating": 827.363,
+      "opponent_mean": 771.2
+    },
+    {
+      "version": "v24_a",
+      "games": 38,
+      "wins": 26,
+      "final_rating": 911.3078,
+      "opponent_mean": 797.0
+    },
+    {
+      "version": "v24_b",
+      "games": 47,
+      "wins": 30,
+      "final_rating": 928.082,
+      "opponent_mean": 832.1
+    },
+    {
+      "version": "v25_a",
+      "games": 51,
+      "wins": 27,
+      "final_rating": 910.6517,
+      "opponent_mean": 896.2
+    },
+    {
+      "version": "v25_b",
+      "games": 34,
+      "wins": 22,
+      "final_rating": 808.4261,
+      "opponent_mean": 717.4
+    },
+    {
+      "version": "v26",
+      "games": 40,
+      "wins": 28,
+      "final_rating": 835.5319,
+      "opponent_mean": 706.6
+    },
+    {
+      "version": "v27",
+      "games": 34,
+      "wins": 21,
+      "final_rating": 853.3335,
+      "opponent_mean": 789.0
+    }
+  ],
+  "convergence": [
+    {
+      "version": "v22_a",
+      "final": 1000.5752,
+      "implied_strength": 1012.2,
+      "gap": -11.6,
+      "last10_drift": 46.76229999999998
+    },
+    {
+      "version": "v22_b",
+      "final": 1018.6277,
+      "implied_strength": 1040.8,
+      "gap": -22.2,
+      "last10_drift": 49.62609999999995
+    },
+    {
+      "version": "v22_c",
+      "final": 1020.4129,
+      "implied_strength": 1030.7,
+      "gap": -10.3,
+      "last10_drift": -6.7047000000000025
+    },
+    {
+      "version": "v22_d",
+      "final": 952.8409,
+      "implied_strength": 968.5,
+      "gap": -15.7,
+      "last10_drift": 13.576099999999997
+    },
+    {
+      "version": "v23",
+      "final": 827.363,
+      "implied_strength": 868.4,
+      "gap": -41.1,
+      "last10_drift": 125.84080000000006
+    },
+    {
+      "version": "v24_a",
+      "final": 911.3078,
+      "implied_strength": 931.4,
+      "gap": -20.1,
+      "last10_drift": -19.999199999999973
+    },
+    {
+      "version": "v24_b",
+      "final": 928.082,
+      "implied_strength": 930.8,
+      "gap": -2.7,
+      "last10_drift": 29.596900000000005
+    },
+    {
+      "version": "v25_a",
+      "final": 910.6517,
+      "implied_strength": 916.7,
+      "gap": -6.0,
+      "last10_drift": -14.726800000000026
+    },
+    {
+      "version": "v25_b",
+      "final": 808.4261,
+      "implied_strength": 822.7,
+      "gap": -14.3,
+      "last10_drift": 43.28750000000002
+    },
+    {
+      "version": "v26",
+      "final": 835.5319,
+      "implied_strength": 853.8,
+      "gap": -18.3,
+      "last10_drift": 48.60919999999999
+    },
+    {
+      "version": "v27",
+      "final": 853.3335,
+      "implied_strength": 872.3,
+      "gap": -19.0,
+      "last10_drift": 57.15039999999999
+    }
+  ],
+  "controlled_effects": {
+    "v24": {
+      "n": 275,
+      "elo": -72.7,
+      "z": -1.35,
+      "p": 0.178
+    },
+    "v25": {
+      "n": 275,
+      "elo": -141.4,
+      "z": -2.61,
+      "p": 0.0089
+    },
+    "v26": {
+      "n": 230,
+      "elo": -118.4,
+      "z": -1.45,
+      "p": 0.1464
+    },
+    "v27": {
+      "n": 224,
+      "elo": -132.7,
+      "z": -1.71,
+      "p": 0.0866
+    }
+  },
+  "expectations": {
+    "opponent band": {
+      "stratifier": "opponent band",
+      "target_games": 34,
+      "observed_wins": 21,
+      "expected_wins": 25.47,
+      "residual_wins": -4.47,
+      "z": -1.82,
+      "games_in_uncovered_cells": 0,
+      "cells": [
+        {
+          "cell": "800-900",
+          "target_games": 13,
+          "target_wins": 5,
+          "reference_games": 25,
+          "reference_rate": 0.72,
+          "expected_wins": 9.36,
+          "residual_wins": -4.36
+        },
+        {
+          "cell": "700-800",
+          "target_games": 13,
+          "target_wins": 9,
+          "reference_games": 14,
+          "reference_rate": 0.7143,
+          "expected_wins": 9.29,
+          "residual_wins": -0.29
+        },
+        {
+          "cell": "900-950",
+          "target_games": 2,
+          "target_wins": 1,
+          "reference_games": 35,
+          "reference_rate": 0.5714,
+          "expected_wins": 1.14,
+          "residual_wins": -0.14
+        },
+        {
+          "cell": "0-700",
+          "target_games": 6,
+          "target_wins": 6,
+          "reference_games": 19,
+          "reference_rate": 0.9474,
+          "expected_wins": 5.68,
+          "residual_wins": 0.32
+        }
+      ]
+    },
+    "family": {
+      "stratifier": "family",
+      "target_games": 34,
+      "observed_wins": 21,
+      "expected_wins": 22.7,
+      "residual_wins": -1.7,
+      "z": -0.69,
+      "games_in_uncovered_cells": 2,
+      "cells": [
+        {
+          "cell": "other: Cynthia's Garchomp ex",
+          "target_games": 2,
+          "target_wins": 1,
+          "reference_games": 1,
+          "reference_rate": 1.0,
+          "expected_wins": 2.0,
+          "residual_wins": -1.0
+        },
+        {
+          "cell": "other: Mega Abomasnow ex",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 1,
+          "reference_rate": 1.0,
+          "expected_wins": 1.0,
+          "residual_wins": -1.0
+        },
+        {
+          "cell": "Grimmsnarl (mirror)",
+          "target_games": 7,
+          "target_wins": 3,
+          "reference_games": 52,
+          "reference_rate": 0.5577,
+          "expected_wins": 3.9,
+          "residual_wins": -0.9
+        },
+        {
+          "cell": "Dragapult",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 22,
+          "reference_rate": 0.6364,
+          "expected_wins": 0.64,
+          "residual_wins": -0.64
+        },
+        {
+          "cell": "other: N’s Zoroark ex",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 0,
+          "reference_rate": 0.6316,
+          "expected_wins": 0.63,
+          "residual_wins": -0.63
+        },
+        {
+          "cell": "Ogerpon",
+          "target_games": 3,
+          "target_wins": 0,
+          "reference_games": 7,
+          "reference_rate": 0.1429,
+          "expected_wins": 0.43,
+          "residual_wins": -0.43
+        },
+        {
+          "cell": "Alakazam",
+          "target_games": 6,
+          "target_wins": 4,
+          "reference_games": 41,
+          "reference_rate": 0.7317,
+          "expected_wins": 4.39,
+          "residual_wins": -0.39
+        },
+        {
+          "cell": "other: Walrein",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 0,
+          "reference_rate": 0.6316,
+          "expected_wins": 0.63,
+          "residual_wins": 0.37
+        },
+        {
+          "cell": "other: Team Rocket's Mewtwo ex",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 2,
+          "reference_rate": 0.5,
+          "expected_wins": 0.5,
+          "residual_wins": 0.5
+        },
+        {
+          "cell": "Mega Lucario",
+          "target_games": 5,
+          "target_wins": 5,
+          "reference_games": 8,
+          "reference_rate": 0.875,
+          "expected_wins": 4.38,
+          "residual_wins": 0.62
+        },
+        {
+          "cell": "Kangaskhan / Crustle",
+          "target_games": 3,
+          "target_wins": 3,
+          "reference_games": 15,
+          "reference_rate": 0.7333,
+          "expected_wins": 2.2,
+          "residual_wins": 0.8
+        },
+        {
+          "cell": "Archaludon",
+          "target_games": 3,
+          "target_wins": 3,
+          "reference_games": 9,
+          "reference_rate": 0.6667,
+          "expected_wins": 2.0,
+          "residual_wins": 1.0
+        }
+      ]
+    },
+    "turn order": {
+      "stratifier": "turn order",
+      "target_games": 34,
+      "observed_wins": 21,
+      "expected_wins": 21.5,
+      "residual_wins": -0.5,
+      "z": -0.18,
+      "games_in_uncovered_cells": 0,
+      "cells": [
+        {
+          "cell": "second",
+          "target_games": 17,
+          "target_wins": 7,
+          "reference_games": 90,
+          "reference_rate": 0.6444,
+          "expected_wins": 10.96,
+          "residual_wins": -3.96
+        },
+        {
+          "cell": "first",
+          "target_games": 17,
+          "target_wins": 14,
+          "reference_games": 100,
+          "reference_rate": 0.62,
+          "expected_wins": 10.54,
+          "residual_wins": 3.46
+        }
+      ]
+    },
+    "band x turn order": {
+      "stratifier": "band x turn order",
+      "target_games": 34,
+      "observed_wins": 21,
+      "expected_wins": 24.53,
+      "residual_wins": -3.53,
+      "z": -1.42,
+      "games_in_uncovered_cells": 0,
+      "cells": [
+        {
+          "cell": "800-900 | second",
+          "target_games": 9,
+          "target_wins": 3,
+          "reference_games": 9,
+          "reference_rate": 0.7778,
+          "expected_wins": 7.0,
+          "residual_wins": -4.0
+        },
+        {
+          "cell": "800-900 | first",
+          "target_games": 4,
+          "target_wins": 2,
+          "reference_games": 16,
+          "reference_rate": 0.6875,
+          "expected_wins": 2.75,
+          "residual_wins": -0.75
+        },
+        {
+          "cell": "900-950 | second",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 16,
+          "reference_rate": 0.625,
+          "expected_wins": 0.62,
+          "residual_wins": -0.62
+        },
+        {
+          "cell": "700-800 | first",
+          "target_games": 6,
+          "target_wins": 5,
+          "reference_games": 10,
+          "reference_rate": 0.8,
+          "expected_wins": 4.8,
+          "residual_wins": 0.2
+        },
+        {
+          "cell": "900-950 | first",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 19,
+          "reference_rate": 0.5263,
+          "expected_wins": 0.53,
+          "residual_wins": 0.47
+        },
+        {
+          "cell": "700-800 | second",
+          "target_games": 7,
+          "target_wins": 4,
+          "reference_games": 4,
+          "reference_rate": 0.5,
+          "expected_wins": 3.5,
+          "residual_wins": 0.5
+        },
+        {
+          "cell": "0-700 | first",
+          "target_games": 6,
+          "target_wins": 6,
+          "reference_games": 9,
+          "reference_rate": 0.8889,
+          "expected_wins": 5.33,
+          "residual_wins": 0.67
+        }
+      ]
+    },
+    "family x turn order": {
+      "stratifier": "family x turn order",
+      "target_games": 34,
+      "observed_wins": 21,
+      "expected_wins": 21.99,
+      "residual_wins": -0.99,
+      "z": -0.41,
+      "games_in_uncovered_cells": 4,
+      "cells": [
+        {
+          "cell": "Grimmsnarl (mirror) | second",
+          "target_games": 6,
+          "target_wins": 2,
+          "reference_games": 27,
+          "reference_rate": 0.5926,
+          "expected_wins": 3.56,
+          "residual_wins": -1.56
+        },
+        {
+          "cell": "other: Mega Abomasnow ex | second",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 1,
+          "reference_rate": 1.0,
+          "expected_wins": 1.0,
+          "residual_wins": -1.0
+        },
+        {
+          "cell": "Dragapult | second",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 8,
+          "reference_rate": 0.75,
+          "expected_wins": 0.75,
+          "residual_wins": -0.75
+        },
+        {
+          "cell": "Alakazam | second",
+          "target_games": 4,
+          "target_wins": 2,
+          "reference_games": 21,
+          "reference_rate": 0.6667,
+          "expected_wins": 2.67,
+          "residual_wins": -0.67
+        },
+        {
+          "cell": "Ogerpon | first",
+          "target_games": 2,
+          "target_wins": 0,
+          "reference_games": 3,
+          "reference_rate": 0.3333,
+          "expected_wins": 0.67,
+          "residual_wins": -0.67
+        },
+        {
+          "cell": "other: N’s Zoroark ex | first",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 0,
+          "reference_rate": 0.6316,
+          "expected_wins": 0.63,
+          "residual_wins": -0.63
+        },
+        {
+          "cell": "other: Cynthia's Garchomp ex | second",
+          "target_games": 2,
+          "target_wins": 1,
+          "reference_games": 0,
+          "reference_rate": 0.6316,
+          "expected_wins": 1.26,
+          "residual_wins": -0.26
+        },
+        {
+          "cell": "Mega Lucario | first",
+          "target_games": 4,
+          "target_wins": 4,
+          "reference_games": 4,
+          "reference_rate": 1.0,
+          "expected_wins": 4.0,
+          "residual_wins": 0.0
+        },
+        {
+          "cell": "Ogerpon | second",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 4,
+          "reference_rate": 0.0,
+          "expected_wins": 0.0,
+          "residual_wins": 0.0
+        },
+        {
+          "cell": "Kangaskhan / Crustle | second",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 12,
+          "reference_rate": 0.75,
+          "expected_wins": 0.75,
+          "residual_wins": 0.25
+        },
+        {
+          "cell": "Mega Lucario | second",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 4,
+          "reference_rate": 0.75,
+          "expected_wins": 0.75,
+          "residual_wins": 0.25
+        },
+        {
+          "cell": "other: Walrein | first",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 0,
+          "reference_rate": 0.6316,
+          "expected_wins": 0.63,
+          "residual_wins": 0.37
+        },
+        {
+          "cell": "Alakazam | first",
+          "target_games": 2,
+          "target_wins": 2,
+          "reference_games": 20,
+          "reference_rate": 0.8,
+          "expected_wins": 1.6,
+          "residual_wins": 0.4
+        },
+        {
+          "cell": "Grimmsnarl (mirror) | first",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 25,
+          "reference_rate": 0.52,
+          "expected_wins": 0.52,
+          "residual_wins": 0.48
+        },
+        {
+          "cell": "Kangaskhan / Crustle | first",
+          "target_games": 2,
+          "target_wins": 2,
+          "reference_games": 3,
+          "reference_rate": 0.6667,
+          "expected_wins": 1.33,
+          "residual_wins": 0.67
+        },
+        {
+          "cell": "other: Team Rocket's Mewtwo ex | first",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 1,
+          "reference_rate": 0.0,
+          "expected_wins": 0.0,
+          "residual_wins": 1.0
+        },
+        {
+          "cell": "Archaludon | first",
+          "target_games": 3,
+          "target_wins": 3,
+          "reference_games": 8,
+          "reference_rate": 0.625,
+          "expected_wins": 1.88,
+          "residual_wins": 1.12
+        }
+      ]
+    }
+  },
+  "expectations_vs_v24": {
+    "family": {
+      "stratifier": "family",
+      "target_games": 34,
+      "observed_wins": 21,
+      "expected_wins": 24.51,
+      "residual_wins": -3.51,
+      "z": -1.68,
+      "games_in_uncovered_cells": 3,
+      "cells": [
+        {
+          "cell": "Grimmsnarl (mirror)",
+          "target_games": 7,
+          "target_wins": 3,
+          "reference_games": 26,
+          "reference_rate": 0.6923,
+          "expected_wins": 4.85,
+          "residual_wins": -1.85
+        },
+        {
+          "cell": "other: Cynthia's Garchomp ex",
+          "target_games": 2,
+          "target_wins": 1,
+          "reference_games": 1,
+          "reference_rate": 1.0,
+          "expected_wins": 2.0,
+          "residual_wins": -1.0
+        },
+        {
+          "cell": "other: Mega Abomasnow ex",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 2,
+          "reference_rate": 1.0,
+          "expected_wins": 1.0,
+          "residual_wins": -1.0
+        },
+        {
+          "cell": "other: N’s Zoroark ex",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 0,
+          "reference_rate": 0.6588,
+          "expected_wins": 0.66,
+          "residual_wins": -0.66
+        },
+        {
+          "cell": "Dragapult",
+          "target_games": 1,
+          "target_wins": 0,
+          "reference_games": 3,
+          "reference_rate": 0.3333,
+          "expected_wins": 0.33,
+          "residual_wins": -0.33
+        },
+        {
+          "cell": "Alakazam",
+          "target_games": 6,
+          "target_wins": 4,
+          "reference_games": 14,
+          "reference_rate": 0.7143,
+          "expected_wins": 4.29,
+          "residual_wins": -0.29
+        },
+        {
+          "cell": "Mega Lucario",
+          "target_games": 5,
+          "target_wins": 5,
+          "reference_games": 6,
+          "reference_rate": 1.0,
+          "expected_wins": 5.0,
+          "residual_wins": 0.0
+        },
+        {
+          "cell": "Ogerpon",
+          "target_games": 3,
+          "target_wins": 0,
+          "reference_games": 6,
+          "reference_rate": 0.0,
+          "expected_wins": 0.0,
+          "residual_wins": 0.0
+        },
+        {
+          "cell": "other: Team Rocket's Mewtwo ex",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 0,
+          "reference_rate": 0.6588,
+          "expected_wins": 0.66,
+          "residual_wins": 0.34
+        },
+        {
+          "cell": "other: Walrein",
+          "target_games": 1,
+          "target_wins": 1,
+          "reference_games": 0,
+          "reference_rate": 0.6588,
+          "expected_wins": 0.66,
+          "residual_wins": 0.34
+        },
+        {
+          "cell": "Kangaskhan / Crustle",
+          "target_games": 3,
+          "target_wins": 3,
+          "reference_games": 7,
+          "reference_rate": 0.8571,
+          "expected_wins": 2.57,
+          "residual_wins": 0.43
+        },
+        {
+          "cell": "Archaludon",
+          "target_games": 3,
+          "target_wins": 3,
+          "reference_games": 6,
+          "reference_rate": 0.8333,
+          "expected_wins": 2.5,
+          "residual_wins": 0.5
+        }
+      ]
+    },
+    "opponent band": {
+      "stratifier": "opponent band",
+      "target_games": 34,
+      "observed_wins": 21,
+      "expected_wins": 25.47,
+      "residual_wins": -4.47,
+      "z": -1.81,
+      "games_in_uncovered_cells": 0,
+      "cells": [
+        {
+          "cell": "800-900",
+          "target_games": 13,
+          "target_wins": 5,
+          "reference_games": 33,
+          "reference_rate": 0.8182,
+          "expected_wins": 10.64,
+          "residual_wins": -5.64
+        },
+        {
+          "cell": "700-800",
+          "target_games": 13,
+          "target_wins": 9,
+          "reference_games": 10,
+          "reference_rate": 0.7,
+          "expected_wins": 9.1,
+          "residual_wins": -0.1
+        },
+        {
+          "cell": "900-950",
+          "target_games": 2,
+          "target_wins": 1,
+          "reference_games": 14,
+          "reference_rate": 0.4286,
+          "expected_wins": 0.86,
+          "residual_wins": 0.14
+        },
+        {
+          "cell": "0-700",
+          "target_games": 6,
+          "target_wins": 6,
+          "reference_games": 16,
+          "reference_rate": 0.8125,
+          "expected_wins": 4.88,
+          "residual_wins": 1.12
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "v22_a": {
+      "our_overage_used_mean": 12.468622222222221,
+      "our_overage_used_max": 20.561,
+      "opp_overage_used_mean": 53.0047111111111,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v22_b": {
+      "our_overage_used_mean": 12.046315789473686,
+      "our_overage_used_max": 18.851,
+      "opp_overage_used_mean": 40.541947368421035,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v22_c": {
+      "our_overage_used_mean": 11.783,
+      "our_overage_used_max": 19.436,
+      "opp_overage_used_mean": 67.26584210526316,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v22_d": {
+      "our_overage_used_mean": 12.54786,
+      "our_overage_used_max": 18.049,
+      "opp_overage_used_mean": 41.381660000000004,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v23": {
+      "our_overage_used_mean": 11.170727272727273,
+      "our_overage_used_max": 16.838,
+      "opp_overage_used_mean": 26.775,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v24_a": {
+      "our_overage_used_mean": 11.662236842105262,
+      "our_overage_used_max": 15.874,
+      "opp_overage_used_mean": 21.636578947368424,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v24_b": {
+      "our_overage_used_mean": 12.207255319148938,
+      "our_overage_used_max": 21.773,
+      "opp_overage_used_mean": 43.716425531914894,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v25_a": {
+      "our_overage_used_mean": 4.797960784313726,
+      "our_overage_used_max": 9.388,
+      "opp_overage_used_mean": 21.04592156862745,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v25_b": {
+      "our_overage_used_mean": 4.339029411764706,
+      "our_overage_used_max": 7.232,
+      "opp_overage_used_mean": 19.10685294117647,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v26": {
+      "our_overage_used_mean": 13.583249999999998,
+      "our_overage_used_max": 47.38,
+      "opp_overage_used_mean": 38.51322499999999,
+      "odd_status_games": 0,
+      "odd_status": []
+    },
+    "v27": {
+      "our_overage_used_mean": 14.8555,
+      "our_overage_used_max": 30.11,
+      "opp_overage_used_mean": 11.462911764705888,
+      "odd_status_games": 0,
+      "odd_status": []
+    }
+  },
+  "behaviour": {
+    "turns": {
+      "v22": 12.236842105263158,
+      "v24": 11.905882352941177,
+      "v25": 13.011764705882353,
+      "v26": 11.875,
+      "v27": 11.764705882352942
+    },
+    "our_turns": {
+      "v22": 6.189473684210526,
+      "v24": 6.047058823529412,
+      "v25": 6.588235294117647,
+      "v26": 6.075,
+      "v27": 5.9411764705882355
+    },
+    "our_decisions": {
+      "v22": 93.12631578947368,
+      "v24": 91.50588235294117,
+      "v25": 97.36470588235294,
+      "v26": 86.85,
+      "v27": 90.3529411764706
+    },
+    "attacks": {
+      "v22": 3.9894736842105263,
+      "v24": 3.988235294117647,
+      "v25": 4.047058823529412,
+      "v26": 3.625,
+      "v27": 3.8823529411764706
+    },
+    "shadow_attacks": {
+      "v22": 3.5894736842105264,
+      "v24": 3.7058823529411766,
+      "v25": 3.7529411764705882,
+      "v26": 3.05,
+      "v27": 3.411764705882353
+    },
+    "grim_evolutions": {
+      "v22": 2.031578947368421,
+      "v24": 2.023529411764706,
+      "v25": 1.964705882352941,
+      "v26": 1.7,
+      "v27": 2.0588235294117645
+    },
+    "rare_candies": {
+      "v22": 0.8842105263157894,
+      "v24": 1.0,
+      "v25": 1.0705882352941176,
+      "v26": 0.775,
+      "v27": 1.088235294117647
+    },
+    "adrena_brains": {
+      "v22": 5.7631578947368425,
+      "v24": 5.858823529411764,
+      "v25": 6.176470588235294,
+      "v26": 5.375,
+      "v27": 5.617647058823529
+    },
+    "stamps": {
+      "v22": 1.194736842105263,
+      "v24": 0.9176470588235294,
+      "v25": 1.1529411764705881,
+      "v26": 1.075,
+      "v27": 1.0588235294117647
+    },
+    "bosses": {
+      "v22": 0.7631578947368421,
+      "v24": 0.7529411764705882,
+      "v25": 0.5529411764705883,
+      "v26": 0.5,
+      "v27": 0.5294117647058824
+    },
+    "lillies": {
+      "v22": 1.805263157894737,
+      "v24": 1.7882352941176471,
+      "v25": 2.023529411764706,
+      "v26": 1.725,
+      "v27": 1.7352941176470589
+    },
+    "froslass_actions": {
+      "v22": 2.536842105263158,
+      "v24": 2.223529411764706,
+      "v25": 2.9411764705882355,
+      "v26": 2.15,
+      "v27": 2.5588235294117645
+    },
+    "froslass_true_evolutions": {
+      "v22": 0.868421052631579,
+      "v24": 0.6,
+      "v25": 0.8470588235294118,
+      "v26": 0.775,
+      "v27": 0.7058823529411765
+    },
+    "own_first_ready_turn": {
+      "v22": 2.9516129032258065,
+      "v24": 2.7160493827160495,
+      "v25": 2.9518072289156625,
+      "v26": 3.3421052631578947,
+      "v27": 2.878787878787879
+    },
+    "own_first_shadow_turn": {
+      "v22": 3.0053763440860215,
+      "v24": 2.7901234567901234,
+      "v25": 3.180722891566265,
+      "v26": 3.3947368421052633,
+      "v27": 3.0
+    },
+    "gate_violation": {
+      "v22": 0.05263157894736842,
+      "v24": 0.058823529411764705,
+      "v25": 0.12941176470588237,
+      "v26": 0.05,
+      "v27": 0.08823529411764706
+    },
+    "our_multi_pick": {
+      "v22": 3.8947368421052633,
+      "v24": 3.9058823529411764,
+      "v25": 3.635294117647059,
+      "v26": 3.9,
+      "v27": 3.8529411764705883
+    },
+    "our_ends": {
+      "v22": 2.031578947368421,
+      "v24": 1.964705882352941,
+      "v25": 2.364705882352941,
+      "v26": 2.35,
+      "v27": 1.911764705882353
+    }
+  },
+  "loss_anatomy": {
+    "losses": {
+      "v22": 70.0,
+      "v24": 29.0,
+      "v25": 36.0,
+      "v26": 12.0,
+      "v27": 13.0
+    },
+    "mean prizes left on loss": {
+      "v22": 3.142857142857143,
+      "v24": 3.2758620689655173,
+      "v25": 3.0277777777777777,
+      "v26": 3.1666666666666665,
+      "v27": 3.5384615384615383
+    },
+    "losses with >=5 prizes left": {
+      "v22": 15.0,
+      "v24": 8.0,
+      "v25": 7.0,
+      "v26": 4.0,
+      "v27": 4.0
+    },
+    "losses with 1 prize left": {
+      "v22": 13.0,
+      "v24": 5.0,
+      "v25": 7.0,
+      "v26": 1.0,
+      "v27": 1.0
+    },
+    "board-out losses": {
+      "v22": 3.0,
+      "v24": 2.0,
+      "v25": 1.0,
+      "v26": 1.0,
+      "v27": 1.0
+    },
+    "deck-out losses": {
+      "v22": 0.0,
+      "v24": 0.0,
+      "v25": 3.0,
+      "v26": 0.0,
+      "v27": 0.0
+    },
+    "mean turns on loss": {
+      "v22": 12.371428571428572,
+      "v24": 12.068965517241379,
+      "v25": 16.083333333333332,
+      "v26": 11.583333333333334,
+      "v27": 10.615384615384615
+    },
+    "mean turns on win": {
+      "v22": 12.158333333333333,
+      "v24": 11.821428571428571,
+      "v25": 10.755102040816327,
+      "v26": 12.0,
+      "v27": 12.476190476190476
+    },
+    "mean our deck left": {
+      "v22": 18.71578947368421,
+      "v24": 19.741176470588236,
+      "v25": 18.71764705882353,
+      "v26": 20.825,
+      "v27": 19.529411764705884
+    },
+    "games over 30 turns": {
+      "v22": 0.0,
+      "v24": 0.0,
+      "v25": 4.0,
+      "v26": 0.0,
+      "v27": 0.0
+    }
+  },
+  "fisher": {
+    "overall": {
+      "v27": "21-13",
+      "v22": "120-70",
+      "fisher_p": 1.0
+    },
+    "opponent >= 900": {
+      "v27": "1-1",
+      "v22": "74-58",
+      "fisher_p": 1.0
+    },
+    "opponent < 900": {
+      "v27": "20-12",
+      "v22": "46-12",
+      "fisher_p": 0.134
+    },
+    "exact mirror": {
+      "v27": "3-3",
+      "v22": "26-20",
+      "fisher_p": 1.0
+    },
+    "wall families": {
+      "v27": "3-3",
+      "v22": "12-10",
+      "fisher_p": 1.0
+    },
+    "going second": {
+      "v27": "7-10",
+      "v22": "58-32",
+      "fisher_p": 0.1033
+    },
+    "going first": {
+      "v27": "14-3",
+      "v22": "62-38",
+      "fisher_p": 0.1677
+    }
+  },
+  "lineage": {
+    "games": 159,
+    "wins": 98,
+    "controlled": {
+      "n": 349,
+      "elo": -146.7,
+      "z": -3.03,
+      "p": 0.0024
+    },
+    "stratified": {
+      "stratifier": "band x turn order",
+      "target_games": 159,
+      "observed_wins": 98,
+      "expected_wins": 115.17,
+      "residual_wins": -17.17,
+      "z": -3.24,
+      "games_in_uncovered_cells": 0,
+      "cells": [
+        {
+          "cell": "800-900 | second",
+          "target_games": 23,
+          "target_wins": 10,
+          "reference_games": 9,
+          "reference_rate": 0.7778,
+          "expected_wins": 17.89,
+          "residual_wins": -7.89
+        },
+        {
+          "cell": "950-1050 | second",
+          "target_games": 5,
+          "target_wins": 0,
+          "reference_games": 43,
+          "reference_rate": 0.6047,
+          "expected_wins": 3.02,
+          "residual_wins": -3.02
+        },
+        {
+          "cell": "0-700 | second",
+          "target_games": 9,
+          "target_wins": 6,
+          "reference_games": 10,
+          "reference_rate": 1.0,
+          "expected_wins": 9.0,
+          "residual_wins": -3.0
+        },
+        {
+          "cell": "950-1050 | first",
+          "target_games": 9,
+          "target_wins": 3,
+          "reference_games": 34,
+          "reference_rate": 0.5882,
+          "expected_wins": 5.29,
+          "residual_wins": -2.29
+        },
+        {
+          "cell": "700-800 | first",
+          "target_games": 21,
+          "target_wins": 15,
+          "reference_games": 10,
+          "reference_rate": 0.8,
+          "expected_wins": 16.8,
+          "residual_wins": -1.8
+        },
+        {
+          "cell": ">=1050 | first",
+          "target_games": 2,
+          "target_wins": 0,
+          "reference_games": 12,
+          "reference_rate": 0.4167,
+          "expected_wins": 0.83,
+          "residual_wins": -0.83
+        },
+        {
+          "cell": "900-950 | second",
+          "target_games": 9,
+          "target_wins": 5,
+          "reference_games": 16,
+          "reference_rate": 0.625,
+          "expected_wins": 5.62,
+          "residual_wins": -0.62
+        },
+        {
+          "cell": "800-900 | first",
+          "target_games": 21,
+          "target_wins": 14,
+          "reference_games": 16,
+          "reference_rate": 0.6875,
+          "expected_wins": 14.44,
+          "residual_wins": -0.44
+        },
+        {
+          "cell": "900-950 | first",
+          "target_games": 8,
+          "target_wins": 4,
+          "reference_games": 19,
+          "reference_rate": 0.5263,
+          "expected_wins": 4.21,
+          "residual_wins": -0.21
+        },
+        {
+          "cell": "0-700 | first",
+          "target_games": 31,
+          "target_wins": 29,
+          "reference_games": 9,
+          "reference_rate": 0.8889,
+          "expected_wins": 27.56,
+          "residual_wins": 1.44
+        },
+        {
+          "cell": "700-800 | second",
+          "target_games": 21,
+          "target_wins": 12,
+          "reference_games": 4,
+          "reference_rate": 0.5,
+          "expected_wins": 10.5,
+          "residual_wins": 1.5
+        }
+      ]
+    }
+  },
+  "turn_order": {
+    "v22": {
+      "first": "62-38",
+      "second": "58-32",
+      "fisher_p": 0.7646,
+      "controlled": {
+        "n": 190,
+        "error": "singular covariance"
+      }
+    },
+    "v24": {
+      "first": "33-13",
+      "second": "23-16",
+      "fisher_p": 0.2553,
+      "controlled": {
+        "n": 85,
+        "error": "singular covariance"
+      }
+    },
+    "v25": {
+      "first": "30-21",
+      "second": "19-15",
+      "fisher_p": 0.8255,
+      "controlled": {
+        "n": 85,
+        "error": "singular covariance"
+      }
+    },
+    "v26": {
+      "first": "21-3",
+      "second": "7-9",
+      "fisher_p": 0.005,
+      "controlled": {
+        "n": 40,
+        "error": "singular covariance"
+      }
+    },
+    "v27": {
+      "first": "14-3",
+      "second": "7-10",
+      "fisher_p": 0.0324,
+      "controlled": {
+        "n": 34,
+        "error": "singular covariance"
+      }
+    }
+  },
+  "v27_gradients": {
+    "opponent_rating": {
+      "win": 771.3261904761905,
+      "loss": 817.5764769230768,
+      "p": 0.0958
+    },
+    "turns": {
+      "win": 12.476190476190476,
+      "loss": 10.615384615384615,
+      "p": 0.0699
+    },
+    "our_turns": {
+      "win": 6.571428571428571,
+      "loss": 4.923076923076923,
+      "p": 0.0026
+    },
+    "attacks": {
+      "win": 4.285714285714286,
+      "loss": 3.230769230769231,
+      "p": 0.0363
+    },
+    "shadow_attacks": {
+      "win": 4.0476190476190474,
+      "loss": 2.3846153846153846,
+      "p": 0.0004
+    },
+    "grim_evolutions": {
+      "win": 2.1904761904761907,
+      "loss": 1.8461538461538463,
+      "p": 0.2923
+    },
+    "rare_candies": {
+      "win": 1.1428571428571428,
+      "loss": 1.0,
+      "p": 0.6155
+    },
+    "adrena_brains": {
+      "win": 7.0476190476190474,
+      "loss": 3.3076923076923075,
+      "p": 0.0053
+    },
+    "stamps": {
+      "win": 1.2857142857142858,
+      "loss": 0.6923076923076923,
+      "p": 0.0524
+    },
+    "bosses": {
+      "win": 0.7142857142857143,
+      "loss": 0.23076923076923078,
+      "p": 0.0429
+    },
+    "lillies": {
+      "win": 1.9523809523809523,
+      "loss": 1.3846153846153846,
+      "p": 0.13
+    },
+    "froslass_actions": {
+      "win": 2.9523809523809526,
+      "loss": 1.9230769230769231,
+      "p": 0.6108
+    },
+    "own_first_ready_turn": {
+      "win": 2.6666666666666665,
+      "loss": 3.25,
+      "p": 0.1055
+    },
+    "own_first_shadow_turn": {
+      "win": 2.8095238095238093,
+      "loss": 3.3333333333333335,
+      "p": 0.1502
+    },
+    "our_decisions": {
+      "win": 101.61904761904762,
+      "loss": 72.15384615384616,
+      "p": 0.0007
+    },
+    "our_overage_used": {
+      "win": 15.18457142857143,
+      "loss": 14.323923076923073,
+      "p": 0.3386
+    },
+    "our_deck_left": {
+      "win": 17.761904761904763,
+      "loss": 22.384615384615383,
+      "p": 0.1178
+    }
+  }
+}

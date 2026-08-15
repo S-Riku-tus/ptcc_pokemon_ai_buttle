@@ -1,0 +1,88 @@
+episodes: 35  decisions: 3063  evaluated: 2755
+load errors: {"ranker": null, "peer": null, "planner": null, "router": null, "wall_trajectory": null, "wall_break": null, "deck_clock": null, "h2_search": null, "mirror_froslass": null}
+
+--- reproduction ---
+evaluated single-pick decisions: 2755
+v27 reproduces the played action: 2753 (0.9993)
+v22 baseline reproduces it:      2745 (0.9964)
+
+--- override footprint (v27 final != v22 planner answer) ---
+total overrides: 8 of 2755 (0.2904%)
+  ordinary        0 / 1648  (0.0000%)
+  mirror          6 / 646   (0.9288%)
+  wall_public     2 / 167   (1.1976%)
+  wall_active     0 / 294   (0.0000%)
+
+by layer:
+  mirror_froslass    6
+  wall_trajectory    2
+
+by layer x cell:
+  mirror_froslass|mirror           6
+  wall_trajectory|wall_public      2
+
+--- games containing at least one override ---
+  with override  n=  4  3-1  0.750
+  without        n= 31  19-12  0.613
+
+per-game override counts (episode, won, overrides):
+  93231407  won=1  overrides=1  {'overrides': 1, 'wall_trajectory': 1}
+  93232301  won=1  overrides=2  {'overrides': 2, 'mirror_froslass': 2}
+  93237761  won=1  overrides=1  {'overrides': 1, 'wall_trajectory': 1}
+  93247540  won=0  overrides=4  {'overrides': 4, 'mirror_froslass': 4}
+
+--- guard internal counters (summed over games) ---
+  deck_clock.lillie_considered                 53
+  h2_search.belief_confidence_milli            20200
+  h2_search.branches                           336
+  h2_search.budget_searches                    23
+  h2_search.budget_stops                       41
+  h2_search.considered                         301
+  h2_search.determinizations                   105
+  h2_search.h2_branches                        204
+  h2_search.h3_branches                        132
+  h2_search.h3_considered                      22
+  h2_search.h3_worlds                          66
+  h2_search.min_turn                           175
+  h2_search.opponent_policy_peer               112
+  h2_search.opponent_policy_rule               224
+  h2_search.searched                           23
+  h2_search.skip_already_searched_turn         149
+  h2_search.skip_budget                        41
+  h2_search.skip_consensus_confident           3
+  h2_search.skip_determinization_disagreement  2
+  h2_search.skip_early                         85
+  h2_search.skip_h3_not_dominant               5
+  h2_search.skip_h3_prize_safety               3
+  h2_search.skip_h3_small_gain                 14
+  h2_search.skip_non_main                      311
+  h2_search.skip_non_mirror                    1985
+  h2_search.skip_not_dominant                  20
+  h2_search.skip_small_gain                    1
+  mirror_froslass.froslass_offered             25
+  mirror_froslass.froslass_selected            6
+  mirror_froslass.mirror_decisions             646
+  mirror_froslass.mirror_transitions           8
+  mirror_froslass.observations                 2755
+  mirror_froslass.overrides                    6
+  wall_break.boss_prize_deferred               2
+  wall_break.breaker_too_slow                  26
+  wall_break.breaker_would_be_sacrificed       32
+  wall_break.considered                        2755
+  wall_break.dead_swing_decisions              128
+  wall_break.dead_swing_turns                  17
+  wall_break.main_decisions                    1354
+  wall_break.no_breaker_in_play                51
+  wall_break.route_compatible_kept             2
+  wall_trajectory.committed_serial             133
+  wall_trajectory.considered                   511
+  wall_trajectory.last_breaker_preserved       1
+  wall_trajectory.munkidori_activation_preserved 16
+  wall_trajectory.overrides                    2
+  wall_trajectory.primary_attachment_preserved 2
+  wall_trajectory.punk_concentrated            1
+  wall_trajectory.punk_concentrated_kept       1
+  wall_trajectory.punk_trigger_not_ready       6
+  wall_trajectory.skip_non_wall                2244
+
+JSON: experiments\grimmsnarl_ml_v27\ladder_footprint_h2.json

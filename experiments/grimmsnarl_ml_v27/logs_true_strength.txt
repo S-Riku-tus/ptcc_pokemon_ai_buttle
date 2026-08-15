@@ -1,0 +1,80 @@
+=== 1. how well does the rating we saw predict real strength? ===
+matched 176 of 445 games (39.6%) to a current leaderboard team
+  rating at the time : mean 828.8  sd 163.7
+  current team score : mean 831.7  sd 168.1
+  correlation        : 0.945
+  mean understatement: +3.0 points
+
+the ladder rating we faced understates the opponent, because most
+opponents are met mid-climb. Grading by settled score is stricter.
+
+=== 2. our record by the opponent's settled strength ===
+settled score       n    record      wr            wilson  seen rating
+0-700              35      33-2   0.943       [0.81,0.98]          587
+700-850            56     40-16   0.714       [0.59,0.82]          789
+850-1000           59     33-26   0.559       [0.43,0.68]          928
+1000-1100          21      7-14   0.333       [0.17,0.55]          996
+1100-9999           5       3-2   0.600       [0.23,0.88]         1089
+
+same, split by the seat we drew:
+0-700             first 22-1  0.957  second 11-1  0.917
+700-850           first 28-8  0.778  second 12-8  0.600
+850-1000          first 16-13 0.552  second 17-13 0.567
+1000-1100         first  4-7  0.364  second  3-7  0.300
+
+=== 3. exposure: how much of a run is against real strength? ===
+run       matched   >=1000   >=1100  mean true
+v22_a          11        2        0        847
+v22_b          16        3        1        855
+v22_c          20       10        4       1012
+v22_d          18        2        0        892
+v23             4        0        0        774
+v24_a          17        0        0        759
+v24_b          26        6        0        834
+v25_a          15        2        0        886
+v25_b          15        0        0        727
+v26            16        1        0        692
+v27            18        0        0        786
+
+=== 4. which decks make up the strong end ===
+opponents with a settled score >= 1000: 26 games
+family                               n   record      wr
+Mega Lopunny / Froslass              7      3-4   0.429
+Grimmsnarl (mirror)                  6      2-4   0.333
+Dragapult                            5      2-3   0.400
+other: Hydrapple ex                  3      1-2   0.333
+Alakazam                             2      2-0   1.000
+Ogerpon                              2      0-2   0.000
+other: Arboliva ex                   1      0-1   0.000
+
+same families, but every game we played against them (any strength):
+family                               n   record      wr  vs>=1000
+Mega Lopunny / Froslass             30    14-16   0.467       3-4
+Grimmsnarl (mirror)                112    71-41   0.634       2-4
+Dragapult                           39    24-15   0.615       2-3
+other: Hydrapple ex                 12      4-8   0.333       1-2
+Alakazam                            93    63-30   0.677       2-0
+Ogerpon                             23     3-20   0.130       0-2
+other: Arboliva ex                   1      0-1   0.000       0-1
+
+=== 5. same policy, different day: within-day bootstrap ===
+08-13/14 ladder    120-70 (0.632) over 190 games, Wilson [0.561, 0.697]
+                   opponent mean 915  ->  34-game rating 995 +/- 63  [p05 890, p95 1098]
+08-15 ladder       49-25 (0.662) over 74 games, Wilson [0.549, 0.759]
+                   opponent mean 744  ->  34-game rating 860 +/- 60  [p05 761, p95 959]
+
+same policy, the two days differ at Fisher p = 0.6709
+
+=== 6. what win rate buys what rank ===
+a settled rating is opponent mean + 400 log10(w/(1-w)). Against an
+880-rated slice of the field, which is what a converged run meets:
+    win rate    rating   rank on 08-14
+        0.55     914.9             326
+        0.60     950.4             212
+        0.62     965.0             182
+        0.65     987.5             136
+        0.70    1027.2              65
+        0.75    1070.8              32
+        0.80    1120.8              16
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\true_strength.json

@@ -1,0 +1,83 @@
+=== 1. the pairing function ===
+opponent = 20.3 + 0.931 * our rating (n = 445)
+fixed point of pairing alone: 295 - above that the pool lags us
+  at rating 800: pool 765 (-35)
+  at rating 900: pool 858 (-42)
+  at rating 1000: pool 952 (-48)
+  at rating 1100: pool 1045 (-55)
+  at rating 1200: pool 1138 (-62)
+
+=== 2. our strength curve against settled opponents ===
+logit P(win) = 5.674 -0.00586 * settled_opponent_score
+  slope se 0.00127, z = -4.60, p = 4.3e-06, n = 176
+  a pure Elo agent has slope -0.00576; ours is 1.02x as steep
+  our implied rating (where the curve crosses 50%): 969
+
+  a slope steeper than Elo means we fall off faster than a
+  rating-consistent agent would: the stronger the opponent, the
+  worse we do relative to what our own rating predicts.
+
+=== 3. the fixed point ===
+r* = 970, reached against a pool averaging 923 with a win rate of 0.566
+that is rank 175 of 6812
+
+sensitivity: refit the curve at the ends of the slope interval
+  slope -1sd: r* = 953
+  slope +1sd: r* = 995
+
+=== 4. observed vs fitted, band by band ===
+settled band        n  observed   fitted            wilson
+0-700              35     0.943    0.903       [0.81,0.98]
+700-850            56     0.714    0.756       [0.59,0.82]
+850-1000           59     0.559    0.563       [0.43,0.68]
+1000-1100          21     0.333    0.393       [0.17,0.55]
+1100-9999           5     0.600    0.237       [0.23,0.88]
+
+=== 5. what repairing a matchup is worth ===
+each row raises our win rate in that cell to the target and
+recomputes the fixed point; exposure is the cell's share of all
+445 games, and of the 26 games against settled-1000+ opponents.
+
+baseline: 281-164 (0.631) over 445 games
+matchup                           n  share     wr   ->0.55  delta wr  delta Elo
+Mega Lopunny / Froslass          30   6.7%  0.467      2.5     0.006        4.2
+Ogerpon                          23   5.2%  0.130      9.7     0.022       16.4
+other: Hydrapple ex              12   2.7%  0.333      2.6     0.006        4.4
+
+all of them together: 0.631 -> 0.665, worth +25.3 Elo
+games involved: 65 of 445 (14.6%)
+
+and the same repair pushed through the fixed point, which is
+larger because a better agent is also paired higher:
+  weak cells to 0.55     r* 970 -> 995 (+25), rank 123
+  weak cells to 0.60     r* 970 -> 1000 (+30), rank 112
+
+=== 6. what each rank actually demands of the agent ===
+a uniform logit shift is applied to the strength curve until the
+fixed point lands on the score that rank required on 08-14.
+  rank   rating  shift (Elo)   win rate vs a 950 pool
+   200    956.0          -14        0.508 (now 0.528)
+   150    978.1            8        0.540 (now 0.528)
+   100   1005.4           36        0.579 (now 0.528)
+    50   1046.5           78        0.636 (now 0.528)
+    25   1089.8          122        0.693 (now 0.528)
+    10   1158.5          192        0.771 (now 0.528)
+     3   1203.8          238        0.815 (now 0.528)
+     1   1254.5          289        0.855 (now 0.528)
+
+=== 7. the leaderboard shows the better of a team's two slots ===
+verified on all 60 top-60 teams: displayed score equals the max of their live slots
+median internal gap 92.0 points
+with a run-to-run noise sd of 62.9 (from the nine-day leaderboard decomposition), the expected value of the better of
+two independent runs of the SAME agent is +35.5 points, and of three runs +68.3.
+running one agent in both slots is therefore worth about as much
+as repairing a whole matchup, and costs nothing.
+
+=== 8. exposure: our runs never met the opponents that cap us ===
+of 176 strength-graded games, 26 were against a settled-1000+ opponent (14.8%)
+v27 specifically: 0 of 18 graded games
+at r* the pairing function would supply a pool averaging 923; at rating 1050 it supplies 998.
+so the matchups that decide the ceiling are barely sampled during
+the runs we use to judge a version.
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\equilibrium.json

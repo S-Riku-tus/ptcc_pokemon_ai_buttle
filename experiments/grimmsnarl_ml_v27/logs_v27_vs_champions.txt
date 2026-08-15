@@ -1,0 +1,349 @@
+
+==============================================================================
+1. Run inventory: rating, pairing draw and implied strength
+==============================================================================
+A final rating is opponent mean + Elo(win rate); the pairing draw moves it as much as the policy does.
+
+v22_a (final 1000.6)       n= 45   33-12  0.733 [0.590,0.840]  opp  836.4  strength  1012.2
+v22_b (final 1018.6)       n= 38   27-11  0.711 [0.552,0.830]  opp  884.8  strength  1040.8
+v22_c (final 1020.4)       n= 57   31-26  0.544 [0.416,0.666]  opp 1000.1  strength  1030.7
+v22_d (final 952.8)        n= 50   29-21  0.580 [0.442,0.706]  opp  912.4  strength   968.5
+v23 (final 827.4)          n= 11    7-4   0.636 [0.354,0.848]  opp  771.2  strength   868.4
+v24_a (final 911.3)        n= 38   26-12  0.684 [0.525,0.809]  opp  797.0  strength   931.4
+v24_b (final 928.1)        n= 47   30-17  0.638 [0.495,0.760]  opp  832.1  strength   930.8
+v25_a (final 910.7)        n= 51   27-24  0.529 [0.395,0.659]  opp  896.2  strength   916.7
+v25_b (final 808.4)        n= 34   22-12  0.647 [0.479,0.785]  opp  717.4  strength   822.7
+v26 (final 835.5)          n= 40   28-12  0.700 [0.546,0.819]  opp  706.6  strength   853.8
+v27 (final 853.3)          n= 34   21-13  0.618 [0.450,0.761]  opp  789.0  strength   872.3
+
+v22 pooled                 n=190  120-70  0.632 [0.561,0.697]  opp  915.2  strength  1008.8
+v24 pooled                 n= 85   56-29  0.659 [0.553,0.751]  opp  816.4  strength   930.7
+v25 pooled                 n= 85   49-36  0.576 [0.470,0.676]  opp  824.7  strength   878.2
+v26 pooled                 n= 40   28-12  0.700 [0.546,0.819]  opp  706.6  strength   853.8
+v27 pooled                 n= 34   21-13  0.618 [0.450,0.761]  opp  789.0  strength   872.3
+
+==============================================================================
+2. Convergence: is the final number an equilibrium or a waypoint?
+==============================================================================
+Kaggle starts every submission at 600.  If the last games still carry the rating upward, the final number understates the policy.
+
+v22_a  final  1000.6  implied  1012.2  gap   -11.6  last10 drift   +46.8  opp mean 1st/2nd half  785.6 /  885.0  wr 1st/2nd 0.727 / 0.739
+v22_b  final  1018.6  implied  1040.8  gap   -22.2  last10 drift   +49.6  opp mean 1st/2nd half  845.6 /  924.1  wr 1st/2nd 0.737 / 0.684
+v22_c  final  1020.4  implied  1030.7  gap   -10.3  last10 drift    -6.7  opp mean 1st/2nd half  980.2 / 1019.4  wr 1st/2nd 0.679 / 0.414
+v22_d  final   952.8  implied   968.5  gap   -15.7  last10 drift   +13.6  opp mean 1st/2nd half  894.0 /  930.8  wr 1st/2nd 0.640 / 0.520
+v23    final   827.4  implied   868.4  gap   -41.1  last10 drift  +125.8  opp mean 1st/2nd half  735.2 /  801.3  wr 1st/2nd 0.800 / 0.500
+v24_a  final   911.3  implied   931.4  gap   -20.1  last10 drift   -20.0  opp mean 1st/2nd half  726.7 /  867.4  wr 1st/2nd 0.684 / 0.684
+v24_b  final   928.1  implied   930.8  gap    -2.7  last10 drift   +29.6  opp mean 1st/2nd half  806.3 /  856.8  wr 1st/2nd 0.652 / 0.625
+v25_a  final   910.7  implied   916.7  gap    -6.0  last10 drift   -14.7  opp mean 1st/2nd half  861.8 /  929.3  wr 1st/2nd 0.680 / 0.385
+v25_b  final   808.4  implied   822.7  gap   -14.3  last10 drift   +43.3  opp mean 1st/2nd half  698.6 /  736.2  wr 1st/2nd 0.647 / 0.647
+v26    final   835.5  implied   853.8  gap   -18.3  last10 drift   +48.6  opp mean 1st/2nd half  640.7 /  772.6  wr 1st/2nd 0.700 / 0.700
+v27    final   853.3  implied   872.3  gap   -19.0  last10 drift   +57.2  opp mean 1st/2nd half  788.1 /  789.9  wr 1st/2nd 0.529 / 0.706
+
+==============================================================================
+3. Controlled version effect vs the v22 champion pool
+==============================================================================
+Logistic: won ~ opponent_rating/400 + went_first + is_<version>.
+
+is_v24  vs v22 pool: {"n": 275, "elo": -72.7, "z": -1.35, "p": 0.178}
+is_v25  vs v22 pool: {"n": 275, "elo": -141.4, "z": -2.61, "p": 0.0089}
+is_v26  vs v22 pool: {"n": 230, "elo": -118.4, "z": -1.45, "p": 0.1464}
+is_v27  vs v22 pool: {"n": 224, "elo": -132.7, "z": -1.71, "p": 0.0866}
+
+three-way pool (v22 + v24 + v27):
+  is_v24: {"n": 309, "elo": -42.6, "z": -0.85, "p": 0.3968}
+  is_v27: {"n": 309, "elo": -110.8, "z": -1.57, "p": 0.1172}
+
+==============================================================================
+4. What v22 would have scored on v27's own exposure
+==============================================================================
+opponent band        observed  21 / 34   expected  25.47  residual  -4.47  z=-1.82  uncovered=0
+family               observed  21 / 34   expected   22.7  residual   -1.7  z=-0.69  uncovered=2
+turn order           observed  21 / 34   expected   21.5  residual   -0.5  z=-0.18  uncovered=0
+band x turn order    observed  21 / 34   expected  24.53  residual  -3.53  z=-1.42  uncovered=0
+family x turn order  observed  21 / 34   expected  21.99  residual  -0.99  z=-0.41  uncovered=4
+
+per-family residual (family x turn order stratification, worst first):
+  other: Cynthia's Garchomp ex v27 1/2   vs v22 rate 1.000 (n=1  ) residual -1.00
+  other: Mega Abomasnow ex     v27 0/1   vs v22 rate 1.000 (n=1  ) residual -1.00
+  Grimmsnarl (mirror)          v27 3/7   vs v22 rate 0.558 (n=52 ) residual -0.90
+  Dragapult                    v27 0/1   vs v22 rate 0.636 (n=22 ) residual -0.64
+  other: N’s Zoroark ex        v27 0/1   vs v22 rate 0.632 (n=0  ) residual -0.63
+  Ogerpon                      v27 0/3   vs v22 rate 0.143 (n=7  ) residual -0.43
+  Alakazam                     v27 4/6   vs v22 rate 0.732 (n=41 ) residual -0.39
+  other: Walrein               v27 1/1   vs v22 rate 0.632 (n=0  ) residual +0.37
+  other: Team Rocket's Mewtwo ex v27 1/1   vs v22 rate 0.500 (n=2  ) residual +0.50
+  Mega Lucario                 v27 5/5   vs v22 rate 0.875 (n=8  ) residual +0.62
+  Kangaskhan / Crustle         v27 3/3   vs v22 rate 0.733 (n=15 ) residual +0.80
+  Archaludon                   v27 3/3   vs v22 rate 0.667 (n=9  ) residual +1.00
+
+and what v24 would have scored on v27's exposure:
+  family           observed 21 expected 24.51 residual -3.51 z=-1.68
+  opponent band    observed 21 expected 25.47 residual -4.47 z=-1.81
+
+==============================================================================
+5. Cell tables: family, turn order, opponent band
+==============================================================================
+cell                                       v22             v24             v27
+------------------------------------------------------------------------------
+Grimmsnarl (mirror)               29/52 =0.558    18/26 =0.692     3/7  =0.429
+Alakazam                          30/41 =0.732    10/14 =0.714     4/6  =0.667
+Dragapult                         14/22 =0.636     1/3  =0.333     0/1  =0.000
+Kangaskhan / Crustle              11/15 =0.733     6/7  =0.857     3/3  =1.000
+Mega Lucario                       7/8  =0.875     6/6  =1.000     5/5  =1.000
+Mega Lopunny / Froslass           10/19 =0.526     3/6  =0.500               -
+Ogerpon                            1/7  =0.143     0/6  =0.000     0/3  =0.000
+Archaludon                         6/9  =0.667     5/6  =0.833     3/3  =1.000
+other: Hydrapple ex                2/3  =0.667     0/2  =0.000               -
+other: Cynthia's Garchomp ex       1/1  =1.000     1/1  =1.000     1/2  =0.500
+other: Mega Abomasnow ex           1/1  =1.000     2/2  =1.000     0/1  =0.000
+Dipplin                            3/4  =0.750     0/1  =0.000               -
+other: Iono’s Bellibolt ex                   -     2/2  =1.000               -
+other: Team Rocket's Mewtwo ex     1/2  =0.500               -     1/1  =1.000
+other: Conkeldurr                            -     0/1  =0.000               -
+other: Mega Starmie ex                       -     1/1  =1.000               -
+other: N’s Zoroark ex                        -               -     0/1  =0.000
+other: Fezandipiti ex              2/2  =1.000               -               -
+other: Dudunsparce                 1/1  =1.000               -               -
+other: Walrein                               -               -     1/1  =1.000
+other: Brambleghast                0/1  =0.000     1/1  =1.000               -
+other: Mega Venusaur ex                      -               -               -
+other: Mega Gardevoir ex                     -               -               -
+other: Iron Thorns ex                        -               -               -
+other: Arboliva ex                 0/1  =0.000               -               -
+other: Ethan's Typhlosion          1/1  =1.000               -               -
+other: Team Rocket's Porygon-Z               -               -               -
+
+turn order: first                 62/100=0.620    33/46 =0.717    14/17 =0.824
+turn order: second                58/90 =0.644    23/39 =0.590     7/17 =0.412
+
+opponent 0-700                    18/19 =0.947    13/16 =0.812     6/6  =1.000
+opponent 700-800                  10/14 =0.714     7/10 =0.700     9/13 =0.692
+opponent 800-900                  18/25 =0.720    27/33 =0.818     5/13 =0.385
+opponent 900-950                  20/35 =0.571     6/14 =0.429     1/2  =0.500
+opponent 950-1050                 46/77 =0.597     3/12 =0.250               -
+opponent >=1050                    8/20 =0.400               -               -
+
+exact mirror                      26/46 =0.565    16/24 =0.667     3/6  =0.500
+wall families                     12/22 =0.545     6/13 =0.462     3/6  =0.500
+everything else                   82/122=0.672    34/48 =0.708    15/22 =0.682
+
+==============================================================================
+6. Runtime: search budget and step status
+==============================================================================
+v26/v27 are the first versions to spend a real per-episode search budget.  ``remainingOverageTime`` is the whole clock here because actTimeout is 0.
+
+v22_a  bank [600.0]  our used mean     12.5  max     20.6  opp used mean     53.0  per-decision 0.130  odd-status games 0
+v22_b  bank [600.0]  our used mean     12.0  max     18.9  opp used mean     40.5  per-decision 0.134  odd-status games 0
+v22_c  bank [600.0]  our used mean     11.8  max     19.4  opp used mean     67.3  per-decision 0.131  odd-status games 0
+v22_d  bank [600.0]  our used mean     12.5  max     18.0  opp used mean     41.4  per-decision 0.130  odd-status games 0
+v23    bank [600.0]  our used mean     11.2  max     16.8  opp used mean     26.8  per-decision 0.139  odd-status games 0
+v24_a  bank [600.0]  our used mean     11.7  max     15.9  opp used mean     21.6  per-decision 0.130  odd-status games 0
+v24_b  bank [600.0]  our used mean     12.2  max     21.8  opp used mean     43.7  per-decision 0.131  odd-status games 0
+v25_a  bank [600.0]  our used mean      4.8  max      9.4  opp used mean     21.0  per-decision 0.047  odd-status games 0
+v25_b  bank [600.0]  our used mean      4.3  max      7.2  opp used mean     19.1  per-decision 0.048  odd-status games 0
+v26    bank [600.0]  our used mean     13.6  max     47.4  opp used mean     38.5  per-decision 0.156  odd-status games 0
+v27    bank [600.0]  our used mean     14.9  max     30.1  opp used mean     11.5  per-decision 0.164  odd-status games 0
+
+games finishing with < 30s of overage bank left: 0
+
+v27 vs v22 overage used, Mann-Whitney one-sided greater: U=4192 p=0.002854
+
+v27 time spent, wins vs losses:
+  won=1: n=21 mean 15.2
+  won=0: n=13 mean 14.3
+
+==============================================================================
+7. Behaviour counts per game (the levers earlier verdicts argued about)
+==============================================================================
+metric                             v22       v24       v25       v26       v27
+------------------------------------------------------------------------------
+turns                            12.24     11.91     13.01     11.88     11.76
+our_turns                         6.19      6.05      6.59      6.08      5.94
+our_decisions                    93.13     91.51     97.36     86.85     90.35
+attacks                           3.99      3.99      4.05      3.62      3.88
+shadow_attacks                    3.59      3.71      3.75      3.05      3.41
+grim_evolutions                   2.03      2.02      1.96      1.70      2.06
+rare_candies                      0.88      1.00      1.07      0.78      1.09
+adrena_brains                     5.76      5.86      6.18      5.38      5.62
+stamps                            1.19      0.92      1.15      1.07      1.06
+bosses                            0.76      0.75      0.55      0.50      0.53
+lillies                           1.81      1.79      2.02      1.73      1.74
+froslass_actions                  2.54      2.22      2.94      2.15      2.56
+froslass_true_evolutions          0.87      0.60      0.85      0.78      0.71
+own_first_ready_turn              2.95      2.72      2.95      3.34      2.88
+own_first_shadow_turn             3.01      2.79      3.18      3.39      3.00
+gate_violation                    0.05      0.06      0.13      0.05      0.09
+our_multi_pick                    3.89      3.91      3.64      3.90      3.85
+our_ends                          2.03      1.96      2.36      2.35      1.91
+
+same table restricted to the exact mirror (where v27's search binds):
+metric                             v22       v24       v25       v26       v27
+------------------------------------------------------------------------------
+turns                            12.15     12.62     11.82     15.67     11.67
+our_turns                         6.09      6.42      6.06      8.00      5.67
+our_decisions                    98.46    103.50    107.24    137.67     94.00
+attacks                           4.20      4.21      3.88      3.00      3.83
+shadow_attacks                    4.09      4.17      3.88      3.00      3.50
+grim_evolutions                   2.43      2.29      2.41      1.67      2.00
+rare_candies                      0.89      0.96      1.06      0.67      1.00
+adrena_brains                     6.39      7.58      7.47     15.00      6.33
+stamps                            1.15      1.08      1.18      1.00      1.17
+bosses                            0.80      0.92      0.47      0.67      0.33
+lillies                           1.89      1.96      2.00      2.67      1.67
+froslass_actions                  0.83      0.29      0.88      0.00      0.17
+froslass_true_evolutions          0.33      0.00      0.47      0.00      0.00
+own_first_ready_turn              2.80      3.00      2.35      2.50      3.00
+own_first_shadow_turn             2.83      3.08      2.82      2.50      3.00
+gate_violation                    0.02      0.08      0.35      0.00      0.00
+our_multi_pick                    4.15      3.75      4.24      3.67      3.67
+our_ends                          1.78      2.17      1.94      5.00      1.67
+  v22 mirror games 46 record 26-20
+  v24 mirror games 24 record 16-8
+  v25 mirror games 17 record 13-4
+  v26 mirror games 3 record 3-0
+  v27 mirror games 6 record 3-3
+
+==============================================================================
+8. Loss anatomy
+==============================================================================
+measure                                  v22       v24       v25       v26       v27
+------------------------------------------------------------------------------------
+losses                                 70.00     29.00     36.00     12.00     13.00
+mean prizes left on loss                3.14      3.28      3.03      3.17      3.54
+losses with >=5 prizes left            15.00      8.00      7.00      4.00      4.00
+losses with 1 prize left               13.00      5.00      7.00      1.00      1.00
+board-out losses                        3.00      2.00      1.00      1.00      1.00
+deck-out losses                         0.00      0.00      3.00      0.00      0.00
+mean turns on loss                     12.37     12.07     16.08     11.58     10.62
+mean turns on win                      12.16     11.82     10.76     12.00     12.48
+mean our deck left                     18.72     19.74     18.72     20.82     19.53
+games over 30 turns                     0.00      0.00      4.00      0.00      0.00
+
+==============================================================================
+9. Opponent field: who v27 actually played
+==============================================================================
+v22: Grimmsnarl (mirror) 52(27%), Alakazam 41(22%), Dragapult 22(12%), Mega Lopunny / Froslass 19(10%), Kangaskhan / Crustle 15(8%), Archaludon 9(5%), Mega Lucario 8(4%), Ogerpon 7(4%), Dipplin 4(2%), other: Hydrapple ex 3(2%), other: Team Rocket's Mewtwo ex 2(1%), other: Fezandipiti ex 2(1%), other: Mega Abomasnow ex 1(1%), other: Cynthia's Garchomp ex 1(1%), other: Dudunsparce 1(1%), other: Ethan's Typhlosion 1(1%), other: Brambleghast 1(1%), other: Arboliva ex 1(1%)
+v24: Grimmsnarl (mirror) 26(31%), Alakazam 14(16%), Kangaskhan / Crustle 7(8%), Archaludon 6(7%), Mega Lucario 6(7%), Mega Lopunny / Froslass 6(7%), Ogerpon 6(7%), Dragapult 3(4%), other: Iono’s Bellibolt ex 2(2%), other: Hydrapple ex 2(2%), other: Mega Abomasnow ex 2(2%), other: Conkeldurr 1(1%), Dipplin 1(1%), other: Mega Starmie ex 1(1%), other: Cynthia's Garchomp ex 1(1%), other: Brambleghast 1(1%)
+v27: Grimmsnarl (mirror) 7(21%), Alakazam 6(18%), Mega Lucario 5(15%), Kangaskhan / Crustle 3(9%), Ogerpon 3(9%), Archaludon 3(9%), other: Cynthia's Garchomp ex 2(6%), other: Mega Abomasnow ex 1(3%), other: Walrein 1(3%), Dragapult 1(3%), other: N’s Zoroark ex 1(3%), other: Team Rocket's Mewtwo ex 1(3%)
+
+v22: 181 distinct opponents, most repeated [('55481866', 3), ('55422691', 2), ('55438724', 2), ('55394382', 2), ('55470304', 2)]
+v24: 84 distinct opponents, most repeated [('55451490', 2), ('55467409', 1), ('53820930', 1), ('55028093', 1), ('54474466', 1)]
+v27: 32 distinct opponents, most repeated [('54769470', 2), ('55399338', 2), ('54259126', 1), ('55368974', 1), ('55492300', 1)]
+
+==============================================================================
+10. Fisher tests on the cells that matter
+==============================================================================
+overall              v27 21-13 (0.618)  vs  v22 120-70 (0.632)   Fisher p=1.0000
+opponent >= 900      v27 1-1 (0.500)  vs  v22 74-58 (0.561)   Fisher p=1.0000
+opponent < 900       v27 20-12 (0.625)  vs  v22 46-12 (0.793)   Fisher p=0.1340
+exact mirror         v27 3-3 (0.500)  vs  v22 26-20 (0.565)   Fisher p=1.0000
+wall families        v27 3-3 (0.500)  vs  v22 12-10 (0.545)   Fisher p=1.0000
+going second         v27 7-10 (0.412)  vs  v22 58-32 (0.644)   Fisher p=0.1033
+going first          v27 14-3 (0.824)  vs  v22 62-38 (0.620)   Fisher p=0.1677
+
+==============================================================================
+11. Is the whole post-v22 lineage down, or only v27?
+==============================================================================
+v25, v26 and v27 all inherit the same added modules.  One version at n=35 cannot separate policy from draw; the pooled lineage can.
+
+v22 pooled                 n=190  120-70  0.632 [0.561,0.697]  opp  915.2  strength  1008.8
+v25+v26+v27 pooled         n=159   98-61  0.616 [0.539,0.688]  opp  787.4  strength   869.7
+controlled is_lineage: {"n": 349, "elo": -146.7, "z": -3.03, "p": 0.0024}
+controlled is_v24:     {"n": 275, "elo": -72.7, "z": -1.35, "p": 0.178}
+raw Fisher lineage vs v22: p=0.8245
+v22's rates on the lineage's own exposure: observed 98 expected 115.17 residual -17.17 z=-3.24
+
+==============================================================================
+12. Turn order inside each version
+==============================================================================
+v22 closed the going-second gap at n=194.  v27 shows the widest split of any version in this corpus, on 34 games.
+
+v22   first  62-38 (0.620)  second  58-32 (0.644)  Fisher p=0.7646  controlled {"n": 190, "error": "singular covariance"}
+v24   first  33-13 (0.717)  second  23-16 (0.590)  Fisher p=0.2553  controlled {"n": 85, "error": "singular covariance"}
+v25   first  30-21 (0.588)  second  19-15 (0.559)  Fisher p=0.8255  controlled {"n": 85, "error": "singular covariance"}
+v26   first  21-3  (0.875)  second   7-9  (0.438)  Fisher p=0.0050  controlled {"n": 40, "error": "singular covariance"}
+v27   first  14-3  (0.824)  second   7-10 (0.412)  Fisher p=0.0324  controlled {"n": 34, "error": "singular covariance"}
+
+v27 going second, game by game:
+  ep 93229612 won=0 opp 900 Grimmsnarl (mirror)          turns=11  our_prize_left=5 opp_prize_left=2 shadow=3 ready_t=3
+  ep 93232362 won=0 opp 820 Alakazam                     turns=5   our_prize_left=6 opp_prize_left=5 shadow=0 ready_t=None
+  ep 93233208 won=1 opp 877 Alakazam                     turns=12  our_prize_left=1 opp_prize_left=4 shadow=5 ready_t=2
+  ep 93235943 won=0 opp 810 other: Cynthia's Garchomp ex turns=11  our_prize_left=1 opp_prize_left=2 shadow=3 ready_t=2
+  ep 93236850 won=0 opp 864 Ogerpon                      turns=9   our_prize_left=4 opp_prize_left=2 shadow=2 ready_t=3
+  ep 93238657 won=0 opp 753 Grimmsnarl (mirror)          turns=11  our_prize_left=5 opp_prize_left=1 shadow=3 ready_t=2
+  ep 93239552 won=0 opp 789 other: Mega Abomasnow ex     turns=9   our_prize_left=3 opp_prize_left=1 shadow=3 ready_t=2
+  ep 93241348 won=0 opp 840 Grimmsnarl (mirror)          turns=15  our_prize_left=2 opp_prize_left=1 shadow=3 ready_t=5
+  ep 93242265 won=0 opp 743 Alakazam                     turns=13  our_prize_left=4 opp_prize_left=1 shadow=1 ready_t=4
+  ep 93247540 won=0 opp 808 Grimmsnarl (mirror)          turns=11  our_prize_left=6 opp_prize_left=1 shadow=2 ready_t=4
+  ep 93247734 won=1 opp 875 Grimmsnarl (mirror)          turns=10  our_prize_left=2 opp_prize_left=5 shadow=4 ready_t=2
+  ep 93248633 won=0 opp 837 Dragapult                    turns=13  our_prize_left=3 opp_prize_left=1 shadow=2 ready_t=5
+  ep 93249559 won=1 opp 787 Grimmsnarl (mirror)          turns=12  our_prize_left=1 opp_prize_left=3 shadow=5 ready_t=2
+  ep 93251416 won=1 opp 792 other: Cynthia's Garchomp ex turns=12  our_prize_left=1 opp_prize_left=3 shadow=5 ready_t=2
+  ep 93252239 won=1 opp 900 Alakazam                     turns=16  our_prize_left=1 opp_prize_left=1 shadow=4 ready_t=2
+  ep 93253152 won=1 opp 781 Mega Lucario                 turns=14  our_prize_left=1 opp_prize_left=3 shadow=6 ready_t=2
+  ep 93254965 won=1 opp 796 Kangaskhan / Crustle         turns=22  our_prize_left=1 opp_prize_left=1 shadow=3 ready_t=4
+
+==============================================================================
+13. Every v27 loss
+==============================================================================
+episode       opp family                    ord     turns ourP oppP body atk shd rdy    ovr
+93229612      900 Grimmsnarl (mirror)       second     11    5    2    4   3   3   3   22.1
+93232362      820 Alakazam                  second      5    6    5    0   0   0  -1    7.2
+93235287      866 Ogerpon                   first      10    2    1    4   3   3   3   11.7
+93235943      810 other: Cynthia's Garchomp exsecond     11    1    2    5   4   3   2   14.1
+93236850      864 Ogerpon                   second      9    4    2    5   4   2   3   10.7
+93238657      753 Grimmsnarl (mirror)       second     11    5    1    3   3   3   2   16.8
+93239552      789 other: Mega Abomasnow ex  second      9    3    1    4   3   3   2   11.0
+93241348      840 Grimmsnarl (mirror)       second     15    2    1    3   5   3   5   30.1
+93242265      743 Alakazam                  second     13    4    1    4   3   1   4    9.4
+93245003      865 Ogerpon                   first      10    2    1    5   3   3   3   12.6
+93247540      808 Grimmsnarl (mirror)       second     11    6    1    4   2   2   4   15.8
+93248633      837 Dragapult                 second     13    3    1    4   5   2   5   11.4
+93250489      732 other: N’s Zoroark ex     first      10    3    2    5   4   3   3   13.3
+
+and every v27 win, for contrast:
+93227833      576 Mega Lucario              first      11    1    4    6   4   4   2   12.7
+93228710      662 Mega Lucario              first      13    2    3    6   6   6   2   12.5
+93230506      690 Mega Lucario              first      11    1    3    6   4   4   2   15.9
+93231407      752 Kangaskhan / Crustle      first      17    1    5    6   6   3   4   14.3
+93232301      773 Grimmsnarl (mirror)       first      11    1    2    5   4   4   2   20.5
+93233208      877 Alakazam                  second     12    1    4    6   6   5   2   13.1
+93234145      783 Mega Lucario              first      13    1    2    4   5   5   3   14.6
+93237761      804 Archaludon                first      15    2    1    6   5   5   3   17.2
+93240535      839 Alakazam                  first      11    1    4    6   5   4   3   15.9
+93243191      689 Archaludon                first      15    1    2    5   5   5   4   10.3
+93243981      678 other: Walrein            first      11    1    6    6   2   2   4   12.7
+93245905      764 Archaludon                first       7    3    6    6   3   3   2    8.7
+93246821      773 Alakazam                  first       9    1    5    6   3   3   3   12.3
+93247734      875 Grimmsnarl (mirror)       second     10    2    5    6   4   4   2   27.3
+93249559      787 Grimmsnarl (mirror)       second     12    1    3    4   5   5   2   26.8
+93251416      792 other: Cynthia's Garchomp exsecond     12    1    3    6   5   5   2   13.4
+93252182      943 other: Team Rocket's Mewtwo exfirst       7    1    4    6   3   3   2    9.0
+93252239      900 Alakazam                  second     16    1    1    6   4   4   2   16.5
+93253152      781 Mega Lucario              second     14    1    3    6   6   6   2   12.5
+93253967      664 Kangaskhan / Crustle      first      13    3    2    6   2   2   4   13.4
+93254965      796 Kangaskhan / Crustle      second     22    1    1    5   3   3   4   19.3
+
+==============================================================================
+14. Within-v27 gradients (what separates its own wins from losses)
+==============================================================================
+metric                             win      loss     mwu p
+opponent_rating                 771.33    817.58    0.0958
+turns                            12.48     10.62    0.0699
+our_turns                         6.57      4.92    0.0026
+attacks                           4.29      3.23    0.0363
+shadow_attacks                    4.05      2.38    0.0004
+grim_evolutions                   2.19      1.85    0.2923
+rare_candies                      1.14      1.00    0.6155
+adrena_brains                     7.05      3.31    0.0053
+stamps                            1.29      0.69    0.0524
+bosses                            0.71      0.23    0.0429
+lillies                           1.95      1.38    0.1300
+froslass_actions                  2.95      1.92    0.6108
+own_first_ready_turn              2.67      3.25    0.1055
+own_first_shadow_turn             2.81      3.33    0.1502
+our_decisions                   101.62     72.15    0.0007
+our_overage_used                 15.18     14.32    0.3386
+our_deck_left                    17.76     22.38    0.1178
+
+JSON: C:\Users\shiba\ptcc_pokemon_ai_buttle\experiments\grimmsnarl_ml_v27\v27_vs_champions.json
