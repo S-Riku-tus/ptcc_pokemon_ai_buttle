@@ -2,17 +2,17 @@
   "name": "dragapult_ml_v1",
   "role": "offline_candidate",
   "archetype": "dragapult_ex",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "created_at": "2026-08-16T00:00:00+09:00",
   "deck_hash": "202ee2cec6cbe8b4",
   "deck_changed": true,
-  "policy": "Exact-deck, multi-teacher, teacher-ID-conditioned imitation ranker. Mandatory supported single-pick decisions use ML; optional, multi-pick, OOD, and failures use the deterministic fallback.",
+  "policy": "Guarded hybrid: the exact-deck imitation ranker handles supported choices, while a typed-energy and route-aware deterministic policy owns direct attachments, evolution, critical switches, Boss, and immediate evolution searches.",
   "search": false,
   "submission_ready": false,
   "submission_blockers": [
     "minimum 1000 verified exact-list trajectories not met (854)",
     "held-out top-3 gate missed (0.9634 < 0.9700)",
-    "no prospective untouched outcome evaluation against the current metagame"
+    "only seven prospective ladder games are available; more untouched outcome evaluation is required"
   ],
   "training_result": {
     "teachers": 9,
@@ -24,12 +24,26 @@
     "test_top1": 0.7557,
     "test_top3": 0.9634,
     "runtime_test_decisions": 10612,
-    "runtime_semantic_agreement": 0.7327,
-    "runtime_mandatory_single_agreement": 0.7573,
+    "runtime_semantic_agreement": 0.7031,
+    "runtime_mandatory_single_agreement": 0.7167,
     "runtime_legal_rate": 1.0,
     "runtime_exceptions": 0,
-    "runtime_mean_ms": 10.37,
-    "runtime_p95_ms": 31.359
+    "runtime_mean_ms": 23.522,
+    "runtime_p95_ms": 70.156,
+    "crispin_attach_from_agreement": 0.8516,
+    "crispin_attach_to_agreement": 0.8281,
+    "duplicate_route_attachments": 0
+  },
+  "prospective_audit": {
+    "submission_id": 55545828,
+    "games": 7,
+    "record": "3-4",
+    "phantom_dive_games": 4,
+    "guarded_counterfactual_decisions": 529,
+    "guarded_legal_rate": 1.0,
+    "guarded_exceptions": 0,
+    "observed_duplicate_route_attachments": 4,
+    "guarded_duplicate_route_attachments": 0
   },
   "model": {
     "teacher_team_id": 16380946,

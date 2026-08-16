@@ -102,6 +102,12 @@ class DragapultPolicy(BasePolicy):
         )
 
     @staticmethod
+    def line_stage(pokemon) -> int:
+        if pokemon is None:
+            return -1
+        return {C.DREEPY: 0, C.DRAKLOAK: 1, C.DRAGAPULT: 2}.get(pokemon.id, -1)
+
+    @staticmethod
     def has_type(pokemon, energy_type) -> bool:
         return pokemon is not None and energy_type in list(pokemon.energies or [])
 
@@ -112,6 +118,65 @@ class DragapultPolicy(BasePolicy):
             and self.has_type(pokemon, EnergyType.FIRE)
             and self.has_type(pokemon, EnergyType.PSYCHIC)
         )
+
+    def missing_route_colors(self, pokemon) -> tuple[int, ...]:
+        if self.line_stage(pokemon) < 0:
+            return ()
+        return tuple(
+            energy for energy in (C.FIRE, C.PSYCHIC)
+            if not self.has_type(pokemon, energy)
+        )
+
+    def route_eta(self, pokemon) -> int:
+        """Lower bound on actions still needed for this body to Phantom Dive.
+
+        This is intentionally small and deterministic.  It is not a search;
+        its job is to stop fixed card priorities from preferring a powerful
+        but unusable Stage 2 over the immediate missing stage or energy color.
+        """
+        stage = self.line_stage(pokemon)
+        if stage < 0:
+            return 99
+        return (2 - stage) + len(self.missing_route_colors(pokemon))
+
+    def route_target_score(self, pokemon, source_id: int, *, active: bool = False) -> int:
+        stage = self.line_stage(pokemon)
+        if stage < 0 or source_id not in (C.FIRE, C.PSYCHIC):
+            return -1
+        missing = self.missing_route_colors(pokemon)
+        if source_id not in missing:
+            return -1
+        other = C.PSYCHIC if source_id == C.FIRE else C.FIRE
+        completes_colors = self.has_type(pokemon, other)
+        return (
+            900_000
+            + stage * 30_000
+            + (55_000 if completes_colors else 0)
+            + (20_000 if active else 0)
+            - self.route_eta(pokemon) * 2_000
+        )
+
+    def route_needs_energy(self) -> bool:
+        return any(self.missing_route_colors(pokemon) for pokemon in self.my_board())
+
+    def best_route_energy_score(self, source_id: int) -> int:
+        return max(
+            (
+                self.route_target_score(
+                    pokemon,
+                    source_id,
+                    active=bool(self.me.active and pokemon is self.me.active[0]),
+                )
+                for pokemon in self.my_board()
+            ),
+            default=-1,
+        )
+
+    def needs_evolution_piece(self) -> bool:
+        need_dreepy = self.count_line() < 2 and not self.hand[C.DREEPY]
+        need_drakloak = self.field[C.DREEPY] > self.hand[C.DRAKLOAK]
+        need_dragapult = self.field[C.DRAKLOAK] > self.hand[C.DRAGAPULT]
+        return bool(need_dreepy or need_drakloak or need_dragapult)
 
     def go_first(self) -> bool:
         # A Stage-2 deck values the extra evolution turn; this is only the
@@ -161,11 +226,11 @@ class DragapultPolicy(BasePolicy):
         if cid == C.POFFIN:
             return 610_000 if bench_space > 0 and self.count_line() < 3 else 80_000
         if cid == C.ULTRA_BALL:
-            missing_piece = (
-                (self.field[C.DREEPY] and not (self.hand[C.DRAKLOAK] or self.hand[C.DRAGAPULT]))
-                or (self.field[C.DRAKLOAK] and not self.hand[C.DRAGAPULT])
+            return (
+                590_000
+                if len(self.me.hand or []) >= 3 and self.needs_evolution_piece()
+                else 180_000
             )
-            return 590_000 if len(self.me.hand or []) >= 3 and missing_piece else 180_000
         if cid == C.POKE_PAD:
             return 555_000 if self.me.deckCount > 5 else 100_000
         if cid == C.STRETCHER:
@@ -182,12 +247,11 @@ class DragapultPolicy(BasePolicy):
         if self.state.supporterPlayed:
             return -1
         if cid == C.CRISPIN:
-            needs_route_energy = any(
-                p.id in (C.DREEPY, C.DRAKLOAK, C.DRAGAPULT)
-                and not (self.has_type(p, EnergyType.FIRE) and self.has_type(p, EnergyType.PSYCHIC))
-                for p in self.my_board()
+            best_route = min(
+                (self.route_eta(p) for p in self.my_board() if self.line_stage(p) >= 0),
+                default=99,
             )
-            return 630_000 if needs_route_energy else 260_000
+            return 650_000 - 5_000 * best_route if self.route_needs_energy() else 240_000
         if cid == C.DAWN:
             return 615_000 if self.count_line() < 3 else 240_000
         if cid == C.LILLIE:
@@ -195,12 +259,18 @@ class DragapultPolicy(BasePolicy):
         if cid == C.JUDGE:
             return 560_000 if self.opponent.handCount > max(4, self.me.handCount) else 210_000
         if cid == C.BOSS:
-            if not any(self.phantom_ready(p) for p in self.my_board()) or not self.opponent.bench:
+            # Boss is a high-priority play only when the Active attacker can
+            # convert it immediately.  Keep a low score rather than banning it:
+            # top pilots also use Boss for occasional stall lines.
+            if not self.opponent.bench:
                 return -1
             active = self.opponent_active()
             best_bench = max((prize_count(p) * 1000 - p.hp for p in self.opponent.bench), default=0)
             active_value = prize_count(active) * 1000 - active.hp if active else 0
-            return 620_000 if best_bench > active_value else 250_000
+            phantom_ko = self.phantom_ready(self.active()) and any(
+                0 < int(p.hp) <= 200 for p in self.opponent.bench
+            )
+            return 620_000 if phantom_ko and best_bench > active_value else 170_000
         return 50_000
 
     def score_evolve(self, option):
@@ -221,28 +291,47 @@ class DragapultPolicy(BasePolicy):
         source = get_card(self.obs, AreaType.HAND, option.index, self.my_index)
         if not isinstance(target, Pokemon) or source is None:
             return -1
-        if target.id == C.MUNKIDORI and source.id == C.DARK:
-            return 860_000 if not self.has_type(target, EnergyType.DARKNESS) else -1
         if target.id in (C.DREEPY, C.DRAKLOAK, C.DRAGAPULT):
-            if source.id == C.FIRE and not self.has_type(target, EnergyType.FIRE):
-                return 840_000 + 5_000 * self.energy_count(target)
-            if source.id == C.PSYCHIC and not self.has_type(target, EnergyType.PSYCHIC):
-                return 850_000 + 5_000 * self.energy_count(target)
-            return -1
+            return self.route_target_score(
+                target,
+                source.id,
+                active=option.inPlayArea == AreaType.ACTIVE,
+            )
+        if target.id == C.MUNKIDORI and source.id == C.DARK:
+            if self.has_type(target, EnergyType.DARKNESS):
+                return -1
+            # Manual attachment must not delay the first or replacement Pult.
+            return 780_000 if self.route_needs_energy() else 880_000
         return super().score_attach(option)
 
     def score_card(self, option):
         card = get_card(self.obs, option.area, option.index, option.playerIndex)
         if card is None:
             return super().score_card(option)
-        if self.context == SelectContext.ATTACH_TO and isinstance(card, Pokemon):
+        if self.context == SelectContext.ATTACH_TO:
+            # Crispin first chooses an Energy from the deck (context 22).
+            if not isinstance(card, Pokemon) and card.id in ENERGY:
+                if card.id in (C.FIRE, C.PSYCHIC):
+                    return self.best_route_energy_score(card.id)
+                if card.id == C.DARK:
+                    munk_needs_dark = any(
+                        p.id == C.MUNKIDORI
+                        and not self.has_type(p, EnergyType.DARKNESS)
+                        for p in self.my_board()
+                    )
+                    return 760_000 if munk_needs_dark and not self.route_needs_energy() else 100_000
+        if self.context == SelectContext.ATTACH_FROM and isinstance(card, Pokemon):
+            # Crispin then chooses the target for contextCard (context 21).
+            source = getattr(self.select, "contextCard", None)
+            source_id = getattr(source, "id", -1)
             if card.id in (C.DREEPY, C.DRAKLOAK, C.DRAGAPULT):
-                missing = int(not self.has_type(card, EnergyType.FIRE)) + int(
-                    not self.has_type(card, EnergyType.PSYCHIC)
+                return self.route_target_score(
+                    card,
+                    source_id,
+                    active=option.area == AreaType.ACTIVE,
                 )
-                return 20_000 + missing * 5_000 + self.energy_count(card) * 100
-            if card.id == C.MUNKIDORI and not self.has_type(card, EnergyType.DARKNESS):
-                return 18_000
+            if card.id == C.MUNKIDORI and source_id == C.DARK:
+                return 760_000 if not self.has_type(card, EnergyType.DARKNESS) else -1
         if self.context == SelectContext.REMOVE_DAMAGE_COUNTER and isinstance(card, Pokemon):
             return (card.maxHp - card.hp) * 100 + (2_000 if card.id == C.DRAGAPULT else 0)
         if self.context in (
@@ -256,10 +345,17 @@ class DragapultPolicy(BasePolicy):
     def score_to_hand(self, card):
         if card is None:
             return 0
+        # Route deficit beats fixed Stage-2 > Stage-1 > Basic ordering.
+        if card.id == C.DRAKLOAK and self.field[C.DREEPY] > self.hand[C.DRAKLOAK]:
+            return 30_000 - 400 * self.hand[card.id]
+        if card.id == C.DRAGAPULT and self.field[C.DRAKLOAK] > self.hand[C.DRAGAPULT]:
+            return 29_000 - 400 * self.hand[card.id]
+        if card.id == C.DREEPY and self.count_line() < 2:
+            return 28_000 - 400 * self.hand[card.id]
         priority = {
-            C.DRAGAPULT: 10_000,
-            C.DRAKLOAK: 9_000,
-            C.DREEPY: 8_000,
+            C.DRAKLOAK: 10_000,
+            C.DRAGAPULT: 9_500,
+            C.DREEPY: 9_000,
             C.PSYCHIC: 7_500,
             C.FIRE: 7_300,
             C.DARK: 6_800,
@@ -304,6 +400,9 @@ class DragapultPolicy(BasePolicy):
         if not isinstance(card, Pokemon):
             return 0
         if option.playerIndex == self.op_index:
+            if self.phantom_ready(self.active()):
+                ko_bonus = 20_000 if 0 < int(card.hp) <= 200 else 0
+                return ko_bonus + prize_count(card) * 2_000 - int(card.hp)
             return self.gust_value(card)
         if self.phantom_ready(card):
             return 20_000

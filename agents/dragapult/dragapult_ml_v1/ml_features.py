@@ -147,6 +147,29 @@ def _energy_count(card: dict[str, Any] | None) -> int:
     return len(cards) if isinstance(cards, list) else 0
 
 
+def _energy_type_count(card: dict[str, Any] | None, energy_type: int) -> int:
+    if not isinstance(card, dict):
+        return 0
+    return sum(int(value) == energy_type for value in (card.get("energies") or []))
+
+
+def _route_eta(card: dict[str, Any] | None, attached: int | None = None) -> int:
+    if not isinstance(card, dict):
+        return 99
+    stage = {DREEPY: 0, DRAKLOAK: 1, DRAGAPULT_EX: 2}.get(
+        _as_int(card.get("id")), -1
+    )
+    if stage < 0:
+        return 99
+    energies = [int(value) for value in (card.get("energies") or [])]
+    if attached is not None:
+        energies.append(int(attached))
+    missing_colors = int(FIRE_ENERGY not in energies) + int(
+        PSYCHIC_ENERGY not in energies
+    )
+    return (2 - stage) + missing_colors
+
+
 def _damage(card: dict[str, Any] | None) -> int:
     if not isinstance(card, dict):
         return 0
@@ -202,6 +225,9 @@ def _board_features(prefix: str, owner: dict[str, Any], out: dict[str, Any]) -> 
         out[f"{prefix}_slot{slot}_max_hp"] = _as_int(card.get("maxHp"), 0)
         out[f"{prefix}_slot{slot}_damage"] = _damage(card)
         out[f"{prefix}_slot{slot}_energy"] = _energy_count(card)
+        out[f"{prefix}_slot{slot}_fire"] = _energy_type_count(card, FIRE_ENERGY)
+        out[f"{prefix}_slot{slot}_psychic"] = _energy_type_count(card, PSYCHIC_ENERGY)
+        out[f"{prefix}_slot{slot}_dark"] = _energy_type_count(card, DARK_ENERGY)
         out[f"{prefix}_slot{slot}_tools"] = len(card.get("tools") or [])
         out[f"{prefix}_slot{slot}_evolution_depth"] = len(
             card.get("preEvolution") or []
@@ -393,6 +419,12 @@ def option_features(
     inplay_index = _as_int(option.get("inPlayIndex"))
     target = _card_at(current, select, inplay_area, inplay_index, player)
     target_id = _as_int(target.get("id")) if target else -1
+    target_energies = [int(value) for value in (target.get("energies") or [])] if target else []
+    is_route_attach = (
+        option_type == OPT_ATTACH
+        and card_id in (FIRE_ENERGY, PSYCHIC_ENERGY)
+        and target_id in (DREEPY, DRAKLOAK, DRAGAPULT_EX)
+    )
     context_card = select.get("contextCard") or {}
     ctx_owner = _as_int(context_card.get("playerIndex"))
 
@@ -414,6 +446,24 @@ def option_features(
         "candidate_target_max_hp": _as_int(target.get("maxHp"), 0) if target else 0,
         "candidate_target_damage": _damage(target),
         "candidate_target_energy": _energy_count(target),
+        "candidate_target_fire": _energy_type_count(target, FIRE_ENERGY),
+        "candidate_target_psychic": _energy_type_count(target, PSYCHIC_ENERGY),
+        "candidate_target_dark": _energy_type_count(target, DARK_ENERGY),
+        "candidate_target_route_eta": _route_eta(target),
+        "candidate_route_eta_after": (
+            _route_eta(target, card_id) if is_route_attach else _route_eta(target)
+        ),
+        "candidate_attach_duplicate_color": int(
+            is_route_attach and card_id in target_energies
+        ),
+        "candidate_attach_completes_colors": int(
+            is_route_attach
+            and card_id not in target_energies
+            and (
+                (card_id == FIRE_ENERGY and PSYCHIC_ENERGY in target_energies)
+                or (card_id == PSYCHIC_ENERGY and FIRE_ENERGY in target_energies)
+            )
+        ),
         "candidate_card_hp": _as_int(card.get("hp"), 0) if card else 0,
         "candidate_card_max_hp": _as_int(card.get("maxHp"), 0) if card else 0,
         "candidate_card_energy": _energy_count(card),
@@ -454,4 +504,3 @@ def assert_no_leakage(feature_columns: list[str]) -> None:
     )
     if bad:
         raise ValueError(f"leakage-prone feature columns: {bad}")
-

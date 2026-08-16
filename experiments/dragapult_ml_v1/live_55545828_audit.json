@@ -1,0 +1,1642 @@
+{
+  "run": "data\\submissions\\submission_55545828_dragapult_v1",
+  "summary": {
+    "games": 7,
+    "record": "3-4",
+    "win_rate": 0.42857142857142855,
+    "games_with_phantom_dive": 4,
+    "first_phantom_turn_mean": 18.25,
+    "games_without_prize": 3,
+    "decision_totals": {
+      "searched_121": 12,
+      "attachments": 34,
+      "route_attachments": 25,
+      "useful_route_attachments": 21,
+      "searched_5": 8,
+      "attacks": 35,
+      "evolve_120": 19,
+      "searched_1080": 2,
+      "searched_1198": 1,
+      "evolve_121": 11,
+      "duplicate_color_attachments": 5,
+      "searched_120": 15,
+      "searched_1182": 5,
+      "unsafe_boss": 4,
+      "searched_1227": 5,
+      "searched_2": 7,
+      "searched_112": 3,
+      "phantom_dives": 8,
+      "spread_selections": 50,
+      "searched_1120": 6,
+      "searched_119": 1,
+      "searched_1152": 3,
+      "searched_1213": 1,
+      "searched_235": 2,
+      "searched_1097": 3,
+      "munkidori_dark_attachments": 4,
+      "searched_7": 2,
+      "searched_1121": 2,
+      "searched_140": 1,
+      "searched_1231": 1
+    }
+  },
+  "games": [
+    {
+      "episode_id": 93557386,
+      "seat": 0,
+      "result": "loss",
+      "reward": -1,
+      "opponent_archetype": "Hop's Trevenant",
+      "max_turn": 1,
+      "prizes_taken": 0,
+      "first_attack_turn": null,
+      "first_phantom_turn": null,
+      "stats": {
+        "searched_121": 1
+      },
+      "warnings": [],
+      "key_events": []
+    },
+    {
+      "episode_id": 93556555,
+      "seat": 0,
+      "result": "win",
+      "reward": 1,
+      "opponent_archetype": "Mega Kangaskhan ex",
+      "max_turn": 23,
+      "prizes_taken": 4,
+      "first_attack_turn": 3,
+      "first_phantom_turn": 19,
+      "stats": {
+        "attachments": 8,
+        "route_attachments": 7,
+        "useful_route_attachments": 5,
+        "searched_5": 4,
+        "attacks": 9,
+        "evolve_120": 3,
+        "searched_1080": 1,
+        "searched_121": 2,
+        "searched_1198": 1,
+        "evolve_121": 3,
+        "duplicate_color_attachments": 2,
+        "searched_120": 2,
+        "searched_1182": 1,
+        "unsafe_boss": 1,
+        "searched_1227": 1,
+        "searched_2": 2,
+        "searched_112": 1,
+        "phantom_dives": 3,
+        "spread_selections": 18
+      },
+      "warnings": [
+        {
+          "step": 46,
+          "turn": 7,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": [
+            5
+          ],
+          "warning": "duplicate_energy_color"
+        },
+        {
+          "step": 62,
+          "turn": 11,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        },
+        {
+          "step": 178,
+          "turn": 23,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            2
+          ],
+          "warning": "duplicate_energy_color"
+        }
+      ],
+      "key_events": [
+        {
+          "step": 7,
+          "turn": 1,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": []
+        },
+        {
+          "step": 21,
+          "turn": 3,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 24,
+          "turn": 3,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": []
+        },
+        {
+          "step": 25,
+          "turn": 3,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 28,
+          "turn": 5,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 34,
+          "turn": 5,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 45,
+          "turn": 7,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 46,
+          "turn": 7,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": [
+            5
+          ],
+          "warning": "duplicate_energy_color"
+        },
+        {
+          "step": 47,
+          "turn": 7,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 51,
+          "turn": 9,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 53,
+          "turn": 9,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 59,
+          "turn": 11,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 62,
+          "turn": 11,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        },
+        {
+          "step": 64,
+          "turn": 11,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 90,
+          "turn": 15,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 93,
+          "turn": 15,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 140,
+          "target_name": "Fezandipiti ex",
+          "target_energy_before": []
+        },
+        {
+          "step": 94,
+          "turn": 15,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 100,
+          "turn": 15,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 103,
+          "turn": 15,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 114,
+          "turn": 17,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            7
+          ]
+        },
+        {
+          "step": 126,
+          "turn": 17,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 127,
+          "turn": 17,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 130,
+          "turn": 17,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 139,
+          "turn": 19,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            5
+          ]
+        },
+        {
+          "step": 140,
+          "turn": 19,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 142,
+          "turn": 19,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 156,
+          "turn": 21,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": []
+        },
+        {
+          "step": 157,
+          "turn": 21,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 178,
+          "turn": 23,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            2
+          ],
+          "warning": "duplicate_energy_color"
+        },
+        {
+          "step": 179,
+          "turn": 23,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        }
+      ]
+    },
+    {
+      "episode_id": 93554679,
+      "seat": 0,
+      "result": "loss",
+      "reward": -1,
+      "opponent_archetype": "Dragapult ex",
+      "max_turn": 13,
+      "prizes_taken": 2,
+      "first_attack_turn": 9,
+      "first_phantom_turn": 9,
+      "stats": {
+        "attachments": 4,
+        "route_attachments": 4,
+        "useful_route_attachments": 4,
+        "evolve_120": 3,
+        "searched_1120": 1,
+        "searched_121": 1,
+        "searched_119": 1,
+        "searched_120": 4,
+        "evolve_121": 2,
+        "searched_1152": 1,
+        "searched_1213": 1,
+        "attacks": 3,
+        "phantom_dives": 2,
+        "spread_selections": 12,
+        "searched_235": 1,
+        "searched_1097": 1,
+        "searched_112": 1,
+        "searched_5": 1
+      },
+      "warnings": [],
+      "key_events": [
+        {
+          "step": 5,
+          "turn": 1,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": []
+        },
+        {
+          "step": 18,
+          "turn": 3,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 26,
+          "turn": 3,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": [
+            2
+          ]
+        },
+        {
+          "step": 52,
+          "turn": 5,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 74,
+          "turn": 7,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 102,
+          "turn": 9,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 107,
+          "turn": 9,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 138,
+          "turn": 11,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 150,
+          "turn": 11,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": []
+        },
+        {
+          "step": 151,
+          "turn": 11,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 182,
+          "turn": 13,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            7
+          ]
+        },
+        {
+          "step": 185,
+          "turn": 13,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 188,
+          "turn": 13,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        }
+      ]
+    },
+    {
+      "episode_id": 93555570,
+      "seat": 1,
+      "result": "win",
+      "reward": 1,
+      "opponent_archetype": "Dragapult ex",
+      "max_turn": 28,
+      "prizes_taken": 5,
+      "first_attack_turn": 2,
+      "first_phantom_turn": 26,
+      "stats": {
+        "attachments": 8,
+        "munkidori_dark_attachments": 2,
+        "searched_121": 4,
+        "attacks": 14,
+        "searched_5": 1,
+        "route_attachments": 4,
+        "useful_route_attachments": 3,
+        "duplicate_color_attachments": 2,
+        "searched_7": 1,
+        "evolve_120": 4,
+        "searched_1121": 1,
+        "searched_1227": 2,
+        "searched_120": 1,
+        "searched_1097": 1,
+        "searched_2": 2,
+        "searched_1120": 3,
+        "evolve_121": 2,
+        "searched_1152": 1,
+        "spread_selections": 14,
+        "unsafe_boss": 1,
+        "searched_1182": 1,
+        "phantom_dives": 2
+      },
+      "warnings": [
+        {
+          "step": 57,
+          "turn": 8,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 112,
+          "target_name": "Munkidori",
+          "target_energy_before": [
+            5
+          ],
+          "warning": "duplicate_energy_color"
+        },
+        {
+          "step": 108,
+          "turn": 22,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": [
+            2
+          ],
+          "warning": "duplicate_energy_color"
+        },
+        {
+          "step": 165,
+          "turn": 26,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        }
+      ],
+      "key_events": [
+        {
+          "step": 13,
+          "turn": 2,
+          "context": 0,
+          "kind": "attach",
+          "subject": 7,
+          "subject_name": "Basic {D} Energy",
+          "target": 112,
+          "target_name": "Munkidori",
+          "target_energy_before": []
+        },
+        {
+          "step": 18,
+          "turn": 2,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 28,
+          "turn": 4,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 112,
+          "target_name": "Munkidori",
+          "target_energy_before": [
+            7
+          ]
+        },
+        {
+          "step": 29,
+          "turn": 4,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 32,
+          "turn": 4,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 41,
+          "turn": 6,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": []
+        },
+        {
+          "step": 42,
+          "turn": 6,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 57,
+          "turn": 8,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 112,
+          "target_name": "Munkidori",
+          "target_energy_before": [
+            5
+          ],
+          "warning": "duplicate_energy_color"
+        },
+        {
+          "step": 58,
+          "turn": 8,
+          "context": 0,
+          "kind": "attack",
+          "subject": 141,
+          "subject_name": "Mind Bend",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 70,
+          "turn": 10,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 73,
+          "turn": 10,
+          "context": 0,
+          "kind": "attack",
+          "subject": 151,
+          "subject_name": "Bite",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 76,
+          "turn": 12,
+          "context": 0,
+          "kind": "attack",
+          "subject": 151,
+          "subject_name": "Bite",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 82,
+          "turn": 14,
+          "context": 0,
+          "kind": "attack",
+          "subject": 150,
+          "subject_name": "Petty Grudge",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 86,
+          "turn": 16,
+          "context": 0,
+          "kind": "attach",
+          "subject": 7,
+          "subject_name": "Basic {D} Energy",
+          "target": 112,
+          "target_name": "Munkidori",
+          "target_energy_before": []
+        },
+        {
+          "step": 87,
+          "turn": 16,
+          "context": 0,
+          "kind": "attack",
+          "subject": 150,
+          "subject_name": "Petty Grudge",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 89,
+          "turn": 18,
+          "context": 0,
+          "kind": "attack",
+          "subject": 150,
+          "subject_name": "Petty Grudge",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 91,
+          "turn": 20,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 97,
+          "turn": 20,
+          "context": 0,
+          "kind": "attack",
+          "subject": 150,
+          "subject_name": "Petty Grudge",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 103,
+          "turn": 22,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 108,
+          "turn": 22,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": [
+            2
+          ],
+          "warning": "duplicate_energy_color"
+        },
+        {
+          "step": 110,
+          "turn": 22,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 111,
+          "turn": 22,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 117,
+          "turn": 22,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 120,
+          "turn": 22,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 121,
+          "turn": 22,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 152,
+          "turn": 24,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": []
+        },
+        {
+          "step": 153,
+          "turn": 24,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 156,
+          "turn": 24,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 164,
+          "turn": 26,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            5
+          ]
+        },
+        {
+          "step": 165,
+          "turn": 26,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        },
+        {
+          "step": 177,
+          "turn": 26,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 180,
+          "turn": 26,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 200,
+          "turn": 28,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        }
+      ]
+    },
+    {
+      "episode_id": 93553749,
+      "seat": 0,
+      "result": "loss",
+      "reward": -1,
+      "opponent_archetype": "Teal Mask Ogerpon ex",
+      "max_turn": 3,
+      "prizes_taken": 0,
+      "first_attack_turn": null,
+      "first_phantom_turn": null,
+      "stats": {
+        "searched_120": 2,
+        "attachments": 2,
+        "route_attachments": 2,
+        "useful_route_attachments": 1,
+        "searched_121": 1,
+        "evolve_120": 1,
+        "searched_1097": 1,
+        "duplicate_color_attachments": 1,
+        "searched_5": 1
+      },
+      "warnings": [
+        {
+          "step": 33,
+          "turn": 3,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": [
+            2
+          ],
+          "warning": "duplicate_energy_color"
+        }
+      ],
+      "key_events": [
+        {
+          "step": 6,
+          "turn": 1,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": []
+        },
+        {
+          "step": 28,
+          "turn": 3,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 33,
+          "turn": 3,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": [
+            2
+          ],
+          "warning": "duplicate_energy_color"
+        }
+      ]
+    },
+    {
+      "episode_id": 93552826,
+      "seat": 0,
+      "result": "loss",
+      "reward": -1,
+      "opponent_archetype": "Mega Lucario ex",
+      "max_turn": 7,
+      "prizes_taken": 0,
+      "first_attack_turn": 5,
+      "first_phantom_turn": null,
+      "stats": {
+        "attachments": 4,
+        "munkidori_dark_attachments": 1,
+        "searched_120": 3,
+        "searched_7": 1,
+        "evolve_120": 4,
+        "searched_1152": 1,
+        "searched_140": 1,
+        "searched_1120": 1,
+        "searched_2": 2,
+        "route_attachments": 3,
+        "useful_route_attachments": 3,
+        "searched_1121": 1,
+        "searched_1182": 1,
+        "searched_1080": 1,
+        "searched_121": 2,
+        "evolve_121": 2,
+        "attacks": 2,
+        "searched_1227": 1,
+        "searched_235": 1
+      },
+      "warnings": [],
+      "key_events": [
+        {
+          "step": 9,
+          "turn": 1,
+          "context": 0,
+          "kind": "attach",
+          "subject": 7,
+          "subject_name": "Basic {D} Energy",
+          "target": 112,
+          "target_name": "Munkidori",
+          "target_energy_before": []
+        },
+        {
+          "step": 10,
+          "turn": 1,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 35,
+          "turn": 3,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 40,
+          "turn": 3,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 48,
+          "turn": 3,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 57,
+          "turn": 3,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": [
+            5
+          ]
+        },
+        {
+          "step": 78,
+          "turn": 5,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 86,
+          "turn": 5,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 91,
+          "turn": 5,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            7
+          ]
+        },
+        {
+          "step": 96,
+          "turn": 5,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 97,
+          "turn": 5,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 126,
+          "turn": 7,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": []
+        },
+        {
+          "step": 131,
+          "turn": 7,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 134,
+          "turn": 7,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        }
+      ]
+    },
+    {
+      "episode_id": 93552726,
+      "seat": 0,
+      "result": "win",
+      "reward": 1,
+      "opponent_archetype": "Dragapult ex",
+      "max_turn": 25,
+      "prizes_taken": 4,
+      "first_attack_turn": 3,
+      "first_phantom_turn": 19,
+      "stats": {
+        "evolve_120": 4,
+        "searched_1231": 1,
+        "attachments": 8,
+        "route_attachments": 5,
+        "useful_route_attachments": 5,
+        "attacks": 7,
+        "searched_112": 1,
+        "munkidori_dark_attachments": 1,
+        "evolve_121": 2,
+        "searched_2": 1,
+        "searched_1227": 1,
+        "searched_5": 1,
+        "searched_121": 1,
+        "phantom_dives": 1,
+        "spread_selections": 6,
+        "searched_120": 3,
+        "searched_1182": 2,
+        "unsafe_boss": 2,
+        "searched_1120": 1
+      },
+      "warnings": [
+        {
+          "step": 183,
+          "turn": 21,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        },
+        {
+          "step": 211,
+          "turn": 25,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        }
+      ],
+      "key_events": [
+        {
+          "step": 20,
+          "turn": 3,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 25,
+          "turn": 3,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 120,
+          "target_name": "Drakloak",
+          "target_energy_before": []
+        },
+        {
+          "step": 26,
+          "turn": 3,
+          "context": 0,
+          "kind": "attack",
+          "subject": 323,
+          "subject_name": "Itchy Pollen",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 43,
+          "turn": 5,
+          "context": 0,
+          "kind": "attach",
+          "subject": 7,
+          "subject_name": "Basic {D} Energy",
+          "target": 112,
+          "target_name": "Munkidori",
+          "target_energy_before": []
+        },
+        {
+          "step": 44,
+          "turn": 5,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 52,
+          "turn": 5,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 85,
+          "turn": 7,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 119,
+          "target_name": "Dreepy",
+          "target_energy_before": []
+        },
+        {
+          "step": 86,
+          "turn": 7,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 95,
+          "turn": 9,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": []
+        },
+        {
+          "step": 96,
+          "turn": 9,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 111,
+          "turn": 13,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 140,
+          "target_name": "Fezandipiti ex",
+          "target_energy_before": []
+        },
+        {
+          "step": 112,
+          "turn": 13,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 121,
+          "turn": 15,
+          "context": 0,
+          "kind": "attach",
+          "subject": 5,
+          "subject_name": "Basic {P} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": []
+        },
+        {
+          "step": 122,
+          "turn": 15,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 133,
+          "turn": 17,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 140,
+          "target_name": "Fezandipiti ex",
+          "target_energy_before": []
+        },
+        {
+          "step": 134,
+          "turn": 17,
+          "context": 0,
+          "kind": "retreat",
+          "subject": null,
+          "subject_name": "unknown",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 140,
+          "turn": 17,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 154,
+          "turn": 19,
+          "context": 0,
+          "kind": "attach",
+          "subject": 2,
+          "subject_name": "Basic {R} Energy",
+          "target": 121,
+          "target_name": "Dragapult ex",
+          "target_energy_before": [
+            5
+          ]
+        },
+        {
+          "step": 155,
+          "turn": 19,
+          "context": 0,
+          "kind": "attack",
+          "subject": 154,
+          "subject_name": "Phantom Dive",
+          "target": null,
+          "target_name": "unknown"
+        },
+        {
+          "step": 180,
+          "turn": 21,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 183,
+          "turn": 21,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        },
+        {
+          "step": 195,
+          "turn": 23,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 198,
+          "turn": 23,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 121,
+          "subject_name": "Dragapult ex",
+          "target": 120,
+          "target_name": "Drakloak"
+        },
+        {
+          "step": 208,
+          "turn": 25,
+          "context": 0,
+          "kind": "evolve",
+          "subject": 120,
+          "subject_name": "Drakloak",
+          "target": 119,
+          "target_name": "Dreepy"
+        },
+        {
+          "step": 211,
+          "turn": 25,
+          "context": 0,
+          "kind": "play",
+          "subject": 1182,
+          "subject_name": "Boss’s Orders",
+          "target": null,
+          "target_name": "unknown",
+          "warning": "boss_without_active_phantom_ko"
+        },
+        {
+          "step": 213,
+          "turn": 25,
+          "context": 0,
+          "kind": "attack",
+          "subject": 153,
+          "subject_name": "Jet Headbutt",
+          "target": null,
+          "target_name": "unknown"
+        }
+      ]
+    }
+  ]
+}

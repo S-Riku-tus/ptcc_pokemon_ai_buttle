@@ -60,10 +60,60 @@ def legal(action: Any, select: dict[str, Any]) -> bool:
     )
 
 
+def attachment_flags(observation: dict[str, Any], action: Any) -> Counter[str]:
+    """Count typed Dragapult attachments in an action on the observed board."""
+    out: Counter[str] = Counter()
+    if not isinstance(action, list):
+        return out
+    current = observation.get("current") or {}
+    select = observation.get("select") or {}
+    players = current.get("players") or [{}, {}]
+    your = int(current.get("yourIndex", 0))
+    mine = players[your] if your in (0, 1) else {}
+    hand = mine.get("hand") or []
+    options = select.get("option") or []
+    for index in action:
+        if not isinstance(index, int) or not 0 <= index < len(options):
+            continue
+        option = options[index]
+        if int(option.get("type", -1)) != 8:
+            continue
+        hand_index = int(option.get("index", -1))
+        if not 0 <= hand_index < len(hand) or not isinstance(hand[hand_index], dict):
+            continue
+        source = int(hand[hand_index].get("id", -1))
+        area = int(option.get("inPlayArea", -1))
+        target_index = int(option.get("inPlayIndex", -1))
+        zone = mine.get("active") if area == 4 else mine.get("bench") if area == 5 else []
+        if not isinstance(zone, list) or not 0 <= target_index < len(zone):
+            continue
+        target = zone[target_index]
+        if not isinstance(target, dict):
+            continue
+        target_id = int(target.get("id", -1))
+        energies = [int(value) for value in target.get("energies") or []]
+        out["attachments"] += 1
+        if source in (2, 5) and target_id in (119, 120, 121):
+            out["route_attachments"] += 1
+            if source in energies:
+                out["duplicate_route_color"] += 1
+            else:
+                out["useful_route_color"] += 1
+                other = 5 if source == 2 else 2
+                out["completes_route_colors"] += int(other in energies)
+        if source == 7 and target_id == 112:
+            out["munkidori_dark"] += 1
+    return out
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--agent-dir", type=Path, required=True)
-    parser.add_argument("--data-root", type=Path, required=True)
+    parser.add_argument("--data-root", type=Path)
+    parser.add_argument(
+        "--run-dir", type=Path,
+        help="Downloaded submission run; its submitted actions become replay labels.",
+    )
     parser.add_argument("--index", type=Path)
     parser.add_argument("--team", type=int)
     parser.add_argument("--min-episode", type=int, default=0)
@@ -79,8 +129,30 @@ def main() -> int:
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
 
-    index_path = args.index or args.data_root / "indexes" / "episodes.csv"
-    index = pd.read_csv(index_path)
+    if bool(args.run_dir) == bool(args.data_root):
+        raise SystemExit("use exactly one of --data-root or --run-dir")
+    if args.run_dir:
+        index_path = args.run_dir / "manifest.csv"
+        manifest = pd.read_csv(index_path)
+        index = pd.DataFrame({
+            "download_status": "success",
+            "team_id": 0,
+            "episode_id": manifest["episode_id"].astype(int),
+            "seat_index": manifest["detected_submission_agent_index"].astype(int),
+            "replay_path": [
+                str((
+                    args.run_dir / "episodes" / str(int(episode_id)) / "replay"
+                    / f"episode_{int(episode_id)}.json"
+                ).resolve())
+                for episode_id in manifest["episode_id"]
+            ],
+        })
+        data_root = args.run_dir
+    else:
+        assert args.data_root is not None
+        index_path = args.index or args.data_root / "indexes" / "episodes.csv"
+        index = pd.read_csv(index_path)
+        data_root = args.data_root
     index = index[index["download_status"].isin(["success", "skipped_existing"])]
     if args.team is not None:
         index = index[index["team_id"] == args.team]
@@ -140,14 +212,17 @@ def main() -> int:
     ranker_totals: Counter[str] = Counter()
     fallback_totals: Counter[str] = Counter()
     fallback_errors: Counter[str] = Counter()
+    guard_totals: Counter[str] = Counter()
+    predicted_behaviour: Counter[str] = Counter()
+    teacher_behaviour: Counter[str] = Counter()
     latencies: list[float] = []
     for _, relation in index.iterrows():
         replay_value = str(getattr(relation, "replay_path", "") or "").strip()
         if replay_value:
             candidate = Path(replay_value)
-            replay_path = candidate if candidate.is_absolute() else args.data_root / candidate
+            replay_path = candidate if candidate.is_absolute() else data_root / candidate
         else:
-            replay_path = args.data_root / "replays" / f"episode_{relation.episode_id}.json"
+            replay_path = data_root / "replays" / f"episode_{relation.episode_id}.json"
         replay = json.loads(replay_path.read_text(encoding="utf-8"))
         seat = int(relation.seat_index)
         steps = replay.get("steps") or []
@@ -176,6 +251,7 @@ def main() -> int:
                 else "multi"
             )
             before_used = ranker.snapshot().get("ranker_used", 0)
+            before_guarded = int(getattr(module, "_GUARD_STATS", {}).get("overrides", 0))
             start = time.perf_counter()
             predicted = None
             try:
@@ -184,7 +260,12 @@ def main() -> int:
                 counts["agent_exception"] += 1
             latencies.append(time.perf_counter() - start)
             after_used = ranker.snapshot().get("ranker_used", 0)
-            route = "ml" if after_used > before_used else "fallback"
+            after_guarded = int(getattr(module, "_GUARD_STATS", {}).get("overrides", 0))
+            route = (
+                "guarded" if after_guarded > before_guarded
+                else "ml" if after_used > before_used
+                else "fallback"
+            )
 
             is_legal = legal(predicted, select)
             correct = bool(
@@ -192,6 +273,8 @@ def main() -> int:
                 and semantic_action(observation, predicted)
                 == semantic_action(observation, teacher)
             )
+            predicted_behaviour.update(attachment_flags(observation, predicted))
+            teacher_behaviour.update(attachment_flags(observation, teacher))
             counts["decisions"] += 1
             counts["legal"] += int(is_legal)
             counts["correct"] += int(correct)
@@ -215,6 +298,7 @@ def main() -> int:
             if isinstance(value, (int, float))
         })
         fallback_errors.update(fallback_diag.get("errors") or {})
+        guard_totals.update(episode_diag.get("guard") or {})
 
     def rates(counter: Counter[str]) -> dict[str, Any]:
         total = counter["decisions"]
@@ -253,7 +337,12 @@ def main() -> int:
         "diagnostics": {
             "ml": dict(ranker_totals),
             "fallback": {**dict(fallback_totals), "errors": dict(fallback_errors)},
+            "guard": dict(guard_totals),
             "load_error": getattr(module, "_LOAD_ERROR", None),
+        },
+        "behaviour": {
+            "predicted": dict(predicted_behaviour),
+            "teacher": dict(teacher_behaviour),
         },
         "latency_ms": {
             "mean": round(1000 * sum(latencies) / max(1, len(latencies)), 3),
