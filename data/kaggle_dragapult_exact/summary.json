@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-08-16T09:15:51.706741+00:00",
+  "teacher_source": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\dragapult_ml_v2\\teachers_20260816.csv",
+  "target_deck_hash": "202ee2cec6cbe8b4",
+  "teachers_requested": 17,
+  "teachers_accepted": 15,
+  "trajectories_accepted": 1392,
+  "unique_episodes_accepted": 1359,
+  "per_teacher_trajectories": {
+    "16371653": 56,
+    "16374395": 58,
+    "16375320": 56,
+    "16378553": 60,
+    "16380946": 101,
+    "16416261": 74,
+    "16422241": 142,
+    "16445258": 116,
+    "16445292": 50,
+    "16462035": 195,
+    "16464757": 54,
+    "16474254": 115,
+    "16531787": 150,
+    "16561259": 106,
+    "16569286": 59
+  },
+  "relations_rejected": 0,
+  "rejection_reasons": {},
+  "list_failures": 0,
+  "duplicate_episode_seat_relations_removed": 0,
+  "deck_mismatch_count": 0,
+  "seat_error_count": 0,
+  "data_gate": {
+    "minimum_trajectories": 1000,
+    "minimum_independent_teachers": 5,
+    "trajectories_pass": true,
+    "teachers_pass": true,
+    "integrity_pass": true
+  }
+}

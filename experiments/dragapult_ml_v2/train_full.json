@@ -1,0 +1,963 @@
+{
+  "corpus": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\ml\\dragapult_v2\\corpus_full.npz",
+  "teams": "all",
+  "leave_out_team": null,
+  "focus_team": null,
+  "focus_weight": 1.0,
+  "win_weight": 1.0,
+  "hard_state_weight": 1.0,
+  "hard_state_set": "v21",
+  "hard_state_support": {
+    "train": {
+      "delayed_attack_access": 0,
+      "attack_chain_gap": 0,
+      "punk_allocation": 0,
+      "ready_promotion": 0,
+      "wall_recovery": 0,
+      "mirror_endgame": 0,
+      "retreat_lock": 0,
+      "bench_locked": 0,
+      "boss_prize_route": 0,
+      "dead_shadow_with_route": 0
+    },
+    "validation": {
+      "delayed_attack_access": 0,
+      "attack_chain_gap": 0,
+      "punk_allocation": 0,
+      "ready_promotion": 0,
+      "wall_recovery": 0,
+      "mirror_endgame": 0,
+      "retreat_lock": 0,
+      "bench_locked": 0,
+      "boss_prize_route": 0,
+      "dead_shadow_with_route": 0
+    },
+    "test": {
+      "delayed_attack_access": 0,
+      "attack_chain_gap": 0,
+      "punk_allocation": 0,
+      "ready_promotion": 0,
+      "wall_recovery": 0,
+      "mirror_endgame": 0,
+      "retreat_lock": 0,
+      "bench_locked": 0,
+      "boss_prize_route": 0,
+      "dead_shadow_with_route": 0
+    }
+  },
+  "rating_weight": 0.0,
+  "episode_equal_weight": true,
+  "teacher_equal_weight": true,
+  "ratings": {},
+  "eval_team": null,
+  "train_context_support": {
+    "0": 50976,
+    "1": 379,
+    "3": 2664,
+    "4": 1700,
+    "5": 62,
+    "7": 13705,
+    "8": 25,
+    "9": 4,
+    "13": 1723,
+    "14": 16614,
+    "15": 8,
+    "16": 718,
+    "21": 1285,
+    "22": 892,
+    "30": 501,
+    "38": 238,
+    "40": 1626,
+    "41": 544,
+    "43": 416
+  },
+  "params": {
+    "objective": "lambdarank",
+    "num_leaves": 255,
+    "learning_rate": 0.05,
+    "min_data_in_leaf": 40,
+    "feature_fraction": 0.5,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "seed": 17,
+    "verbosity": -1,
+    "num_threads": 18,
+    "metric": "None",
+    "lambdarank_truncation_level": 12,
+    "label_gain": [
+      0,
+      1
+    ]
+  },
+  "best_iteration": 789,
+  "num_boost_round": 5000,
+  "team_feature": true,
+  "split_mode": "per-team",
+  "split_boundaries": {
+    "16371653": [
+      93488963,
+      93521738
+    ],
+    "16374395": [
+      93431558,
+      93484402
+    ],
+    "16375320": [
+      93479098,
+      93518097
+    ],
+    "16378553": [
+      93448636,
+      93489804
+    ],
+    "16380946": [
+      92655885,
+      92784953
+    ],
+    "16416261": [
+      92792376,
+      92800841
+    ],
+    "16422241": [
+      93343403,
+      93445893
+    ],
+    "16445258": [
+      93001770,
+      93091875
+    ],
+    "16445292": [
+      93531614,
+      93536178
+    ],
+    "16462035": [
+      93464754,
+      93485258
+    ],
+    "16464757": [
+      92833389,
+      92875969
+    ],
+    "16474254": [
+      93478993,
+      93489749
+    ],
+    "16531787": [
+      93328374,
+      93425490
+    ],
+    "16561259": [
+      92946005,
+      93084242
+    ],
+    "16569286": [
+      92833255,
+      92905054
+    ]
+  },
+  "split_decisions": {
+    "train": 94080,
+    "validation": 13648,
+    "test": 14088
+  },
+  "split_episodes": {
+    "train": 1035,
+    "validation": 167,
+    "test": 165
+  },
+  "split_submissions": {
+    "train": 17,
+    "validation": 15,
+    "test": 15
+  },
+  "validation": {
+    "decisions": 13648,
+    "top1": 0.7458,
+    "top1_wilson95": [
+      0.7384,
+      0.753
+    ],
+    "top2": 0.91,
+    "top3": 0.965,
+    "taxonomy": {
+      "counts": {
+        "correct": 10178,
+        "same_turn_ordering": 1980,
+        "same_action_type_divergence": 796,
+        "divergence": 694
+      },
+      "rates": {
+        "correct": 0.7458,
+        "same_turn_ordering": 0.1451,
+        "same_action_type_divergence": 0.0583,
+        "divergence": 0.0508
+      },
+      "order_insensitive_top1": 0.8908,
+      "top_action_confusions": [
+        {
+          "teacher": 12,
+          "predicted": 12,
+          "count": 977
+        },
+        {
+          "teacher": 8,
+          "predicted": 0,
+          "count": 150
+        },
+        {
+          "teacher": 5,
+          "predicted": 5,
+          "count": 122
+        },
+        {
+          "teacher": 8,
+          "predicted": 8,
+          "count": 105
+        },
+        {
+          "teacher": 5,
+          "predicted": 0,
+          "count": 102
+        },
+        {
+          "teacher": 16,
+          "predicted": 0,
+          "count": 90
+        },
+        {
+          "teacher": 6,
+          "predicted": 0,
+          "count": 80
+        },
+        {
+          "teacher": 1,
+          "predicted": 8,
+          "count": 76
+        },
+        {
+          "teacher": 8,
+          "predicted": 5,
+          "count": 70
+        },
+        {
+          "teacher": 5,
+          "predicted": 8,
+          "count": 63
+        },
+        {
+          "teacher": 0,
+          "predicted": 8,
+          "count": 61
+        },
+        {
+          "teacher": 0,
+          "predicted": 0,
+          "count": 61
+        }
+      ]
+    },
+    "top1_by_teacher_action": {
+      "0": {
+        "decisions": 1471,
+        "top1": 0.8097
+      },
+      "1": {
+        "decisions": 832,
+        "top1": 0.7163
+      },
+      "2": {
+        "decisions": 603,
+        "top1": 0.6667
+      },
+      "3": {
+        "decisions": 161,
+        "top1": 0.354
+      },
+      "4": {
+        "decisions": 173,
+        "top1": 0.5954
+      },
+      "5": {
+        "decisions": 932,
+        "top1": 0.588
+      },
+      "6": {
+        "decisions": 787,
+        "top1": 0.7827
+      },
+      "7": {
+        "decisions": 145,
+        "top1": 1.0
+      },
+      "8": {
+        "decisions": 1415,
+        "top1": 0.6035
+      },
+      "9": {
+        "decisions": 243,
+        "top1": 0.9794
+      },
+      "11": {
+        "decisions": 250,
+        "top1": 0.444
+      },
+      "12": {
+        "decisions": 5802,
+        "top1": 0.8316
+      },
+      "14": {
+        "decisions": 151,
+        "top1": 0.5563
+      },
+      "15": {
+        "decisions": 89,
+        "top1": 0.6854
+      },
+      "16": {
+        "decisions": 594,
+        "top1": 0.5842
+      }
+    },
+    "top1_by_context": {
+      "0": {
+        "decisions": 7382,
+        "top1": 0.6693
+      },
+      "14": {
+        "decisions": 2448,
+        "top1": 0.8787
+      },
+      "7": {
+        "decisions": 1946,
+        "top1": 0.779
+      },
+      "3": {
+        "decisions": 386,
+        "top1": 0.7953
+      },
+      "4": {
+        "decisions": 262,
+        "top1": 0.9046
+      },
+      "13": {
+        "decisions": 224,
+        "top1": 0.7098
+      },
+      "21": {
+        "decisions": 218,
+        "top1": 0.8761
+      },
+      "40": {
+        "decisions": 205,
+        "top1": 0.9805
+      },
+      "22": {
+        "decisions": 167,
+        "top1": 0.8443
+      },
+      "41": {
+        "decisions": 88,
+        "top1": 1.0
+      },
+      "30": {
+        "decisions": 76,
+        "top1": 0.3816
+      },
+      "1": {
+        "decisions": 65,
+        "top1": 0.9385
+      },
+      "16": {
+        "decisions": 63,
+        "top1": 0.7302
+      },
+      "43": {
+        "decisions": 57,
+        "top1": 1.0
+      },
+      "38": {
+        "decisions": 38,
+        "top1": 0.9737
+      },
+      "5": {
+        "decisions": 11,
+        "top1": 1.0
+      },
+      "15": {
+        "decisions": 5,
+        "top1": 0.4
+      },
+      "8": {
+        "decisions": 4,
+        "top1": 0.25
+      },
+      "9": {
+        "decisions": 3,
+        "top1": 0.6667
+      }
+    },
+    "top1_by_team": {
+      "16445292": {
+        "decisions": 574,
+        "top1": 0.8328
+      },
+      "16445258": {
+        "decisions": 1187,
+        "top1": 0.8281
+      },
+      "16375320": {
+        "decisions": 474,
+        "top1": 0.8101
+      },
+      "16371653": {
+        "decisions": 549,
+        "top1": 0.7851
+      },
+      "16561259": {
+        "decisions": 1267,
+        "top1": 0.779
+      },
+      "16464757": {
+        "decisions": 402,
+        "top1": 0.7711
+      },
+      "16569286": {
+        "decisions": 674,
+        "top1": 0.7626
+      },
+      "16374395": {
+        "decisions": 581,
+        "top1": 0.7539
+      },
+      "16416261": {
+        "decisions": 802,
+        "top1": 0.7406
+      },
+      "16474254": {
+        "decisions": 1268,
+        "top1": 0.7342
+      },
+      "16462035": {
+        "decisions": 1776,
+        "top1": 0.7252
+      },
+      "16531787": {
+        "decisions": 1404,
+        "top1": 0.7208
+      },
+      "16380946": {
+        "decisions": 845,
+        "top1": 0.7148
+      },
+      "16422241": {
+        "decisions": 1343,
+        "top1": 0.6821
+      },
+      "16378553": {
+        "decisions": 502,
+        "top1": 0.6135
+      }
+    },
+    "top1_by_hard_state": {
+      "delayed_attack_access": {
+        "decisions": 0,
+        "top1": null
+      },
+      "attack_chain_gap": {
+        "decisions": 0,
+        "top1": null
+      },
+      "punk_allocation": {
+        "decisions": 0,
+        "top1": null
+      },
+      "ready_promotion": {
+        "decisions": 0,
+        "top1": null
+      },
+      "wall_recovery": {
+        "decisions": 0,
+        "top1": null
+      },
+      "mirror_endgame": {
+        "decisions": 0,
+        "top1": null
+      },
+      "retreat_lock": {
+        "decisions": 0,
+        "top1": null
+      },
+      "bench_locked": {
+        "decisions": 0,
+        "top1": null
+      },
+      "boss_prize_route": {
+        "decisions": 0,
+        "top1": null
+      },
+      "dead_shadow_with_route": {
+        "decisions": 0,
+        "top1": null
+      }
+    }
+  },
+  "test": {
+    "decisions": 14088,
+    "top1": 0.7462,
+    "top1_wilson95": [
+      0.7389,
+      0.7533
+    ],
+    "top2": 0.9128,
+    "top3": 0.9634,
+    "taxonomy": {
+      "counts": {
+        "correct": 10512,
+        "same_action_type_divergence": 839,
+        "divergence": 724,
+        "same_turn_ordering": 2013
+      },
+      "rates": {
+        "correct": 0.7462,
+        "same_action_type_divergence": 0.0596,
+        "divergence": 0.0514,
+        "same_turn_ordering": 0.1429
+      },
+      "order_insensitive_top1": 0.8891,
+      "top_action_confusions": [
+        {
+          "teacher": 12,
+          "predicted": 12,
+          "count": 1019
+        },
+        {
+          "teacher": 8,
+          "predicted": 0,
+          "count": 165
+        },
+        {
+          "teacher": 5,
+          "predicted": 5,
+          "count": 137
+        },
+        {
+          "teacher": 8,
+          "predicted": 8,
+          "count": 124
+        },
+        {
+          "teacher": 5,
+          "predicted": 0,
+          "count": 106
+        },
+        {
+          "teacher": 1,
+          "predicted": 8,
+          "count": 81
+        },
+        {
+          "teacher": 6,
+          "predicted": 0,
+          "count": 76
+        },
+        {
+          "teacher": 16,
+          "predicted": 0,
+          "count": 74
+        },
+        {
+          "teacher": 8,
+          "predicted": 5,
+          "count": 72
+        },
+        {
+          "teacher": 5,
+          "predicted": 8,
+          "count": 67
+        },
+        {
+          "teacher": 0,
+          "predicted": 0,
+          "count": 60
+        },
+        {
+          "teacher": 2,
+          "predicted": 0,
+          "count": 59
+        }
+      ]
+    },
+    "top1_by_teacher_action": {
+      "0": {
+        "decisions": 1579,
+        "top1": 0.8176
+      },
+      "1": {
+        "decisions": 861,
+        "top1": 0.7096
+      },
+      "2": {
+        "decisions": 615,
+        "top1": 0.7073
+      },
+      "3": {
+        "decisions": 184,
+        "top1": 0.3533
+      },
+      "4": {
+        "decisions": 183,
+        "top1": 0.6011
+      },
+      "5": {
+        "decisions": 979,
+        "top1": 0.5884
+      },
+      "6": {
+        "decisions": 800,
+        "top1": 0.8087
+      },
+      "7": {
+        "decisions": 161,
+        "top1": 1.0
+      },
+      "8": {
+        "decisions": 1517,
+        "top1": 0.5887
+      },
+      "9": {
+        "decisions": 223,
+        "top1": 0.9731
+      },
+      "11": {
+        "decisions": 271,
+        "top1": 0.4613
+      },
+      "12": {
+        "decisions": 5888,
+        "top1": 0.8269
+      },
+      "14": {
+        "decisions": 168,
+        "top1": 0.5833
+      },
+      "15": {
+        "decisions": 89,
+        "top1": 0.7865
+      },
+      "16": {
+        "decisions": 570,
+        "top1": 0.6035
+      }
+    },
+    "top1_by_context": {
+      "0": {
+        "decisions": 7717,
+        "top1": 0.676
+      },
+      "14": {
+        "decisions": 2442,
+        "top1": 0.8767
+      },
+      "7": {
+        "decisions": 2045,
+        "top1": 0.7667
+      },
+      "3": {
+        "decisions": 430,
+        "top1": 0.7977
+      },
+      "4": {
+        "decisions": 261,
+        "top1": 0.8736
+      },
+      "13": {
+        "decisions": 231,
+        "top1": 0.7403
+      },
+      "40": {
+        "decisions": 202,
+        "top1": 0.9703
+      },
+      "21": {
+        "decisions": 189,
+        "top1": 0.8571
+      },
+      "22": {
+        "decisions": 131,
+        "top1": 0.8626
+      },
+      "30": {
+        "decisions": 99,
+        "top1": 0.4848
+      },
+      "41": {
+        "decisions": 95,
+        "top1": 1.0
+      },
+      "16": {
+        "decisions": 79,
+        "top1": 0.8734
+      },
+      "43": {
+        "decisions": 66,
+        "top1": 1.0
+      },
+      "1": {
+        "decisions": 61,
+        "top1": 0.9836
+      },
+      "38": {
+        "decisions": 21,
+        "top1": 1.0
+      },
+      "5": {
+        "decisions": 14,
+        "top1": 1.0
+      },
+      "8": {
+        "decisions": 3,
+        "top1": 0.0
+      },
+      "9": {
+        "decisions": 2,
+        "top1": 0.0
+      }
+    },
+    "top1_by_team": {
+      "16561259": {
+        "decisions": 1248,
+        "top1": 0.8125
+      },
+      "16445258": {
+        "decisions": 1005,
+        "top1": 0.8109
+      },
+      "16445292": {
+        "decisions": 564,
+        "top1": 0.8103
+      },
+      "16464757": {
+        "decisions": 618,
+        "top1": 0.7945
+      },
+      "16375320": {
+        "decisions": 524,
+        "top1": 0.7882
+      },
+      "16569286": {
+        "decisions": 696,
+        "top1": 0.7759
+      },
+      "16374395": {
+        "decisions": 670,
+        "top1": 0.7642
+      },
+      "16416261": {
+        "decisions": 841,
+        "top1": 0.7503
+      },
+      "16474254": {
+        "decisions": 956,
+        "top1": 0.7437
+      },
+      "16371653": {
+        "decisions": 663,
+        "top1": 0.7345
+      },
+      "16462035": {
+        "decisions": 1879,
+        "top1": 0.7302
+      },
+      "16380946": {
+        "decisions": 1156,
+        "top1": 0.7232
+      },
+      "16531787": {
+        "decisions": 1541,
+        "top1": 0.7054
+      },
+      "16422241": {
+        "decisions": 1244,
+        "top1": 0.6712
+      },
+      "16378553": {
+        "decisions": 483,
+        "top1": 0.6439
+      }
+    },
+    "top1_by_hard_state": {
+      "delayed_attack_access": {
+        "decisions": 0,
+        "top1": null
+      },
+      "attack_chain_gap": {
+        "decisions": 0,
+        "top1": null
+      },
+      "punk_allocation": {
+        "decisions": 0,
+        "top1": null
+      },
+      "ready_promotion": {
+        "decisions": 0,
+        "top1": null
+      },
+      "wall_recovery": {
+        "decisions": 0,
+        "top1": null
+      },
+      "mirror_endgame": {
+        "decisions": 0,
+        "top1": null
+      },
+      "retreat_lock": {
+        "decisions": 0,
+        "top1": null
+      },
+      "bench_locked": {
+        "decisions": 0,
+        "top1": null
+      },
+      "boss_prize_route": {
+        "decisions": 0,
+        "top1": null
+      },
+      "dead_shadow_with_route": {
+        "decisions": 0,
+        "top1": null
+      }
+    }
+  },
+  "top_features": [
+    {
+      "name": "candidate_card_id",
+      "gain": 230285.6
+    },
+    {
+      "name": "opp_active_id",
+      "gain": 112436.4
+    },
+    {
+      "name": "action_type_id",
+      "gain": 94982.3
+    },
+    {
+      "name": "teacher_team_id",
+      "gain": 63762.1
+    },
+    {
+      "name": "turn_class_passed_over",
+      "gain": 55244.1
+    },
+    {
+      "name": "option_position",
+      "gain": 45965.8
+    },
+    {
+      "name": "option_type",
+      "gain": 43481.2
+    },
+    {
+      "name": "turn_candidate_passed_over",
+      "gain": 42389.0
+    },
+    {
+      "name": "turn_candidate_offer_count",
+      "gain": 41928.7
+    },
+    {
+      "name": "select_option_count",
+      "gain": 36015.2
+    },
+    {
+      "name": "candidate_card_hp",
+      "gain": 29637.4
+    },
+    {
+      "name": "turn_action_count",
+      "gain": 26644.4
+    },
+    {
+      "name": "candidate_target_id",
+      "gain": 26304.1
+    },
+    {
+      "name": "log_count",
+      "gain": 26217.1
+    },
+    {
+      "name": "candidate_counters_left_after",
+      "gain": 25999.3
+    },
+    {
+      "name": "self_deck_count",
+      "gain": 25767.6
+    },
+    {
+      "name": "select_context",
+      "gain": 22820.9
+    },
+    {
+      "name": "candidate_attack_id",
+      "gain": 21839.4
+    },
+    {
+      "name": "candidate_counters_to_ko",
+      "gain": 21766.2
+    },
+    {
+      "name": "candidate_inplay_area",
+      "gain": 21318.8
+    },
+    {
+      "name": "self_active_id",
+      "gain": 19860.6
+    },
+    {
+      "name": "turn",
+      "gain": 19611.7
+    },
+    {
+      "name": "spread_budget",
+      "gain": 19027.6
+    },
+    {
+      "name": "candidate_area",
+      "gain": 17976.2
+    },
+    {
+      "name": "turn_candidate_first_offer_index",
+      "gain": 17487.7
+    },
+    {
+      "name": "turn_decision_index",
+      "gain": 17257.6
+    },
+    {
+      "name": "self_hand_count",
+      "gain": 16807.7
+    },
+    {
+      "name": "effect_id",
+      "gain": 16730.4
+    },
+    {
+      "name": "candidate_route_eta_after",
+      "gain": 16259.0
+    },
+    {
+      "name": "candidate_attach_completes_colors",
+      "gain": 15354.7
+    }
+  ],
+  "validation_curve_tail": {
+    "top1": [
+      0.7428,
+      0.743,
+      0.7429,
+      0.7425,
+      0.7424
+    ]
+  }
+}

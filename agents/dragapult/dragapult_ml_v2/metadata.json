@@ -1,0 +1,81 @@
+{
+  "name": "dragapult_ml_v2",
+  "role": "submission_candidate",
+  "archetype": "dragapult_ex",
+  "version": "2.0.0",
+  "created_at": "2026-08-16T00:00:00+09:00",
+  "deck_hash": "202ee2cec6cbe8b4",
+  "deck_changed": false,
+  "policy": "Typed-route imitation. The teacher-conditioned ranker owns every routed, mandatory, single-pick decision; the deterministic policy owns multi-pick, optional declines, unseen candidates and unrouted contexts. The only override is mechanical: a duplicate-colour route attachment is replaced when the same decision offers one that completes the Fire+Psychic pair.",
+  "search": false,
+  "submission_ready": true,
+  "submission_blockers": [],
+  "changes_from_v1": [
+    "typed Energy per body, route ETA before/after a candidate, and completes-the-pair columns: v1 could not distinguish Fire onto a Psychic-holding Dragapult from Fire onto a Fire-holding one",
+    "resolved card tables (prize value, weakness, printed HP, attack-cost frontier) so damage, knock-outs and spread value are computable",
+    "ABILITY options resolved from area/index instead of the absent inPlayArea/inPlayIndex, in both the features and the rule policy",
+    "remainingOverageTime removed: teachers 572-592s vs our 591-599s made every learned split out of distribution",
+    "Phantom Dive spread features and rule scoring read the remaining counter budget instead of assuming all six",
+    "Ultra Ball's two-card discard ordered by the teachers' measured discard rate (training split only) instead of a hand-written priority",
+    "corpus refreshed from 854 trajectories / 9 teachers to 1392 / 15",
+    "the broad v1.1 deterministic override removed: it seized 2322 test decisions at 0.4018 agreement against the model's 0.7273"
+  ],
+  "training_result": {
+    "teachers": 15,
+    "verified_trajectories": 1392,
+    "unique_episodes": 1392,
+    "decisions": 121816,
+    "candidate_rows": 732375,
+    "features": 439,
+    "best_iteration": 789,
+    "early_stopping": 800,
+    "test_top1": 0.7462,
+    "test_top3": 0.9634,
+    "test_order_insensitive_top1": 0.8891
+  },
+  "controlled_feature_ablation": {
+    "note": "identical 854 episodes, identical splits, patience 800 on both arms",
+    "v1_features_test_top1": 0.7568,
+    "v2_features_test_top1": 0.7606,
+    "v1_features_test_top3": 0.9656,
+    "v2_features_test_top3": 0.9668,
+    "patience_200_to_800_gain": 0.0011
+  },
+  "runtime_test": {
+    "index": "data/kaggle_dragapult_exact, chronological test split of train_full.json",
+    "episodes": 167,
+    "decisions": 16380,
+    "v1_semantic_agreement": 0.6862,
+    "v2_semantic_agreement": 0.7295,
+    "v2_agreement_wilson95": [0.7227, 0.7363],
+    "v2_main_context_agreement": 0.6391,
+    "v2_ultra_ball_discard_agreement": 0.4484,
+    "v1_ultra_ball_discard_agreement": 0.21,
+    "legal_rate": 1.0,
+    "exceptions": 0,
+    "guard_overrides": 0,
+    "mean_ms": 14.947,
+    "p95_ms": 43.063,
+    "duplicate_route_attachments": 2,
+    "teacher_duplicate_route_attachments": 8,
+    "route_attachments": 681,
+    "teacher_route_attachments": 614
+  },
+  "model": {
+    "teacher_team_id": 16380946,
+    "trees": 789,
+    "bytes": 17858419
+  },
+  "data_policy": {
+    "exact_deck_only": true,
+    "deck_hash": "202ee2cec6cbe8b4",
+    "deduplicate_by": ["episode_id", "seat_index"],
+    "private_information_features": false,
+    "environment_derived_features": false,
+    "split": "per-teacher chronological",
+    "teacher_conditioned": true,
+    "episode_equal_weight": true,
+    "teacher_equal_weight": true
+  },
+  "status": "development"
+}

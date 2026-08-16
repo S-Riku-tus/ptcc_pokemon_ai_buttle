@@ -1,0 +1,322 @@
+{
+  "run": {
+    "label": "live",
+    "games": 20,
+    "own_turns": 156,
+    "own_turns_per_game": 7.8,
+    "rows": [
+      {
+        "action": "adrena_brain",
+        "offered_turns": 24,
+        "taken_turns": 22,
+        "take_rate": 0.9167,
+        "offers_per_game": 1.2,
+        "takes_per_game": 1.1
+      },
+      {
+        "action": "attach",
+        "offered_turns": 126,
+        "taken_turns": 112,
+        "take_rate": 0.8889,
+        "offers_per_game": 6.3,
+        "takes_per_game": 5.6
+      },
+      {
+        "action": "attack",
+        "offered_turns": 120,
+        "taken_turns": 112,
+        "take_rate": 0.9333,
+        "offers_per_game": 6.0,
+        "takes_per_game": 5.6
+      },
+      {
+        "action": "boss",
+        "offered_turns": 47,
+        "taken_turns": 13,
+        "take_rate": 0.2766,
+        "offers_per_game": 2.35,
+        "takes_per_game": 0.65
+      },
+      {
+        "action": "crispin",
+        "offered_turns": 54,
+        "taken_turns": 24,
+        "take_rate": 0.4444,
+        "offers_per_game": 2.7,
+        "takes_per_game": 1.2
+      },
+      {
+        "action": "dawn",
+        "offered_turns": 25,
+        "taken_turns": 5,
+        "take_rate": 0.2,
+        "offers_per_game": 1.25,
+        "takes_per_game": 0.25
+      },
+      {
+        "action": "evolve_dragapult",
+        "offered_turns": 44,
+        "taken_turns": 33,
+        "take_rate": 0.75,
+        "offers_per_game": 2.2,
+        "takes_per_game": 1.65
+      },
+      {
+        "action": "evolve_drakloak",
+        "offered_turns": 41,
+        "taken_turns": 39,
+        "take_rate": 0.9512,
+        "offers_per_game": 2.05,
+        "takes_per_game": 1.95
+      },
+      {
+        "action": "flip_the_script",
+        "offered_turns": 13,
+        "taken_turns": 13,
+        "take_rate": 1.0,
+        "offers_per_game": 0.65,
+        "takes_per_game": 0.65
+      },
+      {
+        "action": "hammer",
+        "offered_turns": 41,
+        "taken_turns": 41,
+        "take_rate": 1.0,
+        "offers_per_game": 2.05,
+        "takes_per_game": 2.05
+      },
+      {
+        "action": "judge",
+        "offered_turns": 16,
+        "taken_turns": 6,
+        "take_rate": 0.375,
+        "offers_per_game": 0.8,
+        "takes_per_game": 0.3
+      },
+      {
+        "action": "lillie",
+        "offered_turns": 50,
+        "taken_turns": 28,
+        "take_rate": 0.56,
+        "offers_per_game": 2.5,
+        "takes_per_game": 1.4
+      },
+      {
+        "action": "poffin",
+        "offered_turns": 53,
+        "taken_turns": 31,
+        "take_rate": 0.5849,
+        "offers_per_game": 2.65,
+        "takes_per_game": 1.55
+      },
+      {
+        "action": "poke_pad",
+        "offered_turns": 56,
+        "taken_turns": 41,
+        "take_rate": 0.7321,
+        "offers_per_game": 2.8,
+        "takes_per_game": 2.05
+      },
+      {
+        "action": "recon_directive",
+        "offered_turns": 95,
+        "taken_turns": 78,
+        "take_rate": 0.8211,
+        "offers_per_game": 4.75,
+        "takes_per_game": 3.9
+      },
+      {
+        "action": "stamp",
+        "offered_turns": 13,
+        "taken_turns": 13,
+        "take_rate": 1.0,
+        "offers_per_game": 0.65,
+        "takes_per_game": 0.65
+      },
+      {
+        "action": "stretcher",
+        "offered_turns": 43,
+        "taken_turns": 18,
+        "take_rate": 0.4186,
+        "offers_per_game": 2.15,
+        "takes_per_game": 0.9
+      },
+      {
+        "action": "tower",
+        "offered_turns": 29,
+        "taken_turns": 16,
+        "take_rate": 0.5517,
+        "offers_per_game": 1.45,
+        "takes_per_game": 0.8
+      },
+      {
+        "action": "ultra_ball",
+        "offered_turns": 66,
+        "taken_turns": 41,
+        "take_rate": 0.6212,
+        "offers_per_game": 3.3,
+        "takes_per_game": 2.05
+      }
+    ]
+  },
+  "teachers": {
+    "label": "teachers",
+    "games": 93,
+    "own_turns": 631,
+    "own_turns_per_game": 6.78,
+    "rows": [
+      {
+        "action": "adrena_brain",
+        "offered_turns": 162,
+        "taken_turns": 151,
+        "take_rate": 0.9321,
+        "offers_per_game": 1.742,
+        "takes_per_game": 1.624
+      },
+      {
+        "action": "attach",
+        "offered_turns": 577,
+        "taken_turns": 506,
+        "take_rate": 0.8769,
+        "offers_per_game": 6.204,
+        "takes_per_game": 5.441
+      },
+      {
+        "action": "attack",
+        "offered_turns": 503,
+        "taken_turns": 487,
+        "take_rate": 0.9682,
+        "offers_per_game": 5.409,
+        "takes_per_game": 5.237
+      },
+      {
+        "action": "boss",
+        "offered_turns": 285,
+        "taken_turns": 98,
+        "take_rate": 0.3439,
+        "offers_per_game": 3.065,
+        "takes_per_game": 1.054
+      },
+      {
+        "action": "crispin",
+        "offered_turns": 244,
+        "taken_turns": 132,
+        "take_rate": 0.541,
+        "offers_per_game": 2.624,
+        "takes_per_game": 1.419
+      },
+      {
+        "action": "dawn",
+        "offered_turns": 124,
+        "taken_turns": 23,
+        "take_rate": 0.1855,
+        "offers_per_game": 1.333,
+        "takes_per_game": 0.247
+      },
+      {
+        "action": "evolve_dragapult",
+        "offered_turns": 214,
+        "taken_turns": 167,
+        "take_rate": 0.7804,
+        "offers_per_game": 2.301,
+        "takes_per_game": 1.796
+      },
+      {
+        "action": "evolve_drakloak",
+        "offered_turns": 190,
+        "taken_turns": 183,
+        "take_rate": 0.9632,
+        "offers_per_game": 2.043,
+        "takes_per_game": 1.968
+      },
+      {
+        "action": "flip_the_script",
+        "offered_turns": 120,
+        "taken_turns": 109,
+        "take_rate": 0.9083,
+        "offers_per_game": 1.29,
+        "takes_per_game": 1.172
+      },
+      {
+        "action": "hammer",
+        "offered_turns": 207,
+        "taken_turns": 183,
+        "take_rate": 0.8841,
+        "offers_per_game": 2.226,
+        "takes_per_game": 1.968
+      },
+      {
+        "action": "judge",
+        "offered_turns": 108,
+        "taken_turns": 31,
+        "take_rate": 0.287,
+        "offers_per_game": 1.161,
+        "takes_per_game": 0.333
+      },
+      {
+        "action": "lillie",
+        "offered_turns": 273,
+        "taken_turns": 161,
+        "take_rate": 0.5897,
+        "offers_per_game": 2.935,
+        "takes_per_game": 1.731
+      },
+      {
+        "action": "poffin",
+        "offered_turns": 219,
+        "taken_turns": 117,
+        "take_rate": 0.5342,
+        "offers_per_game": 2.355,
+        "takes_per_game": 1.258
+      },
+      {
+        "action": "poke_pad",
+        "offered_turns": 253,
+        "taken_turns": 192,
+        "take_rate": 0.7589,
+        "offers_per_game": 2.72,
+        "takes_per_game": 2.065
+      },
+      {
+        "action": "recon_directive",
+        "offered_turns": 419,
+        "taken_turns": 375,
+        "take_rate": 0.895,
+        "offers_per_game": 4.505,
+        "takes_per_game": 4.032
+      },
+      {
+        "action": "stamp",
+        "offered_turns": 56,
+        "taken_turns": 55,
+        "take_rate": 0.9821,
+        "offers_per_game": 0.602,
+        "takes_per_game": 0.591
+      },
+      {
+        "action": "stretcher",
+        "offered_turns": 169,
+        "taken_turns": 86,
+        "take_rate": 0.5089,
+        "offers_per_game": 1.817,
+        "takes_per_game": 0.925
+      },
+      {
+        "action": "tower",
+        "offered_turns": 164,
+        "taken_turns": 84,
+        "take_rate": 0.5122,
+        "offers_per_game": 1.763,
+        "takes_per_game": 0.903
+      },
+      {
+        "action": "ultra_ball",
+        "offered_turns": 315,
+        "taken_turns": 135,
+        "take_rate": 0.4286,
+        "offers_per_game": 3.387,
+        "takes_per_game": 1.452
+      }
+    ]
+  }
+}
