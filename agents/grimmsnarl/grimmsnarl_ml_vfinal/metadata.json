@@ -1,13 +1,13 @@
 {
   "name": "grimmsnarl_ml_vfinal",
-  "version": "final.0.0",
-  "role": "experimental_submission_candidate",
+  "version": "final.1.0",
+  "role": "champion_submission",
   "archetype": "marnies_grimmsnarl_ex",
   "parent_agent": "grimmsnarl_ml_v22",
   "created_at": "2026-08-13T17:00:00+09:00",
   "deck_hash": "9714ab5c3996f6cc",
   "deck_changed": false,
-  "policy": "v22 policy verbatim (same 60, same 2000-tree ranker pinned to team 16371703, same fallback and one-ply planner) plus turn_search: a within-turn line enumeration over the official cg search API that may overrule the ranker only when a different first action leads to strictly more prizes this turn on every determinization sampled.",
+  "policy": "v22's policy verbatim: the same 60-card list, the same 2,000-tree ranker pinned to same-deck pilot 16371703 (observed rating 1220.2), the same fallback policy and one-ply planner, byte for byte.  The turn_search module ships with the agent but is disabled: it is the record of the experiment that was run to try to beat v22, not a behaviour change.",
   "ranker": {
     "source_agent": "grimmsnarl_ml_v8",
     "trees": 2000,
@@ -46,7 +46,55 @@
     "effective_runtime": "no separate escalation: the global teacher pin is already code 0"
   },
   "known_limits": [
-    "Strength is unverified until real ladder episodes are collected."
+    "Marnie\u2019s Grimmsnarl ex is Grass-Weak and Teal Mask Ogerpon ex\u2019s Myriad Leaf Shower reaches (30 + 30 x energies on both Actives) x 2, so from three Energy it one-shots our 320 HP two-prize attacker every turn while Shadow Bullet needs two turns back.  0-13 against Ogerpon at 950+ is structural, not a policy defect: over 86 such attacks our Active held 2.00 Energy on average, exactly the Shadow Bullet cost, so there is nothing to stop feeding.",
+    "Repairing Ogerpon, Hydrapple and Mega Lopunny/Froslass to 0.500 is worth about +47 Elo in the 950+ band, which is the whole identified matchup budget on this 60.",
+    "Grimmsnarl ex appears in 0 of 62 decks observed among the current top-35 teams, so no fresh same-deck teacher exists to retrain against."
   ],
-  "description": "Experimental v22 submission candidate using the same-deck 1220.2-rated pilot condition."
+  "description": "The measured champion: v22\u2019s policy, with the within-turn search experiment shipped disabled and fully documented.",
+  "turn_search": {
+    "enabled": false,
+    "idea": "Enumerate the remainder of our own turn through the official cg.api search entry points and overrule the ranker only when a different first action leads to a line taking strictly more prizes on every determinization sampled.  Unlike v7/v11/v27 it never searches past the end of our own turn, so it needs no belief over the opponent hand and no value model.",
+    "offline_evidence": {
+      "games": 45,
+      "our_turns": 233,
+      "turns_with_a_strictly_better_prize_line": 11,
+      "rate": 0.047,
+      "extra_prizes_available": 13,
+      "wins_the_greedy_line_missed": 0,
+      "report": "experiments/grimmsnarl_vfinal/turn_search_probe.json"
+    },
+    "arena": {
+      "design": "320-game local mirror, seats alternating, calibrated against a null control of v22 versus a byte-identical copy of itself.",
+      "null_control_win_rate": 0.4917,
+      "null_control_games": 240,
+      "null_control_wilson95": [
+        0.429,
+        0.5545
+      ],
+      "opening_only_win_rate": 0.478,
+      "opening_only_wilson95": [
+        0.424,
+        0.5328
+      ],
+      "committed_line_win_rate": 0.3438,
+      "committed_line_wilson95": [
+        0.2938,
+        0.3974
+      ],
+      "reports": [
+        "experiments/grimmsnarl_vfinal/arena_null_v22_v22.json",
+        "experiments/grimmsnarl_vfinal/arena_mirror_vfinal_v22.json",
+        "experiments/grimmsnarl_vfinal/arena_mirror_committed_fixed.json"
+      ]
+    },
+    "verdict": "The extra prizes are real and committing collects them - 36 against the ranker\u2019s 10 over 23 opportunities - but the more faithfully the prize-maximal line is executed the worse the agent plays. Prizes taken this turn is not a sufficient objective for a turn, and the layer is therefore off."
+  },
+  "rejected_alternatives": {
+    "v28": "lost the same 400-game paired arena to v22 at 0.4475 [0.400, 0.497]"
+  },
+  "validation": {
+    "unit_and_regression_tests": "see agents/grimmsnarl/grimmsnarl_ml_vfinal/tests",
+    "policy_files_byte_identical_to_v22": true,
+    "arena_null_control_confirms_equivalence": "pending"
+  }
 }

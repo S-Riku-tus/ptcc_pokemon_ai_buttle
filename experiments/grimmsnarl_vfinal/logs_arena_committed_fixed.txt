@@ -1,0 +1,58 @@
+{
+  "a": "agents\\grimmsnarl\\grimmsnarl_ml_vfinal",
+  "b": "agents\\grimmsnarl\\grimmsnarl_ml_v22",
+  "games": 320,
+  "a_record": "110-210",
+  "a_win_rate": 0.3438,
+  "a_win_rate_wilson95": [
+    0.2938,
+    0.3974
+  ],
+  "a_as_first": {
+    "games": 160,
+    "wins": 61
+  },
+  "a_as_second": {
+    "games": 160,
+    "wins": 49
+  },
+  "a_shadow_mean": 3.934,
+  "b_shadow_mean": 4.122,
+  "a_attacks_mean": 4.125,
+  "b_attacks_mean": 4.316,
+  "a_prizes_left_mean": 2.413,
+  "b_prizes_left_mean": 1.766,
+  "seconds_per_game": 63.96,
+  "wall_clock_seconds": 2821.4,
+  "search_totals": {
+    "a.abandon_at.desync live0!=plan3@0": 11,
+    "a.abandon_at.desync live0!=plan3@1": 1,
+    "a.abandon_at.desync live0!=plan3@2": 1,
+    "a.abandon_at.desync live0!=plan7@0": 3,
+    "a.abandon_at.desync live5!=plan7@3": 1,
+    "a.abandon_at.desync live7!=plan0@0": 1,
+    "a.abandon_at.desync live7!=plan0@1": 1,
+    "a.abandon_at.desync live7!=plan3@0": 13,
+    "a.abandon_at.desync live7!=plan3@1": 1,
+    "a.abandon_at.desync live7!=plan3@2": 2,
+    "a.considered": 10297,
+    "a.errors": 0,
+    "a.improved_first_world": 538,
+    "a.no_baseline": 154,
+    "a.no_committable": 0,
+    "a.no_improvement": 9788,
+    "a.no_lines": 11,
+    "a.overage_last": -320.0,
+    "a.overrides": 294,
+    "a.plan_steps": 1353,
+    "a.plans": 294,
+    "a.plans_abandoned": 35,
+    "a.same_index": 0,
+    "a.search_seconds": 15491.76,
+    "a.searches": 10297,
+    "a.skipped_budget": 0,
+    "a.world_disagreement": 50
+  },
+  "errors": [],
+  "exceptions": {}
+}

@@ -36,10 +36,21 @@ OPT_END = 14
 # basic Energy has no copy limit to violate.
 FILLER_CARD = 7
 
-# One switch for the whole layer.  v22's policy is the best-evidenced agent
-# this line has produced, so the search only ships if a paired arena says it
-# beats v22; if it does not, this goes to False and vfinal *is* v22.
-ENABLED = True
+# OFF, on measurement.  Paired 320-game local mirror arenas against v22, with
+# the arena calibrated on a null control (v22 against a byte-identical copy of
+# itself scored 0.4917 [0.429, 0.554] over 240 games with a 59/120-59/120 seat
+# split, so the instrument is unbiased):
+#
+#   override the opening only         0.478  [0.424, 0.533]
+#   commit the whole line             0.344  [0.294, 0.397]
+#
+# The layer finds real extra prizes - 4.7% of our turns have a line taking a
+# prize the ranker's action cannot, and committing collects 36 where the ranker
+# takes 10 - but converting them costs more than they are worth, and the more
+# faithfully the prize-maximal line is executed the worse the agent plays.
+# Prizes-taken-this-turn is not a sufficient objective for a turn.  The module
+# ships disabled so the result is reproducible, not so it can be switched on.
+ENABLED = False
 
 DEFAULT_MAX_NODES = 6000
 DEFAULT_BEAM = 32

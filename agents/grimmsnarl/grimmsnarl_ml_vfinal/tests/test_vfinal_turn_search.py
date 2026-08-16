@@ -214,7 +214,8 @@ def _line(sig, prizes=0, threat=0, damage=0, result=-1, plan=None,
     return {
         "first": [0], "first_signature": (sig,), "prizes": prizes,
         "threat": threat, "damage": damage, "result": result, "complete": True,
-        "plan": plan if plan is not None else [(sig,)],
+        # Plan steps are (select context, tuple of option signatures).
+        "plan": plan if plan is not None else [(0, (sig,))],
         "uses_deck": uses_deck,
     }
 
@@ -326,14 +327,15 @@ def test_an_override_commits_the_rest_of_its_line() -> None:
     options = [{"type": 14}, {"type": 13, "attackId": 936}]
     ranker, other = (turn_search.option_signature(o) for o in options)
     attack = turn_search.option_signature({"type": 13, "attackId": 937})
-    line = _line(other, prizes=1, plan=[(other,), (attack,)])
+    line = _line(other, prizes=1, plan=[(0, (other,)), (0, (attack,))])
     worlds = [
         [_line(ranker, prizes=0), line],
         [_line(ranker, prizes=0), _line(other, prizes=1)],
     ]
     search = _StubLines(worlds)
     assert search.suggest(_observation_with(options), 0) == 1
-    assert search.plan is not None and search.plan["steps"] == [(attack,)]
+    assert search.plan is not None
+    assert search.plan["steps"] == [(0, (attack,))]
 
     # The continuation is then replayed by signature, not by index: the attack
     # sits at a different position on the real board.
@@ -347,7 +349,7 @@ def test_an_override_commits_the_rest_of_its_line() -> None:
 def test_a_plan_is_abandoned_when_the_board_does_not_match() -> None:
     search = _StubLines([])
     attack = turn_search.option_signature({"type": 13, "attackId": 937})
-    search.plan = {"turn": 7, "steps": [(attack,)], "cursor": 0}
+    search.plan = {"turn": 7, "steps": [(0, (attack,))], "cursor": 0}
     absent = _observation_with([{"type": 14}])
     assert search.planned(absent) is None
     assert search.plan is None
@@ -357,7 +359,7 @@ def test_a_plan_is_abandoned_when_the_board_does_not_match() -> None:
 def test_a_plan_does_not_survive_into_the_next_turn() -> None:
     search = _StubLines([])
     attack = turn_search.option_signature({"type": 13, "attackId": 937})
-    search.plan = {"turn": 7, "steps": [(attack,)], "cursor": 0}
+    search.plan = {"turn": 7, "steps": [(0, (attack,))], "cursor": 0}
     later = _observation_with([{"type": 13, "attackId": 937}])
     later["current"]["turn"] = 9
     assert search.planned(later) is None

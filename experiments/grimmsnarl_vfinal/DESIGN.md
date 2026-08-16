@@ -233,7 +233,84 @@ After all five: 13 plans over 12 games, 57 replayed steps, **2 abandoned**,
 both on a genuine board divergence (the live turn was asked a MAIN where the
 plan expected a switch), which returns the turn to v22.
 
-## 6. Reproduce
+## 7. The verdict, and the instrument it rests on
+
+Before believing any arena number, the arena was calibrated. v22 against a
+**byte-identical copy of itself**, 240 games:
+
+```
+0.4917  Wilson 95% [0.429, 0.5545]
+as first seat 59/120, as second seat 59/120
+```
+
+Unbiased, and the seat split is exactly even. The instrument is sound, and at
+n=320-400 its standard error is 2.5-2.8 points.
+
+Against that baseline, three 320-game paired mirrors:
+
+| build | record | win rate | 95% CI |
+|---|---|---:|---|
+| null control (v22 vs v22) | 118-122 | 0.4917 | [0.429, 0.554] |
+| override the opening only | 153-167 | **0.478** | [0.424, 0.533] |
+| commit the whole line | 110-210 | **0.344** | [0.294, 0.397] |
+
+The layer is not inert - it overrode 480 and 294 times respectively, 3-4% of
+MAIN decisions, at a cost of 57 s per game against a 600 s bank - and it is not
+better. Worse: **the more faithfully the prize-maximal line is executed, the
+worse the agent plays.** The committed build takes more prizes on the turns it
+overrides and fewer prizes over the game (2.41 of our own prizes left at the
+end against v22's 1.77), and it attacks less (4.13 attacks per game against
+4.32, 3.93 Shadow Bullets against 4.12). A turn chosen to maximise prizes now
+spends the board that produces the attacks later.
+
+So the conclusion is not "search does not work here". It is sharper, and it is
+the thing v7, v11 and v27 could never learn because they never bound at all:
+
+> **Prizes taken this turn is not a sufficient objective for a turn.** Giving a
+> search authority over the imitation policy needs a leaf score that values
+> what the turn leaves behind, and the only candidate for that is the value
+> model whose turn-band AUC is 0.63 on turns 1-4.
+
+The layer therefore ships **disabled** (`turn_search.ENABLED = False`), and
+`tests/test_vfinal_is_v22.py` pins every policy file byte-identical to v22 and
+asserts the component does not load. vfinal *is* v22.
+
+## 8. Nothing else in the line beats v22 either
+
+The same calibrated arena, 400 games each, finally separates versions the
+ladder never could - a single ladder run has a ~130 Elo noise floor, so v22,
+v28 and v29 were formally indistinguishable on it:
+
+| challenger | record vs v22 | win rate | 95% CI | ladder implied strength |
+|---|---|---:|---|---:|
+| v25 | 199-201 | 0.4975 | [0.449, 0.546] | 917 over 85 games |
+| v28 | 179-221 | 0.4475 | [0.400, 0.497] | 996 over 35 games |
+| v29 | 178-222 | 0.4450 | [0.397, 0.494] | 858 over 47 games |
+| **v27** | 220-180 | **0.5500** | [0.501, 0.598] | 872 over 34 games |
+
+v28 and v29 are both below 0.5 with the whole interval under it, and the
+arena's ordering agrees with the ladder's opponent-adjusted ordering. v25 ties
+in the mirror while being 90 points worse on the ladder, which is consistent
+with the v28 analysis that located v25's entire deficit in the wall/tank cell
+the mirror does not contain - a reminder that this arena measures **one** of
+nine matchups.
+
+v27 is the one result that goes the other way, and it is treated as
+provisional, not as a promotion:
+
+* it is one comparison out of five run here, so at alpha 0.05 the family-wise
+  chance of a spurious hit is about 23%;
+* its interval only just clears 0.5;
+* the ladder disagrees hard - v27 scored an implied 872 over 34 games where
+  v22 has an implied ~1010 over 215;
+* and `grimmsnarl-v27-is-behaviourally-v22` recorded only 8 differing decisions
+  in 2,755 when v27 was teacher-forced on v22's own stored boards, so a 5-point
+  mirror edge needs the self-play board distribution to be doing the work.
+
+The replication (seats swapped, plus a repeat) is in
+`logs_v27_replication.txt`.
+
+## 9. Reproduce
 
 ```powershell
 .\.venv\Scripts\python.exe .\experiments\grimmsnarl_vfinal\dump_meta_decks.py
