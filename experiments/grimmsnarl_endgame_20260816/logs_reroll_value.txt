@@ -1,0 +1,40 @@
+live slots: old=847.5 new=886.2  displayed=886.2 (rank 446 of 6841)
+single-run sd assumed 63.0
+
+=== assumed fixed point on today's scale: 860 ===
+do nothing                         mean=  886.2 (rank ~ 446)  p10=  886.2  p90=  886.2  P(worse than now)= 0.0%
+burn both slots now (2 fresh)      mean=  895.7 (rank ~ 411)  p10=  830.2  p90=  962.9  P(worse than now)=43.6%
+reroll, up to 1 cycle(s)           mean=  900.3 (rank ~ 397)  p10=  886.2  p90=  940.6  P(worse than now)= 0.0%
+reroll, up to 2 cycle(s)           mean=  902.5 (rank ~ 390)  p10=  886.2  p90=  948.9  P(worse than now)= 0.0%
+reroll, up to 3 cycle(s)           mean=  902.7 (rank ~ 389)  p10=  886.2  p90=  949.8  P(worse than now)= 0.0%
+reroll, up to 4 cycle(s)           mean=  902.6 (rank ~ 389)  p10=  886.2  p90=  949.6  P(worse than now)= 0.0%
+reroll, up to 6 cycle(s)           mean=  902.7 (rank ~ 389)  p10=  886.2  p90=  949.9  P(worse than now)= 0.0%
+
+=== assumed fixed point on today's scale: 890 ===
+do nothing                         mean=  886.2 (rank ~ 446)  p10=  886.2  p90=  886.2  P(worse than now)= 0.0%
+burn both slots now (2 fresh)      mean=  925.4 (rank ~ 298)  p10=  859.7  p90=  992.9  P(worse than now)=22.8%
+reroll, up to 1 cycle(s)           mean=  913.3 (rank ~ 345)  p10=  886.2  p90=  970.9  P(worse than now)= 0.0%
+reroll, up to 2 cycle(s)           mean=  919.3 (rank ~ 322)  p10=  886.2  p90=  983.9  P(worse than now)= 0.0%
+reroll, up to 3 cycle(s)           mean=  920.1 (rank ~ 319)  p10=  886.2  p90=  986.0  P(worse than now)= 0.0%
+reroll, up to 4 cycle(s)           mean=  920.1 (rank ~ 319)  p10=  886.2  p90=  986.1  P(worse than now)= 0.0%
+reroll, up to 6 cycle(s)           mean=  920.1 (rank ~ 319)  p10=  886.2  p90=  986.6  P(worse than now)= 0.0%
+
+=== assumed fixed point on today's scale: 920 ===
+do nothing                         mean=  886.2 (rank ~ 446)  p10=  886.2  p90=  886.2  P(worse than now)= 0.0%
+burn both slots now (2 fresh)      mean=  955.6 (rank ~ 212)  p10=  889.6  p90= 1023.0  P(worse than now)= 8.8%
+reroll, up to 1 cycle(s)           mean=  931.9 (rank ~ 280)  p10=  886.2  p90= 1001.1  P(worse than now)= 0.0%
+reroll, up to 2 cycle(s)           mean=  943.9 (rank ~ 249)  p10=  886.2  p90= 1017.3  P(worse than now)= 0.0%
+reroll, up to 3 cycle(s)           mean=  946.2 (rank ~ 241)  p10=  886.2  p90= 1021.1  P(worse than now)= 0.0%
+reroll, up to 4 cycle(s)           mean=  946.6 (rank ~ 240)  p10=  886.2  p90= 1022.0  P(worse than now)= 0.0%
+reroll, up to 6 cycle(s)           mean=  947.0 (rank ~ 240)  p10=  886.2  p90= 1022.4  P(worse than now)= 0.0%
+
+=== assumed fixed point on today's scale: 950 ===
+do nothing                         mean=  886.2 (rank ~ 446)  p10=  886.2  p90=  886.2  P(worse than now)= 0.0%
+burn both slots now (2 fresh)      mean=  985.5 (rank ~ 141)  p10=  919.9  p90= 1053.0  P(worse than now)= 2.4%
+reroll, up to 1 cycle(s)           mean=  955.2 (rank ~ 213)  p10=  886.2  p90= 1031.1  P(worse than now)= 0.0%
+reroll, up to 2 cycle(s)           mean=  975.3 (rank ~ 163)  p10=  886.2  p90= 1050.5  P(worse than now)= 0.0%
+reroll, up to 3 cycle(s)           mean=  979.9 (rank ~ 154)  p10=  886.2  p90= 1055.3  P(worse than now)= 0.0%
+reroll, up to 4 cycle(s)           mean=  980.8 (rank ~ 151)  p10=  886.2  p90= 1056.6  P(worse than now)= 0.0%
+reroll, up to 6 cycle(s)           mean=  981.0 (rank ~ 151)  p10=  886.2  p90= 1057.2  P(worse than now)= 0.0%
+
+Reading it: 'reroll' follows the stopping rule - submit only while the newer live slot is at least the older one. Under that rule the floor never falls below today's 886.2, which is why P(worse than now) is 0.

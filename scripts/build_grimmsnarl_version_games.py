@@ -59,6 +59,8 @@ RUNS: tuple[tuple[str, int, str], ...] = (
     ("v26", 55520389, "20260815_grimmsnarl_ml_v26_sub55520389"),
     ("v27", 55521760, "20260815_grimmsnarl_ml_v27_sub55521760"),
     ("v28", 55526859, "20260815_grimmsnarl_ml_v28_sub55526859"),
+    ("v29", 55530747, "20260816_grimmsnarl_ml_v29_sub55530747"),
+    ("v22_e", 55542305, "20260816_grimmsnarl_sub55542305"),
 )
 
 # Families whose Active can be immune to Grimmsnarl ex's Shadow Bullet; the

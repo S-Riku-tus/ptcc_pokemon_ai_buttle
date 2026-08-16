@@ -1,0 +1,172 @@
+{
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\dragapult\\dragapult_ml_v1",
+  "index": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\kaggle_dragapult_exact\\indexes\\episodes.csv",
+  "team": 16380946,
+  "min_episode": 92784953,
+  "episodes": 12,
+  "decisions": 1328,
+  "semantic_agreement": 0.7041,
+  "semantic_agreement_wilson95": [
+    0.679,
+    0.728
+  ],
+  "legal_rate": 1.0,
+  "by_slice": {
+    "mandatory_single": {
+      "decisions": 1176,
+      "semantic_top1": 0.7355,
+      "legal_rate": 1.0
+    },
+    "optional": {
+      "decisions": 104,
+      "semantic_top1": 0.3846,
+      "legal_rate": 1.0
+    },
+    "multi": {
+      "decisions": 48,
+      "semantic_top1": 0.625,
+      "legal_rate": 1.0
+    }
+  },
+  "by_context": {
+    "0": {
+      "decisions": 615,
+      "semantic_top1": 0.6472,
+      "legal_rate": 1.0
+    },
+    "1": {
+      "decisions": 12,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "2": {
+      "decisions": 6,
+      "semantic_top1": 0.3333,
+      "legal_rate": 1.0
+    },
+    "3": {
+      "decisions": 39,
+      "semantic_top1": 0.7436,
+      "legal_rate": 1.0
+    },
+    "4": {
+      "decisions": 16,
+      "semantic_top1": 0.8125,
+      "legal_rate": 1.0
+    },
+    "5": {
+      "decisions": 16,
+      "semantic_top1": 0.8125,
+      "legal_rate": 1.0
+    },
+    "7": {
+      "decisions": 247,
+      "semantic_top1": 0.6721,
+      "legal_rate": 1.0
+    },
+    "8": {
+      "decisions": 23,
+      "semantic_top1": 0.2609,
+      "legal_rate": 1.0
+    },
+    "13": {
+      "decisions": 25,
+      "semantic_top1": 0.56,
+      "legal_rate": 1.0
+    },
+    "14": {
+      "decisions": 216,
+      "semantic_top1": 0.8194,
+      "legal_rate": 1.0
+    },
+    "16": {
+      "decisions": 25,
+      "semantic_top1": 0.92,
+      "legal_rate": 1.0
+    },
+    "21": {
+      "decisions": 12,
+      "semantic_top1": 0.8333,
+      "legal_rate": 1.0
+    },
+    "22": {
+      "decisions": 12,
+      "semantic_top1": 0.8333,
+      "legal_rate": 1.0
+    },
+    "30": {
+      "decisions": 31,
+      "semantic_top1": 0.9355,
+      "legal_rate": 1.0
+    },
+    "38": {
+      "decisions": 3,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "40": {
+      "decisions": 18,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "41": {
+      "decisions": 8,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "43": {
+      "decisions": 4,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    }
+  },
+  "by_route": {
+    "fallback": {
+      "decisions": 254,
+      "semantic_top1": 0.6693,
+      "legal_rate": 1.0
+    },
+    "ml": {
+      "decisions": 1074,
+      "semantic_top1": 0.7123,
+      "legal_rate": 1.0
+    }
+  },
+  "ranker_stats": {
+    "decisions_seen": 106,
+    "ranker_used": 81,
+    "unrouted": 22,
+    "optional_fallback": 14,
+    "ood_fallback": 0,
+    "single_semantic_fallback": 3,
+    "feature_errors": 0,
+    "score_errors": 0
+  },
+  "diagnostics": {
+    "ml": {
+      "decisions_seen": 106,
+      "ranker_used": 81,
+      "unrouted": 22,
+      "optional_fallback": 14,
+      "ood_fallback": 0,
+      "single_semantic_fallback": 3,
+      "feature_errors": 0,
+      "score_errors": 0
+    },
+    "fallback": {
+      "decisions": 106,
+      "policy_ok": 106,
+      "policy_fallback": 0,
+      "obs_fallback": 0,
+      "deck_returns": 0,
+      "errors": {},
+      "chosen": {}
+    },
+    "load_error": null
+  },
+  "latency_ms": {
+    "mean": 9.725,
+    "p95": 28.174,
+    "max": 69.918
+  }
+}

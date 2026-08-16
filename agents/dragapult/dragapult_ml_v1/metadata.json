@@ -1,0 +1,50 @@
+{
+  "name": "dragapult_ml_v1",
+  "role": "offline_candidate",
+  "archetype": "dragapult_ex",
+  "version": "1.0.0",
+  "created_at": "2026-08-16T00:00:00+09:00",
+  "deck_hash": "202ee2cec6cbe8b4",
+  "deck_changed": true,
+  "policy": "Exact-deck, multi-teacher, teacher-ID-conditioned imitation ranker. Mandatory supported single-pick decisions use ML; optional, multi-pick, OOD, and failures use the deterministic fallback.",
+  "search": false,
+  "submission_ready": false,
+  "submission_blockers": [
+    "minimum 1000 verified exact-list trajectories not met (854)",
+    "held-out top-3 gate missed (0.9634 < 0.9700)",
+    "no prospective untouched outcome evaluation against the current metagame"
+  ],
+  "training_result": {
+    "teachers": 9,
+    "verified_trajectories": 854,
+    "unique_episodes": 841,
+    "decisions": 75466,
+    "features": 312,
+    "best_iteration": 586,
+    "test_top1": 0.7557,
+    "test_top3": 0.9634,
+    "runtime_test_decisions": 10612,
+    "runtime_semantic_agreement": 0.7327,
+    "runtime_mandatory_single_agreement": 0.7573,
+    "runtime_legal_rate": 1.0,
+    "runtime_exceptions": 0,
+    "runtime_mean_ms": 10.37,
+    "runtime_p95_ms": 31.359
+  },
+  "model": {
+    "teacher_team_id": 16380946,
+    "trees": 586,
+    "bytes": 13192349,
+    "sha256": "45987e5024148d6ce880eb9827c789ef646a319a03621920139b39cd9191bf78"
+  },
+  "data_policy": {
+    "exact_deck_only": true,
+    "deck_hash": "202ee2cec6cbe8b4",
+    "deduplicate_by": ["episode_id", "seat_index"],
+    "private_information_features": false,
+    "split": "per-teacher chronological",
+    "teacher_conditioned": true,
+    "episode_equal_weight": true,
+    "teacher_equal_weight": true
+  }
+}

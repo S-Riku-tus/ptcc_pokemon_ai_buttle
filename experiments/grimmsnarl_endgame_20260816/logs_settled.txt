@@ -1,0 +1,39 @@
+=== per version: paired vs settled opponent rating ===
+v22_a    n=  45 matched=  8 (17.8%)  paired_mean=  836.4  [matched: paired=  829.3 settled=  789.2 delta=  -40.1 wr=0.875]
+v22_b    n=  38 matched=  9 (23.7%)  paired_mean=  884.8  [matched: paired=  723.9 settled=  705.0 delta=  -18.9 wr=0.556]
+v22_c    n=  57 matched=  6 (10.5%)  paired_mean= 1000.1  [matched: paired=  946.1 settled=  930.7 delta=  -15.4 wr=0.500]
+v22_d    n=  50 matched= 10 (20.0%)  paired_mean=  912.4  [matched: paired=  849.7 settled=  820.2 delta=  -29.4 wr=0.500]
+v23      n=  11 matched=  5 (45.5%)  paired_mean=  771.2  [matched: paired=  730.4 settled=  727.1 delta=   -3.3 wr=0.600]
+v24_a    n=  38 matched= 12 (31.6%)  paired_mean=  797.0  [matched: paired=  743.5 settled=  727.8 delta=  -15.7 wr=0.750]
+v24_b    n=  47 matched= 14 (29.8%)  paired_mean=  832.1  [matched: paired=  781.4 settled=  764.7 delta=  -16.7 wr=0.857]
+v25_a    n=  51 matched=  7 (13.7%)  paired_mean=  896.2  [matched: paired=  749.1 settled=  728.4 delta=  -20.7 wr=1.000]
+v25_b    n=  34 matched= 11 (32.4%)  paired_mean=  717.4  [matched: paired=  695.6 settled=  697.4 delta=   +1.8 wr=0.727]
+v26      n=  40 matched= 19 (47.5%)  paired_mean=  706.6  [matched: paired=  709.3 settled=  697.7 delta=  -11.5 wr=0.789]
+v27      n=  34 matched= 18 (52.9%)  paired_mean=  789.0  [matched: paired=  770.6 settled=  765.2 delta=   -5.4 wr=0.833]
+v28      n=  35 matched= 13 (37.1%)  paired_mean=  860.5  [matched: paired=  847.9 settled=  838.8 delta=   -9.0 wr=0.769]
+v29      n=  47 matched= 24 (51.1%)  paired_mean=  758.3  [matched: paired=  786.8 settled=  777.6 delta=   -9.2 wr=0.583]
+v22_e    n=  25 matched= 18 (72.0%)  paired_mean=  809.6  [matched: paired=  812.7 settled=  814.2 delta=   +1.6 wr=0.500]
+
+=== per day, all versions pooled ===
+2026-08-13 n= 199 matched= 38 (19.1%)  paired_mean=  906.9  [matched: paired=  815.1 settled=  791.6 delta=  -23.5 wr=0.605]
+2026-08-14 n= 136 matched= 33 (24.3%)  paired_mean=  846.6  [matched: paired=  760.8 settled=  743.6 delta=  -17.2 wr=0.848]
+2026-08-15 n= 186 matched= 82 (44.1%)  paired_mean=  763.8  [matched: paired=  761.0 settled=  754.7 delta=   -6.3 wr=0.744]
+2026-08-16 n=  31 matched= 21 (67.7%)  paired_mean=  815.0  [matched: paired=  815.5 settled=  811.4 delta=   -4.1 wr=0.476]
+
+=== v22 only: old runs vs the 08-16 rerun, settled bands ===
+-- v22_early(13/14)
+   settled    0-800   n= 17 13-4  wr=0.765
+   settled  800-900   n=  2  1-1  wr=0.500
+   settled  900-1000  n= 12  6-6  wr=0.500
+   settled 1000-1100  n=  1  0-1  wr=0.000
+   settled 1100-9999  n=  1  0-1  wr=0.000
+   ALL matched n= 33 wr=0.606 settled_mean=801.4  implied=876.2
+-- v22_e(08-16)
+   settled    0-800   n=  6  6-0  wr=1.000
+   settled  800-900   n=  6  3-3  wr=0.500
+   settled  900-1000  n=  6  0-6  wr=0.000
+   ALL matched n= 18 wr=0.500 settled_mean=814.2  implied=814.2
+-- v29(08-16)
+   settled    0-800   n= 16  9-7  wr=0.562
+   settled  800-900   n=  8  5-3  wr=0.625
+   ALL matched n= 24 wr=0.583 settled_mean=777.6  implied=836.0

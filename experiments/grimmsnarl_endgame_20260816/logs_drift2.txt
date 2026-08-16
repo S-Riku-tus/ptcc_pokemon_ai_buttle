@@ -1,0 +1,24 @@
+--- paired rating / all versions (n=552, wins=350) ---
+  intercept        5.3927 se=0.8140 z=  6.62 p= 0.0000 Elo=         
+  opp/400         -2.1885 se=0.3367 z= -6.50 p= 0.0000 Elo=         
+  went_first       0.3276 se=0.1868 z=  1.75 p= 0.0794 Elo=     59.9
+  day_index       -0.3043 se=0.1098 z= -2.77 p= 0.0056 Elo=    -55.6
+
+--- paired rating / v22 code only (n=215, wins=135) ---
+  intercept        6.0417 se=1.3850 z=  4.36 p= 0.0000 Elo=         
+  opp/400         -2.3487 se=0.5677 z= -4.14 p= 0.0000 Elo=         
+  went_first      -0.0069 se=0.2994 z= -0.02 p= 0.9816 Elo=     -1.2
+  day_index       -0.2569 se=0.1623 z= -1.58 p= 0.1135 Elo=    -43.7
+
+--- settled rating / all versions (n=174, wins=122) ---
+  intercept        7.4383 se=1.5181 z=  4.90 p= 0.0000 Elo=         
+  opp/400         -3.2766 se=0.6817 z= -4.81 p= 0.0000 Elo=         
+  went_first       0.2254 se=0.3768 z=  0.60 p= 0.5498 Elo=     27.5
+  day_index       -0.1033 se=0.1924 z= -0.54 p= 0.5915 Elo=    -12.6
+
+--- settled rating / v22 code only (n=51, wins=29) ---
+  intercept        9.5004 se=3.0837 z=  3.08 p= 0.0021 Elo=         
+  opp/400         -4.1521 se=1.3394 z= -3.10 p= 0.0019 Elo=         
+  went_first      -0.6488 se=0.7753 z= -0.84 p= 0.4027 Elo=    -62.5
+  day_index       -0.2179 se=0.2557 z= -0.85 p= 0.3940 Elo=    -21.0
+

@@ -33,6 +33,33 @@ def team_codes(corpus_path: Path) -> dict[int, int]:
     return {team: index for index, team in enumerate(teams)}
 
 
+def runtime_support(corpus_path: Path) -> dict[str, list[int]]:
+    """Categorical candidate identities observed in the training split.
+
+    The runtime uses this as a fail-closed OOD gate.  Validation/test-only
+    identities are deliberately excluded: seeing a category while measuring a
+    model does not mean the model was fitted to choose it.
+    """
+    data = np.load(corpus_path, allow_pickle=False)
+    names = [str(value) for value in data["feature_names"]]
+    groups = data["groups"]
+    splits = data["splits"]
+    starts = np.r_[0, np.cumsum(groups, dtype=np.int64)[:-1]]
+    keys = (
+        "select_context", "option_type", "candidate_card_id",
+        "candidate_attack_id",
+    )
+    support: dict[str, set[int]] = {key: set() for key in keys if key in names}
+    columns = {key: names.index(key) for key in support}
+    features = data["features"]
+    for decision in np.flatnonzero(splits == "train"):
+        start = int(starts[decision])
+        end = start + int(groups[decision])
+        for key, column in columns.items():
+            support[key].update(int(round(value)) for value in features[start:end, column])
+    return {key: sorted(values) for key, values in support.items()}
+
+
 def routed_contexts(
     report: dict,
     min_support: int,
@@ -117,6 +144,7 @@ def main() -> int:
         kind="grimmsnarl_ranker",
         num_iteration=args.num_iteration,
     )
+    model["runtime_support"] = runtime_support(args.corpus)
 
     if args.report and args.report.exists():
         model["routed_contexts"] = routed_contexts(
@@ -179,6 +207,7 @@ def main() -> int:
         "route_teacher_teams": model.get("route_teacher_teams"),
         "route_teacher_codes": model.get("route_teacher_codes"),
         "routed_contexts": model.get("routed_contexts"),
+        "runtime_support": model.get("runtime_support"),
         "bytes": args.output.stat().st_size,
     }, indent=2))
     return 0

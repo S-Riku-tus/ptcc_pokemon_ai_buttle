@@ -400,7 +400,9 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
                  hard_state_weight: float = 1.0,
                  hard_state_set: str = "v21",
                  rating_weight: float = 0.0,
-                 ratings: dict[int, float] | None = None) -> lgb.Dataset:
+                 ratings: dict[int, float] | None = None,
+                 episode_equal_weight: bool = False,
+                 teacher_equal_weight: bool = False) -> lgb.Dataset:
     """Optionally tilt the fit toward the pilot we intend to pin.
 
     Conditioning on pilot id already lets the model express per-pilot habits,
@@ -410,7 +412,14 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
     is worse than pooling, so this is the middle of that range, and the weight
     is chosen on validation like any other hyperparameter.
 
-    Four weightings compose here, all default off:
+    Six weightings compose here, all default off:
+
+    * ``episode_equal_weight`` prevents long, highly interactive games from
+      contributing more total loss merely because they contain more choices.
+    * ``teacher_equal_weight`` prevents the most prolific submission from
+      becoming the implicit target policy.  It equalises each teacher's base
+      mass after episode equalisation; explicit focus/rating tilts are applied
+      afterwards and therefore remain intentional.
 
     * ``focus_weight`` on the pinned pilot's decisions.
     * ``win_weight`` on decisions from games the teacher won. The corpus has
@@ -431,6 +440,20 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
         name for name in corpus.categorical if name in corpus.names
     ]
     weights = np.ones(len(decisions), dtype=np.float32)
+    if episode_equal_weight:
+        episode_ids = corpus.episode_ids[decisions]
+        _, inverse, counts = np.unique(
+            episode_ids, return_inverse=True, return_counts=True
+        )
+        weights *= 1.0 / counts[inverse].astype(np.float32)
+    if teacher_equal_weight:
+        teacher_ids = corpus.team_ids[decisions]
+        teachers, inverse = np.unique(teacher_ids, return_inverse=True)
+        totals = np.bincount(inverse, weights=weights, minlength=len(teachers))
+        positive = totals[totals > 0]
+        target = float(positive.mean()) if len(positive) else 1.0
+        scales = np.where(totals > 0, target / totals, 1.0)
+        weights *= scales[inverse].astype(np.float32)
     if focus_team is not None and focus_weight != 1.0:
         weights *= np.where(
             corpus.team_ids[decisions] == focus_team, focus_weight, 1.0
@@ -449,6 +472,10 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
         low, high = float(values.min()), float(values.max())
         span = max(high - low, 1e-6)
         weights *= 1.0 + rating_weight * (values - low) / span
+    # Keep LightGBM's effective regularisation scale comparable across modes.
+    mean_weight = float(weights.mean()) if len(weights) else 1.0
+    if mean_weight > 0:
+        weights /= mean_weight
     use_weights = not np.allclose(weights, 1.0)
     # free_raw_data lets LightGBM drop the dense copy once it is binned;
     # evaluation rebuilds the block it needs one split at a time.
@@ -498,6 +525,14 @@ def main() -> int:
     parser.add_argument(
         "--rating-weight", type=float, default=0.0,
         help="Scale each pilot's weight by leaderboard rating (0 = off).",
+    )
+    parser.add_argument(
+        "--episode-equal-weight", action="store_true",
+        help="Give every training episode equal total base loss mass.",
+    )
+    parser.add_argument(
+        "--teacher-equal-weight", action="store_true",
+        help="Give every training teacher equal total base loss mass.",
     )
     parser.add_argument(
         "--ratings", default="",
@@ -600,6 +635,8 @@ def main() -> int:
         hard_state_weight=args.hard_state_weight,
         hard_state_set=args.hard_state_set,
         rating_weight=args.rating_weight, ratings=ratings,
+        episode_equal_weight=args.episode_equal_weight,
+        teacher_equal_weight=args.teacher_equal_weight,
     )
     validation_set = make_dataset(corpus, validation, reference=train_set)
 
@@ -664,6 +701,8 @@ def main() -> int:
             )
         },
         "rating_weight": args.rating_weight,
+        "episode_equal_weight": bool(args.episode_equal_weight),
+        "teacher_equal_weight": bool(args.teacher_equal_weight),
         "ratings": {
             str(team): rating for team, rating in sorted(ratings.items())
         },
