@@ -215,6 +215,7 @@ def main() -> int:
     guard_totals: Counter[str] = Counter()
     predicted_behaviour: Counter[str] = Counter()
     teacher_behaviour: Counter[str] = Counter()
+    guard_examples: list[dict[str, Any]] = []
     latencies: list[float] = []
     for _, relation in index.iterrows():
         replay_value = str(getattr(relation, "replay_path", "") or "").strip()
@@ -266,6 +267,52 @@ def main() -> int:
                 else "ml" if after_used > before_used
                 else "fallback"
             )
+            if route == "guarded":
+                current = observation.get("current") or {}
+                players = current.get("players") or [{}, {}]
+                your = int(current.get("yourIndex", seat))
+
+                def body(card: Any) -> dict[str, Any]:
+                    if not isinstance(card, dict):
+                        return {}
+                    return {
+                        "id": int(card.get("id", -1)),
+                        "energies": [int(value) for value in card.get("energies") or []],
+                        "hp": card.get("hp"),
+                        "max_hp": card.get("maxHp"),
+                    }
+
+                mine = players[your] if your in (0, 1) else {}
+                opponent = players[1 - your] if your in (0, 1) else {}
+                guard_examples.append({
+                    "episode_id": int(relation.episode_id),
+                    "team_id": int(relation.team_id),
+                    "seat": seat,
+                    "step": step_index,
+                    "turn": int(current.get("turn", -1)),
+                    "predicted": predicted,
+                    "teacher": teacher,
+                    "selected_options": {
+                        "predicted": [options[value] for value in predicted or []
+                                      if isinstance(value, int) and 0 <= value < len(options)],
+                        "teacher": [options[value] for value in teacher or []
+                                   if isinstance(value, int) and 0 <= value < len(options)],
+                    },
+                    "our_active": [body(card) for card in mine.get("active") or []],
+                    "our_bench": [body(card) for card in mine.get("bench") or []],
+                    "opponent_active": [
+                        body(card) for card in opponent.get("active") or []
+                    ],
+                    "hand_ids": [
+                        int(card.get("id", -1)) for card in mine.get("hand") or []
+                        if isinstance(card, dict)
+                    ],
+                    "model_scores": {
+                        str(position): round(float(score), 6)
+                        for position, score in ranker.last_scores.items()
+                    },
+                    "guard": dict(getattr(module, "_GUARD_STATS", {})),
+                })
 
             is_legal = legal(predicted, select)
             correct = bool(
@@ -340,6 +387,7 @@ def main() -> int:
             "guard": dict(guard_totals),
             "load_error": getattr(module, "_LOAD_ERROR", None),
         },
+        "guard_examples": guard_examples,
         "behaviour": {
             "predicted": dict(predicted_behaviour),
             "teacher": dict(teacher_behaviour),

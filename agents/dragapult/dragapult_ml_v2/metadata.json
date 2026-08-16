@@ -61,6 +61,29 @@
     "route_attachments": 681,
     "teacher_route_attachments": 614
   },
+  "live_counterfactual": {
+    "note": "all 23 downloaded episodes of submission 55545828, every agent forced onto the trajectory that was actually played",
+    "baseline": "artifacts/dragapult_ml_v1_preliminary.tar.gz, verified at 0.9893 live-path reproduction",
+    "single_pick_decisions": 1955,
+    "v1_0_duplicate_route_attachments": 21,
+    "v2_duplicate_route_attachments": 0,
+    "v1_0_completing_route_attachments": 24,
+    "v2_completing_route_attachments": 109,
+    "v2_agreement_with_live_actions": 0.8271,
+    "duplicates_with_a_completing_option": 12,
+    "v2_takes_the_completing_option": 11,
+    "v2_repeats_the_duplicate": 0
+  },
+  "local_arena": {
+    "opponent": "submitted v1.0 bundle",
+    "games": 60,
+    "record": "44-16",
+    "v2_phantom_ready_rate": 0.9,
+    "v2_phantom_ready_mean_own_turn": 3.722,
+    "v1_0_phantom_ready_rate": 0.617,
+    "v1_0_phantom_ready_mean_own_turn": 4.243,
+    "note": "unseedable shuffle; the record is not a rating estimate, the development columns are"
+  },
   "model": {
     "teacher_team_id": 16380946,
     "trees": 789,

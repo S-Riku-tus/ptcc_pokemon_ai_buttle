@@ -10,18 +10,19 @@ target's card id and its *total* energy count, so "Fire onto a Dragapult
 holding Psychic" and "Fire onto a Dragapult holding Fire" were the same row.
 The model could not express the distinction, and on the ladder it showed:
 
-| | v1.0 live (21 games) | same-deck teachers |
+| | v1.0 live (22 public games) | same-deck teachers |
 |---|---:|---:|
-| duplicate-colour attachments / game | 0.95 | 0.03 |
-| completes a colour pair / game | 1.05 | 1.62 |
-| Dragapult evolved onto a 2-colour body / game | 0.19 | 0.70 |
-| first Phantom Dive, own-turn mean | 6.2 | 3.8 |
-| games that ever used Phantom Dive | 57% | 96% |
-| win rate | 0.476 | 0.624 |
+| duplicate-colour attachments / game | 0.870 | 0.037 |
+| completes a colour pair / game | 1.043 | 1.701 |
+| Dragapult evolved onto a 2-colour body / game | 0.174 | 0.809 |
+| first Phantom Dive, own-turn mean | 6.5 | 4.0 |
+| games that ever used Phantom Dive | 63.6% | 94.0% |
+| own turns per game | 8.05 | 6.86 |
+| win rate | 0.500 | 0.651 |
 
-The action *rates* already matched the teachers (attach 0.889 vs 0.877 per own
-turn, evolve Drakloak 0.951 vs 0.963, Adrena-Brain 0.917 vs 0.932). Only the
-argument of the action was wrong.
+The action *rates* already matched the teachers (attach 0.894 vs 0.892 per own
+turn, evolve Drakloak 0.958 vs 0.954, Adrena-Brain 0.926 vs 0.903, Recon
+Directive 0.838 vs 0.823). Only the argument of the action was wrong.
 
 v1.1 answered this with a broad deterministic override of energy, evolution,
 retreat, Boss and search. On the held-out split that override seized 2,322
@@ -87,6 +88,27 @@ test split:
 
 The teachers themselves make 8 duplicate route attachments in 614 on the same
 episodes, so v2 is at the teacher rate without being forced there.
+
+### Counterfactual on the decisions that actually lost the run
+
+Teacher agreement says v2 imitates better on held-out teacher games. It does not
+say v2 fixes the decisions v1.0 got wrong on the ladder. Replaying all 23
+downloaded episodes and forcing every agent onto the trajectory that was really
+played (`scripts/counterfactual_dragapult_v2.py`), over the 1,955 single-pick
+decisions of the run:
+
+| | submitted v1.0 | v2 |
+|---|---:|---:|
+| duplicate-colour route attachments chosen | 21 | **0** |
+| pair-completing route attachments chosen | 24 | **109** |
+| agreement with the action v1.0 actually played | 0.9898 | 0.8271 |
+
+At the 12 decisions where v1.0 attached a duplicate colour *while the same
+decision offered an attachment that completes the Fire+Psychic pair*, v2 takes
+the completing attachment 11 times, repeats the duplicate 0 times, and once
+plays something else entirely. v2 still reproduces 82.7% of v1.0's live
+actions, so this is the same policy with the route argument corrected, not a
+different agent.
 
 Reproduction commands are in `experiments/dragapult_ml_v2/README.md`.
 

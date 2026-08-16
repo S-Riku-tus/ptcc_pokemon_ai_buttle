@@ -1,0 +1,251 @@
+{
+  "a": ".tmp\\dragapult_v3_board_focus",
+  "b": "agents\\grimmsnarl\\grimmsnarl_ml_v22",
+  "games": 2,
+  "a_record": "1-1",
+  "a_win_rate": 0.5,
+  "a_stats": {
+    "agent": "dragapult_v3_board_focus",
+    "games": 2,
+    "phantom_ready_rate": 1.0,
+    "phantom_ready_mean_own_turn": 3,
+    "phantom_ready_median_own_turn": 3.0,
+    "phantom_dive_rate": 1.0,
+    "phantom_dive_mean_own_turn": 3,
+    "phantom_dive_counts": {
+      "mean": 3.5,
+      "p_zero": 0.0,
+      "p_one": 0.0,
+      "p_two_plus": 1.0,
+      "p_four_plus": 0.5,
+      "implied_win_rate": 0.731
+    },
+    "max_dragapult_mean": 2,
+    "max_line_mean": 3,
+    "prizes_taken_mean_censored": 3.5,
+    "prizes_conceded_mean_censored": 4,
+    "win_rate_by_dive_bucket": {
+      "zero": {
+        "games": 0,
+        "win_rate": null
+      },
+      "one": {
+        "games": 0,
+        "win_rate": null
+      },
+      "two_plus": {
+        "games": 2,
+        "win_rate": 0.5
+      },
+      "four_plus": {
+        "games": 1,
+        "win_rate": 1.0
+      }
+    },
+    "cards_per_game": {
+      "boss": 0.5,
+      "crispin": 1.5,
+      "crushing_hammer": 1.5,
+      "lillie": 1.0,
+      "night_stretcher": 0.5,
+      "poffin": 3.0,
+      "poke_pad": 2.0,
+      "ultra_ball": 1.5
+    },
+    "phantom_targets_per_game": {
+      "646": 1.5,
+      "648": 2.0
+    },
+    "spread_counters_per_game": {
+      "112": 16.0,
+      "646": 3.0,
+      "860": 3.0
+    }
+  },
+  "b_stats": {
+    "agent": "grimmsnarl_ml_v22",
+    "games": 2,
+    "phantom_ready_rate": 0.0,
+    "phantom_ready_mean_own_turn": null,
+    "phantom_ready_median_own_turn": null,
+    "phantom_dive_rate": 0.0,
+    "phantom_dive_mean_own_turn": null,
+    "phantom_dive_counts": {
+      "mean": 0,
+      "p_zero": 1.0,
+      "p_one": 0.0,
+      "p_two_plus": 0.0,
+      "p_four_plus": 0.0,
+      "implied_win_rate": 0.108
+    },
+    "max_dragapult_mean": 0,
+    "max_line_mean": 0,
+    "prizes_taken_mean_censored": 4,
+    "prizes_conceded_mean_censored": 3.5,
+    "win_rate_by_dive_bucket": {
+      "zero": {
+        "games": 2,
+        "win_rate": 0.5
+      },
+      "one": {
+        "games": 0,
+        "win_rate": null
+      },
+      "two_plus": {
+        "games": 0,
+        "win_rate": null
+      },
+      "four_plus": {
+        "games": 0,
+        "win_rate": null
+      }
+    },
+    "cards_per_game": {
+      "lillie": 0.5,
+      "night_stretcher": 1.5,
+      "poffin": 1.0,
+      "poke_pad": 1.5
+    },
+    "phantom_targets_per_game": {},
+    "spread_counters_per_game": {
+      "112": 1.0,
+      "120": 1.5,
+      "235": 1.5
+    }
+  },
+  "exceptions": {},
+  "detail": [
+    {
+      "result": 0,
+      "own_turns": [
+        7,
+        6
+      ],
+      "phantom_ready_own_turn": [
+        3,
+        null
+      ],
+      "phantom_dive_own_turn": [
+        3,
+        null
+      ],
+      "phantom_dive_count": [
+        5,
+        0
+      ],
+      "max_dragapult": [
+        2,
+        0
+      ],
+      "max_line": [
+        3,
+        0
+      ],
+      "prizes_taken": [
+        5,
+        3
+      ],
+      "card_counts": [
+        {
+          "poffin": 4,
+          "lillie": 1,
+          "ultra_ball": 2,
+          "crispin": 3,
+          "crushing_hammer": 1
+        },
+        {
+          "poke_pad": 1,
+          "night_stretcher": 3,
+          "poffin": 1
+        }
+      ],
+      "phantom_targets": [
+        {
+          "646": 3,
+          "648": 2
+        },
+        {}
+      ],
+      "spread_targets": [
+        {
+          "112": 18,
+          "646": 6,
+          "860": 6
+        },
+        {
+          "235": 2,
+          "120": 2
+        }
+      ],
+      "exceptions": {},
+      "a_seat": 0,
+      "a_won": 1
+    },
+    {
+      "result": 0,
+      "own_turns": [
+        6,
+        5
+      ],
+      "phantom_ready_own_turn": [
+        null,
+        3
+      ],
+      "phantom_dive_own_turn": [
+        null,
+        3
+      ],
+      "phantom_dive_count": [
+        0,
+        2
+      ],
+      "max_dragapult": [
+        0,
+        2
+      ],
+      "max_line": [
+        0,
+        3
+      ],
+      "prizes_taken": [
+        5,
+        2
+      ],
+      "card_counts": [
+        {
+          "poffin": 1,
+          "poke_pad": 2,
+          "lillie": 1
+        },
+        {
+          "poffin": 2,
+          "crushing_hammer": 2,
+          "poke_pad": 4,
+          "lillie": 1,
+          "ultra_ball": 1,
+          "night_stretcher": 1,
+          "boss": 1
+        }
+      ],
+      "phantom_targets": [
+        {},
+        {
+          "648": 2
+        }
+      ],
+      "spread_targets": [
+        {
+          "235": 1,
+          "120": 1,
+          "112": 2
+        },
+        {
+          "112": 14
+        }
+      ],
+      "exceptions": {},
+      "a_seat": 1,
+      "a_won": 0
+    }
+  ]
+}

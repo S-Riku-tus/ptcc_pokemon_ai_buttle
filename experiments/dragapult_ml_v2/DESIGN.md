@@ -2,9 +2,16 @@
 
 ## 1. What the v1 ladder run actually said
 
-v1 was submitted as 55545828 and produced 21 public games: 10-11, rating 493
-after starting at 600. The obvious readings — bad deck, bad matchups, too
-little data — are all wrong, and the logs say so.
+v1 was submitted as 55545828. As of the 2026-08-16 refetch it has produced 22
+public games plus one validation game: 11-11, displayed rating 507.8 after
+starting at 600. 507.8 is not a recovery — the opponents it was paired against
+averaged 493.8 initial rating, so at a 0.500 win rate the Elo fixed point is
+493.8 and the displayed number is noise around it. Bucketed by *opponent*
+rating: below 400 it is 4-1, 400–500 it is 2-2, 500–600 it is 5-6, above 600 it
+is 0-2.
+
+The obvious readings — bad deck, bad matchups, too little data — are all wrong,
+and the logs say so.
 
 The deck is fine. On 2026-08-16 Dragapult is 13 of the top 50, the largest
 archetype, and 8 of those 13 play this exact list. The same-deck teachers win
@@ -14,22 +21,26 @@ The matchups are fine. The teachers' worst common matchups are Conkeldurr and
 Mega Kangaskhan at 0.500 and Hydrapple at 0.548; against the current field mix
 that is about 0.60 expected.
 
-The action rates are fine. Per own turn, v1 attached energy on 0.889 of the
-turns it was offered against the teachers' 0.877, evolved Drakloak 0.951 vs
-0.963, used Adrena-Brain 0.917 vs 0.932, used Recon Directive 0.821 vs 0.895.
+The action rates are fine. Per own turn, v1 attached energy on 0.894 of the
+turns it was offered against the teachers' 0.892, evolved Drakloak 0.958 vs
+0.954, used Adrena-Brain 0.926 vs 0.903, used Recon Directive 0.838 vs 0.823.
 
 What was wrong was the *argument* of the action:
 
 | | v1.0 live | teachers |
 |---|---:|---:|
-| duplicate-colour attachments / game | 0.95 | 0.03 |
-| completes a Fire+Psychic pair / game | 1.05 | 1.62 |
-| Dragapult evolved onto a 2-colour body / game | 0.19 | 0.70 |
-| first Phantom Dive, own-turn mean | 6.2 | 3.8 |
-| games that ever used Phantom Dive | 57% | 96% |
+| duplicate-colour attachments / game | 0.870 | 0.037 |
+| completes a Fire+Psychic pair / game | 1.043 | 1.701 |
+| Dragapult evolved onto a 2-colour body / game | 0.174 | 0.809 |
+| first Phantom Dive, own-turn mean | 6.5 | 4.0 |
+| games that ever used Phantom Dive | 63.6% | 94.0% |
+| own turns per game | 8.05 | 6.86 |
 
-In 9 separate decisions v1 attached a colour a body already held while the
-same decision offered the colour that would have armed Phantom Dive.
+Replaying the run through the bundle that produced it attributes every one of
+its 23 duplicate-colour attachments to the ranker, not to the fallback: the
+submitted v1.0 has no guard, and it reproduces 2,031 of the run's 2,053
+decisions (0.9893). In 12 of those 23 the same decision offered an attachment
+that completed the Fire+Psychic pair.
 
 ## 2. Why that is a representation failure, not a preference failure
 
@@ -93,9 +104,17 @@ than 9, and pooled Top-k falls as pilot disagreement rises.
 ## 6. Consequence
 
 v2 is a submission candidate rather than an offline control. Its behavioural
-curve now sits on the teachers': 0.950 of local games reach both Phantom Dive
-colours at own-turn 3.97, against the teachers' 0.957 at 3.78 and the submitted
-v1.0's 0.550 at 5.03.
+curve now sits on the teachers': 0.900 of local games reach both Phantom Dive
+colours at own-turn 3.72, against the teachers' 0.943 at 3.69 and the submitted
+v1.0's 0.617 at 4.24, over 60 games in which v2 wins 44.
+
+The stronger evidence is the counterfactual, because it is measured on the
+decisions that actually lost the run rather than on held-out teacher games.
+Forced onto the real trajectory, v2 chooses 0 duplicate-colour route
+attachments where v1.0 chose 21, and 109 pair-completing ones where v1.0 chose
+24, while still reproducing 82.7% of v1.0's live actions. At the 12 decisions
+where v1.0 took a duplicate with a completing attachment on offer, v2 takes the
+completing one 11 times and the duplicate never.
 
 What is still unmeasured, in priority order for v3:
 

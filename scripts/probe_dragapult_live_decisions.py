@@ -167,8 +167,11 @@ def walk(module: Any, replay: dict[str, Any], seat: int) -> list[dict[str, Any]]
         ml_index = module._RANKER.choose(observation) if module._RANKER is not None else None
         external = fallback[0] if len(fallback) == 1 else None
         reason = None
-        if ml_index is not None:
-            reason = module._guard_reason(observation, ml_index, external)
+        # v1.0 as submitted has no guard at all; v1.1 and v2 do. Probing the
+        # submitted bundle must not require the attribute to exist.
+        guard_reason = getattr(module, "_guard_reason", None)
+        if ml_index is not None and guard_reason is not None:
+            reason = guard_reason(observation, ml_index, external)
         if ml_index is None:
             owner = "fallback"
             final = fallback

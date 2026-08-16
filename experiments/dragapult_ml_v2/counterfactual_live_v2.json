@@ -1,0 +1,232 @@
+{
+  "summary": {
+    "decisions": 1955,
+    "single_pick_only": true,
+    "baseline": {
+      "route_classes": {
+        "duplicate": 21,
+        "completes": 24,
+        "first_color": 54
+      },
+      "agreement_with_live": 0.9898
+    },
+    "candidate": {
+      "route_classes": {
+        "duplicate": 0,
+        "completes": 109,
+        "first_color": 44
+      },
+      "agreement_with_live": 0.8271
+    },
+    "live_duplicate_with_completing_alternative": 12,
+    "candidate_takes_the_completing_attach": 11,
+    "candidate_repeats_the_duplicate": 0,
+    "candidate_other": 1
+  },
+  "duplicates": [
+    {
+      "episode": "93569281",
+      "step": 21,
+      "turn": 3,
+      "context": 0,
+      "played": 6,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 6,
+        "candidate": 10
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93567417",
+      "step": 92,
+      "turn": 10,
+      "context": 0,
+      "played": 0,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 0,
+        "candidate": 12
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93567417",
+      "step": 122,
+      "turn": 14,
+      "context": 0,
+      "played": 3,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 3,
+        "candidate": 12
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93565596",
+      "step": 54,
+      "turn": 5,
+      "context": 0,
+      "played": 7,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 7,
+        "candidate": 1
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93565596",
+      "step": 74,
+      "turn": 7,
+      "context": 0,
+      "played": 2,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 2,
+        "candidate": 1
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93565596",
+      "step": 129,
+      "turn": 11,
+      "context": 0,
+      "played": 2,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 2,
+        "candidate": 1
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93564669",
+      "step": 226,
+      "turn": 15,
+      "context": 0,
+      "played": 3,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 3,
+        "candidate": 2
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "other"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93561958",
+      "step": 58,
+      "turn": 7,
+      "context": 0,
+      "played": 4,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 4,
+        "candidate": 1
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93561958",
+      "step": 115,
+      "turn": 11,
+      "context": 0,
+      "played": 6,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 6,
+        "candidate": 11
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93558303",
+      "step": 116,
+      "turn": 19,
+      "context": 0,
+      "played": 6,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 6,
+        "candidate": 1
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93556555",
+      "step": 46,
+      "turn": 7,
+      "context": 0,
+      "played": 2,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 2,
+        "candidate": 1
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    },
+    {
+      "episode": "93555570",
+      "step": 108,
+      "turn": 22,
+      "context": 0,
+      "played": 6,
+      "played_class": "duplicate",
+      "picks": {
+        "baseline": 6,
+        "candidate": 4
+      },
+      "classes": {
+        "baseline": "duplicate",
+        "candidate": "completes"
+      },
+      "completes_available": true
+    }
+  ]
+}

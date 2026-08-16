@@ -1,0 +1,30 @@
+sampled 45 games
+
+our turns searched: 233   (461s, 1.98s per turn)
+positions the search could not open: 0
+
+turns where a better line exists (leaf value): 104 (44.6%)
+  ... strictly more prizes this turn:  11 (4.7%), 13 extra prizes total
+  ... same prizes, more damage:        41 (17.6%)
+  ... a win the greedy line missed:    0
+  node-budget truncations: 0 (0.0%)
+
+by opponent family:
+family                            turns  +value  +prize   +dmg  win
+Grimmsnarl (mirror)                  75      24       2     11    0
+Mega Lopunny / Froslass              31      17       1      5    0
+Alakazam                             21       7       0      2    0
+Dragapult                            20       7       0      5    0
+Kangaskhan / Crustle                 16      10       2      7    0
+other: Dudunsparce                   11       5       0      2    0
+Mega Lucario                         10       6       3      0    0
+Ogerpon                              10       6       0      2    0
+other: Cynthia's Garchomp ex          8       6       1      1    0
+Archaludon                            8       5       0      1    0
+other: Walrein                        6       4       0      3    0
+other: Brambleghast                   5       1       0      1    0
+other: N’s Zoroark ex                 4       3       0      1    0
+other: Mega Starmie ex                4       3       2      0    0
+Dipplin                               4       0       0      0    0
+
+wrote experiments\grimmsnarl_vfinal\turn_search_probe.json

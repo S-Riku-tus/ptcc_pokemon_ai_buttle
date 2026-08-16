@@ -1,0 +1,198 @@
+{
+  "agent_dir": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\agents\\dragapult\\dragapult_ml_v3",
+  "index": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\data\\kaggle_dragapult_exact\\indexes\\episodes.csv",
+  "team": 16445258,
+  "min_episode": 0,
+  "split_report": "C:\\Users\\shiba\\ptcc_pokemon_ai_buttle\\experiments\\dragapult_ml_v3\\train_board_focus.json",
+  "split": "test",
+  "episodes": 14,
+  "decisions": 1186,
+  "semantic_agreement": 0.7715,
+  "semantic_agreement_wilson95": [
+    0.7468,
+    0.7945
+  ],
+  "legal_rate": 1.0,
+  "by_slice": {
+    "mandatory_single": {
+      "decisions": 1052,
+      "semantic_top1": 0.7899,
+      "legal_rate": 1.0
+    },
+    "optional": {
+      "decisions": 91,
+      "semantic_top1": 0.6044,
+      "legal_rate": 1.0
+    },
+    "multi": {
+      "decisions": 43,
+      "semantic_top1": 0.6744,
+      "legal_rate": 1.0
+    }
+  },
+  "by_context": {
+    "0": {
+      "decisions": 584,
+      "semantic_top1": 0.6935,
+      "legal_rate": 1.0
+    },
+    "1": {
+      "decisions": 14,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "2": {
+      "decisions": 5,
+      "semantic_top1": 0.4,
+      "legal_rate": 1.0
+    },
+    "3": {
+      "decisions": 21,
+      "semantic_top1": 0.9048,
+      "legal_rate": 1.0
+    },
+    "4": {
+      "decisions": 21,
+      "semantic_top1": 0.9524,
+      "legal_rate": 1.0
+    },
+    "5": {
+      "decisions": 13,
+      "semantic_top1": 0.7692,
+      "legal_rate": 1.0
+    },
+    "7": {
+      "decisions": 199,
+      "semantic_top1": 0.7688,
+      "legal_rate": 1.0
+    },
+    "8": {
+      "decisions": 20,
+      "semantic_top1": 0.45,
+      "legal_rate": 1.0
+    },
+    "13": {
+      "decisions": 15,
+      "semantic_top1": 0.8667,
+      "legal_rate": 1.0
+    },
+    "14": {
+      "decisions": 204,
+      "semantic_top1": 0.9216,
+      "legal_rate": 1.0
+    },
+    "16": {
+      "decisions": 15,
+      "semantic_top1": 0.9333,
+      "legal_rate": 1.0
+    },
+    "21": {
+      "decisions": 12,
+      "semantic_top1": 0.8333,
+      "legal_rate": 1.0
+    },
+    "22": {
+      "decisions": 12,
+      "semantic_top1": 0.75,
+      "legal_rate": 1.0
+    },
+    "30": {
+      "decisions": 22,
+      "semantic_top1": 0.9091,
+      "legal_rate": 1.0
+    },
+    "38": {
+      "decisions": 2,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "40": {
+      "decisions": 12,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "41": {
+      "decisions": 9,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    },
+    "43": {
+      "decisions": 6,
+      "semantic_top1": 1.0,
+      "legal_rate": 1.0
+    }
+  },
+  "by_route": {
+    "fallback": {
+      "decisions": 254,
+      "semantic_top1": 0.8031,
+      "legal_rate": 1.0
+    },
+    "ml": {
+      "decisions": 932,
+      "semantic_top1": 0.7629,
+      "legal_rate": 1.0
+    }
+  },
+  "agent_exceptions": 0,
+  "ranker_stats": {
+    "decisions_seen": 1186,
+    "ranker_used": 932,
+    "unrouted": 220,
+    "optional_fallback": 101,
+    "ood_fallback": 0,
+    "single_semantic_fallback": 34,
+    "feature_errors": 0,
+    "score_errors": 0
+  },
+  "diagnostics": {
+    "ml": {
+      "decisions_seen": 1186,
+      "ranker_used": 932,
+      "unrouted": 220,
+      "optional_fallback": 101,
+      "ood_fallback": 0,
+      "single_semantic_fallback": 34,
+      "feature_errors": 0,
+      "score_errors": 0
+    },
+    "fallback": {
+      "decisions": 1186,
+      "policy_ok": 1186,
+      "policy_fallback": 0,
+      "obs_fallback": 0,
+      "deck_returns": 0,
+      "errors": {}
+    },
+    "guard": {
+      "seen": 0,
+      "overrides": 0,
+      "duplicate_color": 0,
+      "active_unpowered_evolution": 0,
+      "no_safe_alternative": 0
+    },
+    "load_error": null
+  },
+  "guard_examples": [],
+  "behaviour": {
+    "predicted": {
+      "attachments": 104,
+      "route_attachments": 66,
+      "useful_route_color": 66,
+      "completes_route_colors": 21,
+      "munkidori_dark": 25
+    },
+    "teacher": {
+      "attachments": 66,
+      "route_attachments": 44,
+      "useful_route_color": 44,
+      "completes_route_colors": 18,
+      "munkidori_dark": 18
+    }
+  },
+  "latency_ms": {
+    "mean": 76.293,
+    "p95": 239.354,
+    "max": 388.497
+  }
+}

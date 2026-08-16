@@ -1,0 +1,47 @@
+{
+  "a": "agents\\grimmsnarl\\grimmsnarl_ml_vfinal",
+  "b": "agents\\grimmsnarl\\grimmsnarl_ml_v22",
+  "games": 320,
+  "a_record": "91-229",
+  "a_win_rate": 0.2844,
+  "a_win_rate_wilson95": [
+    0.2377,
+    0.3361
+  ],
+  "a_as_first": {
+    "games": 160,
+    "wins": 42
+  },
+  "a_as_second": {
+    "games": 160,
+    "wins": 49
+  },
+  "a_shadow_mean": 3.919,
+  "b_shadow_mean": 4.028,
+  "a_attacks_mean": 4.094,
+  "b_attacks_mean": 4.172,
+  "a_prizes_left_mean": 2.497,
+  "b_prizes_left_mean": 1.772,
+  "seconds_per_game": 67.13,
+  "wall_clock_seconds": 2790.2,
+  "search_totals": {
+    "a.considered": 10171,
+    "a.errors": 0,
+    "a.improved_first_world": 653,
+    "a.no_baseline": 191,
+    "a.no_improvement": 9522,
+    "a.no_lines": 19,
+    "a.overage_last": -320.0,
+    "a.overrides": 386,
+    "a.plan_steps": 1626,
+    "a.plans": 386,
+    "a.plans_abandoned": 85,
+    "a.same_index": 0,
+    "a.search_seconds": 15968.94,
+    "a.searches": 10171,
+    "a.skipped_budget": 0,
+    "a.world_disagreement": 53
+  },
+  "errors": [],
+  "exceptions": {}
+}

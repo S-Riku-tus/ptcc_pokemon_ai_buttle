@@ -56,6 +56,11 @@ class Corpus:
         self.groups = data["groups"]
         self.splits = data["splits"]
         self.episode_ids = data["episode_ids"]
+        self.seats = (
+            data["seats"]
+            if "seats" in data.files
+            else np.full(len(self.groups), -1, dtype=np.int8)
+        )
         self.team_ids = data["team_ids"]
         self.submission_ids = (
             data["submission_ids"]
@@ -342,6 +347,28 @@ def hard_state_masks(
             for decision in decisions
         ])
 
+    if mask_set == "dragapult_v3":
+        # Observable slices measured in the Dragapult v2 ladder autopsy.  The
+        # failure tail is not an Energy-route failure any more; it is the lack
+        # of a second completed attacker.  Weight whole ranking groups, never
+        # individual candidates, so LambdaRank remains internally consistent.
+        route_bodies = state("route_bodies")
+        return {
+            "board_width_gap": (
+                (route_bodies <= 1)
+                & (state("open_bench_slots") > 0)
+            ),
+            "backup_chain_gap": (
+                (state("phantom_ready_active") > 0)
+                & (state("backup_route_eta", 99.0) > 1)
+            ),
+            "board_search_offer": (
+                (state("line_body_deficit_three") > 0)
+                & offered("candidate_is_board_search")
+            ),
+            "needed_line_piece_offer": offered("candidate_line_piece_needed"),
+            "backup_advance_offer": offered("candidate_advances_backup_route"),
+        }
     if mask_set not in {"v20", "v21"}:
         raise ValueError(f"unknown hard-state set: {mask_set}")
     turn = state("turn")
@@ -401,6 +428,7 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
                  hard_state_set: str = "v21",
                  rating_weight: float = 0.0,
                  ratings: dict[int, float] | None = None,
+                 episode_weights: dict[tuple[int, int], float] | None = None,
                  episode_equal_weight: bool = False,
                  teacher_equal_weight: bool = False) -> lgb.Dataset:
     """Optionally tilt the fit toward the pilot we intend to pin.
@@ -412,7 +440,7 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
     is worse than pooling, so this is the middle of that range, and the weight
     is chosen on validation like any other hyperparameter.
 
-    Six weightings compose here, all default off:
+    Seven weightings compose here, all default off:
 
     * ``episode_equal_weight`` prevents long, highly interactive games from
       contributing more total loss merely because they contain more choices.
@@ -434,6 +462,10 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
     * ``rating_weight`` interpolates each pilot's weight by leaderboard rating,
       so the shared mechanics are still fitted on all 21 pilots but the
       stronger ones pull harder. Capped by construction at 1 + rating_weight.
+    * ``episode_weights`` is an explicit, auditable sidecar keyed by
+      ``episode_id:seat``.  Dragapult uses this for a small tilt toward
+      teacher games that sustained four Phantom Dives; it is kept generic so
+      the trainer never infers a future outcome from candidate features.
     """
     rows = corpus.rows_for(decisions)
     categorical = [
@@ -460,6 +492,14 @@ def make_dataset(corpus: Corpus, decisions: np.ndarray,
         )
     if win_weight != 1.0:
         weights *= np.where(corpus.won[decisions] == 1, win_weight, 1.0)
+    if episode_weights:
+        weights *= np.asarray([
+            episode_weights.get(
+                (int(corpus.episode_ids[decision]), int(corpus.seats[decision])),
+                1.0,
+            )
+            for decision in decisions
+        ], dtype=np.float32)
     if hard_state_weight != 1.0:
         masks = hard_state_masks(corpus, decisions, hard_state_set)
         difficult = np.logical_or.reduce(list(masks.values()))
@@ -509,7 +549,8 @@ def main() -> int:
         help="Weight decisions from games the teacher won.",
     )
     parser.add_argument(
-        "--hard-state-set", default="v21", choices=["v20", "v21"],
+        "--hard-state-set", default="v21",
+        choices=["v20", "v21", "dragapult_v3"],
         help=(
             "Which observable slices get the extra weight. 'v20' is the six "
             "shipped slices, kept so v20 can be reproduced as a control."
@@ -533,6 +574,13 @@ def main() -> int:
     parser.add_argument(
         "--teacher-equal-weight", action="store_true",
         help="Give every training teacher equal total base loss mass.",
+    )
+    parser.add_argument(
+        "--episode-weight-map", type=Path,
+        help=(
+            "JSON sidecar with a 'weights' object keyed by episode_id:seat. "
+            "Only the training loss is weighted; validation/test stay clean."
+        ),
     )
     parser.add_argument(
         "--ratings", default="",
@@ -619,6 +667,23 @@ def main() -> int:
         int(pair.split(":")[0]): float(pair.split(":")[1])
         for pair in args.ratings.split(",") if ":" in pair
     }
+    episode_weights: dict[tuple[int, int], float] = {}
+    episode_weight_metadata: dict[str, Any] | None = None
+    if args.episode_weight_map:
+        episode_weight_metadata = json.loads(
+            args.episode_weight_map.read_text(encoding="utf-8")
+        )
+        raw_weights = episode_weight_metadata.get("weights") or {}
+        for raw_key, raw_weight in raw_weights.items():
+            parts = str(raw_key).split(":")
+            if len(parts) != 2:
+                parser.error(
+                    f"invalid episode weight key {raw_key!r}; expected episode:seat"
+                )
+            weight = float(raw_weight)
+            if weight <= 0:
+                parser.error(f"episode weight must be positive: {raw_key}={weight}")
+            episode_weights[(int(parts[0]), int(parts[1]))] = weight
     if args.rating_weight:
         missing_ratings = sorted(
             set(map(int, corpus.team_ids[train])) - set(ratings)
@@ -635,6 +700,7 @@ def main() -> int:
         hard_state_weight=args.hard_state_weight,
         hard_state_set=args.hard_state_set,
         rating_weight=args.rating_weight, ratings=ratings,
+        episode_weights=episode_weights,
         episode_equal_weight=args.episode_equal_weight,
         teacher_equal_weight=args.teacher_equal_weight,
     )
@@ -706,6 +772,15 @@ def main() -> int:
         "ratings": {
             str(team): rating for team, rating in sorted(ratings.items())
         },
+        "episode_weight_map": (
+            str(args.episode_weight_map.resolve()) if args.episode_weight_map else None
+        ),
+        "episode_weight_entries": len(episode_weights),
+        "episode_weight_metadata": (
+            {key: value for key, value in episode_weight_metadata.items()
+             if key != "weights"}
+            if episode_weight_metadata else None
+        ),
         "eval_team": args.eval_team,
         # Support per context decides which contexts the runtime is allowed to
         # route through the ranker: context 8 had 9 held-out decisions and
@@ -804,7 +879,7 @@ def main() -> int:
         }
         results[name]["top1_by_hard_state"] = {}
         for slice_name, mask in hard_state_masks(
-            corpus, block, "v21"
+            corpus, block, args.hard_state_set
         ).items():
             total = int(mask.sum())
             results[name]["top1_by_hard_state"][slice_name] = {

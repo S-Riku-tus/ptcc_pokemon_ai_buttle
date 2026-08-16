@@ -1,0 +1,89 @@
+{
+  "run": {
+    "label": "live",
+    "games": 12,
+    "attachments": 62,
+    "per_game": {
+      "completes_stage1": 1.25,
+      "dark_to_munkidori": 1.0,
+      "first_color_stage0": 0.917,
+      "first_color_stage1": 0.833,
+      "first_color_stage2": 0.5,
+      "route_color_off_line": 0.25,
+      "completes_stage2": 0.167,
+      "completes_stage0": 0.167,
+      "dark_elsewhere": 0.083
+    },
+    "share": {
+      "completes_stage1": 0.2419,
+      "dark_to_munkidori": 0.1935,
+      "first_color_stage0": 0.1774,
+      "first_color_stage1": 0.1613,
+      "first_color_stage2": 0.0968,
+      "route_color_off_line": 0.0484,
+      "completes_stage2": 0.0323,
+      "completes_stage0": 0.0323,
+      "dark_elsewhere": 0.0161
+    },
+    "downgrades": {
+      "dark_to_munkidori<-first_color_stage1": 6,
+      "dark_to_munkidori<-first_color_stage2": 1,
+      "dark_to_munkidori<-completes_stage1": 1,
+      "route_color_off_line<-first_color_stage0": 1,
+      "route_color_off_line<-first_color_stage1": 1
+    },
+    "evolve_energy_per_game": {
+      "pult_onto_2_colors": 0.667,
+      "pult_onto_0_colors": 0.583,
+      "pult_onto_1_colors": 0.25
+    }
+  },
+  "teachers": {
+    "label": "teachers",
+    "games": 1392,
+    "attachments": 7558,
+    "per_game": {
+      "dark_to_munkidori": 1.006,
+      "first_color_stage1": 0.989,
+      "first_color_stage0": 0.867,
+      "completes_stage1": 0.825,
+      "completes_stage2": 0.801,
+      "route_color_off_line": 0.462,
+      "first_color_stage2": 0.185,
+      "dark_elsewhere": 0.184,
+      "completes_stage0": 0.075,
+      "duplicate_color": 0.037
+    },
+    "share": {
+      "dark_to_munkidori": 0.1854,
+      "first_color_stage1": 0.1821,
+      "first_color_stage0": 0.1597,
+      "completes_stage1": 0.1519,
+      "completes_stage2": 0.1475,
+      "route_color_off_line": 0.0851,
+      "first_color_stage2": 0.034,
+      "dark_elsewhere": 0.0339,
+      "completes_stage0": 0.0138,
+      "duplicate_color": 0.0067
+    },
+    "downgrades": {
+      "dark_to_munkidori<-first_color_stage1": 283,
+      "dark_to_munkidori<-completes_stage1": 186,
+      "route_color_off_line<-first_color_stage0": 151,
+      "route_color_off_line<-first_color_stage1": 117,
+      "dark_to_munkidori<-first_color_stage0": 103,
+      "route_color_off_line<-completes_stage1": 66,
+      "dark_to_munkidori<-completes_stage2": 62,
+      "first_color_stage1<-completes_stage1": 56,
+      "dark_elsewhere<-dark_to_munkidori": 55,
+      "dark_to_munkidori<-first_color_stage2": 38,
+      "first_color_stage0<-first_color_stage1": 37,
+      "first_color_stage0<-completes_stage0": 35
+    },
+    "evolve_energy_per_game": {
+      "pult_onto_2_colors": 0.809,
+      "pult_onto_1_colors": 0.733,
+      "pult_onto_0_colors": 0.365
+    }
+  }
+}

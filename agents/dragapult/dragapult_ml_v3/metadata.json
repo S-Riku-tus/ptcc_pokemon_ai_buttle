@@ -1,0 +1,103 @@
+{
+  "name": "dragapult_ml_v3",
+  "role": "submission_candidate",
+  "archetype": "dragapult_ex",
+  "version": "3.0.0",
+  "created_at": "2026-08-16T00:00:00+09:00",
+  "deck_hash": "202ee2cec6cbe8b4",
+  "deck_changed": false,
+  "policy": "Typed-route, board-width teacher-conditioned ranker with bounded duplicate-colour and zero-Energy Active-evolution loss guards.",
+  "search": false,
+  "submission_ready": true,
+  "submission_blockers": [],
+  "changes_from_v2": [
+    "32 observation-only board-width and backup-route features added; deployed width is 471 including teacher_team_id",
+    "five observable board-width/continuity ranking-group slices receive 1.5 training weight",
+    "zero-Energy Active Drakloak evolution is replaced only when no attachment enables Jet Headbutt and no measured Phantom Dive survival exception applies",
+    "OOD opponent-card gate and teacher pin 16380946 retained after direct counterfactual and v22 tests"
+  ],
+  "training_result": {
+    "teachers": 15,
+    "verified_trajectories": 1392,
+    "decisions": 121816,
+    "candidate_rows": 732375,
+    "corpus_features": 470,
+    "deployed_features": 471,
+    "best_iteration": 1088,
+    "test_top1": 0.7455,
+    "test_top3": 0.9652,
+    "test_order_insensitive_top1": 0.8879,
+    "test_main_top1": 0.6754
+  },
+  "runtime_test": {
+    "episodes": 167,
+    "decisions": 16380,
+    "semantic_agreement": 0.7263,
+    "semantic_agreement_wilson95": [0.7194, 0.7330],
+    "main_context_agreement": 0.6373,
+    "legal_rate": 1.0,
+    "agent_exceptions": 0,
+    "feature_errors": 0,
+    "score_errors": 0,
+    "mean_ms_first_pass": 24.394,
+    "p95_ms_first_pass": 71.664,
+    "max_ms_first_pass": 156.604
+  },
+  "guard_validation": {
+    "live_run_decisions": 2450,
+    "live_failure_bindings": [
+      {"episode_id": 93603391, "opponent": "Mega Lucario ex"},
+      {"episode_id": 93607548, "opponent": "Teal Mask Ogerpon ex"}
+    ],
+    "teacher_survival_exception_episode": 93140945,
+    "teacher_team_guardcheck_episodes": 14,
+    "teacher_team_guardcheck_decisions": 1186,
+    "teacher_team_guard_overrides": 0
+  },
+  "grimmsnarl_v22_arena": {
+    "opponent": "agents/grimmsnarl/grimmsnarl_ml_v22",
+    "opponent_deck_hash": "9714ab5c3996f6cc",
+    "v2_games": 80,
+    "v2_record": "20-60",
+    "v2_mean_phantom_dives": 2.45,
+    "v2_p_zero_or_one": 0.2625,
+    "v2_p_two_plus": 0.7375,
+    "v2_p_four_plus": 0.3375,
+    "v3_games": 120,
+    "v3_record": "34-86",
+    "v3_mean_phantom_dives": 2.7917,
+    "v3_p_zero_or_one": 0.2,
+    "v3_p_two_plus": 0.8,
+    "v3_p_four_plus": 0.3667,
+    "v3_max_dragapult": 1.6417,
+    "note": "Unseedable local shuffle; record is secondary to development distributions. Dragapult mirrors are not an acceptance test."
+  },
+  "exact_v22_teacher_cell": {
+    "games": 151,
+    "record": "115-36",
+    "win_rate": 0.7616,
+    "mean_phantom_dives": 3.3311,
+    "tail_zero_or_one": 0.0662,
+    "dragapult_created": 2.0662,
+    "dragapult_created_bench": 1.5828
+  },
+  "model": {
+    "teacher_team_id": 16380946,
+    "trees": 1088,
+    "bytes": 24597795,
+    "sha256": "7849c41ffda93d2a601d945d2637b68587e67eb87dd9d3a62b0adc8481c10acf"
+  },
+  "data_policy": {
+    "exact_deck_only": true,
+    "deduplicate_by": ["episode_id", "seat_index"],
+    "private_information_features": false,
+    "environment_derived_features": false,
+    "split": "per-teacher chronological",
+    "teacher_conditioned": true,
+    "episode_equal_weight": true,
+    "teacher_equal_weight": true,
+    "hard_state_set": "dragapult_v3",
+    "hard_state_weight": 1.5
+  },
+  "status": "development"
+}

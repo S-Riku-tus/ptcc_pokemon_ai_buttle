@@ -1,0 +1,553 @@
+{
+  "agent_dir": "agents\\dragapult\\dragapult_ml_v2",
+  "split": "test",
+  "episodes": 152,
+  "main_decisions": 7054,
+  "main_agreement": 0.6425,
+  "offer_take": [
+    {
+      "option": "END",
+      "offers": 7054,
+      "teacher_takes": 233,
+      "our_takes": 193,
+      "teacher_rate": 0.033,
+      "our_rate": 0.0274,
+      "delta": -0.0057
+    },
+    {
+      "option": "RETREAT",
+      "offers": 4896,
+      "teacher_takes": 244,
+      "our_takes": 188,
+      "teacher_rate": 0.0498,
+      "our_rate": 0.0384,
+      "delta": -0.0114
+    },
+    {
+      "option": "ABILITY:Drakloak",
+      "offers": 2527,
+      "teacher_takes": 1022,
+      "our_takes": 1170,
+      "teacher_rate": 0.4044,
+      "our_rate": 0.463,
+      "delta": 0.0586
+    },
+    {
+      "option": "PLAY:Ultra Ball",
+      "offers": 2433,
+      "teacher_takes": 233,
+      "our_takes": 120,
+      "teacher_rate": 0.0958,
+      "our_rate": 0.0493,
+      "delta": -0.0464
+    },
+    {
+      "option": "ATTACK:Jet Headbutt",
+      "offers": 2198,
+      "teacher_takes": 46,
+      "our_takes": 29,
+      "teacher_rate": 0.0209,
+      "our_rate": 0.0132,
+      "delta": -0.0077
+    },
+    {
+      "option": "ATTACK:Itchy Pollen",
+      "offers": 1931,
+      "teacher_takes": 259,
+      "our_takes": 225,
+      "teacher_rate": 0.1341,
+      "our_rate": 0.1165,
+      "delta": -0.0176
+    },
+    {
+      "option": "ATTACK:Phantom Dive",
+      "offers": 1859,
+      "teacher_takes": 435,
+      "our_takes": 366,
+      "teacher_rate": 0.234,
+      "our_rate": 0.1969,
+      "delta": -0.0371
+    },
+    {
+      "option": "PLAY:Boss\u2019s Orders",
+      "offers": 1642,
+      "teacher_takes": 169,
+      "our_takes": 156,
+      "teacher_rate": 0.1029,
+      "our_rate": 0.095,
+      "delta": -0.0079
+    },
+    {
+      "option": "ATTACH:Basic {R} Energy",
+      "offers": 1582,
+      "teacher_takes": 327,
+      "our_takes": 303,
+      "teacher_rate": 0.2067,
+      "our_rate": 0.1915,
+      "delta": -0.0152
+    },
+    {
+      "option": "PLAY:Lillie's Determination",
+      "offers": 1548,
+      "teacher_takes": 244,
+      "our_takes": 222,
+      "teacher_rate": 0.1576,
+      "our_rate": 0.1434,
+      "delta": -0.0142
+    },
+    {
+      "option": "ATTACH:Basic {P} Energy",
+      "offers": 1413,
+      "teacher_takes": 304,
+      "our_takes": 375,
+      "teacher_rate": 0.2151,
+      "our_rate": 0.2654,
+      "delta": 0.0502
+    },
+    {
+      "option": "PLAY:Pok\u00e9 Pad",
+      "offers": 1380,
+      "teacher_takes": 363,
+      "our_takes": 282,
+      "teacher_rate": 0.263,
+      "our_rate": 0.2043,
+      "delta": -0.0587
+    },
+    {
+      "option": "PLAY:Crispin",
+      "offers": 1322,
+      "teacher_takes": 193,
+      "our_takes": 175,
+      "teacher_rate": 0.146,
+      "our_rate": 0.1324,
+      "delta": -0.0136
+    },
+    {
+      "option": "EVOLVE:Dragapult ex",
+      "offers": 1295,
+      "teacher_takes": 278,
+      "our_takes": 204,
+      "teacher_rate": 0.2147,
+      "our_rate": 0.1575,
+      "delta": -0.0571
+    },
+    {
+      "option": "PLAY:Night Stretcher",
+      "offers": 1252,
+      "teacher_takes": 147,
+      "our_takes": 84,
+      "teacher_rate": 0.1174,
+      "our_rate": 0.0671,
+      "delta": -0.0503
+    },
+    {
+      "option": "PLAY:Buddy-Buddy Poffin",
+      "offers": 1251,
+      "teacher_takes": 236,
+      "our_takes": 205,
+      "teacher_rate": 0.1886,
+      "our_rate": 0.1639,
+      "delta": -0.0248
+    },
+    {
+      "option": "PLAY:Crushing Hammer",
+      "offers": 1081,
+      "teacher_takes": 389,
+      "our_takes": 661,
+      "teacher_rate": 0.3599,
+      "our_rate": 0.6115,
+      "delta": 0.2516
+    },
+    {
+      "option": "PLAY:Jamming Tower",
+      "offers": 1063,
+      "teacher_takes": 150,
+      "our_takes": 162,
+      "teacher_rate": 0.1411,
+      "our_rate": 0.1524,
+      "delta": 0.0113
+    },
+    {
+      "option": "ATTACH:Basic {D} Energy",
+      "offers": 959,
+      "teacher_takes": 168,
+      "our_takes": 202,
+      "teacher_rate": 0.1752,
+      "our_rate": 0.2106,
+      "delta": 0.0355
+    },
+    {
+      "option": "PLAY:Munkidori",
+      "offers": 759,
+      "teacher_takes": 171,
+      "our_takes": 187,
+      "teacher_rate": 0.2253,
+      "our_rate": 0.2464,
+      "delta": 0.0211
+    },
+    {
+      "option": "EVOLVE:Drakloak",
+      "offers": 622,
+      "teacher_takes": 447,
+      "our_takes": 540,
+      "teacher_rate": 0.7186,
+      "our_rate": 0.8682,
+      "delta": 0.1495
+    },
+    {
+      "option": "PLAY:Judge",
+      "offers": 617,
+      "teacher_takes": 48,
+      "our_takes": 30,
+      "teacher_rate": 0.0778,
+      "our_rate": 0.0486,
+      "delta": -0.0292
+    },
+    {
+      "option": "ABILITY:Munkidori",
+      "offers": 604,
+      "teacher_takes": 213,
+      "our_takes": 212,
+      "teacher_rate": 0.3526,
+      "our_rate": 0.351,
+      "delta": -0.0017
+    },
+    {
+      "option": "PLAY:Budew",
+      "offers": 593,
+      "teacher_takes": 55,
+      "our_takes": 45,
+      "teacher_rate": 0.0927,
+      "our_rate": 0.0759,
+      "delta": -0.0169
+    },
+    {
+      "option": "PLAY:Meowth ex",
+      "offers": 592,
+      "teacher_takes": 58,
+      "our_takes": 44,
+      "teacher_rate": 0.098,
+      "our_rate": 0.0743,
+      "delta": -0.0236
+    },
+    {
+      "option": "PLAY:Dawn",
+      "offers": 450,
+      "teacher_takes": 35,
+      "our_takes": 11,
+      "teacher_rate": 0.0778,
+      "our_rate": 0.0244,
+      "delta": -0.0533
+    },
+    {
+      "option": "ABILITY:Fezandipiti ex",
+      "offers": 404,
+      "teacher_takes": 172,
+      "our_takes": 237,
+      "teacher_rate": 0.4257,
+      "our_rate": 0.5866,
+      "delta": 0.1609
+    },
+    {
+      "option": "PLAY:Dreepy",
+      "offers": 397,
+      "teacher_takes": 176,
+      "our_takes": 192,
+      "teacher_rate": 0.4433,
+      "our_rate": 0.4836,
+      "delta": 0.0403
+    },
+    {
+      "option": "PLAY:Unfair Stamp",
+      "offers": 364,
+      "teacher_takes": 79,
+      "our_takes": 82,
+      "teacher_rate": 0.217,
+      "our_rate": 0.2253,
+      "delta": 0.0082
+    },
+    {
+      "option": "ATTACK:Dragon Headbutt",
+      "offers": 302,
+      "teacher_takes": 10,
+      "our_takes": 12,
+      "teacher_rate": 0.0331,
+      "our_rate": 0.0397,
+      "delta": 0.0066
+    },
+    {
+      "option": "PLAY:Fezandipiti ex",
+      "offers": 247,
+      "teacher_takes": 85,
+      "our_takes": 88,
+      "teacher_rate": 0.3441,
+      "our_rate": 0.3563,
+      "delta": 0.0121
+    },
+    {
+      "option": "ABILITY:Academy at Night",
+      "offers": 225,
+      "teacher_takes": 2,
+      "our_takes": 0,
+      "teacher_rate": 0.0089,
+      "our_rate": 0.0,
+      "delta": -0.0089
+    },
+    {
+      "option": "ATTACK:Mind Bend",
+      "offers": 187,
+      "teacher_takes": 29,
+      "our_takes": 36,
+      "teacher_rate": 0.1551,
+      "our_rate": 0.1925,
+      "delta": 0.0374
+    },
+    {
+      "option": "ABILITY:Spikemuth Gym",
+      "offers": 173,
+      "teacher_takes": 27,
+      "our_takes": 8,
+      "teacher_rate": 0.1561,
+      "our_rate": 0.0462,
+      "delta": -0.1098
+    },
+    {
+      "option": "ATTACK:Petty Grudge",
+      "offers": 65,
+      "teacher_takes": 1,
+      "our_takes": 2,
+      "teacher_rate": 0.0154,
+      "our_rate": 0.0308,
+      "delta": 0.0154
+    },
+    {
+      "option": "ABILITY:Lumiose City",
+      "offers": 43,
+      "teacher_takes": 1,
+      "our_takes": 1,
+      "teacher_rate": 0.0233,
+      "our_rate": 0.0233,
+      "delta": 0.0
+    },
+    {
+      "option": "ABILITY:Grand Tree",
+      "offers": 24,
+      "teacher_takes": 2,
+      "our_takes": 1,
+      "teacher_rate": 0.0833,
+      "our_rate": 0.0417,
+      "delta": -0.0417
+    },
+    {
+      "option": "ATTACK:Bite",
+      "offers": 20,
+      "teacher_takes": 3,
+      "our_takes": 4,
+      "teacher_rate": 0.15,
+      "our_rate": 0.2,
+      "delta": 0.05
+    }
+  ],
+  "confusion": [
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 70
+    },
+    {
+      "teacher": "EVOLVE:Dragapult ex",
+      "ours": "ABILITY:Drakloak",
+      "count": 53
+    },
+    {
+      "teacher": "ATTACK:Phantom Dive",
+      "ours": "ABILITY:Drakloak",
+      "count": 38
+    },
+    {
+      "teacher": "ATTACH:Basic {R} Energy",
+      "ours": "ABILITY:Drakloak",
+      "count": 37
+    },
+    {
+      "teacher": "PLAY:Pok\u00e9 Pad",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 36
+    },
+    {
+      "teacher": "PLAY:Pok\u00e9 Pad",
+      "ours": "ABILITY:Drakloak",
+      "count": 30
+    },
+    {
+      "teacher": "PLAY:Crispin",
+      "ours": "ABILITY:Drakloak",
+      "count": 28
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "ATTACH:Basic {P} Energy",
+      "count": 26
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "EVOLVE:Drakloak",
+      "count": 23
+    },
+    {
+      "teacher": "PLAY:Buddy-Buddy Poffin",
+      "ours": "ABILITY:Drakloak",
+      "count": 22
+    },
+    {
+      "teacher": "RETREAT",
+      "ours": "ABILITY:Drakloak",
+      "count": 22
+    },
+    {
+      "teacher": "ATTACH:Basic {P} Energy",
+      "ours": "ABILITY:Drakloak",
+      "count": 20
+    },
+    {
+      "teacher": "PLAY:Ultra Ball",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 20
+    },
+    {
+      "teacher": "PLAY:Crushing Hammer",
+      "ours": "ABILITY:Drakloak",
+      "count": 19
+    },
+    {
+      "teacher": "PLAY:Munkidori",
+      "ours": "ABILITY:Drakloak",
+      "count": 19
+    },
+    {
+      "teacher": "EVOLVE:Dragapult ex",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 19
+    },
+    {
+      "teacher": "PLAY:Ultra Ball",
+      "ours": "ABILITY:Drakloak",
+      "count": 19
+    },
+    {
+      "teacher": "PLAY:Boss\u2019s Orders",
+      "ours": "ABILITY:Drakloak",
+      "count": 18
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "ABILITY:Fezandipiti ex",
+      "count": 18
+    },
+    {
+      "teacher": "ATTACH:Basic {R} Energy",
+      "ours": "ATTACH:Basic {P} Energy",
+      "count": 18
+    },
+    {
+      "teacher": "ATTACH:Basic {P} Energy",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 17
+    },
+    {
+      "teacher": "PLAY:Pok\u00e9 Pad",
+      "ours": "ATTACH:Basic {R} Energy",
+      "count": 16
+    },
+    {
+      "teacher": "RETREAT",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 16
+    },
+    {
+      "teacher": "ATTACK:Phantom Dive",
+      "ours": "PLAY:Munkidori",
+      "count": 16
+    },
+    {
+      "teacher": "PLAY:Night Stretcher",
+      "ours": "ABILITY:Drakloak",
+      "count": 16
+    },
+    {
+      "teacher": "PLAY:Pok\u00e9 Pad",
+      "ours": "ATTACH:Basic {P} Energy",
+      "count": 16
+    },
+    {
+      "teacher": "ATTACK:Phantom Dive",
+      "ours": "ATTACH:Basic {P} Energy",
+      "count": 16
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "PLAY:Boss\u2019s Orders",
+      "count": 15
+    },
+    {
+      "teacher": "ATTACH:Basic {R} Energy",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 15
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "ATTACH:Basic {R} Energy",
+      "count": 15
+    },
+    {
+      "teacher": "PLAY:Lillie's Determination",
+      "ours": "ABILITY:Drakloak",
+      "count": 15
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "ATTACH:Basic {D} Energy",
+      "count": 14
+    },
+    {
+      "teacher": "PLAY:Ultra Ball",
+      "ours": "ATTACK:Phantom Dive",
+      "count": 14
+    },
+    {
+      "teacher": "PLAY:Buddy-Buddy Poffin",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 14
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "EVOLVE:Dragapult ex",
+      "count": 13
+    },
+    {
+      "teacher": "ABILITY:Munkidori",
+      "ours": "ABILITY:Drakloak",
+      "count": 13
+    },
+    {
+      "teacher": "ABILITY:Munkidori",
+      "ours": "PLAY:Crushing Hammer",
+      "count": 13
+    },
+    {
+      "teacher": "PLAY:Night Stretcher",
+      "ours": "ATTACK:Phantom Dive",
+      "count": 13
+    },
+    {
+      "teacher": "ABILITY:Drakloak",
+      "ours": "PLAY:Crispin",
+      "count": 13
+    },
+    {
+      "teacher": "PLAY:Jamming Tower",
+      "ours": "ABILITY:Drakloak",
+      "count": 13
+    }
+  ]
+}
